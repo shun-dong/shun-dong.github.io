@@ -4,11 +4,11 @@
   
   
   <entry>
-    <title></title>
+    <title>README</title>
     <link href="/2024/11/14/README/"/>
     <url>/2024/11/14/README/</url>
     
-    <content type="html"><![CDATA[<p>这是我成功创建的第一个个人博客,希望能和大家共同进步!</p>]]></content>
+    <content type="html"><![CDATA[<p>大家好,这是我的个人博客,并希望后续加入更多功能</p><p>希望与大家共同进步</p><ul><li><p><input disabled="" type="checkbox"> 与obsidian联动</p></li><li><p><input disabled="" type="checkbox"> 接入大模型</p></li><li><p><input disabled="" type="checkbox"> 实现任务管理</p></li><li><p><input disabled="" type="checkbox"> 实现多端通知</p></li></ul>]]></content>
     
     
     
