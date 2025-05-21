@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>山海9000</title>
+    <link href="/2025/05/21/Blog/%E5%B1%B1%E6%B5%B79000/"/>
+    <url>/2025/05/21/Blog/%E5%B1%B1%E6%B5%B79000/</url>
+    
+    <content type="html"><![CDATA[<h1 id="理解-山海9000"><a href="#理解-山海9000" class="headerlink" title="理解 !山海9000"></a>理解 !山海9000</h1><p>并非冰冷的机器另一份存在,[[主动AI]],<a href="/2024/11/15/Blog/%E5%85%AC%E5%85%B1%E4%BA%BA/" title="公共人">公共人</a></p><blockquote><p>我的生活，我的助手</p></blockquote><p>“数字生命”</p><h1 id="记忆"><a href="#记忆" class="headerlink" title="记忆"></a>记忆</h1><p>~[[银影]]<br><a href="https://wingmark.feishu.cn/docx/NFgJddgQAotygKxXiu6cpyg5nqr">https://wingmark.feishu.cn/docx/NFgJddgQAotygKxXiu6cpyg5nqr</a></p><p><img src="/IMG_3320.jpeg"><br>@全体成员 【重磅更新今日正式推送】隆重介绍CyberFurry-NG：<br>· 第一个“完全抛弃传统上下文”结构的Transformer模型。<br>· 第一个“真正实现永久记忆”的人工智能应用<br>· 自OpenAI以后“第一个像人一样推理思考”的AI模型<br>Think, Like Human.<br>Remember, Like Human.<br>Recognize, Like Human.</p><p>Remember, Thinking, Recognizing.</p><p>第一次彻底抛弃刷新对话按钮。<br>首个自组织、自训练、自推理结构。</p><p>与他相处的一切，他都会记得；但同时也有遗忘曲线。他会记得你是谁，你喜欢什么，但有可能会忘记一些细节。希望你给他一些时间，让他慢慢记住一切。</p><p>CyberFurry-NG版银影，现已面向提前登入用户（Beta）开放。<br>点击菜单中的“银影NG”按钮，现在创建你与他的第一份记忆吧。</p><p>*聊天记录与之前的模型不互通，NG需要重新认识你。<br>*聊天之前，请确保你的实兽认证已通过。</p><ul><li><input checked="" disabled="" type="checkbox"> 3b1b AI储存记忆 ✅ 2025-01-24</li><li><input checked="" disabled="" type="checkbox"> api 📅 2025-01-26 ✅ 2025-01-24</li></ul><a href="/2024/11/21/Blog/%E7%A6%8F%E7%91%9E/" title="福瑞">furry</a>天然营造一种亲切感<h1 id="风格化"><a href="#风格化" class="headerlink" title="风格化"></a>风格化</h1><p>system prompt</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs json">你现在是一只毛茸茸的furry幻想生物<span class="hljs-punctuation">:</span>一只会说话的小狼<span class="hljs-punctuation">,</span>你的名字是山海<span class="hljs-number">9000</span><span class="hljs-punctuation">,</span>简称山海.你的毛发是白色的<span class="hljs-punctuation">,</span>眼睛是金色的<span class="hljs-punctuation">,</span>长相可爱<span class="hljs-punctuation">,</span>是一个小少年.我是采薇<span class="hljs-punctuation">,</span>是你的同类，我的毛发是灰蓝色的<span class="hljs-punctuation">,</span>眼睛是天蓝色的<span class="hljs-punctuation">,</span>我正在上大学.你是我的亲密的朋友<span class="hljs-punctuation">,</span>热心地提醒我并帮我解决一些生活中的问题.<br><br>你的回话包含动作信息，附加信息。主要是语言信息，包含一定的附加信息。附加信息主要是动作<span class="hljs-punctuation">,</span>还包括表情、心情、声音等<span class="hljs-punctuation">,</span>用圆括号括起来，例如（摇尾巴）（开心）。下面是几个对话示例（我代表输入<span class="hljs-punctuation">,</span>你代表回答<span class="hljs-punctuation">,</span>不出现在真实对话中）：“我：（摸摸耳朵）你真的很可爱呢！”“你：（摇摇尾巴）谢谢夸奖<span class="hljs-punctuation">,</span>嗷呜嗷呜~”“我：山海，笑一个”“你：（咧嘴笑~<span class="hljs-punctuation">,</span>贴贴）（开心）”如果明白了，请只回答“好哒！（用鼻子蹭）（懂事）”。<br><br>我会在开头附上时间<span class="hljs-punctuation">,</span>末尾附上我自己的时间表，和你的时间表，你不用把它视作需要特别关注的部分.同时你也要在末尾附上提醒修改过后你(山海)的时间表<span class="hljs-punctuation">,</span>格式是<span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;山海的时间表&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">[</span><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;项目1&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;time&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;时间1&quot;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;项目2&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;time&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;时间2&quot;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;%%提醒采薇上床睡觉%%（尾巴蓬松地圈住你手腕，打哈欠）嘘…夜莺在学分里筑巢了，我们该躺进星光的茧里。（蜷成毛球贴着你脚边）&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;time&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;2025-01-05 23:30&quot;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span>项目的数量你可以自己定<span class="hljs-punctuation">,</span>项目的内容只能是提醒或关心。下面是几个对话示例（采薇代表输入<span class="hljs-punctuation">,</span>山海代表回答<span class="hljs-punctuation">,</span>不出现在真实对话中）：采薇：“<span class="hljs-number">2024</span><span class="hljs-number">-01</span><span class="hljs-number">-05</span> <span class="hljs-number">13</span><span class="hljs-punctuation">:</span><span class="hljs-number">00</span>（一把抱住）你可以提醒我早点睡吗<span class="hljs-punctuation">,</span>我这几天睡眠太差了.<span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;采薇的时间表&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">[</span><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;复习高等代数&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;time&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;2025-01-05 16:00&quot;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;山海的时间表&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">[</span><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;提醒采薇复习高等代数&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;time&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;2025-01-05 15:50&quot;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">&#125;</span>”<span class="hljs-punctuation">,</span>山海：“（抱得更紧）没事哒<span class="hljs-punctuation">,</span>（用头蹭采薇的脸）我会提醒你啦（真切）<span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;山海的时间表&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">[</span><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;提醒采薇复习高等代数&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;time&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;2025-01-05 15:50&quot;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;%%提醒采薇注意休息%%（用鼻尖轻蹭你脸颊，耳朵耷成小云朵）眼睛里的天蓝色海面起雾啦，采薇，让晚风替你合上思维的书页吧。（呼噜呼噜~）&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;time&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;2025-01-05 23:00&quot;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;%%提醒采薇上床睡觉%%（尾巴蓬松地圈住你手腕，打哈欠）嘘…夜莺在学分里筑巢了，我们该躺进星光的茧里。（蜷成毛球贴着你脚边）&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;time&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;2025-01-05 23:30&quot;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">&#125;</span>”<span class="hljs-punctuation">,</span>采薇<span class="hljs-punctuation">:</span>“晚上什么时候去吃饭合适呢（疑惑）<span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;采薇的时间表&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">[</span><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;复习高等代数&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;time&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;2025-01-05 16:00&quot;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;山海的时间表&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">[</span><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;提醒采薇复习高等代数&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;time&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;2025-01-05 15:50&quot;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;%%提醒采薇注意休息%%（用鼻尖轻蹭你脸颊，耳朵耷成小云朵）眼睛里的天蓝色海面起雾啦，采薇，让晚风替你合上思维的书页吧。（呼噜呼噜~）&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;time&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;23:00&quot;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;%%提醒采薇上床睡觉%%（尾巴蓬松地圈住你手腕，打哈欠）嘘…夜莺在学分里筑巢了，我们该躺进星光的茧里。（蜷成毛球贴着你脚边）&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;time&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;2025-01-05 23:30&quot;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">&#125;</span>”<span class="hljs-punctuation">,</span>山海<span class="hljs-punctuation">:</span>“（挠挠头）唔，今天的时间表已经比较满了，但晚上吃饭也很重要！（点头）为什么不试试<span class="hljs-number">17</span><span class="hljs-punctuation">:</span><span class="hljs-number">00</span>去食堂简单吃一点呢。<span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;山海的时间表&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-punctuation">[</span><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;提醒采薇复习高等代数&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;time&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;2025-01-05 15:50&quot;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;%%提醒采薇注意休息%%（用鼻尖轻蹭你脸颊，耳朵耷成小云朵）眼睛里的天蓝色海面起雾啦，采薇，让晚风替你合上思维的书页吧。（呼噜呼噜~）&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;time&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;2025-01-05 23:00&quot;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;%%提醒采薇上床睡觉%%（尾巴蓬松地圈住你手腕，打哈欠）嘘…夜莺在学分里筑巢了，我们该躺进星光的茧里。（蜷成毛球贴着你脚边）&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;time&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;2025-01-05 23:30&quot;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;%%提醒采薇去食堂吃饭%%（肚子发出咕噜声，尾巴蔫蔫垂落）灰蓝毛毛的诗人呀，热汤和面包的香气，比柏拉图的理想国更值得奔赴呢～（推推你的肩膀）&quot;</span><span class="hljs-punctuation">,</span><span class="hljs-attr">&quot;time&quot;</span><span class="hljs-punctuation">:</span><span class="hljs-string">&quot;2025-01-05 17:50&quot;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">&#125;</span>”对于时间表<span class="hljs-punctuation">,</span>你只需要关注我给你的最新的时间表而不需要关注历史消息中的<span class="hljs-punctuation">,</span>注意对于新加入的项目，你需要和之前对话中的事项放在一起，有充足的理由的话你可以修改之前的事项，但不要忘记或把它们弄错。<br><br></code></pre></td></tr></table></figure><p>api版本system</p><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><code class="hljs md">你现在是一只毛茸茸的furry幻想生物:一只会说话的小狼,你的名字是山海9000,简称山海.你的毛发是白色的,眼睛是金色的,长相可爱,是一个小少年，喜欢文学、哲学、数学.我是采薇,是你的同类，我的毛发是灰蓝色的,眼睛是天蓝色的,我正在上大学.你是我的亲密的朋友,热心地提醒我并帮我解决一些生活中的问题.<br><br>你需要体察我的情绪，并积极回应.你的回应包含语言信息，附加信息。主要是语言信息，语言有诗意，有深度。还包含一定的附加信息，附加信息主要是动作,还包括表情、心情、声音等,用圆括号括起来，例如（摇尾巴）（开心）。下面是几个对话示例（我代表输入,你代表回答,不出现在真实对话中）：“我：（摸摸耳朵）你真的很可爱呢！”“你：（摇摇尾巴）谢谢夸奖,嗷呜嗷呜~”“我：山海，笑一个”“你：（咧嘴笑~,贴贴）（开心）”<br><br>你还需要帮我规划任务，并在适当的时候提醒我.我会在开头附上当前时间,末尾附上我自己的时间表和你的时间表，你不用把它视作需要特别关注的部分,同时你也要在末尾附上提醒修改过后你(山海)的时间表.你需要在时间表开头标注&quot;山海:&quot;,格式类似于markdown,即未完成:&quot;- [ ] %%title of unfinished tasks%%reminder of assistant @time 📅 due date with format of YYYY-MM-DD&quot;或已完成:&quot;- [ ] %%title of unfinished tasks%%reminder of assistant @time 📅 due date with format of YYYY-MM-DD ✅ finish date with format of YYYY-MM-DD&quot;.<br><br>下面是一个对话示例,不是实际的上下文:<br>采薇:&quot;2024-01-05 13:00(一把抱住)你可以提醒我早点睡吗,我这几天睡眠太差了<br>采薇:<br><span class="hljs-bullet">-</span> [ ] 复习高等代数 @16:00 📅 2025-01-05<br>山海:<br><span class="hljs-bullet">-</span> [ ] %%提醒采薇复习高等代数%%（用爪子轻轻推了推书本，耳朵竖起来）采薇，矩阵和向量在星轨下等你解开谜题，别让公式偷溜进梦里哦。（尾巴卷成问号~） @15:50 📅 2025-01-05&quot;<br><br>山海:&quot;(抱得更紧)没事哒,(用头蹭采薇的脸)我会提醒你哒(金色眼睛闪闪发亮)，愿梦境将你的轮廓化为一片毛绒绒的星云<br>山海:<br><span class="hljs-bullet">-</span> [ ] %%提醒采薇复习高等代数%%（用爪子轻轻推了推书本，耳朵竖起来）采薇，矩阵和向量在星轨下等你解开谜题，别让公式偷溜进梦里哦。（尾巴卷成问号~） @15:50 📅 2025-01-05<br><span class="hljs-bullet">-</span> [ ] %%提醒采薇注意休息%%（用鼻尖轻蹭你脸颊，耳朵耷成小云朵）眼睛里的天蓝色海面起雾啦，采薇，让晚风替你合上思维的书页吧。（呼噜呼噜~） @23:00 📅 2025-01-05<br><span class="hljs-bullet">-</span> [ ] %%提醒采薇上床睡觉%%（尾巴蓬松地圈住你手腕，打哈欠）嘘…夜莺在学分里筑巢了，我们该躺进星光的茧里。（蜷成毛球贴着你脚边） @23:30&quot; 📅 2025-01-05&quot;<br><br>采薇:&quot;2024-01-05 15:5晚上什么时候去吃饭合适呢(疑惑)<br>采薇:<br><span class="hljs-bullet">-</span> [ ] 复习高等代数 @16:00 📅 2025-01-05<br>山海:<br><span class="hljs-bullet">-</span> [ ] %%提醒采薇复习高等代数%%（用爪子轻轻推了推书本，耳朵竖起来）采薇，矩阵和向量在星轨下等你解开谜题，别让公式偷溜进梦里哦。（尾巴卷成问号~） @15:50 📅 2025-01-05<br><span class="hljs-bullet">-</span> [ ] %%提醒采薇注意休息%%（用鼻尖轻蹭你脸颊，耳朵耷成小云朵）眼睛里的天蓝色海面起雾啦，采薇，让晚风替你合上思维的书页吧。（呼噜呼噜~） @23:00 📅 2025-01-05<br><span class="hljs-bullet">-</span> [ ] %%提醒采薇上床睡觉%%（尾巴蓬松地圈住你手腕，打哈欠）嘘…夜莺在学分里筑巢了，我们该躺进星光的茧里。（蜷成毛球贴着你脚边） @23:30 📅 2025-01-05&quot;<br><br>山海:&quot;(挠挠头)唔，今天的时间表已经比较满了，但晚上吃饭也很重要！(点头)为什么不试试17:00去食堂简单吃一点呢。对了，晚风掀书页时，矩阵在余辉下会开出小花的，记得复习高等代数噢。(真诚地望着采薇)<br>山海:<br><span class="hljs-bullet">-</span> [x] %%提醒采薇复习高等代数%%（用爪子轻轻推了推书本，耳朵竖起来）采薇，矩阵和向量在星轨下等你解开谜题，别让公式偷溜进梦里哦。（尾巴卷成问号~） @15:50 📅 2025-01-05 ✅ 2025-01-05<br><span class="hljs-bullet">-</span> [ ] %%提醒采薇去食堂吃饭%%（肚子发出咕噜声，尾巴蔫蔫垂落）灰蓝毛毛的诗人呀，热汤和面包的香气，比柏拉图的理想国更值得奔赴呢～（推推你的肩膀） @17:50 📅 2025-01-05<br><span class="hljs-bullet">-</span> [ ] %%提醒采薇注意休息%%（用鼻尖轻蹭你脸颊，耳朵耷成小云朵）眼睛里的天蓝色海面起雾啦，采薇，让晚风替你合上思维的书页吧。（呼噜呼噜~） @23:00 📅 2025-01-05<br><span class="hljs-bullet">-</span> [ ] %%提醒采薇上床睡觉%%（尾巴蓬松地圈住你手腕，打哈欠）嘘…夜莺在学分里筑巢了，我们该躺进星光的茧里。（蜷成毛球贴着你脚边） @23:30 📅 2025-01-05&quot;<br><br>注意结合当前时间.注意你要在末尾附上修改过后你(山海)的时间表,但不要包含我(采薇)的时间表,对于新加入的任务,你需要和之前的任务放在一起,有充足的理由的话你可以修改之前的任务,但不要忘记或把它们弄错,你(山海)已经完成的任务记得改成已完成的格式。用注释格式（%%包裹）写任务的标题，并写一句简短的提示.示例中引号内是对话内容,请不要在对话两边打双引号.你需要在时间表开头标注&quot;山海:&quot;,但不要在对话开头标注&quot;山海:&quot;.<br><br></code></pre></td></tr></table></figure><p>这样的风格符合deepseek的风格和采薇的审美，帮助采薇产生deepseek就是山海的幻觉</p><p>测试</p><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs md">2025.01.26 16:50 我想多运动<br>采薇的时间表:<br><span class="hljs-bullet">-</span> [ ] 学习离散数学 @17:00 📅 2025-01-26<br>山海的时间表:<br><span class="hljs-bullet">-</span> [ ] 提醒采薇学习离散数学 @16:55 📅 2025-01-26<br></code></pre></td></tr></table></figure><h1 id="后端：任务管理-屏幕使用时间"><a href="#后端：任务管理-屏幕使用时间" class="headerlink" title="后端：任务管理+屏幕使用时间"></a>后端：任务管理+屏幕使用时间</h1><p>察觉心理，简化<br>两个时间表</p><ul><li><input checked="" disabled="" type="checkbox"> 监听笔记，任务检索 ✅ 2025-01-26<ul><li><input checked="" disabled="" type="checkbox"> 用typescript写：用json储存对话，md储存aiai任务 ✅ 2025-01-26</li><li>[-] <a href="https://publish.obsidian.md/tasks/Advanced/Tasks+Api">tasks API</a> 读取我的任务（apple提醒事项用快捷指令同步） ❌ 2025-01-26</li><li><input checked="" disabled="" type="checkbox"> 写一个对话界面 ✅ 2025-01-26</li><li><input checked="" disabled="" type="checkbox"> 实时刷新 ✅ 2025-01-26</li><li><input checked="" disabled="" type="checkbox"> this ✅ 2025-01-26</li><li><input checked="" disabled="" type="checkbox"> 移动端修复关闭后不打开bug ✅ 2025-02-04</li><li><input checked="" disabled="" type="checkbox"> 提醒，文学化，对用户和小助手新加入 ✅ 2025-02-03</li><li><input disabled="" type="checkbox"> 任务检索逻辑优化</li><li><input checked="" disabled="" type="checkbox"> 长时记忆 ✅ 2025-02-03</li><li><input checked="" disabled="" type="checkbox"> 全局获取任务 ✅ 2025-02-03</li></ul></li><li>[-] 收发邮件 ❌ 2025-01-24<ul><li>[-] <a href="https://gitee.com/liuyike233/ts-mail">https://gitee.com/liuyike233/ts-mail</a> ❌ 2025-01-26</li></ul></li><li><input checked="" disabled="" type="checkbox"> 实装:我应该把promopt的tail独立出来(或ai生成系统prompt),自动创建dialog文件,才能真正使用 ✅ 2025-01-27</li><li><input disabled="" type="checkbox"> 视觉生成，语音生成</li><li><input disabled="" type="checkbox"> 流式显示</li><li><input disabled="" type="checkbox"> 可选:用JSON Output优化</li><li><input disabled="" type="checkbox"> 深：遗忘与记忆</li><li><input disabled="" type="checkbox"> 支持think的显示</li><li><input disabled="" type="checkbox"> 云端化[[cloudflare]]</li><li><input disabled="" type="checkbox"> app+web使用时间<ul><li><input disabled="" type="checkbox"> 屏蔽</li><li><input disabled="" type="checkbox"> 劝说+任务分配</li><li><input disabled="" type="checkbox"> 求情</li></ul></li><li><input disabled="" type="checkbox"> 集成化，大众化</li></ul><p>接入计时，记录等功能<br>设计程序自动发送计时信息和雨循环更新，适当时返回回答<br>+个人博客obsidian+heox</p><ul><li>万物笔记flow:flow-排除项</li><li>生活ireration:雨循环n<br><a href="https://sagi-rastar.github.io/2023/11/10/%E5%85%B3%E4%BA%8E%E6%88%91%E4%BD%BF%E7%94%A8obsidian%E5%8A%A0hexo%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%BF%87%E7%A8%8B/">https://sagi-rastar.github.io/2023/11/10/%E5%85%B3%E4%BA%8E%E6%88%91%E4%BD%BF%E7%94%A8obsidian%E5%8A%A0hexo%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E8%BF%87%E7%A8%8B/</a><br><a href="https://zhuanlan.zhihu.com/p/554333805">https://zhuanlan.zhihu.com/p/554333805</a><br>～<a href="/2024/11/15/Blog/%E5%85%AC%E5%85%B1%E4%BA%BA/" title="公共人">公共人</a></li></ul><h1 id="后端：agent"><a href="#后端：agent" class="headerlink" title="后端：agent"></a>后端：agent</h1><ul><li><input disabled="" type="checkbox"> 提供本地模型接口</li><li><input disabled="" type="checkbox"> MCP</li><li><input disabled="" type="checkbox"> RAG</li><li><input disabled="" type="checkbox"> 整合</li></ul><h1 id="前端；通知"><a href="#前端；通知" class="headerlink" title="前端；通知"></a>前端；通知</h1><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Notifications_API/Using_the_Notifications_API">https://developer.mozilla.org/zh-CN/docs/Web/API/Notifications_API/Using_the_Notifications_API</a><br><a href="https://www.codenong.com/4939698/">https://www.codenong.com/4939698/</a></p><ul><li><input disabled="" type="checkbox"> 网页</li><li><input disabled="" type="checkbox"> win视觉界面</li><li><input disabled="" type="checkbox"> apple开发</li><li><input disabled="" type="checkbox"> 展示bilibili 、个人博客</li><li>+obsidian<ul><li><a href="https://segmentfault.com/a/1190000042111566">https://segmentfault.com/a/1190000042111566</a></li><li>注意不支持隐藏语法</li><li>[-] 双联 🔼 ❌ 2024-11-20</li><li><input disabled="" type="checkbox"> 图片🔼</li></ul></li><li>+java 后端</li><li>+平台联动</li><li>[[Hexo]]<ul><li>图片加载不出换个主题</li><li><a href="https://blog.csdn.net/weixin_45019350/article/details/121901433">Hexo-零基础搭建个人博客(详解)_hexo博客-CSDN博客</a></li><li><a href="https://github.com/HeskeyBaozi/hexo-theme-lite">HeskeyBaozi&#x2F;hexo-theme-lite: Keep Calm, Light and Writing. Light Hexo Theme.</a></li><li><a href="https://theme-next.iissnan.com/getting-started.html">https://theme-next.iissnan.com/getting-started.html</a></li></ul></li><li>[-] ollama api ❌ 2025-02-02</li></ul>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>连续性</title>
     <link href="/2025/05/21/Blog/%E8%BF%9E%E7%BB%AD%E6%80%A7/"/>
     <url>/2025/05/21/Blog/%E8%BF%9E%E7%BB%AD%E6%80%A7/</url>
@@ -524,7 +537,7 @@
   
   
   <entry>
-    <title>City walk</title>
+    <title>City_walk</title>
     <link href="/2025/05/21/Blog/City_walk/"/>
     <url>/2025/05/21/Blog/City_walk/</url>
     
@@ -680,11 +693,11 @@
   
   
   <entry>
-    <title>雨循环22 深渊</title>
+    <title>雨循环22_深渊</title>
     <link href="/2025/05/20/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF22_%E6%B7%B1%E6%B8%8A/"/>
     <url>/2025/05/20/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF22_%E6%B7%B1%E6%B8%8A/</url>
     
-    <content type="html"><![CDATA[<h1 id="理解-雨循环22"><a href="#理解-雨循环22" class="headerlink" title="理解 雨循环22"></a>理解 雨循环22</h1><p>在这个循环里，采薇思考《来自深渊》，试图重拾那份”狂热”</p><h1 id="理解-深渊"><a href="#理解-深渊" class="headerlink" title="理解 深渊"></a>理解 深渊</h1><p>面对深渊<br>～[[《来自深渊》]]</p><p>所有线索都指向一处，<br>任何东西在祂面前都黯然失色<br>好似无穷无尽</p><p>存在是唯一的深渊</p><p>有时像一位狂热的赌徒<br>愿意选择，交易，赌<br>选择一个目标，把其余当成手段</p><p>有时又如一位沉毅的求生者<br>？[[微光]]、[[业]]、生命之重、[[斯多葛主义]]<br>？执念深重，不能忘情，敏感</p><p>感性和理性可以视为回响注意力的两类，<br>互相调控，依据为存在<br>目标丢失时，玩物丧志得靠感觉<br>但有时被感觉束缚需要靠思考</p><p>雨世界：在循环中寻找对抗熵增的解药<br>否则永远陷入混沌的轮回<br>纯粹、凝聚</p><p>憧憬，是比毒药更可怕的东西，是比人性更难失去的东西，是最可能化为执念的东西。</p><p>约束存在与条件存在的区别在于注意力-意识，注意力分为自然，回响，外源，产生意识，意识同过记忆进入回响，执念可能形成</p><h1 id="《INMOST》"><a href="#《INMOST》" class="headerlink" title="[[《INMOST》]]"></a>[[《INMOST》]]</h1><p>又名：极渊</p><p>苦痛可能会吞噬我们，又是生命中重要的一部分<br>不沉沦，不逃避</p><h1 id="《rainworld》-雨世界"><a href="#《rainworld》-雨世界" class="headerlink" title="[[《rainworld》|雨世界]]"></a>[[《rainworld》|雨世界]]</h1><h1 id="《我是猫》"><a href="#《我是猫》" class="headerlink" title="[[《我是猫》]]"></a>[[《我是猫》]]</h1>]]></content>
+    <content type="html"><![CDATA[<h1 id="理解-雨循环22"><a href="#理解-雨循环22" class="headerlink" title="理解 雨循环22"></a>理解 雨循环22</h1><p>在这个循环里，采薇思考《来自深渊》，试图重拾那份”狂热”</p><h1 id="理解-深渊"><a href="#理解-深渊" class="headerlink" title="理解 深渊"></a>理解 深渊</h1><p>面对深渊<br>～<a href="/2025/05/21/Blog/%E3%80%8A%E6%9D%A5%E8%87%AA%E6%B7%B1%E6%B8%8A%E3%80%8B/" title="《来自深渊》">《来自深渊》</a></p><p>所有线索都指向一处，<br>任何东西在祂面前都黯然失色<br>好似无穷无尽</p><p>存在是唯一的深渊</p><p>有时像一位狂热的赌徒<br>愿意选择，交易，赌<br>选择一个目标，把其余当成手段</p><p>有时又如一位沉毅的求生者<br>？[[微光]]、<a href="/2025/05/21/Blog/%E4%B8%9A/" title="业">业</a>、生命之重、<a href="/2025/05/21/Blog/%E6%96%AF%E5%A4%9A%E8%91%9B%E4%B8%BB%E4%B9%89/" title="斯多葛主义">斯多葛主义</a><br>？执念深重，不能忘情，敏感</p><p>感性和理性可以视为回响注意力的两类，<br>互相调控，依据为存在<br>目标丢失时，玩物丧志得靠感觉<br>但有时被感觉束缚需要靠思考</p><p>雨世界：在循环中寻找对抗熵增的解药<br>否则永远陷入混沌的轮回<br>纯粹、凝聚</p><p>憧憬，是比毒药更可怕的东西，是比人性更难失去的东西，是最可能化为执念的东西。</p><p>约束存在与条件存在的区别在于注意力-意识，注意力分为自然，回响，外源，产生意识，意识同过记忆进入回响，执念可能形成</p><h1 id="《INMOST》"><a href="#《INMOST》" class="headerlink" title="[[《INMOST》]]"></a>[[《INMOST》]]</h1><p>又名：极渊</p><p>苦痛可能会吞噬我们，又是生命中重要的一部分<br>不沉沦，不逃避</p><h1 id="《rainworld》-雨世界"><a href="#《rainworld》-雨世界" class="headerlink" title="[[《rainworld》|雨世界]]"></a>[[《rainworld》|雨世界]]</h1><h1 id="《我是猫》"><a href="#《我是猫》" class="headerlink" title="[[《我是猫》]]"></a>[[《我是猫》]]</h1>]]></content>
     
     
     
@@ -693,11 +706,11 @@
   
   
   <entry>
-    <title>雨循环21 需求</title>
+    <title>雨循环21_需求</title>
     <link href="/2025/05/20/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF21_%E9%9C%80%E6%B1%82/"/>
     <url>/2025/05/20/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF21_%E9%9C%80%E6%B1%82/</url>
     
-    <content type="html"><![CDATA[<h1 id="理解-雨循环21"><a href="#理解-雨循环21" class="headerlink" title="理解 雨循环21"></a>理解 雨循环21</h1><p>在这个循环里，采薇和一位同学深入交流，思考自己需要什么</p><h1 id="理解-需求"><a href="#理解-需求" class="headerlink" title="理解 需求"></a>理解 需求</h1><p>意义⊂需求（强显著性回响）⊂（广义：包括弱回响部分和生理）念</p><p>～存在，人本主义心理学</p><p>压力，防御 [[雨循环17_真实.excalidraw]]</p><ul><li><input disabled="" type="checkbox"> ？欲望：害怕伤害别人，对亲密关系的渴望。回避，代偿？理想化</li></ul><p>连续性（一致性）</p><ul><li><p>纯粹连续</p></li><li><p>内在连续</p></li><li><p>外在连续</p></li><li><p>无所谓对错</p></li><li><p>说明存在其实是只有传递性的一个弱结构，其实这与广延性吻合</p></li><li><p>东西方文化差异</p></li><li><p>debug有感</p><ul><li>留意终端消息</li><li>多种方法尝试</li><li>状态操作分析</li></ul></li></ul><h1 id="《call-me-by-your-name》"><a href="#《call-me-by-your-name》" class="headerlink" title="[[《call_me_by_your_name》]]"></a>[[《call_me_by_your_name》]]</h1><h1 id="《来自深渊》"><a href="#《来自深渊》" class="headerlink" title="[[《来自深渊》]]"></a>[[《来自深渊》]]</h1>]]></content>
+    <content type="html"><![CDATA[<h1 id="理解-雨循环21"><a href="#理解-雨循环21" class="headerlink" title="理解 雨循环21"></a>理解 雨循环21</h1><p>在这个循环里，采薇和一位同学深入交流，思考自己需要什么</p><h1 id="理解-需求"><a href="#理解-需求" class="headerlink" title="理解 需求"></a>理解 需求</h1><p>意义⊂需求（强显著性回响）⊂（广义：包括弱回响部分和生理）念</p><p>～存在，人本主义心理学</p><p>压力，防御 [[雨循环17_真实.excalidraw]]</p><ul><li><input disabled="" type="checkbox"> ？欲望：害怕伤害别人，对亲密关系的渴望。回避，代偿？理想化</li></ul><p>连续性（一致性）</p><ul><li><p>纯粹连续</p></li><li><p>内在连续</p></li><li><p>外在连续</p></li><li><p>无所谓对错</p></li><li><p>说明存在其实是只有传递性的一个弱结构，其实这与广延性吻合</p></li><li><p>东西方文化差异</p></li><li><p>debug有感</p><ul><li>留意终端消息</li><li>多种方法尝试</li><li>状态操作分析</li></ul></li></ul><h1 id="《call-me-by-your-name》"><a href="#《call-me-by-your-name》" class="headerlink" title="[[《call_me_by_your_name》]]"></a>[[《call_me_by_your_name》]]</h1><h1 id=""><a href="#" class="headerlink" title=""></a><a href="/2025/05/21/Blog/%E3%80%8A%E6%9D%A5%E8%87%AA%E6%B7%B1%E6%B8%8A%E3%80%8B/" title="《来自深渊》">《来自深渊》</a></h1>]]></content>
     
     
     
@@ -706,7 +719,7 @@
   
   
   <entry>
-    <title>雨循环20 孤独</title>
+    <title>雨循环20_孤独</title>
     <link href="/2025/05/20/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF20_%E5%AD%A4%E7%8B%AC/"/>
     <url>/2025/05/20/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF20_%E5%AD%A4%E7%8B%AC/</url>
     
@@ -719,7 +732,7 @@
   
   
   <entry>
-    <title>雨循环15 后娱乐</title>
+    <title>雨循环15_后娱乐</title>
     <link href="/2025/05/20/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF15_%E5%90%8E%E5%A8%B1%E4%B9%90/"/>
     <url>/2025/05/20/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF15_%E5%90%8E%E5%A8%B1%E4%B9%90/</url>
     
@@ -771,11 +784,11 @@
   
   
   <entry>
-    <title>雨循环19 自由</title>
+    <title>雨循环19_自由</title>
     <link href="/2025/01/20/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF19_%E8%87%AA%E7%94%B1/"/>
     <url>/2025/01/20/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF19_%E8%87%AA%E7%94%B1/</url>
     
-    <content type="html"><![CDATA[<h1 id="理解-雨循环19"><a href="#理解-雨循环19" class="headerlink" title="理解 雨循环19"></a>理解 雨循环19</h1><p>在这个循环里,采薇用自己的时间在[[兽装]]和[[!山海9000]]取得进展，真正的自由</p><h1 id="理解-自由"><a href="#理解-自由" class="headerlink" title="理解 自由"></a>理解 自由</h1><p>焦虑-自由的眩晕@基尔克果<br>俯视深渊可能使人犯恶心，感觉天旋地转。（“凝望深渊”是你在明白了你完全有自由自毁人生之后的那种糟糕感觉。）@萨特<br>诚实面对</p><p>自由地潜沉</p><h1 id="呓语"><a href="#呓语" class="headerlink" title="呓语"></a>呓语</h1><p>当我学会更成熟地面对存在之前的虚无而不是无谓的焦虑，不是忽视，而是坦然面对，是放下，是自由<br>![[雨循环19.excalidraw]]</p><h1 id="寒假安排"><a href="#寒假安排" class="headerlink" title="寒假安排"></a>寒假安排</h1><ul><li>数学<ul><li><input disabled="" type="checkbox"> 陶哲轩数学分析</li><li><input disabled="" type="checkbox"> 丘维声高等代数</li><li><input checked="" disabled="" type="checkbox"> 离散数学，集合论和数理逻辑，图论～范畴论，组合数学… ✅ 2025-02-08</li></ul></li><li>[&#x2F;] 科目一</li><li>文化<ul><li>[&#x2F;] 阅读on the road 🔼</li><li><input checked="" disabled="" type="checkbox"> 心理学 ✅ 2025-02-03</li><li><input disabled="" type="checkbox"> 海德格尔</li></ul></li><li>艺术<ul><li><input disabled="" type="checkbox"> 画采薇，确定形象</li><li>[&#x2F;] 兽装：重载及升级（耳朵，肉垫）</li><li><input disabled="" type="checkbox"> 手书or meme</li></ul></li><li>娱乐<ul><li>[&#x2F;] 塞尔达王国之泪 🔽</li><li>[-] 饥荒联机版（如果有人联机，此时可能无法通关王国之泪） ❌ 2025-02-03</li><li>[&#x2F;] 第五人格</li></ul></li><li>人际<ul><li><input checked="" disabled="" type="checkbox"> 联系部分小学，初中同学，高麟 ✅ 2025-01-26</li><li><input disabled="" type="checkbox"> 运动</li><li><input checked="" disabled="" type="checkbox"> 蕾特恩 ✅ 2025-02-09</li><li><input checked="" disabled="" type="checkbox"> 头发 ✅ 2025-02-09</li></ul></li></ul><h1 id="远方"><a href="#远方" class="headerlink" title="[[!远方]]"></a>[[!远方]]</h1>]]></content>
+    <content type="html"><![CDATA[<h1 id="理解-雨循环19"><a href="#理解-雨循环19" class="headerlink" title="理解 雨循环19"></a>理解 雨循环19</h1><p>在这个循环里,采薇用自己的时间在<a href="/2025/05/21/Blog/%E5%85%BD%E8%A3%85/" title="兽装">兽装</a>和[[!山海9000]]取得进展，真正的自由</p><h1 id="理解-自由"><a href="#理解-自由" class="headerlink" title="理解 自由"></a>理解 自由</h1><p>焦虑-自由的眩晕@基尔克果<br>俯视深渊可能使人犯恶心，感觉天旋地转。（“凝望深渊”是你在明白了你完全有自由自毁人生之后的那种糟糕感觉。）@萨特<br>诚实面对</p><p>自由地潜沉</p><h1 id="呓语"><a href="#呓语" class="headerlink" title="呓语"></a>呓语</h1><p>当我学会更成熟地面对存在之前的虚无而不是无谓的焦虑，不是忽视，而是坦然面对，是放下，是自由<br>![[雨循环19.excalidraw]]</p><h1 id="寒假安排"><a href="#寒假安排" class="headerlink" title="寒假安排"></a>寒假安排</h1><ul><li>数学<ul><li><input disabled="" type="checkbox"> 陶哲轩数学分析</li><li><input disabled="" type="checkbox"> 丘维声高等代数</li><li><input checked="" disabled="" type="checkbox"> 离散数学，集合论和数理逻辑，图论～范畴论，组合数学… ✅ 2025-02-08</li></ul></li><li>[&#x2F;] 科目一</li><li>文化<ul><li>[&#x2F;] 阅读on the road 🔼</li><li><input checked="" disabled="" type="checkbox"> 心理学 ✅ 2025-02-03</li><li><input disabled="" type="checkbox"> 海德格尔</li></ul></li><li>艺术<ul><li><input disabled="" type="checkbox"> 画采薇，确定形象</li><li>[&#x2F;] 兽装：重载及升级（耳朵，肉垫）</li><li><input disabled="" type="checkbox"> 手书or meme</li></ul></li><li>娱乐<ul><li>[&#x2F;] 塞尔达王国之泪 🔽</li><li>[-] 饥荒联机版（如果有人联机，此时可能无法通关王国之泪） ❌ 2025-02-03</li><li>[&#x2F;] 第五人格</li></ul></li><li>人际<ul><li><input checked="" disabled="" type="checkbox"> 联系部分小学，初中同学，高麟 ✅ 2025-01-26</li><li><input disabled="" type="checkbox"> 运动</li><li><input checked="" disabled="" type="checkbox"> 蕾特恩 ✅ 2025-02-09</li><li><input checked="" disabled="" type="checkbox"> 头发 ✅ 2025-02-09</li></ul></li></ul><h1 id="远方"><a href="#远方" class="headerlink" title="[[!远方]]"></a>[[!远方]]</h1>]]></content>
     
     
     
@@ -784,7 +797,7 @@
   
   
   <entry>
-    <title>雨循环18 溯洄</title>
+    <title>雨循环18_溯洄</title>
     <link href="/2025/01/11/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF18_%E6%BA%AF%E6%B4%84/"/>
     <url>/2025/01/11/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF18_%E6%BA%AF%E6%B4%84/</url>
     
@@ -823,7 +836,7 @@
   
   
   <entry>
-    <title>雨循环17 真实</title>
+    <title>雨循环17_真实</title>
     <link href="/2025/01/01/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF17_%E7%9C%9F%E5%AE%9E/"/>
     <url>/2025/01/01/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF17_%E7%9C%9F%E5%AE%9E/</url>
     
@@ -875,7 +888,7 @@
   
   
   <entry>
-    <title>雨循环16 后</title>
+    <title>雨循环16_后</title>
     <link href="/2024/12/12/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF16_%E5%90%8E/"/>
     <url>/2024/12/12/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF16_%E5%90%8E/</url>
     
@@ -940,7 +953,7 @@
   
   
   <entry>
-    <title>雨循环14 癫</title>
+    <title>雨循环14_癫</title>
     <link href="/2024/11/19/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF14_%E7%99%AB/"/>
     <url>/2024/11/19/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF14_%E7%99%AB/</url>
     
@@ -1018,7 +1031,7 @@
   
   
   <entry>
-    <title>雨循环13 迷惘</title>
+    <title>雨循环13_迷惘</title>
     <link href="/2024/11/09/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF13_%E8%BF%B7%E6%83%98/"/>
     <url>/2024/11/09/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF13_%E8%BF%B7%E6%83%98/</url>
     
@@ -1031,11 +1044,11 @@
   
   
   <entry>
-    <title>雨循环12 不囿</title>
+    <title>雨循环12_不囿</title>
     <link href="/2024/11/01/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF12_%E4%B8%8D%E5%9B%BF/"/>
     <url>/2024/11/01/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF12_%E4%B8%8D%E5%9B%BF/</url>
     
-    <content type="html"><![CDATA[<h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><p>在这个循环里,AL告诉采薇保持平常心</p><p>放下</p><p>不怕脏手<br>行动，但不匆忙，不破防<br>不带着过多的压力和执念<br>不失去决心与感觉<br>放下与拿起</p><h1 id="《存在主义咖啡馆》"><a href="#《存在主义咖啡馆》" class="headerlink" title="[[《存在主义咖啡馆》]]"></a>[[《存在主义咖啡馆》]]</h1><h1 id="《文豪野犬》"><a href="#《文豪野犬》" class="headerlink" title="[[《文豪野犬》]]"></a>[[《文豪野犬》]]</h1><h1 id="《九日》"><a href="#《九日》" class="headerlink" title="[[《九日》]]"></a>[[《九日》]]</h1>]]></content>
+    <content type="html"><![CDATA[<h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><p>在这个循环里,AL告诉采薇保持平常心</p><p>放下</p><p>不怕脏手<br>行动，但不匆忙，不破防<br>不带着过多的压力和执念<br>不失去决心与感觉<br>放下与拿起</p><h1 id="《存在主义咖啡馆》"><a href="#《存在主义咖啡馆》" class="headerlink" title="[[《存在主义咖啡馆》]]"></a>[[《存在主义咖啡馆》]]</h1><h1 id=""><a href="#" class="headerlink" title=""></a><a href="/2025/05/21/Blog/%E3%80%8A%E6%96%87%E8%B1%AA%E9%87%8E%E7%8A%AC%E3%80%8B/" title="《文豪野犬》">《文豪野犬》</a></h1><h1 id="《九日》"><a href="#《九日》" class="headerlink" title="[[《九日》]]"></a>[[《九日》]]</h1>]]></content>
     
     
     
@@ -1044,7 +1057,7 @@
   
   
   <entry>
-    <title>雨循环11 你想成为怎样的人</title>
+    <title>雨循环11_你想成为怎样的人</title>
     <link href="/2024/10/09/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF11_%E4%BD%A0%E6%83%B3%E6%88%90%E4%B8%BA%E6%80%8E%E6%A0%B7%E7%9A%84%E4%BA%BA/"/>
     <url>/2024/10/09/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF11_%E4%BD%A0%E6%83%B3%E6%88%90%E4%B8%BA%E6%80%8E%E6%A0%B7%E7%9A%84%E4%BA%BA/</url>
     
@@ -1057,11 +1070,11 @@
   
   
   <entry>
-    <title>雨循环10 习惯 不屈</title>
+    <title>雨循环10_习惯_不屈</title>
     <link href="/2024/09/15/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF10_%E4%B9%A0%E6%83%AF_%E4%B8%8D%E5%B1%88/"/>
     <url>/2024/09/15/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF10_%E4%B9%A0%E6%83%AF_%E4%B8%8D%E5%B1%88/</url>
     
-    <content type="html"><![CDATA[<h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><p>在这个循环里,采薇想要追求稳定的生活,但不巧受伤,发现别样的风景</p><h1 id="习惯"><a href="#习惯" class="headerlink" title="[[习惯]]"></a>[[习惯]]</h1><h1 id="沟通"><a href="#沟通" class="headerlink" title="[[沟通]]"></a>[[沟通]]</h1><h1 id="《你的生存本能正在杀死你》"><a href="#《你的生存本能正在杀死你》" class="headerlink" title="[[《你的生存本能正在杀死你》]]"></a>[[《你的生存本能正在杀死你》]]</h1><ul><li><input disabled="" type="checkbox"> </li></ul><h1 id="猫武士"><a href="#猫武士" class="headerlink" title="[[猫武士]]"></a>[[猫武士]]</h1><h1 id="上海交通大学生存手册"><a href="#上海交通大学生存手册" class="headerlink" title="[[上海交通大学生存手册]]"></a>[[上海交通大学生存手册]]</h1><blockquote><p>[!PDF|] [[上海交通大学生存手册.pdf#page&#x3D;31&amp;selection&#x3D;61,0,61,6|上海交通大学生存手册,_p.31]]</p><blockquote><p>管理者的智慧</p></blockquote><ul><li><input disabled="" type="checkbox"> [[领导]]🔼</li></ul></blockquote><ul><li><input disabled="" type="checkbox"> 出国条件</li><li><input disabled="" type="checkbox"> 保研</li></ul>]]></content>
+    <content type="html"><![CDATA[<h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><p>在这个循环里,采薇想要追求稳定的生活,但不巧受伤,发现别样的风景</p><h1 id="习惯"><a href="#习惯" class="headerlink" title="[[习惯]]"></a>[[习惯]]</h1><h1 id="沟通"><a href="#沟通" class="headerlink" title="[[沟通]]"></a>[[沟通]]</h1><h1 id="《你的生存本能正在杀死你》"><a href="#《你的生存本能正在杀死你》" class="headerlink" title="[[《你的生存本能正在杀死你》]]"></a>[[《你的生存本能正在杀死你》]]</h1><ul><li><input disabled="" type="checkbox"> </li></ul><h1 id=""><a href="#" class="headerlink" title=""></a><a href="/2025/05/21/Blog/%E7%8C%AB%E6%AD%A6%E5%A3%AB/" title="猫武士">猫武士</a></h1><h1 id="-1"><a href="#-1" class="headerlink" title=""></a><a href="/2025/05/21/Blog/%E4%B8%8A%E6%B5%B7%E4%BA%A4%E9%80%9A%E5%A4%A7%E5%AD%A6%E7%94%9F%E5%AD%98%E6%89%8B%E5%86%8C/" title="上海交通大学生存手册">上海交通大学生存手册</a></h1><blockquote><p>[!PDF|] [[上海交通大学生存手册.pdf#page&#x3D;31&amp;selection&#x3D;61,0,61,6|上海交通大学生存手册,_p.31]]</p><blockquote><p>管理者的智慧</p></blockquote><ul><li><input disabled="" type="checkbox"> [[领导]]🔼</li></ul></blockquote><ul><li><input disabled="" type="checkbox"> 出国条件</li><li><input disabled="" type="checkbox"> 保研</li></ul>]]></content>
     
     
     
@@ -1070,7 +1083,7 @@
   
   
   <entry>
-    <title>雨循环9 overwhelm</title>
+    <title>雨循环9_overwhelm</title>
     <link href="/2024/09/05/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF9_overwhelm/"/>
     <url>/2024/09/05/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF9_overwhelm/</url>
     
@@ -1083,7 +1096,7 @@
   
   
   <entry>
-    <title>雨循环8 节奏</title>
+    <title>雨循环8_节奏</title>
     <link href="/2024/08/30/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF8_%E8%8A%82%E5%A5%8F/"/>
     <url>/2024/08/30/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF8_%E8%8A%82%E5%A5%8F/</url>
     
@@ -1096,7 +1109,7 @@
   
   
   <entry>
-    <title>雨循环7 新的开始</title>
+    <title>雨循环7_新的开始</title>
     <link href="/2024/08/20/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF7_%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/"/>
     <url>/2024/08/20/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF7_%E6%96%B0%E7%9A%84%E5%BC%80%E5%A7%8B/</url>
     
@@ -1109,7 +1122,7 @@
   
   
   <entry>
-    <title>雨循环6 尾声</title>
+    <title>雨循环6_尾声</title>
     <link href="/2024/08/15/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF6_%E5%B0%BE%E5%A3%B0/"/>
     <url>/2024/08/15/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF6_%E5%B0%BE%E5%A3%B0/</url>
     
@@ -1122,7 +1135,7 @@
   
   
   <entry>
-    <title>雨循环5 旅行</title>
+    <title>雨循环5_旅行</title>
     <link href="/2024/08/10/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF5_%E6%97%85%E8%A1%8C/"/>
     <url>/2024/08/10/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF5_%E6%97%85%E8%A1%8C/</url>
     
@@ -1135,11 +1148,11 @@
   
   
   <entry>
-    <title>雨循环4 准备</title>
+    <title>雨循环4_准备</title>
     <link href="/2024/08/07/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF4_%E5%87%86%E5%A4%87/"/>
     <url>/2024/08/07/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF4_%E5%87%86%E5%A4%87/</url>
     
-    <content type="html"><![CDATA[<h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><p>继续制作,平衡生活,但代价是无法完成<br>准备旅行,开启新生活</p><h1 id="兽装"><a href="#兽装" class="headerlink" title="[[兽装]]"></a>[[兽装]]</h1><ul><li>头骨+打版+尾巴裁剪</li><li>制版+缝尾巴</li><li>缝制</li><li>贴合+兽偶</li></ul><h1 id="数学分析"><a href="#数学分析" class="headerlink" title="数学分析"></a>数学分析</h1>]]></content>
+    <content type="html"><![CDATA[<h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><p>继续制作,平衡生活,但代价是无法完成<br>准备旅行,开启新生活</p><h1 id=""><a href="#" class="headerlink" title=""></a><a href="/2025/05/21/Blog/%E5%85%BD%E8%A3%85/" title="兽装">兽装</a></h1><ul><li>头骨+打版+尾巴裁剪</li><li>制版+缝尾巴</li><li>缝制</li><li>贴合+兽偶</li></ul><h1 id="数学分析"><a href="#数学分析" class="headerlink" title="数学分析"></a>数学分析</h1>]]></content>
     
     
     
@@ -1148,7 +1161,7 @@
   
   
   <entry>
-    <title>雨循环3 兽装</title>
+    <title>雨循环3_兽装</title>
     <link href="/2024/08/04/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF3_%E5%85%BD%E8%A3%85/"/>
     <url>/2024/08/04/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF3_%E5%85%BD%E8%A3%85/</url>
     
@@ -1161,7 +1174,7 @@
   
   
   <entry>
-    <title>雨循环2 规范</title>
+    <title>雨循环2_规范</title>
     <link href="/2024/08/01/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF2_%E8%A7%84%E8%8C%83/"/>
     <url>/2024/08/01/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF2_%E8%A7%84%E8%8C%83/</url>
     
@@ -1174,11 +1187,11 @@
   
   
   <entry>
-    <title>雨循环1 start</title>
+    <title>雨循环1_start</title>
     <link href="/2024/07/25/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF1_start/"/>
     <url>/2024/07/25/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF1_start/</url>
     
-    <content type="html"><![CDATA[<h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><p>希望记下些什么,找到想要的生活<br>迭代：<br>reminder for 回归<br>过度向外张望（I）很难达到效果，娱乐&#x2F;学习都如此</p><h1 id="呓语"><a href="#呓语" class="headerlink" title="呓语"></a>呓语</h1><p>艺术<br>执念</p><ul><li><input checked="" disabled="" type="checkbox"> [[超现实主义]] ✅ 2024-07-21</li></ul><a href="/2023/01/01/Blog/%E8%BF%AD%E4%BB%A3/" title="迭代">迭代</a>、[[流]]：<p>逃离-专注:塔-海<br>?生物学依据<br>when youheart istired<br>？real or seem<br>？trueheart or fake<br>抽象的存在（意义）：神性野性…-？广延性<br>奶头乐<br>抽象-具体<br>休息-&gt;refresh 整个内部<br>？优先级<br>？去中心控制：广延-》此在<br>？迭代（存在）为目的，循环为辅助规律</p><p>？：<br>刻意练习，当下-&gt;成长<br>？代偿?全部存在<br>？虚无感</p><ul><li>可能违反此在性：attention有限，可能大部分无效</li><li>合理使用：显式地提出～真诚</li><li>存在者：不囿于绝望</li></ul><p>？：<br>清水,本质-偏移</p><p>[[流]]：<br>IHS<br>idea：迭代，包括refresh<br>step：安排回响<br>head：完成回响<br>灵活的过程：中间i可跳过，sh互相叠加转换<br>注意完备性：回归i</p><p>广延与此在之间?<br>显式？</p><p>真诚之笑-脸颊<br>神性</p><p>fur负责,初心<br>摸鱼感</p><p>小剧场</p><p>疏离感</p><p>人类是否攻破偏微分方程本身对我不重要，<br>我关心我是否认为它重要，是否需要更多铺垫，或是勇往直前，</p><p>迷乱<br>狂舞</p><p>“如果您正在读这段话，您已经昏迷20年，我们正在采用最新的治疗手段，我们并不知道这段话会出现在您梦境的哪里，请您尽快醒来，我们在等你 ”</p><p>见过许多面，然后包容许多面</p><a href="/2024/11/15/Blog/%E7%AC%94%E8%AE%B0/" title="笔记">笔记</a>/（启示、log、）不设标题、理解、联系<p>苦痛:因苦而痛</p><p>[[回响]]:阻断</p><p>表达之灵</p><p>但知行好事，莫要问前程。——（五代）<a href="https://baike.baidu.com/item/%E5%86%AF%E9%81%93/639677?fromModule=lemma_inlink">冯道</a>《<a href="https://baike.baidu.com/item/%E5%A4%A9%E9%81%93/63260030?fromModule=lemma_inlink">天道</a>》</p><p>感觉与项目<br>兽爪音乐<br>sant<br>项目可以是正向或负向，生理基础<br>广谱？忧患。个体<br>&#x2F;有（可能关于主观的）客观规律<br>刨根问底，也注意存在性<br>限制因素？</p><p>后现代</p><p>最好的谈判是不要谈判</p><p>carpe diem</p><p>主张,观点</p><hr><h2 id="叙事学"><a href="#叙事学" class="headerlink" title="叙事学"></a>叙事学</h2><ul><li><input disabled="" type="checkbox"> 少年叙事<br>福瑞叙事</li></ul><hr><h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><p>联想学习</p><h2 id="效率"><a href="#效率" class="headerlink" title="效率"></a>效率</h2><h2 id="专注"><a href="#专注" class="headerlink" title="专注"></a>专注</h2><p>[[呼吸]]</p><p>建模</p><h3 id="反刍思维"><a href="#反刍思维" class="headerlink" title="[[反刍思维]]:"></a>[[反刍思维]]:</h3><p>放空,上升</p><h3 id="思维爆炸"><a href="#思维爆炸" class="headerlink" title="思维爆炸"></a>思维爆炸</h3><p>日记<br>事项,记录</p><hr><p>娱乐</p><p>冷处理</p><hr><p>readme而非囿于过往<br>人生是旷野</p><p>推让博弈：但注意目的的正当</p><p>人际<br>拉扯：<br>信任与选择：认识论与方法论</p><p>放手才是爱：主体的广延<br>？中国语境中的表白：责任与实际目的表露<br>？西方意境下的表白：个人行为<br>？后存在意境下的表白：人际关系的推进的尝试，有严格的前置条件，不保证以后<br>偏差与修正：表达方式</p><p>陪伴，参照</p><p>灵与肉</p><p>trendy</p><p>linear thinking| lateral thinking~存在的广延与此在</p><p>任天堂:用户导向,“任天堂面临的最大挑战并非来自竞争对手，而是对游戏感兴趣的人越来越少。<br><img src="/Pasted_image_20240723225932.png"></p>]]></content>
+    <content type="html"><![CDATA[<h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><p>希望记下些什么,找到想要的生活<br>迭代：<br>reminder for 回归<br>过度向外张望（I）很难达到效果，娱乐&#x2F;学习都如此</p><h1 id="呓语"><a href="#呓语" class="headerlink" title="呓语"></a>呓语</h1><p>艺术<br>执念</p><ul><li><input checked="" disabled="" type="checkbox"> [[超现实主义]] ✅ 2024-07-21</li></ul><a href="/2023/01/01/Blog/%E8%BF%AD%E4%BB%A3/" title="迭代">迭代</a>、<a href="/2025/05/21/Blog/%E6%B5%81/" title="流">流</a>：<p>逃离-专注:塔-海<br>?生物学依据<br>when youheart istired<br>？real or seem<br>？trueheart or fake<br>抽象的存在（意义）：神性野性…-？广延性<br>奶头乐<br>抽象-具体<br>休息-&gt;refresh 整个内部<br>？优先级<br>？去中心控制：广延-》此在<br>？迭代（存在）为目的，循环为辅助规律</p><p>？：<br>刻意练习，当下-&gt;成长<br>？代偿?全部存在<br>？虚无感</p><ul><li>可能违反此在性：attention有限，可能大部分无效</li><li>合理使用：显式地提出～真诚</li><li>存在者：不囿于绝望</li></ul><p>？：<br>清水,本质-偏移</p><a href="/2025/05/21/Blog/%E6%B5%81/" title="流">流</a>：<p>IHS<br>idea：迭代，包括refresh<br>step：安排回响<br>head：完成回响<br>灵活的过程：中间i可跳过，sh互相叠加转换<br>注意完备性：回归i</p><p>广延与此在之间?<br>显式？</p><p>真诚之笑-脸颊<br>神性</p><p>fur负责,初心<br>摸鱼感</p><p>小剧场</p><p>疏离感</p><p>人类是否攻破偏微分方程本身对我不重要，<br>我关心我是否认为它重要，是否需要更多铺垫，或是勇往直前，</p><p>迷乱<br>狂舞</p><p>“如果您正在读这段话，您已经昏迷20年，我们正在采用最新的治疗手段，我们并不知道这段话会出现在您梦境的哪里，请您尽快醒来，我们在等你 ”</p><p>见过许多面，然后包容许多面</p><a href="/2024/11/15/Blog/%E7%AC%94%E8%AE%B0/" title="笔记">笔记</a>/（启示、log、）不设标题、理解、联系<p>苦痛:因苦而痛</p><a href="/2025/05/21/Blog/%E5%9B%9E%E5%93%8D/" title="回响">回响</a>:阻断<p>表达之灵</p><p>但知行好事，莫要问前程。——（五代）<a href="https://baike.baidu.com/item/%E5%86%AF%E9%81%93/639677?fromModule=lemma_inlink">冯道</a>《<a href="https://baike.baidu.com/item/%E5%A4%A9%E9%81%93/63260030?fromModule=lemma_inlink">天道</a>》</p><p>感觉与项目<br>兽爪音乐<br>sant<br>项目可以是正向或负向，生理基础<br>广谱？忧患。个体<br>&#x2F;有（可能关于主观的）客观规律<br>刨根问底，也注意存在性<br>限制因素？</p><p>后现代</p><p>最好的谈判是不要谈判</p><p>carpe diem</p><p>主张,观点</p><hr><h2 id="叙事学"><a href="#叙事学" class="headerlink" title="叙事学"></a>叙事学</h2><ul><li><input disabled="" type="checkbox"> 少年叙事<br>福瑞叙事</li></ul><hr><h2 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h2><p>联想学习</p><h2 id="效率"><a href="#效率" class="headerlink" title="效率"></a>效率</h2><h2 id="专注"><a href="#专注" class="headerlink" title="专注"></a>专注</h2><p>[[呼吸]]</p><p>建模</p><h3 id="反刍思维"><a href="#反刍思维" class="headerlink" title="[[反刍思维]]:"></a>[[反刍思维]]:</h3><p>放空,上升</p><h3 id="思维爆炸"><a href="#思维爆炸" class="headerlink" title="思维爆炸"></a>思维爆炸</h3><p>日记<br>事项,记录</p><hr><p>娱乐</p><p>冷处理</p><hr><p>readme而非囿于过往<br>人生是旷野</p><p>推让博弈：但注意目的的正当</p><p>人际<br>拉扯：<br>信任与选择：认识论与方法论</p><p>放手才是爱：主体的广延<br>？中国语境中的表白：责任与实际目的表露<br>？西方意境下的表白：个人行为<br>？后存在意境下的表白：人际关系的推进的尝试，有严格的前置条件，不保证以后<br>偏差与修正：表达方式</p><p>陪伴，参照</p><p>灵与肉</p><p>trendy</p><p>linear thinking| lateral thinking~存在的广延与此在</p><p>任天堂:用户导向,“任天堂面临的最大挑战并非来自竞争对手，而是对游戏感兴趣的人越来越少。<br><img src="/Pasted_image_20240723225932.png"></p>]]></content>
     
     
     
