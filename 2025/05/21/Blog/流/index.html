@@ -27,7 +27,7 @@
 <meta property="og:description" content="理解 流存在的具体化,个人化 以求生者作为基本目标,存在者作为进阶目标对我来说,接近一种”野犬”的状态,不失自我,妥善地处理外界,与外界不囿,使内在超越？？？？？？？？？？？？？  （视角不同）价值-需求（自然注意力）～注意力 &#x2F;回响注意力：代偿，执念，放下-&gt;压力 外源注意力 念流-注意力-意识：可以看作约束存在的延伸  后注意力(念流)模型后:[[深度学习]]中的attenti">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-21T00:51:00.377Z">
-<meta property="article:modified_time" content="2025-05-30T06:05:23.305Z">
+<meta property="article:modified_time" content="2025-05-30T15:37:58.161Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -423,6 +423,12 @@
   
 
 
+  
+  
+
+
+
+
 
 
 
@@ -613,6 +619,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

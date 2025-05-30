@@ -27,7 +27,7 @@
 <meta property="og:description" content="理解有效的信息知识不等同于信息，强调关联和一致性 了解知识可以直接服务于广延性，也可以服务于应用而应用知识为工具，是面具的一部分由此可以把知识分为为了知识本身的，和为了应用的，不可偏废知识并非存在本身，可能连个人广延性都包含不了，而面具甚至连能力都包含不了，还需要包含更多实在的部分，如[[练习]] 知识结构（思维）也体现认知的方法，即结构化的过程 网状知识单个知识与其他知识的联系，包括树状知识和横">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-21T00:51:00.464Z">
-<meta property="article:modified_time" content="2025-05-30T06:05:23.394Z">
+<meta property="article:modified_time" content="2025-05-30T15:37:58.184Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -398,6 +398,12 @@
   
 
 
+  
+  
+
+
+
+
 
 
 
@@ -588,6 +594,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

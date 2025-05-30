@@ -27,7 +27,7 @@
 <meta property="og:description" content="广义回响外界和自我产生的感觉 任务回响对高显著性，与当下回响关联不大的念  外界高回响（例如闹钟）可以不列出（列出方便规划）  外界低回响  (与当下回响)凝聚性不高，列出并标注主凝聚性主线⏫ 附加🔼 支线🔽  凝聚性高，列出不用标注主凝聚性   备忘    待办  [?] 不完全清楚,需要在笔记中&#x2F;理论上完善任务引用：tasks filename includes&#x2F;dose not">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-21T00:51:00.184Z">
-<meta property="article:modified_time" content="2025-05-30T06:05:23.123Z">
+<meta property="article:modified_time" content="2025-05-30T15:37:58.103Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -404,6 +404,12 @@
   
 
 
+  
+  
+
+
+
+
 
 
 
@@ -594,6 +600,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

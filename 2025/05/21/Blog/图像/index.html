@@ -27,7 +27,7 @@
 <meta property="og:description" content="理解主观与客观根据创作者的意图选择对象根据对象选择创作方法 不完全脱离客观不同于平面设计中的元素，可能仅仅是为了整体视觉效果或特定符号 构图光影色彩摄影绘画基础知识 位图 分辨率ppi: 像素&#x2F;英寸 印刷；约300 打印     矢量图 格式 psd JPG: 有损压缩 PNG: 无损压缩, 可透明 pdf gif svg；矢量 tiff   色彩 rgb；发光、加色 cmyk(青、洋红">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-21T00:51:00.250Z">
-<meta property="article:modified_time" content="2025-05-30T06:05:23.130Z">
+<meta property="article:modified_time" content="2025-05-30T15:37:58.105Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -414,6 +414,12 @@
   
 
 
+  
+  
+
+
+
+
 
 
 
@@ -604,6 +610,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

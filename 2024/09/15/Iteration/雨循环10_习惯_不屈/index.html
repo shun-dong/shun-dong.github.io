@@ -27,7 +27,7 @@
 <meta property="og:description" content="理解在这个循环里,采薇想要追求稳定的生活,但不巧受伤,发现别样的风景 [[习惯]][[沟通]][[《你的生存本能正在杀死你》]]    猫武士上海交通大学生存手册 [!PDF|] [[上海交通大学生存手册.pdf#page&#x3D;31&amp;selection&#x3D;61,0,61,6|上海交通大学生存手册,_p.31]]  管理者的智慧    [[领导]]🔼     出国条件  保研">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-09-14T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-05-30T06:05:23.448Z">
+<meta property="article:modified_time" content="2025-05-30T15:37:58.211Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -400,6 +400,12 @@
   
 
 
+  
+  
+
+
+
+
 
 
 
@@ -590,6 +596,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

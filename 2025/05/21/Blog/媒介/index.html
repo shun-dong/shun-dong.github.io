@@ -27,7 +27,7 @@
 <meta property="og:description" content="理解?已经没了传统纸媒的舆论能力~[[麦克卢汉]]，[[尼尔·波兹曼]] 内涵： 媒介即信息-[[麦克卢汉]]媒介即隐喻(认识论)-[[尼尔·波兹曼]]  媒介作为沟通的工具,在信息时代它们主动地改变了我们与环境互动的方式,同时对人的内在认知结构和社会行为的深刻影响  媒介作为人体延伸：麦克卢汉认为媒介不仅仅是物质实体，更是人类感官和能力的扩展。例如，印刷术增强了视觉能力，使知识得以大规模复制和传">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-21T00:51:00.261Z">
-<meta property="article:modified_time" content="2025-05-30T06:05:23.134Z">
+<meta property="article:modified_time" content="2025-05-30T15:37:58.107Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -405,6 +405,12 @@
   
 
 
+  
+  
+
+
+
+
 
 
 
@@ -595,6 +601,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

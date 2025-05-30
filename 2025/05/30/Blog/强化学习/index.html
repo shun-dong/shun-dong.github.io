@@ -38,7 +38,7 @@
 <meta property="og:image" content="http://example.com/Pasted_image_20250305213648.png">
 <meta property="og:image" content="http://example.com/Pasted_image_20250305214336.png">
 <meta property="article:published_time" content="2025-05-30T06:05:23.177Z">
-<meta property="article:modified_time" content="2025-05-30T06:05:23.178Z">
+<meta property="article:modified_time" content="2025-05-30T15:37:58.119Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://example.com/1741338531957_d.png">
@@ -290,15 +290,15 @@
 </li>
 <li>Markov property与之前的状态无关<br>When decision is given -&gt;Markov process</li>
 </ul>
-<h1 id="Bellman-equation"><a href="#Bellman-equation" class="headerlink" title="Bellman equation"></a>Bellman equation</h1><p>State value: $v_\pi(s)&#x3D;\mathbb E[G_t|S_t&#x3D;s]$<br>Bootstrapping<br>矩阵形式$v_\pi&#x3D;r_\pi+\gamma P_\pi v_\pi$<br>展开形式$v_\pi(s)&#x3D;\sum_a \pi(a|s)\sum <em>r p(r|s,a) r+\gamma\sum_a \pi(a|s) \sum</em>{s’} p(s’|s,a)v_\pi(s’)&#x3D;\sum_a \pi(a|s)(\sum <em>r p(r|s,a) r+\gamma\sum</em>{s’} p(s’|s,a)v_\pi(s’))$<br>$S_t\xrightarrow{A_t}R_{t+1},S_{t+1}$ random variables<br>G_t: return of certain trajectory<br>convergence：Cauchy</p>
+<h1 id="Bellman-equation"><a href="#Bellman-equation" class="headerlink" title="Bellman equation"></a>Bellman equation</h1><p>State value: $v_\pi(s)&#x3D;\mathbb E[G_t|S_t&#x3D;s]$<br>Bootstrapping<br>矩阵形式$v_\pi&#x3D;r_\pi+\gamma P_\pi v_\pi$<br>展开形式<br>$$v_\pi(s)&#x3D;\sum_a \pi(a|s)\sum <em>r p(r|s,a) r+\gamma\sum_a \pi(a|s) \sum</em>{s’} p(s’|s,a)v_\pi(s’)&#x3D;\sum_a \pi(a|s)(\sum <em>r p(r|s,a) r+\gamma\sum</em>{s’} p(s’|s,a)v_\pi(s’))$$<br>$S_t\xrightarrow{A_t}R_{t+1},S_{t+1}$ random variables<br>G_t: return of certain trajectory<br>convergence：Cauchy</p>
 <p>随机变量$X|Y,Z\rightarrow p^x_{yz}$，YZ为伪指标，缩并$value^{x}<em>{yz}$得到期望$\mathbb E</em>{yz}$<br>分上下指标或用<code>|</code>或<code>；</code>分隔，从右往左，相同则不缩并，不同则所并~numpy<br><img src="/IMG_0797.jpeg" srcset="/img/loading.gif" lazyload><br>求解Closed-form solution $v&#x3D;(1-\gamma P)^{-1}r$</p>
 <ul>
 <li><p>iterative solution 收敛</p>
 </li>
-<li><p>action value $q(s, a) :&#x3D; \mathbb{E} \left[ R_t \mid S_t &#x3D; s, A_t &#x3D; a \right]$<br>table: all situation<br>$v_\pi (s)&#x3D;\sum_a \pi(a|s)q_\pi(s,a)$<br>$q_\pi(s,a)&#x3D;\sum_r p(r|s,a)r+\gamma \sum _{s’}p(s’|s,a)v_\pi(s’)$<br>不只考虑当前策略的</p>
+<li><p>action value $q(s, a) :&#x3D; \mathbb{E} \left[ R_t \mid S_t &#x3D; s, A_t &#x3D; a \right]$<br>table: all situation<br>$$v_\pi (s)&#x3D;\sum_a \pi(a|s)q_\pi(s,a)$$<br>$$q_\pi(s,a)&#x3D;\sum_r p(r|s,a)r+\gamma \sum _{s’}p(s’|s,a)v_\pi(s’)$$<br>不只考虑当前策略的</p>
 </li>
 </ul>
-<p>Bellman optimal equation (BOE)<br>$v(s)&#x3D;\max_\pi(\sum_a \pi(a|s)\sum <em>r p(r|s,a) r+\gamma\sum_a \pi(a|s) \sum</em>{s’} p(s’|s,a)v_\pi(s’))&#x3D;\max_a \pi(a|s)(\sum <em>r p(r|s,a) r+\gamma\sum</em>{s’} p(s’|s,a)v_\pi(s’))$<br>矩阵形式$v_\pi&#x3D;\max <em>\pi(r_\pi +\gamma P_\pi v)$<br>注意括号里面向量v，理论上每个分量是关于π的函数，这里是对π取最值，使<strong>每个</strong>分量最大。而不是求无穷范数，也并没有引入模长<br>计算时可能不知道v(s’)需要值迭代等方法<br>分量是$\pi^a_s c</em>{sa}$ 固定s，只需找a使$c_{sa}$最大</p>
+<p>Bellman optimal equation (BOE)<br>$$v(s)&#x3D;\max_\pi(\sum_a \pi(a|s)\sum <em>r p(r|s,a) r+\gamma\sum_a \pi(a|s) \sum</em>{s’} p(s’|s,a)v_\pi(s’))&#x3D;\max_a \pi(a|s)(\sum <em>r p(r|s,a) r+\gamma\sum</em>{s’} p(s’|s,a)v_\pi(s’))$$<br>矩阵形式$v_\pi&#x3D;\max <em>\pi(r_\pi +\gamma P_\pi v)$<br>注意括号里面向量v，理论上每个分量是关于π的函数，这里是对π取最值，使<strong>每个</strong>分量最大。而不是求无穷范数，也并没有引入模长<br>计算时可能不知道v(s’)需要值迭代等方法<br>分量是$\pi^a_s c</em>{sa}$ 固定s，只需找a使$c_{sa}$最大</p>
 <ul>
 <li>how: value iteration<ul>
 <li>policy update:先求最大π&#x3D;argmax … 即最大值对的自变量的值（arguments of the maximum）</li>
@@ -354,7 +354,7 @@
 <li>first visit</li>
 <li>very visit<br>从后往前<br>Exploring：遍历<br>Starts：从每个（s，a）开始</li>
 </ul>
-<p>MC ε-Greedy<br>ε&#x3D;0最优,逐渐减小<br> soft policy: stochastic<br>without Exploring Starts<br>$$\pi(a|s) &#x3D; \begin{cases} 1 - \frac{\epsilon}{|\mathcal{A}|}({|\mathcal{A}|}-1) &amp; \text{if } a &#x3D; \text{argmax}_a Q(s, a) \ \frac{\epsilon}{|\mathcal{A}|} &amp; \text{if } a \neq \text{argmax}_a Q(s, a) \end{cases}$$</p>
+<p>MC ε-Greedy<br>ε&#x3D;0最优,逐渐减小<br> soft policy: stochastic<br>without Exploring Starts<br>$$<br>\pi(a|s) &#x3D; \begin{cases} 1 - \frac{\epsilon}{|\mathcal{A}|}({|\mathcal{A}|}-1) &amp; \text{if } a &#x3D; \text{argmax}_a Q(s, a) \ \frac{\epsilon}{|\mathcal{A}|} &amp; \text{if } a \neq \text{argmax}_a Q(s, a) \end{cases}<br>$$</p>
 <ul>
 <li>拿出ε均分，剩下的给greedy<br>exploitation&amp; exploration~[[练习|展示区&amp;学习区]]<br>π在大π-ε中找，every visit</li>
 </ul>
@@ -384,7 +384,7 @@
 <li>multiple variables:<img src="/1741332389063_d.png" srcset="/img/loading.gif" lazyload></li>
 </ul>
 <h2 id="Stochastic-gradient-descent"><a href="#Stochastic-gradient-descent" class="headerlink" title="Stochastic gradient descent"></a>Stochastic gradient descent</h2><p>eg. mean estimation<br>优化$\min_w J(w)&#x3D;\mathbb E[f(w,X)]$</p>
-<p>gradient decent(GD)<br>let $\nabla_w \mathbb E[f(w,X)]&#x3D;0$<br>$w_{k+1}&#x3D;w_k-a_k\nabla_w \mathbb E[f(w_k,X)]&#x3D;w_k-a_k \mathbb E[\nabla_wf(w_k,X)]&#x3D;0$</p>
+<p>gradient decent(GD)<br>let $\nabla_w \mathbb E[f(w,X)]&#x3D;0$<br>$$w_{k+1}&#x3D;w_k-a_k\nabla_w \mathbb E[f(w_k,X)]&#x3D;w_k-a_k \mathbb E[\nabla_wf(w_k,X)]&#x3D;0$$</p>
 <p>batch gradient decent(BGD)<br>$\mathbb E[\nabla_wf(w,X)]\approx \frac 1n…$</p>
 <ul>
 <li>函数需要在模型训练之前定义</li>
@@ -395,10 +395,10 @@
 <li>较远时收敛较快<br><img src="/Pasted_image_20250305230829.png" srcset="/img/loading.gif" lazyload><br>deterministic-&gt;随机抽取</li>
 </ul>
 <p>mini batch gradient decent(MBGD)<br>m&#x3D;n时由于随机抽取，任有可能不是全部的</p>
-<h1 id="Temporal-Difference-Learning"><a href="#Temporal-Difference-Learning" class="headerlink" title="Temporal-Difference Learning"></a>Temporal-Difference Learning</h1><p>incremental, online, bootstrapping, low estimation variance, bias&lt;-&gt;MC无偏估计<br>$q_{t+1}(s_t,a_t)&#x3D;q_{t}(s_t,a_t)-\alpha_t(s_t,a_t)[q_{t}(s_t,a_t)-(r_{t+1}+\gamma \bar q_t)]$</p>
-<p>$\underbrace{v_{t+1}\left(s_{t}\right)}<em>{\text {new estimate }}&#x3D;\underbrace{v</em>{t}\left(s_{t}\right)}<em>{\text {current estimate }}-\alpha</em>{t}\left(s_{t}\right)[\overbrace{v_{t}\left(s_{t}\right)-(\underbrace{r_{t+1}+\gamma v_{t}\left(s_{t+1}\right)}<em>{\text {TD target } \bar{v}</em>{t}})}^{\text {TD error } \delta_{t}}]$<br>change form: $v_{t+1}\left(s_{t}\right)-\bar{v}<em>{t}&#x3D;\left[1-\alpha</em>{t}\left(s_{t}\right)\right]\left[v_{t}\left(s_{t}\right)-\bar{v}_{t}\right]$, so it is called Temporal-Difference </p>
+<h1 id="Temporal-Difference-Learning"><a href="#Temporal-Difference-Learning" class="headerlink" title="Temporal-Difference Learning"></a>Temporal-Difference Learning</h1><p>incremental, online, bootstrapping, low estimation variance, bias&lt;-&gt;MC无偏估计<br>$$q_{t+1}(s_t,a_t)&#x3D;q_{t}(s_t,a_t)-\alpha_t(s_t,a_t)[q_{t}(s_t,a_t)-(r_{t+1}+\gamma \bar q_t)]$$</p>
+<p>$$\underbrace{v_{t+1}\left(s_{t}\right)}<em>{\text {new estimate }}&#x3D;\underbrace{v</em>{t}\left(s_{t}\right)}<em>{\text {current estimate }}-\alpha</em>{t}\left(s_{t}\right)[\overbrace{v_{t}\left(s_{t}\right)-(\underbrace{r_{t+1}+\gamma v_{t}\left(s_{t+1}\right)}<em>{\text {TD target } \bar{v}</em>{t}})}^{\text {TD error } \delta_{t}}]$$<br>change form: $v_{t+1}\left(s_{t}\right)-\bar{v}<em>{t}&#x3D;\left[1-\alpha</em>{t}\left(s_{t}\right)\right]\left[v_{t}\left(s_{t}\right)-\bar{v}_{t}\right]$, so it is called Temporal-Difference </p>
 <p>Bellman expectation equation<br>RM算法中其实函数是未知的，用$v_k(s_k’)$代替$v_\pi(s_k’)$<br>收敛性：由于$v_t(s)$收敛于最大值，故$v_{t+1}(s)-v_t(s)$收敛于0且（sup，理解为带有噪声的）单调</p>
-<h2 id="Sarsa"><a href="#Sarsa" class="headerlink" title="Sarsa"></a>Sarsa</h2><p>Sarsa:$(s_t,a_t,r_{t+1},s_{t+1},a_{t+1})$<br>$q_{t+1}(s_t,a_t)&#x3D;q_{t}(s_t,a_t)-\alpha_t(s_t,a_t)[q_{t}(s_t,a_t)-(r_{t+1}+\gamma q_t(s_{t+1},a_{t+1}))]$</p>
+<h2 id="Sarsa"><a href="#Sarsa" class="headerlink" title="Sarsa"></a>Sarsa</h2><p>Sarsa:$(s_t,a_t,r_{t+1},s_{t+1},a_{t+1})$<br>$$q_{t+1}(s_t,a_t)&#x3D;q_{t}(s_t,a_t)-\alpha_t(s_t,a_t)[q_{t}(s_t,a_t)-(r_{t+1}+\gamma q_t(s_{t+1},a_{t+1}))]$$</p>
 <ul>
 <li>这里的a_t+1是根据policy选的</li>
 <li>policy evaluation</li>
@@ -408,16 +408,16 @@
 </li>
 <li>特定目标可以只训练部分visit</li>
 </ul>
-<p>Expected Sarsa<br>$q_{t+1}(s_t,a_t)&#x3D;q_{t}(s_t,a_t)-\alpha_t(s_t,a_t)[q_{t}(s_t,a_t)-(r_{t+1}+\gamma \mathbb E [q_t(s_{t+1},A)])]$</p>
+<p>Expected Sarsa<br>$$q_{t+1}(s_t,a_t)&#x3D;q_{t}(s_t,a_t)-\alpha_t(s_t,a_t)[q_{t}(s_t,a_t)-(r_{t+1}+\gamma \mathbb E [q_t(s_{t+1},A)])]$$</p>
 <ul>
 <li>综合考虑所有a_t+1</li>
 </ul>
-<p>n-step Sarsa<br>$q_{t+1}(s_t,a_t)&#x3D;q_{t}(s_t,a_t)-\alpha_t(s_t,a_t)[q_{t}(s_t,a_t)-\sum_{i&#x3D;1}^nr ^{i-1}+\gamma^nq_t(s_{t+n},a_{t+n})]$</p>
+<p>n-step Sarsa<br>$$q_{t+1}(s_t,a_t)&#x3D;q_{t}(s_t,a_t)-\alpha_t(s_t,a_t)[q_{t}(s_t,a_t)-\sum_{i&#x3D;1}^nr ^{i-1}+\gamma^nq_t(s_{t+n},a_{t+n})]$$</p>
 <ul>
 <li>综合MC</li>
 <li>综合variance &amp;bias</li>
 </ul>
-<h2 id="Q-learning"><a href="#Q-learning" class="headerlink" title="Q-learning"></a>Q-learning</h2><p>use $\pi <em>b$ (behavior policy)to generate episode${s_0,a_0,r_1,s_1,a_1…}$<br>for each step:<br>update q-value<br>$q</em>{t+1}(s_t,a_t)&#x3D;q_{t}(s_t,a_t)-\alpha_t(s_t,a_t)[q_{t}(s_t,a_t)-(r_{t+1}+\gamma \max <em>{a \in A }q_t(s</em>{t+1},a))]$<br>update policy $\pi_{T,t+1}$</p>
+<h2 id="Q-learning"><a href="#Q-learning" class="headerlink" title="Q-learning"></a>Q-learning</h2><p>use $\pi <em>b$ (behavior policy)to generate episode${s_0,a_0,r_1,s_1,a_1…}$<br>for each step:<br>update q-value<br>$$q</em>{t+1}(s_t,a_t)&#x3D;q_{t}(s_t,a_t)-\alpha_t(s_t,a_t)[q_{t}(s_t,a_t)-(r_{t+1}+\gamma \max <em>{a \in A }q_t(s</em>{t+1},a))]$$<br>update policy $\pi_{T,t+1}$</p>
 <ul>
 <li>estimate optimal q</li>
 <li>update do not need π: off-policy<ul>
@@ -469,15 +469,15 @@
 <li><p>Projected Bellman error: 投到span$\phi (s)$</p>
 </li>
 </ul>
-<p>Sarsa:<br>$w_{t+1}&#x3D;w_{t}+\alpha_{t}\left[r_{t+1}+\gamma \hat{q}\left(s_{t+1}, a_{t+1}, w_{t}\right)-\hat{q}\left(s_{t}, a_{t}, w_{t}\right)\right] \nabla_{w} \hat{q}\left(s_{t}, a_{t}, w_{t}\right)$<br>与table比多了$\nabla_{w} \hat{q}\left(s_{t}, a_{t}, w_{t}\right)$<br>Q-learning<br>$w_{t+1}&#x3D;w_{t}+\alpha_{t}\left[r_{t+1}+\gamma \max <em>{a\in A} \hat{q}\left(s</em>{t+1}, a, w_{t}\right)-\hat{q}\left(s_{t}, a_{t}, w_{t}\right)\right] \nabla_{w} \hat{q}\left(s_{t}, a_{t}, w_{t}\right)$</p>
+<p>Sarsa:<br>$$w_{t+1}&#x3D;w_{t}+\alpha_{t}\left[r_{t+1}+\gamma \hat{q}\left(s_{t+1}, a_{t+1}, w_{t}\right)-\hat{q}\left(s_{t}, a_{t}, w_{t}\right)\right] \nabla_{w} \hat{q}\left(s_{t}, a_{t}, w_{t}\right)$$<br>与table比多了$\nabla_{w} \hat{q}\left(s_{t}, a_{t}, w_{t}\right)$<br>Q-learning<br>$$w_{t+1}&#x3D;w_{t}+\alpha_{t}\left[r_{t+1}+\gamma \max <em>{a\in A} \hat{q}\left(s</em>{t+1}, a, w_{t}\right)-\hat{q}\left(s_{t}, a_{t}, w_{t}\right)\right] \nabla_{w} \hat{q}\left(s_{t}, a_{t}, w_{t}\right)$$</p>
 <h2 id="Deep-Q-learning-DQN"><a href="#Deep-Q-learning-DQN" class="headerlink" title="Deep Q-learning(DQN)"></a>Deep Q-learning(DQN)</h2><p>network: function</p>
 <ul>
 <li>main network</li>
-<li>target network: fixed for some time and copy main<br>$J&#x3D;\mathbb{E}\left[\left(R+\gamma \max <em>{a \in \mathcal{A}\left(S^{\prime}\right)} \hat{q}\left(S^{\prime}, a, w</em>{T}\right)-\hat{q}(S, A, w)\right)^{2}\right]$</li>
+<li>target network: fixed for some time and copy main<br>$$J&#x3D;\mathbb{E}\left[\left(R+\gamma \max <em>{a \in \mathcal{A}\left(S^{\prime}\right)} \hat{q}\left(S^{\prime}, a, w</em>{T}\right)-\hat{q}(S, A, w)\right)^{2}\right]$$</li>
 </ul>
 <p>experience replay<br>replay buffer（缓冲区）$\mathcal{B} :&#x3D;\left{\left(s, a, r, s^{\prime}\right)\right}$<br>use a mini-batch randomly from B<br>(S,A)is seemed as index, which assume to be i.i.d. , and we can use it for times, so we collect it and replay. In tabular cases, (S,A) is naturally independent.<br>$s\to W\to\hat q(s,a_i)$</p>
 <h1 id="π"><a href="#π" class="headerlink" title="π"></a>π</h1><p>Since s has been continuous, pi must use function to approach.<br>generate policy greedily from value -&gt;train policy, use metrics(度规) to judge policy. </p>
-<p>average state value：<br>$\bar{v}<em>{\pi}:&#x3D;\mathbb{E}\left[v</em>{\pi}(S)\right]&#x3D;d_sv^s_\pi&#x3D;\mathbb{E}\left[\sum_{t&#x3D;0}^{\infty} \gamma^{t} R_{t+1}\right]$</p>
+<p>average state value：<br>$$\bar{v}<em>{\pi}:&#x3D;\mathbb{E}\left[v</em>{\pi}(S)\right]&#x3D;d_sv^s_\pi&#x3D;\mathbb{E}\left[\sum_{t&#x3D;0}^{\infty} \gamma^{t} R_{t+1}\right]$$</p>
 <ul>
 <li>d independent to pi, denote as $d_0,\bar v_\pi^0$<ul>
 <li>when interested in v_i, let d&#x3D;e_i</li>
@@ -485,19 +485,19 @@
 </li>
 <li>d dependent on pi: stationary</li>
 </ul>
-<p>average reward<br>$\bar{r}<em>{\pi} :&#x3D; \sum</em>{s \in \mathcal{S}} d_{\pi}(s) r_{\pi}(s)&#x3D;\mathbb{E}\left[r_{\pi}(S)\right]&#x3D;\lim <em>{n \rightarrow \infty} \frac{1}{n} \mathbb{E}\left[\sum</em>{k&#x3D;1}^{n} R_{t+k}\right]$</p>
+<p>average reward<br>$$\bar{r}<em>{\pi} :&#x3D; \sum</em>{s \in \mathcal{S}} d_{\pi}(s) r_{\pi}(s)&#x3D;\mathbb{E}\left[r_{\pi}(S)\right]&#x3D;\lim <em>{n \rightarrow \infty} \frac{1}{n} \mathbb{E}\left[\sum</em>{k&#x3D;1}^{n} R_{t+k}\right]$$</p>
 <ul>
 <li>can be undiscounted</li>
 <li>$\bar v_\pi&#x3D;\bar r_\pi +\gamma \bar v_\pi$</li>
 </ul>
-<p>$\nabla_{\theta} J(\theta)&#x3D;\sum_{s \in \mathcal{S}} \eta(s) \sum_{a \in \mathcal{A}} \nabla_{\theta} \pi(a \mid s, \theta) q_{\pi}(s, a)$<br>use dx&#x3D;x ln x , we get$&#x3D;\mathbb{E}\left[\nabla_{\theta} \ln \pi(A \mid S, \theta) q_{\pi}(S, A)\right]$<br>to fit  ln, we use softmax:<br>$\pi(a \mid s, \theta)&#x3D;\frac{e^{\phi(s, a, \theta)}}{\sum_{a^{\prime} \in \mathcal{A}} e^{\phi\left(s, a^{\prime}, \theta\right)}}$ , a neural network can help you do this <strong>automatically</strong></p>
+<p>$$\nabla_{\theta} J(\theta)&#x3D;\sum_{s \in \mathcal{S}} \eta(s) \sum_{a \in \mathcal{A}} \nabla_{\theta} \pi(a \mid s, \theta) q_{\pi}(s, a)$$<br>use dx&#x3D;x ln x , we get$&#x3D;\mathbb{E}\left[\nabla_{\theta} \ln \pi(A \mid S, \theta) q_{\pi}(S, A)\right]$<br>to fit  ln, we use softmax:<br>$$\pi(a \mid s, \theta)&#x3D;\frac{e^{\phi(s, a, \theta)}}{\sum_{a^{\prime} \in \mathcal{A}} e^{\phi\left(s, a^{\prime}, \theta\right)}}$$<br> a neural network can help you do this <strong>automatically</strong></p>
 <ul>
 <li>stochastic &amp; exploratory</li>
 </ul>
 <p>since $q_\pi$ is unknown<br>we can use MC (REINFORCE)<br>on policy<br>change form:  $\theta_{t+1}&#x3D;\theta_{t}+\alpha \underbrace{\left(\frac{q_{t}\left(s_{t}, a_{t}\right)}{\pi\left(a_{t} \mid s_{t}, \theta_{t}\right)}\right)}<em>{\beta</em>{t}} \nabla_{\theta} \pi\left(a_{t} \mid s_{t}, \theta_{t}\right)$ , which maximized (polarize, because the optimistic policy is deterministic) pi, balance exploitation &amp; exploration</p>
 <h1 id="Actor-Critic"><a href="#Actor-Critic" class="headerlink" title="Actor-Critic"></a>Actor-Critic</h1><p>actor: update policy to act<br>critic: estimate policy to value </p>
 <h2 id="QAC"><a href="#QAC" class="headerlink" title="QAC"></a>QAC</h2><p>use TD to estimate $q_\pi$<br>(calculate q-error and update q_t)</p>
-<h2 id="A2C-advanced-AC"><a href="#A2C-advanced-AC" class="headerlink" title="A2C(advanced AC)"></a>A2C(advanced AC)</h2><p>baseline<br>$b^{*}(s)&#x3D;\frac{\mathbb{E}<em>{A \sim \pi}\left[\left|\nabla</em>{\theta} \ln \pi\left(A \mid s, \theta_{t}\right)\right|^{2} q(s, A)\right]}{\mathbb{E}<em>{A \sim \pi}\left[\left|\nabla</em>{\theta} \ln \pi\left(A \mid s, \theta_{t}\right)\right|^{2}\right]}\approx v_\pi (s)$</p>
+<h2 id="A2C-advanced-AC"><a href="#A2C-advanced-AC" class="headerlink" title="A2C(advanced AC)"></a>A2C(advanced AC)</h2><p>baseline<br>$$b^{*}(s)&#x3D;\frac{\mathbb{E}<em>{A \sim \pi}\left[\left|\nabla</em>{\theta} \ln \pi\left(A \mid s, \theta_{t}\right)\right|^{2} q(s, A)\right]}{\mathbb{E}<em>{A \sim \pi}\left[\left|\nabla</em>{\theta} \ln \pi\left(A \mid s, \theta_{t}\right)\right|^{2}\right]}\approx v_\pi (s)$$</p>
 <ul>
 <li>does not change E, change Var<br>advanced function(Zero-centered): $\delta_{\pi} :&#x3D; q_{\pi}(S, A)-v_{\pi}(S)\approx r_{t+1}+\gamma v_t(s_{t+1})-v_t(s_t)$, (have the same expectation ) which is TD error<br>then we use delta to update both w for v(critic) &amp; θ for π(actor)</li>
 </ul>
@@ -511,10 +511,10 @@
 <li>$\beta$ can be $\mu$+noise</li>
 </ul>
 <h2 id="Deterministic-AC-DAC"><a href="#Deterministic-AC-DAC" class="headerlink" title="Deterministic AC (DAC)"></a>Deterministic AC (DAC)</h2><p>之前用了soft max，不是真实的连续输出<br>实际上输出的也只是每个值的概率<br>$a^._s&#x3D;\mu (s;\theta)$ is deterministic ,实际上代替了$\pi^a_s$,本质上都是输入s输出a</p>
-<p>$J(\theta)&#x3D;\mathbb{E}\left[v_{\mu}(s)\right]&#x3D;\sum_{s \in \mathcal{S}} d(s) v_{\mu}(s)$</p>
+<p>$$J(\theta)&#x3D;\mathbb{E}\left[v_{\mu}(s)\right]&#x3D;\sum_{s \in \mathcal{S}} d(s) v_{\mu}(s)$$</p>
 <ul>
 <li>d independent to pi, denote as $d_0$<ul>
-<li>when interested in v_i, let d&#x3D;e_i<br>$\nabla_{\theta} J(\theta)&#x3D;\sum_{s \in \mathcal{S}} \rho_{\mu}(s) \nabla_{\theta} \mu(s)\left(\nabla_{\mu (s)} q_{\mu}(s, \mu(s))\right)$</li>
+<li>when interested in v_i, let d&#x3D;e_i<br>$$\nabla_{\theta} J(\theta)&#x3D;\sum_{s \in \mathcal{S}} \rho_{\mu}(s) \nabla_{\theta} \mu(s)\left(\nabla_{\mu (s)} q_{\mu}(s, \mu(s))\right)$$</li>
 </ul>
 </li>
 </ul>
@@ -680,6 +680,12 @@
 
 
   
+
+
+  
+  
+
+
 
 
 
@@ -872,6 +878,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

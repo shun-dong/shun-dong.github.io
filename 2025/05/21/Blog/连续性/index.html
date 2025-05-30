@@ -27,7 +27,7 @@
 <meta property="og:description" content="理解来自改变带来的阻力与当下做的事的增益 过度执着也非好的选择也做不到一直连续 改变阻力可通过限制选择范围体现，较少考虑已经放弃的选项着眼于新选项 保持增益后者主要体现在同类事物上可能正向或反向如疲惫带来负面影响 IHSidea：海，包括refresh(包括后娱乐),脆弱,疯癫,逃离,脱离雨循环step：过程回响head：安排回响,完成回响注意代偿 其实只有少数过程可以干预">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-21T00:51:00.519Z">
-<meta property="article:modified_time" content="2025-05-30T06:05:23.437Z">
+<meta property="article:modified_time" content="2025-05-30T15:37:58.203Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -389,6 +389,12 @@
   
 
 
+  
+  
+
+
+
+
 
 
 
@@ -579,6 +585,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

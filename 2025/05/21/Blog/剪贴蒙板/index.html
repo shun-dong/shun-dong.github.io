@@ -27,7 +27,7 @@
 <meta property="og:description" content="理解剪贴蒙板的作用机理，一定要把握这样一个基本点：基层是整个图层群体的代表。它本身什么属性也没有（即图层不透明度、填充不透明度、象素不透明度均为100%，而且混合模式为正常、没有应用图层效果），它上面所标记的各种属性（如象素不透明度、图层不透明度、填充不透明度、混合模式及图层效果等）都是包括基层和所有顶层在内的图层群体所共有的属性。剪贴蒙板作用机理模拟:所谓模拟，就是将基层还原为裸层（即各类不透明">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-21T00:51:00.134Z">
-<meta property="article:modified_time" content="2025-05-30T06:05:23.113Z">
+<meta property="article:modified_time" content="2025-05-30T15:37:58.094Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -387,6 +387,12 @@
   
 
 
+  
+  
+
+
+
+
 
 
 
@@ -577,6 +583,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

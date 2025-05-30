@@ -27,7 +27,7 @@
 <meta property="og:description" content="理解 雨循环16在这个循环里，采薇回顾过往，并进入了2025 非结构化的生活？癫 娱乐 后娱乐 主业   ？迷惘存在而不是承压 意义充盈的世界但有时不被世人理解-癫  那些听不见音乐的人就以为跳舞的人疯了  但并不泛滥用心寻找，顺应改变 咫尺微光，只可偶得 内容永远是最重要的但如不能恰当笔记，仅凭人脑远远不够 所谓的微习惯或许是缓解焦虑的良方～[[《你的生存本能正在杀死你》]] 小猫嘴 后-后迷惘">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2024-12-12T14:22:00.000Z">
-<meta property="article:modified_time" content="2025-05-30T06:05:23.456Z">
+<meta property="article:modified_time" content="2025-05-30T15:37:58.217Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -403,6 +403,12 @@
   
 
 
+  
+  
+
+
+
+
 
 
 
@@ -593,6 +599,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

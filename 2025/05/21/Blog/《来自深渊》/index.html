@@ -27,7 +27,7 @@
 <meta property="og:description" content="剧情莉可雷格 米莉莱莎奥森 憧憬超过本能自己决定价值因为窟就在那里温暖的黑暗奈落：地狱 娜娜奇存在且深情 白笛在第五层（之下，没完全到第六层）祭场初步制作 生骇村最终人们会变成自己最深切的执念的样子只有纯粹的探窟家才能走下去 哲学、宗教、文化深渊-存在  憧憬，是比毒药更可怕的东西，是比人性更难失去的东西，是最可能化为执念的东西。   失去憧憬的人生,比死亡更可怕   “对了，奥森…要是哪天，莉可">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2025-05-21T00:19:27.315Z">
-<meta property="article:modified_time" content="2025-05-30T06:05:23.070Z">
+<meta property="article:modified_time" content="2025-05-30T15:37:58.078Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -408,6 +408,12 @@
   
 
 
+  
+  
+
+
+
+
 
 
 
@@ -598,6 +604,49 @@
 
 
   <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
