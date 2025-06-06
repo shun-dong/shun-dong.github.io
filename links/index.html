@@ -21,7 +21,7 @@
   
     <meta property="og:type" content="website">
 <meta property="og:title" content="友链links">
-<meta property="og:url" content="http://example.com/links/index.html">
+<meta property="og:url" content="http://kaelvio.com/links/index.html">
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="采薇">
@@ -61,7 +61,7 @@
   <script id="fluid-configs">
     var Fluid = window.Fluid || {};
     Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"example.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+    var CONFIG = {"hostname":"kaelvio.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
 
     if (CONFIG.web_analytics.follow_dnt) {
       var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
@@ -255,16 +255,17 @@
 
 <p>我希望你的博客能够达到以下要求：</p>
 <ul>
-  <li><strong>严禁</strong>含有任何政治相关内容，无论观点倾向与否；</li>
-  <li><strong>严禁</strong>含有任何色情内容，包括暗示；</li>
-  <li><strong>严禁</strong>含有血腥、暴力、赌博、诈骗、歧视、不实和其他易引起不适内容；</li>
-  <li>需标注AI生成内容；</li>
+  <li><strong>不含有</strong>任何政治相关内容，无论观点倾向与否；</li>
+  <li><strong>不含有</strong>任何色情内容，包括暗示；</li>
+  <li><strong>不含有</strong>血腥、暴力、赌博、诈骗、歧视、不实和其他易引起不适内容；</li>
+  <li>标注AI生成内容；</li>
+  <li>标注引用内容；</li>
   <li>
     需在「友链页」或「关于页」添加如下内容的友链：
   <p>
 title: "采薇 Kaelvio 的博客",<br>
 intro: "保留迷惘的权利",<br>
-link: "https://shun-dong.github.io/about/",<br>
+link: "https://kaelvio.com",<br>
 avatar: "https://shun-dong.github.io/img/avatar.jpg"
     </p>
   </li>
@@ -284,12 +285,13 @@ If you want to exchange friendship links, 👏 please send your <strong>blog lin
   <li><strong>Strictly prohibited:</strong> Any pornographic (NSFW) content, including any kind of implication or suggestive material.</li>
   <li><strong>Strictly prohibited:</strong> Bloody, violent, gambling, scam, discriminatory, false, or otherwise disturbing content.</li>
   <li>AI-generated content must be clearly labeled.</li>
+  <li>Quoted content should be explicitly labeled.</li>
   <li>
     You need to add a friendship link with the following information in your "Friends" or "About" page:
     <p>
 title: "采薇 Kaelvio's Blog",<br>
 intro: "The right to remain perplexity",<br>
-link: "https://shun-dong.github.io/about/",<br>
+link: "https://kaelvio.com",<br>
 avatar: "https://shun-dong.github.io/img/avatar.jpg"
     </p>
   </li>
@@ -300,6 +302,33 @@ AI translation. In case of any doubt, please refer to the Chinese content.
 
   </div>
 
+
+
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"Ov23litUZX7vXKXf7SPP","clientSecret":"209a17cd5a958cea9dc5fc8d77b57b80514371e6","repo":"https://github.com/shun-dong/shun-dong.github.io","owner":"shun-dong","admin":["name"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '38687fdbcd50268b872dd8c493f739e6'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
 
 
 
