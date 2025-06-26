@@ -19,15 +19,15 @@
   <meta name="author" content="采薇">
   <meta name="keywords" content="">
   
-    <meta name="description" content="尾递归优化重用当前栈帧 123456def factorialTailRec (n : Nat) : Nat :&#x3D;  let rec aux (n : Nat) (acc : Nat) : Nat :&#x3D;    match n with    | 0 &#x3D;&gt; acc    | n + 1 &#x3D;&gt; aux n (acc * (n + 1))  aux n 1  类structure:类indu">
+    <meta name="description" content="类structure:类inductive:递归定义类class:类型类:方法 类型论degree &amp; universe   sort type term    Prop (Sort 0) True True.intro   Type (Sort 1) Bool true   Type 1 (Sort 2) Nat → Type fun n &#x3D;&gt; Fin n   Type">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LEAN">
 <meta property="og:url" content="http://kaelvio.com/Blog/LEAN/index.html">
 <meta property="og:site_name" content="采薇的博客">
-<meta property="og:description" content="尾递归优化重用当前栈帧 123456def factorialTailRec (n : Nat) : Nat :&#x3D;  let rec aux (n : Nat) (acc : Nat) : Nat :&#x3D;    match n with    | 0 &#x3D;&gt; acc    | n + 1 &#x3D;&gt; aux n (acc * (n + 1))  aux n 1  类structure:类indu">
+<meta property="og:description" content="类structure:类inductive:递归定义类class:类型类:方法 类型论degree &amp; universe   sort type term    Prop (Sort 0) True True.intro   Type (Sort 1) Bool true   Type 1 (Sort 2) Nat → Type fun n &#x3D;&gt; Fin n   Type">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-05-21T00:19:27.298Z">
-<meta property="article:modified_time" content="2025-05-30T16:37:02.056Z">
+<meta property="article:published_time" content="2025-06-16T08:35:03.174Z">
+<meta property="article:modified_time" content="2025-06-26T03:56:59.203Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-05-21 08:19" pubdate>
-          2025年5月21日 早上
+        <time datetime="2025-06-16 16:35" pubdate>
+          2025年6月16日 下午
         </time>
       </span>
     
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          198 字
+          398 字
         
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          2 分钟
+          4 分钟
         
       </span>
     
@@ -263,7 +263,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2025年5月31日 凌晨
+                    本文最后更新于 2025年6月26日 中午
                   
                 
               </p>
@@ -271,10 +271,58 @@
             
               <div class="markdown-body">
                 
-                <h1 id="尾递归优化"><a href="#尾递归优化" class="headerlink" title="尾递归优化"></a>尾递归优化</h1><p>重用当前栈帧</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">factorialTailRec</span> (n : Nat) : Nat :=<br>  let rec aux (n : Nat) (acc : Nat) : Nat :=<br>    <span class="hljs-keyword">match</span> n <span class="hljs-keyword">with</span><br>    | <span class="hljs-number">0</span> =&gt; acc<br>    | n + <span class="hljs-number">1</span> =&gt; aux n (acc * (n + <span class="hljs-number">1</span>))<br>  aux n <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
+                <h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>structure:类<br>inductive:递归定义类<br>class:类型类:方法</p>
+<h1 id="类型论"><a href="#类型论" class="headerlink" title="类型论"></a>类型论</h1><h2 id="degree-universe"><a href="#degree-universe" class="headerlink" title="degree &amp; universe"></a>degree &amp; universe</h2><table>
+<thead>
+<tr>
+<th>sort</th>
+<th>type</th>
+<th>term</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Prop (Sort 0)</td>
+<td>True</td>
+<td>True.intro</td>
+</tr>
+<tr>
+<td>Type (Sort 1)</td>
+<td>Bool</td>
+<td>true</td>
+</tr>
+<tr>
+<td>Type 1 (Sort 2)</td>
+<td>Nat → Type</td>
+<td>fun n &#x3D;&gt; Fin n</td>
+</tr>
+<tr>
+<td>Type 2 (Sort 3)</td>
+<td>Type → Type 1</td>
+<td>fun (_ : Type) &#x3D;&gt; Type</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>→度（degree）上升</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>↓宇宙（universe）的变化</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="polymorphic"><a href="#polymorphic" class="headerlink" title="polymorphic"></a>polymorphic</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs lean">#check List<br>-- List.&#123;u&#125; (α : Type u) : Type u<br>universe u<br>def F (α : Type u) : Type u := Prod α α<br>#check F<br>-- <br></code></pre></td></tr></table></figure>
+<p>实际上这里的u不是目标语言的项，应该把 Type u 看成一个整体</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a href="/Blog/%CE%BB-calculus/" title="λ-calculus">λ-calculus</a></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs lean">(λ x : Nat =&gt; x + 5) 10<br>#check (λ x  =&gt; x + 1 : Nat → Nat)<br></code></pre></td></tr></table></figure>
+<p>x: bound variable</p>
+<p>def<br>let : Lean also allows you to introduce “local” definitions using the <code>let</code> keyword. The expression <code>let a := t1; t2</code> is definitionally equal to the result of replacing every occurrence of <code>a</code> in <code>t2</code> by <code>t1</code>.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs lean">variable (x : α)<br>def  f :=  x + x<br><br>section useful<br>  variable (α β γ : Type)<br>  variable (g : β → γ) (f : α → β) (h : α → α)<br>  variable (x : α)<br><br>  def compose := g (f x)<br>  def doTwice := h (h x)<br>  def doThrice := h (h (h x))<br>end useful<br><br>namespace Foo<br>  def a : Nat := 5<br>  def f (x : Nat) : Nat := x + 7<br>end Foo<br><br>open Foo<br><br>#check a<br>-- Foo.a : Nat<br></code></pre></td></tr></table></figure>
 
-<h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>structure:类<br>inductive:递归定义类<br>class:类型类:方法</p>
 <h1 id="Curry-Howard-同构"><a href="#Curry-Howard-同构" class="headerlink" title="Curry-Howard 同构"></a>Curry-Howard 同构</h1><p>命题即类型</p>
 <ul>
 <li>而Prop是类型的类型</li>
@@ -286,6 +334,8 @@
 <li><code>∀ x, P(x)</code> 对应依赖函数类型 <code>(x : X) → P x</code>。</li>
 <li><code>∃ x, P(x)</code> 对应依赖对类型 <code>&#123;x : X // P x&#125;</code>这里的&#x2F;&#x2F;理解为and 反而更好<br>量词范围默认向右延伸到表达式结束</li>
 </ul>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-type">Even</span> a <span class="hljs-keyword">where</span></span><br>  isEven :: a -&gt; <span class="hljs-type">Bool</span><br><span class="hljs-class"></span><br><span class="hljs-class"><span class="hljs-keyword">instance</span> <span class="hljs-type">Even</span> <span class="hljs-type">Integer</span> <span class="hljs-keyword">where</span></span><br>  isEven n = n `mod` <span class="hljs-number">2</span> == <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs lean4">class EvenProp (α : Type) where<br>  Even : α → Prop       -- 将性质定义为命题<br>  decide : ∀ n : α, Decidable (Even n)  -- 可判定性<br><br>instance : EvenProp Nat where<br>  Even n := n % 2 = 0<br>  decide n := inferInstance  -- 自动推断 Decidable (n % 2 = 0)<br><br>-- 判断 4 是否为偶数<br>#eval decide (EvenProp.Even 4)  -- 输出 true<br></code></pre></td></tr></table></figure>
 <h1 id="证明策略"><a href="#证明策略" class="headerlink" title="证明策略"></a>证明策略</h1><p>rfl<br>rw$\iff$</p>
 <ul>
 <li>repeat rw</li>
@@ -295,6 +345,11 @@
 <li>rw [zero_add] at h<br>symm<br>exact</li>
 <li>doesn’t just take hypotheses, it will eat any proof which exists in the system.<br>apply$\Rightarrow$</li>
 <li>apply h1 at  h2<br>intro h</li>
+</ul>
+<p>induction n with d hd</p>
+<ul>
+<li><code>d</code>指归纳步骤里出现的前一个数（即<code>n = d + 1</code>时的<code>d</code>），</li>
+<li><code>hd</code>就是归纳假设（hypothesis of induction）在<code>n = d</code>时成立的假设。</li>
 </ul>
 <p>contrapose<br>constructor<br>cases<br>left right<br>have</p>
 <p>use</p>
@@ -331,13 +386,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年5月21日</div>
+          <div>2025年6月16日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年5月31日</div>
+          <div>2025年6月26日</div>
         </div>
       
       
@@ -390,8 +445,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Blog/%E3%80%8A%E6%82%89%E8%BE%BE%E5%A4%9A%E3%80%8B/" title="《悉达多》">
-                        <span class="hidden-mobile">《悉达多》</span>
+                      <a href="/Blog/%E3%80%8A%E5%BF%83%E6%9C%89%E7%8C%9B%E8%99%8E%EF%BC%8C%E7%BB%86%E5%97%85%E8%94%B7%E8%96%87%E3%80%8B/" title="《心有猛虎，细嗅蔷薇》">
+                        <span class="hidden-mobile">《心有猛虎，细嗅蔷薇》</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

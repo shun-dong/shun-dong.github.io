@@ -37,8 +37,8 @@
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20250305230829.png">
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20250305213648.png">
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20250305214336.png">
-<meta property="article:published_time" content="2025-05-30T06:05:23.177Z">
-<meta property="article:modified_time" content="2025-05-30T16:37:02.156Z">
+<meta property="article:published_time" content="2025-06-16T08:35:03.220Z">
+<meta property="article:modified_time" content="2025-06-26T03:56:59.227Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://kaelvio.com/images/1741338531957_d.png">
@@ -210,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-05-30 14:05" pubdate>
-          2025年5月30日 下午
+        <time datetime="2025-06-16 16:35" pubdate>
+          2025年6月16日 下午
         </time>
       </span>
     
@@ -275,7 +275,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2025年5月31日 凌晨
+                    本文最后更新于 2025年6月26日 中午
                   
                 
               </p>
@@ -374,9 +374,7 @@
 <li>first visit</li>
 <li>very visit<br>从后往前<br>Exploring：遍历<br>Starts：从每个（s，a）开始</li>
 </ul>
-<p>MC ε-Greedy<br>ε&#x3D;0最优,逐渐减小<br> soft policy: stochastic<br>without Exploring Starts<br>$$</p>
-<p>\pi(a|s) &#x3D; \begin{cases} 1 - \frac{\epsilon}{|\mathcal{A}|}({|\mathcal{A}|}-1) &amp; \text{if } a &#x3D; \text{argmax}_a Q(s, a) \ \frac{\epsilon}{|\mathcal{A}|} &amp; \text{if } a \neq \text{argmax}_a Q(s, a) \end{cases}</p>
-<p>$$</p>
+<p>MC ε-Greedy<br>ε&#x3D;0最优,逐渐减小<br> soft policy: stochastic<br>without Exploring Starts<br>$$<br>\pi(a|s) &#x3D; \begin{cases} 1 - \frac{\epsilon}{|\mathcal{A}|}({|\mathcal{A}|}-1) &amp; \text{if } a &#x3D; \text{argmax}_a Q(s, a) \ \frac{\epsilon}{|\mathcal{A}|} &amp; \text{if } a \neq \text{argmax}_a Q(s, a) \end{cases}<br>$$</p>
 <ul>
 <li>拿出ε均分，剩下的给greedy<br>exploitation&amp; exploration~[[练习|展示区&amp;学习区]]<br>π在大π-ε中找，every visit</li>
 </ul>
@@ -497,7 +495,7 @@
 <li>main network</li>
 <li>target network: fixed for some time and copy main<br>$$<br>J&#x3D;\mathbb{E}\left[\left(R+\gamma \max _{a \in \mathcal{A}\left(S^{\prime}\right)} \hat{q}\left(S^{\prime}, a, w_{T}\right)-\hat{q}(S, A, w)\right)^{2}\right]<br>$$</li>
 </ul>
-<p>experience replay<br>replay buffer（缓冲区）$\mathcal{B} :&#x3D;\left{\left(s, a, r, s^{\prime}\right)\right}$<br>use a mini-batch randomly from B<br>(S,A)is seemed as index, which assume to be i.i.d. , and we can use it for times, so we collect it and replay. In tabular cases, (S,A) is naturally independent.<br>$s\to W\to\hat q(s,a_i)$</p>
+<p>experience replay<br>replay buffer（缓冲区）$\mathcal{B} :&#x3D;{\left(s, a, r, s^{\prime}\right)}$<br>use a mini-batch randomly from B<br>(S,A)is seemed as index, which assume to be i.i.d. , and we can use it for times, so we collect it and replay. In tabular cases, (S,A) is naturally independent.<br>$s\to W\to\hat q(s,a_i)$</p>
 <h1 id="π"><a href="#π" class="headerlink" title="π"></a>π</h1><p>Since s has been continuous, pi must use function to approach.<br>generate policy greedily from value -&gt;train policy, use metrics(度规) to judge policy. </p>
 <p>average state value：<br>$$<br>\bar{v}_{\pi}:&#x3D;\mathbb{E}\left[v_{\pi}(S)\right]&#x3D;d_sv^s_\pi&#x3D;\mathbb{E}\left[\sum_{t&#x3D;0}^{\infty} \gamma^{t} R_{t+1}\right]<br>$$</p>
 <ul>
@@ -608,13 +606,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年5月30日</div>
+          <div>2025年6月16日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年5月31日</div>
+          <div>2025年6月26日</div>
         </div>
       
       
@@ -657,12 +655,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/Blog/%E7%BB%98%E7%94%BB/" title="绘画">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">绘画</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF24_%E7%84%A6%E8%99%91/" title="雨循环24_焦虑">
-                        <span class="hidden-mobile">雨循环24_焦虑</span>
+                      <a href="/Blog/%E5%B1%B1%E6%B5%B79000/" title="山海9000">
+                        <span class="hidden-mobile">山海9000</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
