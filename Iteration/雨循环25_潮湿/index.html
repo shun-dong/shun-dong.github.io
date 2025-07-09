@@ -19,21 +19,21 @@
   <meta name="author" content="采薇">
   <meta name="keywords" content="">
   
-    <meta name="description" content="计算本身并不平凡 α等价：约束变量名字不同(λ x. f)(a) x: head; f: an expression; a: another expression只有匿名函数β-reduction,β normal form：无法进一步β归约的项 John Trump’s λ diagram 丘奇-图灵命题：丘奇λ函数与图灵机的等价性反应了面向对象编程和面向函数编程的等价性 $$\text{Tru">
+    <meta name="description" content="理解 潮湿干燥：清晰、整齐、明朗～summer潮湿：朦胧、回味、关联～雨季 [[《无意义的意义》]]">
 <meta property="og:type" content="article">
-<meta property="og:title" content="λ-calculus">
-<meta property="og:url" content="http://kaelvio.com/Blog/%CE%BB-calculus/index.html">
+<meta property="og:title" content="雨循环25_潮湿">
+<meta property="og:url" content="http://kaelvio.com/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF25_%E6%BD%AE%E6%B9%BF/index.html">
 <meta property="og:site_name" content="采薇的博客">
-<meta property="og:description" content="计算本身并不平凡 α等价：约束变量名字不同(λ x. f)(a) x: head; f: an expression; a: another expression只有匿名函数β-reduction,β normal form：无法进一步β归约的项 John Trump’s λ diagram 丘奇-图灵命题：丘奇λ函数与图灵机的等价性反应了面向对象编程和面向函数编程的等价性 $$\text{Tru">
+<meta property="og:description" content="理解 潮湿干燥：清晰、整齐、明朗～summer潮湿：朦胧、回味、关联～雨季 [[《无意义的意义》]]">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-06-16T08:35:03.178Z">
-<meta property="article:modified_time" content="2025-06-26T03:56:59.205Z">
+<meta property="article:published_time" content="2025-07-09T01:48:02.800Z">
+<meta property="article:modified_time" content="2025-07-09T01:48:02.800Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>λ-calculus - 采薇的博客</title>
+  <title>雨循环25_潮湿 - 采薇的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -187,7 +187,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="λ-calculus"></span>
+            <span id="subtitle" data-typed-text="雨循环25_潮湿"></span>
           
         </div>
 
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-06-16 16:35" pubdate>
-          2025年6月16日 下午
+        <time datetime="2025-07-09 09:48" pubdate>
+          2025年7月9日 上午
         </time>
       </span>
     
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          369 字
+          29 字
         
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          4 分钟
+          1 分钟
         
       </span>
     
@@ -258,45 +258,13 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">λ-calculus</h1>
-            
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    本文最后更新于 2025年6月26日 中午
-                  
-                
-              </p>
+            <h1 id="seo-header">雨循环25_潮湿</h1>
             
             
               <div class="markdown-body">
                 
-                <p>计算本身并不平凡</p>
-<p>α等价：约束变量名字不同<br>(λ x. f)(a) x: head; f: an expression; a: another expression<br>只有匿名函数<br>β-reduction,<br>β normal form：无法进一步β归约的项</p>
-<p>John Trump’s λ diagram</p>
-<p>丘奇-图灵命题：丘奇λ函数与图灵机的等价性<br>反应了面向对象编程和面向函数编程的等价性</p>
-<p>$$<br>\text{True}:&#x3D;\lambda x y .x,\text{False}:&#x3D;\lambda xy.y<br>$$<br>$$<br>\text {if} <del>b ~\text{do} ~x</del>\text{else} ~y:&#x3D;\lambda bxy.bxy<br>$$</p>
-<p>turning’s fix combinator<br>Θ&#x3D;λf. (λx. f (x x)) (λx. f (x x))<br>ΘF&#x3D;F(ΘF)</p>
-<p>Church-Rosser Theorem （合流定理，Confluence Theorem）：如果一个λ项可以通过不同的归约路径到达两个不同的项，那么这两个项最终可以归约到同一个共同项。但有的归约路径可能发散<br>发散式如 Ω&#x3D;(λx.xx)(λx.xx) 会无限归约</p>
-<ul>
-<li><strong>应用序（Applicative Order）</strong>：先对函数的所有参数求值，再应用函数。类似于严格求值（如C语言）。可能有自应用，导致无限循环</li>
-<li><strong>正则序（Normal Order）</strong>：先展开函数体（最外，最左），直到无法继续归约时才对参数求值。类似于惰性求值（如Haskell）。by 标准化定理（Standardization Theorem），保证归约到beta范式</li>
-</ul>
-<p>eg (λx.y)(Ω)</p>
-<ul>
-<li><strong>正则序</strong>：<ol>
-<li>最左最外的redex是 (λx.y)(Ω)。</li>
-<li>归约得到 y（直接得到范式，不计算 Ω）。</li>
-</ol>
-</li>
-<li><strong>应用序</strong>：<ol>
-<li>先归约参数 Ω，导致无限循环，永远无法得到 y。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">f</span>():<br>	<span class="hljs-keyword">return</span> f()+<span class="hljs-number">1</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">g</span>(<span class="hljs-params">x,y</span>):<br>	<span class="hljs-keyword">return</span> y<br>g(f(),<span class="hljs-number">1</span>)<br><br></code></pre></td></tr></table></figure></li>
-</ol>
-</li>
-</ul>
-<p>Type<br>$$<br>\lambda b^{\text{boolen}}<br>$$</p>
-<h1 id="Curry-Howard-同构"><a href="#Curry-Howard-同构" class="headerlink" title="Curry-Howard 同构"></a>Curry-Howard 同构</h1><p>$$<br>A\to B~\sim ~A\Rightarrow B<br>$$</p>
-
+                <h1 id="理解-潮湿"><a href="#理解-潮湿" class="headerlink" title="理解 潮湿"></a>理解 潮湿</h1><p>干燥：清晰、整齐、明朗～summer<br>潮湿：朦胧、回味、关联～雨季</p>
+<h1 id="《无意义的意义》"><a href="#《无意义的意义》" class="headerlink" title="[[《无意义的意义》]]"></a>[[《无意义的意义》]]</h1>
                 
               </div>
             
@@ -313,8 +281,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>λ-calculus</div>
-      <div>http://kaelvio.com/Blog/λ-calculus/</div>
+      <div>雨循环25_潮湿</div>
+      <div>http://kaelvio.com/Iteration/雨循环25_潮湿/</div>
     </div>
     <div class="license-meta">
       
@@ -326,14 +294,9 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年6月16日</div>
+          <div>2025年7月9日</div>
         </div>
       
-      
-        <div class="license-meta-item license-meta-date">
-          <div>更新于</div>
-          <div>2025年6月26日</div>
-        </div>
       
       
         <div class="license-meta-item">
@@ -375,9 +338,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Blog/%E5%B1%B1%E6%B5%B79000/" title="山海9000">
+                      <a href="/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF26_%E7%83%AD%E7%88%B1/" title="雨循环26_热爱">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">山海9000</span>
+                        <span class="hidden-mobile">雨循环26_热爱</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -385,8 +348,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Blog/%E3%80%8A%E5%BF%83%E6%9C%89%E7%8C%9B%E8%99%8E%EF%BC%8C%E7%BB%86%E5%97%85%E8%94%B7%E8%96%87%E3%80%8B/" title="《心有猛虎，细嗅蔷薇》">
-                        <span class="hidden-mobile">《心有猛虎，细嗅蔷薇》</span>
+                      <a href="/Blog/%E6%95%B0%E5%AD%A6%E6%A0%BC%E5%BC%8F/" title="数学格式">
+                        <span class="hidden-mobile">数学格式</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -409,7 +372,7 @@
         var options = Object.assign(
           {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: '059ff16c4b71a8a951064b9559d0d447'
+            id: '51fdeb7c7f75356aeabb271fe29a7ede'
           }
         )
         var gitalk = new Gitalk(options);

@@ -19,21 +19,21 @@
   <meta name="author" content="采薇">
   <meta name="keywords" content="">
   
-    <meta name="description" content="计算本身并不平凡 α等价：约束变量名字不同(λ x. f)(a) x: head; f: an expression; a: another expression只有匿名函数β-reduction,β normal form：无法进一步β归约的项 John Trump’s λ diagram 丘奇-图灵命题：丘奇λ函数与图灵机的等价性反应了面向对象编程和面向函数编程的等价性 $$\text{Tru">
+    <meta name="description" content="资料 ✅ 2025-07-06  Matlab环境 🔼 ✅ 2025-07-06  自己做一个练手🔼   合作一个磨合🔼  分工模型建立：基于实际问题构建数学模型实物模型物理模型数学模型 模型实现：针对模型进行求解实现代码编程实现：Matlab、python、C\C++软件实现：SPSS、SPSSPRO、excel工具箱 论文写作：写出文档描述建模与求解 论文结构  结构&gt;看范文">
 <meta property="og:type" content="article">
-<meta property="og:title" content="λ-calculus">
-<meta property="og:url" content="http://kaelvio.com/Blog/%CE%BB-calculus/index.html">
+<meta property="og:title" content="数学建模">
+<meta property="og:url" content="http://kaelvio.com/Blog/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/index.html">
 <meta property="og:site_name" content="采薇的博客">
-<meta property="og:description" content="计算本身并不平凡 α等价：约束变量名字不同(λ x. f)(a) x: head; f: an expression; a: another expression只有匿名函数β-reduction,β normal form：无法进一步β归约的项 John Trump’s λ diagram 丘奇-图灵命题：丘奇λ函数与图灵机的等价性反应了面向对象编程和面向函数编程的等价性 $$\text{Tru">
+<meta property="og:description" content="资料 ✅ 2025-07-06  Matlab环境 🔼 ✅ 2025-07-06  自己做一个练手🔼   合作一个磨合🔼  分工模型建立：基于实际问题构建数学模型实物模型物理模型数学模型 模型实现：针对模型进行求解实现代码编程实现：Matlab、python、C\C++软件实现：SPSS、SPSSPRO、excel工具箱 论文写作：写出文档描述建模与求解 论文结构  结构&gt;看范文">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-06-16T08:35:03.178Z">
-<meta property="article:modified_time" content="2025-06-26T03:56:59.205Z">
+<meta property="article:published_time" content="2025-07-09T01:48:02.756Z">
+<meta property="article:modified_time" content="2025-07-09T01:48:02.756Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>λ-calculus - 采薇的博客</title>
+  <title>数学建模 - 采薇的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -187,7 +187,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="λ-calculus"></span>
+            <span id="subtitle" data-typed-text="数学建模"></span>
           
         </div>
 
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-06-16 16:35" pubdate>
-          2025年6月16日 下午
+        <time datetime="2025-07-09 09:48" pubdate>
+          2025年7月9日 上午
         </time>
       </span>
     
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          369 字
+          1.4k 字
         
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          4 分钟
+          12 分钟
         
       </span>
     
@@ -258,45 +258,63 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">λ-calculus</h1>
-            
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    本文最后更新于 2025年6月26日 中午
-                  
-                
-              </p>
+            <h1 id="seo-header">数学建模</h1>
             
             
               <div class="markdown-body">
                 
-                <p>计算本身并不平凡</p>
-<p>α等价：约束变量名字不同<br>(λ x. f)(a) x: head; f: an expression; a: another expression<br>只有匿名函数<br>β-reduction,<br>β normal form：无法进一步β归约的项</p>
-<p>John Trump’s λ diagram</p>
-<p>丘奇-图灵命题：丘奇λ函数与图灵机的等价性<br>反应了面向对象编程和面向函数编程的等价性</p>
-<p>$$<br>\text{True}:&#x3D;\lambda x y .x,\text{False}:&#x3D;\lambda xy.y<br>$$<br>$$<br>\text {if} <del>b ~\text{do} ~x</del>\text{else} ~y:&#x3D;\lambda bxy.bxy<br>$$</p>
-<p>turning’s fix combinator<br>Θ&#x3D;λf. (λx. f (x x)) (λx. f (x x))<br>ΘF&#x3D;F(ΘF)</p>
-<p>Church-Rosser Theorem （合流定理，Confluence Theorem）：如果一个λ项可以通过不同的归约路径到达两个不同的项，那么这两个项最终可以归约到同一个共同项。但有的归约路径可能发散<br>发散式如 Ω&#x3D;(λx.xx)(λx.xx) 会无限归约</p>
-<ul>
-<li><strong>应用序（Applicative Order）</strong>：先对函数的所有参数求值，再应用函数。类似于严格求值（如C语言）。可能有自应用，导致无限循环</li>
-<li><strong>正则序（Normal Order）</strong>：先展开函数体（最外，最左），直到无法继续归约时才对参数求值。类似于惰性求值（如Haskell）。by 标准化定理（Standardization Theorem），保证归约到beta范式</li>
+                <ul>
+<li><input checked="" disabled="" type="checkbox"> 资料 ✅ 2025-07-06</li>
+<li><input checked="" disabled="" type="checkbox"> Matlab环境 🔼 ✅ 2025-07-06</li>
+<li><input disabled="" type="checkbox"> 自己做一个练手🔼 </li>
+<li><input disabled="" type="checkbox"> 合作一个磨合🔼</li>
 </ul>
-<p>eg (λx.y)(Ω)</p>
-<ul>
-<li><strong>正则序</strong>：<ol>
-<li>最左最外的redex是 (λx.y)(Ω)。</li>
-<li>归约得到 y（直接得到范式，不计算 Ω）。</li>
-</ol>
+<h1 id="分工"><a href="#分工" class="headerlink" title="分工"></a>分工</h1><p>模型建立：基于实际问题构建数学模型<br>实物模型<br>物理模型<br>数学模型</p>
+<p>模型实现：针对模型进行求解实现<br>代码编程实现：Matlab、python、C\C++<br>软件实现：SPSS、SPSSPRO、excel工具箱</p>
+<p>论文写作：写出文档描述建模与求解</p>
+<h1 id="论文"><a href="#论文" class="headerlink" title="论文"></a>论文</h1><h2 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h2><ul>
+<li><input checked="" disabled="" type="checkbox"> 结构&gt;看范文 🔼 ✅ 2025-07-07<br>题目、摘要、关键词<br>问题重述：背景资料、需要解决的问题<br>问题的分析：逐个问题分析<br>模型的假设与符号说明：模型的假设与合理性分析、符号的说明<br>问题的模型建立与求解：基于…的模型（…、…的检验求解、模型的结果分析）<br>模型的评价与改进方向：模型的优点、模型的缺点、（误差分析）、模型的改进方向<br>参考文献</li>
+</ul>
+<h2 id="AI选择"><a href="#AI选择" class="headerlink" title="AI选择"></a>AI选择</h2><p>避免国内AIGC检测：Claude（编程）、GPT</p>
+<p>标注AI生成内容方便后续调整</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>我是一名&#x3D;&#x3D;数学建模指导老师&#x3D;&#x3D;，可以根据我给出的题目，写出详细的解题思路嘛</p>
+<p>对于问题分析，首先简要地描述该问题+该问题求解思路+该问题求解中可能使用的模型+进一步可以改进的创新点，然后以表格的形式进行总结：题号|题目|涉及专业|涉及模型|涉及算法|数据处理方式|综合难度（5分制）</p>
+<h2 id="问题重述-分析"><a href="#问题重述-分析" class="headerlink" title="问题重述&amp;分析"></a>问题重述&amp;分析</h2><p>基于该背景写出800字的背景描述<br>请基于该背景写出800字的研究现状</p>
+<p>请&#x3D;&#x3D;重新描述&#x3D;&#x3D;这几个问题以达到降重的目的<br>文献综述：需要用原版AI的深度搜索，同时需要验证</p>
+<p>（跳过了模型的假设与符号说明）</p>
+<h2 id="问题的模型建立与求解"><a href="#问题的模型建立与求解" class="headerlink" title="问题的模型建立与求解"></a>问题的模型建立与求解</h2><p>(引用任务)对于这一任务, 写出MATLAB代码<br>根据我写出的代码写出详细的使用文字+&#x3D;&#x3D;公式&#x3D;&#x3D;的形式进行描述，不用分条，一段一段地进行描述，描述中不要再出现函数变量名称使用文字或者公式替代，可视化部分不需要描述，要</p>
+<p>(对于生成的图)请对该可视化结果进行详细的文字描述，不用分条展示，控制在200字左右</p>
+<h2 id="摘要-关键词"><a href="#摘要-关键词" class="headerlink" title="摘要+关键词"></a>摘要+关键词</h2><p>请根据我的求解思路，写出模型的摘要，要求：<br>1、第一段 两句话 第一句为背景描述、第二句为研究问题<br>2、第二三四五六段，分别为数据处理、问题一二三四五进行描述。<br>3、最后一段为总阶段。<br>在描述问题中，需要首先描述一下研究的问题具体是什么，具体求解过程、求解出的结果。最终如果有创新点、特色可以在最后一段进行说明<br>再写出关键词，要求：关键词主要为三个方向，4-5个词，分别为研究问题、使用模型、求解算法</p>
+<p><em>AI写完再加一些数据</em></p>
+<h2 id="模型假设-符号说明"><a href="#模型假设-符号说明" class="headerlink" title="模型假设&amp;符号说明"></a>模型假设&amp;符号说明</h2><p>假设主要为三种方向<br>1、题目给出的相关假设<br>2、根据解题所需要的假设<br>3、后续解题所做的必要的模型假设</p>
+<p>请基于以上所有内容，生成 符号说明，以表格的形式呈现</p>
+<h2 id="模型的评价-改进方向"><a href="#模型的评价-改进方向" class="headerlink" title="模型的评价&amp;改进方向"></a>模型的评价&amp;改进方向</h2><p>请基于研究内容，写出模型的优点、缺点，分条陈述</p>
+<p>请基于研究内容，写出模型推广，不用分条</p>
+<h2 id="去AI味润色"><a href="#去AI味润色" class="headerlink" title="去AI味润色"></a>去AI味润色</h2><p>Replace all transition words and conjunctions inthe sentences with the most basic and commonlyused ones.Use simple expressions,avoidingcomplex vocabulary.Ensure the logicalconnections between sentences are clear.Deletesthe conclusion part in the end of the text.<br>将所有的句子过渡词和连接词替换为最基础、最常用的词语。 尽量使用简单、直接的表达方式，避免使用复杂或生僻的词汇，确保句子之间的逻辑关系清晰，删掉文末总结的部分。</p>
+<p>Rewrite the above text. The writing style shouldbalance between formal academic writing andconversational expression.Ensure that everysentence has a clear subject. Avoid using long orcomplex sentences.Use short sentences as muchas possible.<br>将以上文字重新修改，写作风格界于书面学术写作和口语描述之间，保证所有的句子都要有主语不要用复杂的长难句，尽量用短句输出。替换掉所有的非日常词汇。</p>
+<h1 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h1><h2 id="数据收集"><a href="#数据收集" class="headerlink" title="数据收集"></a>数据收集</h2><p>通过内部或外部的数据源收集数据，包括实验、调查、日志文件、数据爬等，以确保是精准有用需要的数据</p>
+<p>已有数据+<a href="38%E4%B8%AA%E5%AE%8C%E5%85%A8%E5%8F%AF%E7%94%A8%E6%95%B0%E6%8D%AE%E5%BA%93.xlsx">常见数据</a>+AI</p>
+<h2 id="数据探索"><a href="#数据探索" class="headerlink" title="数据探索"></a>数据探索</h2><p>数据可视化:  通过可视化了解数据的分布、趋势和关系。例如，绘制直方图、柱状图、箱线图等，以识别潜在的异常值、缺失值和数据分布<br>WPS-&gt;SPSSPRO</p>
+<h2 id="数据清洗"><a href="#数据清洗" class="headerlink" title="数据清洗"></a>数据清洗</h2><p>异常值: 检测和处理数据中的异常值<br>逻辑异常, 边缘值异常(正态-&gt;3σ, 一般-&gt;箱型图: 上下四分点, 孤立森林??), </p>
+<p>缺失值: 删除或填补缺失的数据<br>差值, 拟合</p>
+<h2 id="数据集成"><a href="#数据集成" class="headerlink" title="数据集成"></a>数据集成</h2><ul>
+<li>数据合并<ul>
+<li>将来自不同来源的数据整合到一个数据集中</li>
+</ul>
 </li>
-<li><strong>应用序</strong>：<ol>
-<li>先归约参数 Ω，导致无限循环，永远无法得到 y。<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">f</span>():<br>	<span class="hljs-keyword">return</span> f()+<span class="hljs-number">1</span><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">g</span>(<span class="hljs-params">x,y</span>):<br>	<span class="hljs-keyword">return</span> y<br>g(f(),<span class="hljs-number">1</span>)<br><br></code></pre></td></tr></table></figure></li>
-</ol>
+<li>数据重组<ul>
+<li>重新组织数据结构，如从长格式转换为宽格式或反之亦然</li>
+</ul>
 </li>
 </ul>
-<p>Type<br>$$<br>\lambda b^{\text{boolen}}<br>$$</p>
-<h1 id="Curry-Howard-同构"><a href="#Curry-Howard-同构" class="headerlink" title="Curry-Howard 同构"></a>Curry-Howard 同构</h1><p>$$<br>A\to B~\sim ~A\Rightarrow B<br>$$</p>
-
+<h2 id="数据简化"><a href="#数据简化" class="headerlink" title="数据简化"></a>数据简化</h2><p>特征选择: 选择对模型有用的特征，[降维](C:\Users\liuSu\Projects\数学建模\learn\第三节 数据预处理\附件资料\5、数据简化\降维)</p>
+<ul>
+<li><input disabled="" type="checkbox"> 降维原理🔼<br>线性, 非线性</li>
+</ul>
+<p>特征提取: 通过技术手段（如PCA）来提取主要特征</p>
+<h2 id="结果展示"><a href="#结果展示" class="headerlink" title="结果展示"></a>结果展示</h2><p>展示处理完的数据</p>
+<h1 id="优化模型"><a href="#优化模型" class="headerlink" title="优化模型"></a>优化模型</h1><p>目标函数, 约束条件, 决策变量</p>
+<h2 id="运输问题"><a href="#运输问题" class="headerlink" title="运输问题"></a>运输问题</h2><h2 id="旅行商问题"><a href="#旅行商问题" class="headerlink" title="旅行商问题"></a>旅行商问题</h2><h2 id="用料问题"><a href="#用料问题" class="headerlink" title="用料问题"></a>用料问题</h2><h2 id="指派问题"><a href="#指派问题" class="headerlink" title="指派问题"></a>指派问题</h2>
                 
               </div>
             
@@ -313,8 +331,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>λ-calculus</div>
-      <div>http://kaelvio.com/Blog/λ-calculus/</div>
+      <div>数学建模</div>
+      <div>http://kaelvio.com/Blog/数学建模/</div>
     </div>
     <div class="license-meta">
       
@@ -326,14 +344,9 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年6月16日</div>
+          <div>2025年7月9日</div>
         </div>
       
-      
-        <div class="license-meta-item license-meta-date">
-          <div>更新于</div>
-          <div>2025年6月26日</div>
-        </div>
       
       
         <div class="license-meta-item">
@@ -375,9 +388,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Blog/%E5%B1%B1%E6%B5%B79000/" title="山海9000">
+                      <a href="/Blog/%E6%95%B0%E5%AD%A6%E6%A0%BC%E5%BC%8F/" title="数学格式">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">山海9000</span>
+                        <span class="hidden-mobile">数学格式</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -385,8 +398,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Blog/%E3%80%8A%E5%BF%83%E6%9C%89%E7%8C%9B%E8%99%8E%EF%BC%8C%E7%BB%86%E5%97%85%E8%94%B7%E8%96%87%E3%80%8B/" title="《心有猛虎，细嗅蔷薇》">
-                        <span class="hidden-mobile">《心有猛虎，细嗅蔷薇》</span>
+                      <a href="/Blog/%E5%AF%86%E7%A0%81%E5%AD%A6/" title="密码学">
+                        <span class="hidden-mobile">密码学</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -409,7 +422,7 @@
         var options = Object.assign(
           {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: '059ff16c4b71a8a951064b9559d0d447'
+            id: '24644ff03acc1f42be477dfc96f19977'
           }
         )
         var gitalk = new Gitalk(options);

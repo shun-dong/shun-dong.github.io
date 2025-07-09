@@ -26,10 +26,12 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="类structure:类inductive:递归定义类class:类型类:方法 类型论degree &amp; universe   sort type term    Prop (Sort 0) True True.intro   Type (Sort 1) Bool true   Type 1 (Sort 2) Nat → Type fun n &#x3D;&gt; Fin n   Type">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-06-16T08:35:03.174Z">
-<meta property="article:modified_time" content="2025-06-26T03:56:59.203Z">
+<meta property="og:image" content="http://kaelvio.com/images/type,logic,category.png">
+<meta property="article:published_time" content="2025-07-09T01:48:02.707Z">
+<meta property="article:modified_time" content="2025-07-09T01:48:02.708Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://kaelvio.com/images/type,logic,category.png">
   
   
   
@@ -198,8 +200,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-06-16 16:35" pubdate>
-          2025年6月16日 下午
+        <time datetime="2025-07-09 09:48" pubdate>
+          2025年7月9日 上午
         </time>
       </span>
     
@@ -210,7 +212,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          398 字
+          833 字
         
       </span>
     
@@ -221,7 +223,7 @@
         
         
         
-          4 分钟
+          7 分钟
         
       </span>
     
@@ -263,7 +265,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2025年6月26日 中午
+                    本文最后更新于 2025年7月9日 上午
                   
                 
               </p>
@@ -318,24 +320,39 @@
 </tbody></table>
 <h2 id="polymorphic"><a href="#polymorphic" class="headerlink" title="polymorphic"></a>polymorphic</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs lean">#check List<br>-- List.&#123;u&#125; (α : Type u) : Type u<br>universe u<br>def F (α : Type u) : Type u := Prod α α<br>#check F<br>-- <br></code></pre></td></tr></table></figure>
 <p>实际上这里的u不是目标语言的项，应该把 Type u 看成一个整体</p>
+<h2 id="dependent"><a href="#dependent" class="headerlink" title="dependent"></a>dependent</h2><p>types can depend on parameters<br>如果类型签名写<code>Type → α → List α → List α</code> α的指代不清晰<br>建议写<code>cons (α : Type) (a : α) (as : List α) : List α</code><br>&#x2F;[[fu语言]] <code>cons α : Type : α → List α → List α</code><br>在 Haskell 中，<code>cons</code> 的类型是隐式多态的：<code>cons :: α -&gt; [α] -&gt; [α]</code>: 类型变量 <code>α</code> 由类型推断自动填充，无需显式传递 <code>Type</code> 参数。</p>
+<p>dependent function type, or dependent arrow type, Pi-type:<br><code>α : Type</code> and <code>β : α → Type</code> i.e. <code>β: (a : α) → β a</code> also writen as $\prod _{a <del>:</del>\alpha} ~\beta ~a$</p>
+<p>dependent Cartesian product types <code>(a : α) × β a</code>  also writen as $\sum _{a <del>:</del>\alpha} ~\beta ~a$<br>eg.<code>godown := Sigma (λ n : Nat =&gt; Fin n)</code>  &lt;2,1&gt;:godown</p>
+<h2 id="Implicit-Arguments"><a href="#Implicit-Arguments" class="headerlink" title="Implicit Arguments"></a>Implicit Arguments</h2><p><code>def bs : Lst Nat := Lst.cons _ 5 (Lst.nil _)</code><br><code>def Lst.cons &#123;α : Type u&#125; (a : α) (as : Lst α) : Lst α := List.cons a as</code></p>
+<p>Lean 为了类型推断和后续泛化方便，在你没有指定具体类型参数时，用 <code>?m.n</code> 这种形式“占位”。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs lean">#check (ident)<br>-- @ident ?m.403 → ?m.403<br>#check ident<br>-- ident.&#123;u&#125; &#123;α : Type u&#125; (x : α) : α<br>#check @ident<br>-- @ident : &#123;α : Type u_1&#125; → α → α<br></code></pre></td></tr></table></figure>
+<p>括号减少 “signature 损耗&#x2F;粉饰” i.e. <code>(ident)</code> 的括号阻止了 Lean 自动展开 <code>ident</code> 的定义，因此只显示其未实例化的类型, Lean 仅检查 <strong>部分应用</strong> 的 <code>ident</code>（未提供隐式参数 <code>α</code>），因此类型暂时无法确定<br> @ident（显式化所有隐式参数）</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-id">#check</span> (List.nil)<br><span class="hljs-selector-tag">--</span> <span class="hljs-selector-attr">[]</span> : <span class="hljs-selector-tag">List</span> ?<span class="hljs-selector-tag">m</span><span class="hljs-selector-class">.2</span><br><span class="hljs-selector-id">#check</span> (List.<span class="hljs-attribute">nil </span>: List Nat)<br><span class="hljs-selector-tag">--</span> <span class="hljs-selector-attr">[]</span> : <span class="hljs-selector-tag">List</span> <span class="hljs-selector-tag">Nat</span><br></code></pre></td></tr></table></figure>
+<p>The process of instantiating these “holes,” or “placeholders,” in a term is often known as <em>elaboration</em>.细化</p>
 <h2 id=""><a href="#" class="headerlink" title=""></a><a href="/Blog/%CE%BB-calculus/" title="λ-calculus">λ-calculus</a></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs lean">(λ x : Nat =&gt; x + 5) 10<br>#check (λ x  =&gt; x + 1 : Nat → Nat)<br></code></pre></td></tr></table></figure>
 <p>x: bound variable</p>
 <p>def<br>let : Lean also allows you to introduce “local” definitions using the <code>let</code> keyword. The expression <code>let a := t1; t2</code> is definitionally equal to the result of replacing every occurrence of <code>a</code> in <code>t2</code> by <code>t1</code>.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs lean">variable (x : α)<br>def  f :=  x + x<br><br>section useful<br>  variable (α β γ : Type)<br>  variable (g : β → γ) (f : α → β) (h : α → α)<br>  variable (x : α)<br><br>  def compose := g (f x)<br>  def doTwice := h (h x)<br>  def doThrice := h (h (h x))<br>end useful<br><br>namespace Foo<br>  def a : Nat := 5<br>  def f (x : Nat) : Nat := x + 7<br>end Foo<br><br>open Foo<br><br>#check a<br>-- Foo.a : Nat<br></code></pre></td></tr></table></figure>
 
-<h1 id="Curry-Howard-同构"><a href="#Curry-Howard-同构" class="headerlink" title="Curry-Howard 同构"></a>Curry-Howard 同构</h1><p>命题即类型</p>
+<h1 id="Curry-Howard-同构"><a href="#Curry-Howard-同构" class="headerlink" title="Curry-Howard 同构"></a>Curry-Howard 同构</h1><p> the type <code>Prop</code> is syntactic sugar for <code>Sort 0</code>(类型中的一种), <code>Type u</code> is also just syntactic sugar for <code>Sort (u+1)</code><br>命题即类型</p>
 <ul>
 <li>而Prop是类型的类型</li>
-<li>依赖变量的Prop依然是Prop<br>Proof,Theorem,Lemma,Colloray本身是某个Prop的项, 证明即程序</li>
+<li>依赖变量的Prop依然是Prop<br>Theorem,Lemma,Colloray本身是某个Prop的项, 证明即程序</li>
 <li>一个Prop如果有项则为真</li>
 </ul>
-<p>head 名称 (输入:类型): 类型 :&#x3D; 值<br>theorem name : Prop:&#x3D; Proof<br>example&#x3D;Theorem foo</p>
+<p>we can use the usual function space constructor <code>p → q</code> from dependent type theory as our notion of implication.</p>
+<p>A是B A:B<br>对p : Prop i.e. Sort 0 , t1 t2 : p , 认为 t1 t2 是定义等价的 , sort 0 的性质, 即更低的层级没有意义, 即只是形式上的东西.语法|语义<br>From the constructive point of view, proofs are abstract mathematical objects that are <em>denoted</em> by suitable expressions in dependent type theory.<br>we will slip back and forth between these two ways of talking, at times saying that an expression “&#x3D;&#x3D;constructs&#x3D;&#x3D;” or “produces” or “returns” a proof of a proposition, and at other times simply saying that it “is” such a proof. This is similar to the way that computer scientists occasionally blur the distinction between syntax and semantics by saying, at times, that a program “computes” a certain function, and at other times speaking as though the program “is” the function in question.<br> To <em>prove</em> that assertion, we need to exhibit a term <code>t : p</code>.</p>
+<p>head 名称 (输入:类型): 类型 :&#x3D; 值<br>theorem name : Prop:&#x3D; Proof<br>example&#x3D;Theorem foo<br>the <code>#print</code> command will show you the proof of a theorem:</p>
+<p><code>And.intro h1 h2</code> | <code>p And q</code></p>
 <ul>
-<li><code>∀ x, P(x)</code> 对应依赖函数类型 <code>(x : X) → P x</code>。</li>
-<li><code>∃ x, P(x)</code> 对应依赖对类型 <code>&#123;x : X // P x&#125;</code>这里的&#x2F;&#x2F;理解为and 反而更好<br>量词范围默认向右延伸到表达式结束</li>
+<li><code>∀ x, P(x)</code> 对应依赖函数类型 <code>(x : X) → P x</code>i.e $\prod _{a <del>:</del>\alpha} ~\beta ~a$ 是指数对象的推广 $\beta ^\alpha$</li>
+<li><code>∃ x, P(x)</code> 对应依赖对类型 <code>&#123;x : X // P x&#125;</code> i.e. $\sum _{a <del>:</del>\alpha} ~\beta ~a$ 是乘积对象的推广 $\alpha \times\beta$<br>量词范围默认向右延伸到表达式结束</li>
 </ul>
+<p>此时，<code>Σ (n : ℕ), n % 2 = 0</code> 的类型仍然是 <code>Type</code>（偶数类型），但它的 <strong>可居性</strong> 被解释为命题的真假。</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-type">Even</span> a <span class="hljs-keyword">where</span></span><br>  isEven :: a -&gt; <span class="hljs-type">Bool</span><br><span class="hljs-class"></span><br><span class="hljs-class"><span class="hljs-keyword">instance</span> <span class="hljs-type">Even</span> <span class="hljs-type">Integer</span> <span class="hljs-keyword">where</span></span><br>  isEven n = n `mod` <span class="hljs-number">2</span> == <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs lean4">class EvenProp (α : Type) where<br>  Even : α → Prop       -- 将性质定义为命题<br>  decide : ∀ n : α, Decidable (Even n)  -- 可判定性<br><br>instance : EvenProp Nat where<br>  Even n := n % 2 = 0<br>  decide n := inferInstance  -- 自动推断 Decidable (n % 2 = 0)<br><br>-- 判断 4 是否为偶数<br>#eval decide (EvenProp.Even 4)  -- 输出 true<br></code></pre></td></tr></table></figure>
+
+<p><img src="/images/type,logic,category.png" srcset="/img/loading.gif" lazyload></p>
 <h1 id="证明策略"><a href="#证明策略" class="headerlink" title="证明策略"></a>证明策略</h1><p>rfl<br>rw$\iff$</p>
 <ul>
 <li>repeat rw</li>
@@ -386,13 +403,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年6月16日</div>
+          <div>2025年7月9日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年6月26日</div>
+          <div>2025年7月9日</div>
         </div>
       
       
@@ -435,9 +452,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Blog/%CE%BB-calculus/" title="λ-calculus">
+                      <a href="/Blog/%E4%BA%9A%E6%96%87%E5%8C%96/" title="亚文化">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">λ-calculus</span>
+                        <span class="hidden-mobile">亚文化</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -445,8 +462,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Blog/%E3%80%8A%E5%BF%83%E6%9C%89%E7%8C%9B%E8%99%8E%EF%BC%8C%E7%BB%86%E5%97%85%E8%94%B7%E8%96%87%E3%80%8B/" title="《心有猛虎，细嗅蔷薇》">
-                        <span class="hidden-mobile">《心有猛虎，细嗅蔷薇》</span>
+                      <a href="/Blog/git/" title="git">
+                        <span class="hidden-mobile">git</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
