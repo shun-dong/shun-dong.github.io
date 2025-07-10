@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>密码学</title>
+    <link href="/Blog/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
+    <url>/Blog/%E5%AF%86%E7%A0%81%E5%AD%A6/</url>
+    
+    <content type="html"><![CDATA[<blockquote><p>无论输入什么,输出的都是自由<br>@[[A_Cypherpunk’s_Manifesto]]</p></blockquote><h1 id="单表替换密码"><a href="#单表替换密码" class="headerlink" title="单表替换密码"></a>单表替换密码</h1><p>eg. 凯撒密码<br><img src="/images/Pasted_image_20250708163216.jpg"><br>破解: 频率分析</p><h1 id="多表轮换密码"><a href="#多表轮换密码" class="headerlink" title="多表轮换密码"></a>多表轮换密码</h1><p>eg.维吉尼亚密码<br><img src="/images/Pasted_image_20250708163814.png"><br>密钥: 一个单词<br>循环用这个单词查询明文<br>破解: 猜测密钥长度<br>密钥长于密文:一次性密码本不可破解</p><p>enigma密码<br>破解: 明文与密文不同, 用计算机</p><h1 id="熵"><a href="#熵" class="headerlink" title="熵"></a>熵</h1><p>GitGuardian has detected the following Generic High Entropy Secret exposed within your GitHub account.<br><a href="https://github.com/shun-dong/obsidian-assistance-shanhai9000/commit/42082c2be56c45313963824663b33e60972f5607#diff-564c860307257bfac9176f554a35aa858c350a59d75c0dcd0a5d63a480805bd0R109">Generic High Entropy Secret</a></p><h1 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h1><p>公开的密钥<br>单向函数(不是单射): 明文$\xrightarrow{密钥}$密文$\not\xrightarrow{密钥}$明文<br>陷门: 缺陷, 单向函数的可逆限制</p><p>$m明文\xrightarrow{e公钥,N}c密文\xrightarrow{d私钥}m明文$<br>公钥给别人, 私钥自己留着, 对方用公钥发来消息, 自己用私钥破解<br>只需要2N个密钥</p><h2 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h2><p>加密$m^e\mod N &#x3D; c$<br>解密$c^d \mod N&#x3D;m,where ~m^{ed} \mod N &#x3D;m$ Pf.环同态</p><p>欧拉定理若a、n互素，则$a^{φ(n)}\mod n&#x3D;1$</p><ul><li><input disabled="" type="checkbox"> Pf<br>|–$ed &#x3D;k\varphi (N)+1$<br>令d为满足条件的最小自然数<br>Algorithm.拓展欧几里得算法solve $ed &#x3D;k\varphi (N)+1$</li></ul><p>$$<br> \varphi(N) &#x3D; N \prod_{i&#x3D;1}^r \left( 1 - \frac{1}{p_i} \right)  , where~  N &#x3D; p_1^{k_1} p_2^{k_2} \cdots p_r^{k_r} \quad p_i<del>is</del>prime<br>$$<br>单向性: 素因数分解<br>接收者先生成p, 实际中$N&#x3D;p_1p_2$</p><p>实际上是对称密码(如AES)加密明文, 非对称加密密钥</p><h1 id="签名"><a href="#签名" class="headerlink" title="签名"></a>签名</h1><p>注意到RSA中私钥和公钥实际上是对称的, 即可以发送以私钥加密的密码用公钥破解, 可以用于验证身份</p><p>但是RSA本身计算量大<br>哈希算法: 任意长数据-&gt;定长哈希值(摘要)$\xrightarrow{用发送方的私钥RSA}$签名<br>验签: 接收者用发送方的公钥解密签名用自己的私钥解密密文并计算哈西, 进行比对</p><p>CA（Certificate Authority），即证书授权中心, 证明主体和公钥的联系</p><h2 id="SHA-Secure-Hash-Algorithm"><a href="#SHA-Secure-Hash-Algorithm" class="headerlink" title="SHA(Secure Hash Algorithm)"></a>SHA(Secure Hash Algorithm)</h2><p>hash: 切碎并搅拌<br>哈希函数的输出应接近均匀分布，最大化熵以防止碰撞和原像攻击</p><ul><li><input disabled="" type="checkbox"> 写一个非对称加密程序🔼<br>只能d_n&#x3D;1</li></ul><h1 id="DES"><a href="#DES" class="headerlink" title="DES"></a>DES</h1><p>疑惑<br>混淆<br>扩散<br>![[Pasted_image_20250708233054.png|200]]<br>加密&#x3D;解密</p><h1 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h1><p>ECB:电子密码本: 直接拼接</p><p>CBC密码分组链条…<br>要求每次加密的IV（初始化向量）具有高熵，否则可能被利用泄漏明文信息。</p><h1 id="GF-256"><a href="#GF-256" class="headerlink" title="GF(256)"></a>GF(256)</h1><p>加法改为按位异或, 乘法为按位与<br>多项式表达:<br>本源多项式f(x)<br>$GF(256)&#x3D;F_2[x]&#x2F;(f(x))$<br><strong>有限域定理</strong>：当且仅当域的大小为 $p^n$（pp 为质数，n≥1n≥1）时，有限域存在</p><h1 id="AES"><a href="#AES" class="headerlink" title="AES"></a>AES</h1>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>雨循环26_热爱</title>
     <link href="/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF26_%E7%83%AD%E7%88%B1/"/>
     <url>/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF26_%E7%83%AD%E7%88%B1/</url>
@@ -22,19 +35,6 @@
     <url>/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF27_%E9%95%BF%E5%A4%8F/</url>
     
     <content type="html"><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>密码学</title>
-    <link href="/Blog/%E5%AF%86%E7%A0%81%E5%AD%A6/"/>
-    <url>/Blog/%E5%AF%86%E7%A0%81%E5%AD%A6/</url>
-    
-    <content type="html"><![CDATA[<blockquote><p>无论输入什么,输出的都是自由<br>@[[A_Cypherpunk’s_Manifesto]]</p></blockquote><h1 id="单表替换密码"><a href="#单表替换密码" class="headerlink" title="单表替换密码"></a>单表替换密码</h1><p>eg. 凯撒密码<br><img src="/images/Pasted_image_20250708163216.jpg"><br>破解: 频率分析</p><h1 id="多表轮换密码"><a href="#多表轮换密码" class="headerlink" title="多表轮换密码"></a>多表轮换密码</h1><p>eg.维吉尼亚密码<br><img src="/images/Pasted_image_20250708163814.png"><br>密钥: 一个单词<br>循环用这个单词查询明文<br>破解: 猜测密钥长度<br>密钥长于密文:一次性密码本不可破解</p><p>enigma密码<br>破解: 明文与密文不同, 用计算机</p><h1 id="熵"><a href="#熵" class="headerlink" title="熵"></a>熵</h1><p>GitGuardian has detected the following Generic High Entropy Secret exposed within your GitHub account.<br><a href="https://github.com/shun-dong/obsidian-assistance-shanhai9000/commit/42082c2be56c45313963824663b33e60972f5607#diff-564c860307257bfac9176f554a35aa858c350a59d75c0dcd0a5d63a480805bd0R109">Generic High Entropy Secret</a></p><ul><li><input disabled="" type="checkbox"> </li></ul><h1 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h1><p>公开的密钥<br>单向函数(不是单射): 明文$\xrightarrow{密钥}$密文$\not\xrightarrow{密钥}$明文<br>陷门: 缺陷, 单向函数的可逆限制</p><p>$m明文\xrightarrow{e公钥,N}c密文\xrightarrow{d私钥}m明文$<br>公钥给别人, 私钥自己留着, 对方用公钥发来消息, 自己用私钥破解<br>只需要2N个密钥</p><h2 id="RSA"><a href="#RSA" class="headerlink" title="RSA"></a>RSA</h2><p>加密$m^e\mod N &#x3D; c$<br>解密$c^d \mod N&#x3D;m,where ~m^{ed} \mod N &#x3D;m$ Pf.环同态</p><p>欧拉定理$a^{φ(n)}\mod n&#x3D;1$</p><ul><li><input disabled="" type="checkbox"> Pf<br>|–$ed &#x3D;k\varphi (N)+1$<br>令d为满足条件的最小自然数<br>Algorithm.拓展欧几里得算法solve $ed &#x3D;k\varphi (N)+1$</li></ul><p>$$<br> \varphi(N) &#x3D; N \prod_{i&#x3D;1}^r \left( 1 - \frac{1}{p_i} \right)  , where~  N &#x3D; p_1^{k_1} p_2^{k_2} \cdots p_r^{k_r} \quad p_i<del>is</del>prime<br>$$<br>单向性: 素因数分解<br>接收者先生成p, 实际中$N&#x3D;p_1p_2$</p><p>实际上是对称密码(如AES)加密明文, 非对称加密密钥</p><h1 id="签名"><a href="#签名" class="headerlink" title="签名"></a>签名</h1><p>注意到RSA中私钥和公钥实际上是对称的, 即可以发送以私钥加密的密码用公钥破解, 可以用于验证身份</p><p>但是RSA本身计算量大<br>哈希算法: 任意长数据-&gt;定长哈希值(摘要)$\xrightarrow{用发送方的私钥RSA}$签名<br>验签: 接收者用发送方的公钥解密签名用自己的私钥解密密文并计算哈西, 进行比对</p><p>CA（Certificate Authority），即证书授权中心, 证明主体和公钥的联系</p><h2 id="SHA-Secure-Hash-Algorithm"><a href="#SHA-Secure-Hash-Algorithm" class="headerlink" title="SHA(Secure Hash Algorithm)"></a>SHA(Secure Hash Algorithm)</h2><p>hash: 切碎并搅拌</p><ul><li><input disabled="" type="checkbox"> 写一个非对称加密程序🔼</li></ul><h1 id="DES"><a href="#DES" class="headerlink" title="DES"></a>DES</h1><p>疑惑<br>混淆<br>扩散<br>![[Pasted_image_20250708233054.png|200]]<br>加密&#x3D;解密</p><h1 id="分组"><a href="#分组" class="headerlink" title="分组"></a>分组</h1><p>ECB:电子密码本: 直接拼接</p><p>CBC密码分组链条…</p><h1 id="GF-256"><a href="#GF-256" class="headerlink" title="GF(256)"></a>GF(256)</h1><p>加法改为按位异或, 乘法为按位与<br>多项式表达:<br>本源多项式<br><strong>有限域定理</strong>：当且仅当域的大小为 $p^n$（pp 为质数，n≥1n≥1）时，有限域存在</p><ul><li><input disabled="" type="checkbox"> 扩域</li></ul><h1 id="AES"><a href="#AES" class="headerlink" title="AES"></a>AES</h1>]]></content>
     
     
     
