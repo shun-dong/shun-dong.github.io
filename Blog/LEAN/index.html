@@ -27,8 +27,8 @@
 <meta property="og:description" content="类structure:类inductive:递归定义类class:类型类:方法 类型论degree &amp; universe   sort type term    Prop (Sort 0) True True.intro   Type (Sort 1) Bool true   Type 1 (Sort 2) Nat → Type fun n &#x3D;&gt; Fin n   Type">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://kaelvio.com/images/type,logic,category.png">
-<meta property="article:published_time" content="2025-07-09T01:48:02.707Z">
-<meta property="article:modified_time" content="2025-07-09T01:48:02.708Z">
+<meta property="article:published_time" content="2025-07-11T02:35:48.804Z">
+<meta property="article:modified_time" content="2025-07-11T02:35:48.804Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://kaelvio.com/images/type,logic,category.png">
@@ -200,8 +200,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-07-09 09:48" pubdate>
-          2025年7月9日 上午
+        <time datetime="2025-07-11 10:35" pubdate>
+          2025年7月11日 上午
         </time>
       </span>
     
@@ -212,7 +212,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          833 字
+          1.1k 字
         
       </span>
     
@@ -223,7 +223,7 @@
         
         
         
-          7 分钟
+          10 分钟
         
       </span>
     
@@ -261,14 +261,6 @@
         <div id="board">
           <article class="post-content mx-auto">
             <h1 id="seo-header">LEAN</h1>
-            
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    本文最后更新于 2025年7月9日 上午
-                  
-                
-              </p>
             
             
               <div class="markdown-body">
@@ -353,27 +345,52 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs lean4">class EvenProp (α : Type) where<br>  Even : α → Prop       -- 将性质定义为命题<br>  decide : ∀ n : α, Decidable (Even n)  -- 可判定性<br><br>instance : EvenProp Nat where<br>  Even n := n % 2 = 0<br>  decide n := inferInstance  -- 自动推断 Decidable (n % 2 = 0)<br><br>-- 判断 4 是否为偶数<br>#eval decide (EvenProp.Even 4)  -- 输出 true<br></code></pre></td></tr></table></figure>
 
 <p><img src="/images/type,logic,category.png" srcset="/img/loading.gif" lazyload></p>
-<h1 id="证明策略"><a href="#证明策略" class="headerlink" title="证明策略"></a>证明策略</h1><p>rfl<br>rw$\iff$</p>
+<h1 id="证明策略-tactic"><a href="#证明策略-tactic" class="headerlink" title="证明策略(tactic)"></a>证明策略(tactic)</h1><p>实际上本来就有这些参数, 只是lean可以结合上下文自动推断<br>默认作用在goal上, 可以用at 指定对象, ⊢指当前目标<br>注意名称中都是是下划线</p>
+<p>rfl</p>
+<p>exact: Now you could finish with <code>rw [h]</code> then <code>rfl</code>, but <code>exact h</code> does it in one line.</p>
 <ul>
-<li>repeat rw</li>
-<li>rw [add_zero c]</li>
-<li>rw [\l h]</li>
-<li>nth-rewrite n [h]</li>
-<li>rw [zero_add] at h<br>symm<br>exact</li>
-<li>doesn’t just take hypotheses, it will eat any proof which exists in the system.<br>apply$\Rightarrow$</li>
-<li>apply h1 at  h2<br>intro h</li>
+<li>doesn’t just take hypotheses, it will eat any proof which exists in the system.<br>exact succ_eq_add_one x相当于把(n : ℕ) : MyNat.succ n &#x3D; n + 1反着用</li>
 </ul>
+<p>trivial: If you can turn your goal into <code>True</code>, then the <code>trivial</code> tactic will solve it.</p>
+<p>rw</p>
+<ul>
+<li>repeat rw: 注意对 add_comm会带来死循环, 但是可以 add_comm n</li>
+<li>rw [add_zero c]: 实际上本来就有这些参数, 只是lean可以结合上下文自动推断</li>
+<li>rw [\l h]</li>
+<li>nth_rewrite n [h] : 注意是下划线</li>
+<li>rw [zero_add] at h</li>
+</ul>
+<p>apply$\Rightarrow$</p>
+<ul>
+<li>apply h1 at  h2</li>
+<li>apply h: p -&gt;q will turn the goal q into p</li>
+</ul>
+<p>symm: apply h: a &#x3D; b -&gt; b&#x3D;a</p>
+<p>intro h will turn the gaol p -&gt; q into hypothesis p and goal q</p>
 <p>induction n with d hd</p>
 <ul>
 <li><code>d</code>指归纳步骤里出现的前一个数（即<code>n = d + 1</code>时的<code>d</code>），</li>
 <li><code>hd</code>就是归纳假设（hypothesis of induction）在<code>n = d</code>时成立的假设。</li>
 </ul>
-<p>contrapose<br>constructor<br>cases<br>left right<br>have</p>
-<p>use</p>
-<p>simp only [add_assoc, add_left_comm, add_comm]<br>decide<br>tauto<br>trivial</p>
-<p><code>a ≠ b</code> is <em>notation</em> for <code>a = b → False</code></p>
-<p>forward | backward</p>
+<p>contrapose: 逆否,<code>contrapose! h</code> !表示自动化简</p>
+<p>constructor</p>
+<p>cases:<code>cases h with c hc</code> if <code>h : a ≤ b</code><br> if you have a hypothesis <code>h : False</code> then you are done, because a false statement implies any statement.<br> cases hyz with b hb will turn x ≤ y into hb: x+b &#x3D;y</p>
+<p>left right:changes a goal of <code>P ∨ Q</code> into a goal of <code>P</code>or<code>Q</code><br>have</p>
+<p>use:<em>prove</em> an “exists” statement</p>
+<p>simp only [add_assoc, add_left_comm, add_comm]</p>
+<p>decide: <code>decide</code> will attempt to solve a goal if it can find an algorithm which it can run to solve it.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs lean">instance instDecidableEq : DecidableEq ℕ<br>| 0, 0 =&gt; isTrue &lt;| by<br>  show 0 = 0<br>  rfl<br>| succ m, 0 =&gt; isFalse &lt;| by<br>  show succ m ≠ 0<br>  exact succ_ne_zero m<br>| 0, succ n =&gt; isFalse &lt;| by<br>  show 0 ≠ succ n<br>  exact zero_ne_succ n<br>| succ m, succ n =&gt;<br>  match instDecidableEq m n with<br>  | isTrue (h : m = n) =&gt; isTrue &lt;| by<br>    show succ m = succ n<br>    rw [h]<br>    rfl<br>  | isFalse (h : m ≠ n) =&gt; isFalse &lt;| by<br>    show succ m ≠ succ n<br>    exact succ_ne_succ m n h<br></code></pre></td></tr></table></figure>
 
+<p>tauto</p>
+<p><code>a ≠ b</code> is <em>notation</em> for <code>a = b → False</code> so just intro h to use reductio ad absurdum</p>
+<p>forward | backward</p>
+<p>构造</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs lean">def pred (n : Nat) : Nat :=<br>  match n with<br>  | zero =&gt; zero  -- 约定：0 的前驱仍是 0（或有时定义为 0 无前驱）<br>  | succ k =&gt; k   -- n = k + 1 的前驱是 k<br></code></pre></td></tr></table></figure>
+<p>实际上是(-1), 但是减法还没定义, 构造保证了良定义</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs lean">def is_zero (n : Nat) : Bool :=<br>  match n with<br>  | zero =&gt; true<br>  | succ _ =&gt; false<br></code></pre></td></tr></table></figure>
+<p>实际上是(==0), 但是(==)还没定义</p>
+<h1 id="元编程"><a href="#元编程" class="headerlink" title="元编程"></a>元编程</h1><p>宏</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs lean">macro &quot;simp_add&quot; : tactic =&gt; `(tactic|(<br>  simp only [add_assoc, add_left_comm, add_comm]))<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -403,14 +420,9 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年7月9日</div>
+          <div>2025年7月11日</div>
         </div>
       
-      
-        <div class="license-meta-item license-meta-date">
-          <div>更新于</div>
-          <div>2025年7月9日</div>
-        </div>
       
       
         <div class="license-meta-item">
@@ -452,9 +464,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Blog/%E4%BA%9A%E6%96%87%E5%8C%96/" title="亚文化">
+                      <a href="/Blog/%E5%AF%86%E7%A0%81%E5%AD%A6/" title="密码学">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">亚文化</span>
+                        <span class="hidden-mobile">密码学</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -462,8 +474,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Blog/git/" title="git">
-                        <span class="hidden-mobile">git</span>
+                      <a href="/Iteration/%E9%9B%A8%E5%BE%AA%E7%8E%AF26_%E7%83%AD%E7%88%B1/" title="雨循环26_热爱">
+                        <span class="hidden-mobile">雨循环26_热爱</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
