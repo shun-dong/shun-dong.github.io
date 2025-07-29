@@ -19,21 +19,21 @@
   <meta name="author" content="采薇">
   <meta name="keywords" content="">
   
-    <meta name="description" content="快照git init 初始化仓库, 建立.git 【原理解析】让你完全搞明白Git是如何管理你的代码的】git:快照,相同的留链接 :分布式版本管理&lt;-&gt;集中:增量式工作区$\xrightarrow{add}$暂存区$\xrightarrow{commit}$代码仓库 .git一种扁平结构:内容与结构分开储存, 思路与我的obsidian类似  blob,标题:哈希值,内容:代码内容,">
+    <meta name="description" content="Robust_Prover├── README.md├── .git&#x2F;├── .gitattributes├── .gitignore└── Paper&#x2F; Proposal: Robust Mathematical Problem Solver 关于robustness：以往研究显示在提示词中加入无关信息（比如猫猫）会让模型的推理能力大幅下降（Cats Confuse Reas">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git">
-<meta property="og:url" content="http://kaelvio.com/git/index.html">
+<meta property="og:title" content="Robust_Prover">
+<meta property="og:url" content="http://kaelvio.com/Robust_Prover/index.html">
 <meta property="og:site_name" content="采薇的博客">
-<meta property="og:description" content="快照git init 初始化仓库, 建立.git 【原理解析】让你完全搞明白Git是如何管理你的代码的】git:快照,相同的留链接 :分布式版本管理&lt;-&gt;集中:增量式工作区$\xrightarrow{add}$暂存区$\xrightarrow{commit}$代码仓库 .git一种扁平结构:内容与结构分开储存, 思路与我的obsidian类似  blob,标题:哈希值,内容:代码内容,">
+<meta property="og:description" content="Robust_Prover├── README.md├── .git&#x2F;├── .gitattributes├── .gitignore└── Paper&#x2F; Proposal: Robust Mathematical Problem Solver 关于robustness：以往研究显示在提示词中加入无关信息（比如猫猫）会让模型的推理能力大幅下降（Cats Confuse Reas">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-07-29T16:17:49.105Z">
-<meta property="article:modified_time" content="2025-07-29T16:17:49.105Z">
+<meta property="article:published_time" content="2025-07-29T16:17:49.094Z">
+<meta property="article:modified_time" content="2025-07-29T16:17:49.095Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>git - 采薇的博客</title>
+  <title>Robust_Prover - 采薇的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -187,7 +187,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="git"></span>
+            <span id="subtitle" data-typed-text="Robust_Prover"></span>
           
         </div>
 
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          412 字
         
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          12 分钟
+          4 分钟
         
       </span>
     
@@ -258,57 +258,63 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">git</h1>
+            <h1 id="seo-header">Robust_Prover</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年7月30日 凌晨
+                  
+                
+              </p>
             
             
               <div class="markdown-body">
                 
-                <h1 id="快照"><a href="#快照" class="headerlink" title="快照"></a>快照</h1><p>git init 初始化仓库, 建立.git</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11z4y1X79p/?share_source=copy_web&vd_source=55f83207e6b9bcb77f93e22aac3e082a">【原理解析】让你完全搞明白Git是如何管理你的代码的】</a><br>git:快照,相同的留链接 :分布式版本管理&lt;-&gt;集中:增量式<br>工作区$\xrightarrow{add}$暂存区$\xrightarrow{commit}$代码仓库</p>
-<p>.git一种扁平结构:内容与结构分开储存, 思路与我的obsidian类似</p>
-<ul>
-<li>blob,标题:哈希值,内容:代码内容, 避免内容重复的文件占用空间</li>
-<li>tree,类似目录记录文件结构, 包含标题哈希值对应的文件标题</li>
-<li>commit, 记录版本提交信息, 包含tree、作者、前一次提交</li>
-</ul>
-<p>git add生成blob,更新暂存区tree<br>git commit生成快照(commit文件) -a先add，相当于先执行git add -u（-u&#x3D;–update更新已跟踪文件）<br>untracked$\xrightarrow{add<del>.}$tracked(已跟踪)$\xrightarrow{修改}$unstaged$\xrightarrow{add</del>-u}$staged(已暂存) to be committed</p>
-<p>git status检查当前状态<br>git log 历史提交</p>
-<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><p>git branch列出所有<strong>本地</strong>分支（当前分支前带 <code>*</code>）-r远程 -a所有<br><code>git branch &lt;new-branch&gt;</code>创建本地分支<br><code>git branch -d &lt;branch&gt;</code>删除本地分支<br><code>git branch -m &lt;old branch默认当前&gt; &lt;new branch&gt;</code>更改分支名称</p>
-<p><code>git switch/checkout &lt;branch&gt;</code>切换分支 , 推荐用switch<br><code>git checkout &lt;commit-hash/branch&gt;</code>切换到指定提交&#x2F;分支 <code>.</code>上次提交, 切换到提交进入分离头指针（Detached HEAD)<code>-</code>回到之前状态<br><code>git switch -c</code>(-c&#x3D;–create) 或 <code>git checkout -b &lt;new-branch&gt; &lt;commit-hash,默认当前&gt;</code>创建并切换到新分支<br>哈希值至少前4位</p>
-<p><code>git merge &lt;branch&gt;</code>将指定分支合并到当前分支</p>
-<ul>
-<li><p>fast-forward(无冲突)直接用原来的commit object</p>
-</li>
-<li><p>no-fast-forward: use “git merge –abort” to abort the merge;再commit后生成新的commit object</p>
-</li>
-<li><p><input disabled="" type="checkbox"> 
-Rebase</p>
-</li>
-</ul>
-<h1 id="远程"><a href="#远程" class="headerlink" title="远程"></a>远程</h1><p><code>git remote add [remote] [url]</code><br><code>git pull/fetch/push [remote] [branch]</code><br>git pull&#x3D;git fetch + git merge<br>git fetch：将远程仓库拉取到本地仓库, 在<code>.git/refs/remotes/&lt;remote-name&gt;/</code><br>git diff main origin&#x2F;main比较区别<br>git push -u origin main（ -u &#x3D; –set-upstream设置上游分支）</p>
-<h1 id="pull-request"><a href="#pull-request" class="headerlink" title="pull request"></a>pull request</h1><ol>
-<li><strong>Fork（派生）</strong>：个人先把主仓库 fork（一份拷贝）到自己账户。</li>
-<li><strong>Clone</strong> 到本地新建分支进行开发（做功能、修 bug 等）。</li>
-<li><strong>Commit</strong> 和 <strong>Push</strong> 代码到自己 fork 的仓库的新分支上。</li>
-<li><strong>在 GitHub 上发起 Pull Request</strong>，请求将自己提交的更改合并到主仓库（Upstream）的某个分支。</li>
-<li>维护者审核、讨论，无误后合并。</li>
+                <p>Robust_Prover<br>├── <a href="C:/Users/liuSu/Projects/Robust_Prover/README.md">README.md</a><br>├── <a href="C:/Users/liuSu/Projects/Robust_Prover/.git">.git&#x2F;</a><br>├── <a href="C:/Users/liuSu/Projects/Robust_Prover/.gitattributes">.gitattributes</a><br>├── <a href="C:/Users/liuSu/Projects/Robust_Prover/.gitignore">.gitignore</a><br>└── <a href="C:/Users/liuSu/Projects/Robust_Prover/Paper">Paper&#x2F;</a></p>
+<h1 id="Proposal-Robust-Mathematical-Problem-Solver"><a href="#Proposal-Robust-Mathematical-Problem-Solver" class="headerlink" title="Proposal: Robust Mathematical Problem Solver"></a>Proposal: Robust Mathematical Problem Solver</h1><ol>
+<li>关于robustness：以往研究显示在提示词中加入无关信息（比如猫猫）会让模型的推理能力大幅下降（Cats Confuse Reasoning LLM: Query Agnostic Adversarial Triggers for Reasoning Models），同时需要防范提示词注入等，增加模型的抗干扰能力</li>
+<li>关于数学：数学能力是衡量模型推理能力等重要指标，有专门的程序语言（如lean等）检查逻辑是否正确</li>
+<li>关于agent：现在数据集趋于完善，但模型处理不恰当输入和自我纠错的能力并不强，利用agent调用多种工具或许可以解决这个问题</li>
 </ol>
-<h1 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h1><p><code># 注释</code></p>
-<a href="/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">regex</a>，`**`：跨目录匹配任意字符。
-<p>以 <code>/</code> 结尾表示忽略目录（而非同名文件），不以 <code>/</code> 结尾会同时匹配文件和目录, Git 忽略目录时，其下的所有内容（文件和子目录）都将被忽略。<br>默认表示匹配所有位置的文件, 以 <code>/</code> 开头表示从项目根目录开始匹配，默认从 <code>.gitignore</code> 所在目录的相对路径开始匹配。</p>
-<p>使用 <code>!</code> 前缀强制包含某个文件或目录，从根目录开始匹配，和顺序有关<br><code>!dir/</code> 只允许该目录本身（作为目录结构）被追踪，不自动解封该目录下的文件</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs gitignore">*<br>!iCloudDrive/<br>!iCloudDrive/iCloud~md~obsidian/<br>!iCloudDrive/iCloud~md~obsidian/Note/<br>!iCloudDrive/iCloud~md~obsidian/Note/**/<br>!iCloudDrive/iCloud~md~obsidian/Note/**/*.md<br></code></pre></td></tr></table></figure>
-
-<p><code>.gitignore</code> 仅对<strong>未跟踪的文件</strong>生效。若文件已被 Git 跟踪，需先删除其缓存</p>
-<h1 id="LFS-Large-File-Storage"><a href="#LFS-Large-File-Storage" class="headerlink" title="LFS(Large File Storage)"></a>LFS(Large File Storage)</h1><p>将大文件外部储存, 仓库内仅留链接</p>
-<p>需要额外下载:git install git-lfs</p>
-<p>初始化仓库时:</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">git lfs install<br>git lfs track <span class="hljs-string">&quot;*.bin&quot;</span><br>git lfs track <span class="hljs-string">&quot;*.zip&quot;</span><br>git lfs track <span class="hljs-string">&quot;*.pptx&quot;</span><br></code></pre></td></tr></table></figure>
-<p>lfs track 会修改.gitattributes</p>
-<h1 id="隐私"><a href="#隐私" class="headerlink" title="隐私"></a>隐私</h1><p>git push会提交所有历史<br>确保commit时不要包含密码</p>
-<h1 id="LF-CRLF"><a href="#LF-CRLF" class="headerlink" title="LF&amp;CRLF"></a>LF&amp;CRLF</h1><p>git 的 Windows 客户端基本都会默认设置 core.autocrlf&#x3D;true，设置core.autocrlf&#x3D;true, 只要保持工作区都是纯 CRLF 文件，编辑器用 CRLF 换行，就不会出现警告了；<br>Linux 最好不要设置 core.autocrlf，因为这个配置算是为 Windows 平台定制；<br>Windows 上设置 core.autocrlf&#x3D;false，仓库里也没有配置 .gitattributes，很容易引入 CRLF 或者混合换行符（Mixed Line Endings，一个文件里既有 LF 又有CRLF）到版本库，这样就可能产生各种奇怪的问题。</p>
-<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs autoit">情况一：<br><br>Git 可以在你提交时自动地把回车（CR）和换行（LF）转换成换行（LF），而在检出代码时把换行（LF）转换成回车（CR）和换行（LF）。 你可以用 git config --<span class="hljs-keyword">global</span> core.autocrlf <span class="hljs-literal">true</span> 来打开此项功能。 如果是在 Windows 系统上，把它设置成 <span class="hljs-literal">true</span>，这样在检出代码时，换行会被转换成回车和换行：<br><br><span class="hljs-meta">#提交时转换为LF，检出时转换为CRLF</span><br>$ git config --<span class="hljs-keyword">global</span> core.autocrlf <span class="hljs-literal">true</span><br>情况二：<br><br>如果使用以换行（LF）作为行结束符的 Linux 或 Mac，你不需要 Git 在检出文件时进行自动的转换。然而当一个以回车（CR）和换行（LF）作为行结束符的文件不小心被引入时，你肯定想让 Git 修正。 所以，你可以把 core.autocrlf 设置成 input 来告诉 Git 在提交时把回车和换行转换成换行，检出时不转换：（这样在 Windows 上的检出文件中会保留回车和换行，而在 Mac 和 Linux 上，以及版本库中会保留换行。）<br><br><span class="hljs-meta">#提交时转换为LF，检出时不转换</span><br>$ git config --<span class="hljs-keyword">global</span> core.autocrlf input<br>情况三：<br><br>如果你是 Windows 程序员，且正在开发仅运行在 Windows 上的项目，可以设置 <span class="hljs-literal">false</span> 取消此功能，把回车保留在版本库中：<br><br><span class="hljs-meta">#提交检出均不转换</span><br>$ git config --<span class="hljs-keyword">global</span> core.autocrlf <span class="hljs-literal">false</span><br>你也可以在文件提交时进行safecrlf检查<br><br><span class="hljs-meta">#拒绝提交包含混合换行符的文件</span><br>git config --<span class="hljs-keyword">global</span> core.safecrlf <span class="hljs-literal">true</span>   <br> <br><span class="hljs-meta">#允许提交包含混合换行符的文件</span><br>git config --<span class="hljs-keyword">global</span> core.safecrlf <span class="hljs-literal">false</span>   <br> <br><span class="hljs-meta">#提交包含混合换行符的文件时给出警告</span><br>git config --<span class="hljs-keyword">global</span> core.safecrlf warn<br><br></code></pre></td></tr></table></figure>
-<h1 id="云储存"><a href="#云储存" class="headerlink" title="云储存"></a>云储存</h1><p>[[Obsidian]]库的git仓库在用户文件夹中, 避免与[[iCloud]]冲突</p>
+<p>MCP协议安全性: <a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/IH5esRD9mzwbq5TCYF9eHg">https://mp.weixin.qq.com/s/IH5esRD9mzwbq5TCYF9eHg</a></p>
+<p>Concept Explanations</p>
+<ol>
+<li>AI agent - 自主感知、决策与行动的人工智能系统</li>
+<li>自然语言推理 - 用人类语言表达的逻辑推理过程</li>
+<li>形式化证明 - 符合严格逻辑规则的计算机验证证明</li>
+<li>形式化语言（如lean） - 为逻辑证明设计的严密表达方式</li>
+<li>模型微调（fine-tune） - 针对特定任务的进一步训练</li>
+</ol>
+<h1 id="Proposed-Workflow"><a href="#Proposed-Workflow" class="headerlink" title="Proposed Workflow"></a>Proposed Workflow</h1><ol>
+<li>预处理去干扰</li>
+<li>生成自然语言推理</li>
+<li>转写成形式化语言（如lean）进行自动检验</li>
+<li>根据反馈调整</li>
+</ol>
+<p>扩展方向:</p>
+<ol>
+<li>对模型进行微调(fine-tune)以使其更适合这个任务</li>
+<li>设计更适合根据已有论文形式化的工作流</li>
+</ol>
+<p><strong>Development Team:</strong></p>
+<ol>
+<li>Anti-interference implementation (Python) - Long Haobo</li>
+<li>Natural language reasoning generation and transformation (LLM calling &amp; Agent) - Cao Shuhan</li>
+<li>Auto-correction implementation (Agent) - Wu Jiayu<br><strong>Data Team:</strong>  </li>
+<li>Math problem dataset collection and organization - Wu Xuanyu<br><strong>Evaluation Team:</strong>  </li>
+<li>Test framework setup&#x2F;metric calculation - Wei Yanran  </li>
+<li>Evaluation results analysis - Jin Huiyan<br><strong>Coordination Team:</strong>  </li>
+<li>Progress tracking&#x2F;documentation - Liu Peixuan<br>没有必要死板, 可以互相学习帮助</li>
+</ol>
+<p>时间关系: 4较为靠前, 5,6较为靠后</p>
+<h1 id="Key-References"><a href="#Key-References" class="headerlink" title="Key References"></a>Key References</h1><ol>
+<li>DeepSeek-Prover-V2: Advancing Formal Mathematical Reasoning via Reinforcement Learning for Subgoal Decomposition</li>
+<li>Cats Confuse Reasoning LLM: Query Agnostic Adversarial Triggers for Reasoning Models</li>
+<li>A Language-Agent Approach to Formal Theorem-Proving</li>
+<li>An In-Context Learning Agent for Formal Theorem-Proving</li>
+<li>Prover Agent: An Agent-based Framework for Formal Mathematical Proofs</li>
+</ol>
 
                 
               </div>
@@ -326,8 +332,8 @@ Rebase</p>
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>git</div>
-      <div>http://kaelvio.com/git/</div>
+      <div>Robust_Prover</div>
+      <div>http://kaelvio.com/Robust_Prover/</div>
     </div>
     <div class="license-meta">
       
@@ -342,6 +348,11 @@ Rebase</p>
           <div>2025年7月30日</div>
         </div>
       
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年7月30日</div>
+        </div>
       
       
         <div class="license-meta-item">
@@ -383,9 +394,9 @@ Rebase</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" title="强化学习">
+                      <a href="/git/" title="git">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">强化学习</span>
+                        <span class="hidden-mobile">git</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -393,8 +404,8 @@ Rebase</p>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Robust_Prover/" title="Robust_Prover">
-                        <span class="hidden-mobile">Robust_Prover</span>
+                      <a href="/%E6%B5%81/" title="流">
+                        <span class="hidden-mobile">流</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -417,7 +428,7 @@ Rebase</p>
         var options = Object.assign(
           {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: '9bec7083027963d9f9ceae2cc7474de5'
+            id: '7d914bb83d2696d8239d43c6dc1c5316'
           }
         )
         var gitalk = new Gitalk(options);
