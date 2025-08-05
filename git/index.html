@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="快照git init 初始化仓库, 建立.git 【原理解析】让你完全搞明白Git是如何管理你的代码的】git:快照,相同的留链接 :分布式版本管理&lt;-&gt;集中:增量式工作区$\xrightarrow{add}$暂存区$\xrightarrow{commit}$代码仓库 .git一种扁平结构:内容与结构分开储存, 思路与我的obsidian类似  blob,标题:哈希值,内容:代码内容,">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-07-29T16:17:49.105Z">
-<meta property="article:modified_time" content="2025-07-29T16:17:49.105Z">
+<meta property="article:published_time" content="2025-08-05T07:34:44.436Z">
+<meta property="article:modified_time" content="2025-08-05T07:34:44.436Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-07-30 00:17" pubdate>
-          2025年7月30日 凌晨
+        <time datetime="2025-08-05 15:34" pubdate>
+          2025年8月5日 下午
         </time>
       </span>
     
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          1.7k 字
         
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          12 分钟
+          14 分钟
         
       </span>
     
@@ -285,6 +285,13 @@
 Rebase</p>
 </li>
 </ul>
+<h1 id="commit-规范"><a href="#commit-规范" class="headerlink" title="commit 规范"></a>commit 规范</h1><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;<br></code></pre></td></tr></table></figure>
+
+<p><strong>type(必须)</strong><br>用于说明git commit的类别，只允许使用下面的标识。<br>feat：新功能（feature）。<br>fix&#x2F;to：修复bug，可以是QA发现的BUG，也可以是研发自己发现的BUG。</p>
+<ul>
+<li>fix：产生diff并自动修复此问题。适合于一次提交直接修复问题</li>
+<li>to：只产生diff不自动修复此问题。适合于多次提交。最终修复问题提交时使用fix<br>docs：文档（documentation）。<br>style：格式（不影响代码运行的变动）。<br>refactor：重构（即不是新增功能，也不是修改bug的代码变动）<br>perf：优化相关，比如提升性能、体验。<br>test：增加测试。<br>chore：构建过程或辅助工具的变动。<br>revert：回滚到上一个版本。<br>merge：代码合并。<br>sync：同步主线或分支的Bug。<br><strong>scope(可选)</strong><br>scope用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。<br><strong>subject(必须)</strong><br>subject是commit目的的简短描述，不超过50个字符。</li>
+</ul>
 <h1 id="远程"><a href="#远程" class="headerlink" title="远程"></a>远程</h1><p><code>git remote add [remote] [url]</code><br><code>git pull/fetch/push [remote] [branch]</code><br>git pull&#x3D;git fetch + git merge<br>git fetch：将远程仓库拉取到本地仓库, 在<code>.git/refs/remotes/&lt;remote-name&gt;/</code><br>git diff main origin&#x2F;main比较区别<br>git push -u origin main（ -u &#x3D; –set-upstream设置上游分支）</p>
 <h1 id="pull-request"><a href="#pull-request" class="headerlink" title="pull request"></a>pull request</h1><ol>
 <li><strong>Fork（派生）</strong>：个人先把主仓库 fork（一份拷贝）到自己账户。</li>
@@ -339,7 +346,7 @@ Rebase</p>
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年7月30日</div>
+          <div>2025年8月5日</div>
         </div>
       
       
@@ -383,18 +390,12 @@ Rebase</p>
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" title="强化学习">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">强化学习</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E6%B5%81/" title="流">
-                        <span class="hidden-mobile">流</span>
+                      <a href="/Robust_Prover/" title="Robust_Prover">
+                        <span class="hidden-mobile">Robust_Prover</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
