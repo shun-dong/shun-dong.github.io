@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="Robust_Prover├── README.md├── .git&#x2F;├── .gitattributes├── .gitignore└── Paper&#x2F; Proposal: Robust Mathematical Problem Solver 关于robustness：以往研究显示在提示词中加入无关信息（比如猫猫）会让模型的推理能力大幅下降（Cats Confuse Reas">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-08-20T14:07:45.237Z">
-<meta property="article:modified_time" content="2025-08-20T14:07:45.237Z">
+<meta property="article:published_time" content="2025-08-21T17:42:26.931Z">
+<meta property="article:modified_time" content="2025-08-21T17:42:26.932Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-08-20 15:07" pubdate>
-          2025年8月20日 下午
+        <time datetime="2025-08-21 18:42" pubdate>
+          2025年8月21日 晚上
         </time>
       </span>
     
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          803 字
+          1.2k 字
         
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          7 分钟
+          10 分钟
         
       </span>
     
@@ -259,6 +259,14 @@
         <div id="board">
           <article class="post-content mx-auto">
             <h1 id="seo-header">Robust_Prover</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年8月21日 晚上
+                  
+                
+              </p>
             
             
               <div class="markdown-body">
@@ -353,6 +361,79 @@
 </ul>
 </li>
 </ol>
+<h1 id="Project-report"><a href="#Project-report" class="headerlink" title="Project report"></a>Project report</h1><h3 id="I-Project-Overview"><a href="#I-Project-Overview" class="headerlink" title="I. Project Overview"></a><strong>I. Project Overview</strong></h3><ol>
+<li><strong>Project Title &amp; Team</strong><ul>
+<li>团队名称、成员名单、口号（Logic. Rigor. Automation.）</li>
+<li>学期、课程组信息</li>
+</ul>
+</li>
+<li><strong>Project Summary</strong></li>
+</ol>
+<hr>
+<h3 id="II-Research-Context"><a href="#II-Research-Context" class="headerlink" title="II. Research Context"></a><strong>II. Research Context</strong></h3><ol>
+<li><strong>Theoretical Foundations</strong><ul>
+<li>形式化语言与自动验证</li>
+</ul>
+</li>
+<li><strong>Related Work Summary</strong><ul>
+<li>抗干扰推理的研究（例：Cats Confuse Reasoning LLM）</li>
+<li>Agent 在定理证明中的应用（Prover Agent, DeepSeek-Prover 等）</li>
+</ul>
+</li>
+<li><strong>Gap Identification</strong><ul>
+<li>现有模型缺乏稳定性与自我修正机制</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="III-Division-of-Roles-and-Responsibilities"><a href="#III-Division-of-Roles-and-Responsibilities" class="headerlink" title="III. Division of Roles and Responsibilities"></a><strong>III. Division of Roles and Responsibilities</strong></h3><ul>
+<li>列出每位成员的分工及产出：<ol>
+<li><strong>Long Haobo</strong> – Anti-interference preprocessing</li>
+<li><strong>Cao Shuhan</strong> – Natural language ⇄ Lean transformation</li>
+<li><strong>Wu Jiayu</strong> – Auto-correction agent</li>
+<li><strong>Wu Xuanyu</strong> – Math problem dataset collection</li>
+<li><strong>Wei Yanran</strong> – Test framework &amp; metrics</li>
+<li><strong>Jin Huiyan</strong> – Evaluation results analysis</li>
+<li><strong>Liu Peixuan</strong> – Coordination, documentation, overall implementation &amp; integration</li>
+</ol>
+</li>
+<li>说明团队内部协作模式（互助、知识共享）:trello+github</li>
+</ul>
+<hr>
+<h3 id="IV-Challenges-and-Solutions"><a href="#IV-Challenges-and-Solutions" class="headerlink" title="IV. Challenges and Solutions"></a><strong>IV. Challenges and Solutions</strong></h3><ol>
+<li><strong>Technical Challenges</strong><ul>
+<li>干扰文本导致推理错误<br>  <strong>Solution</strong>: 小模型预处理去除干扰</li>
+<li>Lean 语法生成的稳定性<br>  <strong>Solution</strong>: Prompt engineering + JSON schema 约束</li>
+</ul>
+</li>
+<li><strong>Evaluation Challenges</strong><ul>
+<li>缺乏适合的干扰下数学推理基准<br>  <strong>Solution</strong>: 自建题库 + 加入多种干扰模式</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="V-Contributions-and-Limitations"><a href="#V-Contributions-and-Limitations" class="headerlink" title="V. Contributions and Limitations"></a><strong>V. Contributions and Limitations</strong></h3><ol>
+<li><strong>Main Contributions</strong><ul>
+<li>提出抗干扰数学求解三阶段工作流：<br>  (1) 预处理去干扰 → (2) 自然语言推理与形式化转化 → (3) 自动验证与修正</li>
+<li>构建了支持 Lean 验证的 Agent 框架, 支持调用本地大模型和在线大模型</li>
+<li>建立了包含干扰版本的数学题评估数据集</li>
+<li>提出可扩展的评估指标与测试框架</li>
+</ul>
+</li>
+<li><strong>Limitations</strong><ul>
+<li>仅仅测试了shi没有在大规模数据集测试</li>
+<li>获取lean语言反馈粒度过小, 需要由line→token</li>
+<li>自动修正可能形成循环（如 ring_nf ↔ ring）</li>
+</ul>
+</li>
+<li><strong>Future Directions</strong><ul>
+<li>Fine-tuning 针对该agent数学推理任务的专用模型</li>
+<li>更精细的 Lean 交互与子任务拆解</li>
+<li>扩展到类别论、类型论等高阶数学领域</li>
+<li>通用化至非数学的逻辑推理</li>
+</ul>
+</li>
+</ol>
 
                 
               </div>
@@ -383,9 +464,14 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年8月20日</div>
+          <div>2025年8月21日</div>
         </div>
       
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年8月21日</div>
+        </div>
       
       
         <div class="license-meta-item">
@@ -427,18 +513,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/torrent/" title="torrent">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">torrent</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E9%9B%A8%E5%BE%AA%E7%8E%AF19_%E8%87%AA%E7%94%B1/" title="雨循环19_自由">
-                        <span class="hidden-mobile">雨循环19_自由</span>
+                      <a href="/%E9%9B%A8%E5%BE%AA%E7%8E%AF24_%E7%84%A6%E8%99%91/" title="雨循环24_焦虑">
+                        <span class="hidden-mobile">雨循环24_焦虑</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
