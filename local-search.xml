@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>Robust_Prover</title>
+    <link href="/Robust_Prover/"/>
+    <url>/Robust_Prover/</url>
+    
+    <content type="html"><![CDATA[<p>Robust_Prover<br>├── <a href="C:/Users/liuSu/Projects/Robust_Prover/README.md">README.md</a><br>├── <a href="C:/Users/liuSu/Projects/Robust_Prover/.git">.git&#x2F;</a><br>├── <a href="C:/Users/liuSu/Projects/Robust_Prover/.gitattributes">.gitattributes</a><br>├── <a href="C:/Users/liuSu/Projects/Robust_Prover/.gitignore">.gitignore</a><br>├── <a href="C:/Users/liuSu/Projects/Robust_Prover/.venv">.venv&#x2F;</a><br>├── <a href="C:/Users/liuSu/Projects/Robust_Prover/Data">Data&#x2F;</a><br>├── <a href="C:/Users/liuSu/Projects/Robust_Prover/Documents">Documents&#x2F;</a><br>└── <a href="C:/Users/liuSu/Projects/Robust_Prover/Scripts">Scripts&#x2F;</a></p><h1 id="Robust-Mathematical-Problem-Solver"><a href="#Robust-Mathematical-Problem-Solver" class="headerlink" title="Robust Mathematical Problem Solver"></a>Robust Mathematical Problem Solver</h1><h1 id="Info"><a href="#Info" class="headerlink" title="Info"></a>Info</h1><p>Programme Cohort: Large Language Models &amp; Generative AI<br>Course Group: GEA-Group 2<br>Group Name: Robust Mathematical Problem Solver<br>Group Members: Liu Peixuan, Long Haobo, Cao Shuhan, Wu Jiayu, Wu Xuanyu, Wei Yanran, Jin Huiyan<br>Slogan: Logic. Rigor. Automation.</p><h1 id="Proposed-Workflow"><a href="#Proposed-Workflow" class="headerlink" title="Proposed Workflow"></a>Proposed Workflow</h1><ol><li>Preprocessing for interference removal</li><li>Generate natural language reasoning</li><li>Formalize into proof language (e.g. Lean) for automated verification</li><li>Adjust based on feedback</li></ol><p>Extension directions:</p><ol><li>Fine-tune models for better task performance</li><li>Design workflows optimized for formalization from existing papers</li></ol><p><strong>Development Team:</strong></p><ol><li>Anti-interference implementation (Python) - Long Haobo</li><li>Natural language reasoning generation &amp; transformation (LLM &amp; Agent) - Cao Shuhan</li><li>Auto-correction implementation (Agent) - Wu Jiayu<br> <strong>Data Team:</strong></li><li>Math problem dataset collection - Wu Xuanyu<br> <strong>Evaluation Team:</strong></li><li>Test framework &amp; metrics - Wei Yanran</li><li>Results analysis - Jin Huiyan<br> <strong>Coordination Team:</strong></li><li>Progress tracking &amp; documentation - Liu Peixuan</li></ol><h1 id="Key-References"><a href="#Key-References" class="headerlink" title="Key References"></a>Key References</h1><ol><li>DeepSeek-Prover-V2: Advancing Formal Mathematical Reasoning via Reinforcement Learning for Subgoal Decomposition</li><li>Cats Confuse Reasoning LLM: Query Agnostic Adversarial Triggers for Reasoning Models</li><li>A Language-Agent Approach to Formal Theorem-Proving</li><li>An In-Context Learning Agent for Formal Theorem-Proving</li><li>Prover Agent: An Agent-based Framework for Formal Mathematical Proofs</li></ol>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>飞盘</title>
     <link href="/%E9%A3%9E%E7%9B%98/"/>
     <url>/%E9%A3%9E%E7%9B%98/</url>
@@ -61,19 +74,6 @@
     <url>/%E9%9B%A8%E5%BE%AA%E7%8E%AF25_%E6%BD%AE%E6%B9%BF/</url>
     
     <content type="html"><![CDATA[<h1 id="理解-潮湿"><a href="#理解-潮湿" class="headerlink" title="理解 潮湿"></a>理解 潮湿</h1><p>干燥：清晰、整齐、明朗～summer<br>潮湿：朦胧、回味、关联～雨季</p><h1 id="《无意义的意义》"><a href="#《无意义的意义》" class="headerlink" title="[[《无意义的意义》]]"></a>[[《无意义的意义》]]</h1>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>Robust_Prover</title>
-    <link href="/Robust_Prover/"/>
-    <url>/Robust_Prover/</url>
-    
-    <content type="html"><![CDATA[<p>Robust_Prover<br>├── <a href="C:/Users/liuSu/Projects/Robust_Prover/README.md">README.md</a><br>├── <a href="C:/Users/liuSu/Projects/Robust_Prover/.git">.git&#x2F;</a><br>├── <a href="C:/Users/liuSu/Projects/Robust_Prover/.gitattributes">.gitattributes</a><br>├── <a href="C:/Users/liuSu/Projects/Robust_Prover/.gitignore">.gitignore</a><br>├── <a href="C:/Users/liuSu/Projects/Robust_Prover/.venv">.venv&#x2F;</a><br>├── <a href="C:/Users/liuSu/Projects/Robust_Prover/Data">Data&#x2F;</a><br>├── <a href="C:/Users/liuSu/Projects/Robust_Prover/Documents">Documents&#x2F;</a><br>└── <a href="C:/Users/liuSu/Projects/Robust_Prover/Scripts">Scripts&#x2F;</a></p><p>Robust_Prover<br>├── <a href="C:/Users/liuSu/Projects/Robust_Prover/README.md">README.md</a><br>├── <a href="C:/Users/liuSu/Projects/Robust_Prover/.git">.git&#x2F;</a><br>├── <a href="C:/Users/liuSu/Projects/Robust_Prover/.gitattributes">.gitattributes</a><br>├── <a href="C:/Users/liuSu/Projects/Robust_Prover/.gitignore">.gitignore</a><br>└── <a href="C:/Users/liuSu/Projects/Robust_Prover/Paper">Paper&#x2F;</a></p><h1 id="Robust-Mathematical-Problem-Solver"><a href="#Robust-Mathematical-Problem-Solver" class="headerlink" title="Robust Mathematical Problem Solver"></a>Robust Mathematical Problem Solver</h1><h1 id="Info"><a href="#Info" class="headerlink" title="Info"></a>Info</h1><p>Programme Cohort: Large Language Models &amp; Generative AI<br>Course Group: GEA-Group 2<br>Group Name: Robust Mathematical Problem Solver<br>Group Members: Liu Peixuan, Long Haobo, Cao Shuhan, Wu Jiayu, Wu Xuanyu, Wei Yanran, Jin Huiyan<br>Slogan: Logic. Rigor. Automation.</p><h1 id="Proposed-Workflow"><a href="#Proposed-Workflow" class="headerlink" title="Proposed Workflow"></a>Proposed Workflow</h1><ol><li>Preprocessing for interference removal</li><li>Generate natural language reasoning</li><li>Formalize into proof language (e.g. Lean) for automated verification</li><li>Adjust based on feedback</li></ol><p>Extension directions:</p><ol><li>Fine-tune models for better task performance</li><li>Design workflows optimized for formalization from existing papers</li></ol><p><strong>Development Team:</strong></p><ol><li>Anti-interference implementation (Python) - Long Haobo</li><li>Natural language reasoning generation &amp; transformation (LLM &amp; Agent) - Cao Shuhan</li><li>Auto-correction implementation (Agent) - Wu Jiayu<br> <strong>Data Team:</strong></li><li>Math problem dataset collection - Wu Xuanyu<br> <strong>Evaluation Team:</strong></li><li>Test framework &amp; metrics - Wei Yanran</li><li>Results analysis - Jin Huiyan<br> <strong>Coordination Team:</strong></li><li>Progress tracking &amp; documentation - Liu Peixuan</li></ol><h1 id="Key-References"><a href="#Key-References" class="headerlink" title="Key References"></a>Key References</h1><ol><li>DeepSeek-Prover-V2: Advancing Formal Mathematical Reasoning via Reinforcement Learning for Subgoal Decomposition</li><li>Cats Confuse Reasoning LLM: Query Agnostic Adversarial Triggers for Reasoning Models</li><li>A Language-Agent Approach to Formal Theorem-Proving</li><li>An In-Context Learning Agent for Formal Theorem-Proving</li><li>Prover Agent: An Agent-based Framework for Formal Mathematical Proofs</li></ol>]]></content>
     
     
     
