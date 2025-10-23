@@ -19,16 +19,16 @@
   <meta name="author" content="采薇">
   <meta name="keywords" content="">
   
-    <meta name="description" content="类structure:类inductive:递归定义类class:类型类:方法 [[构造主义]]Lean（以及 Coq 等）本身只是“形式化数学的工具&#x2F;平台”，它的底层逻辑“天然支持”构造性逻辑，但——  Lean 内部确实默认使用构造主义（你写出来的函数、证明都要求是具体的&#x2F;可以检查的对象）。 Lean 也可以引入经典公理（如排中律），此时系统本身逻辑就“升格”为经典逻辑环境">
+    <meta name="description" content="类structure:类inductive:递归定义类class:类型类:方法 构造主义Lean（以及 Coq 等）本身只是“形式化数学的工具&#x2F;平台”，它的底层逻辑“天然支持”构造性逻辑，但——  Lean 内部确实默认使用构造主义（你写出来的函数、证明都要求是具体的&#x2F;可以检查的对象）。 Lean 也可以引入经典公理（如排中律），此时系统本身逻辑就“升格”为经典逻辑环境，且用户">
 <meta property="og:type" content="article">
 <meta property="og:title" content="LEAN">
 <meta property="og:url" content="http://kaelvio.com/LEAN/index.html">
 <meta property="og:site_name" content="采薇的博客">
-<meta property="og:description" content="类structure:类inductive:递归定义类class:类型类:方法 [[构造主义]]Lean（以及 Coq 等）本身只是“形式化数学的工具&#x2F;平台”，它的底层逻辑“天然支持”构造性逻辑，但——  Lean 内部确实默认使用构造主义（你写出来的函数、证明都要求是具体的&#x2F;可以检查的对象）。 Lean 也可以引入经典公理（如排中律），此时系统本身逻辑就“升格”为经典逻辑环境">
+<meta property="og:description" content="类structure:类inductive:递归定义类class:类型类:方法 构造主义Lean（以及 Coq 等）本身只是“形式化数学的工具&#x2F;平台”，它的底层逻辑“天然支持”构造性逻辑，但——  Lean 内部确实默认使用构造主义（你写出来的函数、证明都要求是具体的&#x2F;可以检查的对象）。 Lean 也可以引入经典公理（如排中律），此时系统本身逻辑就“升格”为经典逻辑环境，且用户">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://kaelvio.com/images/type,logic,category.png">
-<meta property="article:published_time" content="2025-10-10T08:34:25.362Z">
-<meta property="article:modified_time" content="2025-10-10T08:34:25.363Z">
+<meta property="article:published_time" content="2025-10-23T15:25:59.127Z">
+<meta property="article:modified_time" content="2025-10-23T15:25:59.127Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://kaelvio.com/images/type,logic,category.png">
@@ -200,8 +200,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-10-10 16:34" pubdate>
-          2025年10月10日 下午
+        <time datetime="2025-10-23 23:25" pubdate>
+          2025年10月23日 晚上
         </time>
       </span>
     
@@ -262,19 +262,11 @@
           <article class="post-content mx-auto">
             <h1 id="seo-header">LEAN</h1>
             
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    本文最后更新于 2025年10月10日 下午
-                  
-                
-              </p>
-            
             
               <div class="markdown-body">
                 
                 <h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>structure:类<br>inductive:递归定义类<br>class:类型类:方法</p>
-<h1 id="构造主义"><a href="#构造主义" class="headerlink" title="[[构造主义]]"></a>[[构造主义]]</h1><p><strong>Lean（以及 Coq 等）本身只是“形式化数学的工具&#x2F;平台”，它的底层逻辑“天然支持”构造性逻辑，但</strong>——</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a><a href="/%E6%9E%84%E9%80%A0%E4%B8%BB%E4%B9%89/" title="构造主义">构造主义</a></h1><p><strong>Lean（以及 Coq 等）本身只是“形式化数学的工具&#x2F;平台”，它的底层逻辑“天然支持”构造性逻辑，但</strong>——</p>
 <ul>
 <li><strong>Lean 内部确实默认使用构造主义</strong>（你写出来的函数、证明都要求是具体的&#x2F;可以检查的对象）。</li>
 <li><strong>Lean 也可以引入经典公理（如排中律）</strong>，此时系统本身逻辑就“升格”为经典逻辑环境，且用户可以自由选择是否采用构造&#x2F;经典逻辑。<ul>
@@ -358,7 +350,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs lean">-- 普通 record 就是 structure Point<br>-- 依赖型记录例子：<br><br>def S : Type := Σ n : ℕ, Fin n → ℝ<br>-- 解释：一个自然数 n，加上一个数组（函数）从 Fin n 到 ℝ<br><br>-- 构造一项<br>def example : S := ⟨3, λ i, 2.0 * ↑i⟩<br><br>-- 取出字段<br>def len : ℕ := example.1<br>def data : Fin len → ℝ := example.2<br></code></pre></td></tr></table></figure>
 
 
-<h2 id=""><a href="#" class="headerlink" title=""></a><a href="/%CE%BB-calculus/" title="λ-calculus">λ-calculus</a></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs lean">(λ x : Nat =&gt; x + 5) 10<br>#check (λ x  =&gt; x + 1 : Nat → Nat)<br></code></pre></td></tr></table></figure>
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a><a href="/%CE%BB-calculus/" title="λ-calculus">λ-calculus</a></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs lean">(λ x : Nat =&gt; x + 5) 10<br>#check (λ x  =&gt; x + 1 : Nat → Nat)<br></code></pre></td></tr></table></figure>
 <p>x: bound variable</p>
 <p>def<br>let : Lean also allows you to introduce “local” definitions using the <code>let</code> keyword. The expression <code>let a := t1; t2</code> is definitionally equal to the result of replacing every occurrence of <code>a</code> in <code>t2</code> by <code>t1</code>.</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs lean">variable (x : α)<br>def  f :=  x + x<br><br>section useful<br>  variable (α β γ : Type)<br>  variable (g : β → γ) (f : α → β) (h : α → α)<br>  variable (x : α)<br><br>  def compose := g (f x)<br>  def doTwice := h (h x)<br>  def doThrice := h (h (h x))<br>end useful<br><br>namespace Foo<br>  def a : Nat := 5<br>  def f (x : Nat) : Nat := x + 7<br>end Foo<br><br>open Foo<br><br>#check a<br>-- Foo.a : Nat<br></code></pre></td></tr></table></figure>
@@ -436,6 +428,8 @@
 </ul>
 <h1 id="元编程"><a href="#元编程" class="headerlink" title="元编程"></a>元编程</h1><p>宏</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs lean">macro &quot;simp_add&quot; : tactic =&gt; `(tactic|(<br>  simp only [add_assoc, add_left_comm, add_comm]))<br></code></pre></td></tr></table></figure>
+
+<h1 id="Lean4Align"><a href="#Lean4Align" class="headerlink" title="Lean4Align"></a>Lean4Align</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs &#123;toctree&#125;">:maxdepth: 2<br><br>type_conversion<br><br>Sets &amp; Functions<br><br>Elementary Algebra<br><br>Group Theory<br><br>Ring Theory<br><br>Field Theory<br><br>Matrix Theory<br><br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -465,14 +459,9 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年10月10日</div>
+          <div>2025年10月23日</div>
         </div>
       
-      
-        <div class="license-meta-item license-meta-date">
-          <div>更新于</div>
-          <div>2025年10月10日</div>
-        </div>
       
       
         <div class="license-meta-item">
@@ -514,9 +503,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Seek_Being/" title="Seek_Being">
+                      <a href="/%E9%9B%A8%E5%BE%AA%E7%8E%AF30_%E9%87%87%E8%96%87/" title="雨循环30_采薇">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Seek_Being</span>
+                        <span class="hidden-mobile">雨循环30_采薇</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -524,8 +513,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E9%9B%A8%E5%BE%AA%E7%8E%AF29_%E5%86%AC%E9%9D%92%E5%8F%B6/" title="雨循环29_冬青叶">
-                        <span class="hidden-mobile">雨循环29_冬青叶</span>
+                      <a href="/%E3%80%8A%E4%B8%9D%E4%B9%8B%E6%AD%8C%E3%80%8B/" title="《丝之歌》">
+                        <span class="hidden-mobile">《丝之歌》</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
