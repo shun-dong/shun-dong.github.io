@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="函数式实际上很接近Agda 行、块单个文档，{}中的内容即一个块块是一个广义上的（希尔伯特式的）推演最开始是使用的公理（依赖项），其后每一行组成推演序列用；分隔），其中最后一行是结论（导出项）推演序列要求每项必须由公理或之前项推得，由于 一阶逻辑的不可判定性，nontrivial的要显式用|-指定，方便计算机验证 逻辑真理 ≠ 算法可计算如果无法通过给出实例证明 dependencies">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-10-31T06:18:21.059Z">
-<meta property="article:modified_time" content="2025-10-31T06:18:21.060Z">
+<meta property="article:published_time" content="2025-10-31T08:33:54.624Z">
+<meta property="article:modified_time" content="2025-10-31T08:33:54.624Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,7 +198,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-10-31 14:18" pubdate>
+        <time datetime="2025-10-31 16:33" pubdate>
           2025年10月31日 下午
         </time>
       </span>
@@ -260,14 +260,6 @@
           <article class="post-content mx-auto">
             <h1 id="seo-header">fu语言</h1>
             
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    本文最后更新于 2025年10月31日 下午
-                  
-                
-              </p>
-            
             
               <div class="markdown-body">
                 
@@ -291,7 +283,7 @@
 <p>每个类型可以看作一个关于自身良定义（可居性，存在一个对象）的命题<br>用Maybe单子修饰一个可能不存在的对象，如<br>a: Maybe A而不用提供A的良定义证明<br>因为Maybe A &#x3D; True | A一定可居（传统的None: True）</p>
 <figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">//用“广义和类型”的方法(即n元组), 在lean中用的是类似函数的方法</span><br><span class="hljs-comment">//不能用函数(广义积类型), 因为只能证明对某个G有定义</span><br>monoid := G:: Type u, *:: (G -&gt; G -&gt; G), <span class="hljs-number">1</span>:: G,<br>	assoc * := a b c:: G -&gt; a * b * c = a * (b * c),<br>	one * <span class="hljs-number">1</span> := a:: G -&gt; a * <span class="hljs-number">1</span> = a;<br>	<br>BinaryMonoid: monoid :=<br>	G := &#123;e, a&#125;,<br>	_ * _: G -&gt; G -&gt; G :=&#123;<br>	e * _ := _<br>	a * a := e&#125;,<br>	pf_mul_assoc: assoc * := ...,<br>	pf_mul_one: one * e :=...;<br><br><span class="hljs-comment">//证明部分还要学习</span><br></code></pre></td></tr></table></figure>
 
-<h1 id="函数（指数类型）"><a href="#函数（指数类型）" class="headerlink" title="函数（指数类型）"></a>函数（指数类型）</h1><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs jboss-cli">f x: ℝ : ℝ := x + 1<br>f := x: ℝ -&gt; x + 1: ℝ<br><span class="hljs-string">//</span> f := _ + 1<br>_ f&#x27; := f <br><span class="hljs-string">//</span> x f&#x27;<br><span class="hljs-string">//</span> _ f&#x27; x<br><span class="hljs-string">//</span> _ 表示输入变量且每一个不同 如 _ + _ = add<br>f&#x27; = f <span class="hljs-string">//</span>&gt;&gt;&gt;True <span class="hljs-string">//</span>只是表达方式不同<br><br>g x := &#123;y := x ^ 2; 2 y&#125;<br>g x :=  2 y =&lt; y := x ^ 2<br><span class="hljs-comment">#t f</span><br><span class="hljs-string">//</span>&gt;&gt;&gt; ℝ -&gt; ℝ<br><span class="hljs-comment">#e g 1</span><br>g 1 <span class="hljs-string">//</span>等效写法<br><span class="hljs-string">//</span>&gt;&gt;&gt; 2: ℝ<br></code></pre></td></tr></table></figure>
+<h1 id="函数（指数类型）"><a href="#函数（指数类型）" class="headerlink" title="函数（指数类型）"></a>函数（指数类型）</h1><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs gauss">f x: ℝ : ℝ := x + <span class="hljs-number">1</span><br>f := x: ℝ -&gt; x + <span class="hljs-number">1</span>: ℝ<br><span class="hljs-comment">// f := _ + 1</span><br>_ f&#x27; := f <br><span class="hljs-comment">// x f&#x27;</span><br><span class="hljs-comment">// _ f&#x27; x</span><br><span class="hljs-comment">// _ 表示输入变量且每一个不同 如 _ + _ = add</span><br>f&#x27; = f <span class="hljs-comment">//&gt;&gt;&gt;True //只是表达方式不同</span><br><br>g x := &#123;y := x ^ <span class="hljs-number">2</span>; <span class="hljs-number">2</span> y&#125;<br>g x :=  <span class="hljs-number">2</span> y =&lt; y := x ^ <span class="hljs-number">2</span><br><span class="hljs-keyword">Do</span> <span class="hljs-keyword">print</span> <span class="hljs-built_in">type</span> f<br><span class="hljs-comment">//&gt;&gt;&gt; ℝ -&gt; ℝ</span><br><span class="hljs-keyword">Do</span> <span class="hljs-keyword">print</span> g <span class="hljs-number">1</span><br></code></pre></td></tr></table></figure>
 
 
 
@@ -301,7 +293,7 @@
 <figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xl"><span class="hljs-function"><span class="hljs-title">func2</span> (x: Type u) [x, ...: myType] : Type v = ... //这里实际上用了 a x b -&gt;</span><span class="hljs-function"><span class="hljs-title">c</span> = a -&gt;</span> <span class="hljs-function"><span class="hljs-title">b</span> -&gt;</span> c 和 currying，会自动找每一项<br></code></pre></td></tr></table></figure>
 <h1 id="存在与时间"><a href="#存在与时间" class="headerlink" title="存在与时间"></a>存在与时间</h1><p>纯函数只是描述性的，特别的在fu语言中只能描述存在<br>我们声称一切都是纯函数、无副作用，但最终却需要一个”不纯”的主函数作为程序的入口点。这就像构建了一个完美的数学宇宙，却需要从外部”踢一脚”才能启动。<br>无穷次才能收敛的递归，实际上存在的编译时间，不可判定，无限运行的主循环</p>
 <p>程序不是运行在时间中，而是时间自己在通过程序收敛成为世界（存在）。</p>
-<p>～可能世界语义学<br>IO<br>Be ‘非计算性的存在性命题的单子’计算可能失败（不终止&#x2F;不可执行）&#x3D; Possible｜，其中Unknown: Possible<br>Rand</p>
+<p>～可能世界语义学<br>Do IO a-&gt;World<br>Be ‘非计算性的存在性命题的单子’计算可能失败（不终止&#x2F;不可执行）&#x3D; Possible｜，其中Unknown: Possible<br>Rand</p>
 <p>将单纯的构造性逻辑Decidable 提升到World 或者叫Time 或者叫 Timeline</p>
 <h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>自定义语言<br>~meow语言</p>
 <h1 id="富文本"><a href="#富文本" class="headerlink" title="富文本"></a>富文本</h1><p>代码部分用{}标记, 渲染时用&gt;&gt;&gt;标出部分# 代码结果<br>外面是[[Vion_editor]]: 采用markdown语法, 可以在一行的开头用# 紧接命令, 也用c风格的注释<br>右边栏有渲染结果, proof, message 等</p>
@@ -338,11 +330,6 @@
           <div>2025年10月31日</div>
         </div>
       
-      
-        <div class="license-meta-item license-meta-date">
-          <div>更新于</div>
-          <div>2025年10月31日</div>
-        </div>
       
       
         <div class="license-meta-item">
@@ -384,18 +371,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E9%9B%A8%E5%BE%AA%E7%8E%AF30_%E9%87%87%E8%96%87/" title="雨循环30_采薇">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">雨循环30_采薇</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E7%84%A6%E8%99%91/" title="焦虑">
-                        <span class="hidden-mobile">焦虑</span>
+                      <a href="/%E9%9B%A8%E5%BE%AA%E7%8E%AF30_%E9%87%87%E8%96%87/" title="雨循环30_采薇">
+                        <span class="hidden-mobile">雨循环30_采薇</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
