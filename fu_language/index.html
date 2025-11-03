@@ -19,21 +19,21 @@
   <meta name="author" content="采薇">
   <meta name="keywords" content="">
   
-    <meta name="description" content="函数式实际上很接近Agda 行、块单个文档，{}中的内容即一个块块是一个广义上的（希尔伯特式的）推演最开始是使用的公理（依赖项），其后每一行组成推演序列，用；分隔），其中最后一行是结论（导出项）推演序列要求每项必须由公理或之前项推得，由于 一阶逻辑的不可判定性，nontrivial的要显式用|-指定，方便计算机验证。找不到的项自动视为假设 逻辑真理 ≠ 算法可计算如果无法通过给出实例证明 depe">
+    <meta name="description" content="Let’s Build A Simple Interpreter. Part 1. - Ruslan’s Blog 🔼关键字：”;”, “(“, “)”, “[“, “]”, “{“, “}”, “|-“, “:”, “:&#x3D;”, “|”, “,”, “-&gt;”, “::”, “_“, “@”, “-&lt;”优先级：其他自定符号 :: : -&gt; , | :&#x3D;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="fu语言">
-<meta property="og:url" content="http://kaelvio.com/fu%E8%AF%AD%E8%A8%80/index.html">
+<meta property="og:title" content="fu_language">
+<meta property="og:url" content="http://kaelvio.com/fu_language/index.html">
 <meta property="og:site_name" content="采薇的博客">
-<meta property="og:description" content="函数式实际上很接近Agda 行、块单个文档，{}中的内容即一个块块是一个广义上的（希尔伯特式的）推演最开始是使用的公理（依赖项），其后每一行组成推演序列，用；分隔），其中最后一行是结论（导出项）推演序列要求每项必须由公理或之前项推得，由于 一阶逻辑的不可判定性，nontrivial的要显式用|-指定，方便计算机验证。找不到的项自动视为假设 逻辑真理 ≠ 算法可计算如果无法通过给出实例证明 depe">
+<meta property="og:description" content="Let’s Build A Simple Interpreter. Part 1. - Ruslan’s Blog 🔼关键字：”;”, “(“, “)”, “[“, “]”, “{“, “}”, “|-“, “:”, “:&#x3D;”, “|”, “,”, “-&gt;”, “::”, “_“, “@”, “-&lt;”优先级：其他自定符号 :: : -&gt; , | :&#x3D;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-11-01T13:12:26.649Z">
-<meta property="article:modified_time" content="2025-11-01T13:12:26.649Z">
+<meta property="article:published_time" content="2025-11-03T16:17:40.586Z">
+<meta property="article:modified_time" content="2025-11-03T16:17:40.586Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>fu语言 - 采薇的博客</title>
+  <title>fu_language - 采薇的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -187,7 +187,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="fu语言"></span>
+            <span id="subtitle" data-typed-text="fu_language"></span>
           
         </div>
 
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-11-01 21:12" pubdate>
-          2025年11月1日 晚上
+        <time datetime="2025-11-04 00:17" pubdate>
+          2025年11月4日 凌晨
         </time>
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          11 分钟
+          12 分钟
         
       </span>
     
@@ -258,32 +258,37 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">fu语言</h1>
+            <h1 id="seo-header">fu_language</h1>
             
             
               <div class="markdown-body">
                 
-                <p>函数式<br>实际上很接近Agda</p>
+                <ul>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://ruslanspivak.com/lsbasi-part1/">Let’s Build A Simple Interpreter. Part 1. - Ruslan’s Blog</a> 🔼<br>关键字：”;”, “(“, “)”, “[“, “]”, “{“, “}”, “|-“, “:”, “:&#x3D;”, “|”, “,”, “-&gt;”, “::”, “_“, “@”, “-&lt;”<br>优先级：其他自定符号 :: : -&gt; , | :&#x3D;  -&lt; ;<br>同一行从右到左</li>
+</ul>
+<p>函数式<br>实际上很接近Agda</p>
 <h1 id="行、块"><a href="#行、块" class="headerlink" title="行、块"></a>行、块</h1><p>单个文档，{}中的内容即一个块<br>块是一个广义上的（希尔伯特式的）推演<br>最开始是使用的公理（依赖项），其后每一行组成推演序列，用；分隔），其中最后一行是结论（导出项）<br>推演序列要求每项必须由公理或之前项推得，由于 一阶逻辑的不可判定性，nontrivial的要显式用|-指定，方便计算机验证。找不到的项自动视为假设</p>
 <p>逻辑真理 ≠ 算法可计算<br>如果无法通过给出实例证明</p>
 <p>dependencies           如果在文档中间，这其实是所有的前文<br>|- name[: Type] :&#x3D; {        如果作为整个文档，自动是文件名<br>…<br>results } 值为dependencies-&gt;results, 命名空间不污染</p>
 <figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs coq">something ｜-<br>left_rev = right_rev := &#123;<br>	a: G; l = left_rev a; r = right_rev a;<br>	<span class="hljs-built_in">by</span> mul_one |<span class="hljs-type">- l</span> = l e;<br>	<span class="hljs-built_in">by</span> mul_right_rev |<span class="hljs-type">- = l</span> a r;<br>	<span class="hljs-built_in">by</span> mul_left_rev |<span class="hljs-type">- = e</span> r;<br>	<span class="hljs-built_in">by</span> one_mul |<span class="hljs-type">- = r</span>;<br>	<span class="hljs-built_in">by</span> |<span class="hljs-type">- left_rev</span> = right_rev&#125;<br><br>//<span class="hljs-built_in">by</span> 表示逻辑闭包(根据提供命题和重言式能推出的所有)<br>//<span class="hljs-built_in">by</span> |<span class="hljs-type">- 也可以不写</span><br><span class="hljs-type"></span><br><span class="hljs-type">inf_prime</span> := max Prime = False := &#123;<br>	max Prime |<span class="hljs-type">- &#123;</span><br><span class="hljs-type">		Q</span>: max Prime;<br>		<span class="hljs-built_in">by</span> something |<span class="hljs-type">- M</span> = ∏ q &lt;= Q q + <span class="hljs-number">1</span>;<br>		p: Prime, p &lt;= M -&gt; not p | <span class="hljs-type">M</span> |<span class="hljs-type">- M</span>: Prime;<br>		False&#125;;                <br>	max Prime = False&#125;<br>	<br>//也可以用分析法反着推<br></code></pre></td></tr></table></figure>
 
 <h1 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h1><p>实例化 a：A &#x3D; a<br>a:: A &#x3D; A<br>类型转化a: A : B</p>
-<p>用Type n 表示 Sort n, Type &#x3D; Type 1</p>
-<p>自动提升（也就是所谓的多态）: 自动找始对象或终对象等进行态射<br>eg.1&#x2F;2 &#x3D; 0.5自然数上本来就没定义除法, 1, 2提升到有理数<br>eg. i&#x2F;1 &#x3D; i “&#x2F;“提升到复数<br>eg. (a: G) &#x3D; (a: (G, … : Group)) 集合提升到群<br>两个类型不同的对象一般不会被视为相同，即使“内容看起来一样”；而在集合论里，同一个集合元素可以属于多个集合<br>A in B 在类型论中一般表述为有一个自然含入映射</p>
+<p>用Type n 表示 Sort n, Type &#x3D; Type 1，可以</p>
+<p>自动提升（也就是所谓的多态）: 自动找始对象或终对象等进行态射<br>eg.1&#x2F;2 &#x3D; 0.5自然数上本来就没定义除法, 1, 2提升到有理数<br>eg. i&#x2F;1 &#x3D; i “&#x2F;“提升到复数<br>eg. (a: G) &#x3D; (a: ((G, …) : Group))) 集合提升到群<br>两个类型不同的对象一般不会被视为相同，即使“内容看起来一样”；而在集合论里，同一个集合元素可以属于多个集合<br>A in B 在类型论中一般表述为有一个自然含入映射</p>
 <ul>
 <li><input disabled="" type="checkbox"> 等价即等于? Prop1, Prop2 &#x3D; Prop1 语法上怎么说更好</li>
 </ul>
 <h1 id="和类型、积类型、指数类型"><a href="#和类型、积类型、指数类型" class="headerlink" title="和类型、积类型、指数类型"></a>和类型、积类型、指数类型</h1><p>和类型 A | B</p>
 <p>积类型a, b或(a, b)<br>a, b, c &#x3D; (a, b), c &#x3D; a, (b, c)<br>括号只是用来区分优先级, 无实际作用<br>注意其他地方不要随便打逗号 eg. a b c : G  -&gt;  a * b * c &#x3D; a * (b * c)</p>
-<p>指数类型A-&gt;B</p>
-<h1 id="依赖类型"><a href="#依赖类型" class="headerlink" title="依赖类型"></a>依赖类型</h1><p>依赖类型写法同一般的类型，如<br>F a: A :phi a 等效于 F: a:: A -&gt; phi a<br>a:: A, phi a</p>
+<p>幂类型A-&gt;B</p>
+<p>复合(A-&gt;B)@(B-&gt;C)&#x3D;(A-&gt;C)<br>恒等函数 _</p>
+<p>eg. List a &#x3D; True | a, List a</p>
+<h1 id="依赖类型"><a href="#依赖类型" class="headerlink" title="依赖类型"></a>依赖类型</h1><p>依赖类型写法同一般的类型，如<br>F(a: A): phi a 等效于 F: (a:: A -&gt; phi a)<br>a:: A, phi a</p>
 <p>&#x2F; a:: A, phi a 定义类型<br>a: A, …: phi a声明变量</p>
 <p>每个类型可以看作一个关于自身良定义（可居性，存在一个对象）的命题<br>用Maybe单子修饰一个可能不存在的对象，如<br>a: Maybe A而不用提供A的良定义证明<br>因为Maybe A &#x3D; True | A一定可居（传统的None: True）</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">//用“广义和类型”的方法(即n元组), 在lean中用的是类似函数的方法</span><br><span class="hljs-comment">//不能用函数(广义积类型), 因为只能证明对某个G有定义</span><br>monoid := G:: Type u, *:: (G -&gt; G -&gt; G), <span class="hljs-number">1</span>:: G,<br>	assoc * := a b c:: G -&gt; a * b * c = a * (b * c),<br>	one * <span class="hljs-number">1</span> := a:: G -&gt; a * <span class="hljs-number">1</span> = a;<br>	<br>BinaryMonoid: monoid :=<br>	G := &#123;e, a&#125;,<br>	_ * _: G -&gt; G -&gt; G :=&#123;<br>	e * _ := _<br>	a * a := e&#125;,<br>	pf_mul_assoc: assoc * := ...,<br>	pf_mul_one: one * e :=...;<br><br><span class="hljs-comment">//证明部分还要学习</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">//用“广义和类型”的方法(即n元组), 在lean中用的是类似函数的方法</span><br><span class="hljs-comment">//不能用函数(广义积类型), 因为只能证明对某个G有定义</span><br>monoid := G:: Type u, *:: (G -&gt; G -&gt; G), <span class="hljs-number">1</span>:: G,<br>	(assoc * := a b c:: G -&gt; a * b * c = a * (b * c)),<br>	(one * <span class="hljs-number">1</span> := a:: G -&gt; a * <span class="hljs-number">1</span> = a);<br>	<br>BinaryMonoid: monoid :=<br>	G := e | a,<br>	_ * _:=&#123;<br>	e * := _<br>	a * a := e&#125;,<br>	pf_mul_assoc:= ...,<br>	pf_mul_one:=...;<br><br><span class="hljs-comment">//证明部分还要学习</span><br></code></pre></td></tr></table></figure>
 
-<h1 id="函数（指数类型）"><a href="#函数（指数类型）" class="headerlink" title="函数（指数类型）"></a>函数（指数类型）</h1><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs gauss">f x: ℝ : ℝ := x + <span class="hljs-number">1</span>;<br><span class="hljs-comment">//f := x: ℝ -&gt; x + 1: ℝ</span><br><span class="hljs-comment">// f := _ + 1</span><br>_ f&#x27; := f;<br><span class="hljs-comment">// x f&#x27;</span><br><span class="hljs-comment">// _ f&#x27; x</span><br><span class="hljs-comment">// _ 表示输入变量且每一个不同 如 _ + _ = add</span><br><span class="hljs-keyword">Do</span> <span class="hljs-keyword">print</span> f&#x27; = f; <span class="hljs-comment">//&gt;&gt;&gt;True //只是表达方式不同</span><br><br>g x := &#123;y := x ^ <span class="hljs-number">2</span>; <span class="hljs-number">2</span> y&#125;;<br>g x :=  <span class="hljs-number">2</span> y =&lt; y := x ^ <span class="hljs-number">2</span>;<br><span class="hljs-keyword">Do</span> <span class="hljs-keyword">print</span> <span class="hljs-built_in">type</span> f;<br><span class="hljs-comment">//&gt;&gt;&gt; ℝ -&gt; ℝ</span><br><span class="hljs-keyword">Do</span> <span class="hljs-keyword">print</span> g <span class="hljs-number">1</span>;<br><span class="hljs-comment">//&gt;&gt;&gt; 2</span><br></code></pre></td></tr></table></figure>
+<h1 id="函数（指数类型）"><a href="#函数（指数类型）" class="headerlink" title="函数（指数类型）"></a>函数（指数类型）</h1><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-built_in">f</span>(x: ℝ) : ℝ := x + 1;<br><span class="hljs-comment">//f := x: ℝ -&gt; x + 1: ℝ</span><br><span class="hljs-comment">// f := _ + 1</span><br>_ f&#x27; := f;<br><span class="hljs-comment">// x f&#x27;</span><br><span class="hljs-comment">// _ f&#x27; x</span><br><span class="hljs-comment">// _ 表示输入变量且每一个不同 如 _ + _ = add</span><br><span class="hljs-keyword">Do</span> <span class="hljs-keyword">print</span> f&#x27; = f; <span class="hljs-comment">//&gt;&gt;&gt;True //只是表达方式不同</span><br><br><span class="hljs-keyword">g</span> x := &#123;y := x ^ 2; 2 y&#125;;<br><span class="hljs-keyword">g</span> x :=  2 y =&lt; y := x ^ 2;<br><span class="hljs-keyword">Do</span> <span class="hljs-keyword">print</span> <span class="hljs-keyword">type</span> f;<br><span class="hljs-comment">//&gt;&gt;&gt; ℝ -&gt; ℝ</span><br><span class="hljs-keyword">Do</span> <span class="hljs-keyword">print</span> <span class="hljs-keyword">g</span> 1;<br><span class="hljs-comment">//&gt;&gt;&gt; 2</span><br></code></pre></td></tr></table></figure>
 
 
 
@@ -314,8 +319,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>fu语言</div>
-      <div>http://kaelvio.com/fu语言/</div>
+      <div>fu_language</div>
+      <div>http://kaelvio.com/fu_language/</div>
     </div>
     <div class="license-meta">
       
@@ -327,7 +332,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年11月1日</div>
+          <div>2025年11月4日</div>
         </div>
       
       
@@ -371,9 +376,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E9%9B%A8%E5%BE%AA%E7%8E%AF30_%E9%87%87%E8%96%87/" title="雨循环30_采薇">
+                      <a href="/LEAN/" title="LEAN">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">雨循环30_采薇</span>
+                        <span class="hidden-mobile">LEAN</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -405,7 +410,7 @@
         var options = Object.assign(
           {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: '1457e832d74473999d0d68cfc92337b0'
+            id: '3061b7f779dcbabe3e3429d931d92d8b'
           }
         )
         var gitalk = new Gitalk(options);
