@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="fu_language├── README.md├── .git&#x2F;├── .gitignore├── .vscode&#x2F;├── tokenizer.c└── tokenizer.exe   Let’s Build A Simple Interpreter. Part 1. - Ruslan’s Blog 🔼关键字：”;”, “(“, “)”, “[“, “]”, “{“, “}">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-11-07T06:00:39.439Z">
-<meta property="article:modified_time" content="2025-11-07T06:00:39.440Z">
+<meta property="article:published_time" content="2025-11-08T06:45:48.531Z">
+<meta property="article:modified_time" content="2025-11-08T06:45:48.531Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-11-07 14:00" pubdate>
-          2025年11月7日 下午
+        <time datetime="2025-11-08 14:45" pubdate>
+          2025年11月8日 下午
         </time>
       </span>
     
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.6k 字
+          1.8k 字
         
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          14 分钟
+          16 分钟
         
       </span>
     
@@ -260,14 +260,6 @@
           <article class="post-content mx-auto">
             <h1 id="seo-header">fu_language</h1>
             
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    本文最后更新于 2025年11月7日 下午
-                  
-                
-              </p>
-            
             
               <div class="markdown-body">
                 
@@ -276,10 +268,11 @@
 <li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://ruslanspivak.com/lsbasi-part1/">Let’s Build A Simple Interpreter. Part 1. - Ruslan’s Blog</a> 🔼<br>关键字：”;”, “(“, “)”, “[“, “]”, “{“, “}”, “|-“, “-|”, “:”, “:&#x3D;”, “|”, “,”, “-&gt;”, “::”, “_“, “&#x3D;”, “…”<br>优先级：其他自定符号 :: : &#x3D; (-&gt; , |三者相同) :&#x3D;  (|- -|二者相同) ;<br>同一行从右到左</li>
 </ul>
 <p>函数式<br>实际上很接近Agda<br>部分关键字大写开头以区分</p>
-<h1 id="行、块"><a href="#行、块" class="headerlink" title="行、块"></a>行、块</h1><p>单个文档，{}中的内容即一个块<br>块是一个广义上的（希尔伯特式的）推演<br>最开始是使用的公理（依赖项），其后每一行组成推演序列，用；分隔），其中最后一行是结论（导出项）<br>推演序列要求每项必须由公理或之前项推得，由于 一阶逻辑的不可判定性，nontrivial的要显式用|-指定，方便计算机验证。找不到的项自动视为假设<br>同时块具有命名空间隔离的效果</p>
-<p>逻辑真理 ≠ 算法可计算<br>如果无法通过给出实例证明</p>
-<p>dependencies<br>|- [name: Type] :&#x3D; {        如果作为整个文档，自动是文件名<br>…<br>results }命名空间不污染<br>如果加了export, 才可以通过name.something访问</p>
-<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs coq">something<br>left_rev = right_rev -| <span class="hljs-type">&#123;</span><br><span class="hljs-type">	a</span>: G; l = left_rev a; r = right_rev a;<br>	~, mul_one |<span class="hljs-type">- l</span> = l e;<br>	~, mul_right_rev |<span class="hljs-type">- ~ = l</span> a r;<br>	~, mul_left_rev |<span class="hljs-type">- ~ = e</span> r;<br>	~, one_mul |<span class="hljs-type">- ~ = r</span>;<br>	<span class="hljs-built_in">by</span> |<span class="hljs-type">- left_rev</span> = right_rev&#125;<br><br>//<span class="hljs-built_in">by</span> 表示逻辑闭包(根据当前块中的命题(变量, 即使没赋值每一行也自动形成一个变量)能推出的所有), 或许可以省略(具体看性能)<br>//单独的<span class="hljs-built_in">by</span> |<span class="hljs-type">-也可以不写</span><br><span class="hljs-type"></span><br><span class="hljs-type">inf_prime</span> := max Prime = False -| <span class="hljs-type">&#123;</span><br><span class="hljs-type">	max</span> Prime |<span class="hljs-type">- &#123;</span><br><span class="hljs-type">		Premise</span> |<span class="hljs-type">- Q</span> := max Prime;<br>		something |<span class="hljs-type">- M</span> = ∏ q &lt;= Q q + <span class="hljs-number">1</span>;<br>		p: Prime, p &lt;= M -&gt; not p | <span class="hljs-type">M</span> |<span class="hljs-type">- M</span>: Prime;<br>		False&#125;;                <br>	<span class="hljs-keyword">Goal</span>&#125;<br>	<br>//也可以用分析法反着推<br></code></pre></td></tr></table></figure>
+<h1 id="行、块"><a href="#行、块" class="headerlink" title="行、块"></a>行、块</h1><p>单个文档，{}中的内容即一个块<br>块是一个广义上的（希尔伯特式的）推演<br>每一行组成推演序列，用；分隔），其中最后一行是结论（导出项）<br>推演序列要求每项必须由公理或之前项推得，由于 一阶逻辑的不可判定性，nontrivial的要显式用|-指定，方便计算机验证。找不到的项自动视为假设<br>同时块具有命名空间隔离的效果</p>
+<p>逻辑真理 ≠ 算法可计算<br>命名空间和’类型空间’不同<br>比如sum &#x3D; A + B只能表达出2 * sum之类的, 而无法自动表达2 * A + 2 * B<br>C :&#x3D; A, B | D;<br>E :&#x3D; C ]]合法, 命名空间有限, 可以自动传<br>E :&#x3D; B | D -| C ]]需要额外解释</p>
+<p>如果加了export, 才可以通过name.something访问<br>packet :&#x3D; {n: Nat :&#x3D; 1<br>export n}&#x2F;&#x2F;export n &#x3D; (“n”, 1) 注意这里实际上用了n的名字<br>a &#x3D; packet.”n”&#x2F;&#x2F;_ . _ 是查找函数</p>
+<p>&#x2F;&#x2F;另一个文件<br>&#x2F;&#x2F;环境: (“packet”, (“n”, 1)), …<br>import “packet” form env;<br>&#x2F;&#x2F; _ from _ 是另一种查找函数, “packet” form env &#x3D; “packet”, (“n”, 1)<br>&#x2F;&#x2F;这里import将packet加入命名空间, 这里依旧是不能覆盖已有值的<br>&#x2F;&#x2F;import A &#x3D; (A[[ :&#x3D; A]])但是也没有办法给类型<br>a &#x3D; packet.”n”<br>import “n” form “packet” from env;<br>&#x2F;&#x2F;如果在同一个文件, 也可以甚至可以直接import packet, 然后环境中就有n了<br>b &#x3D; n<br>import (“packet” from env) as “p”;&#x2F;&#x2F;这里的 _ as _ 是替换函数</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs coq">something<br>left_rev = right_rev -| <span class="hljs-type">&#123;</span><br><span class="hljs-type">	a</span>: G; l := left_rev a; r := right_rev a;<br>	one * e @ ~ |<span class="hljs-type">- l</span> = l * e;<br>	rev ]] * @ ~ |<span class="hljs-type">- ~ = l</span> a r;<br>	rev [[ * @ ~ |<span class="hljs-type">- ~ = e</span> r;<br>	one * e @ ~ |<span class="hljs-type">- ~ = r</span>;<br>	<span class="hljs-built_in">by</span> |<span class="hljs-type">- left_rev</span> = right_rev&#125;<br><br>//<span class="hljs-built_in">by</span> 表示逻辑闭包(根据当前块中的命题(变量, 即使没赋值每一行也自动形成一个变量)能推出的所有), 或许可以省略(具体看性能)<br>//单独的<span class="hljs-built_in">by</span> |<span class="hljs-type">-也可以不写</span><br><span class="hljs-type"></span><br><span class="hljs-type">inf_prime</span> := max Prime = False -| <span class="hljs-type">&#123;</span><br><span class="hljs-type">	max</span> Prime |<span class="hljs-type">- &#123;</span><br><span class="hljs-type">		Premise</span> |<span class="hljs-type">- Q</span> := max Prime;<br>		something |<span class="hljs-type">- M</span> = ∏ q &lt;= Q q + <span class="hljs-number">1</span>;<br>		p: Prime, p &lt;= M -&gt; not p | <span class="hljs-type">M</span> |<span class="hljs-type">- M</span>: Prime;<br>		False&#125;;                <br>	<span class="hljs-keyword">Goal</span>&#125;<br>	<br>//也可以用分析法反着推<br></code></pre></td></tr></table></figure>
 
 
 <p>从目标反推？在写了 A |- B 后, B可以读取Goal or A可以读取Premise<br>结构冗余? 用~表示上一个结果 or 等式值，~~表示上两个结果 or 等式值…</p>
@@ -290,7 +283,7 @@
 <li><input disabled="" type="checkbox"> 等价即等于? Prop1, Prop2 &#x3D; Prop1 语法上怎么说更好</li>
 </ul>
 <h1 id="和类型、积类型、指数类型"><a href="#和类型、积类型、指数类型" class="headerlink" title="和类型、积类型、指数类型"></a>和类型、积类型、指数类型</h1><p>和类型 A | B</p>
-<p>积类型a, b或(a, b)<br>a, b, c &#x3D; (a, b), c &#x3D; a, (b, c)<br>括号只是用来区分优先级, 无实际作用<br>注意其他地方不要随便打逗号 eg. a b c : G  -&gt;  a * b * c &#x3D; a * (b * c)<br>(a, b) ]] &#x3D; b, (a, b) [[ &#x3D; a, (0, 1, 2, 3) [[2]] &#x3D; 2 这里用的自然数代表将函数作用几次的定义</p>
+<p>积类型a, b或(a, b)<br>括号只是用来区分优先级, 无实际作用<br>注意其他地方不要随便打逗号 eg. a b c : G  -&gt;  a * b * c &#x3D; a * (b * c)<br>(a, b) ]] &#x3D; b, (a, b) [[ &#x3D; a, (0, 1, 2, 3) [[2]] &#x3D; 2 这里用的自然数代表将函数作用几次的定义</p>
 <p>幂类型A-&gt;B</p>
 <p>复合(A-&gt;B)@(B-&gt;C)&#x3D;(A-&gt;C)<br>恒等函数 _</p>
 <p>eg. List a &#x3D; True | a, List a</p>
@@ -299,7 +292,7 @@
 <p>eg. List a :&#x3D; True | a, List a<br>Nat :&#x3D; True | Succ Nat<br>Succ: (Nat -&gt; Nat) 这里是自动转为 Succ Nat &#x3D; n:: Nat, Succ n<br>_@_ f: (C &lt;- B) g: (B &lt;- A) &#x3D; a:: A, b:: B, b &#x3D; g a, c:: C, c &#x3D; f b<br>(C &lt;- B) @ (B &lt;- A) &#x3D; (C &lt;- A)</p>
 <p>a0::,  Prod [[ &#x3D; a0</p>
 <p>每个类型可以看作一个关于自身良定义（可居性，存在一个对象）的命题<br>用Maybe单子修饰一个可能不存在的对象，如<br>a: Maybe A而不用提供A的良定义证明<br>因为Maybe A &#x3D; True | A一定可居( 传统的True &#x3D; None:: … )</p>
-<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">//用“广义和类型”的方法(即n元组), 在lean中用的是类似函数的方法</span><br><span class="hljs-comment">//不能用函数(广义积类型), 因为只能证明对某个G有定义</span><br>monoid := G:: Type u, *:: (G -&gt; G -&gt; G), <span class="hljs-number">1</span>:: G,<br>	(assoc * := a b c:: G -&gt; a * b * c = a * (b * c)),<br>	(one * <span class="hljs-number">1</span> := a:: G -&gt; a * <span class="hljs-number">1</span> = a);<br>	<br>BinaryMonoid: monoid :=<br>	G := e | a,<br>	_ * _:=&#123;<br>	e * := _<br>	a * a := e&#125;,<br>	pf_mul_assoc:= ...,<br>	pf_mul_one:=...;<br><br><span class="hljs-comment">//证明部分还要学习</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-comment">//用“广义和类型”的方法(即n元组), 在lean中用的是类似函数的方法</span><br><span class="hljs-comment">//不能用函数(广义积类型), 因为只能证明对某个G有定义</span><br>monoid := G:: Type u, *:: (G -&gt; G -&gt; G), <span class="hljs-number">1</span>:: G,<br>	(assoc [*] [G]:= a b c:: G -&gt; a * b * c = a * (b * c)),<br>	(one [*] [<span class="hljs-number">1</span>] [G]:= a:: G -&gt; a * <span class="hljs-number">1</span> = a);<br>	<br><span class="hljs-comment">//</span><br>	<br>BinaryMonoid: monoid :=<br>	G := e | a,<br>	_ * _:=&#123;<br>	e * := _<br>	a * a := e&#125;,<br>	pf_mul_assoc:= ...,<br>	pf_mul_one:=...;<br><br><span class="hljs-comment">//证明部分还要学习</span><br></code></pre></td></tr></table></figure>
 
 <h1 id="函数（指数类型）"><a href="#函数（指数类型）" class="headerlink" title="函数（指数类型）"></a>函数（指数类型）</h1><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-built_in">f</span>(x: ℝ) : ℝ := x + 1; 这相当于一个语法糖, 不会真正声明变量x<br><span class="hljs-comment">//f := &#123;x: ℝ -&gt; x + 1&#125; 括号防止命名空间污染</span><br><span class="hljs-comment">// f: := _ + 1: ℝ 这里相当于提升了1和+</span><br><span class="hljs-comment">// f: (ℝ -&gt; ℝ) := _ + 1 这里 _ 的类型其实是 ℝ -&gt; ℝ</span><br>_ f&#x27; := f;<br><span class="hljs-comment">// x f&#x27;</span><br><span class="hljs-comment">// _ f&#x27; x</span><br><span class="hljs-comment">// _ 表示输入变量且每一个不同 如 _ + _ = add</span><br><span class="hljs-keyword">Do</span> <span class="hljs-keyword">print</span> (f&#x27; = f); <span class="hljs-comment">//&gt;&gt;&gt;True //只是表达方式不同</span><br><br><span class="hljs-keyword">g</span> x := &#123;y := x ^ 2; 2 y&#125;;<br><span class="hljs-keyword">g</span> x := &#123;2 y -| y := x ^ 2&#125;;<br><span class="hljs-keyword">Do</span> <span class="hljs-keyword">print</span> <span class="hljs-keyword">type</span> f;<br><span class="hljs-comment">//&gt;&gt;&gt; ℝ -&gt; ℝ</span><br><span class="hljs-keyword">Do</span> <span class="hljs-keyword">print</span> <span class="hljs-keyword">g</span> 1;<br><span class="hljs-comment">//&gt;&gt;&gt; 2</span><br></code></pre></td></tr></table></figure>
 
@@ -347,14 +340,9 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年11月7日</div>
+          <div>2025年11月8日</div>
         </div>
       
-      
-        <div class="license-meta-item license-meta-date">
-          <div>更新于</div>
-          <div>2025年11月7日</div>
-        </div>
       
       
         <div class="license-meta-item">
@@ -396,18 +384,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Robust_Prover/" title="Robust_Prover">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Robust_Prover</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E5%B1%B1%E6%B5%B79000/" title="山海9000">
-                        <span class="hidden-mobile">山海9000</span>
+                      <a href="/%E9%9B%A8%E5%BE%AA%E7%8E%AF30_%E9%87%87%E8%96%87/" title="雨循环30_采薇">
+                        <span class="hidden-mobile">雨循环30_采薇</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
