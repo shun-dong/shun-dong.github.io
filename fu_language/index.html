@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="fu_language├── README.md├── .git&#x2F;├── .gitignore├── .vscode&#x2F;├── tokenizer.c└── tokenizer.exe   Let’s Build A Simple Interpreter. Part 1. - Ruslan’s Blog 🔼  [[]]关键字：”;”, “(“, “)”, “[“, “]”, “">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-11-15T01:00:07.843Z">
-<meta property="article:modified_time" content="2025-11-15T01:00:07.843Z">
+<meta property="article:published_time" content="2025-11-18T14:14:49.690Z">
+<meta property="article:modified_time" content="2025-11-18T14:14:49.690Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-11-15 09:00" pubdate>
-          2025年11月15日 上午
+        <time datetime="2025-11-18 22:14" pubdate>
+          2025年11月18日 晚上
         </time>
       </span>
     
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.1k 字
+          2.3k 字
         
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          18 分钟
+          19 分钟
         
       </span>
     
@@ -271,7 +271,7 @@
 <p>函数式<br>实际上很接近Agda<br>部分关键字大写开头以区分</p>
 <h1 id="行、块"><a href="#行、块" class="headerlink" title="行、块"></a>行、块</h1><p>单个文档，{}中的内容即一个块<br>块是一个广义上的（希尔伯特式的）推演<br>每一行组成推演序列，用；分隔），其中最后一行是结论（导出项）<br>推演序列要求每项必须由公理或之前项推得，由于 一阶逻辑的不可判定性，nontrivial的要显式用|-指定，方便计算机验证。找不到的项自动视为假设<br>同时块具有命名空间隔离的效果</p>
 <p>逻辑真理 ≠ 算法可计算<br>命名空间(语法上的推导)和’类型空间’不同<br>比如sum &#x3D; A + B只能表达出2 * sum之类的, 而无法自动表达2 * A + 2 * B<br>C :&#x3D; A, B | D;<br>E :&#x3D; C ]]合法, 命名空间有限, 可以自动传<br>E :&#x3D; B | D &#x3D;&lt; C ]]需要额外解释</p>
-<p>请注意这里的 :&#x3D; : ]] @都是语法上的符号, 我们用 &#x3D;&#x3D; 表达这种等式, 比如 a, b ]] &#x3D;&#x3D; b<br>例如我们可以在语法上说6&#x2F;3的除数是3, 但不能说2的除数是3, 6&#x2F;3和2只是在值上相等, 其实是两个表达式</p>
+<p>请注意这里的 :&#x3D; : ]] @都是语法上的符号, 或者叫模式匹配，我们用 &#x3D;&#x3D; 表达这种等式, 比如 a, b ]] &#x3D;&#x3D; b<br>例如我们可以在语法上说6&#x2F;3的除数是3, 但不能说2的除数是3, 6&#x2F;3和2只是在值上相等, 其实是两个表达式<br>语义上同构的对象视为相同，但语法上要区分</p>
 <p>如果加了export, 才可以通过name.something访问<br>packet :&#x3D; {n: Nat :&#x3D; 1<br>export n}&#x2F;&#x2F;export n &#x3D;&#x3D; (expr n, 1) 注意这里实际上用了n的名字, 所以是语法上的<br>a &#x3D; packet.”n”&#x2F;&#x2F;_ . _ 是查找函数</p>
 <p>&#x2F;&#x2F;另一个文件<br>&#x2F;&#x2F;环境: (“packet”, (“n”, 1)), …<br>import “packet” form env;<br>&#x2F;&#x2F; _ from _ 是另一种查找函数, “packet” form env &#x3D; “packet”, (“n”, 1)<br>&#x2F;&#x2F;这里import将packet加入命名空间, 这里依旧是不能覆盖已有值的<br>&#x2F;&#x2F;注意import实际上可以用于假设公理<br>&#x2F;&#x2F;import “classic”, ((a -&gt; False)-&gt; False) &#x3D; a<br>a &#x3D; packet.”n”<br>import “n” form “packet” from env;<br>&#x2F;&#x2F;如果在同一个文件, 也可以甚至可以直接import packet, 然后环境中就有n了<br>b &#x3D; n<br>import (“packet” from env) as “p”;&#x2F;&#x2F;这里的 _ as _ 是替换函数</p>
 <figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs coq">something<br>left_rev = right_rev =&lt; &#123;<br>	a: G; l := left_rev a; r := right_rev a;<br>	one * e @ ~ =&gt; l = l * e;<br>	rev ]] * @ ~ =&gt; ~ = l a r;<br>	rev [[ * @ ~ =&gt; ~ = e r;<br>	one * e @ ~ =&gt; ~ = r;<br>	<span class="hljs-built_in">by</span> =&gt; left_rev = right_rev&#125;<br><br>//<span class="hljs-built_in">by</span> 表示逻辑闭包(根据当前块中的命题(变量, 即使没赋值每一行也自动形成一个变量)能推出的所有), 或许可以省略(具体看性能)<br>//单独的<span class="hljs-built_in">by</span> =&gt; 也可以不写<br><br>inf_prime := max Prime -&gt; False =&lt; &#123;<br>	max Prime |<span class="hljs-type">- &#123;</span><br><span class="hljs-type">		Premise</span> =&gt; Q := max Prime;<br>		something =&gt; M := ∏ q &lt;= Q q + <span class="hljs-number">1</span>;<br>		p: Prime, p &lt;= M -&gt; not p | <span class="hljs-type">M</span> =&gt; M: Prime;<br>		False&#125;;                <br>	<span class="hljs-keyword">Goal</span>&#125;<br>	<br>//也可以用分析法反着推<br></code></pre></td></tr></table></figure>
@@ -281,15 +281,20 @@
 <p>不能写{n: Nat; a: Nat :&#x3D; 2 * x; a}因为x没赋值<br>只能{n: Nat :&#x3D; 1; a: Nat :&#x3D; 2 * x; a}</p>
 <h1 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h1><p>声明(实例化) a: A 注意声明过后依然是自由变元，除非实例化<br>赋值 n: Nat :&#x3D; 1<br>依赖类型语法 a:: A, a是形式参数, 并不会声明a<br>必须声明类型且不能重复声明</p>
 <p>用Type n 表示 Sort n, Type &#x3D; Type 1，可以</p>
-<p>自动提升（也就是所谓的多态）: 自动找始对象或终对象等进行态射<br>eg.1&#x2F;2 &#x3D; 0.5自然数上本来就没定义除法, 1, 2提升到有理数<br>eg. i&#x2F;1 &#x3D; i “&#x2F;“提升到复数<br>eg. a: G &#x3D; a&gt;: Group 集合提升到群，即a: G &gt;:<br>两个类型不同的对象一般不会被视为相同，即使“内容看起来一样”；而在集合论里，同一个集合元素可以属于多个集合<br>A in B 在类型论中一般表述为有一个自然含入映射</p>
+<p>自动提升（也就是所谓的多态）: 自动找始对象或终对象等进行态射<br>eg.1&#x2F;2 &#x3D; 0.5自然数上本来就没定义除法, 1, 2提升到有理数<br>eg. i&#x2F;1 &#x3D; i “&#x2F;“提升到复数<br>eg. a: G &#x3D; a: Group 集合提升到群<br>两个类型不同的对象一般不会被视为相同，即使“内容看起来一样”；而在集合论里，同一个集合元素可以属于多个集合<br>A in B 在类型论中一般表述为有一个自然含入映射</p>
 <ul>
 <li><input disabled="" type="checkbox"> 等价即等于? Prop1, Prop2 &#x3D; Prop1 语法上怎么说更好</li>
 </ul>
-<h1 id="和类型、积类型、指数类型"><a href="#和类型、积类型、指数类型" class="headerlink" title="和类型、积类型、指数类型"></a>和类型、积类型、指数类型</h1><p>和类型 A | B</p>
-<p>积类型a, b或(a, b)<br>a, b, c &#x3D; (a, b), c &#x3D; a, (b, c)<br>括号只是用来区分优先级, 无实际作用<br>注意其他地方不要随便打逗号 eg. a b c : G  -&gt;  a * b * c &#x3D; a * (b * c)<br>(a, b) ]] &#x3D;&#x3D; b, (a, b) [[ &#x3D;&#x3D; a, (0, 1, 2, 3) [[2]] &#x3D;&#x3D; 2 这里用的自然数代表将函数作用几次的定义</p>
-<p>幂类型A-&gt;B</p>
-<p>复合(A-&gt;B)@(B-&gt;C) &#x3D;&#x3D; (A-&gt;C)<br>恒等函数 _<br>注意这里[[和]]和@是语法上的函数, 因为a, b实际上&#x3D;b, a</p>
-<p>之所以用符号, | -&gt;是因为构造的是对应类型的对象, 并非同一类型的操作<br>保留+ * ^用于同一类型</p>
+<h1 id="和类型、积类型、指数类型"><a href="#和类型、积类型、指数类型" class="headerlink" title="和类型、积类型、指数类型"></a>和类型、积类型、指数类型</h1><p>和类型 A | B<br>f: (A | B)-&gt;C<br>f(a|):&#x3D;…<br>f(|b):&#x3D;…<br>或f:&#x3D;g|h定义一个从和类型出发的函数<br>或者写f(a|b):&#x3D;…注意这里仍然是语法上的符号，相当于模式匹配的简便语法</p>
+<p>积类型a, b或(a, b)<br>a, b, c &#x3D; (a, b), c &#x3D; a, (b, c)<br>括号只是用来区分优先级, 无实际作用<br>注意其他地方不要随便打逗号 eg. a b c : G  -&gt;  a * b * c &#x3D; a * (b * c)<br>(a, b) ]] &#x3D;&#x3D; b, (a, b) [[ &#x3D;&#x3D; a, (0, 1, 2, 3) [[2]] &#x3D;&#x3D; 2 这里用的自然数代表将函数作用几次的定义<br>f:(A, B)-&gt;C:&#x3D;g,h定义一个到积类型的函数<br>注意这里[[和]]语法上的函数, 因为a, b实际上&#x3D;b, a<br>？这里的积是无序的</p>
+<p>幂类型A-&gt;B<br>复合_@_ [A::Type, B::Type, C::Type]: (A-&gt;B)-&gt;(B-&gt;C)-&gt;(A-&gt;C)<br>恒等函数 _ [A:: Type]:&#x3D;x-&gt;x<br>～<a href="/%CE%BB-calculus/" title="λ-calculus">λ演算</a></p>
+<p>之所以用符号, | -&gt;是因为往往构造的是对应类型的对象, 并非同一类型的操作，即a,b和a不是同一类型<br>保留+ * ^用于同一类型</p>
+<ul>
+<li><input disabled="" type="checkbox"> 构造子本身无意义，决定区别的是带有的结构（性质），这里的带有是元语言的概念</li>
+<li><input disabled="" type="checkbox"> 是否应该区分构造子和类型函数</li>
+<li><input disabled="" type="checkbox"> ？读取构造子即语法函数</li>
+<li><input disabled="" type="checkbox"> 等于即等价，但有不同路径</li>
+</ul>
 <p>eg. List a &#x3D; True | a, List a</p>
 <h1 id="依赖类型"><a href="#依赖类型" class="headerlink" title="依赖类型"></a>依赖类型</h1><p>依赖类型写法同一般的类型，如<br>F(a: A): phi a 等效于 F: (a:: A -&gt; phi a)<br>a:: A, phi a</p>
 <p>定义类型a:: A, phi a &#x3D; b:: A, phi b&#x2F;&#x2F; a，b只是个哑变元(否则不能反复声明类型)<br>a: A, …: phi a声明变量类型</p>
@@ -345,7 +350,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年11月15日</div>
+          <div>2025年11月18日</div>
         </div>
       
       
