@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="fu_language├── README.md├── .git&#x2F;├── .gitignore├── .vscode&#x2F;├── tokenizer.c└── tokenizer.exe   Let’s Build A Simple Interpreter. Part 1. - Ruslan’s Blog 🔼  [[]]关键字：”;”, “(“, “)”, “[“, “]”, “">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-11-24T16:07:44.835Z">
-<meta property="article:modified_time" content="2025-11-24T16:07:44.836Z">
+<meta property="article:published_time" content="2025-11-25T14:27:05.678Z">
+<meta property="article:modified_time" content="2025-11-25T14:27:05.678Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-11-25 00:07" pubdate>
-          2025年11月25日 凌晨
+        <time datetime="2025-11-25 22:27" pubdate>
+          2025年11月25日 晚上
         </time>
       </span>
     
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3k 字
+          3.1k 字
         
       </span>
     
@@ -260,14 +260,6 @@
           <article class="post-content mx-auto">
             <h1 id="seo-header">fu_language</h1>
             
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    本文最后更新于 2025年11月25日 凌晨
-                  
-                
-              </p>
-            
             
               <div class="markdown-body">
                 
@@ -278,7 +270,10 @@
 </ul>
 <p>函数式<br>实际上很接近Agda<br>部分关键字大写开头以区分</p>
 <h1 id="行、块"><a href="#行、块" class="headerlink" title="行、块"></a>行、块</h1><p>单个文档，{}中的内容即一个块<br>块是一个广义上的（希尔伯特式的）推演, 同时块具有命名空间隔离的效果</p>
-<p>每一行组成推演序列，用；分隔），其中最后一行是结论（导出项）<br>推演序列要求每项必须由公理或之前项推得，由于 一阶逻辑的不可判定性，nontrivial的要显式用&gt;&gt;指定，逻辑真理 ≠ 算法可计算<br>命名空间(语法上的推导)和’类型空间’不同<br>比如sum &#x3D; A + B只能表达出2 * sum之类的, 而无法自动表达2 * A + 2 * B<br>C :&#x3D; A, B | D;<br>E :&#x3D; C ]]合法, 命名空间有限, 可以自动传<br>E :&#x3D; B | D &lt;&lt; C ]]需要额外解释<br>在正确的环境下无法推出False(即False是unknown的)~构造主义</p>
+<p>每一行组成推演序列，用；分隔），其中最后一行是结论（导出项）<br>推演序列要求每项必须由公理或之前项推得（即可居的，注意可居性与存在性在False上不同），由于 一阶逻辑的不可判定性，逻辑真理 ≠ 算法可计算</p>
+<ul>
+<li><input disabled="" type="checkbox"> nontrivial的要显式用&gt;&gt;指定，但是有时想显式给出，如何平衡<br>命名空间(语法上的推导)和’类型空间’不同<br>比如sum &#x3D; A + B只能表达出2 * sum之类的, 而无法自动表达2 * A + 2 * B<br>C :&#x3D; A, B | D;<br>E :&#x3D; C ]]合法, 命名空间有限, 可以自动传<br>E :&#x3D; B | D &lt;&lt; C ]]需要额外解释<br>在正确的环境下无法推出False(即False是unknown的)~构造主义</li>
+</ul>
 <p>%% 请注意这里的 :&#x3D; : ]] @都是语法上的符号, 或者叫模式匹配，我们用 &#x3D;&#x3D; 表达这种等式, 比如 a, b ]] &#x3D;&#x3D; b<br>例如我们可以在语法上说6&#x2F;3的除数是3, 但不能说2的除数是3, 6&#x2F;3和2只是在值上相等, 其实是两个表达式<br>语义上同构的对象视为相同，但语法上要区分 %%</p>
 <p>如果加了export, 才可以通过name.something访问<br>packet :&#x3D; {n: Nat :&#x3D; 1<br>export n}&#x2F;&#x2F;export n &#x3D;&#x3D; (expr n, 1) 注意这里实际上用了n的名字, 所以是语法上的<br>a &#x3D; packet.”n”&#x2F;&#x2F;_ . _ 是查找函数</p>
 <p>&#x2F;&#x2F;另一个文件<br>&#x2F;&#x2F;环境: (“packet”, (“n”, 1)), …<br>import “packet” form env;<br>&#x2F;&#x2F; _ from _ 是另一种查找函数, “packet” form env &#x3D; “packet”, (“n”, 1)<br>&#x2F;&#x2F;这里import将packet加入命名空间, 这里依旧是不能覆盖已有值的<br>&#x2F;&#x2F;注意import实际上可以用于假设公理<br>&#x2F;&#x2F;import “classic”, ((a -&gt; False)-&gt; False) &#x3D; a<br>a &#x3D; packet.”n”<br>import “n” form “packet” from env;<br>&#x2F;&#x2F;如果在同一个文件, 也可以甚至可以直接import packet, 然后环境中就有n了<br>b &#x3D; n<br>import (“packet” from env) as “p”;&#x2F;&#x2F;这里的 _ as _ 是替换函数</p>
@@ -336,7 +331,7 @@
 <p>～可能世界语义学<br>Do IO a-&gt;World<br>Be ‘非计算性的存在性命题的单子’计算可能失败（不终止&#x2F;不可执行）&#x3D; Possible｜，其中Unknown: Possible<br>Rand</p>
 <p>将单纯的构造性逻辑Decidable 提升到World 或者叫Time 或者叫 Timeline</p>
 <h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>自定义语言<br>~meow语言</p>
-<h1 id="富文本"><a href="#富文本" class="headerlink" title="富文本"></a>富文本</h1><p>代码部分用{}标记, 渲染时用&gt;&gt;&gt;标出部分# 代码结果<br>外面是[[Vion_editor]]: 采用markdown语法, 可以在一行的开头用# 紧接命令, 也用c风格的注释<br>右边栏有渲染结果, proof, message 等</p>
+<h1 id="富文本"><a href="#富文本" class="headerlink" title="富文本"></a>富文本</h1><p>代码部分用{}标记, 渲染时用&gt;&gt;&gt;标出部分# 代码结果<br>外面是[[Vion_editor]]: 采用markdown语法, 可以在一行的开头用# 紧接命令, 也用c风格的注释<br>右边栏有渲染结果, proof, message 等<br>变量名用类似latex的方式渲染，用～表示公式中的空格<br>eg bb~0$\to\mathbb 0$</p>
 <h1 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h1><h2 id="广义张量"><a href="#广义张量" class="headerlink" title="广义张量"></a>广义张量</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs fu">V  W: VecterSpace, α: (ℝ[], Q: orderedBase V) //ℝ[]用来表示ℝ形式向量空间~多项式<br>M: V α | α* [:W] [:α]<br>//这里的默认作用是带缩并的张量积, | 表示不带缩并版本<br>//[:W] [:α]是[w:W] [a:α]的省略<br></code></pre></td></tr></table></figure>
                 
               </div>
@@ -370,11 +365,6 @@
           <div>2025年11月25日</div>
         </div>
       
-      
-        <div class="license-meta-item license-meta-date">
-          <div>更新于</div>
-          <div>2025年11月25日</div>
-        </div>
       
       
         <div class="license-meta-item">
