@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="fu_language├── README.md├── .git&#x2F;├── .gitignore├── .vscode&#x2F;├── tokenizer.c└── tokenizer.exe   Let’s Build A Simple Interpreter. Part 1. - Ruslan’s Blog 🔼  [[]]关键字：”;”, “(“, “)”, “[“, “]”, “">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-11-25T14:27:05.678Z">
-<meta property="article:modified_time" content="2025-11-25T14:27:05.678Z">
+<meta property="article:published_time" content="2025-11-27T12:37:20.176Z">
+<meta property="article:modified_time" content="2025-11-27T12:37:20.177Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-11-25 22:27" pubdate>
-          2025年11月25日 晚上
+        <time datetime="2025-11-27 20:37" pubdate>
+          2025年11月27日 晚上
         </time>
       </span>
     
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.1k 字
+          3.2k 字
         
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          26 分钟
+          27 分钟
         
       </span>
     
@@ -260,6 +260,14 @@
           <article class="post-content mx-auto">
             <h1 id="seo-header">fu_language</h1>
             
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年11月27日 晚上
+                  
+                
+              </p>
+            
             
               <div class="markdown-body">
                 
@@ -270,14 +278,14 @@
 </ul>
 <p>函数式<br>实际上很接近Agda<br>部分关键字大写开头以区分</p>
 <h1 id="行、块"><a href="#行、块" class="headerlink" title="行、块"></a>行、块</h1><p>单个文档，{}中的内容即一个块<br>块是一个广义上的（希尔伯特式的）推演, 同时块具有命名空间隔离的效果</p>
-<p>每一行组成推演序列，用；分隔），其中最后一行是结论（导出项）<br>推演序列要求每项必须由公理或之前项推得（即可居的，注意可居性与存在性在False上不同），由于 一阶逻辑的不可判定性，逻辑真理 ≠ 算法可计算</p>
+<p>每一行组成推演序列，用;分隔，其中最后一行是结论（导出项）(这里规定以;结尾的项要非空, 否则要用Maybe(a :&#x3D; …))<br>推演序列要求每项必须由公理或之前项推得（即可居的，注意可居性与存在性在False上不同），由于 一阶逻辑的不可判定性，逻辑真理 ≠ 算法可计算</p>
 <ul>
-<li><input disabled="" type="checkbox"> nontrivial的要显式用&gt;&gt;指定，但是有时想显式给出，如何平衡<br>命名空间(语法上的推导)和’类型空间’不同<br>比如sum &#x3D; A + B只能表达出2 * sum之类的, 而无法自动表达2 * A + 2 * B<br>C :&#x3D; A, B | D;<br>E :&#x3D; C ]]合法, 命名空间有限, 可以自动传<br>E :&#x3D; B | D &lt;&lt; C ]]需要额外解释<br>在正确的环境下无法推出False(即False是unknown的)~构造主义</li>
+<li><input disabled="" type="checkbox"> nontrivial的要显式用&gt;&gt;指定，但是有时想显式给出，如何平衡<br>命名空间(语法上的推导)和’类型空间’不同<br>比如sum &#x3D; A + B只能表达出2 * sum之类的, 而无法自动表达2 * A + 2 * B<br>C :&#x3D; A, B | D;<br>E :&#x3D; C ]]合法, 命名空间有限, 可以自动传<br>E :&#x3D; $C ]] :: B | D 需要额外解释<br>在正确的环境下无法推出False(即False是unknown的)~构造主义</li>
 </ul>
 <p>%% 请注意这里的 :&#x3D; : ]] @都是语法上的符号, 或者叫模式匹配，我们用 &#x3D;&#x3D; 表达这种等式, 比如 a, b ]] &#x3D;&#x3D; b<br>例如我们可以在语法上说6&#x2F;3的除数是3, 但不能说2的除数是3, 6&#x2F;3和2只是在值上相等, 其实是两个表达式<br>语义上同构的对象视为相同，但语法上要区分 %%</p>
 <p>如果加了export, 才可以通过name.something访问<br>packet :&#x3D; {n: Nat :&#x3D; 1<br>export n}&#x2F;&#x2F;export n &#x3D;&#x3D; (expr n, 1) 注意这里实际上用了n的名字, 所以是语法上的<br>a &#x3D; packet.”n”&#x2F;&#x2F;_ . _ 是查找函数</p>
 <p>&#x2F;&#x2F;另一个文件<br>&#x2F;&#x2F;环境: (“packet”, (“n”, 1)), …<br>import “packet” form env;<br>&#x2F;&#x2F; _ from _ 是另一种查找函数, “packet” form env &#x3D; “packet”, (“n”, 1)<br>&#x2F;&#x2F;这里import将packet加入命名空间, 这里依旧是不能覆盖已有值的<br>&#x2F;&#x2F;注意import实际上可以用于假设公理<br>&#x2F;&#x2F;import “classic”, ((a -&gt; False)-&gt; False) &#x3D; a<br>a &#x3D; packet.”n”<br>import “n” form “packet” from env;<br>&#x2F;&#x2F;如果在同一个文件, 也可以甚至可以直接import packet, 然后环境中就有n了<br>b &#x3D; n<br>import (“packet” from env) as “p”;&#x2F;&#x2F;这里的 _ as _ 是替换函数</p>
-<figure class="highlight xl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs xl">something<br>left_rev = right_rev <span class="hljs-string">&lt;&lt; &#123;</span><br><span class="hljs-string">	a: G; l := left_rev a; r := right_rev a;</span><br><span class="hljs-string">	one * e @ ~ &gt;&gt;</span> l = l * e;<br>	rev ]] * @ ~ &gt;&gt; ~ = l a r;<br>	rev [[ * @ ~ &gt;&gt; ~ = e r;<br>	one * e @ ~ &gt;&gt; ~ = r;<br>	<span class="hljs-keyword">by</span> &gt;&gt; left_rev = right_rev&#125;<br><br><span class="hljs-comment">//by 表示逻辑闭包(根据当前块中的命题(变量, 即使没赋值每一行也自动形成一个变量)能推出的所有), 或许可以省略(具体看性能)</span><br><span class="hljs-comment">//单独的by &gt;&gt; 也可以不写</span><br><br><span class="hljs-function"><span class="hljs-title">inf_prime</span> := max Prime -&gt;</span> False <span class="hljs-string">&lt;&lt; &#123;</span><br><span class="hljs-string">	max Prime -&gt; &#123;</span><br><span class="hljs-string">		Premise &gt;&gt;</span> Q := max Prime;<br>		something &gt;&gt; M := ∏ q &lt;= Q q + <span class="hljs-number">1</span>;<br>		<span class="hljs-function"><span class="hljs-title">p</span>: Prime, p &lt;= M -&gt;</span> <span class="hljs-built_in">not</span> p | M &gt;&gt; M: Prime;<br>		False&#125;&#125;<br>	<br><span class="hljs-comment">//也可以用分析法反着推</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs lasso">something<br>left_rev = right_rev &lt;&lt; &#123;<br>	a: G; l := left_rev a; r := right_rev a;<br>	one * e @ ~ <span class="hljs-type">:: l</span> = l * e;<span class="hljs-comment">//这里全用::会不会可读性太差了</span><br>	rev <span class="hljs-meta">]</span>] * @ ~ :: ~ = l a r;<br>	rev <span class="hljs-meta">[</span><span class="hljs-meta">[</span> * @ ~ &gt;&gt; ~ = e r;<br>	one * e @ ~ &gt;&gt; ~ = r;<br>	<span class="hljs-keyword">by</span> &gt;&gt; left_rev = right_rev;&#125;<br><br><span class="hljs-comment">//by 表示逻辑闭包(根据当前块中的命题(变量, 即使没赋值每一行也自动形成一个变量)能推出的所有), 或许可以省略(具体看性能)</span><br><span class="hljs-comment">//单独的by &gt;&gt; 也可以不写</span><br><br>inf_prime := <span class="hljs-keyword">max</span> Prime -&gt; <span class="hljs-literal">False</span> &lt;&lt; &#123;<br>	<span class="hljs-keyword">max</span> Prime -&gt; &#123;<br>		Premise &gt;&gt; Q := <span class="hljs-keyword">max</span> Prime;<br>		something &gt;&gt; M := ∏ q &lt;= Q q + <span class="hljs-number">1</span>;<br>		p: Prime, p &lt;= M -&gt; <span class="hljs-literal">not</span> p | M &gt;&gt; M: Prime;<br>		<span class="hljs-literal">False</span>;&#125;;&#125;<br>	<br><span class="hljs-comment">//也可以用分析法反着推</span><br></code></pre></td></tr></table></figure>
 
 
 <p>从目标反推？在写了 A -&gt; {可以读取Goal}, A &lt;- {可以用Premise}<br>结构冗余? 用~表示上一个结果 or 等式值，~~表示上两个结果 or 等式值…</p>
@@ -315,13 +323,18 @@
 <ul>
 <li><input disabled="" type="checkbox"> Group of G引入of<br>…自动从环境中找</li>
 </ul>
-<h1 id="积类型"><a href="#积类型" class="headerlink" title="积类型"></a>积类型</h1><p>积类型A &amp; B:&#x3D; [R:: Type] -&gt; (A → B → R) → R对于类型来说, R!&#x3D;False, 总是存在的, 但这个类型签名并非全部, 必须要包含下面所谓的构造子(即一个到该类型的函数类型), 决定类型性质的是类型本身带有的结构（性质）,这种定义下本身就是消去规则<br> f: A-&gt;B-&gt;R a: A ,[R:: Type] b: B :&#x3D; f a b 存在性由笛卡尔闭范畴保证</p>
-<p>a, b, c &#x3D; (a, b), c &#x3D; a, (b, c)<br>括号只是用来区分优先级, 无实际作用<br>注意其他地方不要随便打逗号 eg. a b c : G  -&gt;  a * b * c &#x3D; a * (b * c)<br>所谓的构造子本身即到对应类型的函数，决定类型性质的是类型本身带有的结构（性质）,这种定义下本身就是消去规则</p>
+<h1 id="积类型"><a href="#积类型" class="headerlink" title="积类型"></a>积类型</h1><ul>
+<li>recursion：用归纳类型<strong>定义普通函数</strong>；</li>
+<li>induction：在依赖情形下，用归纳类型<strong>证明所有元素满足某种性质&#x2F;构造依赖值</strong></li>
+<li>区别迭代iteration<br>有两种方法，有点像所谓的内涵和外延，定义类型本身为构造出的项到currying后induction的像（church编码）；或定义一个构造子和induction（pattern match）。前者像是否等于codomain需要parametricity，我觉得这会使定义更自然</li>
+</ul>
+<p>积类型A &amp; B:&#x3D; [R:: Type] -&gt; (A → B → R) → R对于类型来说, R!&#x3D;False, 总是存在的, 但这个类型签名并非全部, 必须要包含下面所谓的构造子(即一个到该类型的函数类型), 决定类型性质的是类型本身带有的结构（性质）,这种定义下本身就是消去规则<br> f: A-&gt;B-&gt;R a: A ,[R:: Type] b: B :&#x3D; f a b 存在性由笛卡尔闭范畴保证</p>
+<p>a, b, c &#x3D; a, (b, c)<br>括号只是用来区分优先级, 无实际作用<br>注意其他地方不要随便打逗号 eg. a b c : G  -&gt;  a * b * c &#x3D; a * (b * c)<br>所谓的构造子本身即到对应类型的函数，决定类型性质的是类型本身带有的结构（性质）,这种定义下本身就是消去规则</p>
 <p>]] [[L: Type]] [R:: Type]  l: L r: R :&#x3D; r 这(right)其实也有人叫true, 也算一种双关梗了<br>同理 …<br>]] (a, b) &#x3D;&#x3D; b, [[ (a, b)  &#x3D;&#x3D; a, [[ 2 ]] (0, 1, 2, 3) &#x3D;&#x3D; 2 这里用的自然数代表将函数作用几次的定义</p>
 <p>之所以用符号, | -&gt;是因为往往构造的是对应类型的对象, 并非同一类型的操作，即a,b和a不是同一类型<br>保留+ * ^用于同一类型</p>
 <p>&#x2F; 自然变换<br>&#x2F; 等于即等价，但有不同路径<br>$A \times B &#x3D; B \times A \implies left (A \times B) &#x3D; \sigma <del>left</del>\sigma(B \times A)$</p>
 <h1 id="和-余积-类型"><a href="#和-余积-类型" class="headerlink" title="和(余积)类型"></a>和(余积)类型</h1><p>和类型 A | B:&#x3D; [R:: Type] (A -&gt; R) -&gt; (B -&gt; R) -&gt; R<br>存在性同样需要额外的公理<br>(]] _ _ a: A): A | B 和类型中这里的]]输入函数类型<br>同理…<br>如果AB不同其实是可以自动匹配左右的<br>&#x2F; 语法糖(f , g) a</p>
-<h1 id="区间类型"><a href="#区间类型" class="headerlink" title="区间类型"></a>区间类型</h1><p>~[[Homotopy_type_theory]]<br>如何表示连续性?自然变换</p>
+<h1 id="区间类型"><a href="#区间类型" class="headerlink" title="区间类型"></a>区间类型</h1><p>~<a href="/Homotopy_type_theory/" title="Homotopy_type_theory">Homotopy_type_theory</a><br>如何表示连续性?自然变换</p>
 <ul>
 <li><input disabled="" type="checkbox"> $a &#x3D; _A b :&#x3D; f::I \to A ~&amp; f(0) &#x3D;a  ~&amp; f(1)&#x3D;b$<br>这里的等于是等价，不一定是refl，不能直接用于替换（rw），需要用路径归纳</li>
 </ul>
@@ -362,9 +375,14 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年11月25日</div>
+          <div>2025年11月27日</div>
         </div>
       
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年11月27日</div>
+        </div>
       
       
         <div class="license-meta-item">
@@ -405,6 +423,12 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
+                    
+                      <a href="/Homotopy_type_theory/" title="Homotopy_type_theory">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Homotopy_type_theory</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
                     
                   </article>
                   <article class="post-next col-6">
