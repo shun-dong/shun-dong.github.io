@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="类structure:类inductive:递归定义类class:类型类:方法 [[构造主义数学]]Lean（以及 Coq 等）本身只是“形式化数学的工具&#x2F;平台”，它的底层逻辑“天然支持”构造性逻辑，但——  Lean 内部确实默认使用构造主义（你写出来的函数、证明都要求是具体的&#x2F;可以检查的对象）。 Lean 也可以引入经典公理（如排中律），此时系统本身逻辑就“升格”为经典逻辑">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-11-28T01:13:37.518Z">
-<meta property="article:modified_time" content="2025-11-28T01:13:37.518Z">
+<meta property="article:published_time" content="2025-11-28T05:41:37.974Z">
+<meta property="article:modified_time" content="2025-11-28T05:41:37.974Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-11-28 09:13" pubdate>
-          2025年11月28日 上午
+        <time datetime="2025-11-28 13:41" pubdate>
+          2025年11月28日 下午
         </time>
       </span>
     
@@ -289,13 +289,7 @@
 <h3 id="2-typeclass（class）"><a href="#2-typeclass（class）" class="headerlink" title="2. typeclass（class）"></a>2. typeclass（class）</h3><p><strong>用 class 关键字声明一个类型类，Lean 自动把它视作结构体，加上类型类自动推断机制。</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs lean">class MyGroup (G : Type) :=<br>(op   : G → G → G)<br>(one  : G)<br>(inv  : G → G)<br>(op_assoc : ∀ a b c : G, op (op a b) c = op a (op b c))<br>(one_op   : ∀ a : G, op one a = a)<br>(op_one   : ∀ a : G, op a one = a)<br>(op_inv   : ∀ a : G, op a (inv a) = one)<br><br>-- 提供实例内容<br>instance int_mygroup : MyGroup ℤ :=<br>&#123; op := (+),<br>  one := 0,<br>  inv := λ x, -x,<br>  op_assoc := by simp,<br>  one_op := by simp,<br>  op_one := by simp,<br>  op_inv := by simp &#125;<br><br>-- 使用时 Lean 支持自动填充 typeclass instance<br>def double [MyGroup G] (a : G) : G := MyGroup.op a a<br><br>-- 下面可以直接 double 3，因为 ℤ 有实例<br>#eval double 3      -- Lean 会自动填入 int_mygroup<br></code></pre></td></tr></table></figure>
 
-<p>说明：</p>
-<ul>
-<li><code>class</code> 语法跟 <code>structure</code> 基本一致，但 Lean 给它加了类型类机制。</li>
-<li>用方括号 <code>[MyGroup G]</code> 可让 Lean 自动找实例。</li>
-</ul>
-<hr>
-<h3 id="3-sigma-record-types"><a href="#3-sigma-record-types" class="headerlink" title="3. sigma&#x2F;record types"></a>3. sigma&#x2F;record types</h3><p><strong>Sigma 类型（dependent pair），Lean 语法是 <code>Σ x : A, B x</code> 或 <code>Sigma A B</code>，手写比较多用于某些依赖类型场景。</strong><br>通常，<code>structure</code> 就是 record type，<code>Sigma</code> 是依赖记录。</p>
+<h2 id="说明：-class-语法跟-structure-基本一致，但-Lean-给它加了类型类机制。-用方括号-MyGroup-G-可让-Lean-自动找实例。这是可能有两个实例报错的"><a href="#说明：-class-语法跟-structure-基本一致，但-Lean-给它加了类型类机制。-用方括号-MyGroup-G-可让-Lean-自动找实例。这是可能有两个实例报错的" class="headerlink" title="说明：- class 语法跟 structure 基本一致，但 Lean 给它加了类型类机制。- 用方括号 [MyGroup G] 可让 Lean 自动找实例。这是可能有两个实例报错的"></a>说明：<br>- <code>class</code> 语法跟 <code>structure</code> 基本一致，但 Lean 给它加了类型类机制。<br>- 用方括号 <code>[MyGroup G]</code> 可让 Lean 自动找实例。<br>这是可能有两个实例报错的</h2><h3 id="3-sigma-record-types"><a href="#3-sigma-record-types" class="headerlink" title="3. sigma&#x2F;record types"></a>3. sigma&#x2F;record types</h3><p><strong>Sigma 类型（dependent pair），Lean 语法是 <code>Σ x : A, B x</code> 或 <code>Sigma A B</code>，手写比较多用于某些依赖类型场景。</strong><br>通常，<code>structure</code> 就是 record type，<code>Sigma</code> 是依赖记录。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs lean">-- 普通 record 就是 structure Point<br>-- 依赖型记录例子：<br><br>def S : Type := Σ n : ℕ, Fin n → ℝ<br>-- 解释：一个自然数 n，加上一个数组（函数）从 Fin n 到 ℝ<br><br>-- 构造一项<br>def example : S := ⟨3, λ i, 2.0 * ↑i⟩<br><br>-- 取出字段<br>def len : ℕ := example.1<br>def data : Fin len → ℝ := example.2<br></code></pre></td></tr></table></figure>
 
 
@@ -441,18 +435,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%CE%BB-calculus/" title="λ-calculus">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">λ-calculus</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/homotopy_type_theory/" title="homotopy_type_theory">
-                        <span class="hidden-mobile">homotopy_type_theory</span>
+                      <a href="/Haskell/" title="Haskell">
+                        <span class="hidden-mobile">Haskell</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

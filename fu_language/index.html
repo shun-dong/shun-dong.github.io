@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="fu_language├── README.md├── .git&#x2F;├── .gitignore├── .vscode&#x2F;├── tokenizer.c└── tokenizer.exe   Let’s Build A Simple Interpreter. Part 1. - Ruslan’s Blog 🔼  [[]]关键字：”;”, “(“, “)”, “[“, “]”, “">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-11-28T01:13:37.505Z">
-<meta property="article:modified_time" content="2025-11-28T01:13:37.505Z">
+<meta property="article:published_time" content="2025-11-28T05:41:37.961Z">
+<meta property="article:modified_time" content="2025-11-28T05:41:37.961Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-11-28 09:13" pubdate>
-          2025年11月28日 上午
+        <time datetime="2025-11-28 13:41" pubdate>
+          2025年11月28日 下午
         </time>
       </span>
     
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.4k 字
+          1.6k 字
         
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          12 分钟
+          13 分钟
         
       </span>
     
@@ -270,7 +270,7 @@
 </ul>
 <p>函数式<br>实际上很接近Agda<br>部分关键字大写开头以区分</p>
 <h1 id="行、块"><a href="#行、块" class="headerlink" title="行、块"></a>行、块</h1><p>单个文档，{}中的内容即一个块<br>块是一个广义上的（希尔伯特式的）推演, 同时块具有命名空间隔离的效果</p>
-<p>每一行组成推演序列，用;分隔，其中最后一行是结论（导出项）(这里规定以;结尾的项要非空, 否则要用Maybe(a :&#x3D; …))<br>推演序列要求每项必须由公理或之前项推得（即可居的，注意可居性与存在性在False上不同），由于 一阶逻辑的不可判定性，逻辑真理 ≠ 算法可计算</p>
+<p>每一行为一个步骤, 组成推演序列，用;分隔，其中最后一行是结论（导出项）(这里规定以;结尾的项要非空, 否则要用Maybe(a :&#x3D; …))<br>推演序列要求每项必须由公理或之前项推得（即可居的，注意可居性与存在性在False上不同），由于 一阶逻辑的不可判定性，逻辑真理 ≠ 算法可计算</p>
 <ul>
 <li><input disabled="" type="checkbox"> nontrivial的要显式用&gt;&gt;指定，但是有时想显式给出，如何平衡<br>命名空间(语法上的推导)和’类型空间’不同<br>比如sum &#x3D; A + B只能表达出2 * sum之类的, 而无法自动表达2 * A + 2 * B<br>C :&#x3D; A, B | D;<br>E :&#x3D; C ]]合法, 命名空间有限, 可以自动传<br>E :&#x3D; $C ]] :: B | D 需要额外解释<br>在正确的环境下无法推出False(即False是unknown的)~构造主义</li>
 </ul>
@@ -282,13 +282,20 @@
 
 <p>从目标反推？在写了 A -&gt; {可以读取Goal}, A &lt;- {可以用Premise}<br>结构冗余? 用~表示上一个结果 or 等式值，~~表示上两个结果 or 等式值…</p>
 <p>不能写{n: Nat; a: Nat :&#x3D; 2 * n; a}因为x没赋值<br>只能{n: Nat :&#x3D; 1; a: Nat :&#x3D; 2 * n; a}&#x3D;2</p>
+<h1 id="显式闭包-自由变元"><a href="#显式闭包-自由变元" class="headerlink" title="显式闭包(自由变元)"></a>显式闭包(自由变元)</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs fu">y[x] = x + 1;<br>z[y[x]] = y[x] + 1;<br>Do print y = z //=&gt;&gt;false<br>x = 1<br>w = z + 1 //这里的z已经被完全绑定, 所以不用写[x]<br></code></pre></td></tr></table></figure>
+
+
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs ada">func2 (x:: <span class="hljs-keyword">Type</span> <span class="hljs-type">u) </span>[x,... : <span class="hljs-type">myType</span>] : <span class="hljs-type">Type</span> v = ... <br></code></pre></td></tr></table></figure>
+<ul>
+<li><input disabled="" type="checkbox"> Group of G引入of<br>…自动从环境中找对应类型的项, 如果有多个就报错<br>可以用来后置一部分定义, 用于拼接<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs fu">f[x] = 2 * x<br>x = 1<br>y = f<br></code></pre></td></tr></table></figure></li>
+</ul>
 <h1 id="存在与时间"><a href="#存在与时间" class="headerlink" title="存在与时间"></a>存在与时间</h1><p>纯函数只是描述性的，特别的在fu语言中只能描述存在<br>我们声称一切都是纯函数、无副作用，但最终却需要一个”不纯”的主函数作为程序的入口点。这就像构建了一个完美的数学宇宙，却需要从外部”踢一脚”才能启动。<br>无穷次才能收敛的递归，实际上存在的编译时间，不可判定，无限运行的主循环</p>
 <p>程序不是运行在时间中，而是时间自己在通过程序收敛成为世界（存在）。</p>
 <p>～可能世界语义学<br>Do IO a-&gt;World<br>Be ‘非计算性的存在性命题的单子’计算可能失败（不终止&#x2F;不可执行）&#x3D; Possible｜，其中Unknown: Possible<br>Rand</p>
 <p>将单纯的构造性逻辑Decidable 提升到World 或者叫Time 或者叫 Timeline</p>
 <h2 id="注记：终止性检查"><a href="#注记：终止性检查" class="headerlink" title="注记：终止性检查"></a>注记：终止性检查</h2><p>在编译期判断一个函数&#x2F;程序（特别地，类型定义，<a href="/%CE%BB-calculus/" title="λ-calculus">λ-calculus</a>）是否一定会停止（不会死循环）<br>可计算性相关，会出现停机问题之类的不可判定，即没有程序能完全解决这个问题，现代证明器只是限制在证明原始之类</p>
 <p>Haskell 不进行终止性检查, 但是采用lazy evaluation, 保证存在β范式就能找到<br>实际上这允许定义f(n)&#x3D;even n?n&#x2F;2:3n+1 (Collatz 猜想)</p>
-<p>Coq&#x2F;Agda&#x2F;Idris默认终止性检查，但允许用户手动跳过<br>我认为应该在此基础上允许用户提供可判定性的证明</p>
+<p>Coq&#x2F;Agda&#x2F;Idris默认终止性检查，但允许用户手动跳过, 同时默认为应用序<br>我认为作为步骤应该在此基础上允许用户提供可判定性的证明, 作为其他地方的变量应该采用Haskell的模式</p>
 <h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>自定义语言<br>~meow语言</p>
 <h1 id="富文本"><a href="#富文本" class="headerlink" title="富文本"></a>富文本</h1><p>代码部分用{}标记, 渲染时用&gt;&gt;&gt;标出部分# 代码结果<br>外面是[[Vion_editor]]: 采用markdown语法, 可以在一行的开头用# 紧接命令, 也用c风格的注释<br>右边栏有渲染结果, proof, message 等<br>变量名用类似latex的方式渲染，用～表示公式中的空格<br>eg bb~0$\to\mathbb 0$</p>
 <h1 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h1><h2 id="广义张量"><a href="#广义张量" class="headerlink" title="广义张量"></a>广义张量</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs fu">V  W: VecterSpace, α: (ℝ[], Q: orderedBase V) //ℝ[]用来表示ℝ形式向量空间~多项式<br>M: V α | α* [:W] [:α]<br>//这里的默认作用是带缩并的张量积, | 表示不带缩并版本<br>//[:W] [:α]是[w:W] [a:α]的省略<br></code></pre></td></tr></table></figure>
@@ -365,9 +372,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Curry-Howard-Lambek_Correspondence/" title="Curry-Howard-Lambek_Correspondence">
+                      <a href="/Haskell/" title="Haskell">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Curry-Howard-Lambek_Correspondence</span>
+                        <span class="hidden-mobile">Haskell</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -375,8 +382,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Robust_Prover/" title="Robust_Prover">
-                        <span class="hidden-mobile">Robust_Prover</span>
+                      <a href="/%CE%BB-calculus/" title="λ-calculus">
+                        <span class="hidden-mobile">λ-calculus</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
