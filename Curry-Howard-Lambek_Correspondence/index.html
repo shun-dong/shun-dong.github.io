@@ -19,15 +19,15 @@
   <meta name="author" content="采薇">
   <meta name="keywords" content="">
   
-    <meta name="description" content="证明↔程序↔态射 命题↔类型↔对象">
+    <meta name="description" content="证明↔程序↔态射 命题↔类型↔对象     Types Logic Sets Homotopy    $A$ proposition set space   $a : A$ proof element point   $B(x)$ predicate family of sets fibration   $b(x) : B(x)$ conditional proof family of elem">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Curry-Howard-Lambek_Correspondence">
 <meta property="og:url" content="http://kaelvio.com/Curry-Howard-Lambek_Correspondence/index.html">
 <meta property="og:site_name" content="采薇的博客">
-<meta property="og:description" content="证明↔程序↔态射 命题↔类型↔对象">
+<meta property="og:description" content="证明↔程序↔态射 命题↔类型↔对象     Types Logic Sets Homotopy    $A$ proposition set space   $a : A$ proof element point   $B(x)$ predicate family of sets fibration   $b(x) : B(x)$ conditional proof family of elem">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-10-11T15:13:12.215Z">
-<meta property="article:modified_time" content="2025-10-11T15:13:12.215Z">
+<meta property="article:published_time" content="2025-11-28T01:13:37.515Z">
+<meta property="article:modified_time" content="2025-11-28T01:13:37.515Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-10-11 23:13" pubdate>
-          2025年10月11日 晚上
+        <time datetime="2025-11-28 09:13" pubdate>
+          2025年11月28日 上午
         </time>
       </span>
     
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          12 字
+          400 字
         
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          1 分钟
+          4 分钟
         
       </span>
     
@@ -267,6 +267,99 @@
 <li>证明↔程序↔态射</li>
 <li>命题↔类型↔对象</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>Types</th>
+<th>Logic</th>
+<th>Sets</th>
+<th>Homotopy</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>$A$</td>
+<td>proposition</td>
+<td>set</td>
+<td>space</td>
+</tr>
+<tr>
+<td>$a : A$</td>
+<td>proof</td>
+<td>element</td>
+<td>point</td>
+</tr>
+<tr>
+<td>$B(x)$</td>
+<td>predicate</td>
+<td>family of sets</td>
+<td>fibration</td>
+</tr>
+<tr>
+<td>$b(x) : B(x)$</td>
+<td>conditional proof</td>
+<td>family of elements</td>
+<td>section</td>
+</tr>
+<tr>
+<td>$\mathbf{0}, \mathbf{1}$</td>
+<td>$\bot, \top$</td>
+<td>$\varnothing, {\varnothing}$</td>
+<td>$\varnothing, *$</td>
+</tr>
+<tr>
+<td>$A + B$</td>
+<td>$A \lor B$</td>
+<td>disjoint union</td>
+<td>coproduct</td>
+</tr>
+<tr>
+<td>$A \times B$</td>
+<td>$A \land B$</td>
+<td>set of pairs</td>
+<td>product space</td>
+</tr>
+<tr>
+<td>$A \to B$</td>
+<td>$A \Rightarrow B$</td>
+<td>set of functions</td>
+<td>function space</td>
+</tr>
+<tr>
+<td>$\sum_{(x:A)} B(x)$</td>
+<td>$\exists_{x:A} B(x)$</td>
+<td>disjoint sum</td>
+<td>total space</td>
+</tr>
+<tr>
+<td>$\prod_{(x:A)} B(x)$</td>
+<td>$\forall_{x:A} B(x)$</td>
+<td>product</td>
+<td>space of sections</td>
+</tr>
+<tr>
+<td>$\mathsf{Id}_A$</td>
+<td>equality $&#x3D;$</td>
+<td>${(x,x)\mid x\in A}$</td>
+<td>path space $A^I$</td>
+</tr>
+</tbody></table>
+<p>the type <code>Prop</code> is syntactic sugar for <code>Sort 0</code>(or (-1)type), <code>Type u</code> is also just syntactic sugar for <code>Sort (u+1)</code><br>命题即类型</p>
+<ul>
+<li>而Prop是类型的类型</li>
+<li>依赖变量的Prop依然是Prop<br>Theorem,Lemma,Colloray本身是某个Prop的项, 证明即程序</li>
+<li>一个Prop如果有项则为真</li>
+</ul>
+<p>we can use the usual function space constructor <code>p → q</code> from dependent type theory as our notion of implication.</p>
+<p>A是B A:B<br>对p : Prop i.e. Sort 0 , t1 t2 : p , 认为 t1 t2 是定义等价的 , sort 0 的性质, 即更低的层级没有意义, 即只是形式上的东西.语法|语义<br>From the constructive point of view, proofs are abstract mathematical objects that are <em>denoted</em> by suitable expressions in dependent type theory.<br>we will slip back and forth between these two ways of talking, at times saying that an expression “&#x3D;&#x3D;constructs&#x3D;&#x3D;” or “produces” or “returns” a proof of a proposition, and at other times simply saying that it “is” such a proof. This is similar to the way that computer scientists occasionally blur the distinction between syntax and semantics by saying, at times, that a program “computes” a certain function, and at other times speaking as though the program “is” the function in question.<br> To <em>prove</em> that assertion, we need to exhibit a term <code>t : p</code>.</p>
+<p>head 名称 (输入:类型): 类型 :&#x3D; 值<br>theorem name : Prop:&#x3D; Proof<br>example&#x3D;Theorem foo<br>the <code>#print</code> command will show you the proof of a theorem:</p>
+<p><code>And.intro h1 h2</code> | <code>p And q</code></p>
+<ul>
+<li><code>∀ x, P(x)</code> 对应依赖函数类型 <code>(x : X) → P x</code>i.e $\prod _{a <del>:</del>\alpha} ~\beta ~a$ 是指数对象的推广 $\beta ^\alpha$</li>
+<li><code>∃ x, P(x)</code> 对应依赖对类型 <code>&#123;x : X // P x&#125;</code> i.e. $\sum _{a <del>:</del>\alpha} ~\beta ~a$ 是乘积对象的推广 $\alpha \times\beta$<br>量词范围默认向右延伸到表达式结束</li>
+</ul>
+<p>此时，<code>Σ (n : ℕ), n % 2 = 0</code> 的类型仍然是 <code>Type</code>（偶数类型），但它的 <strong>可居性</strong> 被解释为命题的真假。</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-type">Even</span> a <span class="hljs-keyword">where</span></span><br>  isEven :: a -&gt; <span class="hljs-type">Bool</span><br><span class="hljs-class"></span><br><span class="hljs-class"><span class="hljs-keyword">instance</span> <span class="hljs-type">Even</span> <span class="hljs-type">Integer</span> <span class="hljs-keyword">where</span></span><br>  isEven n = n `mod` <span class="hljs-number">2</span> == <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs lean4">class EvenProp (α : Type) where<br>  Even : α → Prop       -- 将性质定义为命题<br>  decide : ∀ n : α, Decidable (Even n)  -- 可判定性<br><br>instance : EvenProp Nat where<br>  Even n := n % 2 = 0<br>  decide n := inferInstance  -- 自动推断 Decidable (n % 2 = 0)<br><br>-- 判断 4 是否为偶数<br>#eval decide (EvenProp.Even 4)  -- 输出 true<br></code></pre></td></tr></table></figure>
 
                 
               </div>
@@ -297,7 +390,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年10月11日</div>
+          <div>2025年11月28日</div>
         </div>
       
       
@@ -341,9 +434,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Pandas/" title="Pandas">
+                      <a href="/Haskell/" title="Haskell">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Pandas</span>
+                        <span class="hidden-mobile">Haskell</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -351,8 +444,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/about_me_with_details/" title="about_me_with_details">
-                        <span class="hidden-mobile">about_me_with_details</span>
+                      <a href="/fu_language/" title="fu_language">
+                        <span class="hidden-mobile">fu_language</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

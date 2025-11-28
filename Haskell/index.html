@@ -19,15 +19,15 @@
   <meta name="author" content="采薇">
   <meta name="keywords" content="">
   
-    <meta name="description" content="理解思想不一定要用Haskell实现 名字源于Haskell Currying，柯里化的提出者  [!note] Curry-Howard同构:这个同构关系是连接范畴论和类型论的关键桥梁。  之前的问题是不清晰的类型和需要维护的值函数式编程，无状态（改变参数值），与数学物理一致 eg. find closest point 12closestPoint :: Point -&gt; [Point]">
+    <meta name="description" content="理解思想不一定要用Haskell实现 名字源于Haskell Curry，柯里化的提出者  [!note] Curry-Howard-Lambek_Correspondence这个同构关系是连接范畴论和类型论的关键桥梁。  之前的问题是不清晰的类型和需要维护的值函数式编程，无状态（改变参数值），与数学物理一致 eg. find closest point 12closestPoint :: Poi">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Haskell">
 <meta property="og:url" content="http://kaelvio.com/Haskell/index.html">
 <meta property="og:site_name" content="采薇的博客">
-<meta property="og:description" content="理解思想不一定要用Haskell实现 名字源于Haskell Currying，柯里化的提出者  [!note] Curry-Howard同构:这个同构关系是连接范畴论和类型论的关键桥梁。  之前的问题是不清晰的类型和需要维护的值函数式编程，无状态（改变参数值），与数学物理一致 eg. find closest point 12closestPoint :: Point -&gt; [Point]">
+<meta property="og:description" content="理解思想不一定要用Haskell实现 名字源于Haskell Curry，柯里化的提出者  [!note] Curry-Howard-Lambek_Correspondence这个同构关系是连接范畴论和类型论的关键桥梁。  之前的问题是不清晰的类型和需要维护的值函数式编程，无状态（改变参数值），与数学物理一致 eg. find closest point 12closestPoint :: Poi">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-11-05T06:20:47.745Z">
-<meta property="article:modified_time" content="2025-11-05T06:20:47.745Z">
+<meta property="article:published_time" content="2025-11-28T01:13:37.516Z">
+<meta property="article:modified_time" content="2025-11-28T01:13:37.517Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-11-05 14:20" pubdate>
-          2025年11月5日 下午
+        <time datetime="2025-11-28 09:13" pubdate>
+          2025年11月28日 上午
         </time>
       </span>
     
@@ -260,13 +260,21 @@
           <article class="post-content mx-auto">
             <h1 id="seo-header">Haskell</h1>
             
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年11月28日 上午
+                  
+                
+              </p>
+            
             
               <div class="markdown-body">
                 
                 <h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><p>思想不一定要用Haskell实现</p>
-<p>名字源于Haskell Currying，柯里化的提出者</p>
+<p>名字源于Haskell Curry，柯里化的提出者</p>
 <blockquote>
-<p>[!note] Curry-Howard同构:<br>这个同构关系是连接范畴论和类型论的关键桥梁。</p>
+<p>[!note] <a href="/Curry-Howard-Lambek_Correspondence/" title="Curry-Howard-Lambek_Correspondence">Curry-Howard-Lambek_Correspondence</a><br>这个同构关系是连接范畴论和类型论的关键桥梁。</p>
 </blockquote>
 <p>之前的问题是不清晰的类型和需要维护的值<br>函数式编程，无状态（改变参数值），与数学物理一致</p>
 <p>eg. find closest point</p>
@@ -287,13 +295,16 @@
 <blockquote>
 <p>[!Note] recursion vs iteration<br>recursion递归: 函数的定义用到了自身, 将复杂的问题简化, 最终到初始情况, 等价于数学归纳法. 实际计算浪费空间.<br>iteration迭代: 重复操作, 每次操作的输出是下次操作的输入, 逼近或求得所需目标. 引入额外的状态<br>二者等价,前者多用于数学(Haskell), 后者多用于计算机</p>
 </blockquote>
+<p>尾递归优化<br>重用当前栈帧</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs lean">def factorialTailRec (n : Nat) : Nat :=<br>  let rec aux (n : Nat) (acc : Nat) : Nat :=<br>    match n with<br>    | 0 =&gt; acc<br>    | n + 1 =&gt; aux n (acc * (n + 1))<br>  aux n 1<br></code></pre></td></tr></table></figure>
+
 <p>linked lists</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs Haskell"><span class="hljs-title">foo</span> = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>]<br><span class="hljs-comment">-- foo = 1 : (2 : (3 : [])) same as math</span><br></code></pre></td></tr></table></figure>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-title">sum</span> :: <span class="hljs-type">Num</span> a =&gt; [a] -&gt; a<br><span class="hljs-title">sum</span> [] = <span class="hljs-number">0</span><br><span class="hljs-title">sum</span> (x:xs) = x + sum xs<br></code></pre></td></tr></table></figure>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-title">take</span> :: <span class="hljs-type">Integer</span> -&gt; [a] -&gt;[a]<br><span class="hljs-title">take</span> <span class="hljs-number">0</span> _ = []<br><span class="hljs-title">take</span> - [] = []<br><span class="hljs-title">take</span> n (x:sx) = x : take (n - <span class="hljs-number">1</span>) xs<br></code></pre></td></tr></table></figure>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-title">squareAll</span> :: <span class="hljs-type">Num</span> a =&gt; [a] -&gt; [a]<br><span class="hljs-title">squareAll</span> xs = [x * x | x &lt;- xs] <span class="hljs-comment">--List Comprehension</span><br></code></pre></td></tr></table></figure>
 
-<p>Range<br>lazy evaluation</p>
+<p>Range<br>lazy evaluation~<a href="/%CE%BB-calculus/" title="λ-calculus">λ-calculus</a>正则序</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs haskell">[<span class="hljs-number">1</span>..<span class="hljs-number">20</span>]<br>[<span class="hljs-number">1</span>,<span class="hljs-number">3</span>..<span class="hljs-number">9</span>]<br><span class="hljs-title">naturals</span> = [<span class="hljs-number">0</span>..]<br><span class="hljs-comment">-- naturals = naturalFrom 0</span><br><span class="hljs-comment">-- naturalsFrom x = x : naturalsFrom (x + 1)</span><br></code></pre></td></tr></table></figure>
 
 <p>Tuple <code>(1,1.0,&quot;ab&quot;)</code></p>
@@ -361,8 +372,6 @@
 <li><strong>错误处理&#x2F;回退</strong>：<code>&lt;|&gt;</code>（Alternative）。</li>
 <li><strong>组合 Monadic 函数</strong>：<code>&gt;=&gt;</code> 或 <code>&lt;=&lt;</code>。</li>
 </ul>
-<h1 id="尾递归优化"><a href="#尾递归优化" class="headerlink" title="尾递归优化"></a>尾递归优化</h1><p>重用当前栈帧</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs lean">def factorialTailRec (n : Nat) : Nat :=<br>  let rec aux (n : Nat) (acc : Nat) : Nat :=<br>    match n with<br>    | 0 =&gt; acc<br>    | n + 1 =&gt; aux n (acc * (n + 1))<br>  aux n 1<br></code></pre></td></tr></table></figure>
 <h1 id="环境"><a href="#环境" class="headerlink" title="环境"></a>环境</h1><p>ghci：命令行界面<br>:+命令<br>? help<br>t type<br>l load<br>r reload<br>i info<br>e edit<br>q quit<br>多行;隔开或:{ :}</p>
 <p>.hs</p>
 <p>Hoogle查找函数</p>
@@ -400,9 +409,14 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年11月5日</div>
+          <div>2025年11月28日</div>
         </div>
       
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年11月28日</div>
+        </div>
       
       
         <div class="license-meta-item">
@@ -444,9 +458,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E5%85%BD%E8%A3%85/" title="兽装">
+                      <a href="/homotopy_type_theory/" title="homotopy_type_theory">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">兽装</span>
+                        <span class="hidden-mobile">homotopy_type_theory</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -454,8 +468,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/LEAN/" title="LEAN">
-                        <span class="hidden-mobile">LEAN</span>
+                      <a href="/Curry-Howard-Lambek_Correspondence/" title="Curry-Howard-Lambek_Correspondence">
+                        <span class="hidden-mobile">Curry-Howard-Lambek_Correspondence</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

@@ -19,15 +19,15 @@
   <meta name="author" content="采薇">
   <meta name="keywords" content="">
   
-    <meta name="description" content="计算本身并不平凡 λ-abstraction：λx.Φα-conversion α-等价：约束变量名字不同(λ x. f)(a) x: head; f: an expression; a: another expression只有匿名函数β-reduction,β normal form：无法进一步β归约的项η- expansion：f&#x3D;λx.f(x) John Trump’s λ di">
+    <meta name="description" content="理解 λ-calculus计算本身并不平凡 λ-abstraction：λx.Φα-conversion α-等价：约束变量名字不同(λ x. f)(a) x: head; f: an expression; a: another expression只有匿名函数β-reduction,β normal form：无法进一步β归约的项η- expansion：f&#x3D;λx.f(x) John">
 <meta property="og:type" content="article">
 <meta property="og:title" content="λ-calculus">
 <meta property="og:url" content="http://kaelvio.com/%CE%BB-calculus/index.html">
 <meta property="og:site_name" content="采薇的博客">
-<meta property="og:description" content="计算本身并不平凡 λ-abstraction：λx.Φα-conversion α-等价：约束变量名字不同(λ x. f)(a) x: head; f: an expression; a: another expression只有匿名函数β-reduction,β normal form：无法进一步β归约的项η- expansion：f&#x3D;λx.f(x) John Trump’s λ di">
+<meta property="og:description" content="理解 λ-calculus计算本身并不平凡 λ-abstraction：λx.Φα-conversion α-等价：约束变量名字不同(λ x. f)(a) x: head; f: an expression; a: another expression只有匿名函数β-reduction,β normal form：无法进一步β归约的项η- expansion：f&#x3D;λx.f(x) John">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-11-27T12:37:20.202Z">
-<meta property="article:modified_time" content="2025-11-27T12:37:20.202Z">
+<meta property="article:published_time" content="2025-11-28T01:13:37.524Z">
+<meta property="article:modified_time" content="2025-11-28T01:13:37.525Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-11-27 20:37" pubdate>
-          2025年11月27日 晚上
+        <time datetime="2025-11-28 09:13" pubdate>
+          2025年11月28日 上午
         </time>
       </span>
     
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          380 字
+          324 字
         
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          4 分钟
+          3 分钟
         
       </span>
     
@@ -260,19 +260,25 @@
           <article class="post-content mx-auto">
             <h1 id="seo-header">λ-calculus</h1>
             
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年11月28日 上午
+                  
+                
+              </p>
+            
             
               <div class="markdown-body">
                 
-                <p>计算本身并不平凡</p>
+                <h1 id="理解-λ-calculus"><a href="#理解-λ-calculus" class="headerlink" title="理解 λ-calculus"></a>理解 λ-calculus</h1><p>计算本身并不平凡</p>
 <p>λ-abstraction：λx.Φ<br>α-conversion α-等价：约束变量名字不同<br>(λ x. f)(a) x: head; f: an expression; a: another expression<br>只有匿名函数<br>β-reduction,<br>β normal form：无法进一步β归约的项<br>η- expansion：f&#x3D;λx.f(x)</p>
 <p>John Trump’s λ diagram</p>
-<p>丘奇-图灵命题：丘奇λ函数与图灵机的等价性<br>反应了面向对象编程和面向函数编程的等价性</p>
-<p>$$<br>\text{True}:&#x3D;\lambda x y .x,\text{False}:&#x3D;\lambda xy.y<br>$$<br>$$<br>\text {if} <del>b ~\text{do} ~x</del>\text{else} ~y:&#x3D;\lambda bxy.bxy<br>$$</p>
-<p>turning’s fix combinator<br>Θ&#x3D;λf. (λx. f (x x)) (λx. f (x x))<br>ΘF&#x3D;F(ΘF)</p>
-<p>Church-Rosser Theorem （合流定理，Confluence Theorem）：如果一个λ项可以通过不同的归约路径到达两个不同的项，那么这两个项最终可以归约到同一个共同项。但有的归约路径可能发散<br>发散式如 Ω&#x3D;(λx.xx)(λx.xx) 会无限归约</p>
+<h1 id="fix-point"><a href="#fix-point" class="headerlink" title="fix point"></a>fix point</h1><p>turning’s fix combinator<br>Θ&#x3D;λf. (λx. f (x x)) (λx. f (x x))<br>ΘF&#x3D;F(ΘF)</p>
+<h1 id="Church-Rosser-Theorem-（合流定理，Confluence-Theorem）"><a href="#Church-Rosser-Theorem-（合流定理，Confluence-Theorem）" class="headerlink" title="Church-Rosser Theorem （合流定理，Confluence Theorem）"></a>Church-Rosser Theorem （合流定理，Confluence Theorem）</h1><p>如果一个λ项可以通过不同的归约路径到达两个不同的项，那么这两个项最终可以归约到同一个共同项。但有的归约路径可能发散<br>发散式如 Ω&#x3D;(λx.xx)(λx.xx) 会无限归约</p>
 <ul>
 <li><strong>应用序（Applicative Order）</strong>：先对函数的所有参数求值，再应用函数。类似于严格求值（如C语言）。可能有自应用，导致无限循环</li>
-<li><strong>正则序（Normal Order）</strong>：先展开函数体（最外，最左），直到无法继续归约时才对参数求值。类似于惰性求值（如Haskell）。by 标准化定理（Standardization Theorem），保证归约到beta范式</li>
+<li><strong>正则序（Normal Order）</strong>：先展开函数体（最外，最左），直到无法继续归约时才对参数求值。类似于惰性求值（如Haskell）。by 标准化定理（Standardization Theorem），保证归约到beta范式(如果存在, 否则只能有weak head normal form, WHNF)</li>
 </ul>
 <p>eg (λx.y)(Ω)</p>
 <ul>
@@ -287,7 +293,6 @@
 </li>
 </ul>
 <p>Type<br>$$<br>\lambda b^{\text{boolen}}<br>$$</p>
-<h1 id="Curry-Howard-同构"><a href="#Curry-Howard-同构" class="headerlink" title="Curry-Howard 同构"></a>Curry-Howard 同构</h1><p>$$<br>A\to B~\sim ~A\Rightarrow B<br>$$</p>
 
                 
               </div>
@@ -318,9 +323,14 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年11月27日</div>
+          <div>2025年11月28日</div>
         </div>
       
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年11月28日</div>
+        </div>
       
       
         <div class="license-meta-item">
@@ -366,8 +376,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Homotopy_type_theory/" title="Homotopy_type_theory">
-                        <span class="hidden-mobile">Homotopy_type_theory</span>
+                      <a href="/LEAN/" title="LEAN">
+                        <span class="hidden-mobile">LEAN</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
