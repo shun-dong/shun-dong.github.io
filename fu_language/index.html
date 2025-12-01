@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="fu_language├── README.md├── .git&#x2F;├── .gitignore├── .vscode&#x2F;├── tokenizer.c└── tokenizer.exe   Let’s Build A Simple Interpreter. Part 1. - Ruslan’s Blog 🔼  [[]]关键字：”;”, “(“, “)”, “[“, “]”, “">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-11-30T11:40:15.166Z">
-<meta property="article:modified_time" content="2025-11-30T11:40:15.166Z">
+<meta property="article:published_time" content="2025-12-01T12:49:58.337Z">
+<meta property="article:modified_time" content="2025-12-01T12:49:58.337Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-11-30 19:40" pubdate>
-          2025年11月30日 晚上
+        <time datetime="2025-12-01 20:49" pubdate>
+          2025年12月1日 晚上
         </time>
       </span>
     
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2k 字
+          2.1k 字
         
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          17 分钟
+          18 分钟
         
       </span>
     
@@ -298,7 +298,15 @@
 <p>程序不是运行在时间中，而是时间自己在通过程序收敛成为世界（存在）。</p>
 <p>～可能世界语义学<br>Do IO a-&gt;World<br>Be ‘非计算性的存在性命题的单子’计算可能失败（不终止&#x2F;不可执行）&#x3D; Possible｜，其中Unknown: Possible<br>Rand</p>
 <p>将单纯的构造性逻辑Decidable 提升到World 或者叫Time 或者叫 Timeline</p>
-<h2 id="注记：可计算性"><a href="#注记：可计算性" class="headerlink" title="注记：可计算性"></a>注记：可计算性</h2><p>在编译期判断一个函数&#x2F;程序（特别地，类型定义，<a href="/%CE%BB-calculus/" title="λ-calculus">λ-calculus</a>）是否一定会停止（不会死循环）<br>可计算性相关，会出现停机问题之类的不可判定，即没有程序能完全解决这个问题，现代证明器只是限制在证明原始之类</p>
+<h2 id="代数effect"><a href="#代数effect" class="headerlink" title="代数effect"></a>代数effect</h2><p>~koka</p>
+<p>effect: 对外界的影响<br>coeffect: 外界对内部的影响<br>deeffect: 去除影响(对外界的影响可以通过限制范围抹去, 但是对内部的影响呢, 比如rand)</p>
+<p>比如 A|Error<br>A|Divergent<br>Rand A没办法消去，或者引入随机种子？真随机<br>Read x A<br>A, Write x<br>Get x A<br>A, Change x</p>
+<p>Scan x A没办法消去<br>A, Print x</p>
+<p>我感觉div或者decideability可以专门弄一下，因为这是依赖类型很常见的东西</p>
+<ul>
+<li><input disabled="" type="checkbox"> 所有权作用域管理</li>
+</ul>
+<h2 id="注记：可计算性"><a href="#注记：可计算性" class="headerlink" title="注记：可计算性"></a>注记：可计算性</h2><p>在编译期判断一个函数&#x2F;程序（特别地，类型定义，<a href="/%CE%BB-calculus/" title="λ-calculus">λ-calculus</a>）是否一定会停止（不会死循环）<br>可计算性相关，会出现停机问题之类的不可判定，即没有程序能完全解决这个问题，现代证明器只是限制在证明原始之类<br>越expressive的语言，能判定的部分的占比就越小</p>
 <p>Haskell 不进行终止性检查, 但是采用lazy evaluation, 保证存在β范式就能找到<br>实际上这允许定义f(n)&#x3D;even n?n&#x2F;2:3n+1 (Collatz 猜想)</p>
 <p>Coq&#x2F;Agda&#x2F;Idris默认终止性检查，但允许用户手动跳过, 同时默认为应用序<br>我认为作为步骤应该在此基础上允许用户提供可判定性的证明, 作为其他地方的变量应该采用Haskell的模式</p>
 <h2 id="注记-独立性"><a href="#注记-独立性" class="headerlink" title="注记: 独立性"></a>注记: 独立性</h2><p>引入新命题(i.e. 类型定义)时可能<br>1. 引入的定义可以由已有的公理得到存在性<br>2. 该定义在现有公理体系下不存在<br>3. 该定义既不能被现有公理证明也不能证伪，可以作为新公理</p>
@@ -334,7 +342,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年11月30日</div>
+          <div>2025年12月1日</div>
         </div>
       
       
@@ -388,8 +396,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/formalized_mathematics/" title="formalized_mathematics">
-                        <span class="hidden-mobile">formalized_mathematics</span>
+                      <a href="/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">
+                        <span class="hidden-mobile">正则表达式</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
