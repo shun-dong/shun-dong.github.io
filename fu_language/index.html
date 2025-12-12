@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="fu_language├── README.md├── .git&#x2F;├── .gitignore├── .vscode&#x2F;├── tokenizer.c└── tokenizer.exe   Let’s Build A Simple Interpreter. Part 1. - Ruslan’s Blog 🔼  [[]]关键字：”;”, “(“, “)”, “[“, “]”, “">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-12-11T15:31:27.859Z">
-<meta property="article:modified_time" content="2025-12-11T15:31:27.860Z">
+<meta property="article:published_time" content="2025-12-12T05:50:04.526Z">
+<meta property="article:modified_time" content="2025-12-12T05:50:04.527Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-12-11 23:31" pubdate>
-          2025年12月11日 晚上
+        <time datetime="2025-12-12 13:50" pubdate>
+          2025年12月12日 下午
         </time>
       </span>
     
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.7k 字
+          2.8k 字
         
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          23 分钟
+          24 分钟
         
       </span>
     
@@ -263,7 +263,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2025年12月11日 晚上
+                    本文最后更新于 2025年12月12日 下午
                   
                 
               </p>
@@ -305,7 +305,8 @@
 <p>也可以看成一种副作用</p>
 <h1 id="存在与时间"><a href="#存在与时间" class="headerlink" title="存在与时间"></a>存在与时间</h1><p>纯函数只是描述性的，特别的在fu语言中只能描述存在<br>我们声称一切都是纯函数、无副作用，但最终却需要一个”不纯”的主函数作为程序的入口点。这就像构建了一个完美的数学宇宙，却需要从外部”踢一脚”才能启动。<br>无穷次才能收敛的递归，实际上存在的编译时间，不可判定，无限运行的主循环</p>
 <p>程序不是运行在时间中，而是时间自己在通过程序收敛成为世界（存在）。</p>
-<p>～可能世界语义学</p>
+<p>～可能世界语义学<br>Do IO a-&gt;WORLD<br>Be ‘非计算性的存在性命题的单子’计算可能失败（不终止&#x2F;不可执行）&#x3D; Possible｜，其中Unknown: Possible<br>Rand</p>
+<p>将单纯的构造性逻辑Decidable 提升到WORLD 或者叫Time 或者叫 Timeline</p>
 <h2 id="代数effect"><a href="#代数effect" class="headerlink" title="代数effect"></a>代数effect</h2><p>~koka<br>这里表示effect的类大写</p>
 <p>Control Effects<br>a | ERR 可以通过模式匹配消去</p>
 <p>实际上所有类型都是 a, TIME, 因为程序始终在物理世界运行, 会遇到内存满, 用户不耐烦了等情况<br>目标是编译能通过的情况下运行一般不会出问题, 同时不能保证编译收敛<br>感觉还是分成两层：编译和运行<br>TIME :&#x3D; Dag (Nat | DIV | ASYNC)</p>
@@ -313,6 +314,8 @@
 <p>Data Effects兼顾了时序, 天然允许并行, 可以自动画出计算图<br>effect: 对外界的影响<br>coeffect: 外界对内部的影响<br>scan: TERM -&gt; a 终端-控制台<br>print: a -&gt; TERM -&gt; $TERM<br>read: $HEAP -&gt; a<br>write: a -&gt; HEAP -&gt; $HEAP<br>IO :&#x3D; TERM | HEAP<br>DO 需要指定所有的IO参数<br>比如, DO print “Hello World” CONSOLE 这里CONSOLE是默认参数也可以不写<br>get: $VAR a -&gt; a<br>set: a -&gt; VAR a -&gt; $VAR a<br>LET 指定 VAR 参数</p>
 <ul>
 <li><input disabled="" type="checkbox"> 感觉VAR可以有些地方和IO不一样, 毕竟只在局部用的话其实是纯的 ? 或许甚至可以不用专门语法</li>
+<li>可以参考Haskell state</li>
+<li>或许有的地方文件是带历史记录的，那就和普通对象无差别了，这个系统的核心是可变且同一 <strong>时间</strong> 状态一定</li>
 </ul>
 <p>本质上$表示只读是个函子, 存在 HEAP -&gt; $HEAP 但不存在 $HEAP -&gt; HEAP<br>异步天然支持 print “hello” &gt;&gt;&#x3D; print “world” 或 print “world” &#x3D;&lt;&lt; print “hello”<br>为避免碰撞，并发要显式写print “hello” &gt;&#x3D;&lt; print “world”: TERM -&gt; $TERM , 此时”helloworld”或者”worldhello”顺序不定<br>合并操作, 不能合并多个多个写, (f: HEAP -&gt; $HEAP -&gt; $HEAP) &gt;&#x3D; : HEAP -&gt; $HEAP先读再写<br>不能声明类变量<br>理论上已经可以了, 但这种约束不能用lambda表达式, 依旧不好用</p>
 <ul>
@@ -355,13 +358,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年12月11日</div>
+          <div>2025年12月12日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2025年12月11日</div>
+          <div>2025年12月12日</div>
         </div>
       
       
@@ -404,18 +407,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/homotopy_type_theory/" title="homotopy_type_theory">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">homotopy_type_theory</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/formalized_mathematics/" title="formalized_mathematics">
-                        <span class="hidden-mobile">formalized_mathematics</span>
+                      <a href="/homotopy_type_theory/" title="homotopy_type_theory">
+                        <span class="hidden-mobile">homotopy_type_theory</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
