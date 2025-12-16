@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="type Church-style: build-in type Curry-style: terms are untyped but to give a type  degree &amp; universe   universe type term    $\mathcal U_{-1}$(Prop, Sort 0) True True.intro   $\mathcal U_{0}$(Typ">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-12-03T02:31:12.941Z">
-<meta property="article:modified_time" content="2025-12-03T02:31:12.941Z">
+<meta property="article:published_time" content="2025-12-16T14:43:34.062Z">
+<meta property="article:modified_time" content="2025-12-16T14:43:34.063Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-12-03 10:31" pubdate>
-          2025年12月3日 上午
+        <time datetime="2025-12-16 22:43" pubdate>
+          2025年12月16日 晚上
         </time>
       </span>
     
@@ -260,6 +260,14 @@
           <article class="post-content mx-auto">
             <h1 id="seo-header">dependent_type_theory</h1>
             
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年12月16日 晚上
+                  
+                
+              </p>
+            
             
               <div class="markdown-body">
                 
@@ -317,7 +325,8 @@
 </tr>
 </tbody></table>
 <p>\begin{CD}<br>\dots\<br>\mathcal U_n @&lt;&lt;&lt; \text{Type in } \mathcal U_n @&lt;&lt;&lt; \text{Term of type in } \mathcal U_{n+1} \ @VVV \<br>\mathcal U_{n+1} @&lt;&lt;&lt; \text{Type in } \mathcal U_{n+1} @&lt;&lt;&lt; \text{Term of type in } \mathcal U_{n+2}\<br>\dots<br>\end{CD}</p>
-<p>$$<br>即使是type u参与的类型也只是一种类型, 而非宇宙~集合论中不能把(A, B)这个有序对和A $\times$ B这个笛卡尔积混淆, 即使AB中有元素</p>
+<p>$$</p>
+<p>即使是type u参与的类型也只是一种类型, 而非宇宙~集合论中不能把(A, B)这个有序对和A $\times$ B这个笛卡尔积混淆, 即使AB中有元素</p>
 <h1 id="universe-polymorphism"><a href="#universe-polymorphism" class="headerlink" title="universe polymorphism"></a>universe polymorphism</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs lean">#check List<br>-- List.&#123;u&#125; (α : Type u) : Type u<br>universe u<br>def F (α : Type u) : Type u := Prod α α<br>#check F<br>-- <br></code></pre></td></tr></table></figure>
 <p>实际上这里的u不是目标语言的项，应该把 Type u 看成一个整体<br>注意这是一般的依赖类型不包含的, 因为A: Type n必须要有个universe上限<br>能够写A: Type本质上也是这个原因, 实际上只是因为大部分时候只有有限个类型, 其宇宙必有上限</p>
 <p>a ::<br>在要求自由变元显示闭包的情况下甚至可以不写universe u …a : Type u, 直接写a::, 甚至pi类型要用a直接写就行了, 有点类似于Haskell fmap :: (a -&gt; b) -&gt; f a -&gt; f b(虽然Haskell不用显式定义闭包, 而是区分类型变量和值层（runtime）闭包)<br>也避免说Nat: Type和3: Nat这两种我觉得本质不同的东西</p>
@@ -376,9 +385,14 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年12月3日</div>
+          <div>2025年12月16日</div>
         </div>
       
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年12月16日</div>
+        </div>
       
       
         <div class="license-meta-item">
@@ -420,18 +434,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E6%91%84%E5%BD%B1/" title="摄影">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">摄影</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">
-                        <span class="hidden-mobile">正则表达式</span>
+                      <a href="/fu_language/" title="fu_language">
+                        <span class="hidden-mobile">fu_language</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
