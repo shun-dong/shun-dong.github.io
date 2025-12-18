@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="type Church-style: build-in type Curry-style: terms are untyped but to give a type  degree &amp; universe   universe type term    $\mathcal U_{-1}$(Prop, Sort 0) True True.intro   $\mathcal U_{0}$(Typ">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-12-16T14:43:34.062Z">
-<meta property="article:modified_time" content="2025-12-16T14:43:34.063Z">
+<meta property="article:published_time" content="2025-12-18T11:20:23.334Z">
+<meta property="article:modified_time" content="2025-12-18T11:20:23.334Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-12-16 22:43" pubdate>
-          2025年12月16日 晚上
+        <time datetime="2025-12-18 19:20" pubdate>
+          2025年12月18日 晚上
         </time>
       </span>
     
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k 字
+          2.2k 字
         
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          16 分钟
+          19 分钟
         
       </span>
     
@@ -260,14 +260,6 @@
           <article class="post-content mx-auto">
             <h1 id="seo-header">dependent_type_theory</h1>
             
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    本文最后更新于 2025年12月16日 晚上
-                  
-                
-              </p>
-            
             
               <div class="markdown-body">
                 
@@ -290,8 +282,8 @@
 </tr>
 <tr>
 <td>$\mathcal U_{0}$(Type, Sort 1)</td>
-<td>Bool</td>
-<td>true</td>
+<td>Nat</td>
+<td>1</td>
 </tr>
 <tr>
 <td>$\mathcal U_{1}$(Type 1, Sort 2)</td>
@@ -326,7 +318,26 @@
 </tbody></table>
 <p>\begin{CD}<br>\dots\<br>\mathcal U_n @&lt;&lt;&lt; \text{Type in } \mathcal U_n @&lt;&lt;&lt; \text{Term of type in } \mathcal U_{n+1} \ @VVV \<br>\mathcal U_{n+1} @&lt;&lt;&lt; \text{Type in } \mathcal U_{n+1} @&lt;&lt;&lt; \text{Term of type in } \mathcal U_{n+2}\<br>\dots<br>\end{CD}</p>
 <p>$$</p>
-<p>即使是type u参与的类型也只是一种类型, 而非宇宙~集合论中不能把(A, B)这个有序对和A $\times$ B这个笛卡尔积混淆, 即使AB中有元素</p>
+<p>即使是type u参与的类型也只是一种类型, 而非宇宙~集合论中不能把(A, B)这个有序对和A $\times$ B这个笛卡尔积混淆, 即使AB中有元素<br>若 <code>A : Type i</code>，<code>B : Type j</code>，则函数类型 <code>(A → B) : Type (max i j)</code><br>有时记Nat:: Sort 1, 1::: Sort 1</p>
+<p>Prop具有特殊性 Impredicativity（非直谓性）<br><code>Prop</code> 是类型论中唯一允许 <strong>Impredicative 定义</strong> 的宇宙层级（其他层级如 <code>Type₀</code>, <code>Type₁</code> 等是直谓的）。<br><strong>Impredicativity</strong> 允许在定义类型时引用包含自身的全体类型。例如：</p>
+<ul>
+<li><strong>表达式 <code>∀ P : Prop, P → P</code></strong> 的类型：<ul>
+<li>它表示“对所有命题 <code>P</code>，从 <code>P</code> 到 <code>P</code> 的函数”的类型。</li>
+<li>由于 <code>P : Prop</code>，而 <code>P → P</code> 也属于 <code>Prop</code>，整个全称量化 <code>∀ P : Prop, P → P</code> 的类型可以安全地留在 <code>Prop</code> 中。</li>
+<li>这种自指定义的安全性依赖于 <code>Prop</code> 的 Impredicativity 特性。</li>
+</ul>
+</li>
+<li>**若 <code>B : Prop</code>**（无论 <code>A</code> 的层级如何），函数类型 <strong><code>A -&gt; B</code></strong> 的类型将直接归属于 **<code>Prop</code>**。</li>
+<li>这是因为 <code>Prop</code> 是 <strong>非直谓性的</strong>，允许函数类型在定义时直接保持在 <code>Prop</code> 层级，无需层级提升。</li>
+</ul>
+<p>对比：Type 层级的直谓性（Predicativity）<br>若将 <code>Prop</code> 替换为 <code>Type</code> 层级（例如 <code>∀ A : Type₀, A → A</code>），结果类型需提升到更高层级：</p>
+<ul>
+<li><strong>直谓性规则</strong>：直谓系统要求，量化全体类型时，结果类型的层级必须高于被量化的类型。<ul>
+<li>例如 <code>∀ A : Type₀, A → A</code> 的类型是 <code>Type₁</code>，而非 <code>Type₀</code>。</li>
+<li>这是为了避免罗素悖论式的层级循环（如“所有集合的集合”引发的矛盾）。</li>
+</ul>
+</li>
+</ul>
 <h1 id="universe-polymorphism"><a href="#universe-polymorphism" class="headerlink" title="universe polymorphism"></a>universe polymorphism</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs lean">#check List<br>-- List.&#123;u&#125; (α : Type u) : Type u<br>universe u<br>def F (α : Type u) : Type u := Prod α α<br>#check F<br>-- <br></code></pre></td></tr></table></figure>
 <p>实际上这里的u不是目标语言的项，应该把 Type u 看成一个整体<br>注意这是一般的依赖类型不包含的, 因为A: Type n必须要有个universe上限<br>能够写A: Type本质上也是这个原因, 实际上只是因为大部分时候只有有限个类型, 其宇宙必有上限</p>
 <p>a ::<br>在要求自由变元显示闭包的情况下甚至可以不写universe u …a : Type u, 直接写a::, 甚至pi类型要用a直接写就行了, 有点类似于Haskell fmap :: (a -&gt; b) -&gt; f a -&gt; f b(虽然Haskell不用显式定义闭包, 而是区分类型变量和值层（runtime）闭包)<br>也避免说Nat: Type和3: Nat这两种我觉得本质不同的东西</p>
@@ -385,14 +396,9 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年12月16日</div>
+          <div>2025年12月18日</div>
         </div>
       
-      
-        <div class="license-meta-item license-meta-date">
-          <div>更新于</div>
-          <div>2025年12月16日</div>
-        </div>
       
       
         <div class="license-meta-item">
@@ -434,18 +440,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/fu_language/" title="fu_language">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">fu_language</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/python/" title="python">
-                        <span class="hidden-mobile">python</span>
+                      <a href="/fu_language/" title="fu_language">
+                        <span class="hidden-mobile">fu_language</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
