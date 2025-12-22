@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="fu_language├── README.md├── .git&#x2F;├── .gitignore├── .vscode&#x2F;├── tokenizer.c└── tokenizer.exe   Let’s Build A Simple Interpreter. Part 1. - Ruslan’s Blog 🔼 参考rycheung&#x2F;tiny-mltt: An learn">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-12-21T05:30:42.479Z">
-<meta property="article:modified_time" content="2025-12-21T05:30:42.479Z">
+<meta property="article:published_time" content="2025-12-22T02:51:56.030Z">
+<meta property="article:modified_time" content="2025-12-22T02:51:56.030Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-12-21 13:30" pubdate>
-          2025年12月21日 下午
+        <time datetime="2025-12-22 10:51" pubdate>
+          2025年12月22日 上午
         </time>
       </span>
     
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.2k 字
+          4.4k 字
         
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          36 分钟
+          37 分钟
         
       </span>
     
@@ -267,10 +267,10 @@
 <ul>
 <li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://ruslanspivak.com/lsbasi-part1/">Let’s Build A Simple Interpreter. Part 1. - Ruslan’s Blog</a> 🔼 参考<a target="_blank" rel="noopener" href="https://github.com/rycheung/tiny-mltt">rycheung&#x2F;tiny-mltt: An learning project demonstrating a simple implementation of Martin-Löf dependent type theory（MLTT）</a></li>
 </ul>
-<p>关键字：”;”, “(“, “)”, “[“, “]”, “{“, “}”, “:”, “:&#x3D;”, “|”, “,”, “-&gt;”, “::”, “_“, “&#x3D;”, “_”<br>优先级：语义符号 (-&gt; , |三者相同) :: :  :&#x3D;  &#x3D;&#x3D;  ;<br>同一行从右到左</p>
+<p>关键字：”;”, “(“, “)”, “[“, “]”, “{“, “}”, “:”, “:&#x3D;”, “|”, “,”, “-&gt;”, “::”, “_“, “&#x3D;”, “ _ “<br>同一行从右到左，总体上使用波兰表示法<br>优先级：空格表示的前缀函数作用  中缀函数 类型运算符号 (-&gt; , |三者相同) 类型标注符号(: ::) :&#x3D;;<br>类型标注符号放这么后面是为了保留f: A -&gt; B以及证明时写 p:…<br>编译过程类似于先用中缀运算符和括号切开，每一块从右往左，不能作用就入栈，遇到能作用的就将顶上的作用并将结果入栈，最后缀运算符优先级从高到低作用<br>书写时量纲和乘号同一优先级，其余和类型运算符同一优先级</p>
 <p>函数式<br>实际上很接近Agda<br>部分关键字大写开头以区分</p>
 <h1 id="行、块"><a href="#行、块" class="headerlink" title="行、块"></a>行、块</h1><p>单个文档，{}中的内容即一个块<br>块是一个广义上的（希尔伯特式的）推演, 同时块具有命名空间隔离的效果</p>
-<p>每一行为一个步骤, 组成推演序列，用;分隔，其中最后一行是结论（导出项）(这里规定以;结尾的项要非空, 否则要用?a :&#x3D; _, 这里$表示降低优先级到最低, 此时依然不能说a: A)<br>推演序列要求每项必须由公理或之前项推得（即可居的，注意可居性与存在性在False上不同），由于 一阶逻辑的不可判定性，逻辑真理 ≠ 算法可计算</p>
+<p>每一行为一个步骤, 组成推演序列，用;分隔，其中最后一行是结论（导出项）(这里规定以;结尾的项要非空, 否则要用?a :&#x3D; _, 此时依然不能说a: A)<br>推演序列要求每项必须由公理或之前项推得（即可居的，注意可居性与存在性在False上不同），由于 一阶逻辑的不可判定性，逻辑真理 ≠ 算法可计算</p>
 <p>命名空间(语法上的推导)和’类型空间’不同<br>比如sum &#x3D; A + B只能表达出2 * sum之类的, 而无法自动表达2 * A + 2 * B<br>C :&#x3D; A, B | D;<br>*C]: E :&#x3D; B | D 需要额外解释, 即构造一个类型的项<br>在正确的环境下无法推出False(即False是unknown的)~构造主义</p>
 <p>上下文包含类型，<code>x: Nat; x &gt;= 0</code>类似pi类型，实际上写作<br>变量名, 读作无名表示(De Bruijn)<code>λx. x</code> 和 <code>λy. y</code> 都变成 <code>λ. #0</code>，不能<code>x: Nat := 1; f x: Nat</code><br>实际上fu语言还和命题推演不大一样，fu语言上下文变量列表其实是已经证明的变量，或者用-&gt;</p>
 <p>&#x2F; 对于任何变量其实带有定义时的元信息(局部变量), 可以用<code>.</code>访问, 用数字访问第几行的值 ? 感觉这样占用资源了, 或许只允许最后的积对象名字访问<br>&#x2F; <code>a.f == f a</code><br><code>~</code>上一行, <code>~n</code>上n行</p>
@@ -278,32 +278,30 @@
 <p>%% 请注意这里的 :&#x3D; : ]] @都是语法上的符号, 或者叫模式匹配，我们用 &#x3D;&#x3D; 表达这种等式, 比如 a, b ]] &#x3D;&#x3D; b<br>例如我们可以在语法上说6&#x2F;3的除数是3, 但不能说2的除数是3, 6&#x2F;3和2只是在值上相等, 其实是两个表达式<br>语义上同构的对象视为相同，但语法上要区分 %%<br>%%<br>如果加了export, 才可以通过name.something访问<br>packet :&#x3D; {n: Nat :&#x3D; 1<br>export n}&#x2F;&#x2F;export n &#x3D;&#x3D; (expr n, 1) 注意这里实际上用了n的名字, 所以是语法上的<br>a &#x3D; packet.”n”&#x2F;&#x2F; &#x2F; _ . _ 是查找函数</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs Haskell">//另一个文件<br>//环境: (<span class="hljs-string">&quot;packet&quot;</span>, (<span class="hljs-string">&quot;n&quot;</span>, <span class="hljs-number">1</span>)), _<br><span class="hljs-keyword">import</span> &quot;packet&quot; form env;<br>// _ from _ 是另一种查找函数, <span class="hljs-string">&quot;packet&quot;</span> form env = <span class="hljs-string">&quot;packet&quot;</span>, (<span class="hljs-string">&quot;n&quot;</span>, <span class="hljs-number">1</span>)<br>//这里<span class="hljs-keyword">import</span>将packet加入命名空间, 这里依旧是不能覆盖已有值的<br>//注意<span class="hljs-keyword">import</span>实际上可以用于假设公理<br>//<span class="hljs-keyword">import</span> &quot;classic&quot;, ((<span class="hljs-title">a</span> -&gt; <span class="hljs-type">False</span>)-&gt; False) = a<br><span class="hljs-title">a</span> = packet.<span class="hljs-string">&quot;n&quot;</span><br><span class="hljs-keyword">import</span> &quot;n&quot; form &quot;packet&quot; from env;<br>//如果在同一个文件, 也可以甚至可以直接<span class="hljs-keyword">import</span> packet, 然后环境中就有n了<br><span class="hljs-title">b</span> = n<br><span class="hljs-keyword">import</span> (&quot;<span class="hljs-title">packet</span>&quot; <span class="hljs-title">from</span> <span class="hljs-title">env</span>) <span class="hljs-keyword">as</span> &quot;p&quot;;//这里的 _ <span class="hljs-keyword">as</span> _ 是替换函数<br><br></code></pre></td></tr></table></figure>
 
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs Haskell"><span class="hljs-title">_</span>: (inf_prime := max <span class="hljs-type">Prime</span> -&gt; <span class="hljs-type">False</span>) :=<br>	max <span class="hljs-type">Prime</span> -&gt;<br>		<span class="hljs-type">Q</span> := max <span class="hljs-type">Prime</span><br>		<span class="hljs-type">M</span> := ∏ (_p: <span class="hljs-type">Prime</span> &amp; _p &lt;= <span class="hljs-type">Q</span>) _p + <span class="hljs-number">1</span><br>		<span class="hljs-type">Q</span>]: p: <span class="hljs-type">Prime</span> -&gt; p &lt;= <span class="hljs-type">Q</span>[<br>		simp: <span class="hljs-type">M</span> % p = <span class="hljs-number">1</span><br>		p: <span class="hljs-type">Prime</span> -&gt; *(not <span class="hljs-type">M</span> % p = <span class="hljs-number">0</span>): ?<span class="hljs-type">Prime</span> <span class="hljs-type">M</span><br>		<span class="hljs-type">False</span><br>	<br>//也可以用分析法反着推<br></code></pre></td></tr></table></figure>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs Haskell"><span class="hljs-title">_</span>: (inf_prime := <span class="hljs-type">Max</span> <span class="hljs-type">Prime</span> -&gt; <span class="hljs-type">False</span>) :=<br>	<span class="hljs-type">Max</span> <span class="hljs-type">Prime</span> -&gt;<br>		q_ : <span class="hljs-type">Max</span> <span class="hljs-type">Prime</span><br>		m : <span class="hljs-type">Nat</span> := prod (p_: <span class="hljs-type">Prime</span> &amp; p &lt;= q) p + <span class="hljs-number">1</span><br>		%simp : (p_: <span class="hljs-type">Prime</span>) -&gt; m mod p = <span class="hljs-number">1</span><br>		m, % ~ : <span class="hljs-type">Prime</span><br>		% : m &gt; q<br>		% : <span class="hljs-type">False</span><br>	<br>//也可以用分析法反着推<br></code></pre></td></tr></table></figure>
 
 <p> %%<br>从目标反推？在写了 A -&gt; {可以读取Goal}, A &lt;- {可以用Premise}<br>结构冗余? 用~表示上一个结果 or 等式值，~~表示上两个结果 or 等式值_</p>
 <p>不能写{n: Nat; a: Nat :&#x3D; 2 * n; a}因为x没赋值<br>只能{n: Nat :&#x3D; 1; a: Nat :&#x3D; 2 * n; a}&#x3D;2</p>
 <h1 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h1><p>类型首字母大写, 实例首字母小写<br>声明(实例化) a: A 注意声明过后依然是自由变元，除非实例化<br>赋值 n: Nat :&#x3D; 1<br>%% 依赖类型语法 a:: A, a是形式参数, 并不会声明a<br>用这种语法是认为a: A, a:: A都有返回值, 希望能减少行数(比如可以不用像Haskell那样类型声明单独占行) %%其实是不会搞混的<br>必须声明类型且不能重复声明</p>
-<p>用A:: n表示A属于 $U_n$, 可以省略n, 表示宇宙多态, [type A::], A -&gt; Nat表示自动推断类型<br>之前未声明的变量默认当成sigma类型, 如<code>A -&gt; B</code>等价于<code>[infer A::, infer B::], A -&gt; B</code><br><code>*p</code>表示取prop中元素, <code>&amp;a</code> 构造一个只有a的类型</p>
+<p>用A:: n表示A属于 $U_n$, 可以省略n, 表示宇宙多态, [type A::], A -&gt; Nat表示自动推断类型<br>之前未声明的变量默认当成sigma类型, 如<code>A -&gt; B</code>等价于<code>[%infer A::, %infer B::], A -&gt; B</code><br><code>*p</code>表示取prop中元素, <code>&amp;a</code> 构造一个只有a的类型</p>
 <p>自动提升: 自动找始对象或终对象等进行态射<br>eg.1&#x2F;2 &#x3D; 0.5自然数上本来就没定义除法, 1, 2提升到有理数<br>eg. i&#x2F;1 &#x3D; i “&#x2F;“提升到复数<br>两个类型不同的对象一般不会被视为相同，即使“内容看起来一样”；而在集合论里，同一个集合元素可以属于多个集合<br>A in B 在类型论中一般表述为有一个自然含入映射</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs Haskell">//用“广义和类型”的方法(即n元组), 在lean中用的是类似函数的方法<br>//不能用函数(广义积类型), 因为只能证明对某个<span class="hljs-type">G</span>有定义<br><span class="hljs-type">Group</span> := <br>	[infer <span class="hljs-type">G</span>::] &amp;<br>	* [<span class="hljs-type">G</span>] : (<span class="hljs-type">G</span> -&gt; <span class="hljs-type">G</span> -&gt; <span class="hljs-type">G</span>) &amp;<br>	(<span class="hljs-type">Assoc</span> [<span class="hljs-type">G</span>] [*] := a b c: <span class="hljs-type">G</span> -&gt; a * b * c = (a * b) * c) &amp;<br>	e: <span class="hljs-type">G</span> &amp;<br>	(<span class="hljs-type">One</span> [<span class="hljs-type">G</span>] [*] [e] := a: <span class="hljs-type">G</span> -&gt; e * a = a) &amp;<br>	/: (<span class="hljs-type">G</span> -&gt; <span class="hljs-type">G</span>) &amp;<br>	(<span class="hljs-type">Rev</span> [<span class="hljs-type">G</span>] [*] [e] := a: <span class="hljs-type">G</span> -&gt; / a * a = e)<br><br> _: g: <span class="hljs-type">Group</span>, a: g.<span class="hljs-type">G</span> -&gt; a * / a = e :=<br>	*<span class="hljs-type">Group</span>.<span class="hljs-type">One</span> / a : e * / a = / a<br>	rw (a * / a = e) (/ ~) : a * e * / a = e<br>	rw ~ (/ <span class="hljs-type">Group</span>.<span class="hljs-type">Rev</span> a): a * (/ a * a) * / a = e<br>	simp<br></code></pre></td></tr></table></figure>
-<p>当然rw是J公理的语法糖<br>%% </p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs Haskell"><span class="hljs-title">is</span> <span class="hljs-type">Group</span> <span class="hljs-type">Bool</span>: <span class="hljs-type">Group</span> :=<br>	+ := (<span class="hljs-number">0</span> =&gt; id | <span class="hljs-number">1</span> =&gt; <span class="hljs-number">1</span> =&gt; <span class="hljs-number">0</span>), enmu,<br>	<span class="hljs-number">0</span>, enmu,<br>	/ := id, enmu<br><br><span class="hljs-title">f</span>: <span class="hljs-keyword">of</span> <span class="hljs-type">Group</span> <span class="hljs-type">Int</span> ~ <span class="hljs-keyword">of</span> <span class="hljs-type">Group</span> <span class="hljs-type">Bool</span>:=<br></code></pre></td></tr></table></figure>
-<p> %%</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs Haskell">//用“广义和类型”的方法(即n元组), 在lean中用的是类似函数的方法<br>//不能用函数(广义积类型), 因为只能证明对某个<span class="hljs-type">G</span>有定义<br><span class="hljs-type">Group</span> := <br>	[% <span class="hljs-type">G</span>::] &amp;<br>	* [<span class="hljs-type">G</span>] : (<span class="hljs-type">G</span> -&gt; <span class="hljs-type">G</span> -&gt; <span class="hljs-type">G</span>) &amp;<br>	(<span class="hljs-type">Assoc</span> [<span class="hljs-type">G</span>] [*] := a b c: <span class="hljs-type">G</span> -&gt; a * b * c = (a * b) * c) &amp;<br>	e: <span class="hljs-type">G</span> &amp;<br>	(<span class="hljs-type">One</span> [<span class="hljs-type">G</span>] [*] [e] := a: <span class="hljs-type">G</span> -&gt; e * a = a) &amp;<br>	/: (<span class="hljs-type">G</span> -&gt; <span class="hljs-type">G</span>) &amp;<br>	(<span class="hljs-type">Rev</span> [<span class="hljs-type">G</span>] [*] [e] := a: <span class="hljs-type">G</span> -&gt; / a * a = e)<br><br> _: g: <span class="hljs-type">Group</span>, a: g.<span class="hljs-type">G</span> -&gt; a * / a = e :=<br>	*<span class="hljs-type">Group</span>.<span class="hljs-type">One</span> / a : e * / a = / a<br>	rw (a * / a = e) (/ ~) : a * e * / a = e<br>	rw ~ (/ <span class="hljs-type">Group</span>.<span class="hljs-type">Rev</span> a): a * (/ a * a) * / a = e<br>	simp<br></code></pre></td></tr></table></figure>
+<p>当然rw是J公理的语法糖</p>
 <p>或许可以用 Bool, + .. : Group, 用部分特征表示某个结构</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs Haskell">(<span class="hljs-type">Bool</span>, + _): <span class="hljs-type">Group</span> :=<br>	<span class="hljs-type">Bool</span> := &amp;<span class="hljs-number">0</span> | &amp;<span class="hljs-number">1</span>,<br>	+ := (<span class="hljs-number">0</span> =&gt; id | <span class="hljs-number">1</span> =&gt; <span class="hljs-number">1</span> =&gt; <span class="hljs-number">0</span>), enmu,<br>	<span class="hljs-number">0</span>, enmu,<br>	/ := id, enmu<br><br><span class="hljs-title">f</span>: (<span class="hljs-type">Int</span>, + _) ~ (<span class="hljs-type">Bool</span>, + _):=<br></code></pre></td></tr></table></figure>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs Haskell">(<span class="hljs-type">Bool</span>, + _): <span class="hljs-type">Group</span> :=<br>	(<span class="hljs-type">Bool</span> := &amp;<span class="hljs-number">0</span> | &amp;<span class="hljs-number">1</span>),<br>	(+ := (<span class="hljs-number">0</span> =&gt; id | <span class="hljs-number">1</span> =&gt; <span class="hljs-number">1</span> =&gt; <span class="hljs-number">0</span>)), enmu,<br>	<span class="hljs-number">0</span>, enmu,<br>	(/ := id), enmu<br><br><span class="hljs-title">f</span>: (<span class="hljs-type">Int</span>, + _) ~ (<span class="hljs-type">Bool</span>, + _):=<br></code></pre></td></tr></table></figure>
 <p>| 除了用来定义和类型还用来定义从和类型出发的函数<br>强制要求类型不一样, 避免了额外引入构造子, 总是自动类型提升, 比如<br>f: (&amp;1, Nat) | (&amp;2, Nat) :&#x3D; ((1, a) &#x3D;&gt; a) | (2, a) &#x3D;&gt; 2 * a<br>f 2 3 &#x3D; 6</p>
 <p>g: (Nat | Bool) -&gt; Nat :&#x3D; (n: Nat &#x3D;&gt; n) | (true &#x3D;&gt; 1) | (false &#x3D;&gt; 0)<br>g 1 &#x3D; 1</p>
-<p>对于积类型(子命名空间), 可以用Type.来访问部分的类型, instance.来访问部分的实例, 区别类似于类方法和示例方法, 有些类方法是可以在没有实例时用的<br>对于(Bool, + _ ): Group 写 (Bool, + _ ).+ 或者(Bool, + _ ). *  都可以<br>但是不能与点号函数冲突</p>
+<p>对于积类型(子命名空间), 可以用Type.来访问部分的类型, instance.来访问部分的实例, 区别类似于类方法和示例方法, 有些类方法是可以在没有实例时用的<br>对于(Bool, + _ ): Group 写 (Bool, + _ ).+ 或者(Bool, + _ ). *  都可以<br>但是不能与点号函数冲突，前者对应所谓的属性，后者对应所谓的方法</p>
 <h2 id="同态类型"><a href="#同态类型" class="headerlink" title="同态类型"></a>同态类型</h2><p>不能有1: Int: Ring类型论是平的<br>实际上是1: Int<br>Int, is Ring Int: Ring<br>of Ring Int :&#x3D; Int, is Ring Int<br>“带结构的对象” &#x3D; “载体 + 结构”</p>
 <p>le  : carrier → carrier → Prop 可能构造出空类型(False), 但函数总是存在的, 也不会提供空类型的项(证明)<br>这点与Ring之类的结构不同, 因为如果A上没法定义Ring的话下面有些要提供证明的地方是填不出来的</p>
-<p>is Ring Z这只是一个项, 相当于一个只声明了类型的量, 直观上来讲我们希望将足够的信息编码到类型中</p>
+<p>%% is Ring Z这只是一个项, 相当于一个只声明了类型的量, 直观上来讲我们希望将足够的信息编码到类型中 %%</p>
 <p>数学图景, 空间中所有都是类型(命题, 结构), 我们能从方位得出命题强弱<br>或许可以用同构意义下的等价类(所谓的&amp;1)来研究实例, 把所有的东西都提升到类型的层面研究, 比如之前提到过的完备有序域, 又比如用  环结构并且到所有环结构都有同态 来在同构意义下唯一刻画环<br>此时自然有类到”实例”的箭头(&#x2F; 任意类型到非空类型都有箭头的, 这里指的是??同态)<br>但是这里a: 完备有序域, 取出来的不是实数, 而是实数的一个实例<br>就不能%% a: of Ring Int %% a: (Int, +, * _ )然后a本身是带有结构的? 这一点会带来冗余<br>或许可以a : (Int, +, * _ ).R</p>
-<p>希望可以多一层, 自动给出同态<br>而HoTT实现的是刻画等价的结构??商结构<br>或许可以给同态类似于等价的语法, a ~ b i.e. Hom(a, b) 类比与 a &#x3D; b i.e. Id(a, b)<br>然后用f : a ~ b f.map表示其中的映射</p>
-<p>为了构建Hom具体来讲 可以分三类：运算(包括常量)字段、关系字段、纯性质字段，只有前两类需要在同态里写“保结构”的条件，纯性质本身一般不用再“定义映射”。<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs fu">f (add x y) = add (f x) (f y)<br>f zero = zero<br>x ≤ y → f x ≤ f y            // 保序<br>add_assoc : ∀ x y z, add (add x y) z = _  //这点不用在Hom中体现<br></code></pre></td></tr></table></figure></p>
+<p>希望可以多一层, 自动给出同态<br>而HoTT实现的是刻画等价的结构??商结构<br>或许可以给同态类似于等价的语法, a ~ b i.e. Hom(a, b) 类比与 a &#x3D; b i.e. Id(a, b)<br>然后用f : a ~ b 用f.map表示其中的映射</p>
+<p>为了构建Hom具体来讲 可以分三类：运算(包括常量)字段、关系字段、纯性质字段，只有前两类需要在同态里写“保结构”的条件，纯性质本身一般不用再“定义映射”。<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs fu">f add x y = add f x f y<br>f zero = zero<br>x ≤ y → f x ≤ f y            // 保序<br>add_assoc : ∀ x y z, add add x y z = _  //这点不用在Hom中体现<br></code></pre></td></tr></table></figure></p>
 <h1 id="隐式参数"><a href="#隐式参数" class="headerlink" title="隐式参数"></a>隐式参数</h1><p>显式闭包(自由变元), 自动查M环境中名字, 类型适合的对象, 请注意依然需要保证类型语法正确</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs fu">y[x: Nat] := x + 1;<br>z[y[x]] := y[x] + 1;//???<br>Do print y = z //=&gt;&gt;false<br>x := 1<br>w := z + 1 //这里的z已经被完全绑定, 所以不用写[x]<br></code></pre></td></tr></table></figure>
 
-<p>infer 表示自动类型推断<br>[infer A::], A -&gt; Nat</p>
+<p>%infer 表示自动类型推断<br>[%infer A::], A -&gt; Nat<br>或者省略，直接用%表示某种自动填充</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fu">func2 (A::) [A _ : MyClass] :: = _ <br></code></pre></td></tr></table></figure>
 <p>如果上文有(A, + _ )之类的也可以填进去<br>但是如果同时存在 (A, + _ ) (A, * _ )就会报错<br>%% is MyClass A是一个有类型的项, 如果有多个就报错</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fu">func2 (A::) [is MyClass A] :: = _ <br></code></pre></td></tr></table></figure>
@@ -371,7 +369,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年12月21日</div>
+          <div>2025年12月22日</div>
         </div>
       
       
@@ -415,9 +413,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E3%80%8A%E7%BA%A2%E4%B8%8E%E9%BB%91%E3%80%8B/" title="《红与黑》">
+                      <a href="/%E3%80%8A%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F%E3%80%8B/" title="《明日方舟》">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">《红与黑》</span>
+                        <span class="hidden-mobile">《明日方舟》</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -425,8 +423,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/LEAN/" title="LEAN">
-                        <span class="hidden-mobile">LEAN</span>
+                      <a href="/%E3%80%8A%E7%BA%A2%E4%B8%8E%E9%BB%91%E3%80%8B/" title="《红与黑》">
+                        <span class="hidden-mobile">《红与黑》</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
