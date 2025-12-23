@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="fu_language├── README.md├── .git&#x2F;├── .gitignore├── .vscode&#x2F;├── tokenizer.c└── tokenizer.exe   Let’s Build A Simple Interpreter. Part 1. - Ruslan’s Blog 🔼 参考rycheung&#x2F;tiny-mltt: An learn">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-12-22T15:40:01.348Z">
-<meta property="article:modified_time" content="2025-12-22T15:40:01.348Z">
+<meta property="article:published_time" content="2025-12-23T14:38:59.306Z">
+<meta property="article:modified_time" content="2025-12-23T14:38:59.306Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-12-22 23:40" pubdate>
-          2025年12月22日 晚上
+        <time datetime="2025-12-23 22:38" pubdate>
+          2025年12月23日 晚上
         </time>
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          37 分钟
+          38 分钟
         
       </span>
     
@@ -291,7 +291,7 @@
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs Haskell">(<span class="hljs-type">Bool</span>, + _): <span class="hljs-type">Group</span> :=<br>	(<span class="hljs-type">Bool</span> := &amp;<span class="hljs-number">0</span> | &amp;<span class="hljs-number">1</span>),<br>	(+ := <span class="hljs-number">0</span> =&gt; id | <span class="hljs-number">1</span> =&gt; <span class="hljs-number">1</span> =&gt; <span class="hljs-number">0</span>), enmu,<br>	<span class="hljs-number">0</span>, enmu,<br>	(/ := id), enmu<br><br><span class="hljs-title">f</span>: (<span class="hljs-type">Int</span>, + _) ~ (<span class="hljs-type">Bool</span>, + _):=<br></code></pre></td></tr></table></figure>
 <p>| 除了用来定义和类型还用来定义从和类型出发的函数<br>强制要求类型不一样, 避免了额外引入构造子, 总是自动类型提升, 比如<br>f: (&amp;1 &amp; Nat) | (&amp;2 &amp; Nat) :&#x3D; (1, a) &#x3D;&gt; a | (2, a) &#x3D;&gt; 2 * a<br>f 2 3 &#x3D; 6</p>
 <p>g: (Nat | Bool) -&gt; Nat :&#x3D; (n: Nat &#x3D;&gt; n) | (true &#x3D;&gt; 1) | (false &#x3D;&gt; 0)<br>g 1 &#x3D; 1</p>
-<p>对于积类型(子命名空间), 可以用Type.来访问部分的类型, instance.来访问部分的实例, 区别类似于类方法和示例方法, 有些类方法是可以在没有实例时用的<br>对于(Bool, + _ ): Group 写 (Bool, + _ ).+ 或者(Bool, + _ ). *  都可以<br>但是不能与点号函数冲突，前者对应所谓的属性，后者对应所谓的方法</p>
+<p>对于积类型(子命名空间), 可以用Type.来访问部分的类型, instance.来访问部分的实例, 区别类似于类方法和实例方法, 有些类方法是可以在没有实例时用的<br>对于(Bool, + _ ): Group 写 (Bool, + _ ).+ 或者(Bool, + _ ). *  都可以<br>但是不能与点号函数冲突，前者对应所谓的属性，后者对应所谓的方法</p>
 <h2 id="同态类型"><a href="#同态类型" class="headerlink" title="同态类型"></a>同态类型</h2><p>不能有1: Int: Ring类型论是平的<br>实际上是1: Int<br>Int, is Ring Int: Ring<br>of Ring Int :&#x3D; Int, is Ring Int<br>“带结构的对象” &#x3D; “载体 + 结构”</p>
 <p>le  : carrier → carrier → Prop 可能构造出空类型(False), 但函数总是存在的, 也不会提供空类型的项(证明)<br>这点与Ring之类的结构不同, 因为如果A上没法定义Ring的话下面有些要提供证明的地方是填不出来的</p>
 <p>%% is Ring Z这只是一个项, 相当于一个只声明了类型的量, 直观上来讲我们希望将足够的信息编码到类型中 %%</p>
@@ -305,7 +305,7 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fu">func2 (A::) [A _ : MyClass] :: = _ <br></code></pre></td></tr></table></figure>
 <p>如果上文有(A, + _ )之类的也可以填进去<br>但是如果同时存在 (A, + _ ) (A, * _ )就会报错<br>%% is MyClass A是一个有类型的项, 如果有多个就报错</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fu">func2 (A::) [is MyClass A] :: = _ <br></code></pre></td></tr></table></figure>
-<p>?Group G :&#x3D; G_str: Group, G_str.[ &#x3D; G<br>这里?Group: Type -&gt; Prop或者直接Type -&gt; I -&gt; Type(然后 I -&gt; Type:: Prop)<br>后面希望把它拓展为多态的(和类型)<br>实际上只能判断某个对象是否是一个导出对象的实例, 不能用于判断某个任意元素是否是某个类型中的<br>比如 isNat: A -&gt; Prop :&#x3D;  a -&gt; (n: Nat, a &#x3D; n) 不行因为A不是Nat的话a &#x3D; n直接通不过类型检查<br>isEven: Nat -&gt; Prop; isEven n &#x3D; (m: Nat, n &#x3D; m + m)则是合法的 %%<br>%%<br>直接定义Even n似乎也可以, 但是似乎没办法统一哪些东西写在后面<br> n: Nat, ?Even n &#x3D;:Even &#x2F;&#x2F;引入?来表示这种关系但不是函数,<br>?Even n&#x3D;_证言也只用写:&#x3D;一侧的<br>甚至可以?Nat n<br>?R :&#x3D; R | warp ?R<br>warp (a: A -&gt; x: X, p: R, p &#x3D; (a, x)) &#x3D;<br>b: B-&gt; a: A -&gt; x: X, p: R, p &#x3D; (b, a, x) %%</p>
+<p>?Group G :&#x3D; G_str: Group, G_str.[ &#x3D; G<br>这里?Group: Type -&gt; Prop或者直接Type -&gt; I -&gt; Type(然后 I -&gt; Type:: Prop)<br>后面希望把它拓展为多态的(和类型)<br>实际上只能判断某个对象是否是一个导出对象的实例, 不能用于判断某个任意元素是否是某个类型中的<br>比如 isNat: A -&gt; Prop :&#x3D;  a -&gt; (n: Nat, a &#x3D; n) 不行因为A不是Nat的话a &#x3D; n直接通不过类型检查<br>isEven: Nat -&gt; Prop; isEven n &#x3D; (m: Nat, n &#x3D; m + m)则是合法的 %%<br>%%<br>直接定义Even n似乎也可以, 但是似乎没办法统一哪些东西写在后面<br> n: Nat, ?Even n &#x3D;:Even &#x2F;&#x2F;引入?来表示这种关系但不是函数,<br>?Even n&#x3D; _ 证言也只用写:&#x3D;一侧的<br>甚至可以?Nat n<br>?R :&#x3D; R | warp ?R<br>warp (a: A -&gt; x: X, p: R, p &#x3D; (a, x)) &#x3D;<br>b: B-&gt; a: A -&gt; x: X, p: R, p &#x3D; (b, a, x) %%</p>
 <p>可以用来后置一部分定义, 用于拼接</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs fu">f[x: Nat] = 2 * x<br>// f 的类型是 Nat -&gt; Nat<br>x = 1<br>// f 的类型是 Nat -&gt; Nat<br>y = f // 这里的f实际上是 f‎[1] 的简写，y的类型是 Nat<br></code></pre></td></tr></table></figure>
 <p>&#x2F; 可以看成一种副作用</p>
@@ -315,7 +315,7 @@
 <p>～可能世界语义学<br>Do IO a-&gt;WORLD<br>Be ‘非计算性的存在性命题的单子’计算可能失败（不终止&#x2F;不可执行）&#x3D; Possible｜，其中Unknown: Possible<br>Rand</p>
 <p>将单纯的构造性逻辑Decidable 提升到WORLD 或者叫Time 或者叫 Timeline</p>
 <p>代数effect<br>~koka<br>命名规范: 类型变量首字母大写, 项变量首字母小写, WORLD变量大写</p>
-<p>roll: RAND -&gt; Nat<br>可以引入随机种子将其变为[$VAR Nat] -&gt; Nat</p>
+<p>roll: $RAND -&gt; Nat<br>可以引入随机种子将其变为[$VAR Nat] -&gt; Nat</p>
 <p>Data Effects兼顾了时序, 天然允许并行, 可以自动画出计算图<br>effect: 对外界的影响<br>coeffect: 外界对内部的影响<br>scan: TERM -&gt; a 终端-控制台<br>print: a -&gt; TERM -&gt; TERM<br>read: $HEAP -&gt; a<br>write: a -&gt; HEAP -&gt; HEAP<br>IO :&#x3D; TERM | HEAP<br>DO 需要指定所有的IO参数<br>比如, DO print “Hello World” CONSOLE 这里CONSOLE是默认参数也可以不写<br>%%get: $VAR a -&gt; a<br>set: a -&gt; VAR a -&gt; $VAR a<br>START 指定 VAR 参数</p>
 <ul>
 <li><input disabled="" type="checkbox"> 感觉VAR可以有些地方和IO不一样, 毕竟只在局部用的话其实是纯的 ? 或许甚至可以不用专门语法</li>
@@ -323,15 +323,15 @@
 <li>或许有的地方文件是带历史记录的，那就和普通对象无差别了，这个系统的核心是可变且同一 <strong>时间</strong> 状态一定</li>
 </ul>
 <p> 本质上$表示只读是个函子, 存在 HEAP -&gt; $HEAP 但不存在 $HEAP -&gt; HEAP<br>异步天然支持 print “hello” &gt;&gt;&#x3D; print “world” 或 print “world” &#x3D;&lt;&lt; print “hello”<br>为避免碰撞，并发要显式写print “hello” &gt;&#x3D;&lt; print “world”: TERM -&gt; $TERM , 此时”helloworld”或者”worldhello”顺序不定<br>合并操作, 不能合并多个多个写, (f: HEAP -&gt; $HEAP -&gt; $HEAP) &gt;&#x3D; : HEAP -&gt; $HEAP先读再写</p>
-<p>理论上已经可以了保证时间线正常了,<br>为了更好用 &#x2F; 引入lambda表达式: 类似rust每个变量只能用一次, 只能用于指定的函数(上述函数以及合法构造)<br>严格来说WORLD不是正常类型, 之前即使是泛型的函数也不能用(特别是Pair之类的)<br>直观上来讲设立不能有 WORLD a, WORLD a, 即对同一对象的两次写, 但主要是不知道中间有没有用这种操作 %%<br>为了保证时间线正常, 在lambda表达式中, 类似rust每个变量只能写一次, 只能用于指定的函数(上述函数以及符合此规则合法构造)<br>严格来说WORLD不是正常类型, 之前即使是泛型的函数也不能用(特别是Pair之类的)</p>
-<p>%% - [ ] 由于原来的变量写完过后就不能用了, 因此允许写完给到原值, 下文自动用最新的 &#x2F; 这似乎太邪恶了<br>VAR对象可以用LET给初值并限定作用域 %%</p>
+<p>理论上已经可以了保证时间线正常了,<br>为了更好用 &#x2F; 引入lambda表达式: 类似rust每个变量只能用一次, 只能用于指定的函数(上述函数以及合法构造)<br>严格来说WORLD不是正常类型, 之前即使是泛型的函数也不能用(特别是Pair之类的)<br>直观上来讲设立不能有 WORLD a, WORLD a, 即对同一对象的两次写, 但主要是不知道中间有没有用这种操作 %%<br>为了保证时间线正常, 在lambda表达式中, 类似rust每个变量只能写一次, 只能用于指定的函数(上述函数以及符合此规则合法构造)<br>严格来说WORLD不是正常类型, 之前即使是泛型的函数也不能用(特别是Pair之类的)<br>用更加准确的TIME<br>即TERM HEAP RAND :: TIME<br>根据需求可以有不同的运行程序的方式, 并行 串行等, 都是对时间图的处理<br>%% - [ ] 由于原来的变量写完过后就不能用了, 因此允许写完给到原值, 下文自动用最新的 &#x2F; 这似乎太邪恶了<br>VAR对象可以用LET给初值并限定作用域 %%</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs fu">print5: TERM := t: TERM -&gt;<br>	] for (0, t) (?&lt;5) (1+, <br>		print &quot;Hello World&quot;)<br></code></pre></td></tr></table></figure>
 
 <p> for a: A p: (A -&gt; Prop) (f: A -&gt; A) :&#x3D; [decide p a] -&gt; (while (f a) p f ) | [else] -&gt; a%% 需要改成适合monad的形式 %%<br>可以试着包装一个更简单的版本</p>
 <p>Control Effects<br>a | ERR 可以通过模式匹配消去</p>
-<p>实际上所有类型都是 a, TIME, 因为程序始终在物理世界运行, 会遇到内存满, 用户不耐烦了等情况<br>目标是编译能通过的情况下运行一般不会出问题, 同时不能保证编译收敛<br>感觉还是分成两层：编译和运行</p>
+<p>实际上所有类型都是 a, time, 因为程序始终在物理世界运行, 会遇到内存满, 用户不耐烦了等情况<br>目标是编译能通过的情况下运行一般不会出问题, 同时不能保证编译收敛<br>感觉还是分成两层：编译和运行</p>
 <ul>
-<li><input disabled="" type="checkbox"> TIME :&#x3D; Dag (Nat | DIV | ASYNC)<br>？或许其实运行时和编译时不是完全分开的，比如一个关于1000以内数命题的证明可以有部分证明和枚举</li>
+<li><input disabled="" type="checkbox"> 如何引入运行时</li>
+<li><input disabled="" type="checkbox"> time :&#x3D; Dag (Nat | DIV | ASYNC)<br>？或许其实运行时和编译时不是完全分开的，比如一个关于1000以内数命题的证明可以有部分证明和枚举 ? 但是我感觉暂时没有很好的逻辑可以兼容.<br>甚至囊括自然语言, 那就更遥远了. 描述存在并非存在本身</li>
 </ul>
 <h2 id="注记：可计算性"><a href="#注记：可计算性" class="headerlink" title="注记：可计算性"></a>注记：可计算性</h2><p>在编译期判断一个函数&#x2F;程序（特别地，类型定义，<a href="/%CE%BB-calculus/" title="λ-calculus">λ-calculus</a>）是否一定会停止（不会死循环）<br>可计算性相关，会出现停机问题之类的不可判定，即没有程序能完全解决这个问题，现代证明器只是限制在证明原始之类<br>越expressive的语言，能判定的部分的占比就越小</p>
 <p>Haskell 不进行终止性检查, 但是采用lazy evaluation, 保证存在β范式就能找到<br>实际上这允许定义f(n)&#x3D;even n?n&#x2F;2:3n+1 (Collatz 猜想)</p>
@@ -369,7 +369,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年12月22日</div>
+          <div>2025年12月23日</div>
         </div>
       
       
