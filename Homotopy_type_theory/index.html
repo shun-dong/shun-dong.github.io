@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="理解 homotopy type theory$(A&#x3D;B)\simeq(A\simeq B)$把所有$U \circlearrowleft^{\sim}$按照&#x3D;划分等价类   id 和 A&#x3D;B的关系  dependent_type_theoryMartin‑Löf type theory其实有两种,   extensional(外延式): 认为所有相等都一样(包括ju">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-12-11T15:31:27.875Z">
-<meta property="article:modified_time" content="2025-12-11T15:31:27.875Z">
+<meta property="article:published_time" content="2025-12-25T16:40:41.936Z">
+<meta property="article:modified_time" content="2025-12-25T16:40:41.936Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-12-11 23:31" pubdate>
-          2025年12月11日 晚上
+        <time datetime="2025-12-26 00:40" pubdate>
+          2025年12月26日 凌晨
         </time>
       </span>
     
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          898 字
+          977 字
         
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          8 分钟
+          9 分钟
         
       </span>
     
@@ -297,6 +297,11 @@
 <blockquote>
 <p>[!PDF|highlight] [[Homology_Type_Theory.pdf#page&#x3D;73&amp;selection&#x3D;61,0,62,18&amp;color&#x3D;highlight|Homology_Type_Theory,_p.61]]<br>homotopy type theory is synthetic: points, paths, and paths between paths are basic, indivisible, primitive notions.</p>
 </blockquote>
+<h2 id="Functions-are-functors"><a href="#Functions-are-functors" class="headerlink" title="Functions are functors"></a>Functions are functors</h2><blockquote>
+<p>[!PDF|highlight] [[Homology_Type_Theory.pdf#page&#x3D;83&amp;selection&#x3D;36,30,38,80&amp;color&#x3D;highlight|Homology_Type_Theory,_p.71]]<br>In traditional type theory, this is equivalently the statement that functions respect equality. Topologically, this corresponds to saying that every function is “continuous”, i.e. preserves paths.</p>
+</blockquote>
+<p>f : A -&gt; B<br>ap f : (x $&#x3D;_A$ y) -&gt; (f x $&#x3D;_B$ f y)<br>这里是将path本身当成箭头，于是保持path的函数自然是functor</p>
+<h2 id="Type-families-are-fibrations"><a href="#Type-families-are-fibrations" class="headerlink" title="Type families are fibrations"></a>Type families are fibrations</h2><p>transport : (P : A -&gt; Type) -&gt; (p : x &#x3D;A y) -&gt; ($p_*$ : P x -&gt; P y)</p>
 <h1 id="higher-induction-type"><a href="#higher-induction-type" class="headerlink" title="higher induction type"></a>higher induction type</h1><p>不仅包含 点构造器, 还包含路径(等式)构造器</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs agda">data S¹ : Type where<br>  base : S¹<br>  loop : base ≡ base<br></code></pre></td></tr></table></figure>
                 
@@ -328,7 +333,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年12月11日</div>
+          <div>2025年12月26日</div>
         </div>
       
       
@@ -372,18 +377,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/python/" title="python">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">python</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/formalized_mathematics/" title="formalized_mathematics">
-                        <span class="hidden-mobile">formalized_mathematics</span>
+                      <a href="/dependent_type_theory/" title="dependent_type_theory">
+                        <span class="hidden-mobile">dependent_type_theory</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
