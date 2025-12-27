@@ -19,15 +19,15 @@
   <meta name="author" content="采薇">
   <meta name="keywords" content="">
   
-    <meta name="description" content="fu_language├── README.md├── .git&#x2F;├── .gitignore├── .vscode&#x2F;├── tokenizer.c└── tokenizer.exe 函数式实际上很接近Agda 行、块单个文档，{}中的内容即一个块块是一个广义上的（希尔伯特式的）推演, 同时块具有命名空间隔离的效果 每一行为一个步骤, 组成推演序列，用;分隔，其中最后一行是结论">
+    <meta name="description" content="fu_language├── README.md├── .git&#x2F;├── .gitignore├── .vscode&#x2F;├── tokenizer.c└── tokenizer.exe   Let’s Build A Simple Interpreter. Part 1. - Ruslan’s Blog 🔼 参考rycheung&#x2F;tiny-mltt: An learn">
 <meta property="og:type" content="article">
 <meta property="og:title" content="fu_language">
 <meta property="og:url" content="http://kaelvio.com/fu_language/index.html">
 <meta property="og:site_name" content="采薇的博客">
-<meta property="og:description" content="fu_language├── README.md├── .git&#x2F;├── .gitignore├── .vscode&#x2F;├── tokenizer.c└── tokenizer.exe 函数式实际上很接近Agda 行、块单个文档，{}中的内容即一个块块是一个广义上的（希尔伯特式的）推演, 同时块具有命名空间隔离的效果 每一行为一个步骤, 组成推演序列，用;分隔，其中最后一行是结论">
+<meta property="og:description" content="fu_language├── README.md├── .git&#x2F;├── .gitignore├── .vscode&#x2F;├── tokenizer.c└── tokenizer.exe   Let’s Build A Simple Interpreter. Part 1. - Ruslan’s Blog 🔼 参考rycheung&#x2F;tiny-mltt: An learn">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-12-26T11:06:19.992Z">
-<meta property="article:modified_time" content="2025-12-26T11:06:19.992Z">
+<meta property="article:published_time" content="2025-12-27T05:46:51.123Z">
+<meta property="article:modified_time" content="2025-12-27T05:46:51.124Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-12-26 19:06" pubdate>
-          2025年12月26日 晚上
+        <time datetime="2025-12-27 13:46" pubdate>
+          2025年12月27日 下午
         </time>
       </span>
     
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.4k 字
+          4.6k 字
         
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          37 分钟
+          39 分钟
         
       </span>
     
@@ -260,10 +260,22 @@
           <article class="post-content mx-auto">
             <h1 id="seo-header">fu_language</h1>
             
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2025年12月27日 下午
+                  
+                
+              </p>
+            
             
               <div class="markdown-body">
                 
                 <p>fu_language<br>├── <a href="C:/Users/liuSu/Projects/fu_language/README.md">README.md</a><br>├── <a href="C:/Users/liuSu/Projects/fu_language/.git">.git&#x2F;</a><br>├── <a href="C:/Users/liuSu/Projects/fu_language/.gitignore">.gitignore</a><br>├── <a href="C:/Users/liuSu/Projects/fu_language/.vscode">.vscode&#x2F;</a><br>├── <a href="C:/Users/liuSu/Projects/fu_language/tokenizer.c">tokenizer.c</a><br>└── <a href="C:/Users/liuSu/Projects/fu_language/tokenizer.exe">tokenizer.exe</a></p>
+<ul>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://ruslanspivak.com/lsbasi-part1/">Let’s Build A Simple Interpreter. Part 1. - Ruslan’s Blog</a> 🔼 参考<a target="_blank" rel="noopener" href="https://github.com/rycheung/tiny-mltt">rycheung&#x2F;tiny-mltt: An learning project demonstrating a simple implementation of Martin-Löf dependent type theory（MLTT）</a></li>
+</ul>
+<p>关键字：”;”, “(“, “)”, “[“, “]”, “{“, “}”, “:”, “:&#x3D;”, “|”, “,”, “-&gt;”, “::”, “_“, “&#x3D;”, “ _ “<br>同一行从右到左，总体上使用波兰表示法<br>优先级：空格表示的前缀函数作用  中缀函数 类型运算符号 (-&gt; , |三者相同) 类型标注符号(: ::) :&#x3D;;<br>类型标注符号放这么后面是为了保留f: A -&gt; B以及证明时写 p:…<br>编译过程类似于先用中缀运算符和括号切开，每一块从右往左，不能作用就入栈，遇到能作用的就将顶上的作用并将结果入栈，最后缀运算符优先级从高到低作用<br>书写时量纲和乘号同一优先级，其余和类型运算符同一优先级</p>
 <p>函数式<br>实际上很接近Agda</p>
 <h1 id="行、块"><a href="#行、块" class="headerlink" title="行、块"></a>行、块</h1><p>单个文档，{}中的内容即一个块<br>块是一个广义上的（希尔伯特式的）推演, 同时块具有命名空间隔离的效果</p>
 <p>每一行为一个步骤, 组成推演序列，用;分隔，其中最后一行是结论（导出项）(这里规定以;结尾的项要非空, 否则要用?a :&#x3D; _, 此时依然不能说a: A)<br>推演序列要求每项必须由公理或之前项推得（即可居的，注意可居性与存在性在False上不同），由于 一阶逻辑的不可判定性，逻辑真理 ≠ 算法可计算</p>
@@ -366,9 +378,14 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年12月26日</div>
+          <div>2025年12月27日</div>
         </div>
       
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2025年12月27日</div>
+        </div>
       
       
         <div class="license-meta-item">
