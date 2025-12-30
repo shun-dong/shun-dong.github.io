@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="理解 homotopy type theory$(A&#x3D;B)\simeq(A\simeq B)$把所有$U \circlearrowleft^{\sim}$按照&#x3D;划分等价类   id 和 A&#x3D;B的关系  dependent_type_theoryMartin‑Löf type theory其实有两种,   extensional(外延式): 认为所有相等都一样(包括ju">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-12-28T12:51:37.074Z">
-<meta property="article:modified_time" content="2025-12-28T12:51:37.075Z">
+<meta property="article:published_time" content="2025-12-30T01:17:26.059Z">
+<meta property="article:modified_time" content="2025-12-30T01:17:26.059Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-12-28 20:51" pubdate>
-          2025年12月28日 晚上
+        <time datetime="2025-12-30 09:17" pubdate>
+          2025年12月30日 上午
         </time>
       </span>
     
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          977 字
+          1.1k 字
         
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          9 分钟
+          10 分钟
         
       </span>
     
@@ -259,14 +259,6 @@
         <div id="board">
           <article class="post-content mx-auto">
             <h1 id="seo-header">homotopy_type_theory</h1>
-            
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    本文最后更新于 2025年12月28日 晚上
-                  
-                
-              </p>
             
             
               <div class="markdown-body">
@@ -310,8 +302,18 @@
 </blockquote>
 <p>f : A -&gt; B<br>ap f : (x $&#x3D;_A$ y) -&gt; (f x $&#x3D;_B$ f y)<br>这里是将path本身当成箭头，于是保持path的函数自然是functor</p>
 <h2 id="Type-families-are-fibrations"><a href="#Type-families-are-fibrations" class="headerlink" title="Type families are fibrations"></a>Type families are fibrations</h2><p>transport : (P : A -&gt; Type) -&gt; (p : x &#x3D;A y) -&gt; ($p_*$ : P x -&gt; P y)</p>
-<h1 id="higher-induction-type"><a href="#higher-induction-type" class="headerlink" title="higher induction type"></a>higher induction type</h1><p>不仅包含 点构造器, 还包含路径(等式)构造器</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs agda">data S¹ : Type where<br>  base : S¹<br>  loop : base ≡ base<br></code></pre></td></tr></table></figure>
+<h1 id="homotopy-n-types"><a href="#homotopy-n-types" class="headerlink" title="homotopy n-types"></a>homotopy n-types</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fu">True_: IsContr:: := A:: &amp; (a: A) &amp; (x: A) -&gt; a = x <br></code></pre></td></tr></table></figure>
+<p>这里仅仅有任意 x: A 是不够的, 不能排除False<br>实际上 <code>A_: IsContr -&gt; A ~- True</code><br>实际上 &#x2F; Prop:&#x3D; Type -1 $\simeq$ True | False</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs fu">n : TypeIdx := n: Int &amp; n &gt;= -2<br>IsType n := [decide n = -2] -&gt; IsContr | [else] -&gt; A:: -&gt; (x y: A) -&gt; (x = y)_ in IsType (n - 1)<br></code></pre></td></tr></table></figure>
+<p>x y ::: n<br>x &#x3D; y ::: n - 1</p>
+<ul>
+<li>[&#x2F;] 截断<br>$$<br>\Omega^{n+1}(A,a) \simeq \text{Map}_*(S^{n+1}, (A,a))<br>$$<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fu">To (n: TypeIdx) A:: := h : ((S^(n+1) -&gt; To n A) -&gt; To n A) / x : S^(n+1) -&gt; r : (S^(n+1) -&gt; To n A) -&gt; r x = h x<br></code></pre></td></tr></table></figure>
+类似于选了一个点把所有点都连起来<br>这里用了类型转换的语法</li>
+</ul>
+<h1 id="induction-type"><a href="#induction-type" class="headerlink" title="induction type"></a>induction type</h1><p>相当于自由生成的对象</p>
+<h1 id="higher-induction-type"><a href="#higher-induction-type" class="headerlink" title="higher induction type"></a>higher induction type</h1><p>不仅包含点构造器, 还包含路径(等式)构造器<br>相当于商的推广</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fu">S^1 :: := &amp;base / loop : base = base<br></code></pre></td></tr></table></figure>
+
                 
               </div>
             
@@ -341,14 +343,9 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年12月28日</div>
+          <div>2025年12月30日</div>
         </div>
       
-      
-        <div class="license-meta-item license-meta-date">
-          <div>更新于</div>
-          <div>2025年12月28日</div>
-        </div>
       
       
         <div class="license-meta-item">
@@ -390,18 +387,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/fu_language/" title="fu_language">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">fu_language</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/dependent_type_theory/" title="dependent_type_theory">
-                        <span class="hidden-mobile">dependent_type_theory</span>
+                      <a href="/fu_language/" title="fu_language">
+                        <span class="hidden-mobile">fu_language</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
