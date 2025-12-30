@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="type Church-style: build-in type Curry-style: terms are untyped but to give a type  degree &amp; universe   universe type term    $\mathcal U_{-1}$(Prop, Sort 0) True True.intro   $\mathcal U_{0}$(Typ">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-12-25T16:40:41.934Z">
-<meta property="article:modified_time" content="2025-12-25T16:40:41.934Z">
+<meta property="article:published_time" content="2025-12-30T06:08:42.485Z">
+<meta property="article:modified_time" content="2025-12-30T06:08:42.485Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-12-26 00:40" pubdate>
-          2025年12月26日 凌晨
+        <time datetime="2025-12-30 14:08" pubdate>
+          2025年12月30日 下午
         </time>
       </span>
     
@@ -362,7 +362,7 @@
 <p>之所以用符号, | -&gt;是因为往往构造的是对应类型的对象, 并非同一类型的操作，即a,b和a不是同一类型<br>保留+ * ^用于同一类型</p>
 <p>&#x2F; 自然变换<br>&#x2F; 等于即等价，但有不同路径<br>$A \times B &#x3D; B \times A \implies left (A \times B) &#x3D; \sigma <del>left</del>\sigma(B \times A)$</p>
 <h1 id="和-余积-类型"><a href="#和-余积-类型" class="headerlink" title="和(余积)类型"></a>和(余积)类型</h1><p>和类型 A | B:&#x3D; [R:: Type] (A -&gt; R) -&gt; (B -&gt; R) -&gt; R<br>存在性同样需要额外的公理<br>(]] _ _ a: A): A | B 和类型中这里的]]输入函数类型<br>同理…<br>如果AB不同其实是可以自动匹配左右的<br>&#x2F; 语法糖(f , g) a</p>
-<h1 id="导出类型"><a href="#导出类型" class="headerlink" title="导出类型"></a>导出类型</h1><p>&#x2F; True :&#x3D; [R: Type] &amp; a:: R-&gt; b:: R-&gt; a &#x3D; b单元集，存在性由R的良定义保证<br>List a: Type :&#x3D; True | a &amp; List a<br>Nat :&#x3D; 0 ^ | succ ^ Nat<br>0 f :&#x3D; _<br>succ :&#x3D; n:: Nat &#x3D;&gt; f&#x3D;&gt; x&#x3D;&gt; f n f x<br>[R: Type] a: R ^ :&#x3D;b:: R &amp; b &#x3D; a<br>f: R-&gt;T ^ [T: Type] R:Type :&#x3D; t: T &amp; r: R &amp; t &#x3D; f r</p>
+<h1 id="导出类型"><a href="#导出类型" class="headerlink" title="导出类型"></a>导出类型</h1><p>&#x2F; True :&#x3D; [R: Type] &amp; a:: R-&gt; b:: R-&gt; a &#x3D; b单元集，存在性由R的良定义保证<br>List a: Type :&#x3D; True | a &amp; List a<br><code>Nat := True | True &amp; Nat</code><br><code>Int := Nat &amp; Nat / (m n: Int) -&gt; m[ + n] = m] + n[ -&gt; m = n</code><br><code>Quet := Int &amp; Int / ...</code><br><code>Real := List Quet / ...</code><br>0 f :&#x3D; _<br>succ :&#x3D; n:: Nat &#x3D;&gt; f&#x3D;&gt; x&#x3D;&gt; f n f x<br>[R: Type] a: R ^ :&#x3D;b:: R &amp; b &#x3D; a<br>f: R-&gt;T ^ [T: Type] R:Type :&#x3D; t: T &amp; r: R &amp; t &#x3D; f r</p>
 <h1 id="命题截断-n-1"><a href="#命题截断-n-1" class="headerlink" title="命题截断 (n = -1)"></a>命题截断 (<code>n = -1</code>)</h1><p><strong>类型：</strong> <code>‖ A ‖</code> 或 <code>∥ A ∥</code> 或 <code>Trunc (-1) A</code><br><strong>含义：</strong> 将类型 <code>A</code> 变成一个<strong>命题</strong>。它表达的逻辑是 <strong>“A 是否可被证明”</strong>，或者说 <strong>“A 是否 inhabited”</strong>。<br><strong>构造子：</strong><br><code>|_| : A → ‖ A ‖</code>：如果 <code>A</code> 有一个实例 <code>a : A</code>，那么 <code>‖ A ‖</code> 就为真（通过 <code>| a |</code> 证明）。<br><strong>关键性质（消去规则）：</strong> 为了从 <code>‖ A ‖</code> 证明另一个命题 <code>P</code>，你只需要证明 <code>A → P</code>。因为 <code>P</code> 是命题，所以具体是 <code>A</code> 中的哪个 <code>a</code> 证明的并不重要。</p>
 <figure class="highlight tp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tp">rec : (A → <span class="hljs-keyword">P</span>) → isProp <span class="hljs-keyword">P</span> → ‖ A ‖ → <span class="hljs-keyword">P</span><br></code></pre></td></tr></table></figure>
 <p>这完美地对应了逻辑中的<strong>存在量词的消去规则</strong>：如果你知道 <code>∃ x, A(x)</code>，并且你想证明一个命题 <code>P</code>，你只需要证明对于任意一个 <code>x</code> 满足 <code>A(x)</code>，都能推出 <code>P</code>。</p>
@@ -396,7 +396,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年12月26日</div>
+          <div>2025年12月30日</div>
         </div>
       
       
@@ -440,18 +440,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/fu_language/" title="fu_language">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">fu_language</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E7%BB%98%E7%94%BB/" title="绘画">
-                        <span class="hidden-mobile">绘画</span>
+                      <a href="/homotopy_type_theory/" title="homotopy_type_theory">
+                        <span class="hidden-mobile">homotopy_type_theory</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
