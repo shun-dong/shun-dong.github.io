@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="fu_language├── README.md├── .git&#x2F;├── .gitignore├── .vscode&#x2F;├── tokenizer.c└── tokenizer.exe   Let’s Build A Simple Interpreter. Part 1. - Ruslan’s Blog 🔼 参考rycheung&#x2F;tiny-mltt: An learn">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-12-29T14:34:55.197Z">
-<meta property="article:modified_time" content="2025-12-29T14:34:55.197Z">
+<meta property="article:published_time" content="2025-12-31T03:21:50.142Z">
+<meta property="article:modified_time" content="2025-12-31T03:21:50.142Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-12-29 22:34" pubdate>
-          2025年12月29日 晚上
+        <time datetime="2025-12-31 11:21" pubdate>
+          2025年12月31日 上午
         </time>
       </span>
     
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.7k 字
+          4.8k 字
         
       </span>
     
@@ -293,6 +293,7 @@
 <p>| 除了用来定义和类型还用来定义从和类型出发的函数<br>强制要求类型不一样, 避免了额外引入构造子, 总是自动类型提升, 比如<br>f: (&amp;1 &amp; Nat) | (&amp;2 &amp; Nat) :&#x3D; (1, a) &#x3D;&gt; a | (2, a) &#x3D;&gt; 2 * a<br>f 2 3 &#x3D; 6</p>
 <p>g: (Nat | Bool) -&gt; Nat :&#x3D; (n: Nat &#x3D;&gt; n) | (true &#x3D;&gt; 1) | (false &#x3D;&gt; 0)<br>g 1 &#x3D; 1</p>
 <p>对于积类型(子命名空间), 可以用Type.来访问部分的类型, instance.来访问部分的实例, 区别类似于类方法和实例方法, 有些类方法是可以在没有实例时用的<br>对于(Bool, + _ ): Group 写 (Bool, + _ ).+ 或者(Bool, + _ ). *  都可以<br>但是不能与点号函数冲突，前者对应所谓的属性，后者对应所谓的方法</p>
+<p>还是保留 ? 和 of, 但为了优先级有序, 作为中缀<br>Precategory ? (Functor ? A B) (NatTrans ? A B _ _ )</p>
 <h2 id="同态类型"><a href="#同态类型" class="headerlink" title="同态类型"></a>同态类型</h2><p>不能有1: Int: Ring类型论是平的<br>实际上是1: Int<br>Int, is Ring Int: Ring<br>of Ring Int :&#x3D; Int, is Ring Int<br>“带结构的对象” &#x3D; “载体 + 结构”</p>
 <p>le  : carrier → carrier → Prop 可能构造出空类型(False), 但函数总是存在的, 也不会提供空类型的项(证明)<br>这点与Ring之类的结构不同, 因为如果A上没法定义Ring的话下面有些要提供证明的地方是填不出来的</p>
 <p>%% is Ring Z这只是一个项, 相当于一个只声明了类型的量, 直观上来讲我们希望将足够的信息编码到类型中 %%</p>
@@ -304,13 +305,15 @@
 
 <p>%infer 表示自动类型推断<br>[%infer A::], A -&gt; Nat<br>或者省略，直接用%表示某种自动填充</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fu">func2 (A::) [A _ : MyClass] :: = _ <br></code></pre></td></tr></table></figure>
-<p>如果上文有(A, + _ )之类的也可以填进去<br>但是如果同时存在 (A, + _ ) (A, * _ )就会报错<br>%% is MyClass A是一个有类型的项, 如果有多个就报错</p>
+<p>或 <code>[_ : MyClass ? A]</code> 这里的_ 表示上下文任意符合类型的对象<br>如果上文有(A, + _ )之类的也可以填进去<br>但是如果同时存在 (A, + _ ) (A, * _ )就会报错<br>%% is MyClass A是一个有类型的项, 如果有多个就报错</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fu">func2 (A::) [is MyClass A] :: = _ <br></code></pre></td></tr></table></figure>
 <p>?Group G :&#x3D; G_str: Group, G_str.[ &#x3D; G<br>这里?Group: Type -&gt; Prop或者直接Type -&gt; I -&gt; Type(然后 I -&gt; Type:: Prop)<br>后面希望把它拓展为多态的(和类型)<br>实际上只能判断某个对象是否是一个导出对象的实例, 不能用于判断某个任意元素是否是某个类型中的<br>比如 isNat: A -&gt; Prop :&#x3D;  a -&gt; (n: Nat, a &#x3D; n) 不行因为A不是Nat的话a &#x3D; n直接通不过类型检查<br>isEven: Nat -&gt; Prop; isEven n &#x3D; (m: Nat, n &#x3D; m + m)则是合法的 %%<br>%%<br>直接定义Even n似乎也可以, 但是似乎没办法统一哪些东西写在后面<br> n: Nat, ?Even n &#x3D;:Even &#x2F;&#x2F;引入?来表示这种关系但不是函数,<br>?Even n&#x3D; _ 证言也只用写:&#x3D;一侧的<br>甚至可以?Nat n<br>?R :&#x3D; R | warp ?R<br>warp (a: A -&gt; x: X, p: R, p &#x3D; (a, x)) &#x3D;<br>b: B-&gt; a: A -&gt; x: X, p: R, p &#x3D; (b, a, x) %%</p>
 <p>可以用来后置一部分定义, 用于拼接</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs fu">f[x: Nat] = 2 * x<br>// f 的类型是 Nat -&gt; Nat<br>x = 1<br>// f 的类型是 Nat -&gt; Nat<br>y = f // 这里的f实际上是 f‎[1] 的简写，y的类型是 Nat<br></code></pre></td></tr></table></figure>
 <p>&#x2F; 可以看成一种副作用</p>
-<p>decide表示自动判断<br>abs: Real -&gt; Real :&#x3D; x: Real &#x3D;&gt; ([decide: ?x &gt;&#x3D; 0] &#x3D;&gt; x) | ([else] &#x3D;&gt; - x)<br>这里用else避免提供要么&gt;&#x3D;要么&lt;的证明</p>
+<p>decide表示自动判断<br>abs: Real -&gt; Real :&#x3D; x: Real &#x3D;&gt; ([decide: x &gt;&#x3D; 0] &#x3D;&gt; x) | ([else] &#x3D;&gt; - x)<br>这里用else避免提供要么&gt;&#x3D;要么&lt;的证明</p>
+<p>用<code>[x: Nat := 1]</code>给予默认值</p>
+<p>如果需要给隐式参数复制的话需要用<code>[]</code><br>手写中一般用角标表示</p>
 <h1 id="存在与时间"><a href="#存在与时间" class="headerlink" title="存在与时间"></a>存在与时间</h1><ul>
 <li><input disabled="" type="checkbox"> 传统的c语言之类的主要用于描述过程, 后来有了面向对象的概念, 而那些辅助证明的语言更进了一步, 很多对象都只用编译而从未被在运行时使用, 或许可以更进一步, 模糊编程与自然语言的边界</li>
 </ul>
@@ -373,7 +376,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年12月29日</div>
+          <div>2025年12月31日</div>
         </div>
       
       
@@ -427,8 +430,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E7%BB%98%E7%94%BB/" title="绘画">
-                        <span class="hidden-mobile">绘画</span>
+                      <a href="/dependent_type_theory/" title="dependent_type_theory">
+                        <span class="hidden-mobile">dependent_type_theory</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

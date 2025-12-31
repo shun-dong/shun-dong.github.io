@@ -19,15 +19,15 @@
   <meta name="author" content="采薇">
   <meta name="keywords" content="">
   
-    <meta name="description" content="理解 homotopy type theory$(A&#x3D;B)\simeq(A\simeq B)$把所有$U \circlearrowleft^{\sim}$按照&#x3D;划分等价类   id 和 A&#x3D;B的关系  dependent_type_theoryMartin‑Löf type theory其实有两种,   extensional(外延式): 认为所有相等都一样(包括ju">
+    <meta name="description" content="理解 homotopy type theory在传统类型论中类型是平的, 只有 项:类型 的模式, 项下面就没有东西了HoTT 赋予了相等类型更丰富的结构, 实际上就是赋予了项更丰富的结构 但是我感觉还是有些间接了, 或许可以用范畴的方法, 对每个 a b ::: n 引入同态 a ~ b (Hom a b) :: n -  1, 具体的引入方法或许可以用模型论的观点, 似乎就可以定义全部, 本体">
 <meta property="og:type" content="article">
 <meta property="og:title" content="homotopy_type_theory">
 <meta property="og:url" content="http://kaelvio.com/homotopy_type_theory/index.html">
 <meta property="og:site_name" content="采薇的博客">
-<meta property="og:description" content="理解 homotopy type theory$(A&#x3D;B)\simeq(A\simeq B)$把所有$U \circlearrowleft^{\sim}$按照&#x3D;划分等价类   id 和 A&#x3D;B的关系  dependent_type_theoryMartin‑Löf type theory其实有两种,   extensional(外延式): 认为所有相等都一样(包括ju">
+<meta property="og:description" content="理解 homotopy type theory在传统类型论中类型是平的, 只有 项:类型 的模式, 项下面就没有东西了HoTT 赋予了相等类型更丰富的结构, 实际上就是赋予了项更丰富的结构 但是我感觉还是有些间接了, 或许可以用范畴的方法, 对每个 a b ::: n 引入同态 a ~ b (Hom a b) :: n -  1, 具体的引入方法或许可以用模型论的观点, 似乎就可以定义全部, 本体">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2025-12-30T01:17:26.059Z">
-<meta property="article:modified_time" content="2025-12-30T01:17:26.059Z">
+<meta property="article:published_time" content="2025-12-31T03:21:50.157Z">
+<meta property="article:modified_time" content="2025-12-31T03:21:50.157Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -198,8 +198,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2025-12-30 09:17" pubdate>
-          2025年12月30日 上午
+        <time datetime="2025-12-31 11:21" pubdate>
+          2025年12月31日 上午
         </time>
       </span>
     
@@ -210,7 +210,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.1k 字
+          1.8k 字
         
       </span>
     
@@ -221,7 +221,7 @@
         
         
         
-          10 分钟
+          15 分钟
         
       </span>
     
@@ -263,7 +263,11 @@
             
               <div class="markdown-body">
                 
-                <h1 id="理解-homotopy-type-theory"><a href="#理解-homotopy-type-theory" class="headerlink" title="理解 homotopy type theory"></a>理解 homotopy type theory</h1><p>$(A&#x3D;B)\simeq(A\simeq B)$<br>把所有$U \circlearrowleft^{\sim}$按照&#x3D;划分等价类</p>
+                <h1 id="理解-homotopy-type-theory"><a href="#理解-homotopy-type-theory" class="headerlink" title="理解 homotopy type theory"></a>理解 homotopy type theory</h1><p>在传统类型论中类型是平的, 只有 项:类型 的模式, 项下面就没有东西了<br>HoTT 赋予了相等类型更丰富的结构, 实际上就是赋予了项更丰富的结构</p>
+<p>但是我感觉还是有些间接了, 或许可以用范畴的方法, 对每个 a b ::: n 引入同态 a ~ b (Hom a b) :: n -  1, 具体的引入方法或许可以用模型论的观点, 似乎就可以定义全部, 本体论上似乎还要假设01类型存在, 似乎不需要一开始引入Id Eq类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs fu">(a: A) =[%infer A] (b: A) := (f : a ~ b) &amp; (g : b ~ a) &amp; (f @ g ~ id[b]) &amp; (1[b] ~ f @ g) &amp; (g @ f ~ id[a]) &amp; (id[a] ~ g @ f)<br>A:: = B:: := (f : A -&gt; B) &amp; (g : B -&gt; A) &amp; (f @ g ~ id[B]) &amp; (id[B] ~ f @ g) &amp; (g @ f ~ id[A]) &amp; (id[A] ~ g @ f)<br></code></pre></td></tr></table></figure>
+<p>日常使用中我会假设以上路线存在, 因此不用$\simeq \cong$ 而用 &#x3D;, 甚至用-&gt;代替~</p>
+<h1 id="理解-homotopy-type-theory-1"><a href="#理解-homotopy-type-theory-1" class="headerlink" title="理解 homotopy type theory"></a>理解 homotopy type theory</h1><p>$(A&#x3D;B)\simeq(A\simeq B)$<br>把所有$U \circlearrowleft^{\sim}$按照&#x3D;划分等价类</p>
 <ul>
 <li><input disabled="" type="checkbox"> id 和 A&#x3D;B的关系</li>
 </ul>
@@ -285,7 +289,7 @@
 </ul>
 <h1 id="cubical-type-theory"><a href="#cubical-type-theory" class="headerlink" title="[[cubical_type_theory]]"></a>[[cubical_type_theory]]</h1><p>如何表示连续性?自然变换</p>
 <ul>
-<li><input disabled="" type="checkbox"> $a &#x3D; _A b :&#x3D; f::I \to A ~&amp; f(0) &#x3D;a  ~&amp; f(1)&#x3D;b$<br>这里的等于是等价，不一定是refl，不能直接用于替换（rw），需要用路径归纳</li>
+<li><input disabled="" type="checkbox"> <code>a = _A b := f::I -&gt; A &amp; f(0) =a &amp; f(1)=b</code><br>这里的等于是等价，不一定是refl，不能直接用于替换（rw），需要用路径归纳</li>
 </ul>
 <h1 id="Definition-of-Homotopy-type-theory"><a href="#Definition-of-Homotopy-type-theory" class="headerlink" title="Definition of Homotopy type theory"></a>Definition of Homotopy type theory</h1><blockquote>
 <p>[!PDF|] [[Homology_Type_Theory.pdf#page&#x3D;71&amp;selection&#x3D;4,0,5,64|Homology_Type_Theory,_p.59]]<br>The central new idea in homotopy type theory is that types can be regarded as spaces in homotopy theory, or higher-dimensional groupoids in category theory.</p>
@@ -302,17 +306,25 @@
 </blockquote>
 <p>f : A -&gt; B<br>ap f : (x $&#x3D;_A$ y) -&gt; (f x $&#x3D;_B$ f y)<br>这里是将path本身当成箭头，于是保持path的函数自然是functor</p>
 <h2 id="Type-families-are-fibrations"><a href="#Type-families-are-fibrations" class="headerlink" title="Type families are fibrations"></a>Type families are fibrations</h2><p>transport : (P : A -&gt; Type) -&gt; (p : x &#x3D;A y) -&gt; ($p_*$ : P x -&gt; P y)</p>
-<h1 id="homotopy-n-types"><a href="#homotopy-n-types" class="headerlink" title="homotopy n-types"></a>homotopy n-types</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fu">True_: IsContr:: := A:: &amp; (a: A) &amp; (x: A) -&gt; a = x <br></code></pre></td></tr></table></figure>
-<p>这里仅仅有任意 x: A 是不够的, 不能排除False<br>实际上 <code>A_: IsContr -&gt; A ~- True</code><br>实际上 &#x2F; Prop:&#x3D; Type -1 $\simeq$ True | False</p>
+<h1 id="homotopy-n-types"><a href="#homotopy-n-types" class="headerlink" title="homotopy n-types"></a>homotopy n-types</h1><p>类型层级有一个下限而无上限, 这和集合有无穷上升链, 没有无穷下降链是一样的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fu">True_: IsContr:: := A:: &amp; (a: A) &amp; (x: A) -&gt; a = x <br></code></pre></td></tr></table></figure>
+<p>这里仅仅有任意 x: A 是不够的, 不能排除False<br>实际上 <code>A_: IsContr -&gt; A ~- True</code><br>实际上 &#x2F; True False: Prop :&#x3D; Type -1</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs fu">n : TypeIdx := n: Int &amp; n &gt;= -2<br>IsType n := [decide n = -2] -&gt; IsContr | [else] -&gt; A:: -&gt; (x y: A) -&gt; (x = y)_ in IsType (n - 1)<br></code></pre></td></tr></table></figure>
+
+<p>以上是标准做法, 我倾向于直接从 Prop 开始, 把 Prop 定义成 Sort 0, 这样指标就为自然数, 后面很多地方也不用差 1 (后文直接用数字表示的也都是这套记号)<br>这里其实只能用Is… 因为这些宇宙层级是先定的</p>
 <p>x y ::: n<br>x &#x3D; y ::: n - 1</p>
 <ul>
-<li>[&#x2F;] 截断<br>$$<br>\Omega^{n+1}(A,a) \simeq \text{Map}_*(S^{n+1}, (A,a))<br>$$<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fu">To (n: TypeIdx) A:: := h : ((S^(n+1) -&gt; To n A) -&gt; To n A) / x : S^(n+1) -&gt; r : (S^(n+1) -&gt; To n A) -&gt; r x = h x<br></code></pre></td></tr></table></figure>
-类似于选了一个点把所有点都连起来<br>这里用了类型转换的语法</li>
+<li>[&#x2F;] 截断<br>$$<br>A:: n \to\Omega^{n}(A,a) \simeq \text{Map}_*(S^{n}, (A,a))<br>$$<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fu">Trunc[n: Nat := 0] A:: := h : ((S^ -&gt; Trunc[n] A) -&gt; Trunc[n] A) / x : S^n -&gt; r : (S^n -&gt; Trunc[n] A) -&gt; r x = h x<br></code></pre></td></tr></table></figure>
+类似于选了一个点把所有点都连起来<br>这里用了类似类型转换的语法</li>
 </ul>
 <h1 id="induction-type"><a href="#induction-type" class="headerlink" title="induction type"></a>induction type</h1><p>相当于自由生成的对象</p>
 <h1 id="higher-induction-type"><a href="#higher-induction-type" class="headerlink" title="higher induction type"></a>higher induction type</h1><p>不仅包含点构造器, 还包含路径(等式)构造器<br>相当于商的推广</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fu">S^1 :: := &amp;base / loop : base = base<br></code></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fu">S^1 :: := &amp;base / (loop : base = base)<br></code></pre></td></tr></table></figure>
+<h1 id="hott-category"><a href="#hott-category" class="headerlink" title="hott category"></a>hott category</h1><p>以下都假设’2’-category, 即 Hom a b :: 1<br>将之前定义的范畴记为precategory<br>hott 的 category 的定义相对于之前定义多加了一条 (a ~&#x3D; b) ~- (a &#x3D; b), 这是自然的<br>(虽然用id但注意可能是类型)</p>
+<p>eg. 如果 a b: A -&gt; IsProp Hom a b 那么这个 precategory 相当于 preorder, 如果 preorder 是 category, 相当于有了反对称性, 即 order<br>eg. X:: 2; Hom x y :&#x3D; x &#x3D; y we call this a groupoid.<br>eg. X :: ; Hom x y :&#x3D; Trunc 1 (x &#x3D; y) is called the fundamental pregroupoid of X<br>eg. X Y :: ; Hom X Y :&#x3D; Trunc 1 (X -&gt; Y) is called the homotopy precategory of types<br>eg. Relation precategory. X Y:: 1; Hom X Y :&#x3D; X -&gt; Y -&gt; Prop; id[X] x y :&#x3D; x &#x3D; y; R : Hom X Y; S : Hom Y Z; S @ R x z :&#x3D; Trunc(y: Y &amp;  R x y &amp; S y z) …we conclusion Rel is a category</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs fu">Functor := (A_ B_ : Precategory) <br>	&amp; <br>		F : (A -&gt; B) | <br>		(a b : A) -&gt; Hom a b -&gt; Hom F a F b <br>	&amp; <br>		pre_id : // preserve identity<br>		(a : A) -&gt; F id[a] = id[F a]<br>	&amp; <br>		pre_comp : // preserve composition<br>		(a b c : A) -&gt; (f : Hom a b) -&gt; (g : Hom b c) -&gt;<br>		F(g @ f) = F g @ F f<br><br><br><br>NatTrans := (A_ B_ : Precategory) <br>	&amp;<br>		(F_ G_ : Functor ? A B)<br>	&amp; <br>		comp : // components<br>		(a : A) -&gt; Hom F a G a<br>	&amp; <br>		nat : // naturality axiom<br>		(a b : A) -&gt; (f : Hom a b) -&gt;<br>		G f @ comp a = comp b @ F f<br><br></code></pre></td></tr></table></figure>
+<p>Hom a b is a set &#x3D;&gt; its identity type is proposition &#x3D;&gt; naturality axiom is proposition &#x3D;&gt; identity of natural transformations is determined by identity of their components 对于更一般的交换图, 由于是在Hom中, 都是这样的. 这或许是研究 ‘2’-范畴的原因</p>
+<p>Note that Precategory ? (Functor ? A B) (NatTrans ? A B _  _ )<br>[[Homology_Type_Theory.pdf#page&#x3D;326&amp;selection&#x3D;438,0,438,12|Lemma_9.2.4.]]</p>
 
                 
               </div>
@@ -343,7 +355,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2025年12月30日</div>
+          <div>2025年12月31日</div>
         </div>
       
       
@@ -386,12 +398,6 @@
                 <div class="post-prevnext my-3">
                   <article class="post-prev col-6">
                     
-                    
-                      <a href="/dependent_type_theory/" title="dependent_type_theory">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">dependent_type_theory</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
                     
                   </article>
                   <article class="post-next col-6">
