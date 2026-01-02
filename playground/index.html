@@ -19,15 +19,15 @@
   <meta name="author" content="采薇">
   <meta name="keywords" content="">
   
-    <meta name="description" content="P-S 曲线              body {             margin: 0;             padding: 20px;             font-family: &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif;             background-color: #f">
+    <meta name="description" content="&lt;h2&gt;P-S 交互曲线演示&lt;&#x2F;h2&gt;  &lt;div class&#x3D;&quot;canvas-container&quot;&gt;     &lt;canvas id&#x3D;&quot;mainCanvas&quot; width&#x3D;&quot;900&quot; height&#x3D;&quot;700&quot;&gt;&lt;&#x2F;canvas&gt; &lt;&#x2F;div&gt;">
 <meta property="og:type" content="website">
 <meta property="og:title" content="playground">
 <meta property="og:url" content="http://kaelvio.com/playground/index.html">
 <meta property="og:site_name" content="采薇的博客">
-<meta property="og:description" content="P-S 曲线              body {             margin: 0;             padding: 20px;             font-family: &#39;Segoe UI&#39;, Roboto, Helvetica, Arial, sans-serif;             background-color: #f">
+<meta property="og:description" content="&lt;h2&gt;P-S 交互曲线演示&lt;&#x2F;h2&gt;  &lt;div class&#x3D;&quot;canvas-container&quot;&gt;     &lt;canvas id&#x3D;&quot;mainCanvas&quot; width&#x3D;&quot;900&quot; height&#x3D;&quot;700&quot;&gt;&lt;&#x2F;canvas&gt; &lt;&#x2F;div&gt;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2026-01-02T05:54:37.000Z">
-<meta property="article:modified_time" content="2026-01-02T06:12:43.560Z">
+<meta property="article:modified_time" content="2026-01-02T06:17:12.271Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -221,81 +221,7 @@
                 
 
 <article class="page-content">
-  <html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>P-S 曲线</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f8f9fa;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            user-select: none;
-            color: #333;
-        }
-        h2 { margin-bottom: 5px; color: #222; }
-        .subtitle { color: #666; font-size: 14px; margin-bottom: 20px; }
-
-<pre><code class="hljs">    .canvas-container &#123;
-        position: relative;
-        background: white;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        border-radius: 8px;
-        padding: 10px; /* 减少内边距，交给canvas处理margin */
-    &#125;
-    canvas &#123;
-        border: 1px solid #dee2e6;
-        border-radius: 4px;
-        cursor: crosshair;
-        display: block;
-    &#125;
-    
-    .controls &#123;
-        margin-top: 15px;
-        display: flex;
-        gap: 20px;
-        align-items: center;
-    &#125;
-    button &#123;
-        padding: 8px 16px;
-        background-color: #0d6efd;
-        color: white;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        font-weight: 500;
-        font-size: 14px;
-        transition: background 0.2s;
-    &#125;
-    button:hover &#123; background-color: #0b5ed7; &#125;
-    
-    .info-panel &#123;
-        font-family: &#39;Consolas&#39;, monospace;
-        font-size: 13px;
-        color: #555;
-        background: #e9ecef;
-        padding: 6px 12px;
-        border-radius: 4px;
-    &#125;
-
-    .legend &#123;
-        margin-top: 10px;
-        display: flex;
-        gap: 20px;
-        font-size: 13px;
-    &#125;
-    .legend-item &#123; display: flex; align-items: center; &#125;
-    .dot &#123; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; &#125;
-    .line-dash &#123; width: 15px; height: 2px; border-top: 2px dashed #10b981; margin-right: 6px; &#125;
-&lt;/style&gt;
-</code></pre>
-</head>
-<body>
+  <body>
 
 <pre><code class="hljs">&lt;h2&gt;P-S 交互曲线演示&lt;/h2&gt;
 
@@ -748,7 +674,7 @@
 
 </script>
 </body>
-</html>
+
 
 
   
