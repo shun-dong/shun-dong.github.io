@@ -1,5 +1,5 @@
 
-
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -10,22 +10,65 @@
             margin: 0;
             padding: 20px;
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #f8f9fa;
+            background-color: #241c40; /* 修改背景色 */
             display: flex;
             flex-direction: column;
             align-items: center;
             user-select: none;
-            color: #333;
+            color: #f8fafc;
         }
-        h2 { margin-bottom: 5px; color: #222; }
-        .subtitle { color: #666; font-size: 14px; margin-bottom: 20px; }
+
+        h2 { 
+            margin-bottom: 5px; 
+            color: #e5e7eb; 
+        }
+
+        .subtitle { 
+            color: #cbd5f5; 
+            font-size: 14px; 
+            margin-bottom: 20px; 
+        }
+
+        /* 返回按钮 */
+        .back-btn {
+            position: fixed;
+            top: 16px;
+            left: 18px;
+            z-index: 1000;
+            padding: 6px 12px;
+            font-size: 13px;
+            border-radius: 4px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            background: rgba(15, 23, 42, 0.9);
+            color: #e5e7eb;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+        }
+        .back-btn:hover {
+            background: rgba(30, 64, 175, 0.95);
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.5);
+            transform: translateY(-1px);
+        }
+        .back-btn-icon {
+            border-width: 0 0 2px 2px;
+            border-style: solid;
+            border-color: #e5e7eb;
+            width: 6px;
+            height: 6px;
+            transform: rotate(45deg);
+            margin-left: 2px;
+        }
 
         .canvas-container {
             position: relative;
             background: white;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
             border-radius: 8px;
-            padding: 10px; /* 减少内边距，交给canvas处理margin */
+            padding: 10px;
+            margin-top: 40px; /* 让出一点空间给顶部返回按钮 */
         }
         canvas {
             border: 1px solid #dee2e6;
@@ -56,7 +99,7 @@
         .info-panel {
             font-family: 'Consolas', monospace;
             font-size: 13px;
-            color: #555;
+            color: #111827;
             background: #e9ecef;
             padding: 6px 12px;
             border-radius: 4px;
@@ -67,6 +110,7 @@
             display: flex;
             gap: 20px;
             font-size: 13px;
+            color: #e5e7eb;
         }
         .legend-item { display: flex; align-items: center; }
         .dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
@@ -74,6 +118,12 @@
     </style>
 </head>
 <body>
+
+    <!-- 返回博客按钮，href 改成你自己的博客首页地址即可 -->
+    <a class="back-btn" href="/" title="返回博客首页">
+        <span class="back-btn-icon"></span>
+        <span>返回博客</span>
+    </a>
 
     <h2>P-S 交互曲线演示</h2>
     
@@ -97,22 +147,18 @@
     const canvas = document.getElementById('mainCanvas');
     const ctx = canvas.getContext('2d');
 
-    // --- 1. 定义独立的坐标系范围 (关键修改) ---
-    // 为了让每个图都填满画布，我们需要针对每个图定义不同的逻辑范围
-    
     // 布局常量
-    const margin = { left: 50, right: 30, top: 30, bottom: 40 }; // 留给坐标轴数字的空间
+    const margin = { left: 50, right: 30, top: 30, bottom: 40 };
     const w = 350; 
     const h = 250;
     
     const vpP = {
         id: 'P',
         x: 50 + margin.left, y: 30 + margin.top, w: w, h: h,
-        title: "P(r) 输入分布 (密度)",
+        title: "P(r) 输入分布",
         xLabel: "r", yLabel: "P",
-        // P只显示正值，范围给一点负余量(-0.1)是为了画线不被切断，上方留空到1.4
         range: { minX: -5, maxX: 5, minY: -0.1, maxY: 1.4 },
-        stepX: 1, stepY: 0.2 // 刻度步长
+        stepX: 1, stepY: 0.2
     };
     
     const vpS = {
@@ -120,7 +166,6 @@
         x: 500 + margin.left, y: 30 + margin.top, w: w, h: h,
         title: "S(r) 变换函数",
         xLabel: "r", yLabel: "S",
-        // S需要能显示负值，范围 [-3, 3]
         range: { minX: -5, maxX: 5, minY: -3, maxY: 3 },
         stepX: 1, stepY: 1
     };
@@ -128,10 +173,8 @@
     const vpFinal = {
         id: 'Final',
         x: 275 + margin.left, y: 370 + margin.top, w: w, h: h,
-        title: "最终 P-S 曲线 (P vs S)",
+        title: "P-S 曲线",
         xLabel: "S", yLabel: "P",
-        // ★关键：X轴范围设为S的值域[-3, 3]，Y轴范围设为P的值域[-0.1, 1.4]
-        // 这样曲线就会填满整个框
         range: { minX: -3, maxX: 3, minY: -0.1, maxY: 1.4 },
         stepX: 1, stepY: 0.2
     };
@@ -139,14 +182,12 @@
     // 初始状态
     let state = {
         P: { valX: 0, valY: 0.8 }, 
-        S0: { valX: -2.0, valY: -1.0 }, // 设为负值演示坐标轴
+        S0: { valX: -2.0, valY: -1.0 },
         S1: { valX: 2.0, valY: 1.5 }
     };
     
     let isDragging = false;
     let dragTarget = null;
-    
-    // --- 数学逻辑 ---
     
     function getGaussianParams() {
         const mu = state.P.valX;
@@ -175,12 +216,10 @@
         return minVal + (maxVal - minVal) / (1 + Math.exp(-k * (r - r0)));
     }
     
-    // 计算均值 (数值积分)
     function calculateMeanS() {
         let sum = 0;
         let sumArea = 0;
         const step = 0.05;
-        // 积分范围覆盖 vpP 的 X 轴范围即可
         for (let r = vpP.range.minX; r <= vpP.range.maxX; r += step) {
             const p = funcP(r);
             const s = funcS(r);
@@ -190,13 +229,10 @@
         return sum / (sumArea || 1);
     }
     
-    // --- 坐标转换 (支持每个图不同的Range) ---
-    
     function toScreen(valX, valY, vp) {
         const r = vp.range;
         const rangeX = r.maxX - r.minX;
         const rangeY = r.maxY - r.minY;
-        
         const sx = vp.x + ((valX - r.minX) / rangeX) * vp.w;
         const sy = vp.y + vp.h - ((valY - r.minY) / rangeY) * vp.h;
         return { x: sx, y: sy };
@@ -206,19 +242,13 @@
         const r = vp.range;
         const rangeX = r.maxX - r.minX;
         const rangeY = r.maxY - r.minY;
-    
         const valX = r.minX + ((sx - vp.x) / vp.w) * rangeX;
         const valY = r.minY + ((vp.y + vp.h - sy) / vp.h) * rangeY;
         return { valX, valY };
     }
     
-    // --- 绘图引擎 ---
-    
-    // 绘制带数字的坐标轴
     function drawAxesAndGrid(vp) {
         ctx.save();
-        
-        // 1. 裁剪区域用于画网格 (不裁剪文字)
         ctx.beginPath();
         ctx.rect(vp.x, vp.y, vp.w, vp.h);
         ctx.clip();
@@ -226,64 +256,58 @@
         ctx.strokeStyle = "#eef0f2"; 
         ctx.lineWidth = 1;
         
-        // 纵向网格 & X轴刻度
         const startX = Math.ceil(vp.range.minX / vp.stepX) * vp.stepX;
         for (let v = startX; v <= vp.range.maxX; v += vp.stepX) {
-            // 解决浮点数精度问题 (例如 0.2 + 0.1 = 0.300000004)
             const val = parseFloat(v.toFixed(2));
-            const p = toScreen(val, vp.range.minY, vp); // Y无所谓，只取x
-            
+            const p = toScreen(val, vp.range.minY, vp);
             ctx.beginPath();
             ctx.moveTo(p.x, vp.y);
             ctx.lineTo(p.x, vp.y + vp.h);
             ctx.stroke();
         }
     
-        // 横向网格 & Y轴刻度
         const startY = Math.ceil(vp.range.minY / vp.stepY) * vp.stepY;
         for (let v = startY; v <= vp.range.maxY; v += vp.stepY) {
             const val = parseFloat(v.toFixed(2));
             const p = toScreen(vp.range.minX, val, vp);
-            
             ctx.beginPath();
             ctx.moveTo(vp.x, p.y);
             ctx.lineTo(vp.x + vp.w, p.y);
             ctx.stroke();
         }
     
-        // 2. 绘制 0点 主轴 (加粗)
         ctx.strokeStyle = "#cbd5e1";
         ctx.lineWidth = 1.5;
         const origin = toScreen(0, 0, vp);
         
-        // X轴 (y=0)
         if (origin.y >= vp.y && origin.y <= vp.y + vp.h) {
-            ctx.beginPath(); ctx.moveTo(vp.x, origin.y); ctx.lineTo(vp.x + vp.w, origin.y); ctx.stroke();
+            ctx.beginPath(); 
+            ctx.moveTo(vp.x, origin.y); 
+            ctx.lineTo(vp.x + vp.w, origin.y); 
+            ctx.stroke();
         }
-        // Y轴 (x=0)
         if (origin.x >= vp.x && origin.x <= vp.x + vp.w) {
-            ctx.beginPath(); ctx.moveTo(origin.x, vp.y); ctx.lineTo(origin.x, vp.y + vp.h); ctx.stroke();
+            ctx.beginPath(); 
+            ctx.moveTo(origin.x, vp.y); 
+            ctx.lineTo(origin.x, vp.y + vp.h); 
+            ctx.stroke();
         }
     
-        ctx.restore(); // 取消裁剪，准备画文字
+        ctx.restore();
     
-        // 3. 绘制文字刻度
         ctx.fillStyle = "#94a3b8";
         ctx.font = "11px Arial";
         ctx.textAlign = "center";
         ctx.textBaseline = "top";
     
-        // X轴数字
         for (let v = startX; v <= vp.range.maxX; v += vp.stepX) {
             const val = parseFloat(v.toFixed(2));
             const p = toScreen(val, vp.range.minY, vp);
-            // 只有当点在X范围内时才画
             if (p.x >= vp.x - 1 && p.x <= vp.x + vp.w + 1) {
                 ctx.fillText(val, p.x, vp.y + vp.h + 5);
             }
         }
     
-        // Y轴数字
         ctx.textAlign = "right";
         ctx.textBaseline = "middle";
         for (let v = startY; v <= vp.range.maxY; v += vp.stepY) {
@@ -294,7 +318,6 @@
             }
         }
     
-        // 4. 标题与轴名
         ctx.fillStyle = "#1e293b";
         ctx.font = "bold 13px system-ui";
         ctx.textAlign = "center";
@@ -302,14 +325,13 @@
         
         ctx.font = "italic 12px serif";
         ctx.fillStyle = "#64748b";
-        ctx.fillText(vp.xLabel, vp.x + vp.w - 10, vp.y + vp.h + 20); // X label
+        ctx.fillText(vp.xLabel, vp.x + vp.w - 10, vp.y + vp.h + 20);
         ctx.save();
         ctx.translate(vp.x - 35, vp.y + 20);
         ctx.rotate(-Math.PI/2);
-        ctx.fillText(vp.yLabel, 0, 0); // Y label
+        ctx.fillText(vp.yLabel, 0, 0);
         ctx.restore();
         
-        // 边框
         ctx.strokeRect(vp.x, vp.y, vp.w, vp.h);
     }
     
@@ -317,13 +339,14 @@
         drawAxesAndGrid(vpP);
         
         ctx.save();
-        ctx.beginPath(); ctx.rect(vpP.x, vpP.y, vpP.w, vpP.h); ctx.clip();
+        ctx.beginPath(); 
+        ctx.rect(vpP.x, vpP.y, vpP.w, vpP.h); 
+        ctx.clip();
         
         ctx.beginPath();
         ctx.strokeStyle = "#2c3e50";
         ctx.lineWidth = 2;
         
-        // 绘制曲线
         const stepPix = 2;
         for (let px = 0; px <= vpP.w; px += stepPix) {
             const logical = toLogical(vpP.x + px, 0, vpP);
@@ -335,7 +358,6 @@
         ctx.stroke();
         ctx.restore();
     
-        // 控制点 P
         const pt = toScreen(state.P.valX, state.P.valY, vpP);
         drawControlPoint(pt, "P", "#2c3e50");
     }
@@ -344,13 +366,16 @@
         drawAxesAndGrid(vpS);
         
         ctx.save();
-        ctx.beginPath(); ctx.rect(vpS.x, vpS.y, vpS.w, vpS.h); ctx.clip();
+        ctx.beginPath(); 
+        ctx.rect(vpS.x, vpS.y, vpS.w, vpS.h); 
+        ctx.clip();
         
         ctx.beginPath();
         ctx.strokeStyle = "#d97706";
         ctx.lineWidth = 2;
-        
-        for (let px = 0; px <= vpS.w; px += stepPix = 2) {
+
+        const stepPix = 2;
+        for (let px = 0; px <= vpS.w; px += stepPix) {
             const logical = toLogical(vpS.x + px, 0, vpS);
             const val = funcS(logical.valX);
             const pt = toScreen(logical.valX, val, vpS);
@@ -370,14 +395,14 @@
         drawAxesAndGrid(vpFinal);
         
         ctx.save();
-        ctx.beginPath(); ctx.rect(vpFinal.x, vpFinal.y, vpFinal.w, vpFinal.h); ctx.clip();
+        ctx.beginPath(); 
+        ctx.rect(vpFinal.x, vpFinal.y, vpFinal.w, vpFinal.h); 
+        ctx.clip();
         
         ctx.beginPath();
         ctx.strokeStyle = "#dc3545";
         ctx.lineWidth = 2.5;
         
-        // 遍历 r 来生成参数方程 (S, P)
-        // 范围要足够大以覆盖可能的S值域
         const rStart = vpP.range.minX - 2;
         const rEnd = vpP.range.maxX + 2;
         const rStep = 0.05;
@@ -386,36 +411,25 @@
         for (let r = rStart; r <= rEnd; r += rStep) {
             const sVal = funcS(r);
             const pVal = funcP(r);
-            
-            // X轴是S, Y轴是P
             const pt = toScreen(sVal, pVal, vpFinal);
-            
             if (first) { ctx.moveTo(pt.x, pt.y); first = false; }
             else ctx.lineTo(pt.x, pt.y);
         }
         ctx.stroke();
     
-        // --- 绘制均值 E[S] ---
         const meanS = calculateMeanS();
-        
-        // 找到均值对应的 P 高度
-        // 为了视觉效果，我们找到曲线上 S 约等于 meanS 的点
-        // 由于是参数方程，我们需要反解或者近似找到那个点
-        // 简单方法：画一条垂直线穿过整个图
         const meanX = toScreen(meanS, 0, vpFinal).x;
         
-        // 在视口内才画
         if (meanX >= vpFinal.x && meanX <= vpFinal.x + vpFinal.w) {
             ctx.beginPath();
             ctx.setLineDash([5, 5]);
-            ctx.strokeStyle = "#10b981"; // Green
+            ctx.strokeStyle = "#10b981";
             ctx.lineWidth = 1.5;
-            ctx.moveTo(meanX, vpFinal.y + vpFinal.h); // 从底
-            ctx.lineTo(meanX, vpFinal.y); // 到顶
+            ctx.moveTo(meanX, vpFinal.y + vpFinal.h);
+            ctx.lineTo(meanX, vpFinal.y);
             ctx.stroke();
             ctx.setLineDash([]);
             
-            // 标注
             ctx.fillStyle = "#10b981";
             ctx.font = "bold 12px Arial";
             ctx.textAlign = "left";
@@ -424,14 +438,11 @@
     
         ctx.restore();
         
-        // 更新 UI 数据
         document.getElementById('stats').innerHTML = 
             `Peak(r)=${state.P.valX.toFixed(2)} | Mean(S)=${meanS.toFixed(2)}`;
     }
     
     function drawControlPoint(pt, label, color) {
-        // 如果点完全出了视口，可以选择不画或者画在边缘。
-        // 这里简单处理：画！利用clip来处理线条，但点本身浮在上面
         ctx.beginPath();
         ctx.shadowBlur = 4;
         ctx.shadowColor = "rgba(0,0,0,0.3)";
@@ -456,8 +467,6 @@
         drawGraphS();
         drawGraphFinal();
     }
-    
-    // --- 交互处理 ---
     
     function getMouse(e) {
         const r = canvas.getBoundingClientRect();
@@ -494,7 +503,6 @@
         if (dragTarget === 'P') {
             const loc = toLogical(m.x, m.y, vpP);
             state.P.valX = loc.valX;
-            // 约束 P 必须为正，且不过小
             state.P.valY = Math.max(0.05, loc.valY);
         } 
         else if (dragTarget === 'S0') {
@@ -521,9 +529,7 @@
         draw();
     }
     
-    // Init
     draw();
-
 </script>
 </body>
 </html>
