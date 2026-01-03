@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="fu_language├── README.md├── .git&#x2F;├── .gitignore├── .vscode&#x2F;├── tokenizer.c└── tokenizer.exe   Let’s Build A Simple Interpreter. Part 1. - Ruslan’s Blog 🔼 参考rycheung&#x2F;tiny-mltt: An learn">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-01-01T04:04:42.865Z">
-<meta property="article:modified_time" content="2026-01-01T04:04:42.866Z">
+<meta property="article:published_time" content="2026-01-03T12:49:01.646Z">
+<meta property="article:modified_time" content="2026-01-03T12:49:01.646Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -210,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-01-01 12:04" pubdate>
-          2026年1月1日 中午
+        <time datetime="2026-01-03 20:49" pubdate>
+          2026年1月3日 晚上
         </time>
       </span>
     
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.8k 字
+          4.9k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          40 分钟
+          41 分钟
         
       </span>
     
@@ -272,14 +272,6 @@
           <article class="post-content mx-auto">
             <h1 id="seo-header">fu_language</h1>
             
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    本文最后更新于 2026年1月1日 中午
-                  
-                
-              </p>
-            
             
               <div class="markdown-body">
                 
@@ -292,7 +284,7 @@
 <h1 id="行、块"><a href="#行、块" class="headerlink" title="行、块"></a>行、块</h1><p>单个文档，{}中的内容即一个块<br>块是一个广义上的（希尔伯特式的）推演, 同时块具有命名空间隔离的效果</p>
 <p>每一行为一个步骤, 组成推演序列，用;分隔，其中最后一行是结论（导出项）(这里规定以;结尾的项要非空, 否则要用?a :&#x3D; _, 此时依然不能说a: A)<br>推演序列要求每项必须由公理或之前项推得（即可居的，注意可居性与存在性在False上不同），由于 一阶逻辑的不可判定性，逻辑真理 ≠ 算法可计算</p>
 <p>命名空间(语法上的推导)和’类型空间’不同<br>比如sum &#x3D; A + B只能表达出2 * sum之类的, 而无法自动表达2 * A + 2 * B<br>C :&#x3D; A, B | D;<br>*C]: E :&#x3D; B | D 需要额外解释, 即构造一个类型的项<br>在正确的环境下无法推出False(即False是unknown的)~构造主义</p>
-<p>上下文包含类型，<code>x: Nat; x &gt;= 0</code>类似pi类型，实际上写作<br>变量名, 读作无名表示(De Bruijn)<code>λx. x</code> 和 <code>λy. y</code> 都变成 <code>λ. #0</code>，不能<code>x: Nat := 1; f x: Nat</code><br>实际上fu语言还和命题推演不大一样，fu语言上下文变量列表其实是已经证明的变量，或者用-&gt;</p>
+<p>上下文包含类型，<code>x: Nat; x &gt;= 0</code>类似pi类型，实际上写作<br>变量名, 读作无名表示(De Bruijn)<code>λx. x</code> 和 <code>λy. y</code> 都变成 <code>λ. #0</code>，不能<code>x: Nat := 1; f x: Nat</code><br>所谓的绑定算子可以看成对函数的算子，变量是占位的，所谓的自由变元看成隐式参数的函数<br>实际上fu语言还和命题推演不大一样，fu语言上下文变量列表其实是已经证明的变量，或者用-&gt;</p>
 <p>&#x2F; 对于任何变量其实带有定义时的元信息(局部变量), 可以用<code>.</code>访问, 用数字访问第几行的值 ? 感觉这样占用资源了, 或许只允许最后的积对象名字访问<br>&#x2F; <code>a.f == f a</code><br><code>~</code>上一行, <code>~n</code>上n行</p>
 <p>对于行尾没有值默认加<code>;</code><br>缩进默认加<code>&#123;&#125;</code></p>
 <p>%% 请注意这里的 :&#x3D; : ]] @都是语法上的符号, 或者叫模式匹配，我们用 &#x3D;&#x3D; 表达这种等式, 比如 a, b ]] &#x3D;&#x3D; b<br>例如我们可以在语法上说6&#x2F;3的除数是3, 但不能说2的除数是3, 6&#x2F;3和2只是在值上相等, 其实是两个表达式<br>语义上同构的对象视为相同，但语法上要区分 %%<br>%%<br>如果加了export, 才可以通过name.something访问<br>packet :&#x3D; {n: Nat :&#x3D; 1<br>export n}&#x2F;&#x2F;export n &#x3D;&#x3D; (expr n, 1) 注意这里实际上用了n的名字, 所以是语法上的<br>a &#x3D; packet.”n”&#x2F;&#x2F; &#x2F; _ . _ 是查找函数</p>
@@ -320,7 +312,8 @@
 <p>数学图景, 空间中所有都是类型(命题, 结构), 我们能从方位得出命题强弱<br>或许可以用同构意义下的等价类(所谓的&amp;1)来研究实例, 把所有的东西都提升到类型的层面研究, 比如之前提到过的完备有序域, 又比如用  环结构并且到所有环结构都有同态 来在同构意义下唯一刻画环<br>此时自然有类到”实例”的箭头(&#x2F; 任意类型到非空类型都有箭头的, 这里指的是??同态)<br>但是这里a: 完备有序域, 取出来的不是实数, 而是实数的一个实例<br>就不能%% a: of Ring Int %% a: (Int, +, * _ )然后a本身是带有结构的? 这一点会带来冗余<br>或许可以a : (Int, +, * _ ).R</p>
 <p>希望可以多一层, 自动给出同态<br>而HoTT实现的是刻画等价的结构??商结构<br>或许可以给同态类似于等价的语法, a ~ b i.e. Hom(a, b) 类比与 a &#x3D; b i.e. Id(a, b)<br>然后用f : a ~ b 用f.map表示其中的映射</p>
 <p>为了构建Hom具体来讲 可以分三类：运算(包括常量)字段、关系字段、纯性质字段，只有前两类需要在同态里写“保结构”的条件，纯性质本身一般不用再“定义映射”。<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs fu">f add x y = add f x f y<br>f zero = zero<br>x ≤ y → f x ≤ f y            // 保序<br>add_assoc : ∀ x y z, add add x y z = _  //这点不用在Hom中体现<br></code></pre></td></tr></table></figure></p>
-<h1 id="隐式参数"><a href="#隐式参数" class="headerlink" title="隐式参数"></a>隐式参数</h1><p>显式闭包(自由变元), 自动查M环境中名字, 类型适合的对象, 请注意依然需要保证类型语法正确</p>
+<h1 id="隐式参数"><a href="#隐式参数" class="headerlink" title="隐式参数"></a>隐式参数</h1><p>凡是环境中只声明类型，没定义的都应该作为隐式参数，其数学实质是自由变元</p>
+<p>显式闭包(自由变元), 自动查环境中名字, 类型适合的对象, 请注意依然需要保证类型语法正确</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs fu">y[x: Nat] := x + 1;<br>z[y[x]] := y[x] + 1;//???<br>Do print y = z //=&gt;&gt;false<br>x := 1<br>w := z + 1 //这里的z已经被完全绑定, 所以不用写[x]<br></code></pre></td></tr></table></figure>
 
 <p>%infer 表示自动类型推断<br>[%infer A::], A -&gt; Nat<br>或者省略，直接用%表示某种自动填充</p>
@@ -396,14 +389,9 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年1月1日</div>
+          <div>2026年1月3日</div>
         </div>
       
-      
-        <div class="license-meta-item license-meta-date">
-          <div>更新于</div>
-          <div>2026年1月1日</div>
-        </div>
       
       
         <div class="license-meta-item">
@@ -445,18 +433,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Robust_Prover/" title="Robust_Prover">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Robust_Prover</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E9%9B%A8%E5%BE%AA%E7%8E%AF30_%E9%87%87%E8%96%87/" title="雨循环30_采薇">
-                        <span class="hidden-mobile">雨循环30_采薇</span>
+                      <a href="/%E9%BD%90%E6%B3%BD%E5%85%8B/" title="齐泽克">
+                        <span class="hidden-mobile">齐泽克</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
