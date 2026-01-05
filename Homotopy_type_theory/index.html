@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="理解 homotopy type theory在传统类型论中类型是平的, 只有 项:类型 的模式, 项下面就没有东西了HoTT 赋予了相等类型更丰富的结构, 实际上就是赋予了项更丰富的结构 但是我感觉还是有些间接了, 或许可以用范畴的方法, 对每个 a b ::: n 引入同态 a ~ b (Hom a b) :: n -  1, 具体的引入方法或许可以用模型论的观点, 似乎就可以定义全部, 本体">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-01-01T04:04:42.875Z">
-<meta property="article:modified_time" content="2026-01-01T04:04:42.875Z">
+<meta property="article:published_time" content="2026-01-05T08:09:17.887Z">
+<meta property="article:modified_time" content="2026-01-05T08:09:17.887Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -210,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-01-01 12:04" pubdate>
-          2026年1月1日 中午
+        <time datetime="2026-01-05 16:09" pubdate>
+          2026年1月5日 下午
         </time>
       </span>
     
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.8k 字
+          1.7k 字
         
       </span>
     
@@ -279,15 +279,6 @@
 <p>但是我感觉还是有些间接了, 或许可以用范畴的方法, 对每个 a b ::: n 引入同态 a ~ b (Hom a b) :: n -  1, 具体的引入方法或许可以用模型论的观点, 似乎就可以定义全部, 本体论上似乎还要假设01类型存在, 似乎不需要一开始引入Id Eq类</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs fu">(a: A) =[%infer A] (b: A) := (f : a ~ b) &amp; (g : b ~ a) &amp; (f @ g ~ id[b]) &amp; (1[b] ~ f @ g) &amp; (g @ f ~ id[a]) &amp; (id[a] ~ g @ f)<br>A:: = B:: := (f : A -&gt; B) &amp; (g : B -&gt; A) &amp; (f @ g ~ id[B]) &amp; (id[B] ~ f @ g) &amp; (g @ f ~ id[A]) &amp; (id[A] ~ g @ f)<br></code></pre></td></tr></table></figure>
 <p>日常使用中我会假设以上路线存在, 因此不用$\simeq \cong$ 而用 &#x3D;, 甚至用-&gt;代替~</p>
-<h1 id="理解-homotopy-type-theory-1"><a href="#理解-homotopy-type-theory-1" class="headerlink" title="理解 homotopy type theory"></a>理解 homotopy type theory</h1><p>$(A&#x3D;B)\simeq(A\simeq B)$<br>把所有$U \circlearrowleft^{\sim}$按照&#x3D;划分等价类</p>
-<ul>
-<li><input disabled="" type="checkbox"> id 和 A&#x3D;B的关系</li>
-</ul>
-<h1 id=""><a href="#" class="headerlink" title=""></a><a href="/dependent_type_theory/" title="dependent_type_theory">dependent_type_theory</a></h1><p>Martin‑Löf type theory其实有两种, </p>
-<ul>
-<li>extensional(外延式): 认为所有相等都一样(包括judgmental) </li>
-<li>intensional(内涵式):</li>
-</ul>
 <h1 id="Identity-types"><a href="#Identity-types" class="headerlink" title="Identity types"></a>Identity types</h1><p>实际上rw是语法层面的操作，其实质是自动构造transport 比如：2 + 1 &#x3D; 3 * 1<br>C x :&#x3D; x &#x3D; 3 * 1<br>transport +.comm …</p>
 <p>(_ $&#x3D;_A$ _ A: Type): A -&gt; A -&gt; Type<br>When a &#x3D;A b is inhabited, we say that a and b are (propositionally) equal</p>
 <blockquote>
@@ -303,7 +294,7 @@
 <ul>
 <li><input disabled="" type="checkbox"> <code>a = _A b := f::I -&gt; A &amp; f(0) =a &amp; f(1)=b</code><br>这里的等于是等价，不一定是refl，不能直接用于替换（rw），需要用路径归纳</li>
 </ul>
-<h1 id="Definition-of-Homotopy-type-theory"><a href="#Definition-of-Homotopy-type-theory" class="headerlink" title="Definition of Homotopy type theory"></a>Definition of Homotopy type theory</h1><blockquote>
+<h1 id="homotypy-basic"><a href="#homotypy-basic" class="headerlink" title="homotypy basic"></a>homotypy basic</h1><blockquote>
 <p>[!PDF|] [[Homology_Type_Theory.pdf#page&#x3D;71&amp;selection&#x3D;4,0,5,64|Homology_Type_Theory,_p.59]]<br>The central new idea in homotopy type theory is that types can be regarded as spaces in homotopy theory, or higher-dimensional groupoids in category theory.</p>
 </blockquote>
 <p>[[Homology_Type_Theory.pdf#page&#x3D;71&amp;selection&#x3D;135,0,135,8&amp;color&#x3D;note|homotopy]] h: f g: (X -&gt; Y), h: X * [0,1] -&gt; Y -&gt; h( _ , 0) &#x3D; f, h( _ , 1) &#x3D; g<br>for paths form y1 to y2 (i.e. f g: ([0, 1] -&gt; Y), f(0) &#x3D; g(0) &#x3D; y1, f(1) &#x3D; g(1) &#x3D; y2),  we also require h(0, _ ) &#x3D; y1, h(1, _ ) &#x3D; y2. h is called 2-dimensional path between paths<br>in specific, for loops at y, we requires h(0, _ ) &#x3D; h(1, _ ) &#x3D;y. It’s called based homotopy</p>
@@ -367,7 +358,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年1月1日</div>
+          <div>2026年1月5日</div>
         </div>
       
       
@@ -411,9 +402,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Pandas/" title="Pandas">
+                      <a href="/%E5%85%89%E5%BD%B1/" title="光影">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Pandas</span>
+                        <span class="hidden-mobile">光影</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -421,8 +412,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/LEAN/" title="LEAN">
-                        <span class="hidden-mobile">LEAN</span>
+                      <a href="/dependent_type_theory/" title="dependent_type_theory">
+                        <span class="hidden-mobile">dependent_type_theory</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
