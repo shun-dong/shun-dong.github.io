@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="[!remark] NotationA, B, X, Y…大写字母                类型a, b, x, y…小写字母                  项$(a: A)\to(b:B)\times\dots$               依赖类型  type Church-style: build-in type Curry-style: terms are untyped bu">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-01-15T15:21:49.043Z">
-<meta property="article:modified_time" content="2026-01-15T15:21:49.043Z">
+<meta property="article:published_time" content="2026-01-23T01:28:47.323Z">
+<meta property="article:modified_time" content="2026-01-23T01:28:47.323Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -210,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-01-15 23:21" pubdate>
-          2026年1月15日 晚上
+        <time datetime="2026-01-23 09:28" pubdate>
+          2026年1月23日 上午
         </time>
       </span>
     
@@ -366,7 +366,7 @@
 <p>每个类型可以看作一个关于自身良定义（可居性，存在一个对象）的命题<br>用Maybe单子修饰一个可能不存在的对象，如<br>a: Maybe A而不用提供A的良定义证明<br>因为Maybe A &#x3D; True | A一定可居( 传统的True &#x3D; None:: … )</p>
 <h1 id="幂-函数-指数-类型"><a href="#幂-函数-指数-类型" class="headerlink" title="幂(函数&#x2F;指数)类型"></a>幂(函数&#x2F;指数)类型</h1><p>幂类型A-&gt;B<br>对象x&#x3D;&gt;f x<br>这里是是元语言(范畴论&#x2F;<a href="/%CE%BB-calculus/" title="λ-calculus">λ演算</a>)的概念, 其余都是由此导出, 在理论上用 Church 编码非常方便，因为我们只需要一个很小的核心语言就可以表达出许多复杂数据结构; 在工程语言中，更常用“原生的代数数据类型 + pattern matching”来获得更好的可读性和性能。<br>复合_@_ [A::Type, B::Type, C::Type]: (A&lt;-B)-&gt;(B&lt;-C)-&gt;(A&lt;-C) :&#x3D; f &#x3D;&gt; g&#x3D;&gt; x&#x3D;&gt; f g x<br>恒等函数 _ [A:: Type]:&#x3D; x&#x3D;&gt;x</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs stata"><span class="hljs-built_in">f</span>(x: ℝ) : ℝ := x + 1; 这相当于一个语法糖, 不会真正声明变量x<br><span class="hljs-comment">//f := &#123;x: ℝ -&gt; x + 1&#125; 括号防止命名空间污染</span><br><span class="hljs-comment">// f: := _ + 1: ℝ 这里相当于提升了1和+</span><br><span class="hljs-comment">// f: (ℝ -&gt; ℝ) := _ + 1 这里 _ 的类型其实是 ℝ -&gt; ℝ</span><br>_ f&#x27; := f;<br><span class="hljs-comment">// x f&#x27;</span><br><span class="hljs-comment">// _ f&#x27; x</span><br><span class="hljs-comment">// _ 表示输入变量且每一个不同 如 _ + _ = add</span><br><span class="hljs-keyword">Do</span> <span class="hljs-keyword">print</span> (f&#x27; = f); <span class="hljs-comment">//=&gt;&gt;True //只是表达方式不同</span><br><br><span class="hljs-keyword">g</span> x := &#123;y := x ^ 2; 2 y&#125;;<br><span class="hljs-keyword">g</span> x := &#123;2 y -| y := x ^ 2&#125;;<br><span class="hljs-keyword">Do</span> <span class="hljs-keyword">print</span> <span class="hljs-keyword">type</span> f;<br><span class="hljs-comment">//=&gt;&gt; ℝ -&gt; ℝ</span><br><span class="hljs-keyword">Do</span> <span class="hljs-keyword">print</span> <span class="hljs-keyword">g</span> 1;<br><span class="hljs-comment">//=&gt;&gt; 2</span><br></code></pre></td></tr></table></figure>
-<h1 id="积类型"><a href="#积类型" class="headerlink" title="积类型"></a>积类型</h1><ul>
+<h2 id=""><a href="#" class="headerlink" title=""></a><a href="/%CE%BB-calculus/" title="λ-calculus">λ演算</a></h2><h1 id="积类型"><a href="#积类型" class="headerlink" title="积类型"></a>积类型</h1><ul>
 <li>recursion：用归纳类型<strong>定义普通函数</strong>；</li>
 <li>induction：在依赖情形下，用归纳类型<strong>证明所有元素满足某种性质&#x2F;构造依赖值</strong></li>
 <li>区别迭代iteration<br>有两种方法，有点像所谓的内涵和外延，定义类型本身为构造出的项到currying后induction的像（church编码）；或定义一个构造子和induction（pattern match）。前者像是否等于codomain需要parametricity，我觉得这会使定义更自然</li>
@@ -408,7 +408,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年1月15日</div>
+          <div>2026年1月23日</div>
         </div>
       
       
@@ -452,9 +452,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E9%BA%A6%E7%90%86%E6%B5%A9%E5%BE%84/" title="麦理浩径">
+                      <a href="/%CE%BB-calculus/" title="λ-calculus">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">麦理浩径</span>
+                        <span class="hidden-mobile">λ-calculus</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -462,8 +462,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E5%AD%98%E5%9C%A8%E4%B8%BB%E4%B9%89/" title="存在主义">
-                        <span class="hidden-mobile">存在主义</span>
+                      <a href="/fu_language/" title="fu_language">
+                        <span class="hidden-mobile">fu_language</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
