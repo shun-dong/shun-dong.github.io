@@ -1,0 +1,739 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/only.ico">
+  <link rel="icon" href="/img/only.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="采薇">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="@bilibili 靈雲Reign 理解CC协议（A Creative Commons License）的中文叫做知识共享许可协议，是允许他人分发作品的公共版权许可之一。2002年12月16日，美国非盈利性组织Creative Commons首次发布了CC协议。4.0版本发布于2013年11月25日。 CC官网的提供的有中文版本，但基本都是机翻，我结合英文原版加上自己的理解做了整理。事先说明：此类">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CC协议">
+<meta property="og:url" content="http://kaelvio.com/CC%E5%8D%8F%E8%AE%AE/index.html">
+<meta property="og:site_name" content="采薇的博客">
+<meta property="og:description" content="@bilibili 靈雲Reign 理解CC协议（A Creative Commons License）的中文叫做知识共享许可协议，是允许他人分发作品的公共版权许可之一。2002年12月16日，美国非盈利性组织Creative Commons首次发布了CC协议。4.0版本发布于2013年11月25日。 CC官网的提供的有中文版本，但基本都是机翻，我结合英文原版加上自己的理解做了整理。事先说明：此类">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-24T03:51:27.903Z">
+<meta property="article:modified_time" content="2026-02-24T03:51:27.903Z">
+<meta property="article:author" content="采薇">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>CC协议 - 采薇的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kaelvio.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>采薇的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档Archive</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/playground/" target="_self">
+                <i class="iconfont icon-exp-fill"></i>
+                <span>playground</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于采薇Kaelvio</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链links</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="CC协议"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-02-24 11:51" pubdate>
+          2026年2月24日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          20 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">CC协议</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>@<a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv6986215/">bilibili 靈雲Reign</a></p>
+<h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><p>CC协议（A Creative Commons License）的中文叫做知识共享许可协议，是允许他人分发作品的公共版权许可之一。2002年12月16日，美国非盈利性组织Creative Commons首次发布了CC协议。4.0版本发布于2013年11月25日。</p>
+<p>CC官网的提供的有中文版本，但基本都是机翻，我结合英文原版加上自己的理解做了整理。事先说明：此类协议原版是英文提供的内容，条款太多且晦涩难懂，翻译成中文有可能表达的不够符合原意。</p>
+<p>CC 协议是基于国际法、国际惯例、美国法律撰写的基础版本（即国际版），为适应各国不同的版权政策，一般都需要进行本地化。中国大陆地区对 CC 3.0 协议进行了本地化，以适合中国地区的法律，这也是目前中国最新版本的 CC 协议。根据 CC 组织的说法，4.0 版本在最大程度上实现了在各司法区的适用，从 4.0 版本起，CC 协议可以不必等待各司法区的知识共享组织进行本地化，可以直接使用。目前，在 4.0 版协议发布后，3.0 的中文版就从 CC 官网上消失了，4.0 则还未本地化。本文翻译的是 4.0 国际版的协议。 </p>
+<p>创作者一旦根据此协议发布作品，就应当遵循此协议一视同仁的条款，不能增设任何法律限制或是技术限制，来限制他人进行本许可证已经允许的行为。 </p>
+<p>eg.本专栏内容依据“CC BY-SA 4.0”许可证进行授权。转载请附上出处链接。要查看该许可证，可访问<a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-sa/4.0/">https://creativecommons.org/licenses/by-sa/4.0/</a> </p>
+<h1 id="BY：署名"><a href="#BY：署名" class="headerlink" title="BY：署名"></a>BY：署名</h1><p>![[<a href="mailto:&#x35;&#97;&#56;&#x64;&#53;&#x61;&#x35;&#x34;&#x66;&#x64;&#x62;&#x39;&#99;&#101;&#56;&#55;&#x36;&#52;&#x37;&#x36;&#51;&#100;&#53;&#x65;&#x63;&#x61;&#x33;&#98;&#49;&#55;&#x34;&#98;&#57;&#100;&#x38;&#x38;&#x32;&#x35;&#98;&#51;&#46;&#112;&#110;&#x67;&#x40;&#119;&#x65;&#x62;&#45;&#x61;&#114;&#x74;&#105;&#99;&#x6c;&#101;&#45;&#x70;&#x69;&#99;&#46;&#x61;&#x76;&#x69;&#x66;">&#x35;&#97;&#56;&#x64;&#53;&#x61;&#x35;&#x34;&#x66;&#x64;&#x62;&#x39;&#99;&#101;&#56;&#55;&#x36;&#52;&#x37;&#x36;&#51;&#100;&#53;&#x65;&#x63;&#x61;&#x33;&#98;&#49;&#55;&#x34;&#98;&#57;&#100;&#x38;&#x38;&#x32;&#x35;&#98;&#51;&#46;&#112;&#110;&#x67;&#x40;&#119;&#x65;&#x62;&#45;&#x61;&#114;&#x74;&#105;&#99;&#x6c;&#101;&#45;&#x70;&#x69;&#99;&#46;&#x61;&#x76;&#x69;&#x66;</a>]]<br>署名（英语：Attribution，by）您（用户）可以复制、发行、展览、表演、放映、广播或通过信息网络传播本作品。您必须按照作者或者许可人指定的方式对作品进行署名。</p>
+<p>您（用户）必须给出适当的署名，并提供指向本许可协议（指你使用的CC协议）的链接，同时标明是否（对原始作品）作了修改。您可以用任何合理的方式来署名，但是不得以任何方式暗示许可人为您或您的使用背书。</p>
+<p>通常情况下的CC协议必有这条，所以也就是必须进行署名，尊重原作者劳动成果。并且还要提供CC协议的链接，注明是否有所修改。其中最奇怪的一点在于“不得以任何方式暗示许可人为您或您的使用背书”，这里的“背书”来源于银行的票据业务，是指使用人不能明示或暗示观众：“我使用了许可人的作品，许可人支持我的创作，并且可以用许可人的声誉确保我的使用行为可信可靠”。</p>
+<p>具体可以查看知乎上王若枫的解释，原网址<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/20930001/answer/133964332%EF%BC%8C%E5%B9%B6%E6%9C%AA%E4%BF%AE%E6%94%B9%E3%80%82">https://www.zhihu.com/question/20930001/answer/133964332，并未修改。</a></p>
+<p>背书是指票据转让时原持有人在票据背面加盖自己的印鉴证明该票据真实有效、如果有问题就找我。它不是担保（票据就是他的，他不能为自己担保），而是证明或声明的意思。</p>
+<p>背书用于社会事务，一般是指【声明支持某人或某事、为某人或某事发声】，一个单位或个人对另一个单位或个人的行为表示支持，以自身的信誉度来证明另一个单位或个人也同样可信可靠。而不是为另一单位或个人的行为进行担保的意思。万一那个人的行为真的出了问题，你不能从经济或法律上追究这个人的责任。这是跟银行业务有所区别的地方。</p>
+<p>具体的，署名需要包括以下内容：</p>
+<p>包含任何版权声明（如适用）。如果作品自身带有作者的版权声明，版权声明必须保持不变，或在一种合理的方式下重新分发给媒介。</p>
+<p>引用作者的名字，网名或用户ID等。如果作品发布在互联网上，如果存在作者的个人档案页面，应附上页面的链接。</p>
+<p>引用作品的标题或名称（如适用），前提是存在标题或名称。如果作品发布在互联网上，应在重新分发时应附上原作品的标题或者名称。</p>
+<p>引用作品的CC许可协议。如果作品发布在互联网上，应引用作者的CC许可协议，且应附有到CC网站的链接。（网址和跳转链接均可）</p>
+<p>如果作品是一个派生作品或改编作品，除了以上几点外，还应该说明这是一个派生作品，如“这是[作者]的[作品]的芬兰语翻译版本”或“剧本在[作者]的[原作品]基础上改编”。</p>
+<h1 id="SA：相同方式共享"><a href="#SA：相同方式共享" class="headerlink" title="SA：相同方式共享"></a>SA：相同方式共享</h1><p>![[<a href="mailto:&#x66;&#x65;&#102;&#x32;&#57;&#52;&#50;&#x65;&#48;&#55;&#x35;&#x64;&#97;&#51;&#x66;&#49;&#53;&#51;&#53;&#x33;&#x36;&#56;&#102;&#x65;&#50;&#50;&#x65;&#x62;&#x34;&#x32;&#54;&#57;&#55;&#x37;&#x38;&#102;&#53;&#54;&#55;&#54;&#x2e;&#112;&#110;&#x67;&#64;&#119;&#101;&#x62;&#45;&#x61;&#x72;&#116;&#x69;&#x63;&#108;&#101;&#x2d;&#x70;&#x69;&#99;&#x2e;&#x61;&#118;&#105;&#x66;">&#x66;&#x65;&#102;&#x32;&#57;&#52;&#50;&#x65;&#48;&#55;&#x35;&#x64;&#97;&#51;&#x66;&#49;&#53;&#51;&#53;&#x33;&#x36;&#56;&#102;&#x65;&#50;&#50;&#x65;&#x62;&#x34;&#x32;&#54;&#57;&#55;&#x37;&#x38;&#102;&#53;&#54;&#55;&#54;&#x2e;&#112;&#110;&#x67;&#64;&#119;&#101;&#x62;&#45;&#x61;&#x72;&#116;&#x69;&#x63;&#108;&#101;&#x2d;&#x70;&#x69;&#99;&#x2e;&#x61;&#118;&#105;&#x66;</a>]]<br>相同方式共享（英语：ShareAlike，sa）您可以自由复制、散布、展示及演出本作品；若您改变、转变或更改本作品，仅在遵守与本作品相同的许可条款下，您才能散布由本作品产生的派生作品。</p>
+<p>带有SA的协议要求传播时也要遵循同样的CC协议进行，比如原作者注明了NC非商业性，则你在使用其作品进行内容创作时也当注明请其他人遵循CC协议中的NC规定，并且要带有SA标记以告诉其他人也应当遵循此CC协议。 </p>
+<h1 id="NC：非商业性使用"><a href="#NC：非商业性使用" class="headerlink" title="NC：非商业性使用"></a>NC：非商业性使用</h1><p>![[<a href="mailto:&#100;&#98;&#x33;&#48;&#x31;&#100;&#99;&#52;&#x37;&#x62;&#x38;&#99;&#x34;&#x63;&#x65;&#57;&#102;&#x38;&#x61;&#48;&#51;&#x62;&#48;&#x65;&#98;&#50;&#99;&#x34;&#x32;&#97;&#52;&#x65;&#55;&#54;&#98;&#x65;&#x38;&#98;&#x34;&#x38;&#46;&#112;&#x6e;&#103;&#x40;&#x77;&#101;&#98;&#x2d;&#x61;&#x72;&#116;&#105;&#99;&#108;&#101;&#45;&#x70;&#105;&#x63;&#x2e;&#97;&#x76;&#x69;&#x66;">&#100;&#98;&#x33;&#48;&#x31;&#100;&#99;&#52;&#x37;&#x62;&#x38;&#99;&#x34;&#x63;&#x65;&#57;&#102;&#x38;&#x61;&#48;&#51;&#x62;&#48;&#x65;&#98;&#50;&#99;&#x34;&#x32;&#97;&#52;&#x65;&#55;&#54;&#98;&#x65;&#x38;&#98;&#x34;&#x38;&#46;&#112;&#x6e;&#103;&#x40;&#x77;&#101;&#98;&#x2d;&#x61;&#x72;&#116;&#105;&#99;&#108;&#101;&#45;&#x70;&#105;&#x63;&#x2e;&#97;&#x76;&#x69;&#x66;</a>]]<br>非商业性使用（英语：Noncommercial，nc）您可以自由复制、散布、展示及演出本作品；您不得为商业目的而使用本作品。</p>
+<p>这个很好理解，带有NC的均不能用于商业目的。但在原创者允许的情况下，仍然可以用于商业目的。例如：小明在他的网站上以包括“非商业性运用”要素的答应协议发布了他的拍摄著作。在这种情况下，小红能够打印格斯的这幅相片欣赏。但是，如果没有小明的答应，小红不得贩卖这张打印的相片。</p>
+<h1 id="ND：禁止演绎"><a href="#ND：禁止演绎" class="headerlink" title="ND：禁止演绎"></a>ND：禁止演绎</h1><p>![[<a href="mailto:&#53;&#x62;&#x61;&#102;&#57;&#x64;&#x66;&#x64;&#99;&#55;&#99;&#53;&#x63;&#56;&#52;&#x30;&#55;&#x37;&#x62;&#x63;&#x65;&#48;&#x33;&#x62;&#97;&#x35;&#49;&#99;&#97;&#x62;&#97;&#x38;&#99;&#102;&#56;&#52;&#100;&#48;&#x64;&#99;&#46;&#112;&#x6e;&#103;&#x40;&#x77;&#101;&#98;&#45;&#x61;&#114;&#x74;&#x69;&#x63;&#x6c;&#x65;&#45;&#x70;&#x69;&#x63;&#46;&#97;&#x76;&#105;&#102;">&#53;&#x62;&#x61;&#102;&#57;&#x64;&#x66;&#x64;&#99;&#55;&#99;&#53;&#x63;&#56;&#52;&#x30;&#55;&#x37;&#x62;&#x63;&#x65;&#48;&#x33;&#x62;&#97;&#x35;&#49;&#99;&#97;&#x62;&#97;&#x38;&#99;&#102;&#56;&#52;&#100;&#48;&#x64;&#99;&#46;&#112;&#x6e;&#103;&#x40;&#x77;&#101;&#98;&#45;&#x61;&#114;&#x74;&#x69;&#x63;&#x6c;&#x65;&#45;&#x70;&#x69;&#x63;&#46;&#97;&#x76;&#105;&#102;</a>]]<br>禁止演绎（英语：No Derivative Works，nd)您可以自由复制、散布、展示及演出本作品；您不得改变、转变或更改本作品。</p>
+<p>也就是只能原原本本地传播本作品，不得对其内容进行任何修改。例如：小明在自己的一首歌曲上使用包括“制止演绎”要素的答应协议。小刚想要截取小明的歌曲片段，混合在他的著作中而产生出全新的歌曲。在这种情况下，没有小明的答应，小刚就不能这么做（除非他的歌曲构成合理运用）。 </p>
+<h1 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h1><p>混合搭配这些条例可产生11种有效组合（ND和SA互斥，还有1种没有包括任何条款），因为98%的使用情况均要求署名，其中的5种缺乏BY的条款不再使用，故一共有6(是否商用*ND&#x2F;SA互斥&#x2F;都没有)种常用的版权规定组合。</p>
+<p>CC BY：署名标示（BY）</p>
+<p>CC BY-SA：署名标示（BY）- 相同方式共享（SA） </p>
+<p>CC BY-NC：署名标示（BY）- 非商业性使用（NC）</p>
+<p>CC BY-NC-SA：署名标示（BY）- 非商业性使用（NC）- 相同方式共享（SA） </p>
+<p>CC BY-ND：署名标示（BY）- 禁止演绎（ND） </p>
+<p>CC BY-NC-ND：署名标示（BY）- 非商业性使用（NC）- 禁止演绎（ND） </p>
+<p>这些组合的权利与要求都写在上面的具体组成条例之中，将不同条例的权利与要求组合起来即为对应的协议权利与要求。如果组合中没有该条例，则表明组合的权利与要求内容与该条例相反。例如没有表明NC即为可商用，没有表明ND即为可二次创作。</p>
+<p>对于之前提到的没有包括任何条款的组合，称为不受限制地在全球范围内发布内容，即CC0。CC0相当于是放弃以上四种条例的CC授权，成为Public Domain（公有领域）的素材。 </p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>CC协议</div>
+      <div>http://kaelvio.com/CC协议/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>采薇</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年2月24日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/City_walk/" title="City_walk">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">City_walk</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/%E7%BB%98%E7%94%BB/" title="绘画">
+                        <span class="hidden-mobile">绘画</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: 'b429e757bb44ee2c7f26ccf780849a4d'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

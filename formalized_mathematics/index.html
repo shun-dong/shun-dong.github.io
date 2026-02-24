@@ -1,0 +1,766 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/only.ico">
+  <link rel="icon" href="/img/only.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="采薇">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="理解 formalized mathematicsformalized有形式化正式化的意思，与自然语言相对 理论[[dependent_type_theory+]] Homotopy_Type_Theory 构造主义数学  有一定坚实的基础是必要的, 但基础并不等于全部  你如果实地去采访数学家，跟他们聊聊这种不能证明又不能证伪的，所谓独立性的现象，如果他们还有兴趣跟你继续下去这段对话，你基本上就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="formalized_mathematics">
+<meta property="og:url" content="http://kaelvio.com/formalized_mathematics/index.html">
+<meta property="og:site_name" content="采薇的博客">
+<meta property="og:description" content="理解 formalized mathematicsformalized有形式化正式化的意思，与自然语言相对 理论[[dependent_type_theory+]] Homotopy_Type_Theory 构造主义数学  有一定坚实的基础是必要的, 但基础并不等于全部  你如果实地去采访数学家，跟他们聊聊这种不能证明又不能证伪的，所谓独立性的现象，如果他们还有兴趣跟你继续下去这段对话，你基本上就">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-24T03:51:27.904Z">
+<meta property="article:modified_time" content="2026-02-24T03:51:27.904Z">
+<meta property="article:author" content="采薇">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>formalized_mathematics - 采薇的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kaelvio.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>采薇的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档Archive</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/playground/" target="_self">
+                <i class="iconfont icon-exp-fill"></i>
+                <span>playground</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于采薇Kaelvio</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链links</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="formalized_mathematics"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-02-24 11:51" pubdate>
+          2026年2月24日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          26 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">formalized_mathematics</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="理解-formalized-mathematics"><a href="#理解-formalized-mathematics" class="headerlink" title="理解 formalized mathematics"></a>理解 formalized mathematics</h1><p>formalized有形式化正式化的意思，与自然语言相对</p>
+<h1 id="理论"><a href="#理论" class="headerlink" title="理论"></a>理论</h1><p>[[dependent_type_theory+]]</p>
+<a href="/Homotopy_Type_Theory/" title="Homotopy_Type_Theory">Homotopy_Type_Theory</a>
+<a href="/%E6%9E%84%E9%80%A0%E4%B8%BB%E4%B9%89%E6%95%B0%E5%AD%A6/" title="构造主义数学">构造主义数学</a>
+
+<p>有一定坚实的基础是必要的, 但基础并不等于全部</p>
+<blockquote>
+<p>你如果实地去采访数学家，跟他们聊聊这种不能证明又不能证伪的，所谓独立性的现象，如果他们还有兴趣跟你继续下去这段对话，你基本上就会发现，那些平时对什么公理体系啊可证性啊集合论啊不感兴趣的人，基本上在这上面就是持灵活滑雪主义：哪个态度能让我做出赏心悦目的数学、让我发出令人尊敬的论文，我就选择哪个态度。我甚至不需要统一地保持一个态度，在哪里我就是哪里人。<br>@<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/645327955/answer/3405990633">如何通俗理解一个数学命题既不能证明又不能证伪？</a></p>
+</blockquote>
+<blockquote>
+<p>Set theory is the coroner of math. It pronounces your problem dead.<br>@Matthew Foreman</p>
+</blockquote>
+<h1 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h1><a href="/LEAN/" title="LEAN">LEAN</a>.mathlib
+<p>[[Agda]]</p>
+<a href="/fu_language/" title="fu_language">fu_language</a>
+<h1 id="AI4math"><a href="#AI4math" class="headerlink" title="AI4math"></a>AI4math</h1><a href="/Robust_Prover/" title="Robust_Prover">Robust_Prover</a>
+
+<p>【【重构数学4&#x2F;4】未来的重构：数学、代码与人工智能-哔哩哔哩】 <a target="_blank" rel="noopener" href="https://b23.tv/Qe2g2BH">https://b23.tv/Qe2g2BH</a><br>AI<br>数学的目的：找deep的命题和好的链接方式，探索未知，连接已知<br>命题：枢纽（lemma，proof等），节点<br>重构枢纽</p>
+<p>不过有个比较Tricky的地方，就是证明最重要的原则是“人类可以理解”，因为实际上有些命题并没有想象那么重要，之前用数值验证已经检验了大家用得到的情况，在探索中发现的一些规律和方法可能才是比较重要的。用这种语言写出来也不是说完全不能理解吧，但可读性会差一些</p>
+<h1 id="现状-知乎"><a href="#现状-知乎" class="headerlink" title="现状 @知乎"></a>现状 @知乎</h1><p>近期，我和学生整理并在 arXiv 上传了一篇关于 AI for Mathematics (AI4Math) 的综述文章。这篇文章的协作初衷是尝试厘清一个核心问题：当我们在谈论用 AI 做数学时，我们到底在谈论什么？ 是把 AI 当作一种数值计算的辅助工具，还是将其视为一种能进行逻辑推理、甚至辅助发现新数学结构的智能体？</p>
+<p>在当前的学术语境下，我们倾向于认为 AI4Math 不仅仅是 AI 在数学领域的应用，它更像是通用人工智能（AGI）在逻辑推理能力上的一个“试炼场”。数学语言的严谨性和封闭性，为检验大模型的推理边界提供了绝佳的标尺。</p>
+<p>在这篇综述中，我们将目前的探索路径梳理为一个相对清晰的 Layout，并对其 前景（Prospects） 做了一些基于现状的推演。在这里，我将其中的核心观点以更通俗、但保持严谨的方式分享给大家，希望能引发一些理性的讨论。</p>
+<p>文章链接：<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2601.13209">AI for Mathematics: Progress, Challenges, and Prospects</a></p>
+<h2 id="一、-当前版图：两条并行的路径"><a href="#一、-当前版图：两条并行的路径" class="headerlink" title="一、 当前版图：两条并行的路径"></a>一、 当前版图：两条并行的路径</h2><p>如果不加区分地讨论 AI4Math，很容易陷入“盲人摸象”。我们将现有的工作分为两类互补的范式：</p>
+<p><strong>1. 特定问题建模 (Problem-Specific Modeling)</strong></p>
+<p>这是针对特定数学任务“定制”的 AI。例如，DeepMind 利用机器学习辅助数学家在纽结理论中发现不变量之间的关系、启发Bruhat Interval的分解模式，或者 AlphaGeometry 这种专门针对欧氏几何证明设计的系统。（关于DeepMInd和著名数学家Geordie Williamson的工作，以及我们后续在ADLV上的探索，可以查看知乎旧文：<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/503185412/answer/2256015652">如何评价12月1日DeepMind团队Nature关于首次使用人工智能帮助数学家证明定理的论文？</a>）</p>
+<ul>
+<li><strong>特点：</strong> 它们非常适合在最前沿的数学问题上进行单点突破。这类工作通常建立在数学家已经构建好的完备理论框架之下，利用 AI 针对最核心、最困难的节点进行攻坚。由于前沿数学问题往往属于数据稀缺的长尾（long-tail）领域，通用大模型在这些特定任务上的表现往往欠佳，因此打造针对性的小模型反而能以更高的效率实现超越。</li>
+<li><strong>局限：</strong> 泛化能力弱，架构难以跨领域迁移（例如几何模型无法解决数论问题）。更深层的限制在于，只有极少数数学问题能被转化为这种封闭的、AI 可辅助的形式，这导致选题范围非常狭窄。此外，整个流程依然高度依赖人类数学家的深度介入——从定义问题到解释结果，核心的认知瓶颈依然在人，而非机器。</li>
+</ul>
+<p><strong>2. 通用建模 (General-Purpose Modeling)</strong></p>
+<p>这是目前基础模型（Foundation Models）带来的核心变量。目标是构建能够处理广泛数学任务的通用系统。这又可以细分为几个关键模块：</p>
+<ul>
+<li><strong>自然语言推理 (Natural Language Reasoning)：</strong> 这一领域经历了从“特定数学模型”（如通过CPT-SFT微调的模型）到“通用推理模型”（如 o1, DeepSeek-R1）的演变。特别是后者引入了 Test-time Scaling（推理时扩展） 机制，显著提升了模型在奥数级别的表现。目前，这些模型正试图跨越从“做题”到“研究”的鸿沟，但在处理未经训练的、复杂的科研级问题（如 FrontierMath 评测）时，仍受限于自然语言的模糊性和幻觉问题。</li>
+<li><strong>形式化推理 (Formal Reasoning)：</strong> 这是连接“直觉”与“真理”的关键。它不仅仅是利用 Lean、Coq 等交互式定理证明器（ITP）来验证证明，更包含 Autoformalization（自动形式化） 和 Automated Theorem Proving（自动定理证明）。其核心价值在于，ITP 提供了一个绝对严谨的反馈环境，能为 AI 提供高质量的训练信号（Verifier Feedback），这是自然语言环境无法比拟的。</li>
+<li>**数学信息检索 (MIR)： **这不只是简单的搜索引擎，而是自动化证明和 AI Agent 的“海马体”。数学公式具有高度的结构化特征，传统的关键词匹配往往失效。MIR 致力于解决 Premise Retrieval（前提检索） 等核心难题——即在浩如烟海的数学库（如 mathlib4）中，基于逻辑和语义（而非字面相似性）精准找到证明所需的那个关键引理或定理。</li>
+</ul>
+<h2 id="二、-实测：AI-现在的真实水位"><a href="#二、-实测：AI-现在的真实水位" class="headerlink" title="二、 实测：AI 现在的真实水位"></a>二、 实测：AI 现在的真实水位</h2><p>为了避免空谈，我们利用北京大学数学科学学院的本科期末试题及博士资格考试题，对现有模型进行了一次测试。</p>
+<p>结果呈现出明显的 分层：</p>
+<ul>
+<li>**本科层面： **经过推理增强（Reasoning-enhanced）的模型（如 o1, DeepSeek-R1, Gemini 2.5 Pro）在微积分、线性代数等本科标准课程中表现优异，部分科目得分超过 90&#x2F;100。这意味着对于定义明确、流程相对标准化的数学问题，AI 已经具备了相当的能力。</li>
+<li><strong>研究层面：</strong> 在博士资格考的难度下，模型表现出显著的 学科差异。在代数领域，AI 依然表现强劲；但在几何与拓扑领域，得分大幅下降。</li>
+</ul>
+<p>这暗示了当前基于文本训练的 Transformer 架构，在处理代数结构的符号推演时较为得心应手，但在处理需要空间直觉和几何想象力的问题时，依然存在短板。这一现象与中科院理论物理研究所部分学者的观察不谋而合：AI 在量子力学等高度抽象领域表现优异，这或许是因为 AI 是先在符号世界中进行学习，目前尚未真正进入物理世界，因此它们对绝对抽象的规律掌握得很好；而人类的学习路径是先在物理世界建立感官体验，再通过语言习得符号表达。因此，物理几何直观虽然构成了我们推理能力的基石，但在面对那些绝对抽象甚至反直观的概念时，我们反而不如 AI 那般纯粹和直接。</p>
+<h2 id="三、-挑战与前景"><a href="#三、-挑战与前景" class="headerlink" title="三、 挑战与前景"></a>三、 挑战与前景</h2><p>我们在综述中不仅总结了过去，更重要的是探讨了未来的展望。我认为以下几点是真正值得关注的：</p>
+<p><strong>1. 验证瓶颈与形式化 (The Verification Bottleneck)</strong></p>
+<p>大语言模型在数学研究中最大的风险是“一本正经地胡说”。在数学中，99% 正确的证明等同于错误。因此，自然语言输出必须向形式化语言收敛。未来的一个趋势是 Autoformalization（自动形式化）：让 AI 自动将自然语言的数学猜想转化为 Lean 代码，由编译器进行绝对严谨的验证。</p>
+<p>更重要的是，形式化系统不仅仅是验证工具，它更为 AI 构建了一个拥有完备规则的 “逻辑环境”（Logic Environment）。在这个环境中，编译器的反馈（Verifier Feedback）构成了绝对明确的 奖励信号 (Reward Signal)。这使得我们可以利用强化学习（Reinforcement Learning），让 AI 像在围棋棋盘上一样，在这个“推理世界模型”中通过不断的试错与反馈，内生出强大的逻辑推理能力。这是连接“AI 直觉”与“数学严谨性”的关键桥梁。</p>
+<p><strong>2. 数据的非对称性</strong></p>
+<p>目前我们拥有海量的自然语言数学文本（arXiv 论文、教材），但高质量的形式化证明数据（如 Lean 代码）极其稀缺。这也是为什么在当前的通用基座模型训练中，形式化语料以及前述的“逻辑环境”尚未发挥出显著作用——主要受限于数据的暂时性匮乏。但这只是一个阶段性的困境。长远来看，形式化数据对于突破推理瓶颈将起到至关重要的作用。如何跨越这种数据非对称性，利用有限的形式化数据去“对齐”并增强强大的自然语言模型，是当前技术攻坚的重点。</p>
+<p><strong>3. 从“求解器”到“副驾驶” (Co-pilot)</strong></p>
+<p>数学家陶哲轩近期的一系列工作展示了 AI 在研究中的理想形态。AI 不必直接给出最终证明（目前也很难做到），它的价值在于提供 验证杠杆 (Verification Leverage)。在数学研究中，构造一个反例或提出一个猜想往往极其困难，但验证它是否成立却相对容易。AI 可以作为一个高通量的“猜想生成器”，即使它生成的 10 个想法中有 9 个是错的，只要它能帮我们找到那个对的候选者，研究效率的提升就是质的。</p>
+<p><strong>4. 理解 vs 正确</strong></p>
+<p>菲尔兹奖得主 William Thurston 曾说过：“数学不仅仅是关于数字、方程、计算或算法，它是关于理解（Understanding）。”</p>
+<p>我们在综述中特别强调，形式上的正确只是数学价值的必要条件，而非充分条件。一个真正有价值的证明，往往能提供深刻的洞察，揭示潜在的结构，并提供可迁移到其他问题上的有力工具。</p>
+<p>目前的 AI 系统更多是在模仿推理步骤。未来的系统不应止步于输出一个 True&#x2F;False 的判定，而应当能够辅助我们发现那些能重塑我们认知的证明，揭示出此前不可见的深层联系。正如 Ulam 转述 Stefan Banach 的那句名言：“优秀的数学家能看到定理之间的类比，而顶尖的数学家能看到‘类比之间的类比’。” 这正是我们对下一代 AI 的期许——从单纯的逻辑验证者，进化为能够捕捉数学结构之美、甚至发现“类比之类比”的探索者。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>写这篇综述的过程中，我愈发感觉到，数学研究的范式正在发生微妙的偏移。AI 不会取代数学家，但它正在改变我们探索数学疆域的方式——从纯粹的脑力推演，转向 人机协作的探索与验证。</p>
+<p>这篇综述是我们对当前状态的一个切片记录，希望能为感兴趣的同行提供一个客观的参考坐标。欢迎大家阅读并在 arXiv 上查阅全文。</p>
+<p>Paper: AI for Mathematics: Progress, Challenges, and Prospects</p>
+<p>Link:<a target="_blank" rel="noopener" href="https://arxiv.org/abs/2601.13209">AI for Mathematics: Progress, Challenges, and Prospects</a></p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>formalized_mathematics</div>
+      <div>http://kaelvio.com/formalized_mathematics/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>采薇</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年2月24日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/Curry-Howard-Lambek_Correspondence/" title="Curry-Howard-Lambek_Correspondence">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Curry-Howard-Lambek_Correspondence</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/City_walk/" title="City_walk">
+                        <span class="hidden-mobile">City_walk</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: 'adb84366a0d25deb2da27741aa604b86'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

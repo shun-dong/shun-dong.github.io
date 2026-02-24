@@ -1,0 +1,804 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/only.ico">
+  <link rel="icon" href="/img/only.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="采薇">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="类structure:类inductive:递归定义类class:类型类:方法 构造主义数学Lean（以及 Coq 等）本身只是“形式化数学的工具&#x2F;平台”，它的底层逻辑“天然支持”构造性逻辑，但——  Lean 内部确实默认使用构造主义（你写出来的函数、证明都要求是具体的&#x2F;可以检查的对象）。 Lean 也可以引入经典公理（如排中律），此时系统本身逻辑就“升格”为经典逻辑环境，且">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LEAN">
+<meta property="og:url" content="http://kaelvio.com/LEAN/index.html">
+<meta property="og:site_name" content="采薇的博客">
+<meta property="og:description" content="类structure:类inductive:递归定义类class:类型类:方法 构造主义数学Lean（以及 Coq 等）本身只是“形式化数学的工具&#x2F;平台”，它的底层逻辑“天然支持”构造性逻辑，但——  Lean 内部确实默认使用构造主义（你写出来的函数、证明都要求是具体的&#x2F;可以检查的对象）。 Lean 也可以引入经典公理（如排中律），此时系统本身逻辑就“升格”为经典逻辑环境，且">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-24T03:51:27.907Z">
+<meta property="article:modified_time" content="2026-02-24T03:51:27.907Z">
+<meta property="article:author" content="采薇">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>LEAN - 采薇的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kaelvio.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>采薇的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档Archive</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/playground/" target="_self">
+                <i class="iconfont icon-exp-fill"></i>
+                <span>playground</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于采薇Kaelvio</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链links</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="LEAN"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-02-24 11:51" pubdate>
+          2026年2月24日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">LEAN</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="类"><a href="#类" class="headerlink" title="类"></a>类</h1><p>structure:类<br>inductive:递归定义类<br>class:类型类:方法</p>
+<h1 id=""><a href="#" class="headerlink" title=""></a><a href="/%E6%9E%84%E9%80%A0%E4%B8%BB%E4%B9%89%E6%95%B0%E5%AD%A6/" title="构造主义数学">构造主义数学</a></h1><p><strong>Lean（以及 Coq 等）本身只是“形式化数学的工具&#x2F;平台”，它的底层逻辑“天然支持”构造性逻辑，但</strong>——</p>
+<ul>
+<li><strong>Lean 内部确实默认使用构造主义</strong>（你写出来的函数、证明都要求是具体的&#x2F;可以检查的对象）。</li>
+<li><strong>Lean 也可以引入经典公理（如排中律）</strong>，此时系统本身逻辑就“升格”为经典逻辑环境，且用户可以自由选择是否采用构造&#x2F;经典逻辑。<ul>
+<li>mathlib（Lean 的数学库）专注于数学实际工作，往往<strong>默认会局部引入排中律等经典公理</strong>，以便和大多数数学文献一致。</li>
+<li>你可以在 Lean 里使用 <code>open classical</code> 或加公理 <code>axiom em : ∀ P : Prop, P ∨ ¬P</code></li>
+</ul>
+</li>
+</ul>
+<p>因此，<strong>Lean 是构造性基础的，但对经典逻辑“兼容并蓄”，可以按需切换</strong>。</p>
+<h1 id="类型论语法"><a href="#类型论语法" class="headerlink" title="类型论语法"></a>类型论语法</h1><h2 id="Implicit-Arguments"><a href="#Implicit-Arguments" class="headerlink" title="Implicit Arguments"></a>Implicit Arguments</h2><p><code>def bs : Lst Nat := Lst.cons _ 5 (Lst.nil _)</code><br><code>def Lst.cons &#123;α : Type u&#125; (a : α) (as : Lst α) : Lst α := List.cons a as</code></p>
+<p>Lean 为了类型推断和后续泛化方便，在你没有指定具体类型参数时，用 <code>?m.n</code> 这种形式“占位”。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs lean">#check (ident)<br>-- @ident ?m.403 → ?m.403<br>#check ident<br>-- ident.&#123;u&#125; &#123;α : Type u&#125; (x : α) : α<br>#check @ident<br>-- @ident : &#123;α : Type u_1&#125; → α → α<br></code></pre></td></tr></table></figure>
+<p>括号减少 “signature 损耗&#x2F;粉饰” i.e. <code>(ident)</code> 的括号阻止了 Lean 自动展开 <code>ident</code> 的定义，因此只显示其未实例化的类型, Lean 仅检查 <strong>部分应用</strong> 的 <code>ident</code>（未提供隐式参数 <code>α</code>），因此类型暂时无法确定<br> @ident（显式化所有隐式参数）</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-id">#check</span> (List.nil)<br><span class="hljs-selector-tag">--</span> <span class="hljs-selector-attr">[]</span> : <span class="hljs-selector-tag">List</span> ?<span class="hljs-selector-tag">m</span><span class="hljs-selector-class">.2</span><br><span class="hljs-selector-id">#check</span> (List.<span class="hljs-attribute">nil </span>: List Nat)<br><span class="hljs-selector-tag">--</span> <span class="hljs-selector-attr">[]</span> : <span class="hljs-selector-tag">List</span> <span class="hljs-selector-tag">Nat</span><br></code></pre></td></tr></table></figure>
+<p>The process of instantiating these “holes,” or “placeholders,” in a term is often known as <em>elaboration</em>.细化</p>
+<h2 id="structures-typeclasses-sigma-record-types"><a href="#structures-typeclasses-sigma-record-types" class="headerlink" title="structures, typeclasses, sigma&#x2F;record types"></a>structures, typeclasses, sigma&#x2F;record types</h2><p>structures, typeclasses and sigma&#x2F;record types are the same thing semantically, but typeclasses have a special role in automation and interface design<br>下面详细对比和举例 Lean 中三种相关的语法：<strong>structure</strong>、<strong>typeclass</strong>（class）、<strong>sigma&#x2F;record types</strong>。</p>
+<hr>
+<h3 id="1-structure"><a href="#1-structure" class="headerlink" title="1. structure"></a>1. structure</h3><p><strong>定义一个结构体，类似于数学中的记录类型（record）。所有字段都要初始化。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs lean">-- 定义结构体 Point，有两个字段<br>structure Point :=<br>(x : ℕ)<br>(y : ℕ)<br><br>-- 使用结构体<br>def p : Point := &#123; x := 1, y := 2 &#125;         -- 记录语法<br>def px : ℕ := p.x                          -- 点的 x 坐标<br><br>-- 也可以用 tuple 风格<br>def q : Point := ⟨3, 4⟩<br><br>-- 传递字段<br>def sum (pt : Point) : ℕ := pt.x + pt.y<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="2-typeclass（class）"><a href="#2-typeclass（class）" class="headerlink" title="2. typeclass（class）"></a>2. typeclass（class）</h3><p><strong>用 class 关键字声明一个类型类，Lean 自动把它视作结构体，加上类型类自动推断机制。</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs lean">class MyGroup (G : Type) :=<br>(op   : G → G → G)<br>(one  : G)<br>(inv  : G → G)<br>(op_assoc : ∀ a b c : G, op (op a b) c = op a (op b c))<br>(one_op   : ∀ a : G, op one a = a)<br>(op_one   : ∀ a : G, op a one = a)<br>(op_inv   : ∀ a : G, op a (inv a) = one)<br><br>-- 提供实例内容<br>instance int_mygroup : MyGroup ℤ :=<br>&#123; op := (+),<br>  one := 0,<br>  inv := λ x, -x,<br>  op_assoc := by simp,<br>  one_op := by simp,<br>  op_one := by simp,<br>  op_inv := by simp &#125;<br><br>-- 使用时 Lean 支持自动填充 typeclass instance<br>def double [MyGroup G] (a : G) : G := MyGroup.op a a<br><br>-- 下面可以直接 double 3，因为 ℤ 有实例<br>#eval double 3      -- Lean 会自动填入 int_mygroup<br></code></pre></td></tr></table></figure>
+
+<h2 id="说明：-class-语法跟-structure-基本一致，但-Lean-给它加了类型类机制。-用方括号-MyGroup-G-可让-Lean-自动找实例。这是可能有两个实例报错的"><a href="#说明：-class-语法跟-structure-基本一致，但-Lean-给它加了类型类机制。-用方括号-MyGroup-G-可让-Lean-自动找实例。这是可能有两个实例报错的" class="headerlink" title="说明：- class 语法跟 structure 基本一致，但 Lean 给它加了类型类机制。- 用方括号 [MyGroup G] 可让 Lean 自动找实例。这是可能有两个实例报错的"></a>说明：<br>- <code>class</code> 语法跟 <code>structure</code> 基本一致，但 Lean 给它加了类型类机制。<br>- 用方括号 <code>[MyGroup G]</code> 可让 Lean 自动找实例。<br>这是可能有两个实例报错的</h2><h3 id="3-sigma-record-types"><a href="#3-sigma-record-types" class="headerlink" title="3. sigma&#x2F;record types"></a>3. sigma&#x2F;record types</h3><p><strong>Sigma 类型（dependent pair），Lean 语法是 <code>Σ x : A, B x</code> 或 <code>Sigma A B</code>，手写比较多用于某些依赖类型场景。</strong><br>通常，<code>structure</code> 就是 record type，<code>Sigma</code> 是依赖记录。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs lean">-- 普通 record 就是 structure Point<br>-- 依赖型记录例子：<br><br>def S : Type := Σ n : ℕ, Fin n → ℝ<br>-- 解释：一个自然数 n，加上一个数组（函数）从 Fin n 到 ℝ<br><br>-- 构造一项<br>def example : S := ⟨3, λ i, 2.0 * ↑i⟩<br><br>-- 取出字段<br>def len : ℕ := example.1<br>def data : Fin len → ℝ := example.2<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="-1"><a href="#-1" class="headerlink" title=""></a><a href="/%CE%BB-calculus/" title="λ-calculus">λ-calculus</a></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs lean">(λ x : Nat =&gt; x + 5) 10<br>#check (λ x  =&gt; x + 1 : Nat → Nat)<br></code></pre></td></tr></table></figure>
+<p>x: bound variable</p>
+<p>def<br>let : Lean also allows you to introduce “local” definitions using the <code>let</code> keyword. The expression <code>let a := t1; t2</code> is definitionally equal to the result of replacing every occurrence of <code>a</code> in <code>t2</code> by <code>t1</code>.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs lean">variable (x : α)<br>def  f :=  x + x<br><br>section useful<br>  variable (α β γ : Type)<br>  variable (g : β → γ) (f : α → β) (h : α → α)<br>  variable (x : α)<br><br>  def compose := g (f x)<br>  def doTwice := h (h x)<br>  def doThrice := h (h (h x))<br>end useful<br><br>namespace Foo<br>  def a : Nat := 5<br>  def f (x : Nat) : Nat := x + 7<br>end Foo<br><br>open Foo<br><br>#check a<br>-- Foo.a : Nat<br></code></pre></td></tr></table></figure>
+
+<h1 id="-2"><a href="#-2" class="headerlink" title=""></a><a href="/Curry-Howard-Lambek_Correspondence/" title="Curry-Howard-Lambek_Correspondence">Curry-Howard-Lambek_Correspondence</a></h1><p> </p>
+<h1 id="Calculational-Proofs"><a href="#Calculational-Proofs" class="headerlink" title="Calculational Proofs"></a>Calculational Proofs</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs lean">import Mathlib.Data.Nat.Basic<br><br>theorem nat_ineq (a b : ℕ) : a^2 + b^2 ≥ a * b := by<br>  calc<br>    a^2 + b^2<br>      = (a - b)^2 + 2 * a * b := by ring<br>  _ ≥ 0 + 2 * a * b           := by gcongr; apply sq_nonneg<br>  _ ≥ 0 + a * b               := by gcongr; linarith<br>  _ = a * b                   := by ring<br></code></pre></td></tr></table></figure>
+<h1 id="证明策略-tactic"><a href="#证明策略-tactic" class="headerlink" title="证明策略(tactic)"></a>证明策略(tactic)</h1><p>We will describe proofs that consist of sequences of tactics as “tactic-style” proofs, to contrast with the ways of writing proof terms we have seen so far, which we will call “term-style” proofs. Each style has its own advantages and disadvantages. For example, tactic-style proofs can be harder to read, because they require the reader to predict or guess the results of each instruction. But they can also be shorter and easier to write. Moreover, tactics offer a gateway to using Lean’s automation, since automated procedures are themselves tactics.</p>
+<p><a target="_blank" rel="noopener" href="https://adam.math.hhu.de/#/">Natural Number Game</a><br>[[lean4game-g_leanprover-community_nng4-2025_7_11.json]]</p>
+<p>实际上本来就有这些参数, 只是lean可以结合上下文自动推断<br>默认作用在goal上, 可以用at 指定对象, ⊢指当前目标<br>注意名称中都是是下划线</p>
+<p>rfl</p>
+<p>exact: Now you could finish with <code>rw [h]</code> then <code>rfl</code>, but <code>exact h</code> does it in one line.</p>
+<ul>
+<li>doesn’t just take hypotheses, it will eat any proof which exists in the system.<br>exact succ_eq_add_one x相当于把(n : ℕ) : MyNat.succ n &#x3D; n + 1反着用</li>
+</ul>
+<p>trivial: If you can turn your goal into <code>True</code>, then the <code>trivial</code> tactic will solve it.</p>
+<p>rw</p>
+<ul>
+<li>repeat rw: 注意对 add_comm会带来死循环, 但是可以 add_comm n</li>
+<li>rw [add_zero c]: 实际上本来就有这些参数, 只是lean可以结合上下文自动推断</li>
+<li>rw [\l h]</li>
+<li>nth_rewrite n [h] : 注意是下划线</li>
+<li>rw [zero_add] at h</li>
+</ul>
+<p>apply$\Rightarrow$</p>
+<ul>
+<li>apply h1 at  h2</li>
+<li>apply h: p -&gt;q will turn the goal q into p</li>
+</ul>
+<p>symm: apply h: a &#x3D; b -&gt; b&#x3D;a</p>
+<p>intro h will turn the gaol p -&gt; q into hypothesis p and goal q</p>
+<p>induction n with d hd</p>
+<ul>
+<li><code>d</code>指归纳步骤里出现的前一个数（即<code>n = d + 1</code>时的<code>d</code>），</li>
+<li><code>hd</code>就是归纳假设（hypothesis of induction）在<code>n = d</code>时成立的假设。</li>
+<li>…generalizing c<strong>将变量 <code>c</code> 也提升为归纳假设的通用参数</strong></li>
+</ul>
+<p>contrapose: 逆否,<code>contrapose! h</code> !表示自动化简</p>
+<p>constructor</p>
+<p>cases:存在命题同样需要cases引入，如<code>cases h with c hc</code> if <code>h : a ≤ b</code><br> if you have a hypothesis <code>h : False</code> then you are done, because a false statement implies any statement.<br> cases hyz with b hb will turn x ≤ y into hb: x+b &#x3D;y (or tauto)</p>
+<p>left right:changes a goal of <code>P ∨ Q</code> into a goal of <code>P</code>or<code>Q</code></p>
+<p>have: The <code>have</code> tactic can be used to add new hypotheses</p>
+<p>use:<em>prove</em> an “exists” statement</p>
+<p>simp only [add_assoc, add_left_comm, add_comm]</p>
+<p>decide: <code>decide</code> will attempt to solve a goal if it can find an algorithm which it can run to solve it.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs lean">instance instDecidableEq : DecidableEq ℕ<br>| 0, 0 =&gt; isTrue &lt;| by<br>  show 0 = 0<br>  rfl<br>| succ m, 0 =&gt; isFalse &lt;| by<br>  show succ m ≠ 0<br>  exact succ_ne_zero m<br>| 0, succ n =&gt; isFalse &lt;| by<br>  show 0 ≠ succ n<br>  exact zero_ne_succ n<br>| succ m, succ n =&gt;<br>  match instDecidableEq m n with<br>  | isTrue (h : m = n) =&gt; isTrue &lt;| by<br>    show succ m = succ n<br>    rw [h]<br>    rfl<br>  | isFalse (h : m ≠ n) =&gt; isFalse &lt;| by<br>    show succ m ≠ succ n<br>    exact succ_ne_succ m n h<br></code></pre></td></tr></table></figure>
+
+<p>tauto:The <code>tauto</code> tactic will solve any goal which can be solved purely by logic (that is, by truth tables).</p>
+<p><code>a ≠ b</code> is <em>notation</em> for <code>a = b → False</code> so just intro h to use reductio ad absurdum</p>
+<p>forward | backward</p>
+<p>构造</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs lean">def pred (n : Nat) : Nat :=<br>  match n with<br>  | zero =&gt; zero  -- 约定：0 的前驱仍是 0（或有时定义为 0 无前驱）<br>  | succ k =&gt; k   -- n = k + 1 的前驱是 k<br></code></pre></td></tr></table></figure>
+<p>实际上是(-1), 但是减法还没定义, 构造保证了良定义</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs lean">def is_zero (n : Nat) : Bool :=<br>  match n with<br>  | zero =&gt; true<br>  | succ _ =&gt; false<br></code></pre></td></tr></table></figure>
+<p>实际上是(==0), 但是(==)还没定义</p>
+<ul>
+<li><input disabled="" type="checkbox"> 设计语言避免不必要的转换：eg存在命题，蕴含与条件</li>
+</ul>
+<h1 id="元编程"><a href="#元编程" class="headerlink" title="元编程"></a>元编程</h1><p>宏</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs lean">macro &quot;simp_add&quot; : tactic =&gt; `(tactic|(<br>  simp only [add_assoc, add_left_comm, add_comm]))<br></code></pre></td></tr></table></figure>
+
+<h1 id="Lean4Align"><a href="#Lean4Align" class="headerlink" title="Lean4Align"></a>Lean4Align</h1><p>[[type_conversion]]</p>
+<p>Sets &amp; Functions</p>
+<p>Elementary Algebra</p>
+<p>[[Group_Theory]]</p>
+<p>Ring Theory</p>
+<p>Field Theory</p>
+<p>Matrix Theory</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>LEAN</div>
+      <div>http://kaelvio.com/LEAN/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>采薇</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年2月24日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/MBTI/" title="MBTI">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">MBTI</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Homotopy_Type_Theory/" title="Homotopy_Type_Theory">
+                        <span class="hidden-mobile">Homotopy_Type_Theory</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '48c2cf5c9459c8030b7b67ad930c62ad'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

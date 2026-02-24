@@ -1,0 +1,797 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/only.ico">
+  <link rel="icon" href="/img/only.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="采薇">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="fu_language├── README.md├── .git&#x2F;├── .gitignore├── .vscode&#x2F;├── tokenizer.c└── tokenizer.exe   Let’s Build A Simple Interpreter. Part 1. - Ruslan’s Blog 🔼 参考rycheung&#x2F;tiny-mltt: An learn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="fu_language">
+<meta property="og:url" content="http://kaelvio.com/fu_language/index.html">
+<meta property="og:site_name" content="采薇的博客">
+<meta property="og:description" content="fu_language├── README.md├── .git&#x2F;├── .gitignore├── .vscode&#x2F;├── tokenizer.c└── tokenizer.exe   Let’s Build A Simple Interpreter. Part 1. - Ruslan’s Blog 🔼 参考rycheung&#x2F;tiny-mltt: An learn">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-24T03:51:27.894Z">
+<meta property="article:modified_time" content="2026-02-24T03:51:27.894Z">
+<meta property="article:author" content="采薇">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>fu_language - 采薇的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kaelvio.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>采薇的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档Archive</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/playground/" target="_self">
+                <i class="iconfont icon-exp-fill"></i>
+                <span>playground</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于采薇Kaelvio</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链links</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="fu_language"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-02-24 11:51" pubdate>
+          2026年2月24日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          5k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          42 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">fu_language</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>fu_language<br>├── <a href="C:/Users/liuSu/Projects/fu_language/README.md">README.md</a><br>├── <a href="C:/Users/liuSu/Projects/fu_language/.git">.git&#x2F;</a><br>├── <a href="C:/Users/liuSu/Projects/fu_language/.gitignore">.gitignore</a><br>├── <a href="C:/Users/liuSu/Projects/fu_language/.vscode">.vscode&#x2F;</a><br>├── <a href="C:/Users/liuSu/Projects/fu_language/tokenizer.c">tokenizer.c</a><br>└── <a href="C:/Users/liuSu/Projects/fu_language/tokenizer.exe">tokenizer.exe</a></p>
+<ul>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://ruslanspivak.com/lsbasi-part1/">Let’s Build A Simple Interpreter. Part 1. - Ruslan’s Blog</a> 🔼 参考<a target="_blank" rel="noopener" href="https://github.com/rycheung/tiny-mltt">rycheung&#x2F;tiny-mltt: An learning project demonstrating a simple implementation of Martin-Löf dependent type theory（MLTT）</a></li>
+</ul>
+<p>关键字：”;”, “(“, “)”, “[“, “]”, “{“, “}”, “:”, “:&#x3D;”, “|”, “,”, “-&gt;”, “::”, “_“, “&#x3D;”, “ _ “<br>同一行从右到左，总体上使用波兰表示法<br>优先级：空格表示的前缀函数作用  中缀函数 类型运算符号 (-&gt; , |三者相同) 类型标注符号(: ::) :&#x3D;;<br>类型标注符号放这么后面是为了保留f: A -&gt; B以及证明时写 p:…<br>编译过程类似于先用中缀运算符和括号切开，每一块从右往左，不能作用就入栈，遇到能作用的就将顶上的作用并将结果入栈，最后缀运算符优先级从高到低作用<br>书写时量纲和乘号同一优先级，其余和类型运算符同一优先级</p>
+<p>函数式<br>实际上很接近Agda</p>
+<h1 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs fu">x : Nat<br>x := 1<br><br>f : n ! Nat -&gt; Range n // `!` bound variable, has the next highest priority<br>f x := x - 1<br><br>monoid : Type<br>monoid := [.G ! Type] &amp; .e ! G &amp; (_ .* _ ! G -&gt; G -&gt; G) &amp; (.community ! a b c ! G -&gt; (a * b)* c = a *(b * c)) &amp; (.identity ! x ! G -&gt; e * x = x)<br>// `.` exported variable, can be visited by instance.name<br><br>Nat : Type<br>Nat := zero | succ Nat<br><br>(f @ g) x = f $ g x = f (g x)<br></code></pre></td></tr></table></figure>
+<h1 id="行、块"><a href="#行、块" class="headerlink" title="行、块"></a>行、块</h1><p>单个文档，{}中的内容即一个块<br>块是一个广义上的（希尔伯特式的）推演, 同时块具有命名空间隔离的效果</p>
+<p>每一行为一个步骤, 组成推演序列，用;分隔，其中最后一行是结论（导出项）(这里规定以;结尾的项要非空, 否则要用?a :&#x3D; _, 此时依然不能说a: A)<br>推演序列要求每项必须由公理或之前项推得（即可居的，注意可居性与存在性在False上不同），由于 一阶逻辑的不可判定性，逻辑真理 ≠ 算法可计算</p>
+<p>命名空间(语法上的推导)和’类型空间’不同<br>比如sum &#x3D; A + B只能表达出2 * sum之类的, 而无法自动表达2 * A + 2 * B<br>C :&#x3D; A, B | D;<br>*C]: E :&#x3D; B | D 需要额外解释, 即构造一个类型的项<br>在正确的环境下无法推出False(即False是unknown的)~构造主义</p>
+<p>上下文包含类型，<code>x: Nat; x &gt;= 0</code>类似pi类型，实际上写作<br>变量名, 读作无名表示(De Bruijn)<code>λx. x</code> 和 <code>λy. y</code> 都变成 <code>λ. #0</code>，不能<code>x: Nat := 1; f x: Nat</code><br>所谓的绑定算子可以看成对函数的算子，变量是占位的，所谓的自由变元看成隐式参数的函数<br>实际上fu语言还和命题推演不大一样，fu语言上下文变量列表其实是已经证明的变量，或者用-&gt;</p>
+<p>&#x2F; 对于任何变量其实带有定义时的元信息(局部变量), 可以用<code>.</code>访问, 用数字访问第几行的值 ? 感觉这样占用资源了, 或许只允许最后的积对象名字访问<br>&#x2F; <code>a.f == f a</code><br><code>~</code>上一行, <code>~n</code>上n行</p>
+<p>对于行尾没有值默认加<code>;</code><br>缩进默认加<code>&#123;&#125;</code></p>
+<h1 id="优先级"><a href="#优先级" class="headerlink" title="优先级"></a>优先级</h1><p>关键字：”;”, “(“, “)”, “[“, “]”, “{“, “}”, “:”, “:&#x3D;”, “|”, “,”, “-&gt;”, “::”, “_“, “&#x3D;”, “ _ “<br>同一行从右到左，总体上使用波兰表示法<br>优先级：空格表示的前缀函数作用  中缀函数 类型运算符号 (-&gt; , |三者相同) 类型标注符号(: ::) :&#x3D;;<br>类型标注符号放这么后面是为了保留f: A -&gt; B以及证明时写 p:…<br>编译过程类似于先用中缀运算符和括号切开，每一块从右往左，不能作用就入栈，遇到能作用的就将顶上的作用并将结果入栈，最后缀运算符优先级从高到低作用<br>书写时量纲和乘号同一优先级，其余和类型运算符同一优先级</p>
+<h1 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h1><p>类型首字母大写, 实例首字母小写<br>声明(实例化) a: A 注意声明过后依然是自由变元，除非实例化<br>赋值 n: Nat :&#x3D; 1<br>%% 依赖类型语法 a:: A, a是形式参数, 并不会声明a<br>用这种语法是认为a: A, a:: A都有返回值, 希望能减少行数(比如可以不用像Haskell那样类型声明单独占行) %%其实是不会搞混的<br>必须声明类型且不能重复声明</p>
+<p>用A:: n表示A属于 $U_n$, 可以省略n, 表示宇宙多态, [type A::], A -&gt; Nat表示自动推断类型<br>之前未声明的变量默认当成sigma类型, 如<code>A -&gt; B</code>等价于<code>[%infer A::, %infer B::], A -&gt; B</code><br><code>*p</code>表示取prop中元素, <code>&amp;a</code> 构造一个只有a的类型</p>
+<p>自动提升: 自动找始对象或终对象等进行态射<br>eg.1&#x2F;2 &#x3D; 0.5自然数上本来就没定义除法, 1, 2提升到有理数<br>eg. i&#x2F;1 &#x3D; i “&#x2F;“提升到复数<br>两个类型不同的对象一般不会被视为相同，即使“内容看起来一样”；而在集合论里，同一个集合元素可以属于多个集合<br>A in B 在类型论中一般表述为有一个自然含入映射</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs Haskell">//用“广义和类型”的方法(即n元组), 在lean中用的是类似函数的方法<br>//不能用函数(广义积类型), 因为只能证明对某个<span class="hljs-type">G</span>有定义<br><span class="hljs-type">Group</span> := <br>	[% <span class="hljs-type">G</span>::] &amp;<br>	* [<span class="hljs-type">G</span>] : (<span class="hljs-type">G</span> -&gt; <span class="hljs-type">G</span> -&gt; <span class="hljs-type">G</span>) &amp;<br>	(<span class="hljs-type">Assoc</span> [<span class="hljs-type">G</span>] [*] := a b c: <span class="hljs-type">G</span> -&gt; a * b * c = (a * b) * c) &amp;<br>	e: <span class="hljs-type">G</span> &amp;<br>	(<span class="hljs-type">One</span> [<span class="hljs-type">G</span>] [*] [e] := a: <span class="hljs-type">G</span> -&gt; e * a = a) &amp;<br>	/: (<span class="hljs-type">G</span> -&gt; <span class="hljs-type">G</span>) &amp;<br>	(<span class="hljs-type">Inv</span> [<span class="hljs-type">G</span>] [*] [e] := a: <span class="hljs-type">G</span> -&gt; / a * a = e)<br><br> _: (<span class="hljs-type">RightInv</span> := g: <span class="hljs-type">Group</span>, a: g.<span class="hljs-type">G</span> -&gt; a * / a = e) :=<br>	*<span class="hljs-type">Group</span>.<span class="hljs-type">One</span> / a : e * / a = / a<br>	%rw (a * / a = e) (/ ~) : a * e * / a = e<br>	%rw ~ (/ <span class="hljs-type">Group</span>.<span class="hljs-type">Inv</span> a): a * (/ a * a) * / a = e<br>	%simp: <span class="hljs-type">Goal</span><br></code></pre></td></tr></table></figure>
+<p>当然%rw是J公理的语法糖</p>
+<p>或许可以用 Bool, + .. : Group, 用部分特征表示某个结构</p>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs Haskell">(<span class="hljs-type">Bool</span>, + _): <span class="hljs-type">Group</span> :=<br>	(<span class="hljs-type">Bool</span> := &amp;<span class="hljs-number">0</span> | &amp;<span class="hljs-number">1</span>),<br>	(+ := <span class="hljs-number">0</span> =&gt; id | <span class="hljs-number">1</span> =&gt; <span class="hljs-number">1</span> =&gt; <span class="hljs-number">0</span>), %enmu,<br>	<span class="hljs-number">0</span>, %enmu,<br>	(/ := id), %enmu<br><br><span class="hljs-title">f</span>: (<span class="hljs-type">Int</span>, + _) ~ (<span class="hljs-type">Bool</span>, + _):=<br></code></pre></td></tr></table></figure>
+<p>| 除了用来定义和类型还用来定义从和类型出发的函数<br>强制要求类型不一样, 避免了额外引入构造子, 总是自动类型提升, 比如<br>f: (&amp;1 &amp; Nat) | (&amp;2 &amp; Nat) :&#x3D; (1, a) &#x3D;&gt; a | (2, a) &#x3D;&gt; 2 * a<br>f 2 3 &#x3D; 6</p>
+<p>g: (Nat | Bool) -&gt; Nat :&#x3D; (n: Nat &#x3D;&gt; n) | (true &#x3D;&gt; 1) | (false &#x3D;&gt; 0)<br>g 1 &#x3D; 1</p>
+<p>对于积类型(子命名空间), 可以用Type.来访问部分的类型, instance.来访问部分的实例, 区别类似于类方法和实例方法, 有些类方法是可以在没有实例时用的<br>对于(Bool, + _ ): Group 写 (Bool, + _ ).+ 或者(Bool, + _ ). *  都可以<br>但是不能与点号函数冲突，前者对应所谓的属性，后者对应所谓的方法</p>
+<p>还是保留 ? 和 of, 但为了优先级有序, 作为中缀<br>Precategory ? (Functor ? A B) (NatTrans ? A B _ _ )</p>
+<h2 id="同态类型"><a href="#同态类型" class="headerlink" title="同态类型"></a>同态类型</h2><p>不能有1: Int: Ring类型论是平的<br>实际上是1: Int<br>Int, is Ring Int: Ring<br>of Ring Int :&#x3D; Int, is Ring Int<br>“带结构的对象” &#x3D; “载体 + 结构”</p>
+<p>le  : carrier → carrier → Prop 可能构造出空类型(False), 但函数总是存在的, 也不会提供空类型的项(证明)<br>这点与Ring之类的结构不同, 因为如果A上没法定义Ring的话下面有些要提供证明的地方是填不出来的</p>
+<p>%% is Ring Z这只是一个项, 相当于一个只声明了类型的量, 直观上来讲我们希望将足够的信息编码到类型中 %%</p>
+<p>数学图景, 空间中所有都是类型(命题, 结构), 我们能从方位得出命题强弱<br>或许可以用同构意义下的等价类(所谓的&amp;1)来研究实例, 把所有的东西都提升到类型的层面研究, 比如之前提到过的完备有序域, 又比如用  环结构并且到所有环结构都有同态 来在同构意义下唯一刻画环<br>此时自然有类到”实例”的箭头(&#x2F; 任意类型到非空类型都有箭头的, 这里指的是??同态)<br>但是这里a: 完备有序域, 取出来的不是实数, 而是实数的一个实例<br>就不能 %% a: of Ring Int %% a: (Int, +, * _ )然后a本身是带有结构的? 这一点会带来冗余<br>或许可以a : (Int, +, * _ ).R</p>
+<p>希望可以多一层, 自动给出同态<br>而HoTT实现的是刻画等价的结构??商结构<br>或许可以给同态类似于等价的语法, a ~ b i.e. Hom(a, b) 类比与 a &#x3D; b i.e. Id(a, b)<br>然后用f : a ~ b 用f.map表示其中的映射</p>
+<p>为了构建Hom具体来讲 可以分三类：运算(包括常量)字段、关系字段、纯性质字段，只有前两类需要在同态里写“保结构”的条件，纯性质本身一般不用再“定义映射”。<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs fu">f add x y = add f x f y<br>f zero = zero<br>x ≤ y → f x ≤ f y            // 保序<br>add_assoc : ∀ x y z, add add x y z = _  //这点不用在Hom中体现<br></code></pre></td></tr></table></figure></p>
+<h1 id="广义宏"><a href="#广义宏" class="headerlink" title="广义宏"></a>广义宏</h1><p>能改变命名空间或直接读取表达式的称为广义宏, 用%表示<br>例如我们可以在语法上说6&#x2F;3的除数是3, 但不能说2的除数是3, 6&#x2F;3和2只是在值上相等, 其实是两个表达式<br>语义上同构的对象视为相同，但语法上要区分</p>
+<p>如果加了export, 才可以通过name.something访问<br>packet :&#x3D; {n: Nat :&#x3D; 1<br>export n}&#x2F;&#x2F;export n &#x3D;&#x3D; (expr n, 1) 注意这里实际上用了n的名字, 所以是语法上的<br>a &#x3D; packet.”n”&#x2F;&#x2F; &#x2F; _ . _ 是查找函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs fu">//另一个文件<br>//环境: (&quot;packet&quot;, (&quot;n&quot;, 1)), _<br>%import &quot;packet&quot; form env;<br>// _ from _ 是另一种查找函数, &quot;packet&quot; form env = &quot;packet&quot;, (&quot;n&quot;, 1)<br>//这里import将packet加入命名空间, 这里依旧是不能覆盖已有值的<br>//注意import实际上可以用于假设公理<br>//import &quot;classic&quot;, ((a -&gt; False)-&gt; False) = a<br>a = packet.&quot;n&quot;<br>%import &quot;n&quot; form &quot;packet&quot; from env;<br>//如果在同一个文件, 也可以甚至可以直接import packet, 然后环境中就有n了<br>b = n<br>%import (&quot;packet&quot; from env) as &quot;p&quot;;//这里的 _ as _ 是替换函数<br><br></code></pre></td></tr></table></figure>
+
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs Haskell"><span class="hljs-title">_</span>: (inf_prime := <span class="hljs-type">Max</span> <span class="hljs-type">Prime</span> -&gt; <span class="hljs-type">False</span>) :=<br>	<span class="hljs-type">Max</span> <span class="hljs-type">Prime</span> -&gt;<br>		q_ : <span class="hljs-type">Max</span> <span class="hljs-type">Prime</span><br>		m : <span class="hljs-type">Nat</span> := prod (p_: <span class="hljs-type">Prime</span> &amp; p &lt;= q) p + <span class="hljs-number">1</span><br>		%simp : (p_: <span class="hljs-type">Prime</span>) -&gt; m mod p = <span class="hljs-number">1</span><br>		m, % ~ : <span class="hljs-type">Prime</span><br>		% : m &gt; q<br>		% : <span class="hljs-type">False</span><br>	<br>//也可以用分析法反着推<br></code></pre></td></tr></table></figure>
+
+<p>从目标反推？在写了 A -&gt; {可以读取%Goal}, A &lt;- {可以用%Premise}<br>结构冗余? 用~表示上一个结果 or 等式值，~~表示上两个结果 or 等式值_</p>
+<p>不能写{n: Nat; a: Nat :&#x3D; 2 * n; a}因为x没赋值<br>只能{n: Nat :&#x3D; 1; a: Nat :&#x3D; 2 * n; a}&#x3D;2</p>
+<h1 id="隐式参数"><a href="#隐式参数" class="headerlink" title="隐式参数"></a>隐式参数</h1><p>凡是环境中只声明类型，没定义的都应该作为隐式参数，其数学实质是自由变元</p>
+<p>显式闭包(自由变元), 自动查环境中名字, 类型适合的对象, 请注意依然需要保证类型语法正确</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs fu">y[x: Nat] := x + 1;<br>z[y[x]] := y[x] + 1;//???<br>Do print y = z //=&gt;&gt;false<br>x := 1<br>w := z + 1 //这里的z已经被完全绑定, 所以不用写[x]<br></code></pre></td></tr></table></figure>
+
+<p>%infer 表示自动类型推断<br>[%infer A::], A -&gt; Nat<br>或者省略，直接用%表示某种自动填充<br>但是这都要用宏感觉太宽泛了, 或许可以认为闭包本身就能提取这一层信息</p>
+<h2 id="尾巴"><a href="#尾巴" class="headerlink" title="尾巴"></a>尾巴</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fu">func2 (A::) [A _ : MyClass] :: = _ <br></code></pre></td></tr></table></figure>
+<p>或 <code>[_ : MyClass ? A]</code> 这里的_ 表示上下文任意符合类型的对象<br>如果上文有(A, + _ )之类的也可以填进去<br>但是如果同时存在 (A, + _ ) (A, * _ )就会报错<br>%% is MyClass A是一个有类型的项, 如果有多个就报错</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fu">func2 (A::) [is MyClass A] :: = _ <br></code></pre></td></tr></table></figure>
+<p>?Group G :&#x3D; G_str: Group, G_str.[ &#x3D; G<br>这里?Group: Type -&gt; Prop或者直接Type -&gt; I -&gt; Type(然后 I -&gt; Type:: Prop)<br>后面希望把它拓展为多态的(和类型)<br>实际上只能判断某个对象是否是一个导出对象的实例, 不能用于判断某个任意元素是否是某个类型中的<br>比如 isNat: A -&gt; Prop :&#x3D;  a -&gt; (n: Nat, a &#x3D; n) 不行因为A不是Nat的话a &#x3D; n直接通不过类型检查<br>isEven: Nat -&gt; Prop; isEven n &#x3D; (m: Nat, n &#x3D; m + m)则是合法的 %%<br>%%<br>直接定义Even n似乎也可以, 但是似乎没办法统一哪些东西写在后面<br> n: Nat, ?Even n &#x3D;:Even &#x2F;&#x2F;引入?来表示这种关系但不是函数,<br>?Even n&#x3D; _ 证言也只用写:&#x3D;一侧的<br>甚至可以?Nat n<br>?R :&#x3D; R | warp ?R<br>warp (a: A -&gt; x: X, p: R, p &#x3D; (a, x)) &#x3D;<br>b: B-&gt; a: A -&gt; x: X, p: R, p &#x3D; (b, a, x) %%</p>
+<p>可以用来后置一部分定义, 用于拼接</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs fu">f[x: Nat] = 2 * x<br>// f 的类型是 Nat -&gt; Nat<br>x = 1<br>// f 的类型是 Nat -&gt; Nat<br>y = f // 这里的f实际上是 f‎[1] 的简写，y的类型是 Nat<br></code></pre></td></tr></table></figure>
+<p>&#x2F; 可以看成一种副作用</p>
+<p>decide表示自动判断<br>abs: Real -&gt; Real :&#x3D; x: Real &#x3D;&gt; ([decide: x &gt;&#x3D; 0] &#x3D;&gt; x) | ([else] &#x3D;&gt; - x)<br>这里用else避免提供要么&gt;&#x3D;要么&lt;的证明</p>
+<p>用<code>[x: Nat := 1]</code>给予默认值</p>
+<p>如果需要给隐式参数复制的话需要用<code>[]</code><br>手写中一般用角标表示</p>
+<h1 id="存在与时间"><a href="#存在与时间" class="headerlink" title="存在与时间"></a>存在与时间</h1><ul>
+<li><input disabled="" type="checkbox"> 传统的c语言之类的主要用于描述过程, 后来有了面向对象的概念, 而那些辅助证明的语言更进了一步, 很多对象都只用编译而从未被在运行时使用, 或许可以更进一步, 模糊编程与自然语言的边界</li>
+</ul>
+<p>纯函数只是描述性的，特别的在fu语言中只能描述存在<br>我们声称一切都是纯函数、无副作用，但最终却需要一个”不纯”的主函数作为程序的入口点。这就像构建了一个完美的数学宇宙，却需要从外部”踢一脚”才能启动。<br>无穷次才能收敛的递归，实际上存在的编译时间，不可判定，无限运行的主循环</p>
+<p>程序不是运行在时间中，而是时间自己在通过程序收敛成为世界（存在）。</p>
+<p>～可能世界语义学<br>Do IO a-&gt;WORLD<br>Be ‘非计算性的存在性命题的单子’计算可能失败（不终止&#x2F;不可执行）&#x3D; Possible｜，其中Unknown: Possible<br>Rand</p>
+<p>将单纯的构造性逻辑Decidable 提升到WORLD 或者叫Time 或者叫 Timeline</p>
+<p>代数effect<br>~koka<br>命名规范: 类型变量首字母大写, 项变量首字母小写, WORLD变量大写</p>
+<p>roll: $RAND -&gt; Nat<br>可以引入随机种子将其变为[$VAR Nat] -&gt; Nat</p>
+<p>Data Effects兼顾了时序, 天然允许并行, 可以自动画出计算图<br>effect: 对外界的影响<br>coeffect: 外界对内部的影响<br>scan: TERM -&gt; a 终端-控制台<br>print: a -&gt; TERM -&gt; TERM<br>read: $HEAP -&gt; a<br>write: a -&gt; HEAP -&gt; HEAP<br>IO :&#x3D; TERM | HEAP<br>DO 需要指定所有的IO参数<br>比如, DO print “Hello World” CONSOLE 这里CONSOLE是默认参数也可以不写<br>%%get: $VAR a -&gt; a<br>set: a -&gt; VAR a -&gt; $VAR a<br>START 指定 VAR 参数</p>
+<ul>
+<li><input disabled="" type="checkbox"> 感觉VAR可以有些地方和IO不一样, 毕竟只在局部用的话其实是纯的 ? 或许甚至可以不用专门语法</li>
+<li>可以参考Haskell state</li>
+<li>或许有的地方文件是带历史记录的，那就和普通对象无差别了，这个系统的核心是可变且同一 <strong>时间</strong> 状态一定</li>
+</ul>
+<p> 本质上$表示只读是个函子, 存在 HEAP -&gt; $HEAP 但不存在 $HEAP -&gt; HEAP<br>异步天然支持 print “hello” &gt;&gt;&#x3D; print “world” 或 print “world” &#x3D;&lt;&lt; print “hello”<br>为避免碰撞，并发要显式写print “hello” &gt;&#x3D;&lt; print “world”: TERM -&gt; $TERM , 此时”helloworld”或者”worldhello”顺序不定<br>合并操作, 不能合并多个多个写, (f: HEAP -&gt; $HEAP -&gt; $HEAP) &gt;&#x3D; : HEAP -&gt; $HEAP先读再写</p>
+<p>理论上已经可以了保证时间线正常了,<br>为了更好用 &#x2F; 引入lambda表达式: 类似rust每个变量只能用一次, 只能用于指定的函数(上述函数以及合法构造)<br>严格来说WORLD不是正常类型, 之前即使是泛型的函数也不能用(特别是Pair之类的)<br>直观上来讲设立不能有 WORLD a, WORLD a, 即对同一对象的两次写, 但主要是不知道中间有没有用这种操作 %%<br>为了保证时间线正常, 在lambda表达式中, 类似rust每个变量只能写一次, 只能用于指定的函数(上述函数以及符合此规则合法构造)<br>严格来说WORLD不是正常类型, 之前即使是泛型的函数也不能用(特别是Pair之类的)<br>用更加准确的TIME<br>即TERM HEAP RAND :: TIME<br>根据需求可以有不同的运行程序的方式, 并行 串行等, 都是对时间图的处理<br>%% - [ ] 由于原来的变量写完过后就不能用了, 因此允许写完给到原值, 下文自动用最新的 &#x2F; 这似乎太邪恶了<br>VAR对象可以用LET给初值并限定作用域 %%</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs fu">print5: TERM := t: TERM -&gt;<br>	] for (0, t) (?&lt;5) (1+, <br>		print &quot;Hello World&quot;)<br></code></pre></td></tr></table></figure>
+
+<p> for a: A p: (A -&gt; Prop) (f: A -&gt; A) :&#x3D; [decide p a] -&gt; (while (f a) p f ) | [else] -&gt; a%% 需要改成适合monad的形式 %%<br>可以试着包装一个更简单的版本</p>
+<p>Control Effects<br>a | ERR 可以通过模式匹配消去</p>
+<p>实际上所有类型都是 a, time, 因为程序始终在物理世界运行, 会遇到内存满, 用户不耐烦了等情况<br>目标是编译能通过的情况下运行一般不会出问题, 同时不能保证编译收敛<br>感觉还是分成两层：编译和运行</p>
+<ul>
+<li><input disabled="" type="checkbox"> 如何引入运行时</li>
+<li><input disabled="" type="checkbox"> time :&#x3D; Dag (Nat | DIV | ASYNC)<br>？或许其实运行时和编译时不是完全分开的，比如一个关于1000以内数命题的证明可以有部分证明和枚举 ? 但是我感觉暂时没有很好的逻辑可以兼容.<br>甚至囊括自然语言, 那就更遥远了. 描述存在并非存在本身</li>
+</ul>
+<h2 id="注记：可计算性"><a href="#注记：可计算性" class="headerlink" title="注记：可计算性"></a>注记：可计算性</h2><p>在编译期判断一个函数&#x2F;程序（特别地，类型定义，<a href="/%CE%BB-calculus/" title="λ-calculus">λ-calculus</a>）是否一定会停止（不会死循环）<br>可计算性相关，会出现停机问题之类的不可判定，即没有程序能完全解决这个问题，现代证明器只是限制在证明原始之类<br>越expressive的语言，能判定的部分的占比就越小</p>
+<p>Haskell 不进行终止性检查, 但是采用lazy evaluation, 保证存在β范式就能找到<br>实际上这允许定义f(n)&#x3D;even n?n&#x2F;2:3n+1 (Collatz 猜想)</p>
+<p>Coq&#x2F;Agda&#x2F;Idris默认终止性检查，但允许用户手动跳过, 同时默认为应用序<br>我认为作为步骤应该在此基础上允许用户提供可判定性的证明, 作为其他地方的变量应该采用Haskell的模式</p>
+<h2 id="注记-独立性"><a href="#注记-独立性" class="headerlink" title="注记: 独立性"></a>注记: 独立性</h2><p>引入新命题(i.e. 类型定义)时可能<br>1. 引入的定义可以由已有的公理得到存在性<br>2. 该定义在现有公理体系下不存在<br>3. 该定义既不能被现有公理证明也不能证伪，可以作为新公理</p>
+<p>用force: A(类似sorry, 但不会有警告)引入一个可能独立的定义, 或者也可以看做一种判断等, 与Maybe A不同, 后者我知道可能不存在, 只是想将其作为其余构造的一部分</p>
+<h1 id="富文本"><a href="#富文本" class="headerlink" title="富文本"></a>富文本</h1><p>代码部分用{}标记, 渲染时用&gt;&gt;&gt;标出部分# 代码结果<br>外面是[[Vion_editor]]: 采用markdown语法, 可以在一行的开头用# 紧接命令, 也用c风格的注释<br>右边栏有渲染结果, proof, message 等<br>变量名用类似latex的方式渲染，用<code>$</code>表示开始和公式中的空格<br>eg <code>$bb$0</code>$\to\mathbb 0$</p>
+<h1 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h1><h2 id="广义张量"><a href="#广义张量" class="headerlink" title="广义张量"></a>广义张量</h2><p>%% </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs fu">V  W: VecterSpace, α: (ℝ[], Q: orderedBase V) //ℝ[]用来表示ℝ形式向量空间~多项式<br>M: V α | α* [:W] [:α]<br>//这里的默认作用是带缩并的张量积, | 表示不带缩并版本<br>//[:W] [:α]是[w:W] [a:α]的省略<br></code></pre></td></tr></table></figure>
+<p>%%</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs fu">&lt;a b&gt;g y x &lt;x y&gt;f s t<br></code></pre></td></tr></table></figure>
+<p>用前置标注的方法</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>fu_language</div>
+      <div>http://kaelvio.com/fu_language/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>采薇</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年2月24日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/Robust_Prover/" title="Robust_Prover">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Robust_Prover</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/%E9%9B%A8%E5%BE%AA%E7%8E%AF30_%E9%87%87%E8%96%87/" title="雨循环30_采薇">
+                        <span class="hidden-mobile">雨循环30_采薇</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '3061b7f779dcbabe3e3429d931d92d8b'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

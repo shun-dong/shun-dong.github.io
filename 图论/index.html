@@ -1,0 +1,1585 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/only.ico">
+  <link rel="icon" href="/img/only.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="采薇">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="基本定义   [!def] 图$G &#x3D; (V, E)$，其中 $V$ 为顶点集（vertexm），$E$ 为边集（edge）。   [!def] 图的分类    类型 边方向 允许多重边 允许环    简单图 无向 否 否   多重图 无向 是 否   伪图 无向 是 是   简单有向图 有向 否 否   有向多重图 有向 是 是   混合图 有向和无向的 是 是    对简单图，边由顶">
+<meta property="og:type" content="article">
+<meta property="og:title" content="图论">
+<meta property="og:url" content="http://kaelvio.com/%E5%9B%BE%E8%AE%BA/index.html">
+<meta property="og:site_name" content="采薇的博客">
+<meta property="og:description" content="基本定义   [!def] 图$G &#x3D; (V, E)$，其中 $V$ 为顶点集（vertexm），$E$ 为边集（edge）。   [!def] 图的分类    类型 边方向 允许多重边 允许环    简单图 无向 否 否   多重图 无向 是 否   伪图 无向 是 是   简单有向图 有向 否 否   有向多重图 有向 是 是   混合图 有向和无向的 是 是    对简单图，边由顶">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-24T03:51:27.946Z">
+<meta property="article:modified_time" content="2026-02-24T03:51:27.947Z">
+<meta property="article:author" content="采薇">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>图论 - 采薇的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kaelvio.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>采薇的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档Archive</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/playground/" target="_self">
+                <i class="iconfont icon-exp-fill"></i>
+                <span>playground</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于采薇Kaelvio</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链links</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="图论"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-02-24 11:51" pubdate>
+          2026年2月24日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          12k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          97 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">图论</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2026年2月24日 中午
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="基本定义"><a href="#基本定义" class="headerlink" title="基本定义"></a>基本定义</h1><!-- Page 1 -->
+
+<blockquote>
+<p>[!def] 图<br>$G &#x3D; (V, E)$，其中 $V$ 为顶点集（vertexm），$E$ 为边集（edge）。</p>
+</blockquote>
+<blockquote>
+<p>[!def] 图的分类</p>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>边方向</th>
+<th>允许多重边</th>
+<th>允许环</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>简单图</td>
+<td>无向</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>多重图</td>
+<td>无向</td>
+<td>是</td>
+<td>否</td>
+</tr>
+<tr>
+<td>伪图</td>
+<td>无向</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>简单有向图</td>
+<td>有向</td>
+<td>否</td>
+<td>否</td>
+</tr>
+<tr>
+<td>有向多重图</td>
+<td>有向</td>
+<td>是</td>
+<td>是</td>
+</tr>
+<tr>
+<td>混合图</td>
+<td>有向和无向的</td>
+<td>是</td>
+<td>是</td>
+</tr>
+</tbody></table>
+</blockquote>
+<p>对简单图，边由顶点唯一确定，因此主要研究顶点。</p>
+<blockquote>
+<p>[!def] 邻居与度</p>
+<ul>
+<li>$N(v), N(A)$：顶点 $v$ 或集合 $A$ 的邻居集合。</li>
+<li>$\deg(v)$：度（无向图中）。</li>
+<li>$\deg^-(v)$：入度（有向图中）。</li>
+<li>$\deg^+(v)$：出度（有向图中）。</li>
+<li>$\Delta(G) &#x3D; \max \deg(v)$：最大度。</li>
+<li>$\delta(G) &#x3D; \min \deg(v)$：最小度。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>[!thm] 握手定理（无向图）<br>在无向图中，有：<br>$$</p>
+</blockquote>
+<blockquote>
+<p>2|E| &#x3D; \sum \deg(v)</p>
+</blockquote>
+<p>$$</p>
+<p>即无向图中，边贡献2度。</p>
+<blockquote>
+<p>[!proposition] 有向图中<br>$$</p>
+</blockquote>
+<blockquote>
+<p>|E| &#x3D; \sum \deg^-(v) &#x3D; \sum \deg^+(v)</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>[!def] 特殊简单图</p>
+<ul>
+<li><strong>完全图</strong> $K_n$：任意两点间有边。图示：$K_5$。</li>
+<li><strong>圈图</strong> $C_n$（$n \ge 3$）：顶点按圈连接。</li>
+<li><strong>轮图</strong> $W_n$（$n \ge 3$）：圆图连接中心点, 图示：$W_3$。</li>
+<li><strong>n立方体图</strong> $Q_n$：图示：$Q_4$。</li>
+<li><strong>空图</strong> $N_n$ 或 $\overline{K_n}$：只有n个点, 无边。</li>
+<li><strong>零图</strong> $N_0$ 或 $K_0$：无边，无顶点。</li>
+<li><strong>链图</strong> $P_n$</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>[!def] 二分图<br>$G &#x3D; X \cup Y$，其中 $X, Y$ 为顶点集，边仅在 $X$ 与 $Y$ 之间。</p>
+</blockquote>
+<blockquote>
+<p>[!def] 完全二分图<br>$K_{m,n}$：图示：$K_{3,1}$。</p>
+</blockquote>
+<!-- Page 2 -->
+
+<blockquote>
+<p>[!proposition] 简单图是二分图 $\iff$ 存在2种颜色的着色</p>
+</blockquote>
+<blockquote>
+<p>[!def] <strong>匹配</strong> $M \subseteq E$：没有两条边共享顶点。</p>
+<ul>
+<li><strong>最大匹配</strong>：边数最多的匹配。</li>
+<li><strong>完美匹配</strong>：从 $V$ 到 $V$ 的完全匹配。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>[!thm] 霍尔婚姻定理<br>二分图 $G &#x3D; (X, Y)$ 存在完美匹配 $\iff$ 对任意 $A \subseteq X$，有 $|N(A)| \ge |A|$。</p>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> 构造性证明</li>
+</ul>
+<blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> <strong>Ore条件</strong>：定义 $d(u) &#x3D; |A| - |N(A)|$。</li>
+<li>任意二分图的最大顶点数 &#x3D; $|V| - \max_{A \subseteq V} d(A)$。</li>
+</ul>
+</blockquote>
+<h1 id="construct-of-graphs"><a href="#construct-of-graphs" class="headerlink" title="construct of graphs"></a>construct of graphs</h1><blockquote>
+<p>[!def] 图的变换</p>
+<ul>
+<li>增加边：不影响连通性，记作 $G+e$</li>
+<li>删除边: 影响连通性, 记作 $G-e$</li>
+<li>边的收缩 edge contraction：不影响连通性，记作 $G\backslash e$</li>
+<li>删除顶点：影响连通性，记作 $G-v$ 或 $G\backslash v$</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>[!def]<br>complement graph. $\bar \Gamma:&#x3D;(V_\Gamma,2^{V_\Gamma}-E_\Gamma)$<br>line graph. $L(\Gamma):&#x3D;(E_\Gamma, \left{ \left{ e_1,e_2 \right} |e_1\cap e_2\neq \varnothing\right})$<br>power graph. $\Gamma^k:&#x3D;(E_\Gamma,\left{ \left{ u,v \right}|d(u,v)\leq k \right})$</p>
+</blockquote>
+<p>e.g. $L(K_2)&#x3D;K_1,C_4^2&#x3D;K_4$</p>
+<blockquote>
+<p>[!def]<br>disjoint union. $\Gamma\coprod H:&#x3D;(V_\Gamma\coprod V_H,E_\Gamma\coprod E_H)$<br>join. $\Gamma+ H:&#x3D;(V_\Gamma\coprod V_H,E_\Gamma\coprod E_H\coprod (E_\Gamma \times E_{H}))$</p>
+</blockquote>
+<p>e.g. $K_m+K_n&#x3D;K_{m+n}$<br>$\bar K_m +\bar K_n&#x3D;K_{m,n}$</p>
+<blockquote>
+<p>[!def] products<br>$V&#x3D;V_\Gamma \times V_H$<br>direct sum&#x2F; Cartesian product $\Gamma \square H$.<br>$(u_1,v_1)\sim(u_2,v_2)\iff (u_1&#x3D;u_2,v_1\sim v_2)or(u_1\sim u_2,v_1&#x3D;v_2)$<br>direct product&#x2F; tensor product $\Gamma \times H$.<br>$(u_1,v_1)\sim(u_2,v_2)\iff u_1\sim u_2,v_1\sim v_2$<br>strong product $\Gamma \boxtimes H$.<br>$E_{\Gamma\boxtimes H}:&#x3D;E_{\Gamma\square H}\cup E_{\Gamma \times H}$<br>字典序积 Lexicographic product $\Gamma[H]$.<br>$(u_1,v_1)\sim(u_2,v_2)\iff u_1\sim u_2~or(u_1&#x3D; u_2,v_1\sim v_2)$</p>
+</blockquote>
+<p>Similar constructions can be find in order.<br>e.g. $Q_n&#x3D;K_2^{\square n},P_n\times P_n\cong P_n,P_2[\Gamma]&#x3D;\Gamma+\Gamma$</p>
+<h1 id="图同构"><a href="#图同构" class="headerlink" title="图同构"></a>图同构</h1><blockquote>
+<p>[!remark] 图的表示</p>
+<ul>
+<li><strong>邻接表</strong>：适用于稀疏图（~稀疏矩阵）。</li>
+<li><strong>邻接矩阵</strong> $A_G$：适用于混合图的所有图。</li>
+<li><strong>关联矩阵</strong> $A$：适用于有向图。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>[!def] 图同构</p>
+</blockquote>
+<p>图形不变量：顶点数、边数、度序列。</p>
+<blockquote>
+<p>[!proposition]<br>$G\cong H \iff A_{G}&#x3D;P^{-1}A_{H}P$, where $P$ is a permutation matrix(置换矩阵)</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 图同构判定<br>判定两个图是否同构是是少有的几个不知是理论可行的或NP完全的NP问题之一。</p>
+</blockquote>
+<!-- Page 3 -->
+<h1 id="linear-algebra-in-graph-theory"><a href="#linear-algebra-in-graph-theory" class="headerlink" title="linear algebra in graph theory"></a>linear algebra in graph theory</h1><blockquote>
+<p>[!def] 图的谱（Spectrum）<br>$Spec: Graph\to MutiSet$ s.t. $G \cong H \to Spec(G) &#x3D; Spec(H)$</p>
+</blockquote>
+<blockquote>
+<p>[!exm]</p>
+<ol>
+<li>$\operatorname{Spec}(G) &#x3D; {\deg(v) : v \in V}$。</li>
+<li>$\operatorname{Spec}(G) &#x3D; \operatorname{Spec}(A_G)$。</li>
+<li>$\operatorname{Spec}(G) &#x3D; \operatorname{Spec}\left(\operatorname{diag}(\deg v) - A_G\right)$。</li>
+<li>$\operatorname{Spec}(G) &#x3D; \operatorname{Spec}(D_{\operatorname{ista}})$，其中 $D_{\operatorname{ista}}$ 为距离矩阵。</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>[!hyp] 图谱决定性猜想<br>几乎所有图由其谱唯一确定。</p>
+</blockquote>
+<p>${G_\alpha}_{\alpha \in I}$ 为所有非同构的图，令 $\operatorname{Spec}(G) &#x3D; \mu$ s.t. $G\cong G_{\mu}$, 这个谱显然区分了所有同构, 但不是构造性的. </p>
+<blockquote>
+<p>[!def] 自然矩阵<br>矩阵 $A$ 是自然的，若其由邻接矩阵 $A_G$ 经以下操作得到：</p>
+<ul>
+<li>(1) 线性组合；</li>
+<li>(2) 矩阵乘法；</li>
+<li>(3) 元素乘法。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>[!exm]</p>
+<ul>
+<li>$A_G^0 &#x3D; I$；</li>
+<li>$A_G^* &#x3D; J$（补图，$J - I - A$）；</li>
+<li>$(A^*) \times I &#x3D; \operatorname{deg} - A$（Laplacian）；</li>
+<li>$D_{\operatorname{ista}}$（固定 $|V|$）$&#x3D; A^{\mu}$。</li>
+</ul>
+</blockquote>
+<!-- Page 4 -->
+
+<blockquote>
+<p>[!prob] 问题<br>几乎所有图是否是 DS 图（对于自然矩阵的谱）？</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 难点<br>某些图（如 SRG）对所有自然矩阵的谱都不具有唯一性。<br>例如：Petersen 图（手绘五角星形图）。</p>
+</blockquote>
+<blockquote>
+<p>[!def] 顶点划分<br>$G_i$：包含所有度为 $i$ 的顶点的子图。</p>
+</blockquote>
+<blockquote>
+<p>[!exm]<br>一个四边形图，顶点标记为 1, 2, 3, 4，其中：</p>
+<ul>
+<li>$G_1 &#x3D; {2}$（度为 1 的顶点）；</li>
+<li>$G_2 &#x3D; {1, 3, 4}$（度为 2 的顶点）；</li>
+<li>$G_3 &#x3D; \emptyset$；</li>
+<li>$G_4 &#x3D; \emptyset$。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>[!remark] 诱导子图<br>若 $G_i \subseteq G_j$，则 $G_i \subseteq H_k$，进而对任意 $v, i, j$，有 $(G_i)_{v,j} \subseteq (H_k)_{v,j}$，依此类推。</p>
+</blockquote>
+<blockquote>
+<p>$\Rightarrow V_G &#x3D; \bigcup_i X_i, \quad V_H &#x3D; \bigcup_i Y_i$，诱导映射 $X_i \to Y_i$。</p>
+</blockquote>
+<blockquote>
+<p>我们希望将 $V_G$ 划分为若干轨道（orbit）。</p>
+</blockquote>
+<blockquote>
+<p>[!thm] 定理<br>固定顶点数 $|V|$，对于某个自然矩阵的谱，几乎所有图都是 DS 图。</p>
+</blockquote>
+<blockquote>
+<p>[!proposition] k-regular graph $\Gamma$<br>Let $n&#x3D;|V_\Gamma|$</p>
+<ol>
+<li>k is an eigenvalue</li>
+<li>For eigenvalue $\lambda$, $|\lambda|\leq k$</li>
+<li>If $\Gamma$ is connected, k has algebraic multiplicity 1, corresponding to $\mathbf{1}:&#x3D;[1,1\dots1]^T$</li>
+</ol>
+</blockquote>
+<h1 id="连通性"><a href="#连通性" class="headerlink" title="连通性"></a>连通性</h1><blockquote>
+<p>[!def] 图的连通性</p>
+<ul>
+<li><strong>通路</strong>：顶点序列 $v_0, v_1, \dots, v_k$，相邻顶点间有边。</li>
+<li><strong>回路</strong>：起点与终点相同的通路。</li>
+<li><strong>简单的</strong>：边不重复。</li>
+<li><strong>简单图中</strong>：用 $v_0, \dots, v_k$ 表示通路。</li>
+<li><strong>例</strong>：六度分离（six degrees of separation）。</li>
+<li><strong>连通的</strong>：任意两个顶点间存在通路。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>[!thm] 定理<br>在连通无向图中，任意两个顶点间存在简单通路，即最短通路。</p>
+</blockquote>
+<blockquote>
+<p>[!def] 连通分支<br>图的极大连通子图。对于任意顶点 $v$，存在唯一包含 $v$ 的连通分支。</p>
+</blockquote>
+<blockquote>
+<p>[!def] 割点、割边<br>删除后产生更多连通分支的顶点或边。</p>
+</blockquote>
+<blockquote>
+<p>[!def] 点割集<br>顶点子集 $V’$ s.t. $G - V’$ 不连通</p>
+</blockquote>
+<blockquote>
+<p>[!def] 点连通度<br>$\kappa(G) &#x3D; \min |V’|$，其中 $V’$ 是点割集。</p>
+</blockquote>
+<blockquote>
+<p>$\kappa(G) &#x3D; 0$：不连通图<br>$k(G) \ge k$：$k$-连通图（删除 $k-1$ 个顶点后仍连通）<br>$k(G) \ge 2$：2-连通图 ⇒ 不可分割图</p>
+</blockquote>
+<!-- Page 6 -->
+
+<blockquote>
+<p>[!def] 边割集与边连通度 $\lambda(G)$</p>
+<ul>
+<li>边割集：删除后使图不连通的边子集。</li>
+<li>边连通度：$\lambda(G) &#x3D; \min |E’|$，其中 $E’$ 是边割集。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>$\kappa(G) \le \lambda(G) \le \min \deg(v)$</p>
+</blockquote>
+<p><em>Proof.</em><br>考虑度数最小的顶点 $v$，其度数为 $\min \deg(v)$。  </p>
+<ul>
+<li>$\lambda(G) \le \min \deg(v)$：因为删除与 $v$ 相连的所有边即可使 $v$ 与其他部分断开，形成边割集。  </li>
+<li>$\kappa(G) \le \lambda(G)$：因为删除一个点割集 $V’$ 会破坏连通性，而删除与 $V’$ 中每个顶点相连的所有边（即边割集）也会破坏连通性，故 $\lambda(G) \le |V’|$，取最小值即得 $\lambda(G) \ge \kappa(G)$。<br>等号成立当且仅当存在一个点割集 $V’$，使得删除 $V’$ 中每个顶点的邻边恰好构成一个边割集。</li>
+</ul>
+<blockquote>
+<p>[!remark] 通路方向说明</p>
+<ul>
+<li>弱通路：忽略方向（适用于无向图或有向图中不考虑方向）</li>
+<li>强通路：考虑方向（适用于有向图）</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>从 $v_i$ 到 $v_f$ 长度为 $r$ 的不同通路数 &#x3D; $A^r_{i,f}$，其中 $A$ 为邻接矩阵。</p>
+</blockquote>
+<blockquote>
+<p>[!def] 欧拉回路<br>一条经过图中每条边恰好一次的回路。</p>
+</blockquote>
+<blockquote>
+<p>[!def] 欧拉图<br>存在欧拉回路的图。</p>
+</blockquote>
+<blockquote>
+<p>[!thm] 欧拉图判定定理<br>无向图 $G$ 是欧拉图 $\iff$ $G$ 是连通的，且每个顶点的度数为偶数。</p>
+</blockquote>
+<p><em>Proof.</em><br>$\Rightarrow$：若存在欧拉回路，则每条边被访问一次，每个顶点的入度等于出度（无向图中即度数），且回路中每个顶点进出次数相等，故度数为偶数。<br>$\Leftarrow$：构造算法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs algorithm">算法 1 构造欧拉回路<br>procedure Euler(G: 所有顶点的度数为偶数的连通多重图)<br>    circuit ← 从 G 中任选的顶点开始，连续地加入边所形成的回到该顶点的回路<br>    H ← 删除这条回路的边之后的 G<br>    while H 还有边<br>        subcircuit ← 在既是 H 的顶点也是 circuit 的边的端点处开始的 H 的一条回路<br>        H ← 删除 subcircuit 的边和所有孤立点之后的 H<br>        circuit ← 在适当顶点上插入 subcircuit 之后的 circuit<br>    return circuit (circuit 是欧拉回路)<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[!remark] 构造说明</p>
+<ul>
+<li>从任意顶点出发，构造一条回路。</li>
+<li>若图中仍有边，则必存在与当前回路共享顶点的子回路（因图连通且所有度数为偶数，除起点外必有进入即离开）。</li>
+<li>重复插入子回路，直至无边剩余。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>[!def] 哈密顿回路<br>一条经过图中每个顶点恰好一次的回路。</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 存在性条件<br>存在哈密顿回路 $\Rightarrow$ 每个顶点的度数 $\ge 2$。</p>
+</blockquote>
+<!-- Page 7 -->
+
+<blockquote>
+<p>[!thm] 定理 7.3.6<br>若图 $G &#x3D; (V, E)$ 是 Hamilton 图，则对 $V$ 的任意非空子集 $S$，图 $G - S$ 至多有 $|S|$ 个连通分支。</p>
+</blockquote>
+<p><em>Proof.</em><br>设 $G$ 是 Hamilton 图，即存在一条经过每个顶点恰好一次的回路 $C$。令 $S \subseteq V$ 且 $S \ne \emptyset$。考虑删除 $S$ 中顶点后得到的图 $G - S$。由于 $C$ 是回路，删除 $S$ 中的顶点会将 $C$ 分割成若干段，每段对应 $G - S$ 中的一个连通分支。每一段必须连接到 $S$ 中的某个顶点（否则无法形成回路），且每个 $S$ 中的顶点最多只能“连接”两个这样的段（因为回路是连续的）。因此，$G - S$ 的连通分支数不超过 $|S|$。</p>
+<blockquote>
+<p>[!remark] 定理 7.3.6 的应用<br>该定理是判断图是否为 Hamilton 图的必要条件。若存在某个子集 $S$ 使得 $G - S$ 的连通分支数大于 $|S|$，则 $G$ 不是 Hamilton 图。</p>
+</blockquote>
+<hr>
+<p><strong>习题 46：彼得森图无哈密顿回路</strong></p>
+<blockquote>
+<p>[!remark] 彼得森图结构<br>顶点集 $V &#x3D; {a, b, c, d, e, f, g, h, i, j}$，边集 $E &#x3D; {f, g, h, i, j}$（此处应为边的集合，但原笔记中写法不完整，实际应为连接关系）。</p>
+</blockquote>
+<p><em>Proof.</em><br>设彼得森图存在哈密顿回路 $C$。考虑外圈顶点集 $V_1 &#x3D; {a, b, c, d, e}$ 和内圈顶点集 $V_2 &#x3D; {f, g, h, i, j}$。由于 $C$ 是回路，且 $|V_1| &#x3D; 5$ 为奇数，$C$ 在 $V_1$ 中的边数必为偶数（因为回路中顶点交替出现），故 $C$ 必须在 $V_1$ 中有偶数条边，即 $C$ 必须进入和离开 $V_1$ 偶数次。但 $V_1$ 与 $V_2$ 之间仅有 5 条边（每个外圈顶点连接一个内圈顶点），因此 $C$ 在 $V_1$ 与 $V_2$ 之间切换的次数为奇数（5次），矛盾。故彼得森图无哈密顿回路。</p>
+<blockquote>
+<p>[!remark] 证明关键<br>利用回路的交替性质：若顶点集大小为奇数，则回路在该集合中的边数必为偶数，从而进出次数为偶数。但彼得森图中 $V_1$ 与 $V_2$ 之间边数为奇数，导致进出次数为奇数，矛盾。</p>
+</blockquote>
+<hr>
+<p><strong>图 14：$Q_3$ 的哈密顿回路</strong></p>
+<blockquote>
+<p>[!remark] 3维超立方体图 $Q_3$<br>顶点为所有长度为 3 的二进制串，边连接汉明距离为 1 的顶点。</p>
+</blockquote>
+<p><em>Proof.</em><br>存在哈密顿回路，例如：<br>$000 \to 001 \to 011 \to 010 \to 110 \to 111 \to 101 \to 100 \to 000$<br>该路径访问所有 8 个顶点恰好一次并返回起点。</p>
+<blockquote>
+<p>[!remark] 一般化<br>$Q_n$ 对任意 $n \ge 2$ 均存在哈密顿回路（可通过归纳法或构造法证明）。</p>
+</blockquote>
+<hr>
+<p><strong>手写补充：</strong></p>
+<blockquote>
+<p>[!remark] 欧拉图判定<br>任意不相邻顶点度数之和 $\ge 2n$（$n \ge 3$）时，图可能为欧拉图（需结合连通性与偶度数）。</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 哈密顿图判定<br>任意顶点度数 $\ge \frac{n}{2}$ 时，图可能为哈密顿图（Dirac 定理条件）。</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 最短路径<br>在图中寻找最短路径，可使用 Dijkstra 算法或 Bellman-Ford 算法（若含负权）。</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 加权图<br>边带有权重的图，用于建模距离、成本等。</p>
+</blockquote>
+<!-- Page 8 -->
+
+<blockquote>
+<p>[!remark] 迪克斯特拉-欧拉问题<br>考虑到 $G$ 生成树的边数 $|E(T)| &#x3D; |V| - 1$，其中 $T$ 为生成树，$G$ 为连通图。</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 球面问题<br>在球面上，任意简单图可嵌入，即任意图可画在球面上而不产生边交叉。</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 平面图<br>只有边可放在面上，任意图可放在面上。</p>
+</blockquote>
+<blockquote>
+<p>[!thm] 欧拉公式（平面图）<br>对于连通平面图，有 $|V| - |E| + |F| &#x3D; 2$，其中 $F$ 为面数（包括外部无限面）。<br><em>Proof.</em><br>通过归纳法证明：初始时仅一个顶点，$V&#x3D;1, E&#x3D;0, F&#x3D;1$，满足 $1-0+1&#x3D;2$。<br>每次添加一个顶点或一条边，保持等式成立。<br>最后只剩一棵生成树，此时 $V - E &#x3D; 1$，且 $F &#x3D; 1$，故 $V - E + F &#x3D; 2$。</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 连通平面简单图<br>若 $G$ 为连通平面简单图，且 $|V| \ge 3$，则 $|E| \le 3|V| - 6$。</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 连通平面简单图（无三角形）<br>若 $G$ 为连通平面简单图且无三角形，则 $|E| \le 2|V| - 4$。</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 面的度数<br>面的度数 &#x3D; 边界边数（重边计两次，自环计两次）。</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 简单图 ⇒ 面的度数 ≥ 3<br>对于简单平面图，每个面的度数至少为 3。</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 平面图与同胚<br>平面图 $\to$ 同胚（拓扑等价）。</p>
+</blockquote>
+<blockquote>
+<p>[!thm] 非平面图判定<br>图 $G$ 非平面当且仅当它包含同胚于 $K_5$ 或 $K_{3,3}$ 的子图。</p>
+</blockquote>
+<!-- Page 9 -->
+
+<blockquote>
+<p>[!remark] 着色<br>着色问题：给图 $G$ 的顶点染色，使得相邻顶点颜色不同。<br>着色数 $\chi(G)$：最小所需颜色数。<br>有 $\chi(K_n) &#x3D; n$，$\chi(K_{m,n}) &#x3D; 2$。</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 例子：树的着色<br>对任意树 $T$，$\chi(T) &#x3D; 2$。<br>证明：任选一个根，进行层次染色（一层一色交替）。</p>
+</blockquote>
+<blockquote>
+<p>[!thm] 四色定理<br>任意平面图的着色数 $\chi(G) \le 4$。<br><em>Proof.</em>  由 Appel 和 Haken 证明（计算机辅助，1976年）。</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 五色定理<br>任意平面图的着色数 $\chi(G) \le 5$。<br>证明思路：对顶点数 $n$ 归纳。<br>当 $n \le 4$ 时成立；当 $n \ge 5$ 时，考虑度数 $\le 5$ 的顶点，可递归着色。<br>（注：五色定理为四色定理的简化版本，证明更易。）</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 六色定理<br>任意平面图的着色数 $\chi(G) \le 6$。<br>证明思路：对顶点数 $n$ 归纳，利用平面图中存在度数 $\le 5$ 的顶点（由欧拉公式推得），递归着色。</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 零图与独立集<br>$K_n$ 也称为零图。若 $H \subset G$ 是零图（即 $H$ 中顶点互不邻接），则称 $H$ 的顶点集 $V(H)$ 为 $G$ 的一个独立集。</p>
+</blockquote>
+<!-- Page 10 -->
+
+<blockquote>
+<p>[!def] 定义 7.4.5<br>图 $G$ 的顶点集 $V(G)$ 包含的独立子集的最大基数（即 $G$ 的最大零导出子图的阶）称为 $G$ 的独立数，记为 $\alpha(G)$。$G$ 的具有 $\alpha(G)$ 个顶点的独立集称为 $G$ 的最大独立集。<br>一个真着色将 $V(G)$ 划分成一些独立集的不交并。</p>
+</blockquote>
+<blockquote>
+<p>[!def] 定义 7.4.8<br>图 $G$ 包含的最大完全子图的阶数定义为 $G$ 的团数，记为 $\omega(G)$。</p>
+</blockquote>
+<blockquote>
+<p>[!fact] 事实 7.4.9<br>对任意 $n$ 阶图 $G$ 及其子图 $H$，有<br>$\chi(H) \le \chi(G)$。<br>特别地，若 $K_p$ 是 $G$ 的子图，则 $\chi(G) \ge p$，从而 $\chi(G) \ge \omega(G)$。</p>
+</blockquote>
+<blockquote>
+<p>[!proposition] 性质 7.4.10<br>对任意图 $G &#x3D; (V, E)$，有<br>$\chi(G) \le \Delta(G) + 1$。</p>
+</blockquote>
+<blockquote>
+<p>[!exm] 例 7.4.11<br>对任意 $n \in \mathbb{Z}^+$，有<br>$\chi(K_n) &#x3D; n &#x3D; \Delta(K_n) + 1$。<br>对任意大于 1 的奇数 $n$，有<br>$\chi(C_n) &#x3D; 3 &#x3D; \Delta(C_n) + 1$。</p>
+</blockquote>
+<p><em>Proof.</em>  由定义，$\chi(G)$ 是最小着色数，而 $\Delta(G)$ 是最大度数。在任意着色中，每个顶点的邻居必须与它不同色，因此一个顶点最多与 $\Delta(G)$ 个邻居相邻，故至少需要 $\Delta(G) + 1$ 种颜色来着色其邻域（包括自身），从而 $\chi(G) \le \Delta(G) + 1$。<br>（注：此为上界，实际着色数可能更小。）</p>
+<blockquote>
+<p>[!remark] 图的子图关系<br>设 $G &#x3D; (V, E)$，$G’ &#x3D; (V’, E’)$。<br>若 $V’ \subseteq V$ 且 $E’ \subseteq E$，则称 $G’$ 为 $G$ 的子图。<br>若 $V’ &#x3D; V$，则称 $G’$ 为 $G$ 的生成子图。<br>若 $u, v \in V’$ 且 $uv \in E$，则 $uv \in E’$，则称 $G’$ 为 $G$ 的导出子图。</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 独立数与着色数关系<br>$\alpha(G) \cdot \chi(G) \ge n$，其中 $n &#x3D; |V(G)|$。<br><em>Proof.</em>  设着色将 $V(G)$ 划分为 $\chi(G)$ 个独立集 $V_1, \dots, V_{\chi(G)}$，则<br>$n &#x3D; \sum_{i&#x3D;1}^{\chi(G)} |V_i| \le \sum_{i&#x3D;1}^{\chi(G)} \alpha(G) &#x3D; \chi(G) \cdot \alpha(G)$。</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 图的结构示意图<br>一个中心顶点连接五个邻居，标记为 $v_a, v_b, v_c, v_d, v_e$。<br>考虑仅由 $a, c$ 色组成的边的邻接分支：若 $v_i, v_j$ 不在同一分支，则 $v_i, v_j$ 可同色；若 $v_i, v_j$ 在同一分支，则不能同色。<br>同理考虑 $b, d$ 色组成的边的邻接分支，可得 $v_2, v_4$ 不在同一分支，故可同色。<br>通过调整可得到更优着色方案。<br>（注：图中结构用于说明着色策略，具体颜色分配需结合上下文。）</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 顶点与边的标记<br>图中顶点标记为 $v_a, v_b, v_c, v_d, v_e$，中心顶点未标记。<br>边连接中心顶点与各邻居，无边连接邻居之间。<br>此结构为星形图 $K_{1,5}$。</p>
+</blockquote>
+<!-- Page 11 -->
+
+<blockquote>
+<p>[!thm] 定理 7.4.12 (Brooks 定理)<br>若 $G$ 既不是完全图 $K_n$，也不是奇圈 $C_n$，则有<br>$$<br>\chi(G) \le \Delta(G).<br>$$<br><em>Proof.</em>  任取 $H$ 的顶点 $u$。因 $H$ 为 $k$-临界的，故<br>$$<br>\chi(H - u) \le k - 1.<br>$$<br>若 $d(u) \le k - 2$，则可以将 $H$ 也 $(k-1)$-着色，矛盾。故<br>$$<br>d(u) \ge k - 1.<br>$$<br>由 $u$ 的任意性知<br>$$<br>\delta(H) \ge k - 1.\quad \square<br>$$</p>
+</blockquote>
+<blockquote>
+<p>[!thm] 定理 7.4.14 (Szekeres-Wilf 定理)<br>$$<br>\chi(G) \le 1 + \max{\delta(H) \mid H \subseteq G}.<br>$$</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 一般地，当 $H \subseteq G$ 时，不一定有 $\delta(H) \le \delta(G)$。<br>也未必有 $\delta(H) \ge \delta(G)$。<br>$\chi_G(k) &#x3D; k$ 针对色对 $G$ 顶点着色的方案数。</p>
+</blockquote>
+<blockquote>
+<p>[!exm] 例 7.4.16 对任意 $n, k \in \mathbb{Z}^+$，有<br>$$<br>\chi_{K_n}(k) &#x3D; k(k-1)\cdots(k-n+1) &#x3D; (k)_n,<br>$$<br>$$<br>\chi_{N_n}(k) &#x3D; k^n \quad \texmt{(这里 } N_n \texmt{ 表示 } n \texmt{ 个顶点的零图)},<br>$$<br>$$<br>\chi_{P_n}(k) &#x3D; k(k-1)^{n-1} \quad \texmt{(这里 } P_n \texmt{ 表示 } n \texmt{ 个顶点的路)}.<br>$$</p>
+</blockquote>
+<blockquote>
+<p>[!thm] 定理 7.4.17 对任意简单图 $G &#x3D; (V, E)$，设 $u, v \in V$，且 $(u,v) \in E$，则有<br>$$<br>\chi_G(k) &#x3D; \chi_{G - uv}(k) - \chi_{G \setminus uv}(k).<br>$$</p>
+</blockquote>
+<blockquote>
+<p>[!cor] 推论 7.4.18 对任意 $n$ 阶树 $T$，有<br>$$<br>\chi_T(k) &#x3D; k(k-1)^{n-1}.<br>$$<br><em>Proof.</em>  设 $u$ 为 $T$ 中的一片叶子，$v$ 为 $T$ 中与 $u$ 相邻的顶点，由 $k$-着色数的递推关系有<br>$$<br>\chi_T(k) &#x3D; k\chi_{T_1}(k) - \chi_{T_1}(k) &#x3D; (k-1)\chi_{T_1}(k),<br>$$<br>其中 $T_1 &#x3D; T - u$，即 $T$ 中去掉顶点 $u$ 和边 $uv$ 所得到的图，自然也是 $T$ 收缩边 $uv$ 得到的，它是一棵 $n-1$ 阶树。又 2 阶树就是 $K_2$，其 $k$-着色数为 $k(k-1)$，逐渐降低树的阶即得结论。$\quad \square$</p>
+</blockquote>
+<!-- Page 12 -->
+
+<blockquote>
+<p>[!cor] 推论 7.4.19 对任意 $n, k \in \mathbb{Z}^+$，有<br>$$<br>\chi_{C_n}(k) &#x3D; (k-1)^n + (-1)^n(k-1).<br>$$</p>
+</blockquote>
+<blockquote>
+<p>[!remark]<br>从上面几例可看出，对固定的图 $G$，$\chi_G(k)$ 总是关于 $k$ 的多项式，且其次数均等于 $|V(G)|$。这的确是个事实。</p>
+</blockquote>
+<blockquote>
+<p>[!thm] 定理 7.4.20 对任意固定的 $n$ 阶图 $G &#x3D; (V, E)$，其 $k$-着色数 $\chi_G(k)$ 是关于 $k$ 的首 1 整系数 $n$ 次多项式，称为 $G$ 的着色多项式。<br>$$<br>\chi_G(k) &#x3D; \sum_{i&#x3D;1}^n p_i(G) k^i.<br>$$<br>其中 $p_i(G)$ 为图 $G$ 的第 $i$ 个系数（或称第 $i$ 项系数）。</p>
+</blockquote>
+<blockquote>
+<p>[!def] 定义 7.5.1 图 $G$ 的匹配数 $\alpha’(G)$ 定义为 $G$ 的最大匹配中的边的条数：<br>$$<br>\alpha’(G) &#x3D; \max{|M| \mid M \texmt{ 是 } G \texmt{ 的匹配}}.<br>$$</p>
+</blockquote>
+<blockquote>
+<p>[!def] 定义 7.5.2 对图 $G &#x3D; (V, E)$ 的一个匹配 $M$，若 $G$ 的每个顶点都与 $M$ 中的一条边关联，则称 $M$ 为 $G$ 的一个完美匹配。</p>
+</blockquote>
+<blockquote>
+<p>[!def] 定义 7.5.3 设图 $G &#x3D; (V, E)$，$V$ 的子集 $S$ 称为 $G$ 的一个点覆盖，如果 $E$ 中的任意边都至少有一个端点在 $S$ 中。$G$ 的点覆盖数定义为<br>$$<br>\beta(G) :&#x3D; \min{|S| \mid S \texmt{ 是 } G \texmt{ 的点覆盖}}.<br>$$<br>对 $G$ 的边集的一个子集 $F \subseteq E$，称点集 $S$ 覆盖了 $F$，如果对 $F$ 中的任意边，均存在 $S$ 中的某个点与之关联。</p>
+</blockquote>
+<blockquote>
+<p>[!exm] 例 7.5.4 对任意 $m, n \in \mathbb{Z}^+$，有<br>$$<br>\beta(K_{m,n}) &#x3D; \min{m, n},<br>$$<br>$$<br>\alpha’(K_{m,n}) &#x3D; \min{m, n},<br>$$<br>$$<br>\beta(K_n) &#x3D; n - 1,<br>$$<br>$$<br>\alpha’(K_n) &#x3D; \left\lfloor \frac{n}{2} \right\rfloor.<br>$$</p>
+</blockquote>
+<!-- Page 13 -->
+
+<blockquote>
+<p>[!def] 定义 7.5.5 设图 $G &#x3D; (V, E)$，$E$ 的子集 $F$ 称为 $G$ 的一个边覆盖，如果任意的顶点 $v \in V$ 都与某条边 $e \in F$ 关联。$G$ 的边覆盖数定义为<br>$$<br>\beta’(G) :&#x3D; \min{|F| \mid F \texmt{ 是 } G \texmt{ 的边覆盖}}.<br>$$<br>对 $G$ 的顶点集 $V$ 的一个子集 $S$，称边集 $F$ 覆盖了 $S$，如果对 $S$ 中任意的点，都有 $F$ 中的某条边与之关联。</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 注 7.5.6 图 $G$ 的点覆盖一定存在，但边覆盖不一定存在。事实上，简单图 $G$ 有边覆盖当且仅当其没有孤立点（即不与任何其他顶点相邻的顶点）。</p>
+</blockquote>
+<blockquote>
+<p>[!exm] 例 7.5.7 对任意 $m, n \in \mathbb{Z}^+$，有<br>$$<br>\beta’(K_{m,n}) &#x3D; \max{m, n},<br>$$<br>$$<br>\beta’(K_n) &#x3D; \left\lceil \frac{n}{2} \right\rceil.<br>$$<br>特别地，星图 $K_{1,n}$ 的边覆盖数是 $n$。</p>
+</blockquote>
+<blockquote>
+<p>[!thm] 定理 7.5.8 二部图 $G &#x3D; X \Delta Y$ 具有覆盖了 $X$ 的匹配当且仅当下列条件（简称为 HC2）成立：<br>$$<br>|N(J)| \geq |J|, \quad \forall, J \subseteq X. \tag{7.0}<br>$$<br><em>Proof.</em>  对 $v \in X$，令 $S_v &#x3D; N(v)$。注意到 HC2 实际就是关于集族 ${S_v \mid v \in V}$ 的 Hall 条件，从而存在覆盖了 $X$ 的匹配等价于集族 ${S_v \mid v \in V}$ 有相异代表系。由定理 6.3.3 即得本结论。 $\square$</p>
+</blockquote>
+<blockquote>
+<p>[!thm] 定理 7.5.9 正则的二部图一定存在完美匹配。<br><em>Proof.</em>  设 $G &#x3D; X \Delta Y$ 是 $k$-正则二部图。由 $G$ 的边数为 $\sum\limits_{v \in X} d(v)$，也等于 $\sum\limits_{v \in Y} d(v)$，可得 $|X| &#x3D; |Y|$，因此覆盖了 $X$ 的匹配即是完美匹配。由上述定理，只需验证 HC2 成立。对任意 $J \subseteq X$，令 $F$ 表示连接 $J$ 与 $N(J)$ 的那些边。一方面，$F$ 是与 $J$ 中顶点关联的所有边，故 $|F| &#x3D; k|J|$。另一方面，$F$ 是与 $N(J)$ 中顶点关联的所有边的子集，故 $|F| \leq k|N(J)|$。这说明 $|N(J)| \geq |J|$，从而 HC2 成立。故 $G$ 一定存在完美匹配。 $\square$</p>
+</blockquote>
+<blockquote>
+<p>[!thm] 定理 7.5.11 图的独立数与点覆盖数之和为常数，即对任意图 $G &#x3D; (V, E)$，有<br>$$<br>\alpha(G) + \beta(G) &#x3D; |V|.<br>$$<br><em>Proof.</em>  设 $S \subseteq V$ 为 $G$ 的一个最大的独立集，则 $V \setminus S$ 必为 $G$ 的一个点覆盖。若不然，某条边不与 $V \setminus S$ 中的某个顶点关联，则其两个端点都在 $S$ 中，这与 $S$ 是独立集矛盾。因此<br>$$<br>|V| - \alpha(G) \geq \beta(G).<br>$$<br>再设 $T \subseteq V$ 为 $G$ 的一个最小的点覆盖，则 $V \setminus T$ 必为 $G$ 的独立集。若不然，则 $V \setminus T$ 中某两点之间有边，这与 $T$ 是点覆盖矛盾。故<br>$$<br>|V| - \beta(G) \leq \alpha(G).<br>$$<br>两式联立即得 $\alpha(G) + \beta(G) &#x3D; |V|$。 $\square$</p>
+</blockquote>
+<blockquote>
+<p>[!remark] NB 独立集中 的点和可能的其他点反向， 4.16.1</p>
+</blockquote>
+<!-- Page 14 -->
+
+<blockquote>
+<p>[!thm] 定理 7.5.13 (Gallai, 1959) 没有孤立点的图的匹配数与边覆盖数之和为常数，即对任意没有孤立点的图 $G &#x3D; (V, E)$，有<br>$$<br>\alpha’(G) + \beta’(G) &#x3D; |V|.<br>$$<br><em>Proof.</em>  设 $M$ 是 $G$ 中有 $\alpha’(G)$ 条边的匹配。对每个不被 $M$ 覆盖的顶点取一条与之关联的边，共计 $|V| - 2\alpha’(G)$ 条这样的边，再加上 $M$ 中的 $\alpha’(G)$ 条边，构成了 $G$ 的一个边覆盖。故<br>$$<br>\beta’(G) \leq |V| - 2\alpha’(G) + \alpha’(G) &#x3D; |V| - \alpha’(G).<br>$$<br>再设 $F$ 是边覆盖数为 $\beta’(G)$ 的边覆盖。注意 $F$ 可以看做 $G$ 的一个生成子图，但未必连通。设其有 $k$ 个连通分支 $F_1, \dots, F_k$ ($k \geq 1$)。易见每个连通分支必为树，否则有圈，可找到图 $G$ 的比 $F$ 更小的边覆盖。故<br>$$<br>\beta’(G) &#x3D; \sum_{i&#x3D;1}^{k} (|V(F_i)| - 1) &#x3D; |V| - k.<br>$$<br>在每个 $F_i$ ($1 \leq i \leq k$) 中任意取一条边，这 $k$ 条边组成一个大小为 $k$ 的匹配，所以 $\alpha’(G) \geq k$。因此<br>$$<br>\beta’(G) &#x3D; |V| - k \geq |V| - \alpha’(G).<br>$$<br>综合两方面，即得<br>$$<br>\alpha’(G) + \beta’(G) &#x3D; |V|.\quad \square<br>$$</p>
+</blockquote>
+<blockquote>
+<p>[!remark] NB 2.2.5 F 中<br>例：  </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs tikz">\usepackage&#123;tikz&#125;<br>\begin&#123;document&#125;<br>\begin&#123;tikzpicture&#125;<br>\node[circle, draw, inner sep=2pt, label=below:$s$] (s) at (0,0) &#123;&#125;;<br>\node[circle, draw, inner sep=2pt, label=above:$m$] (m) at (1,0.5) &#123;&#125;;<br>\draw (s) -- (m);<br>\end&#123;tikzpicture&#125;<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>[!thm] 定理 7.5.15 (König, 1931; Egerváry, 1931) 若 $G$ 是二部图，则<br>$$<br>\alpha’(G) &#x3D; \beta’(G).<br>$$<br><em>Proof.</em>  设 $S$ 是 $G$ 中有 $\beta’(G)$ 个顶点的点覆盖，$M$ 是 $G$ 中有 $\alpha’(G)$ 条边的匹配。因 $S$ 是点覆盖，从而 $M$ 中的每条边都有端点在 $S$ 中，又 $M$ 是匹配，$M$ 中不同边的端点互不相同，故<br>$$<br>|M| \leq |S|, \quad \texmt{即} \quad \alpha’(G) \leq \beta’(G).<br>$$<br>类似地，边覆盖需覆盖一个最大独立集 $D$ 中的所有顶点，且每条边至多可覆盖 $D$ 中的一个顶点，故<br>$$<br>\alpha’(G) \leq \beta’(G).<br>$$<br>又显然有<br>$$<br>\alpha’(G) \leq \left\lfloor \frac{n}{2} \right\rfloor \quad \texmt{及} \quad \left\lceil \frac{n}{2} \right\rceil \leq \beta’(G).<br>$$<br>$\square$</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 设 $G \cap X &#x3D; S, G \cap Y &#x3D; T$，$G$ 的顶点可以分为四部分：$S, X \setminus S, T, Y \setminus T$。因 $C$ 是点覆盖，且 $G$ 为二部图，故 $G$ 的边只存在于 $S$ 与 $T$，$S$ 与 $Y \setminus T$ 及 $X \setminus S$ 与 $T$ 之间。下面证明：子二部图 $G[S \cup (Y \setminus T)]$ 具有一个覆盖了 $S$ 的匹配。事实上，相应的 HC2 即 $|N(J)| \geq |J|$，$\forall J \subseteq S$。假如对某个 $J \subseteq S$，上述条件不能满足，即 $|N(J)| &lt; |J|$，那么 $C’ :&#x3D; (S \setminus J) \cup N(J) \cup T$ 也将是 $G$ 的一个点覆盖，并且<br>$$<br>|C’| &#x3D; |S \setminus J| + |N(J)| + |T| &#x3D; |S| - |J| + |N(J)| + |T| &lt; |S| + |T| &#x3D; |C|.<br>$$<br>这与 $C$ 是最小点覆盖矛盾。故 $G[S \cup (Y \setminus T)]$ 有一个覆盖了 $S$ 的匹配 $M_1$；同理 $G[(X \setminus S) \cup T]$ 有一个覆盖了 $T$ 的匹配 $M_2$。因为 $M_1, M_2$ 既无交集也没有共用一个顶点的边，所以 $M &#x3D; M_1 \cup M_2$ 是 $G$ 的一个匹配，且其大小为 $|M_1| + |M_2| &#x3D; |S| + |T| &#x3D; \beta’(G)$. $\square$</p>
+</blockquote>
+<blockquote>
+<p>[!remark] NB 独立集中 的点和可能的其他点反向， 4.16.1</p>
+</blockquote>
+<blockquote>
+<p>[!thm] 推论 7.5.16 对任意没有孤立点的二部图 $G$，有<br>$$<br>\alpha(G) &#x3D; \beta’(G).<br>$$</p>
+</blockquote>
+<!-- Page 15 -->
+
+<blockquote>
+<p>[!def] 定义 7.6.1<br>若图 $G$ 的每个导出子图 $H$ 都满足 $\chi(H) &#x3D; \omega(H)$，则称 $G$ 为完美图。</p>
+</blockquote>
+<blockquote>
+<p>[!def] 定义 7.6.3<br>一个图 $G &#x3D; (V, E)$ 的团划分是指对 $V$ 的一个划分，使得划分出的每个子集都是 $G$ 中的团。$G$ 被团划分成的子集个数最小值，称为 $G$ 的团划分数，记为 $\theta(G)$。</p>
+</blockquote>
+<blockquote>
+<p>[!remark]<br>总是存在，即使空图 $K_k, 4 \cdots \Delta k$, $\theta(K_n) &#x3D; n$</p>
+</blockquote>
+<p><em>Proof.</em><br>$\theta(G) &#x3D; \chi(\bar{G})$<br>$\texmt{因 } G[V_i] \texmt{ 为团} \Leftrightarrow \bar{G}[V_i] \texmt{ 为独立集}$</p>
+<blockquote>
+<p>[!remark]<br>$\chi(\bar{G}) \geq \underbrace{\omega(\bar{G}) &#x3D; \alpha(G)}_{\texmt{}}$<br>$\bar{G}[W] &#x3D; K_n \Rightarrow G[W] &#x3D; \bar{K}_n$ （这里中的点也可能与 $V \setminus W$ 中点有边）<br>$\Rightarrow \texmt{Pf. } \theta(G) &#x3D; \alpha(G)$</p>
+</blockquote>
+<blockquote>
+<p>[!def]<br>$\theta$-完美图：$G$ 为 $H \in \mathcal{G}$，$\theta(H) &#x3D; \alpha(H)$</p>
+</blockquote>
+<p><em>Proof.</em><br>完美图 $G \Leftrightarrow$ $\theta$-完美图 $\bar{G}$</p>
+<blockquote>
+<p>[!thm] (Berge)<br>完美图 $G \Leftrightarrow$ $\theta$-完美图 $\bar{G}$</p>
+</blockquote>
+<blockquote>
+<p>[!remark]<br>$\texmt{Pf. (Gasparyan)} \diamond$</p>
+</blockquote>
+<blockquote>
+<p>[!lemma]<br>完美图 $G \Leftrightarrow G \texmt{ 无 } H \in \mathcal{G}$，$|V(H)| \leq \alpha(H), \omega(H)$</p>
+</blockquote>
+<p><em>Proof.</em><br>$(\Rightarrow)$ $\alpha(H) \cdot \omega(H) &#x3D; \alpha(H) \cdot \chi(H) \geq |V(H)|$</p>
+<p>$(\Leftarrow)$ (构造) 设 $G$ 为最小反例，$|G| &#x3D; \chi(G)$, $\omega(G) &#x3D; \omega$, $n &#x3D; |V(G)|$<br>$\forall$ 独立集 $X \subseteq V(G)$，$\omega(G - X) &#x3D; \chi(G - X)$<br>$\omega(G - X) \leq \omega + 1 \leq \chi(G - X) + 1$<br>$\Rightarrow \omega(G - X) &#x3D; \omega &#x3D; \chi(G - X)$  (1)  </p>
+<p>特别地，令 $X &#x3D; {v}$，$G$ 为 $G - v$ 的 $\omega$-真着色，故 $K_w \not\subseteq G$<br>(1) $v \notin K_w$ $\Rightarrow$ $K_w$ 有 $G$ 中每种颜色各一顶<br>(2) $v \in K_w$ $\Rightarrow$ $K_w$ 有 $G$ 中 $\omega - 1$ 种颜色</p>
+<!-- Page 16 -->
+
+<blockquote>
+<p>[!claim]<br>$\forall K_w \subseteq G$, $\exmists i$ 使得 $K \cap A_i \neq \emptyset$，且 $|K \cap A_i| &#x3D; 1$ 对某个 $j \neq i$<br>(i) 若 $K \cap A_0 \neq \emptyset$，则 $\forall r &lt; \omega$，$K \subseteq G - M_r$ $\Rightarrow$ $K$ 包含任意 $G - M_r$ 的颜色<br>(ii) 若 $K \cap A_i &#x3D; 1$，则 $\forall K \cap A_{i+1} \cup A_{i+2}$，$K$ 包含 $G - M_i$ 的 $\omega - 1$ 种颜色<br>$\forall r \geq \omega$，$K \subseteq G - M_r$ $\Rightarrow$ $K$ 包含任意 $G - M_r$ 的颜色</p>
+</blockquote>
+<p>令 $X &#x3D; (x_{ij})_{i \in [0,\omega-1], j \in [1,n]}$，其中 $x_{ij} &#x3D; \begin{cases} 1 &amp; \texmt{若 } v_j \in A_i \ 0 &amp; \texmt{否则} \end{cases}$</p>
+<p>令 $Y &#x3D; (y_{ij})_{n \times (\omega \cdot \omega)}$，其中 $y_{ij} &#x3D; \begin{cases} 1 &amp; \texmt{若 } v_i \in K^{(j)} \ 0 &amp; \texmt{否则} \end{cases}$</p>
+<p>注意到 $|K^{(j)} \cap A_i| &#x3D; 1 - \delta_{ij}$</p>
+<p>令 $Z &#x3D; X \cdot Y$，则 $z_{ij} &#x3D; | { v \in A_i \cap K^{(j)} } | &#x3D; 1 - \delta_{ij}$</p>
+<p>$\texmt{rank } Z &#x3D; \omega \cdot \omega + 1 \Rightarrow n \geq \omega \cdot \omega + 1$</p>
+<p>$\Rightarrow |V(G)| &gt; \omega^2$，但 $|V(G)| \leq \omega^2$，矛盾</p>
+<blockquote>
+<p>[!thm]<br>若图 $G$ 为完美图，则 $\bar{G}$ 为完美图<br>即 $\chi(G) &#x3D; \omega(G) \Rightarrow \chi(\bar{G}) &#x3D; \omega(\bar{G})$</p>
+</blockquote>
+<blockquote>
+<p>[!def]<br>定义 7.6.9 若图 $G$ 及其补图 $\bar{G}$ 中都不含有长度至少为 5 的奇圈作为导出子图，则称 $G$ 为 Berge 图。</p>
+</blockquote>
+<blockquote>
+<p>[!thm] (强完美图定理, 文献 [22])<br>一个简单图是完美图当且仅当它是 Berge 图。</p>
+</blockquote>
+<blockquote>
+<p>[!def]<br>定义 7.6.12 对于图 $G$ 中的圈 $C$，连接 $C$ 的两个顶点但不在 $C$ 中的边称为弦。若 $G$ 中任意长度大于 3 的圈都有弦，则称 $G$ 为弦图。</p>
+</blockquote>
+<blockquote>
+<p>[!cor]<br>推论 7.6.13 弦图都是完美图。</p>
+</blockquote>
+<p><em>Proof.</em><br>由强完美图定理知，只要证明弦图都是 Berge 图。反设某个弦图 $G$ 不是 Berge 图，则存在 $n \geq 2$，使得 $C_{2n+1}$ 或 $\overline{C_{2n+1}}$ 为 $G$ 的生成子图。而易见，对任意 $n \geq 5$，$C_n$ 与 $\overline{C_n}$ 是没有弦的圈，$C_{n+1}$ 存在长度为 4 的无弦圈作为其生成子图，从而 $G$ 一定含有长度大于 3 的无弦圈。这与 $G$ 是弦图矛盾！故假设不成立，从而弦图都是完美图。 $\square$</p>
+<!-- Page 17 -->
+
+<blockquote>
+<p>[!def]<br>定义 7.2.1 不含圈的连通图称为树。更一般地，不含圈的图称为森林。</p>
+</blockquote>
+<blockquote>
+<p>[!thm]<br>定理 7.2.2 对简单图 $G &#x3D; (V, E)$，下列命题等价：<br>(1) $G$ 是树；<br>(2) $G$ 中任两点之间恰有一条路；<br>(3) $G$ 中无圈，且 $|E| &#x3D; |V| - 1$；<br>(4) $G$ 连通，且 $|E| &#x3D; |V| - 1$；<br>(5) $G$ 连通，且对任意 $e \in E$，$G - e$ 不连通；<br>(6) $G$ 中无圈，且对任意 $e \notin E$，$G + e$ 恰有一个圈。</p>
+</blockquote>
+<blockquote>
+<p>[!remark]<br>树生成图：生成子图，树</p>
+</blockquote>
+<blockquote>
+<p>[!remark]<br>$T_n$ (Cayley) $V &#x3D; [n]$ 的标树有 $n^{n-2}$ 棵</p>
+</blockquote>
+<blockquote>
+<p>[!remark]<br>以 $(d_1, d_2, \dots, d_n)$ 为度序列的标树个数，记为 $t_n(d_1, d_2, \dots, d_n)$，满足<br>$d(i) &#x3D; #_ \cup {i}$，得到第 $i$ 个叶子时，是“2.65n”树…</p>
+</blockquote>
+<blockquote>
+<p>[!remark]<br>$(x_1 + x_2 + \cdots + x_n)^{n-2} &#x3D; \sum_{r_1 + r_2 + \cdots + r_n &#x3D; n-2} \binom{n-2}{r_1, r_2, \dots, r_n} x_1^{r_1} x_2^{r_2} \cdots x_n^{r_n}$<br>中，令 $x_i &#x3D; 1$ 和 $r_i &#x3D; d_i - 1$ ($1 \leq i \leq n$)，便得到以 $[n]$ 为顶点集的标记树个数为<br>$\sum t_n(d_1, d_2, \dots, d_n) &#x3D; \sum \binom{n-2}{d_1 - 1, d_2 - 1, \dots, d_n - 1} &#x3D; n^{n-2}$</p>
+</blockquote>
+<blockquote>
+<p>[!remark]<br>例：<br>\begin{center}<br>\includegraphics[width&#x3D;0.5\texmtwidth]{tree_exmamples.png}<br>\end{center}<br>（图中包含 6 个标树示例：Prüfer Code 1, 2, 3, 12, 123, 1233）</p>
+</blockquote>
+<h1 id="chromatic-polynomial"><a href="#chromatic-polynomial" class="headerlink" title="chromatic polynomial"></a>chromatic polynomial</h1><h1 id="symmetric-and-regularity"><a href="#symmetric-and-regularity" class="headerlink" title="symmetric and regularity"></a>symmetric and regularity</h1><p>有向带边权的图(某种形式的传输）和方阵一一对应，更弱的图可以看成某一类方阵<br>令 $[G]{^i}{_j}&#x3D;w\vec {(ji)}$，</p>
+<ul>
+<li><input disabled="" type="checkbox"> 这里用括号更有暗示性<br>x是某种点的权重的话, $[G]x$ 是传输一轮后的权重, $[\sigma^{-1}\cdot G]&#x3D;[\sigma^{-1}][G][\sigma]$ 是重排后的传输<br>特征向量是传输后分布不变的点权，</li>
+</ul>
+<p>自同构群的元素的阶越高、图的邻接矩阵的特征值的特征子空间越大说明群越对称<br>自同构群无法完全刻画图，考虑中间节点连接129、145长的链，都只有恒等的自同构，但这两个图不同构<br>特征值（包含dot图的形状）可以完全刻画图，因为特征值（包含dot图的形状）可以完全刻画矩阵相似。</p>
+<p>For $e&#x3D;{u,v}\in E$, $\sigma e:&#x3D;{\sigma u,\sigma v}$</p>
+<blockquote>
+<p>[!def] Automorphism group of G<br>$\operatorname{Aut} G:&#x3D;{\sigma\in\mathfrak{S}_{V_G}|e\in E_G\iff \sigma e\in E_G}$<br>vertex-transitive. $\operatorname{Aut} G$ acts transitively on $V$ i.e. $\forall v~u\in V .\exists\sigma\in\operatorname{Aut} G . \sigma u&#x3D;v$<br>edge-transitive. …                                                 </p>
+</blockquote>
+<p>The vertices of vertex-transitive graph must have the same degree i.e. the graph is regular.</p>
+<blockquote>
+<p>[!exm]<br>vertex-transitive but not edge-transitive. $L_3:&#x3D;C_3\square K_2$<br>edge-transitive but not vertex-transitive. $K_{1,3}$</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>If  a connected graph is edge-transitive but not vertex-transitive, then it is bipartite.</p>
+</blockquote>
+<p>$Proof.$ Let ${u,v}\in E$, the orbits $\operatorname{Aut} G_{(u)},\operatorname{Aut} G_{(v)}$ are either identity or disjoint.<br>G is edge-transitive $\implies \forall v\in V.v\in\operatorname{Aut} G_{(u)}<del>or</del>\operatorname{Aut} G_{(v)}$<br>If $\operatorname{Aut} G_{(u)}&#x3D;\operatorname{Aut} G_{(v)}$, G is vertex-transition.<br>If $\operatorname{Aut} G_{(u)}\cap\operatorname{Aut} G_{(v)}&#x3D;\emptyset$, G is bipartite.<br>$\blacksquare$</p>
+<blockquote>
+<p>[!proposition]<br>$\sigma$ is an automorphism of G $\iff$ $P_{\sigma}A_GP^{-1}_{\sigma}&#x3D;A_G$</p>
+</blockquote>
+<p>$Proof.$ Let $\sigma^{-1}(i)&#x3D;k,\sigma(j)&#x3D;l$<br>$(PA){^{i}}{_{j}}&#x3D;A{^{k}}{_{j}}$, $(AP){^{i}}{_{j}}&#x3D;A{^{i}}{_{l}}$<br>$(PA){^{i}}{_{j}}&#x3D;(AP){^{j}}{_{i}}\implies$$<br>v_k,v_j$ are connected iff $v_i,v_l$ are connected.<br>$\blacksquare$</p>
+<blockquote>
+<p>[!remark]<br>$P\_\sigma$ 是有限群元素的表示，是幂等的 $\implies$ 可逆<br>$A\_G$ 是简单图的邻接矩阵，是实对称的 $\implies$ 可正交对角化</p>
+</blockquote>
+<blockquote>
+<p>[!Lemma] 1969<br>For simple(algebraic multiplicity 1) real eigenvalue $\lambda$ corresponding to eigenvector $v$ of $A\_{G}$, automorphism $\sigma$ of G, $P\_\sigma v&#x3D;\pm v$.</p>
+</blockquote>
+<p>^38eee5</p>
+<p>这里实际上是用了结论, 若AB交换, 则 $E\<em>{\lambda,A}$ 是 B 的不变子空间.<br>$Proof.$<br>$A\_GP\</em>{\sigma} v&#x3D;P\_\sigma A\_G v&#x3D;P\_\sigma\lambda v\implies P\_\sigma v\in E\_\lambda$<br>$P^{\operatorname {deg}\sigma}\_\sigma&#x3D;I,\dim E\_\lambda&#x3D;1 \implies\lambda^{\operatorname{deg}\sigma}v&#x3D;v\implies\lambda&#x3D;\pm1$<br>$\blacksquare$</p>
+<blockquote>
+<p>[!theorem] (1969)<br>If all eigenvalues of a graph G are simple, all non-trivial permutation of G has order 2.</p>
+</blockquote>
+<p>$Proof.$ For all eigenvector v, by lemma, $P\_\sigma^2v&#x3D;v$, and diagonazable $\implies$ all eigenvector spans the whole colume vector space.$\blacksquare$</p>
+<blockquote>
+<p>[!theorem] characterize the group of graph with max number of eigenvalue<br>The non-trivial automorphisms are all involution ($\operatorname {ord}&#x3D;2$), i.e. $\operatorname{Aut}G\cong \mathbb{Z}\_2^k$(elementary abelian 2-group)</p>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> $Proof.$</li>
+</ul>
+<p>eg. let $G&#x3D;K\_4-\left{ e \right}$, $\det (\lambda I-[G])&#x3D;\lambda(\lambda+1)(\lambda^2-\lambda-4)$, $\operatorname{Aut}G&#x3D;\mathbb{Z}\_2^2$ </p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 用软件计算 🔼 ✅ 2026-02-18</li>
+</ul>
+<p>每个群都同构于某个图的自同构群，甚至可以对这个图加一些限定条件<br>但不是每个作用在点集上的群都可以连接使其成为这个图的自同构群<br>比如作用在3个点上的 $C\_3$ ，连出来的图只能是 $\bar K\_3,K\_2\cup{e},P\_3,K\_3$,  自同构群分别是 $S\_3,S\_2,S\_2,S\_3$<br>把三角形每边均分3份，依次连接第一个分点，就只有旋转对称性了，自同构群是 $C\_3$，但是这个过程加了节点<br>图的结构（边的连接）本身会对置换群有一定限制<br>图同构保留节点间的距离 $d\_G$</p>
+<blockquote>
+<p>[!def]<br>A group is called symmetric if every adjacent ab, xy, there is $\sigma\in \operatorname{Aut}G$, s.i. $\sigma a&#x3D;x,\sigma b&#x3D;y$<br>A group is called distance-transitive if every $d\_G(a,b)&#x3D;d\_G(x,y)$, there is $\sigma\in \operatorname{Aut}G$, s.i. $\sigma a&#x3D;x,\sigma b&#x3D;y$</p>
+</blockquote>
+<p>distance-transitive $\implies$ symmetric $\implies$ vertex-transitive &amp; edge-transitive</p>
+<blockquote>
+<p>[!exm] A regular graph which is edge-transitive but not vertex-transitiv<br>考虑 3*3*3 的立方，顶点为所有点和平行于立方体边的连线，边为属于关系</p>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> 两种顶点能互换吗</li>
+</ul>
+<blockquote>
+<p>[!proposition] automorphism group of trees<br>Let T be a tree, then either exists a vertex v called centroid s.t. $\sigma v&#x3D;v$ for all $\sigma\in \operatorname{Aut}G$ or an edge e called bicentroid s.t. $\sigma e&#x3D;e$ for all $\sigma\in \operatorname{Aut}G$</p>
+</blockquote>
+<p>$Proof.$ 删除叶子节点，最后一定只剩下一个点或者一对点，称为中心集，在自同构下不变$\blacksquare$</p>
+<ul>
+<li><input disabled="" type="checkbox"> 为什么不变</li>
+</ul>
+<blockquote>
+<p>[!proposition]  generalized Petersen Graph<br>$P(h,t):&#x3D;(\left{ x\<em>i \right}\</em>{i\in \mathbb{F}\<em>h}\cup\left{ y\_i \right}\</em>{i\in \mathbb{F}\<em>h},\left{ \left{ x\_i,y\_i \right} ,\left{ x\_i,x\</em>{i+1} \right},\left{ y\<em>i,y\</em>{i+t} \right}\right}\_{i\in \mathbb{F}\_h})$</p>
+<ol>
+<li>$P(h,t)$ is vertex-transitive iff $t^2\equiv\pm 1(\operatorname{mod} h)$ or $(h,t)&#x3D;(10,2)$</li>
+<li>$P(h,t)$ is symmetric iff  $(h, t)\in \left{ (4,1),(5,2),(8,3),(10,2),(10,3),(12,5),(24,5) \right}$</li>
+<li>$P(h,t)$ is distance-transitive iff $(h,t)\in \left{ (4,1),(5,2),(10,3) \right}$</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>[!def] Line graph $L(\Gamma)$ of $\Gamma$<br>$L(\Gamma):&#x3D;(E\_\Gamma,\left{ \left{ e\_1,e\_2 \right}|e\_1 \cap e\_2\neq\varnothing\right})$</p>
+</blockquote>
+<p>figure:construct L(G) by connect midpoints<br>L can be seemed as an endofunctor of $\mathbf{Graph}$. It is not faithful, e.g. $L(K\<em>3)&#x3D;L(K\</em>{3,3})&#x3D;K\<em>3$, probably because we did not consider vertex for which edges are share (or direction of edges).<br>On the other hand, if we assume $e\_1\to e\_2$ iff $e\_1,e\_2$ are connect hand to tail, we can not find a direction s.t. $L(K’\_3)&#x3D;L(K’\</em>{3,3})$.<br>The $\theta$ below is a natural transformation, which is compatible with L.</p>
+<blockquote>
+<p>[!proposition] $\operatorname{Aut}\Gamma$ and $\operatorname{Aut} L(\Gamma)$ are almost always isomorphism<br>$\theta:\operatorname{Aut}\Gamma\to \operatorname{Aut}L(\Gamma)$<br>$\theta<del>\sigma:&#x3D;e\mapsto\sigma</del>e$</p>
+<ol>
+<li>$\theta$ is a monomorphism iff $\Gamma\neq K\_2$, where $\theta&#x3D;id|(01)\mapsto id$</li>
+<li>$\theta$ is an epimorphism iff $\Gamma\neq K\_4,K\_4-{e},K\_4-{e\_1,e\_2}(e\_1\cap e\_2\neq\varnothing)$, where $\operatorname{Aut}K\_4&#x3D;\mathfrak{S}\_4,\operatorname{Aut}L(K\_4)&#x3D;\mathfrak{S}\_6$</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>[!def] homogenous graph<br>(weakly) homogenous graph $\Gamma$.  Every $U\_1,U\_2\in V\_\Gamma$, if $\left&lt; U\_1 \right&gt; \cong\left&lt; U\_2 \right&gt;$, then for all (exists) $\sigma:\left&lt; U\_1 \right&gt; \cong\left&lt; U\_2 \right&gt;$, $\sigma$ can be extended to an automorphism of $\Gamma$.</p>
+</blockquote>
+<blockquote>
+<p>[!proposition] homogenous graph<br>All the weakly homogenous graph are as follows:</p>
+<ol>
+<li>$C\_5$</li>
+<li>$\amalg\<em>iK\</em>{n\_i}$</li>
+<li>$K\_{s,s\dots,s}$</li>
+<li>$L(K\_{3,3})$</li>
+</ol>
+<p>weakly homogenous graph iff homogenous graph</p>
+</blockquote>
+<blockquote>
+<p>[!proposition] vertex-transitive and edge-transitive graph $\Gamma$<br>if $\Gamma$ is k-regular graph for odd k, it is symmetric.</p>
+</blockquote>
+<blockquote>
+<p>[!thm] $\Gamma$ with given G<br>Fix finite group G, natural number r, s, ($r\geq3,2\leq s\leq r$)  , there are infinite many graph s.t.</p>
+<ol>
+<li>$\operatorname{Aut}\Gamma&#x3D;G$</li>
+<li>$\Gamma$ is r-regular and s-chromatic.</li>
+</ol>
+</blockquote>
+<h2 id="vertex-transitive-graph"><a href="#vertex-transitive-graph" class="headerlink" title="vertex-transitive graph"></a>vertex-transitive graph</h2><p>Let $G&#x3D;\operatorname{Aut}\Gamma$, $G\_v$ be the stabilizers subgraph for v.<br>If $\Gamma$ is vertex-transitive, $G\_v$ is conjugate and consequently isomorphic and </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tikz">\usepackage&#123;tikz-cd&#125;\begin&#123;document&#125;\begin&#123;tikzcd&#125; u &amp; v \arrow[&quot;\tau&quot;, from=1-1, to=1-1, loop, in=55, out=125, distance=10mm] \arrow[&quot;\sigma&quot;, from=1-1, to=1-2] \arrow[&quot;&#123;\sigma\tau\sigma^&#123;-1&#125;&#125;&quot;, from=1-2, to=1-2, loop, in=55, out=125, distance=10mm] \end&#123;tikzcd&#125;\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+
+
+<p>$$<br>|V_\Gamma|\xlongequal{orbit-stabilizer}(G:G_v)\xlongequal{Lagrange}|G|&#x2F;|G_v|$$</p>
+<p>If G acts transitively and every $|G\_v|&#x3D;1$, we say G acts <em>regularly</em> on $V\_\Gamma$.<br>这是群伦本身的概念，相当于选定集合中的元素可以诱导出 $g\mapsto gv\_0:G\cong V$</p>
+<blockquote>
+<p>[!def] Cayley graph $\Gamma(G,\Omega)$<br>$\left&lt; \Omega \right&gt;&#x3D;G$, $\Gamma(G,\Omega):&#x3D;(G,\left{ (g,h)|g^{-1}h\in\Omega \right})$</p>
+</blockquote>
+<p>The edge set can also be written as $\left{ (g,gh)|g,h\in\Omega \right}$. Walking along the graph is equivalent to right multiply generating element.<br>Generating guarantee connection of the graph.<br>It is the directed version. We can assume $\Omega$ is close under inverse and does not contain the identity to get a simple graph.</p>
+<blockquote>
+<p>[!exm] $(\mathfrak{S}\<em>3,{(12),(23),(31)})\cong K\</em>{3,3}$</p>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> fig</li>
+</ul>
+<blockquote>
+<p>[!proposition] </p>
+<ol>
+<li>Every Cayley graph is vertex-transitive.</li>
+<li>$\pi:\operatorname{Aut}G$ s.t. $Im\_\Omega \pi &#x3D;\Omega$ induced an automorphism of $\Gamma(G,\Omega)$ fixing id.</li>
+</ol>
+</blockquote>
+<p>$Proof.$<br>(1) For $g:G$, define $\bar g:\operatorname{Aut}\Gamma(G,\Omega)$ s.t. $\bar g(h):&#x3D;gh$<br>For $\left{ h,k \right}\in E\_\Gamma$, $h^{-1}k\in\Omega\implies (gh)^{-1}(gk)\in \Omega$, so $\bar g$ is well defined.<br>Let $\bar G&#x3D;\left{ \bar g|g\in G \right}$, $G\cong\bar G\leq\operatorname{Aut}\Gamma(G,\Omega)$.<br>And for $g,h\in G$, $\overline{hg^{-1}}g&#x3D;h$, so $\Gamma(G,\Omega)$ is vertex-transitive.<br>(2) $\pi$ is an automorphism $\implies\pi$ fixes id.<br>$g^{-1}h\in\Omega\xRightarrow{Im\_\Omega \pi &#x3D;\Omega}\pi(g^{-1}h)\in\Omega\xRightarrow{group~auto}(\pi g)^{-1}(\pi h)\in\Omega\implies$ graph automorphism<br>$\blacksquare$</p>
+<p>These proposition provides two way to have part of automorphisms of a Cayley graph: $\bar G$ does not have fix points (except for id),$\operatorname{Aut}G$ has at least one fix point, which are similar to translations and rotations ,and the only sharing one is id.<br>We have $\operatorname{Aut}\Gamma(G,\Omega)\geq G\rtimes\operatorname{Aut}(G,\Omega)$. Sometimes it is strictly larger, such as $K\<em>n &#x3D; \Gamma(\mathbb{Z}\_n, \mathbb{Z}\_n \setminus {0})$. By <sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="Godsil, C. D. (1981). On the full automorphism group of a graph. _Combinatorica_, _1_(3), 243-256.">[1]</span></a></sup>, $N\</em>{\operatorname{Aut}(\Gamma(G, S))}(G)&#x3D;G\rtimes\operatorname{Aut}(G,\Omega)$</p>
+<p>Not every vertex-transitive graph is equivalent to a Cayley graph. e.g. Petersen graph(checking by computation) </p>
+<blockquote>
+<p>[!theorem] Cayley<br>Every group G is isomorphic to some subgroup of $\mathfrak{S}\_{|G|}$.</p>
+</blockquote>
+<p> $Proof.$ $G\leq \operatorname{Aut}\Gamma(G,\Omega)\leq \mathfrak{S}\_{|G|}$ $\blacksquare$</p>
+<blockquote>
+<p>[!lemma]<br>Connected $\Gamma$, $\operatorname{Aut} \Gamma\geq H$ acts regularly on $V\_\Gamma$ iff $\Gamma\cong\Gamma(H,\Omega)$ for some $\left&lt; \Omega \right&gt; &#x3D; H$ </p>
+</blockquote>
+<p>$Proof.$<br>($\implies$) Pick $v\<em>0$, let $h\_v\in H$ s.t. $h\_vv\_0&#x3D;v$<br>Let $\Omega:&#x3D;\left{ h\_v\in H|v\sim v\_0 \right}$, by graph auto (as the fig shown), for $u\sim v$, $h\_v^{-1}h\_u\in\Omega(*)$<br>Since the graph is connected, for arbitrary v, assume $v\_0\sim v\_1\dots\sim v$.<br>We have $v\_0\xrightarrow{h\</em>{v\<em>0}^{-1}h\</em>{v\<em>1}}v\_1\xrightarrow{h\</em>{v\<em>1}^{-1}h\</em>{v\<em>2}}\dots \xrightarrow{h\</em>{v\<em>k}^{-1}h\</em>{v}}v$, so $h\<em>v\in \left&lt; \Omega \right&gt;$. Thus, $\left&lt; \Omega \right&gt; &#x3D; H$<br>We want to show $v\mapsto h\_v:\Gamma\cong\Gamma(H,\Omega)$<br>For $u\sim v\in V\_\Gamma$,by $(*),h\_v^{-1}h\_u\in\Omega\implies h\_u\sim h\_v\in V\</em>{\Gamma(H,\Omega)}$<br>For $h\<em>u\sim h\_v\in V\</em>{\Gamma(H,\Omega)}$, by $(*),h\_v^{-1}h\_u(v\_0)\sim v\_0\implies h\_u(v\_0)\sim h\_v(v\_0)i.e.u\sim v$</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tikz">\usepackage&#123;tikz-cd&#125;\begin&#123;document&#125;\begin&#123;tikzcd&#125; &amp; u &amp; v \\ &#123;h\_v^&#123;-1&#125;u&#125; &amp; &#123;v\_0&#125; \arrow[&quot;&#123;u\sim v&#125;&quot;, no head, from=1-2, to=1-3] \arrow[&quot;&#123;h\_v&#125;&quot;, from=2-1, to=1-2] \arrow[&quot;&#123;h\_v^&#123;-1&#125;(u\sim v)&#125;&quot;&#x27;, no head, from=2-1, to=2-2] \arrow[&quot;&#123;h\_u&#125;&quot;, from=2-2, to=1-2] \arrow[&quot;&#123;h\_v&#125;&quot;&#x27;, from=2-2, to=1-3] \end&#123;tikzcd&#125;\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+
+<p>( $\Longleftarrow$ ) By the last proposition, $\bar H\leq \Gamma(H,\Omega)$.<br>$\bar H$ acts transitively on H and do not have fix point.<br>$\blacksquare$</p>
+<blockquote>
+<p>[!def] Graphic regular representation, GRR<br>$G\cong \operatorname{Aut}\Gamma$, G acts regularly on $\Gamma$</p>
+</blockquote>
+<p>By lemma, if G admits a GRR, $G\cong\operatorname{Aut}\Gamma(G,\Omega)$</p>
+<blockquote>
+<p>[!theorem] Hetzel 1976, Godsil 1981.   finite groups admit a GRR<br>A finite group $G$ admits a GRR <strong>if and only if</strong> $G$ is <strong>not</strong> one of the following:</p>
+<ol>
+<li><strong>Abelian groups of exponent greater than 2</strong><br>(i.e., abelian groups containing an element of order $&gt; 2$).</li>
+<li><strong>Generalized dicyclic groups</strong><br>(Let $A$ be an abelian group of even order and index 2 in $G$, with an element $x \in G \setminus A$ of order 4 such that $x^2$ is the unique involution in $A$ and $x a x^{-1} &#x3D; a^{-1}$ for all $a \in A$.)</li>
+<li><strong>Thirteen exceptional groups</strong></li>
+</ol>
+<p>$$<br>   \begin{aligned}<br>   &amp;\mathbb{Z}_2^2,; \mathbb{Z}_2^3,; \mathbb{Z}_2^4,\<br>   &amp;\mathbb{Z}_3^2,; \mathbb{Z}_3^3,; \mathbb{Z}<em>4^2,\<br>   &amp;D_6,; D_8,; D</em>{10},\<br>   &amp;A_4,; Q_8 \times \mathbb{Z}_3,; Q_8 \times \mathbb{Z}_4,; \langle a,b \mid a^6 &#x3D; 1,; b^2 &#x3D; a^3,; bab^{-1} &#x3D; a^{-1} \rangle.<br>   \end{aligned}<br>   $$</p>
+</blockquote>
+<blockquote>
+<p>   (Here $D\_n$ is the dihedral group of order $2n$, $A\_4$ the alternating group, $Q\_8$ the quaternion group.)</p>
+</blockquote>
+<p>e.g. ($\mathfrak{S}\_3&#x3D;D\_6$)<br>(v1) check by sage</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># define group</span><br>G = SymmetricGroup(<span class="hljs-number">3</span>)<br>elements = G.<span class="hljs-built_in">list</span>()<br>identity = G.identity()<br>order = <span class="hljs-built_in">len</span>(elements)<br><br><span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>^order):<br>	<span class="hljs-comment"># generating subset</span><br>	Omega = []<br>	<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,n):<br>		<span class="hljs-keyword">if</span> n &amp; (<span class="hljs-number">2</span>^i):<br>			Omega.append(elements[i])<br>	<span class="hljs-keyword">if</span> G.subgroup(Omega).order() == order:<br>		cg = G.cayley\_graph(generators=Omega).to\_undirected()<br>		aut\_order = cg.automorphism\_group().order()<br>		<span class="hljs-built_in">print</span>(Omega, aut\_order)<br></code></pre></td></tr></table></figure>
+<p>(v2) check by hand<br>By listing all possible $\Omega$, we can find for every $\Omega$, there exists non-trivial $\pi:\operatorname{Aut}G$,s.t. $\operatorname{Im}\_\Omega\pi&#x3D;\Omega$. Therefore, $\operatorname{Aut}\Gamma$ is strictly larger than G.</p>
+<blockquote>
+<p>[!proposition]<br>$\Gamma$ is vertex-transitive, and $\operatorname{Aut}\Gamma$ is abelian.<br>Then G acts regularly on $V\_\Gamma$, and G is an elementary abelian 2-group. </p>
+</blockquote>
+<p>$Proof.$<br>(regularity) For $g\in \operatorname{Aut}\Gamma$,if g has fix point $v\in\Gamma$, $ghv&#x3D;hgv&#x3D;hv$ for all $h\in \operatorname{Aut}\Gamma$, which is equivalent to  $gu&#x3D;u$ for all $u\in\Gamma$ since $\Gamma$ is vertex-transitive. Therefore, $g&#x3D;id$.<br>(elementary abelian 2-group) $inv:&#x3D;g\mapsto g^{-1}:\operatorname{Aut}G$, if $inv\not&#x3D;id$, $\operatorname{Aut}\Gamma&gt; G$, contradiction.<br>$\blacksquare$</p>
+<blockquote>
+<p>[!proposition] Petersdorf and Sachs, 1969<br>k-regular vertex-transitive graph $\Gamma$. For simple eigenvalue $\lambda$,<br>if $|V\_\Gamma|$ is odd, then $\lambda&#x3D;k$,<br>and if $|V\_\Gamma|$ is even, then $\lambda\in \left{ -k,-k+2\dots,k-2,k \right}$</p>
+</blockquote>
+<p>$Proof.$ Let $\mathbf{x}$ be a real eigenvector corresponding to $\lambda$, for $\pi(u)&#x3D;v$, by [[#^38eee5]], ${x}^u&#x3D;([\sigma]\mathbf{x})^v&#x3D;\pm {x}^v$.<br>$\Gamma$ is vertex-transitive $\implies$ all entries of $\mathbf{x}$ have the same absolute value.<br>$\mathbf{1}$ is an eigenvector corresponding to k, if $\lambda\neq k\implies \mathbf{1}\cdot\mathbf{x}&#x3D;0$ i.e. $\sum\<em>{v\in V\_\Gamma} x^v&#x3D;0$<br>If $|V\_\Gamma|$ is odd, this implies $x^v&#x3D;0$ for all v, then $\lambda$ is not an eigenvalue, so $\lambda&#x3D;k$.<br>If $|V\_\Gamma|$ is even, fix arbitrary vertex $v\_0$, $\lambda x^{v\_0}&#x3D;([\Gamma]\mathbf{x})^{v\_0}&#x3D;\sum\</em>{v\sim v\<em>0}x^v&#x3D;\alpha x^{v\_0}+(k-\alpha)(-x^{v\_0})\implies\lambda&#x3D;2\alpha-k\</em>{0}$<br>$\blacksquare$</p>
+<blockquote>
+<p>[!proposition]<br>k-regular symmetric graph $\Gamma$. Simple eigenvalue $\lambda&#x3D;\pm k$.</p>
+</blockquote>
+<p>$Proof.$ Assume $u\sim v\sim w$, since $\Gamma$ is symmetric, there exists $\pi\in \operatorname{Aut}\Gamma$, s.t. $\pi v&#x3D;v, \pi u&#x3D;w$ $\implies ([\pi]\mathbf{x})^i&#x3D;x^i$, by [[#^38eee5]], $[\pi]\mathbf{x}&#x3D;\mathbf{x}$, $\implies\alpha&#x3D;0<del>or</del>k,\lambda&#x3D;\pm k$<br>$\blacksquare$</p>
+<blockquote>
+<p>[!remark]<br>$-k$ is an eigenvalue $\iff$ $\Gamma$ is bipartite<br>$\implies$ $-k$ is simple</p>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> additional results</li>
+</ul>
+<h2 id="symmetric-graph"><a href="#symmetric-graph" class="headerlink" title="symmetric graph"></a>symmetric graph</h2><ul>
+<li><input disabled="" type="checkbox"> vertex-transitive and edge-transitive but not symmetric #问老师 🔼</li>
+</ul>
+<blockquote>
+<p>[!proposition]<br>A vertex-transitive graph is symmetric $\iff$ For all v, $\operatorname{Aut}\Gamma\_v$ acts transitively on $N(v)$</p>
+</blockquote>
+<p>Some vertex transitive graph can have different edges. For example, $C\_3\square K\_2$ is vertex transitive, but it has two kinds of edges, one of which is edges from $C\_3$, the other is from $K\_2$.</p>
+<ul>
+<li><input disabled="" type="checkbox"> fundamental classification theorem in group theorem</li>
+</ul>
+<blockquote>
+<p>[!def]<br>t-arc $[v]:&#x3D;[v\<em>0,v\_1\dots v\_t]$, where $v\</em>{i-1}\sim v\<em>i,v\</em>{i-1}\neq v\_{i+1}$<br>$[u~v]:&#x3D;[u\_0,u\_1\dots u\_t,v\_0,v\_1\dots v\_t]$<br>_t-transitive_ graph $\Gamma$($t\geq 1$). $\operatorname{Aut}\Gamma$ is transitive on t-arcs but not (t+1)-arcs.</p>
+</blockquote>
+<p>Any symmetric graph is t-transitive for some $t\geq 1$<br>The only 1-regular graph is $K\_2$, which is 1-transitive.<br>The only 2-regular graphs are $C\_n$($n\geq3$), which is $\infty$-transitive.<br>From now on, consider k-regular graph for $k\geq3$.</p>
+<blockquote>
+<p>[!proposition]<br>For t-transitive k-regular graph $\Gamma$($k\geq 3$), $t\leq g(\Gamma)&#x2F;2+1$, where the girth(围长) $g(\Gamma)$ is the samllest cycle in $\Gamma$.</p>
+</blockquote>
+<p>^abd22</p>
+<p>$Proof.$ Let $[v\<em>0,v\_1\dots v\_g&#x3D;v\_0]$ be a cycle, $k\geq 3\implies\exists [v\_0,v\_1\dots v\_g’]$ ($v\_g’\neq v\_g$) be a arc. No automorphism can send $[v\_0,v\_1\dots v\_g]$ to $[v\_0,v\_1\dots v\_g’]$ $\implies t&lt;g$<br>Let $\alpha&#x3D;[v\_0,v\_1\dots v\_t], \beta&#x3D;[v\_t,v\</em>{t+1}\dots v\<em>g]$, $v\_t’$ be one of the neighborhoods of $v\</em>{t-1}$ other than $v\<em>{t},v\</em>{t-2}$.<br>t-transitive $\implies\exists \pi$ s.t. $\pi[v\<em>0,v\_1\dots v\_t]&#x3D;[v\_0,v\_1\dots v\_t’]$<br>Let $\gamma&#x3D;\pi\beta$, $\pi v\</em>{t-1}&#x3D;v\_{t-1}$, $\pi v_g&#x3D;v_g<br>$$\implies[\alpha_{t-1}<del>\beta]\cup[\alpha_{t-1}</del>\gamma]$ includes a cycle with length at most $2(g-t+1)$ $\implies g\leq2(g-t+1)\iff t\leq g&#x2F;2 +1$<br>$\blacksquare$</p>
+<blockquote>
+<p>[!def] successor<br>For the s-arc $[\alpha]$, a s-arc $[\beta]$, s.t. $\beta_{i}&#x3D;\alpha_{i+1}(0\leq i\leq s-1)$</p>
+</blockquote>
+<blockquote>
+<p>[!lemma] Connected graph $\Gamma$ in which degree of each vertex is at least 3<br>For every s-arc $[\alpha],[\beta]$, there exists $[\gamma^{(i)}](1\leq i\leq l)$ for some l, s.t. $[\gamma^{(i+1)}]$ is a successor of $[\gamma^{(i)}]$ and $[\gamma^{(1)}]&#x3D;[\alpha],[\gamma^{(l)}]&#x3D;[\beta]$.<br>^ab3dd</p>
+</blockquote>
+<p> Intuitively, it says an arc can shift between any valid position in both direction. (imagine it is a train)</p>
+<blockquote>
+<p>[!theorem] Connected k-regular graph $\Gamma$<br>Fix arbitrary t-arc $[\alpha]$, let $[\beta^{(i)}](1\leq i\leq k-1)$ be successors of $[\alpha]$.<br>$\operatorname{Aut}\Gamma$ is transitive on t-arcs $\iff$ $\exists g_i\in \operatorname{Aut}\Gamma$ s.t. $g_i\circ[\alpha]&#x3D;[\beta^{(i)}]$ for all i.</p>
+</blockquote>
+<p>^cac635</p>
+<p>$Proof.$ ($\implies$) trivial<br>($\impliedby$) Let $H:&#x3D;\left&lt; g_i \right&gt;_{1\leq 1\leq k-1}$, $H\leq \operatorname{Aut}\Gamma$.<br>We only need to show H is transitive on t-arcs.<br>By [[#^ab3dd]], we only need to show $H\circ[\alpha]$ is close under success.<br>For $[\beta]\in H\circ[\alpha]$, let $[\beta]&#x3D;h[\alpha]$. For successor $[\gamma]$ of $[\beta]$, $h^{-1}[\gamma]$ is a successor of $[\alpha]$.<br>Let $h^{-1}[\gamma]&#x3D;h_j[\alpha]$ for some j $\implies [\gamma]&#x3D;hh_j^{-1}[\alpha]\in H\circ[\alpha]$<br>$\blacksquare$</p>
+<p>For example, in Petersen graph $K(5,2)$, the girth is 5, by [[#^abd22]], which implies $t\leq 3.5$. $\operatorname{Aut}K(5,2)\cong \mathfrak{S}_5$, for a 3-arc $[12,34,51,23]$, the successors are $[34,51,23,14]$, $[34,51,23,45]$, which can be obtained by $\begin{pmatrix}1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \3 &amp; 4 &amp; 1 &amp; 5 &amp; 2 \end{pmatrix}$ ,$\begin{pmatrix}1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 \3 &amp; 4 &amp; 5 &amp; 1 &amp; 2\end{pmatrix}$, so $K(5,2)$ is 3-transitive.</p>
+<blockquote>
+<p>[!def] stabilizer sequence<br>Suppose $\Gamma$ is a connected t-transitive k-regular graph. Let $[\alpha]$ be a t-arc, the stabilizer sequence of $[\alpha]$is $\operatorname{Aut}\Gamma\geq F_t\geq F_{t-1}\dots\geq F_1\geq F_0$, where $F_i:&#x3D;stabilizer<del>of</del>\left{ \alpha_0,\dots\alpha_{t-i} \right}$ </p>
+</blockquote>
+<p>For $0\leq s\leq t$, $\operatorname{Aut}\Gamma$ is transitive on all s-arcs $\implies$ all stabilizer sequences are conjugate, so we often omit explicit reference to $[\alpha]$.</p>
+<blockquote>
+<p>[!proposition] order of $F_i$<br>For t-transitive graph $\Gamma$,<br>$|F_i|&#x3D;(k-1)^s|F_0|(1\leq i\leq t-1)$<br>$|F_t|&#x3D;k(k-1)^{t-1}|F_0|$<br>$|\operatorname{Aut}\Gamma|&#x3D;nk(k-1)^{t-1}|F_0|$</p>
+</blockquote>
+<p>$Proof.$ $\Gamma$ is vertex-transitive $\implies$ $(\operatorname{Aut}\Gamma:F_t)&#x3D;(\operatorname{Aut}\Gamma:\operatorname{Aut}\Gamma_{\alpha_0})&#x3D;|V_\Gamma|&#x3D;n$<br>$\operatorname{Aut}\Gamma$ acts transitively on 1-arcs $\implies(F_t:F_{t-1})&#x3D;(F_t:(F_t)_{\alpha_1})&#x3D;|F_t\circ\alpha_1|&#x3D;k$<br>$\operatorname{Aut}\Gamma$ acts transitively on i-arcs $\implies(F_{t-i+1}:F_{t-1})&#x3D;(F_{t-i+1}:(F_{t-i+1})_{\alpha_i})&#x3D;|F_{t-i+1}\circ\alpha_i|&#x3D;k-1$<br>$\blacksquare$</p>
+<p>This is reasonable because $F_0$ have the whole information of $[\alpha]$.</p>
+<blockquote>
+<p>[!proposition]<br>Using notation in [[#^cac635]] , let $Y_i:&#x3D;\left&lt; g_a^{-j}g_b^j\mid 1\leq a,b\leq k-1<del>and</del>1\leq j\leq i\right&gt;(i\in \mathbb{N})$. $\left&lt; Y_i,F_0 \right&gt;&#x3D;F_i$ for $0\leq i\leq t$</p>
+</blockquote>
+<p>$Proof.$ ($Y_i\in F_i,Y_i\not\in F_{i-1}$)<br>For all a, $g_a^i(\alpha_j)&#x3D;\alpha_{i+j}$ for $i+j\leq t$.<br>$\implies g_{a}^{-j}g_b^j$ fixes at least $\alpha_0,\alpha_1\dots\alpha_{t-j}$ $\implies Y_i\in F_i$<br>If $Y_i\in F_{i-1}$, then $g_{a}^{-j}g_b^j$ also fixes $\alpha_{t-j+1}$ i.e. $\alpha_{t-j+1}&#x3D; g_{a}^{-j}g_b^j\alpha_{t-j+1}$ $\implies \beta^{(a)}_t&#x3D;\beta^{(b)}_t$ $\implies a&#x3D;b$.<br>($F_i\in\left&lt; Y_i,F_0 \right&gt;$)<br>For $f\in F_i$, since $f\alpha_{t-i+1}$ is adjacent to $f\alpha_{t-i}&#x3D;\alpha_{t-i}$, pick any b, $g_b^if\alpha_{t-i+1}$ is adjacent to $g^i_b\alpha_{t-i}&#x3D;\alpha_t$ $\implies$ $g_b^if\alpha_{t-i+1}&#x3D;\beta^{(a)}_t&#x3D;g_a^i\alpha_{t-i+1}$ for some a $\implies$ $g_a^{-i}g_b^if\in F_{i-1}$.<br>Repeat this progress, we can find $g\in Y_i$ s.t. $gf\in F_0$ $\implies$ $F_i\in\left&lt; Y_i,F_0 \right&gt;$<br>$\blacksquare$</p>
+<p>We observe that for $i&gt;t$, $\left&lt; Y_{t+1},F_0 \right&gt;$ dose not fix $\alpha_0$ any more.</p>
+<blockquote>
+<p>[!proposition]<br>For k-regular t-transitive $\Gamma$ with $k\geq3$, $t\geq2$ and girth $g&gt;3$,  $F^*:&#x3D;\left&lt; Y_{t+1},F_0 \right&gt;$. One of the following condition is true.</p>
+<ol>
+<li>$\operatorname{Aut}\Gamma&#x3D;F^*$</li>
+<li>$\Gamma$ is bipartite, $(G:G^*)&#x3D;2$, and $G^*$ preserves the bipartite.</li>
+</ol>
+</blockquote>
+<p>$Proof.$ ($F^*$ can move $\alpha_0$ for distance 2)<br>$\beta^{(a)}_t\sim\alpha_t\sim\beta^{(b)}_t$, $g&gt;3$ $\implies d(\beta^{(a)}_t,\beta^{(b)}_t)&#x3D;2$ $\implies d(\alpha_0,g_a^{-(t+1)}g_b^{t+1}\alpha_0)&#x3D;2$<br>For any u s.t. $d(u,\alpha_0)&#x3D;2$, $t\geq 2$ $\implies$ there exists $f\in F_0\leq F^*$ s.t. $f$ fixes $\alpha_{0}$ and $fg_a^{-(t+1)}g_b^{t+1}\alpha_0&#x3D;u$.<br>$fg_a^{-(t+1)}g_b^{t+1}\in F^*$</p>
+<p>If $F^<em>_{(\alpha_0)}&#x3D;V_\Gamma$, $|F^</em>|&#x3D;(F^*:F^<em>_{\alpha_0})|F^</em>_{\alpha_0}|\xlongequal{orbit-stablilizer}|V\Gamma||F^<em>_{\alpha_0}|\xlongequal{F^</em>_{\alpha_0}&#x3D;F_t&#x3D;\operatorname{Aut}\Gamma_{\alpha_0}}|V_\Gamma||\operatorname{Aut}\Gamma_{\alpha_0}|&#x3D;\operatorname{Aut}\Gamma$<br>Suppose $F^<em>_{(\alpha_{0})}\neq V_{\Gamma}$, $F^</em>$ fixes points with odd and even distance from $\alpha_0$ respectively.<br>$\blacksquare$</p>
+<p>The only graphs do not satisfy $g&gt;3$ is $K_n$.</p>
+<ul>
+<li><input disabled="" type="checkbox"> check $K_n$ by computer?</li>
+<li><input disabled="" type="checkbox"> 平时哪些会用电脑 #问老师 🔼</li>
+</ul>
+<h3 id="covering-graph"><a href="#covering-graph" class="headerlink" title="covering graph"></a>covering graph</h3><p>reference: <a target="_blank" rel="noopener" href="https://handwiki.org/wiki/Covering_graph">https://handwiki.org/wiki/Covering_graph</a></p>
+<blockquote>
+<p>[!def] covering graph<br>A graph $\tilde\Gamma$ is called a covering graph&#x2F;lift of $\Gamma$ iff there exists $\pi:\tilde\Gamma\to\Gamma$ s.t. $\pi|_{N(v)}$ is one-to-one onto $N(\pi(v))$.<br>![[Covering-graph-4-a.svg]]</p>
+</blockquote>
+<blockquote>
+<p>[!exm] double cover of $\Gamma$<br>$\Gamma \times K_2$<br>![[Covering-graph-2.svg|400]]</p>
+</blockquote>
+<blockquote>
+<p>[!def] voltage graph<br>sides of $\Gamma$. $S_\Gamma:&#x3D;$ 1-arcs of $\Gamma$<br>For group G, G-chain of $\Gamma$. $\phi:S_\Gamma\to G<del>&amp;</del>\phi(u,v)&#x3D;(\phi(v,u)^{-1})$<br>Fix $\lambda:\operatorname{Aut}\Gamma\to G$, a G-chain $\phi$ is called compatible if the following diagram commutes for every $g\in \operatorname{Aut}\Gamma$.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tikz">\usepackage&#123;tikz-cd&#125;\begin&#123;document&#125;\begin&#123;tikzcd&#125; &#123;S_\Gamma&#125; &amp; G \\ &#123;S_\Gamma&#125; &amp; G \arrow[&quot;\phi&quot;, from=1-1, to=1-2] \arrow[&quot;g&quot;&#x27;, from=1-1, to=2-1] \arrow[&quot;&#123;\lambda g&#125;&quot;, from=1-2, to=2-2] \arrow[&quot;\phi&quot;&#x27;, from=2-1, to=2-2] \end&#123;tikzcd&#125;\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+<p>voltage graph. $\tilde\Gamma(G,\phi):&#x3D;(G\times S_\Gamma,\left{ ((g_1,v_1),(g_2,v_2))\mid (v_1,v_2)\in V_\Gamma,g_2^{-1}g_1&#x3D;\phi(v_1,v_2) \right})$</p>
+<ul>
+<li><input disabled="" type="checkbox"> $\operatorname{Aut}\tilde\Gamma&#x3D;G\rtimes_{\lambda}\operatorname{Aut}\Gamma$</li>
+</ul>
+</blockquote>
+<p>The $\phi(u,v)&#x3D;(\phi(v,u)^{-1})$ ensures simplicity of $\tilde\Gamma$.<br>Intuitively, $(g,v)$ indicates having potential g in position v, and $\phi(u,v)$ is the potential difference from u to v, and a side is a possible state change.</p>
+<h2 id="distance-transitive-graph"><a href="#distance-transitive-graph" class="headerlink" title="distance-transitive graph"></a>distance-transitive graph</h2><blockquote>
+<p>[!def] intersection number<br>$s_{hi}(u,v):&#x3D;|\left{ w\in V_\Gamma\mid d(w,u)&#x3D;h, d(w,v)&#x3D;i\right}|$<br>For distance-transitive graph, $s_{hij}:&#x3D;s_{hi}(u,v)$ for $d(u,v)&#x3D;j$</p>
+</blockquote>
+<section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>Godsil, C. D. (1981). On the full automorphism group of a graph. <em>Combinatorica</em>, <em>1</em>(3), 243-256.
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>图论</div>
+      <div>http://kaelvio.com/图论/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>采薇</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年2月24日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2026年2月24日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/%E5%A4%A9%E7%8B%BC%E6%98%9F/" title="天狼星">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">天狼星</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/%E5%9B%9E%E5%93%8D/" title="回响">
+                        <span class="hidden-mobile">回响</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '6457b9a6923c65695a47aec3b6775f99'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

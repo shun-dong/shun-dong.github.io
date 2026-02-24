@@ -1,0 +1,773 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/only.ico">
+  <link rel="icon" href="/img/only.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="采薇">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="结构git init 初始化仓库, 建立.git 【原理解析】让你完全搞明白Git是如何管理你的代码的】git:快照,相同的留链接 :分布式版本管理&lt;-&gt;集中:增量式工作区$\xrightarrow{add}$暂存区$\xrightarrow{commit}$代码仓库 .git一种扁平结构:内容与结构分开储存, 思路与我的obsidian类似  blob,标题:哈希值,内容:代码内容,">
+<meta property="og:type" content="article">
+<meta property="og:title" content="git">
+<meta property="og:url" content="http://kaelvio.com/git/index.html">
+<meta property="og:site_name" content="采薇的博客">
+<meta property="og:description" content="结构git init 初始化仓库, 建立.git 【原理解析】让你完全搞明白Git是如何管理你的代码的】git:快照,相同的留链接 :分布式版本管理&lt;-&gt;集中:增量式工作区$\xrightarrow{add}$暂存区$\xrightarrow{commit}$代码仓库 .git一种扁平结构:内容与结构分开储存, 思路与我的obsidian类似  blob,标题:哈希值,内容:代码内容,">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-24T03:51:27.905Z">
+<meta property="article:modified_time" content="2026-02-24T03:51:27.905Z">
+<meta property="article:author" content="采薇">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>git - 采薇的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kaelvio.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>采薇的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档Archive</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/playground/" target="_self">
+                <i class="iconfont icon-exp-fill"></i>
+                <span>playground</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于采薇Kaelvio</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链links</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="git"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-02-24 11:51" pubdate>
+          2026年2月24日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.8k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          16 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">git</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>git init 初始化仓库, 建立.git</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11z4y1X79p/?share_source=copy_web&vd_source=55f83207e6b9bcb77f93e22aac3e082a">【原理解析】让你完全搞明白Git是如何管理你的代码的】</a><br>git:快照,相同的留链接 :分布式版本管理&lt;-&gt;集中:增量式<br>工作区$\xrightarrow{add}$暂存区$\xrightarrow{commit}$代码仓库</p>
+<p>.git一种扁平结构:内容与结构分开储存, 思路与我的obsidian类似</p>
+<ul>
+<li>blob,标题:哈希值,内容:代码内容, 避免内容重复的文件占用空间</li>
+<li>tree,类似目录记录文件结构, 包含标题哈希值对应的文件标题</li>
+<li>commit, 记录版本提交信息, 包含tree、作者、前一次提交</li>
+</ul>
+<p>git add生成blob,更新暂存区tree<br>git commit生成快照(commit文件) -a先add，相当于先执行git add -u（-u&#x3D;–update更新已跟踪文件）<br>untracked$\xrightarrow{add<del>.}$tracked(已跟踪)$\xrightarrow{修改}$unstaged$\xrightarrow{add</del>-u}$staged(已暂存) to be committed</p>
+<p>git status检查当前状态<br>git log 历史提交</p>
+<h2 id="commit-规范"><a href="#commit-规范" class="headerlink" title="commit 规范"></a>commit 规范</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;<br></code></pre></td></tr></table></figure>
+
+<p><strong>type(必须)</strong><br>用于说明git commit的类别，只允许使用下面的标识。<br>feat：新功能（feature）。<br>fix&#x2F;to：修复bug，可以是QA发现的BUG，也可以是研发自己发现的BUG。</p>
+<ul>
+<li>fix：产生diff并自动修复此问题。适合于一次提交直接修复问题</li>
+<li>to：只产生diff不自动修复此问题。适合于多次提交。最终修复问题提交时使用fix<br>docs：文档（documentation）。<br>style：格式（不影响代码运行的变动）。<br>refactor：重构（即不是新增功能，也不是修改bug的代码变动）<br>perf：优化相关，比如提升性能、体验。<br>test：增加测试。<br>chore：构建过程或辅助工具的变动。<br>revert：回滚到上一个版本。<br>merge：代码合并。<br>sync：同步主线或分支的Bug。<br><strong>scope(可选)</strong><br>scope用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。<br><strong>subject(必须)</strong><br>subject是commit目的的简短描述，不超过50个字符。</li>
+</ul>
+<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><p>git branch列出所有<strong>本地</strong>分支（当前分支前带 <code>*</code>）-r远程 -a所有<br><code>git branch &lt;new-branch&gt;</code>创建本地分支<br><code>git branch -d &lt;branch&gt;</code>删除本地分支<br><code>git branch -m &lt;old branch默认当前&gt; &lt;new branch&gt;</code>更改分支名称</p>
+<p><code>git switch/checkout &lt;branch&gt;</code>切换分支 , 推荐用switch<br><code>git checkout &lt;commit-hash/branch&gt;</code>切换到指定提交&#x2F;分支 <code>.</code>上次提交, 切换到提交进入分离头指针（Detached HEAD)<code>-</code>回到之前状态<br><code>git switch -c</code>(-c&#x3D;–create) 或 <code>git checkout -b &lt;new-branch&gt; &lt;commit-hash,默认当前&gt;</code>创建并切换到新分支<br>哈希值至少前4位</p>
+<ul>
+<li><input disabled="" type="checkbox"> Rebase</li>
+</ul>
+<h1 id="和并与冲突"><a href="#和并与冲突" class="headerlink" title="和并与冲突"></a>和并与冲突</h1><p>git的改动描述采用的是行粒度的最小编辑距离<br>和并采用三方判定, 共同祖先和两方修改<br>将连续的冲突行组成块</p>
+<pre><code class=" mermaid">graph TD
+    A[Base版本&lt;br/&gt;共同祖先] --&gt; B[Ours版本&lt;br/&gt;当前分支]
+    A --&gt; C[Theirs版本&lt;br/&gt;要合并的分支]
+    B --&gt; D[合并结果]
+    C --&gt; D
+    
+    style A fill:#e1f5fe
+    style B fill:#f3e5f5
+    style C fill:#e8f5e8
+</code></pre>
+
+
+<p><code>git merge &lt;branch&gt;</code>将指定分支合并到当前分支</p>
+<ul>
+<li>fast-forward(无冲突)直接用原来的commit object</li>
+<li>no-fast-forward: use “git merge –abort” to abort the merge(撤销)<br>使用<code>git status</code>查看冲突文件, 每处理完一个文件add一下表示已解决</li>
+</ul>
+<h1 id="远程"><a href="#远程" class="headerlink" title="远程"></a>远程</h1><p><code>git remote add [remote] [url]</code><br><code>git pull/fetch/push [remote] [branch]</code><br>git pull&#x3D;git fetch + git merge<br>git fetch：将远程仓库拉取到本地仓库, 在<code>.git/refs/remotes/&lt;remote-name&gt;/</code><br>git diff main origin&#x2F;main比较区别<br>git push -u origin main（ -u &#x3D; –set-upstream设置上游分支）</p>
+<h1 id="pull-request"><a href="#pull-request" class="headerlink" title="pull request"></a>pull request</h1><ol>
+<li><strong>Fork（派生）</strong>：个人先把主仓库 fork（一份拷贝）到自己账户。</li>
+<li><strong>Clone</strong> 到本地新建分支进行开发（做功能、修 bug 等）。</li>
+<li><strong>Commit</strong> 和 <strong>Push</strong> 代码到自己 fork 的仓库的新分支上。</li>
+<li><strong>在 GitHub 上发起 Pull Request</strong>，请求将自己提交的更改合并到主仓库（Upstream）的某个分支。</li>
+<li>维护者审核、讨论，无误后合并。</li>
+</ol>
+<h1 id="子模块"><a href="#子模块" class="headerlink" title="子模块"></a>子模块</h1><p><strong>添加子模块</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs git">git submodule add &lt;repo-url&gt; [&lt;path&gt;]<br></code></pre></td></tr></table></figure>
+<h1 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h1><p><code># 注释</code></p>
+<a href="/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">regex</a>，`**`：跨目录匹配任意字符。
+<p>以 <code>/</code> 结尾表示忽略目录（而非同名文件），不以 <code>/</code> 结尾会同时匹配文件和目录, Git 忽略目录时，其下的所有内容（文件和子目录）都将被忽略。<br>默认表示匹配所有位置的文件, 以 <code>/</code> 开头表示从项目根目录开始匹配，默认从 <code>.gitignore</code> 所在目录的相对路径开始匹配。</p>
+<p>使用 <code>!</code> 前缀强制包含某个文件或目录，从根目录开始匹配，和顺序有关<br><code>!dir/</code> 只允许该目录本身（作为目录结构）被追踪，不自动解封该目录下的文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs gitignore">*<br>!iCloudDrive/<br>!iCloudDrive/iCloud~md~obsidian/<br>!iCloudDrive/iCloud~md~obsidian/Note/<br>!iCloudDrive/iCloud~md~obsidian/Note/**/<br>!iCloudDrive/iCloud~md~obsidian/Note/**/*.md<br></code></pre></td></tr></table></figure>
+
+<p><code>.gitignore</code> 仅对<strong>未跟踪的文件</strong>生效。若文件已被 Git 跟踪，需先删除其缓存</p>
+<h1 id="LFS-Large-File-Storage"><a href="#LFS-Large-File-Storage" class="headerlink" title="LFS(Large File Storage)"></a>LFS(Large File Storage)</h1><p>将大文件外部储存, 仓库内仅留链接</p>
+<p>需要额外下载:git install git-lfs</p>
+<p>初始化仓库时:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs bash">git lfs install<br>git lfs track <span class="hljs-string">&quot;*.bin&quot;</span><br>git lfs track <span class="hljs-string">&quot;*.zip&quot;</span><br>git lfs track <span class="hljs-string">&quot;*.pptx&quot;</span><br></code></pre></td></tr></table></figure>
+<p>lfs track 会修改.gitattributes</p>
+<p>git filter-repo –invert-paths –path Data&#x2F;<br>注意会同时删除本地内容</p>
+<h1 id="隐私"><a href="#隐私" class="headerlink" title="隐私"></a>隐私</h1><p>git push会提交所有历史<br>确保commit时不要包含密码</p>
+<h1 id="LF-CRLF"><a href="#LF-CRLF" class="headerlink" title="LF&amp;CRLF"></a>LF&amp;CRLF</h1><p>git 的 Windows 客户端基本都会默认设置 core.autocrlf&#x3D;true，设置core.autocrlf&#x3D;true, 只要保持工作区都是纯 CRLF 文件，编辑器用 CRLF 换行，就不会出现警告了；<br>Linux 最好不要设置 core.autocrlf，因为这个配置算是为 Windows 平台定制；<br>Windows 上设置 core.autocrlf&#x3D;false，仓库里也没有配置 .gitattributes，很容易引入 CRLF 或者混合换行符（Mixed Line Endings，一个文件里既有 LF 又有CRLF）到版本库，这样就可能产生各种奇怪的问题。</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs autoit">情况一：<br><br>Git 可以在你提交时自动地把回车（CR）和换行（LF）转换成换行（LF），而在检出代码时把换行（LF）转换成回车（CR）和换行（LF）。 你可以用 git config --<span class="hljs-keyword">global</span> core.autocrlf <span class="hljs-literal">true</span> 来打开此项功能。 如果是在 Windows 系统上，把它设置成 <span class="hljs-literal">true</span>，这样在检出代码时，换行会被转换成回车和换行：<br><br><span class="hljs-meta">#提交时转换为LF，检出时转换为CRLF</span><br>$ git config --<span class="hljs-keyword">global</span> core.autocrlf <span class="hljs-literal">true</span><br>情况二：<br><br>如果使用以换行（LF）作为行结束符的 Linux 或 Mac，你不需要 Git 在检出文件时进行自动的转换。然而当一个以回车（CR）和换行（LF）作为行结束符的文件不小心被引入时，你肯定想让 Git 修正。 所以，你可以把 core.autocrlf 设置成 input 来告诉 Git 在提交时把回车和换行转换成换行，检出时不转换：（这样在 Windows 上的检出文件中会保留回车和换行，而在 Mac 和 Linux 上，以及版本库中会保留换行。）<br><br><span class="hljs-meta">#提交时转换为LF，检出时不转换</span><br>$ git config --<span class="hljs-keyword">global</span> core.autocrlf input<br>情况三：<br><br>如果你是 Windows 程序员，且正在开发仅运行在 Windows 上的项目，可以设置 <span class="hljs-literal">false</span> 取消此功能，把回车保留在版本库中：<br><br><span class="hljs-meta">#提交检出均不转换</span><br>$ git config --<span class="hljs-keyword">global</span> core.autocrlf <span class="hljs-literal">false</span><br>你也可以在文件提交时进行safecrlf检查<br><br><span class="hljs-meta">#拒绝提交包含混合换行符的文件</span><br>git config --<span class="hljs-keyword">global</span> core.safecrlf <span class="hljs-literal">true</span>   <br> <br><span class="hljs-meta">#允许提交包含混合换行符的文件</span><br>git config --<span class="hljs-keyword">global</span> core.safecrlf <span class="hljs-literal">false</span>   <br> <br><span class="hljs-meta">#提交包含混合换行符的文件时给出警告</span><br>git config --<span class="hljs-keyword">global</span> core.safecrlf warn<br><br></code></pre></td></tr></table></figure>
+<h1 id="misc"><a href="#misc" class="headerlink" title="misc"></a>misc</h1><p>[[Obsidian]]库的git仓库在用户文件夹中, 避免与[[iCloud]]冲突</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>git</div>
+      <div>http://kaelvio.com/git/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>采薇</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年2月24日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/Haskell/" title="Haskell">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Haskell</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Curry-Howard-Lambek_Correspondence/" title="Curry-Howard-Lambek_Correspondence">
+                        <span class="hidden-mobile">Curry-Howard-Lambek_Correspondence</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '9bec7083027963d9f9ceae2cc7474de5'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

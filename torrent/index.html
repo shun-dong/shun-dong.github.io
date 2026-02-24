@@ -1,0 +1,859 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/only.ico">
+  <link rel="icon" href="/img/only.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="采薇">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="torrent├── README.md├── .editorconfig├── .gitattributes├── .gitignore├── .godot&#x2F;├── icon.svg├── icon.svg.import├── project.godot├── Scenes&#x2F;└── Scripts&#x2F; 理解 torrent独立游戏 小标题为分工发起项目https:&#x2F;&#x2F;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="torrent">
+<meta property="og:url" content="http://kaelvio.com/torrent/index.html">
+<meta property="og:site_name" content="采薇的博客">
+<meta property="og:description" content="torrent├── README.md├── .editorconfig├── .gitattributes├── .gitignore├── .godot&#x2F;├── icon.svg├── icon.svg.import├── project.godot├── Scenes&#x2F;└── Scripts&#x2F; 理解 torrent独立游戏 小标题为分工发起项目https:&#x2F;&#x2F;">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-02-24T03:51:27.895Z">
+<meta property="article:modified_time" content="2026-02-24T03:51:27.895Z">
+<meta property="article:author" content="采薇">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>torrent - 采薇的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kaelvio.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>采薇的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档Archive</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/playground/" target="_self">
+                <i class="iconfont icon-exp-fill"></i>
+                <span>playground</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于采薇Kaelvio</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链links</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="torrent"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-02-24 11:51" pubdate>
+          2026年2月24日 中午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          26 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">torrent</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>torrent<br>├── <a href="C:/Users/liuSu/Projects/torrent/README.md">README.md</a><br>├── <a href="C:/Users/liuSu/Projects/torrent/.editorconfig">.editorconfig</a><br>├── <a href="C:/Users/liuSu/Projects/torrent/.gitattributes">.gitattributes</a><br>├── <a href="C:/Users/liuSu/Projects/torrent/.gitignore">.gitignore</a><br>├── <a href="C:/Users/liuSu/Projects/torrent/.godot">.godot&#x2F;</a><br>├── <a href="C:/Users/liuSu/Projects/torrent/icon.svg">icon.svg</a><br>├── <a href="C:/Users/liuSu/Projects/torrent/icon.svg.import">icon.svg.import</a><br>├── <a href="C:/Users/liuSu/Projects/torrent/project.godot">project.godot</a><br>├── <a href="C:/Users/liuSu/Projects/torrent/Scenes">Scenes&#x2F;</a><br>└── <a href="C:/Users/liuSu/Projects/torrent/Scripts">Scripts&#x2F;</a></p>
+<h1 id="理解-torrent"><a href="#理解-torrent" class="headerlink" title="理解 torrent"></a>理解 torrent</h1><a href="/%E7%8B%AC%E7%AB%8B%E6%B8%B8%E6%88%8F/" title="独立游戏">独立游戏</a>
+<p>小标题为分工<br>发起项目<a target="_blank" rel="noopener" href="https://member.modian.com/initiate/idea">https://member.modian.com/initiate/idea</a></p>
+<p>～[[《rainworld》]]</p>
+<a href="/%E3%80%8A%E7%A9%BA%E6%B4%9E%E9%AA%91%E5%A3%AB%E3%80%8B/" title="《空洞骑士》">《空洞骑士》</a>
+<p>[[ori]]<br>[[《九日》]]<br>[[《动物井》]]<br>[[蔚蓝]]</p>
+<h1 id="设定"><a href="#设定" class="headerlink" title="设定"></a>设定</h1><h2 id="主题"><a href="#主题" class="headerlink" title="主题"></a>主题</h2><p>后存在</p>
+<ul>
+<li><a href="/%E6%B5%81/" title="流">流</a>
+<ul>
+<li>同与异</li>
+<li>偏见与理解<br>体现：蓝火</li>
+</ul>
+</li>
+<li><p>名句集</p>
+</li>
+</ul>
+<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>天启，二维化，tf<br>科技落寞，剑与魔法（“中式”“道教”）<br>思想暗潮汹涌（东方哲学，西方哲学，为技术论）<br>“老子”曾经的科技参与者，“无为宣言”归隐</p>
+<p>既是人类历史的续写，又鼓励人们跳出去，打破第四堵墙</p>
+<h3 id="清洗"><a href="#清洗" class="headerlink" title="清洗"></a>清洗</h3><blockquote>
+<p>密涅瓦的猫头鹰在黄昏起飞</p>
+</blockquote>
+<p>古人因争夺霸权引发战争，运用生化武器和气候武器，全球气候极端化，最终一国研制出活雨，但没能控制住，引发全球洪水，古人几乎完全灭亡，史称“清洗”。</p>
+<p>（只有一些难民幸存，其余地方的人类完全死亡，实际上还有影隐通过改造自身活了下来）</p>
+<h3 id="活雨"><a href="#活雨" class="headerlink" title="活雨"></a>活雨</h3><blockquote>
+<p>浸润一切生命</p>
+</blockquote>
+<p>（类似水分子团蔟的化学性质，能携带信息，改变生物氧化的电子传递，引发回响，由雨虫分泌）<br>（照理说人类的潜艇和避难所抵御再大的洪水都是有可能的，但由于雨虫的运动，最终都还是被侵入）</p>
+<p>线粒体蛋白锚点药物，本来为治疗线粒体病研发，被极端环保主义者改进，被政府禁止但秘密保留样本，战争末期以雨的形式施放</p>
+<p>潮湿、凌烈</p>
+<h3 id="雨虫"><a href="#雨虫" class="headerlink" title="雨虫"></a>雨虫</h3><p>产生活雨的生物，体积小，生命力强，繁殖快，有趋向于其他生物的特性</p>
+<h3 id="活云"><a href="#活云" class="headerlink" title="活云"></a>活云</h3><p>雨虫群体与机械组成的团簇</p>
+<h3 id="回响"><a href="#回响" class="headerlink" title="回响"></a>回响</h3><p>活雨产生的神经副作用，接触者会产生幻觉，形态与接触者的执念有关，并能通过雨虫在接触者之间传递，即使在接触者死亡后任能长时间存在<br>（所有魔法相关的元素实质都是回响）</p>
+<h3 id="业"><a href="#业" class="headerlink" title="业"></a>业</h3><p>回响的标度（货币），<br>有固定和游离两种，固定符号为$\otimes$，游离符号为$\times$<br>循环开始时会有一定的游离业，高于阈值的才能被固定<br>（可以和回响商人兑换物品，其本身也是回响）<br>（实际上不是角色积攒的，而是玩家积攒的）</p>
+<p>获得求生者本能时解锁星图，总获得的业对应进度<br>进度满时获得存在者本能</p>
+<h3 id="影隐"><a href="#影隐" class="headerlink" title="影隐"></a>影隐</h3><p>白色的狼，纯动物<br>采薇猜测为老者，并不反驳</p>
+<p>（活雨的研发人员，曾经是清洗的支持者，造成不可挽回的后果后尽力挽救，但为时已晚，最终自己通过基因改造活了下来<br>它的回响是黑色的狼，代表者它曾经的反人类倾向和无法挽回的过往）</p>
+<h3 id="永宁村"><a href="#永宁村" class="headerlink" title="永宁村"></a>永宁村</h3><p>一支逃难到极地的难民，依靠冰盖中的水活了下来，通过？实现基因突变，获得了对活水生物毒性的部分抗性</p>
+<p>由于线粒体DNA完全遗传自母方，永宁村形成了母系氏族</p>
+<p>但是随着冰川减少，水资源短缺，不得不派精锐去寻找水源，但至今没有人返回</p>
+<h3 id="采薇"><a href="#采薇" class="headerlink" title="采薇"></a>采薇</h3><p>永宁村人<br>因为不仔细没能通过考核，山海“失踪”后溜出去寻找</p>
+<h3 id="山海"><a href="#山海" class="headerlink" title="山海"></a>山海</h3><p>采薇的妹妹，一次偷偷跟着寻找水源的小队溜出村子但没能回来<br>（实际上是采薇产生的回响，不是真实存在的）</p>
+<h3 id="笙凯"><a href="#笙凯" class="headerlink" title="笙凯"></a>笙凯</h3><p>白毛金眼<br>采薇的好友，因为各方面优秀被派出去寻找水源</p>
+<h3 id="S"><a href="#S" class="headerlink" title="S"></a>S</h3><p>采薇在荒原一座废弃实验室中遇到的回响，一见如故<br>之前在不知情的情况下参与了活云的研究</p>
+<h3 id="进化"><a href="#进化" class="headerlink" title="进化"></a>进化</h3><p>永眠村人在通过基因突变部分免疫雨的同时也出现了一些动物的特征, 且随着时间的推移越来越明显.</p>
+<p>在世界中有的动物依靠雨进化出智慧, 被称为拾荒者. </p>
+<h3 id="雨循环"><a href="#雨循环" class="headerlink" title="雨循环"></a>雨循环</h3><p>洪水后各地会周期性下活雨，时间间隔不固定</p>
+<p>古人为逃避清洗修建在各地难所，对活雨有一定的抵抗作用<br>活雨到来时，永宁村人可以通过雨眠清除体内活雨，在避难所内雨眠可以完全恢复健康状态，会将到的业固定下来，避难所外则会陷入虚弱，需要前往避难所雨眠后方可恢复</p>
+<h3 id="泪城"><a href="#泪城" class="headerlink" title="泪城"></a>泪城</h3><blockquote>
+<p>我们成长，在死去的子宫里</p>
+</blockquote>
+<p>大型回响聚落<br>曾被整个淹没，当时的人成为回响重新生存在这片土地上，没有了生物的需求，他们每天交换着自己的业<br>～<a href="/%E3%80%8A%E6%9D%A5%E8%87%AA%E6%B7%B1%E6%B8%8A%E3%80%8B/" title="《来自深渊》">生骸村</a></p>
+<h3 id="雷族"><a href="#雷族" class="headerlink" title="雷族"></a>雷族</h3><p>幸存的原始部落，已经分不出人与动物，但都对野性的神明保持狂热的虔诚</p>
+<p>背后的真相：收割信仰（业）</p>
+<h2 id="战斗"><a href="#战斗" class="headerlink" title="战斗"></a>战斗</h2><p>体力值<br>精神值</p>
+<h3 id="近战"><a href="#近战" class="headerlink" title="近战"></a>近战</h3><p>短兵：可弹反，下批<br>短兵命中敌人，在地面一段时间可积累气（上限1层），格挡可突破上限<br>～[[蔚蓝]]:无气的时候人物为剪影<br>长兵：消耗一层气，由身后向前小段突刺，可猛击，穿刺延长位移<br>切手技，跳跃衔接，格挡<br>武器在于附加效果与手感（独特数值，范围）不同</p>
+<h3 id="动作"><a href="#动作" class="headerlink" title="动作"></a>动作</h3><p>接近纯动物<br>咬:相当于多一只手，增加手持物上限<br>俯身:降低高度,加速,加强版可飞扑强化普攻<br>扫尾:大范围<br>鹰眼：看见隐藏<br>爪：螳螂跳,爬墙</p>
+<h3 id="法术"><a href="#法术" class="headerlink" title="法术"></a>法术</h3><p>类似克苏鲁的设定<br>消耗精神值，不同精神值有不同的效果</p>
+<h3 id="本能（装备）"><a href="#本能（装备）" class="headerlink" title="本能（装备）"></a>本能（装备）</h3><p>回响装备<br>求生者本能</p>
+<ul>
+<li>使用业，会暂时消耗游离业，一段时间后重新聚集</li>
+</ul>
+<p>存在者本能</p>
+<ul>
+<li>自由使用业，在求生者本能的基础上可以消耗游离业的上限</li>
+</ul>
+<p>~?归一心缘石 打加强版的梦境boss增强<br>%%</p>
+<ul>
+<li>现实:速度增加,奔跑(兽)</li>
+<li>思想:速度增加,体力消耗增加,伤害增加%%</li>
+</ul>
+<h2 id="地图"><a href="#地图" class="headerlink" title="地图"></a>地图</h2><p>整体成椭圆，左右互通，暗示曾经是3维<br>越往下越抽象，类似精神世界<br>与现实的地球对应</p>
+<h2 id="交互"><a href="#交互" class="headerlink" title="交互"></a>交互</h2><p>流动</p>
+<p>？流程类[[《rainworld》]]<br>？打击类<a href="/%E3%80%8A%E7%A9%BA%E6%B4%9E%E9%AA%91%E5%A3%AB%E3%80%8B/" title="《空洞骑士》">《空洞骑士》</a><br>触碰-主世界与末端，做成小彩蛋或小世界，类似空洞骑士和幻影猫中的小章节，可以考虑加入随机肉鸽元素</p>
+<ul>
+<li>物品</li>
+<li>书本</li>
+<li>人物</li>
+<li>处境(自发与不由自主)(星图)</li>
+<li>梦</li>
+</ul>
+<h3 id="NPC"><a href="#NPC" class="headerlink" title="NPC"></a>NPC</h3><p>？孤独<br>对话</p>
+<ul>
+<li><p>输入</p>
+<ul>
+<li>？语言相似性检查</li>
+<li>包含推荐选项</li>
+<li>隐藏项<br>‘共鸣’</li>
+</ul>
+</li>
+<li><p>星图(类社交软件)</p>
+</li>
+</ul>
+<p>？ai辅助</p>
+<h2 id="美术"><a href="#美术" class="headerlink" title="美术"></a>美术</h2><p>~gris <a href="/%E3%80%8A%E7%A9%BA%E6%B4%9E%E9%AA%91%E5%A3%AB%E3%80%8B/" title="《空洞骑士》">《空洞骑士》</a><br>~兽圈meme<br>[[风格化动画]]：拉丝镂空，碎片粒子<br>风格化流体&#x2F;粒子(点)流体+插画渲染?贝塞尔<br>【风格化火焰-哔哩哔哩】 <a target="_blank" rel="noopener" href="https://b23.tv/E5f98iZ">https://b23.tv/E5f98iZ</a><br>【火焰燃烧【2D特效分析】-哔哩哔哩】 <a target="_blank" rel="noopener" href="https://b23.tv/pj3aP5B">https://b23.tv/pj3aP5B</a><br>【火焰循环【2D特效分析】-哔哩哔哩】 <a target="_blank" rel="noopener" href="https://b23.tv/DOKwioR">https://b23.tv/DOKwioR</a></p>
+<p>？？低多边形&#x2F;基于此+多边形 的程序动画</p>
+<p>留白<br>霓虹：范光光晕，明暗对比</p>
+<p>？[[程序动画]][[《rainworld》]]<br>【一种简单的程序化动画技术-哔哩哔哩】 【[argonaut][中字]一种简单的程序动画技术】 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1si4oefExA/?share_source=copy_web&vd_source=55f83207e6b9bcb77f93e22aac3e082a">https://www.bilibili.com/video/BV1si4oefExA/?share_source=copy_web&amp;vd_source=55f83207e6b9bcb77f93e22aac3e082a</a></p>
+<h3 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h3><p>毛玻璃<br>可选：</p>
+<ul>
+<li>禅</li>
+<li>经典</li>
+<li>表现</li>
+</ul>
+<p>仿照二游的立绘~<a href="/%E3%80%8A%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F%E3%80%8B/" title="《明日方舟》">《明日方舟》</a>、[[《重返未来1999》]]</p>
+<h2 id="音乐"><a href="#音乐" class="headerlink" title="音乐"></a>音乐</h2><p>疯感<br>宿命感<br>忧郁<br>后摇<br>致幻<br>【［寅哲的年终总结］作品回顾+读评论-哔哩哔哩】 <a target="_blank" rel="noopener" href="https://b23.tv/n8uuy7J">https://b23.tv/n8uuy7J</a></p>
+<h2 id="社区谜题"><a href="#社区谜题" class="headerlink" title="社区谜题"></a>社区谜题</h2><h2 id="chill"><a href="#chill" class="headerlink" title="chill"></a>chill</h2><p>可以玩furry的梗但不要玩烂梗<br>招笑npc<br>meme<br>乐子人</p>
+<h1 id="编剧"><a href="#编剧" class="headerlink" title="编剧"></a>编剧</h1><p>非线性～[[《小径分岔的花园》]]:靠地点组织, 标明依赖关系，层级为区域-存档点</p>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+道教？存在主义的体现：抛却世俗的价值，构建自身的存在</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+更多的人物：拾荒哥，外邦人</p>
+</li>
+<li><p>回响：幻象…</p>
+</li>
+</ul>
+<p>每个地图（纬度，主题）下有子地图<br>预计时长50小时左右</p>
+<h2 id="永宁村-1"><a href="#永宁村-1" class="headerlink" title="[[#永宁村]]"></a>[[#永宁村]]</h2><p>主角被告诫不要穿过“墙”。。。<br>（实装为主角的村子在最上层，向下探索）</p>
+<p>主角主角为了找“妹妹”（实际上只在梦中出现）<br>向下走去</p>
+<h2 id="郊区"><a href="#郊区" class="headerlink" title="郊区"></a>郊区</h2><p>新手教程，获得大部分技能<br>发现许多奇怪的零件，初遇拾荒者</p>
+<p>遇“[[#影隐|老者]]”</p>
+<p>遇见[[#山海]]</p>
+<h2 id="热域"><a href="#热域" class="headerlink" title="热域"></a>热域</h2><p>奇怪（三维）的建筑，地图的连接方式，笔记暗示三维世界</p>
+<p>遇笙凯</p>
+<p>遇老者</p>
+<h3 id="雷族-1"><a href="#雷族-1" class="headerlink" title="[[#雷族]]"></a>[[#雷族]]</h3><p>遇神父<br>狂热</p>
+<h2 id="隐藏：深渊"><a href="#隐藏：深渊" class="headerlink" title="隐藏：深渊"></a>隐藏：深渊</h2><p>难度较大，可以在热域或暗林进入，数值不同<br>明白回响的真相</p>
+<p>遇见”神明”<br>虔诚<br>佛法亦空<br>直面玩家</p>
+<p>遇老者<br>获得求生者本能</p>
+<h2 id="暗林"><a href="#暗林" class="headerlink" title="暗林"></a>暗林</h2><p>众多回响<br>明白妹妹是“假”的，失去目的</p>
+<h3 id="泪城-1"><a href="#泪城-1" class="headerlink" title="[[#泪城]]"></a>[[#泪城]]</h3><p>山海牺牲：山海救采薇，采薇因为回响的幻觉，误伤笙凯，破除回响<br>之前的商店npc全是假的，所有魔法物品都是类似于暗影之刃的回响<br>笙凯是“真”的</p>
+<p>遇老者<br>&#x2F;约束存在：妹妹虽然是假的，但是踏上旅途的原因，山海已经无法回来，不必囿于过往</p>
+<h2 id="荒原"><a href="#荒原" class="headerlink" title="荒原"></a>荒原</h2><p>智慧的“怪物”，（外形为纯兽，行为类似来自深渊的生骸设定）</p>
+<h3 id="砼核"><a href="#砼核" class="headerlink" title="[[#砼核]]"></a>[[#砼核]]</h3><p>人类遗迹（核）<br>遇到S<br>和S一起探索得知末日真相，老者回避</p>
+<p>最里面可以消耗固定业将求生者本能转化为存在者本能</p>
+<h2 id="“核心”"><a href="#“核心”" class="headerlink" title="“核心”"></a>“核心”</h2><p>地图的最下方<br>宛若仙境，类似空洞骑士蓝湖，主角在岛上</p>
+<h3 id="祭坛"><a href="#祭坛" class="headerlink" title="[[#祭坛]]"></a>[[#祭坛]]</h3><p>隐藏：遇老者<br>条件：获得存在者本能<br>得知第四堵墙真相</p>
+<p>最终boss：叼剑的狼，全身黑（老者的回响，想要将清洗进行到底，老者是这场灾难的发起者）～【【LittleRoom】恐狼 | 叼着巨剑战斗的巨狼 | 化成黑雾追击-哔哩哔哩】 <a target="_blank" rel="noopener" href="https://b23.tv/8xc8Byf">https://b23.tv/8xc8Byf</a><br>【痴迷于玩剑的狗。-哔哩哔哩】 <a target="_blank" rel="noopener" href="https://b23.tv/og50pRb">https://b23.tv/og50pRb</a><br>【宝可梦大型纪录片——苍响传奇-哔哩哔哩】 <a target="_blank" rel="noopener" href="https://b23.tv/P9cN4tx">https://b23.tv/P9cN4tx</a></p>
+<p>成一家之言：<a href="/%E5%90%8E%E5%AD%98%E5%9C%A8%E4%B8%BB%E4%B9%89/" title="后存在主义">后存在主义</a></p>
+<p>boss：且慢，采薇，所谓天启，所谓救赎，又怎么证明真正存在，这一切可能只是某种模拟，包括你我，皆为虚无。你所谓的关于过去的真相，或许从未发生。<br>if 未获得存在者本能<br>（摧毁状态栏，游戏强行关闭，读档回到boss房前，状态栏有修补的痕迹）<br>完成结局：微茫的希望（永宁村人对活雨的生物抗性越来越强，且没有了外部威胁，或许有一天可以破除回响）</p>
+<p>else<br>（已经没有状态栏了）<br>采薇：（看向屏幕）无法也不需确证，我所有的，只有我的存在<br>老者上场，同归于尽<br>和影隐（玩家的另一面，受过往行为影响）对线，（其实是和玩家对线），采薇：媒介<br>找到面对回响作用的方法</p>
+<p>if 未获得存在者本能<br>完成成就：复兴的希望<br>（读档回到boss房前，但不用打老者回响和影隐一阶段）</p>
+<p>else<br>进入二阶段，大量meta元素，关于文明，关于存在<br>“击败”后和解<br>探索“仙境”，发现老者留下的关于人类文明的记录，回收所有伏笔<br>采薇跳进像雨世界那样的虚空海，<br>最终社区谜题的答案可以用于这里的方向输入，将网址复制进玩家的剪切版（符号提示）<br>现实的星空<br>完成成就：存在者之路：不囿，不屈</p>
+<h1 id="开发"><a href="#开发" class="headerlink" title="开发"></a>开发</h1><p>SDL、OpenGL既能规避商业引擎的抽成问题，又不会陷入底层开发泥潭。</p>
+<p>Godot适用于2D</p>
+<h2 id="原子化"><a href="#原子化" class="headerlink" title="原子化"></a>原子化</h2><p>图形,音乐</p>
+<p>聚焦内容,减少体积</p>
+<p>水滴曲线</p>
+<ul>
+<li><input disabled="" type="checkbox"> 方程</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>torrent</div>
+      <div>http://kaelvio.com/torrent/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>采薇</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年2月24日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/%E5%85%BD%E8%A3%85/" title="兽装">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">兽装</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/Robust_Prover/" title="Robust_Prover">
+                        <span class="hidden-mobile">Robust_Prover</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: 'cc4c518441082943c5a25e6d5d7f69a3'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
