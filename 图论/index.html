@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="基本定义   [!def] 图$G &#x3D; (V, E)$，其中 $V$ 为顶点集（vertexm），$E$ 为边集（edge）。   [!def] 图的分类    类型 边方向 允许多重边 允许环    简单图 无向 否 否   多重图 无向 是 否   伪图 无向 是 是   简单有向图 有向 否 否   有向多重图 有向 是 是   混合图 有向和无向的 是 是    对简单图，边由顶">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-02-24T03:51:27.946Z">
-<meta property="article:modified_time" content="2026-02-24T03:51:27.947Z">
+<meta property="article:published_time" content="2026-02-25T15:51:02.902Z">
+<meta property="article:modified_time" content="2026-02-25T15:51:02.902Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -210,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-02-24 11:51" pubdate>
-          2026年2月24日 中午
+        <time datetime="2026-02-25 23:51" pubdate>
+          2026年2月25日 晚上
         </time>
       </span>
     
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          12k 字
+          13k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          97 分钟
+          106 分钟
         
       </span>
     
@@ -271,14 +271,6 @@
         <div id="board">
           <article class="post-content mx-auto">
             <h1 id="seo-header">图论</h1>
-            
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    本文最后更新于 2026年2月24日 中午
-                  
-                
-              </p>
             
             
               <div class="markdown-body">
@@ -1019,7 +1011,7 @@
 </ol>
 </blockquote>
 <p>$Proof.$<br>(1) For $g:G$, define $\bar g:\operatorname{Aut}\Gamma(G,\Omega)$ s.t. $\bar g(h):&#x3D;gh$<br>For $\left{ h,k \right}\in E\_\Gamma$, $h^{-1}k\in\Omega\implies (gh)^{-1}(gk)\in \Omega$, so $\bar g$ is well defined.<br>Let $\bar G&#x3D;\left{ \bar g|g\in G \right}$, $G\cong\bar G\leq\operatorname{Aut}\Gamma(G,\Omega)$.<br>And for $g,h\in G$, $\overline{hg^{-1}}g&#x3D;h$, so $\Gamma(G,\Omega)$ is vertex-transitive.<br>(2) $\pi$ is an automorphism $\implies\pi$ fixes id.<br>$g^{-1}h\in\Omega\xRightarrow{Im\_\Omega \pi &#x3D;\Omega}\pi(g^{-1}h)\in\Omega\xRightarrow{group~auto}(\pi g)^{-1}(\pi h)\in\Omega\implies$ graph automorphism<br>$\blacksquare$</p>
-<p>These proposition provides two way to have part of automorphisms of a Cayley graph: $\bar G$ does not have fix points (except for id),$\operatorname{Aut}G$ has at least one fix point, which are similar to translations and rotations ,and the only sharing one is id.<br>We have $\operatorname{Aut}\Gamma(G,\Omega)\geq G\rtimes\operatorname{Aut}(G,\Omega)$. Sometimes it is strictly larger, such as $K\<em>n &#x3D; \Gamma(\mathbb{Z}\_n, \mathbb{Z}\_n \setminus {0})$. By <sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="Godsil, C. D. (1981). On the full automorphism group of a graph. _Combinatorica_, _1_(3), 243-256.">[1]</span></a></sup>, $N\</em>{\operatorname{Aut}(\Gamma(G, S))}(G)&#x3D;G\rtimes\operatorname{Aut}(G,\Omega)$</p>
+<p>These proposition provides two way to have part of automorphisms of a Cayley graph: $\bar G$ does not have fix points (except for id),$\operatorname{Aut}G$ has at least one fix point, which are similar to translations and rotations ,and the only sharing one is id.<br>We have $\operatorname{Aut}\Gamma(G,\Omega)\geq G\rtimes\operatorname{Aut}(G,\Omega)$. Sometimes it is strictly larger, such as $K\<em>n &#x3D; \Gamma(\mathbb{Z}\_n, \mathbb{Z}\_n \setminus {0})$. By <sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="Godsil, C. D. (1981). On the full automorphism group of a graph. _Combinatorica_, _1_(3), 243-256.">[1]</span></a></sup>, $N\</em>{\operatorname{Aut}(\Gamma(G, S))}(G)&#x3D;G\rtimes\operatorname{Aut}(G,\Omega)$</p>
 <p>Not every vertex-transitive graph is equivalent to a Cayley graph. e.g. Petersen graph(checking by computation) </p>
 <blockquote>
 <p>[!theorem] Cayley<br>Every group G is isomorphic to some subgroup of $\mathfrak{S}\_{|G|}$.</p>
@@ -1051,6 +1043,10 @@
 <p>e.g. ($\mathfrak{S}\_3&#x3D;D\_6$)<br>(v1) check by sage</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># define group</span><br>G = SymmetricGroup(<span class="hljs-number">3</span>)<br>elements = G.<span class="hljs-built_in">list</span>()<br>identity = G.identity()<br>order = <span class="hljs-built_in">len</span>(elements)<br><br><span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>^order):<br>	<span class="hljs-comment"># generating subset</span><br>	Omega = []<br>	<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,n):<br>		<span class="hljs-keyword">if</span> n &amp; (<span class="hljs-number">2</span>^i):<br>			Omega.append(elements[i])<br>	<span class="hljs-keyword">if</span> G.subgroup(Omega).order() == order:<br>		cg = G.cayley\_graph(generators=Omega).to\_undirected()<br>		aut\_order = cg.automorphism\_group().order()<br>		<span class="hljs-built_in">print</span>(Omega, aut\_order)<br></code></pre></td></tr></table></figure>
 <p>(v2) check by hand<br>By listing all possible $\Omega$, we can find for every $\Omega$, there exists non-trivial $\pi:\operatorname{Aut}G$,s.t. $\operatorname{Im}\_\Omega\pi&#x3D;\Omega$. Therefore, $\operatorname{Aut}\Gamma$ is strictly larger than G.</p>
+<ul>
+<li><input disabled="" type="checkbox"> 小的GRR的例子？D7 #问老师  🔼 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">G = DihedralGroup(<span class="hljs-number">7</span>)<br>Omega = [<br>    G(<span class="hljs-string">&quot;(1,2,3,4,5,6,7)&quot;</span>),<br>    G(<span class="hljs-string">&quot;(2,7)(3,6)(4,5)&quot;</span>),<br>    G(<span class="hljs-string">&quot;(1,6)(2,5)(3,4)&quot;</span>),<br>    G(<span class="hljs-string">&quot;(1,5)(2,4)(6,7)&quot;</span>)<br>]<br>cg = G.cayley\_graph(generators=Omega).to\_undirected()<br></code></pre></td></tr></table></figure>
+![[d7_cayley_plot_1.svg]]</li>
+</ul>
 <blockquote>
 <p>[!proposition]<br>$\Gamma$ is vertex-transitive, and $\operatorname{Aut}\Gamma$ is abelian.<br>Then G acts regularly on $V\_\Gamma$, and G is an elementary abelian 2-group. </p>
 </blockquote>
@@ -1108,6 +1104,7 @@
 <blockquote>
 <p>[!proposition] order of $F_i$<br>For t-transitive graph $\Gamma$,<br>$|F_i|&#x3D;(k-1)^s|F_0|(1\leq i\leq t-1)$<br>$|F_t|&#x3D;k(k-1)^{t-1}|F_0|$<br>$|\operatorname{Aut}\Gamma|&#x3D;nk(k-1)^{t-1}|F_0|$</p>
 </blockquote>
+<p>^c25b8a</p>
 <p>$Proof.$ $\Gamma$ is vertex-transitive $\implies$ $(\operatorname{Aut}\Gamma:F_t)&#x3D;(\operatorname{Aut}\Gamma:\operatorname{Aut}\Gamma_{\alpha_0})&#x3D;|V_\Gamma|&#x3D;n$<br>$\operatorname{Aut}\Gamma$ acts transitively on 1-arcs $\implies(F_t:F_{t-1})&#x3D;(F_t:(F_t)_{\alpha_1})&#x3D;|F_t\circ\alpha_1|&#x3D;k$<br>$\operatorname{Aut}\Gamma$ acts transitively on i-arcs $\implies(F_{t-i+1}:F_{t-1})&#x3D;(F_{t-i+1}:(F_{t-i+1})_{\alpha_i})&#x3D;|F_{t-i+1}\circ\alpha_i|&#x3D;k-1$<br>$\blacksquare$</p>
 <p>This is reasonable because $F_0$ have the whole information of $[\alpha]$.</p>
 <blockquote>
@@ -1116,12 +1113,13 @@
 <p>$Proof.$ ($Y_i\in F_i,Y_i\not\in F_{i-1}$)<br>For all a, $g_a^i(\alpha_j)&#x3D;\alpha_{i+j}$ for $i+j\leq t$.<br>$\implies g_{a}^{-j}g_b^j$ fixes at least $\alpha_0,\alpha_1\dots\alpha_{t-j}$ $\implies Y_i\in F_i$<br>If $Y_i\in F_{i-1}$, then $g_{a}^{-j}g_b^j$ also fixes $\alpha_{t-j+1}$ i.e. $\alpha_{t-j+1}&#x3D; g_{a}^{-j}g_b^j\alpha_{t-j+1}$ $\implies \beta^{(a)}_t&#x3D;\beta^{(b)}_t$ $\implies a&#x3D;b$.<br>($F_i\in\left&lt; Y_i,F_0 \right&gt;$)<br>For $f\in F_i$, since $f\alpha_{t-i+1}$ is adjacent to $f\alpha_{t-i}&#x3D;\alpha_{t-i}$, pick any b, $g_b^if\alpha_{t-i+1}$ is adjacent to $g^i_b\alpha_{t-i}&#x3D;\alpha_t$ $\implies$ $g_b^if\alpha_{t-i+1}&#x3D;\beta^{(a)}_t&#x3D;g_a^i\alpha_{t-i+1}$ for some a $\implies$ $g_a^{-i}g_b^if\in F_{i-1}$.<br>Repeat this progress, we can find $g\in Y_i$ s.t. $gf\in F_0$ $\implies$ $F_i\in\left&lt; Y_i,F_0 \right&gt;$<br>$\blacksquare$</p>
 <p>We observe that for $i&gt;t$, $\left&lt; Y_{t+1},F_0 \right&gt;$ dose not fix $\alpha_0$ any more.</p>
 <blockquote>
-<p>[!proposition]<br>For k-regular t-transitive $\Gamma$ with $k\geq3$, $t\geq2$ and girth $g&gt;3$,  $F^*:&#x3D;\left&lt; Y_{t+1},F_0 \right&gt;$. One of the following condition is true.</p>
+<p>[!proposition] $F^*$<br>For k-regular t-transitive $\Gamma$ with $k\geq3$, $t\geq2$ and girth $g&gt;3$,  $F^*:&#x3D;\left&lt; Y_{t+1},F_0 \right&gt;$. One of the following condition is true.</p>
 <ol>
 <li>$\operatorname{Aut}\Gamma&#x3D;F^*$</li>
-<li>$\Gamma$ is bipartite, $(G:G^*)&#x3D;2$, and $G^*$ preserves the bipartite.</li>
+<li>$\Gamma$ is bipartite, $(\operatorname{Aut}\Gamma:F^*)&#x3D;2$, and $F^*$ preserves the bipartite.</li>
 </ol>
 </blockquote>
+<p>^12c32</p>
 <p>$Proof.$ ($F^*$ can move $\alpha_0$ for distance 2)<br>$\beta^{(a)}_t\sim\alpha_t\sim\beta^{(b)}_t$, $g&gt;3$ $\implies d(\beta^{(a)}_t,\beta^{(b)}_t)&#x3D;2$ $\implies d(\alpha_0,g_a^{-(t+1)}g_b^{t+1}\alpha_0)&#x3D;2$<br>For any u s.t. $d(u,\alpha_0)&#x3D;2$, $t\geq 2$ $\implies$ there exists $f\in F_0\leq F^*$ s.t. $f$ fixes $\alpha_{0}$ and $fg_a^{-(t+1)}g_b^{t+1}\alpha_0&#x3D;u$.<br>$fg_a^{-(t+1)}g_b^{t+1}\in F^*$</p>
 <p>If $F^<em>_{(\alpha_0)}&#x3D;V_\Gamma$, $|F^</em>|&#x3D;(F^*:F^<em>_{\alpha_0})|F^</em>_{\alpha_0}|\xlongequal{orbit-stablilizer}|V\Gamma||F^<em>_{\alpha_0}|\xlongequal{F^</em>_{\alpha_0}&#x3D;F_t&#x3D;\operatorname{Aut}\Gamma_{\alpha_0}}|V_\Gamma||\operatorname{Aut}\Gamma_{\alpha_0}|&#x3D;\operatorname{Aut}\Gamma$<br>Suppose $F^<em>_{(\alpha_{0})}\neq V_{\Gamma}$, $F^</em>$ fixes points with odd and even distance from $\alpha_0$ respectively.<br>$\blacksquare$</p>
 <p>The only graphs do not satisfy $g&gt;3$ is $K_n$.</p>
@@ -1129,7 +1127,38 @@
 <li><input disabled="" type="checkbox"> check $K_n$ by computer?</li>
 <li><input disabled="" type="checkbox"> 平时哪些会用电脑 #问老师 🔼</li>
 </ul>
-<h3 id="covering-graph"><a href="#covering-graph" class="headerlink" title="covering graph"></a>covering graph</h3><p>reference: <a target="_blank" rel="noopener" href="https://handwiki.org/wiki/Covering_graph">https://handwiki.org/wiki/Covering_graph</a></p>
+<h2 id="cubic-graph"><a href="#cubic-graph" class="headerlink" title="cubic graph"></a>cubic graph</h2><blockquote>
+<p>[!def] Cubic graph<br>3-regular connected simple graph</p>
+</blockquote>
+<blockquote>
+<p>[!proposition] t-transitive cubic graph $\Gamma$<br>$\operatorname{Aut}\Gamma$ acts regularly on t-arcs.</p>
+</blockquote>
+<p>$Proof.$ Suppose $f\neq id$ fix a t-arc.<br>By [[#^ab3dd]] , there exists a t-arc $[\alpha]$ s.t. f fixes $[\alpha]$ but not both of its successors, otherwise $f&#x3D;id$.<br>Since f fixes $[\alpha]$, f must be an interchange of its successors.<br>Find $[\beta]$ s.t. $[\alpha]$ is a successor of $[\beta]$. Let $[\alpha]&#x3D;h[\beta]$<br>We have $f$ and $fh$ maps $[\beta_0~\alpha]$ into its successor respectively. By [[#^cac635]], $\Gamma$ is (t+1)-transitive. contradiction.<br>$\blacksquare$</p>
+<blockquote>
+<p>[!proposition] Structure of the stabilizer sequence of a cubic t-transitive cubic graph($t\geq2$)<br>Let $g,h\in \operatorname{Aut}\Gamma$ taking $[\alpha]$to its successors. Let $g_1&#x3D;g^{-1}h,g_i&#x3D;g^{-i}g_1g^{i}$ for $i\geq1$ .</p>
+<ol>
+<li>$F_i&#x3D;Y_i&#x3D;\left&lt; x_1,x_2\dots x_i \right&gt;$</li>
+<li>$F^*:&#x3D;Y_{t+1},(\operatorname{Aut}\Gamma:F^*)\leq2$</li>
+<li>$\operatorname{Aut}\Gamma&#x3D;\left&lt; g,g_1 \right&gt;$</li>
+</ol>
+</blockquote>
+<p>$g_1$  interchanges successors of $[\alpha]$<br>$Proof.$<br>(1) $g^{-j}h^j&#x3D;g_jg_{j-1}\dots g_1$<br>$h^{-j}g^j&#x3D;(g^{-1}h^j)^{-1}$<br>(2) For $K_4$,  we can check by hand that $\operatorname{Aut}K_4&#x3D;F^*$. For $\Gamma\neq K_4$, by [[#^12c32]], $(\operatorname{Aut}\Gamma:F^*)\leq2$.<br>(3) If $\operatorname{Aut}\Gamma&#x3D;F^*$, $F^<em>\leq \left&lt; g,g_1 \right&gt;\leq \operatorname{Aut}\Gamma \implies \operatorname{Aut}\Gamma&#x3D;\left&lt; g,g_1 \right&gt;$<br>If $(\operatorname{Aut}\Gamma:F^</em>)&#x3D;2$, every element in $F^*$ will move vertices through an even distance. $g$ sends $\alpha_t$ through distance 1 $\implies g\not\in F^*$.<br>$\implies \left&lt; g,g_1 \right&gt;&gt;F^*$ $\implies \left&lt; g,g_1 \right&gt; &#x3D; \operatorname{Aut}\Gamma$<br>$\blacksquare$<br>e.g. For Petersen graph, 5-cycle exists $\implies$ the graph is not bipartite. $\implies$ $F^*&#x3D;\operatorname{Aut}\Gamma$<br>For $[\alpha]&#x3D;[12,34,51,23]$, $g&#x3D;(13)(245),h&#x3D;(13524)$, $g_1&#x3D;(34),g_2&#x3D;(12),g_3&#x3D;(35),g_4&#x3D;(14)$, in this case, $g_i$ are all transpositions.</p>
+<p>$Q_3&#x3D;K^{\square3}_2$ is bipartite, and $F^*$ preserves the bipartite.</p>
+<p>By [[#^c25b8a]],<br>$$</p>
+<p>\begin{align}<br>|F_i|&#x3D;&amp; 2^i \quad(0\leq i \leq t-1) \<br>|F_t|&#x3D; &amp;3\cdot2^{t-1}  \<br>\operatorname{Aut}\Gamma&#x3D;&amp;|V_\Gamma|3\cdot 2^{t-1}<br>\end{align}<br>$$</p>
+<blockquote>
+<p>[!proposition] unique factorization</p>
+<ol>
+<li>$g_i$ are involutions</li>
+<li>For.$1\leq i \leq t-1$ very element in $F_i$ can be uniquely factorized into product of $g_i$.</li>
+</ol>
+</blockquote>
+<p>$Proof.$<br>(1) Since conjugates are group automorphism, we only need to prove $g_1$ is an involution, which is held by $|F_1|&#x3D;2$.<br>(2) We can decompose $F_i$ into $F_{i-1}\cup F_{i-1}g_i$<br>$\implies F_i&#x3D;\left{ g_1^{\sigma_1}g_2^{\sigma_2}\dots g_i^{\sigma_i}\mid \sigma_j\in \left{ 0,1 \right} \right}$ $\implies|F_i|\geq 2^i$<br>$|F_i|&#x3D;2^i\implies$ every tuple of $\sigma_j$ is related to a unique element.<br>$\blacksquare$</p>
+<blockquote>
+<p>[!proposition] $\lambda:&#x3D;\max i<del>s.t.</del>F_i<del>is</del>abelian$<br>If $t\geq 4$, then $2\leq \lambda&lt;t&#x2F;2+1$</p>
+</blockquote>
+<p>$Proof.$ $|F_1|&#x3D;2,|F_2|&#x3D;4\implies F_1,F_2$ are abelian.<br>$F_\lambda&#x3D;\left&lt; g_1,g_2\dots g_\lambda \right&gt;$ is abelian $\implies$ $g^{-t+\lambda-1}F_\lambda g^{t-\lambda+1}&#x3D;\left&lt; g_{t-\lambda+2}\dots g_{t+1} \right&gt;$ is abelian<br>If those two groups generates $F^*$ i.e. $\lambda\geq t-\lambda+2$, $g_\lambda$ is in the center of $F^*$.<br>$g\in \operatorname{Aut}\Gamma,(\operatorname{Aut}\Gamma:F^*)\leq{2}\implies g^2\in F^*$<br>$\implies g_{\lambda}\xlongequal{abelian}g^{-2}g_\lambda g^2&#x3D;g_{\lambda+1}$ $\xRightarrow{aut}g_1&#x3D;g_3\implies F_3&#x3D;F_2$ contrandiction.<br>$\blacksquare$</p>
+<h2 id="covering-graph"><a href="#covering-graph" class="headerlink" title="covering graph"></a>covering graph</h2><p>reference: <a target="_blank" rel="noopener" href="https://handwiki.org/wiki/Covering_graph">https://handwiki.org/wiki/Covering_graph</a></p>
 <blockquote>
 <p>[!def] covering graph<br>A graph $\tilde\Gamma$ is called a covering graph&#x2F;lift of $\Gamma$ iff there exists $\pi:\tilde\Gamma\to\Gamma$ s.t. $\pi|_{N(v)}$ is one-to-one onto $N(\pi(v))$.<br>![[Covering-graph-4-a.svg]]</p>
 </blockquote>
@@ -1137,18 +1166,50 @@
 <p>[!exm] double cover of $\Gamma$<br>$\Gamma \times K_2$<br>![[Covering-graph-2.svg|400]]</p>
 </blockquote>
 <blockquote>
-<p>[!def] voltage graph<br>sides of $\Gamma$. $S_\Gamma:&#x3D;$ 1-arcs of $\Gamma$<br>For group G, G-chain of $\Gamma$. $\phi:S_\Gamma\to G<del>&amp;</del>\phi(u,v)&#x3D;(\phi(v,u)^{-1})$<br>Fix $\lambda:\operatorname{Aut}\Gamma\to G$, a G-chain $\phi$ is called compatible if the following diagram commutes for every $g\in \operatorname{Aut}\Gamma$.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tikz">\usepackage&#123;tikz-cd&#125;\begin&#123;document&#125;\begin&#123;tikzcd&#125; &#123;S_\Gamma&#125; &amp; G \\ &#123;S_\Gamma&#125; &amp; G \arrow[&quot;\phi&quot;, from=1-1, to=1-2] \arrow[&quot;g&quot;&#x27;, from=1-1, to=2-1] \arrow[&quot;&#123;\lambda g&#125;&quot;, from=1-2, to=2-2] \arrow[&quot;\phi&quot;&#x27;, from=2-1, to=2-2] \end&#123;tikzcd&#125;\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+<p>[!def] voltage graph<br>sides of $\Gamma$. $S_\Gamma:&#x3D;$ 1-arcs of $\Gamma$<br>For group G, G-chain of $\Gamma$. $\phi:S_\Gamma\to G<del>&amp;</del>\phi(u,v)&#x3D;(\phi(v,u)^{-1})$<br>Fix $\lambda:\operatorname{Aut}\Gamma\to \operatorname{Aut}G$, a G-chain $\phi$ is called compatible if the following diagram commutes for every $h\in \operatorname{Aut}\Gamma$.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tikz">\usepackage&#123;tikz-cd&#125;\begin&#123;document&#125;\begin&#123;tikzcd&#125; &#123;S_\Gamma&#125; &amp; G \\ &#123;S_\Gamma&#125; &amp; G \arrow[&quot;\phi&quot;, from=1-1, to=1-2] \arrow[&quot;h&quot;&#x27;, from=1-1, to=2-1] \arrow[&quot;&#123;\lambda h&#125;&quot;, from=1-2, to=2-2] \arrow[&quot;\phi&quot;&#x27;, from=2-1, to=2-2] \end&#123;tikzcd&#125;\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
 <p>voltage graph. $\tilde\Gamma(G,\phi):&#x3D;(G\times S_\Gamma,\left{ ((g_1,v_1),(g_2,v_2))\mid (v_1,v_2)\in V_\Gamma,g_2^{-1}g_1&#x3D;\phi(v_1,v_2) \right})$</p>
-<ul>
-<li><input disabled="" type="checkbox"> $\operatorname{Aut}\tilde\Gamma&#x3D;G\rtimes_{\lambda}\operatorname{Aut}\Gamma$</li>
-</ul>
 </blockquote>
-<p>The $\phi(u,v)&#x3D;(\phi(v,u)^{-1})$ ensures simplicity of $\tilde\Gamma$.<br>Intuitively, $(g,v)$ indicates having potential g in position v, and $\phi(u,v)$ is the potential difference from u to v, and a side is a possible state change.</p>
+<p>Intuitively, $(g,v)$ indicates having potential g in position v, and $\phi(u,v)$ is the potential difference from u to v, and a side is a possible state change.<br>The $\phi(u,v)&#x3D;(\phi(v,u)^{-1})$ ensures simplicity of $\tilde\Gamma$ and invertible of state change.</p>
+<p>$\phi:&#x3D;\_\mapsto id$ is compatible with any given $\lambda$.</p>
+<blockquote>
+<p>[!proposition] A voltage graph is a covering graph</p>
+</blockquote>
+<p>$Proof.$<br>$\pi:\tilde\Gamma\to\Gamma.(g,v)\mapsto v$<br>$N_{\tilde\Gamma}(g,v)&#x3D;\left{(g\phi(v,u),u)\mid u\in N_\Gamma(v)  \right}$<br>$\blacksquare$</p>
+<p>Notice that sides $\neq$ vertex parts, connection is needed.</p>
+<blockquote>
+<p>[!proposition]<br>For $\phi$ which is compatible with $\lambda$, $G\rtimes_{\lambda}\operatorname{Aut}\Gamma\leq \operatorname{Aut}\tilde\Gamma(G,\phi)$</p>
+</blockquote>
+<p>$Proof.$ For $(g,h)\in G\rtimes \operatorname{Aut}\Gamma$, $(g,h)\curvearrowright(g_0,v_0):&#x3D;(g<del>\lambda hg_0,hv_0)$.<br>$$<br>\begin{align}<br>(g_0,v_0)\sim(g_0\phi(v_0,v_1),v_1)\iff &amp;(g,h)\curvearrowright(g_0,h_0)&#x3D;(g</del>\lambda hg_0,hv_0) \&amp;<br>\sim(g<del>\lambda hg_0</del>\phi(hv_0,hv_1),hv_1)\xlongequal{compatible}(g<del>\lambda hg_{0}</del>\lambda h\phi(v_0,v_1),hv_1) \<br>&amp;\xlongequal{automorphism}(g~\lambda hg_0\phi(v_0,v_1),hv_1)&#x3D;(g,h)\curvearrowright (g_0\phi(v_0,v_1),v_1)<br>\end{align}<br>$$<br>$\implies$ $(g,h)\curvearrowright$ is an automorphism of $\tilde\Gamma$<br>$\blacksquare$</p>
+<blockquote>
+<p>[!proposition]<br>If $\operatorname{Aut}\Gamma$ is transitive on t-arcs of $\Gamma$, $G\rtimes_{\lambda}\operatorname{Aut}\Gamma$ is transitive on t-arcs of $\tilde\Gamma(G,\phi)$ for compatible $\phi$.</p>
+</blockquote>
+<p>$Proof.$ For t-arcs of $\tilde\Gamma$ $[(g_i,v_1)],[(g_i’,v_i’)]$, because $\Gamma$ is transitive on t-arcs, there exists $h\in \operatorname{Aut}\Gamma$ s.t. $h[v_i]&#x3D;h[v_i’]$. Let $g&#x3D;g_0’(\lambda hg_0)^{-1}$, which ensures $(g,h)(g_0,v_0)&#x3D;(g_0’,v_0’)$.<br>(Claim. $(g,h)[(g_i,v_i)]&#x3D;[(g_i’,v_i’)]$)<br>Prove by induction on i.<br>The claim is true when $i&#x3D;0$.<br>If the claim is true for $i&#x3D;j-1$, $(g,h)\curvearrowright(g_{j-1},v_{j-1})&#x3D;(g~\lambda hg_{j-1},hv_{j-1})&#x3D;(g_{j-1}’,v_{j-1}’)$.<br>Also $(g_{j-1},v_{j-1})\sim(g_j,v_j)$ $\implies$ $(g_j,v_j)&#x3D;(g_{j-1}\phi(v_{j-1},v_j),v_{j})$<br>$$</p>
+<p>\begin{align}<br>(g,h)(g_j,v_j)&amp;&#x3D;(g,h)(g_{j-1}\phi(v_{j-1},v_j),v_{j})&#x3D;(g<del>\lambda h(g_{j-1}\phi(v_{j-1},v_j)),v_j’) \<br>&amp;&#x3D;(g</del>\lambda hg_{j-1}<del>\phi(hv_{j-1},hv_j),v_j’)&#x3D;(g_{j-1}’</del>\phi(v_{j-1}’,v_j’),v_j’)&#x3D;(g_j’,h_j’)<br>\end{align}<br>$$<br>$\blacksquare$</p>
+<blockquote>
+<p>[!def] ‘free voltage graph’<br>$G:&#x3D;\mathbb{2}^{E_\Gamma}$, $\phi(u,v):&#x3D;\left{ u,v \right}$, $\lambda h:&#x3D;\left{ u,v \right}\mapsto \left{ hu,hv \right}$<br>$\tilde\Gamma^*:&#x3D;\tilde\Gamma(G,\phi)$</p>
+</blockquote>
+<blockquote>
+<p>[!theorem] t-transitive $\Gamma$<br>$\tilde\Gamma^*$ have $2^{\operatorname{rank}\Gamma}$ connected component, each having $2^{\operatorname{corank}\Gamma}|V_\Gamma|$ vertices.</p>
+</blockquote>
+<p>$Proof.$ Pick $v\in V_\Gamma$, let $\tilde\Gamma^<em>_v$ be the component containing $(id,v)$.<br>For $(e_1e_2\dots e_n,v)\in\tilde\Gamma^</em>_v$, $e_1e_2\dots e_n$ is a simple cycle in $\Gamma$, $\implies$ $|\tilde\Gamma^<em>_v\cap\pi^{-1}v|&#x3D;2^{\operatorname{corank}\Gamma}$.<br>Since $\Gamma$ is connected, for every $u\in V_\Gamma$, let g be a simple path between v and u. $(g,u)\in\tilde\Gamma^</em>_v$.<br>$\implies$ $|\tilde\Gamma^*_v|&#x3D;2^{\operatorname{corank}\Gamma}|V_\Gamma|$</p>
+<p>$\Gamma$ is vertex-transitive $\implies$ every component has the same number of vertecies.<br>$#component&#x3D;\frac{2^{|E_\Gamma|}|V_\Gamma|}{2^{\operatorname{corank}\Gamma}|V_\Gamma|}&#x3D;2^{\operatorname{rank}\Gamma}$<br>$\blacksquare$</p>
+<blockquote>
+<p>[!corollary] There are infinite many cubic 5-transitive graphs.</p>
+</blockquote>
+<p>$Proof.$ </p>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+There exists at least 1 cubic 5-transitive graph $\Omega$.<br>$\tilde\Omega$ is at least 5-transitive $\implies$ $\tilde\Omega^<em>_v$ is at least 5-transitive<br>$\tilde\Omega^</em>_v$ is cubic graph, and we know that for t-transitive graph, t is at most 5 $\implies$$\tilde\Omega^<em>_v$ is a cubic 5-transitive graph.<br>$\operatorname{corank}\Omega&#x3D;|E_\Omega|-|V_\Gamma|+1&#x3D;\frac{3n}{2}|V_\Omega|-|V_\Omega|+1&gt;0\implies |V_{\tilde\Omega^</em>_v}|&gt;|V_{\Omega}|\implies\Omega\neq \tilde\Omega^*_v$<br>$\blacksquare$</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+代数拓扑解释 🔼</p>
+</li>
+</ul>
 <h2 id="distance-transitive-graph"><a href="#distance-transitive-graph" class="headerlink" title="distance-transitive graph"></a>distance-transitive graph</h2><blockquote>
 <p>[!def] intersection number<br>$s_{hi}(u,v):&#x3D;|\left{ w\in V_\Gamma\mid d(w,u)&#x3D;h, d(w,v)&#x3D;i\right}|$<br>For distance-transitive graph, $s_{hij}:&#x3D;s_{hi}(u,v)$ for $d(u,v)&#x3D;j$</p>
 </blockquote>
-<section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>Godsil, C. D. (1981). On the full automorphism group of a graph. <em>Combinatorica</em>, <em>1</em>(3), 243-256.
+<section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>Godsil, C. D. (1981). On the full automorphism group of a graph. <em>Combinatorica</em>, <em>1</em>(3), 243-256.
 <a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
                 
               </div>
@@ -1179,14 +1240,9 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年2月24日</div>
+          <div>2026年2月25日</div>
         </div>
       
-      
-        <div class="license-meta-item license-meta-date">
-          <div>更新于</div>
-          <div>2026年2月24日</div>
-        </div>
       
       
         <div class="license-meta-item">
@@ -1228,18 +1284,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E5%A4%A9%E7%8B%BC%E6%98%9F/" title="天狼星">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">天狼星</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E5%9B%9E%E5%93%8D/" title="回响">
-                        <span class="hidden-mobile">回响</span>
+                      <a href="/%E9%BD%90%E6%B3%BD%E5%85%8B/" title="齐泽克">
+                        <span class="hidden-mobile">齐泽克</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
