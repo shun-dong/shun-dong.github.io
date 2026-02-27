@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="理解思想不一定要用Haskell实现 名字源于Haskell Curry，柯里化的提出者  [!note] Curry-Howard-Lambek_Correspondence这个同构关系是连接范畴论和类型论的关键桥梁。  之前的问题是不清晰的类型和需要维护的值函数式编程，无状态（改变参数值），与数学物理一致 eg. find closest point 12closestPoint :: Poi">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-02-24T03:51:27.905Z">
-<meta property="article:modified_time" content="2026-02-24T03:51:27.905Z">
+<meta property="article:published_time" content="2026-02-27T10:22:54.919Z">
+<meta property="article:modified_time" content="2026-02-27T10:22:54.919Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -210,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-02-24 11:51" pubdate>
-          2026年2月24日 中午
+        <time datetime="2026-02-27 18:22" pubdate>
+          2026年2月27日 晚上
         </time>
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          13 分钟
+          12 分钟
         
       </span>
     
@@ -343,13 +343,13 @@
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-class"><span class="hljs-keyword">type</span> <span class="hljs-type">String</span> = [<span class="hljs-type">Char</span>]</span><br></code></pre></td></tr></table></figure>
 
 <h1 id="Functor-Applicative-Monad"><a href="#Functor-Applicative-Monad" class="headerlink" title="Functor &amp; Applicative &amp; Monad"></a>Functor &amp; Applicative &amp; Monad</h1><figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-type">Functor</span> f <span class="hljs-keyword">where</span></span><br>        fmap :: (a -&gt; b) -&gt; f a -&gt; f b<br>		(&lt;$&gt;) = fmap<br>		<span class="hljs-comment">-- id &lt;$&gt; == id</span><br>		<span class="hljs-comment">-- (h . g) &lt;$&gt; == h &lt;$&gt; . g &lt;$&gt;</span><br>        <span class="hljs-comment">-- Haskell不会在编译期或运行期自动检查某个Functor实例是否满足函子的两条定律,这些定律是数学规范，需要程序员自己保证</span><br>        <span class="hljs-comment">-- &lt;$&gt; is unique, f is confirmed by a &amp; f a</span><br><span class="hljs-class"><span class="hljs-keyword">instance</span> <span class="hljs-type">Functor</span> <span class="hljs-type">Maybe</span> <span class="hljs-keyword">where</span></span><br>        fmap g <span class="hljs-type">Nothing</span> = <span class="hljs-type">Nothing</span><br>        fmap g (<span class="hljs-type">Just</span> a) = <span class="hljs-type">Just</span> (g a)<br></code></pre></td></tr></table></figure>
-<p>实际上这并不是数学上的函子, 这里只要求f是一个类型构造器, 即f: Type -&gt; Type, 实际上函子???要求本身是个函数a-&gt;f a, Haskell中的functor竖着的f箭头是不一定存在的<br>$$</p>
+
+<p>$$</p>
 <p>\begin{CD}<br>a @&gt;{g}&gt;&gt;b\<br>@V{(f)}VV @V{(f)}VV\<br>f<del>a @&gt;{fmap</del>g}&gt;&gt; f~b<br>\end{CD}</p>
-<p>$$<br>Haskell我完全可以写type family f a wheref _ &#x3D; Nat, fmap g a &#x3D; a, 这相当于完全不管a b了</p>
-<p>真正的函子实际上是所谓的???Applicative Functor, 实际上更强, 数学上的函子f:C→D不要求定义在Type或Cat∞上, f(a -&gt; b)不一定存在<br>$$</p>
+<p>$$<br>Haskell我完全可以写type family f a where f _ &#x3D; Nat, fmap g a &#x3D; a, 这相当于完全不管a b了<br>有意思的是，这里的applicative确实在数学中是广泛存在的，也确实比一般的函子强一些（多了单位律，即 $\epsilon:1_{\mathcal{C}\circlearrowleft}\Rightarrow F$)<br>$$</p>
 <p>\begin{CD}<br>a @&gt;{g}&gt;&gt;b\<br>@V{pure}VV @V{pure}VV\<br>f<del>a @&gt;{pure</del>g&lt;*&gt;}&gt;&gt; f~b<br>\end{CD}</p>
 <p>$$</p>
-<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs Haskell"><span class="hljs-class"><span class="hljs-keyword">class</span> (<span class="hljs-type">Functor</span> <span class="hljs-title">f</span>) =&gt; <span class="hljs-type">Applicative</span> f <span class="hljs-keyword">where</span></span>  <br>    pure :: a -&gt; f a  <span class="hljs-comment">-- 这里的a可以是函数, 所以f a的项也由a的项定义, 避免了之前完全不管a的情况</span><br>    (&lt;*&gt;) :: f (a -&gt; b) -&gt; f a -&gt; f b<br>    <span class="hljs-comment">-- f &lt;$&gt; = pure f &lt;*&gt; 默认实现符合之前Functor的定义, 保持了id函数</span><br>	<span class="hljs-comment">-- pure g &lt;*&gt; pure x == pure (g x) 图标交换</span><br>	<span class="hljs-comment">-- pure (.) &lt;*&gt; u &lt;*&gt; v &lt;*&gt; w == u &lt;*&gt; (v &lt;*&gt; w) 保证依然是范畴</span><br><span class="hljs-class"></span><br><span class="hljs-class"><span class="hljs-keyword">instance</span> <span class="hljs-type">Applicative</span> <span class="hljs-type">Maybe</span> <span class="hljs-keyword">where</span></span> <br>	pure = <span class="hljs-type">Just</span> <br>	<span class="hljs-type">Nothing</span> &lt;*&gt; _ = <span class="hljs-type">Nothing</span> <br>	(<span class="hljs-type">Just</span> g) &lt;*&gt; = g &lt;$&gt;<br><span class="hljs-type">Just</span> (+<span class="hljs-number">3</span>) &lt;*&gt; <span class="hljs-type">Just</span> <span class="hljs-number">9</span> <span class="hljs-comment">-- Just 12</span><br></code></pre></td></tr></table></figure>
+<figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs Haskell"><span class="hljs-class"><span class="hljs-keyword">class</span> (<span class="hljs-type">Functor</span> <span class="hljs-title">f</span>) =&gt; <span class="hljs-type">Applicative</span> f <span class="hljs-keyword">where</span></span>  <br>    pure :: a -&gt; f a  <span class="hljs-comment">-- 这里的a可以是函数类型, 所以f a的项也由a的项定义, 避免了之前完全不管a的情况</span><br>    (&lt;*&gt;) :: f (a -&gt; b) -&gt; f a -&gt; f b<br>    <span class="hljs-comment">-- f &lt;$&gt; = pure f &lt;*&gt; 默认实现符合之前Functor的定义, 保持了id函数</span><br>	<span class="hljs-comment">-- pure g &lt;*&gt; pure x == pure (g x) 图标交换</span><br>	<span class="hljs-comment">-- pure (.) &lt;*&gt; u &lt;*&gt; v &lt;*&gt; w == u &lt;*&gt; (v &lt;*&gt; w) 保证依然是范畴</span><br><span class="hljs-class"></span><br><span class="hljs-class"><span class="hljs-keyword">instance</span> <span class="hljs-type">Applicative</span> <span class="hljs-type">Maybe</span> <span class="hljs-keyword">where</span></span> <br>	pure = <span class="hljs-type">Just</span> <br>	<span class="hljs-type">Nothing</span> &lt;*&gt; _ = <span class="hljs-type">Nothing</span> <br>	(<span class="hljs-type">Just</span> g) &lt;*&gt; = g &lt;$&gt;<br><span class="hljs-type">Just</span> (+<span class="hljs-number">3</span>) &lt;*&gt; <span class="hljs-type">Just</span> <span class="hljs-number">9</span> <span class="hljs-comment">-- Just 12</span><br></code></pre></td></tr></table></figure>
 
 <p>Monad单子:不可拆分, 组成其他对象<br>半:存在Monad没有把值拿出来的操作</p>
 <figure class="highlight haskell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs haskell"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-type">Applicative</span> =&gt; <span class="hljs-type">Monad</span> m <span class="hljs-keyword">where</span></span> <br>	return :: a -&gt; m a <span class="hljs-comment">-- 如果要继承的话return = pure</span><br>	(&gt;&gt;=) :: m a -&gt; (a -&gt; m b) -&gt; m b <span class="hljs-comment">-- 直观上就是把a取出来放进函数</span><br>	<span class="hljs-comment">-- x &gt;&gt; y = x &gt;&gt;= \_ -&gt; y 不是独立定义的, 默认实现</span><br><span class="hljs-class"></span><br><span class="hljs-class"><span class="hljs-keyword">instance</span> <span class="hljs-type">Monad</span> <span class="hljs-type">Maybe</span> <span class="hljs-keyword">where</span></span> <br>	return x = <span class="hljs-type">Just</span> x <br>	<span class="hljs-type">Nothing</span> &gt;&gt;= f = <span class="hljs-type">Nothing</span> <br>	<span class="hljs-type">Just</span> x &gt;&gt;= f = f x<br></code></pre></td></tr></table></figure>
@@ -417,7 +417,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年2月24日</div>
+          <div>2026年2月27日</div>
         </div>
       
       
@@ -461,9 +461,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Homotopy_Type_Theory/" title="Homotopy_Type_Theory">
+                      <a href="/%E5%9B%BE%E8%AE%BA/" title="图论">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Homotopy_Type_Theory</span>
+                        <span class="hidden-mobile">图论</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -471,8 +471,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/git/" title="git">
-                        <span class="hidden-mobile">git</span>
+                      <a href="/%E9%BD%90%E6%B3%BD%E5%85%8B/" title="齐泽克">
+                        <span class="hidden-mobile">齐泽克</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

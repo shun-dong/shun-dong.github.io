@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="基本定义   [!def] 图$G &#x3D; (V, E)$，其中 $V$ 为顶点集（vertexm），$E$ 为边集（edge）。   [!def] 图的分类    类型 边方向 允许多重边 允许环    简单图 无向 否 否   多重图 无向 是 否   伪图 无向 是 是   简单有向图 有向 否 否   有向多重图 有向 是 是   混合图 有向和无向的 是 是    对简单图，边由顶">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-02-25T15:51:02.902Z">
-<meta property="article:modified_time" content="2026-02-25T15:51:02.902Z">
+<meta property="article:published_time" content="2026-02-27T10:22:54.954Z">
+<meta property="article:modified_time" content="2026-02-27T10:22:54.954Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -210,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-02-25 23:51" pubdate>
-          2026年2月25日 晚上
+        <time datetime="2026-02-27 18:22" pubdate>
+          2026年2月27日 晚上
         </time>
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          106 分钟
+          112 分钟
         
       </span>
     
@@ -884,7 +884,10 @@
 <blockquote>
 <p>[!remark]<br>例：<br>\begin{center}<br>\includegraphics[width&#x3D;0.5\texmtwidth]{tree_exmamples.png}<br>\end{center}<br>（图中包含 6 个标树示例：Prüfer Code 1, 2, 3, 12, 123, 1233）</p>
 </blockquote>
-<h1 id="chromatic-polynomial"><a href="#chromatic-polynomial" class="headerlink" title="chromatic polynomial"></a>chromatic polynomial</h1><h1 id="symmetric-and-regularity"><a href="#symmetric-and-regularity" class="headerlink" title="symmetric and regularity"></a>symmetric and regularity</h1><p>有向带边权的图(某种形式的传输）和方阵一一对应，更弱的图可以看成某一类方阵<br>令 $[G]{^i}{_j}&#x3D;w\vec {(ji)}$，</p>
+<h1 id="chromatic-polynomial"><a href="#chromatic-polynomial" class="headerlink" title="chromatic polynomial"></a>chromatic polynomial</h1><h1 id="symmetric-and-regularity"><a href="#symmetric-and-regularity" class="headerlink" title="symmetric and regularity"></a>symmetric and regularity</h1><blockquote>
+<p>[!remark] Notation<br>$\Gamma:\mathbf{Graph}$<br>$G:\mathbf{Group}$</p>
+</blockquote>
+<p>有向带边权的图(某种形式的传输）和方阵一一对应，更弱的图可以看成某一类方阵<br>令 $[G]{^i}{_j}&#x3D;w\vec {(ji)}$，</p>
 <ul>
 <li><input disabled="" type="checkbox"> 这里用括号更有暗示性<br>x是某种点的权重的话, $[G]x$ 是传输一轮后的权重, $[\sigma^{-1}\cdot G]&#x3D;[\sigma^{-1}][G][\sigma]$ 是重排后的传输<br>特征向量是传输后分布不变的点权，</li>
 </ul>
@@ -1153,11 +1156,34 @@
 <li>For.$1\leq i \leq t-1$ very element in $F_i$ can be uniquely factorized into product of $g_i$.</li>
 </ol>
 </blockquote>
+<p>^98699</p>
 <p>$Proof.$<br>(1) Since conjugates are group automorphism, we only need to prove $g_1$ is an involution, which is held by $|F_1|&#x3D;2$.<br>(2) We can decompose $F_i$ into $F_{i-1}\cup F_{i-1}g_i$<br>$\implies F_i&#x3D;\left{ g_1^{\sigma_1}g_2^{\sigma_2}\dots g_i^{\sigma_i}\mid \sigma_j\in \left{ 0,1 \right} \right}$ $\implies|F_i|\geq 2^i$<br>$|F_i|&#x3D;2^i\implies$ every tuple of $\sigma_j$ is related to a unique element.<br>$\blacksquare$</p>
+<p>从（1）可以得到其实哪种共轭写法都一样<br>Next, we will discuss the commutativity of subgroups, referred to [[群论#交换性]].</p>
 <blockquote>
 <p>[!proposition] $\lambda:&#x3D;\max i<del>s.t.</del>F_i<del>is</del>abelian$<br>If $t\geq 4$, then $2\leq \lambda&lt;t&#x2F;2+1$</p>
 </blockquote>
 <p>$Proof.$ $|F_1|&#x3D;2,|F_2|&#x3D;4\implies F_1,F_2$ are abelian.<br>$F_\lambda&#x3D;\left&lt; g_1,g_2\dots g_\lambda \right&gt;$ is abelian $\implies$ $g^{-t+\lambda-1}F_\lambda g^{t-\lambda+1}&#x3D;\left&lt; g_{t-\lambda+2}\dots g_{t+1} \right&gt;$ is abelian<br>If those two groups generates $F^*$ i.e. $\lambda\geq t-\lambda+2$, $g_\lambda$ is in the center of $F^*$.<br>$g\in \operatorname{Aut}\Gamma,(\operatorname{Aut}\Gamma:F^*)\leq{2}\implies g^2\in F^*$<br>$\implies g_{\lambda}\xlongequal{abelian}g^{-2}g_\lambda g^2&#x3D;g_{\lambda+1}$ $\xRightarrow{aut}g_1&#x3D;g_3\implies F_3&#x3D;F_2$ contrandiction.<br>$\blacksquare$</p>
+<blockquote>
+<p>[!lemma] Commutators of generators</p>
+<ol>
+<li>$[g_i,g_j]&#x3D;1$ for $|i-j|&lt;\lambda$. $[g_i,g_j]\neq1$ for $|i-j|&#x3D;\lambda$</li>
+<li>$Z(F_j)&#x3D;\left&lt; g_{j-\lambda+1} ,g_{j-\lambda+2}\dots g_\lambda\right&gt;$ for $\lambda\leq j&lt;2\lambda$</li>
+<li>$[F_{i+1},F_{i+1}]\leq \left&lt; g_2,g_3\dots g_{i} \right&gt; &#x3D; g^{-1}F_{i-1}g$</li>
+</ol>
+</blockquote>
+<p>^23475</p>
+<p>$Proof.$<br>(1) W.L.O.G. suppose $i&lt;j$, $[g_i,g_j]&#x3D;g^{-i+1}[g_1,g_{j-i+1}]g^{i-1}$<br>$\implies [g_i,g_j]&#x3D;1$ iff $g_1,g_{j-1+1}$ commute<br>$F_\lambda$ commutes $\implies$ if $j-i+1\leq \lambda$, $g_1,g_{j-i+1}$ commute $\implies$ $[g_i,g_j]&#x3D;1$ for $|i-j|&lt;\lambda$<br>$F_{\lambda+1}$ does not commute $\implies$ At least one pair $g_i,g_j$ do not commute $\implies$ $g_1,g_{\lambda+1}$ do not commute.<br>(2) ($Z(F_j)\leq \left&lt; g_{j-\lambda+1}\dots g_\lambda \right&gt;$)<br>By [[#^98699]], for $z\in Z(F_j)\leq F_j$, we have $z&#x3D;g_{i_1}g_{i_2}\dots g_{i_s}$ for $1\leq i_1&lt;i_2\dots&lt;i_s\leq j$.<br>If $g_{i_1-\lambda},g_{i_s+\lambda}$ exists, We have that z does not commute with them.<br>$\implies$ $i_1-\lambda\leq 0, i_s+\lambda&gt; j$<br>$\implies z\in\left&lt; g_{j-\lambda+1} ,g_{j-\lambda+2}\dots g_\lambda\right&gt;$<br>($Z(F_j)\geq \left&lt; g_{j-\lambda+1}\dots g_\lambda \right&gt;$)<br>For $j-\lambda+1\leq i\leq\lambda$, by (1) $g_i$ commutes with $F_j$.<br>(3) $(F_{i+1}:F_i)&#x3D;2,(F_{i+1}:g^{-1}F_ig)&#x3D;2$ $\implies F_i,g^{-1}F_ig\lhd F_{i+1}$<br>$F_i\cap g^{-1}F_ig&#x3D;\left&lt; g_2,g_3\dots g_i \right&gt; &#x3D;g^{-1}F_{i-1}g\lhd F_{i+1}$<br>$|F_{i+1}&#x2F;g^{-1}F_{i-1}g|&#x3D;4$ $\implies F_{i+1}&#x2F;g^{-1}F_{i-1}g$ is abelian.<br>$\implies [F_{i+1},F_{i+1}]\leq g^{-1}F_{i-1}g$<br>$\blacksquare$</p>
+<blockquote>
+<p>[!lemma]<br>Let $[g_1,g_{\lambda+1}]&#x3D;g_\mu\dots g_\nu$ for $\mu&lt;\dots&lt;\nu$.<br>$t-\lambda\leq\mu\leq\nu\leq2\lambda-t+2$</p>
+</blockquote>
+<p>$\mu&#x3D;\nu$ is possible</p>
+<p>$Proof.$<br>By <a href="3">[#^23475]</a>, $[g_1,g_{\lambda+1}]\in[F_{\lambda+1},F_{\lambda+1}]\leq \left&lt; g_2,g_3\dots g_\lambda \right&gt;$ $\implies 2\leq\mu&lt;\dots&lt;\nu\leq\lambda$<br>($\mu+\lambda\geq t$)<br>Suppose not i.e. $\mu+\lambda&lt; t$.<br>By <a href="3">[#^23475]</a>, $[g_1,g_{\mu+\lambda}]\in [F_{\mu+\lambda},F_{\mu+\lambda}]\leq g^{-1}F_{\mu+\lambda-2}g$.<br>Similar to <a href="2">[#^23475]</a>, we have $Z(g^{-1}F_{\mu+\lambda-2}g)\xlongequal{Z:\mathbf{group}^\times\to \mathbf{group}}g^{-1}Z(F_{\mu+\lambda-2})g&#x3D;g^{-1}\left&lt; g_{\mu-1},\dots g_\lambda \right&gt;g&#x3D;\left&lt; g_\mu,\dots g_{\lambda+1} \right&gt;$<br>$g_{\lambda+1}\in \left&lt; g_\mu\dots g_{\lambda+1}\right&gt;,[g_1,g_{\lambda+1}]&#x3D;g_\mu\dots g_\nu\leq \left&lt; g_2,\dots g_\lambda \right&gt;$ $\implies [g_1,g_{\mu+\lambda}]$ commutes with $g_{\lambda+1},[g_1,g_{\lambda+1}]$<br>By <a href="1">[#^23475]</a> $|(\mu+\lambda)-(\lambda+1)|&lt;\lambda\implies g_{\mu+\lambda},g_{\lambda+1}$ commute.<br>$$</p>
+<p>\begin{align}<br>g_{\mu+\lambda}^{-1}[g_1,g_{\lambda+1}]g_{\mu+\lambda} &amp; &#x3D;[g_{\mu+\lambda}^{-1}g_1g_{\mu+\lambda},g_{\mu+\lambda}^{-1}g_{\lambda+1}g_{\mu+\lambda}] \<br> &amp; &#x3D;[g_1[g_1,g_{\mu+\lambda}],g_{\lambda+1}] \<br>  &amp; &#x3D;[g_1,g_{\mu+\lambda}]^{-1}[g_1,g_{\lambda+1}][g_1,g_{\mu+\lambda}][[g_1,g_{\mu+\lambda}],x_\lambda] \<br>   &amp; &#x3D;[g_1,g_\lambda]<br>\end{align}<br>$$</p>
+<p>这个作者的换位子定义是 $a^{-1}b^{-1}ab$ 和通常定义差一个 $ab\curvearrowright$<br>$\implies[g_1,g_{\lambda+1}]&#x3D;g_\mu\dots g_\nu,g_{\mu+\lambda}$ commutes<br>contradiction<br>($2\lambda-\nu\geq t-2$)<br>similar to proof above<br>$\blacksquare$</p>
+<blockquote>
+<p>[!theorem] Tutte 1947a<br>There is no finite 5-transitive cubic graph.</p>
+</blockquote>
+<p>$Proof.$ </p>
 <h2 id="covering-graph"><a href="#covering-graph" class="headerlink" title="covering graph"></a>covering graph</h2><p>reference: <a target="_blank" rel="noopener" href="https://handwiki.org/wiki/Covering_graph">https://handwiki.org/wiki/Covering_graph</a></p>
 <blockquote>
 <p>[!def] covering graph<br>A graph $\tilde\Gamma$ is called a covering graph&#x2F;lift of $\Gamma$ iff there exists $\pi:\tilde\Gamma\to\Gamma$ s.t. $\pi|_{N(v)}$ is one-to-one onto $N(\pi(v))$.<br>![[Covering-graph-4-a.svg]]</p>
@@ -1240,7 +1266,7 @@ There exists at least 1 cubic 5-transitive graph $\Omega$.<br>$\tilde\Omega$ is 
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年2月25日</div>
+          <div>2026年2月27日</div>
         </div>
       
       
@@ -1288,8 +1314,8 @@ There exists at least 1 cubic 5-transitive graph $\Omega$.<br>$\tilde\Omega$ is 
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E9%BD%90%E6%B3%BD%E5%85%8B/" title="齐泽克">
-                        <span class="hidden-mobile">齐泽克</span>
+                      <a href="/Haskell/" title="Haskell">
+                        <span class="hidden-mobile">Haskell</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
