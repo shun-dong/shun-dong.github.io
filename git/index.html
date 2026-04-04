@@ -19,15 +19,15 @@
   <meta name="author" content="采薇">
   <meta name="keywords" content="">
   
-    <meta name="description" content="结构git init 初始化仓库, 建立.git 【原理解析】让你完全搞明白Git是如何管理你的代码的】git:快照,相同的留链接 :分布式版本管理&lt;-&gt;集中:增量式工作区$\xrightarrow{add}$暂存区$\xrightarrow{commit}$代码仓库 .git一种扁平结构:内容与结构分开储存, 思路与我的obsidian类似  blob,标题:哈希值,内容:代码内容,">
+    <meta name="description" content="阶段git init 初始化仓库, 建立.git 【原理解析】让你完全搞明白Git是如何管理你的代码的】git:快照,相同的留链接 :分布式版本管理&lt;-&gt;集中:增量式工作区$\xrightarrow{add}$暂存区$\xrightarrow{commit}$代码仓库 .git一种扁平结构:内容与结构分开储存, 思路与我的obsidian类似  blob,标题:哈希值,内容:代码内容,">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git">
 <meta property="og:url" content="http://kaelvio.com/git/index.html">
 <meta property="og:site_name" content="采薇的博客">
-<meta property="og:description" content="结构git init 初始化仓库, 建立.git 【原理解析】让你完全搞明白Git是如何管理你的代码的】git:快照,相同的留链接 :分布式版本管理&lt;-&gt;集中:增量式工作区$\xrightarrow{add}$暂存区$\xrightarrow{commit}$代码仓库 .git一种扁平结构:内容与结构分开储存, 思路与我的obsidian类似  blob,标题:哈希值,内容:代码内容,">
+<meta property="og:description" content="阶段git init 初始化仓库, 建立.git 【原理解析】让你完全搞明白Git是如何管理你的代码的】git:快照,相同的留链接 :分布式版本管理&lt;-&gt;集中:增量式工作区$\xrightarrow{add}$暂存区$\xrightarrow{commit}$代码仓库 .git一种扁平结构:内容与结构分开储存, 思路与我的obsidian类似  blob,标题:哈希值,内容:代码内容,">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-02-24T03:51:27.905Z">
-<meta property="article:modified_time" content="2026-02-24T03:51:27.905Z">
+<meta property="article:published_time" content="2026-03-28T04:08:10.956Z">
+<meta property="article:modified_time" content="2026-03-28T04:08:10.957Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -210,8 +210,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-02-24 11:51" pubdate>
-          2026年2月24日 中午
+        <time datetime="2026-03-28 12:08" pubdate>
+          2026年3月28日 中午
         </time>
       </span>
     
@@ -222,7 +222,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.8k 字
+          2.2k 字
         
       </span>
     
@@ -233,7 +233,7 @@
         
         
         
-          16 分钟
+          19 分钟
         
       </span>
     
@@ -272,10 +272,18 @@
           <article class="post-content mx-auto">
             <h1 id="seo-header">git</h1>
             
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2026年3月28日 中午
+                  
+                
+              </p>
+            
             
               <div class="markdown-body">
                 
-                <h1 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h1><p>git init 初始化仓库, 建立.git</p>
+                <h1 id="阶段"><a href="#阶段" class="headerlink" title="阶段"></a>阶段</h1><p>git init 初始化仓库, 建立.git</p>
 <p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11z4y1X79p/?share_source=copy_web&vd_source=55f83207e6b9bcb77f93e22aac3e082a">【原理解析】让你完全搞明白Git是如何管理你的代码的】</a><br>git:快照,相同的留链接 :分布式版本管理&lt;-&gt;集中:增量式<br>工作区$\xrightarrow{add}$暂存区$\xrightarrow{commit}$代码仓库</p>
 <p>.git一种扁平结构:内容与结构分开储存, 思路与我的obsidian类似</p>
 <ul>
@@ -292,12 +300,13 @@
 <li>fix：产生diff并自动修复此问题。适合于一次提交直接修复问题</li>
 <li>to：只产生diff不自动修复此问题。适合于多次提交。最终修复问题提交时使用fix<br>docs：文档（documentation）。<br>style：格式（不影响代码运行的变动）。<br>refactor：重构（即不是新增功能，也不是修改bug的代码变动）<br>perf：优化相关，比如提升性能、体验。<br>test：增加测试。<br>chore：构建过程或辅助工具的变动。<br>revert：回滚到上一个版本。<br>merge：代码合并。<br>sync：同步主线或分支的Bug。<br><strong>scope(可选)</strong><br>scope用于说明 commit 影响的范围，比如数据层、控制层、视图层等等，视项目不同而不同。<br><strong>subject(必须)</strong><br>subject是commit目的的简短描述，不超过50个字符。</li>
 </ul>
-<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><p>git branch列出所有<strong>本地</strong>分支（当前分支前带 <code>*</code>）-r远程 -a所有<br><code>git branch &lt;new-branch&gt;</code>创建本地分支<br><code>git branch -d &lt;branch&gt;</code>删除本地分支<br><code>git branch -m &lt;old branch默认当前&gt; &lt;new branch&gt;</code>更改分支名称</p>
+<h1 id="分支"><a href="#分支" class="headerlink" title="分支"></a>分支</h1><p>git 的分支本质上是一个指针，指向某次提交<br>而 HEAD 是一个特殊的指针，可以指向某个分支指针，也可以指向某次提交（分离头指针，Detached HEAD）<br>checkout 本质上是移动 HEAD，尝试拉取最终指向的提交到工作区和暂存区</p>
+<p>git branch列出所有<strong>本地</strong>分支（当前分支前带 <code>*</code>）-r远程 -a所有<br><code>git branch &lt;new-branch&gt;</code>创建本地分支<br><code>git branch -d &lt;branch&gt;</code>删除本地分支<br><code>git branch -m &lt;old branch默认当前&gt; &lt;new branch&gt;</code>更改分支名称</p>
 <p><code>git switch/checkout &lt;branch&gt;</code>切换分支 , 推荐用switch<br><code>git checkout &lt;commit-hash/branch&gt;</code>切换到指定提交&#x2F;分支 <code>.</code>上次提交, 切换到提交进入分离头指针（Detached HEAD)<code>-</code>回到之前状态<br><code>git switch -c</code>(-c&#x3D;–create) 或 <code>git checkout -b &lt;new-branch&gt; &lt;commit-hash,默认当前&gt;</code>创建并切换到新分支<br>哈希值至少前4位</p>
 <ul>
 <li><input disabled="" type="checkbox"> Rebase</li>
 </ul>
-<h1 id="和并与冲突"><a href="#和并与冲突" class="headerlink" title="和并与冲突"></a>和并与冲突</h1><p>git的改动描述采用的是行粒度的最小编辑距离<br>和并采用三方判定, 共同祖先和两方修改<br>将连续的冲突行组成块</p>
+<h1 id="合并与冲突"><a href="#合并与冲突" class="headerlink" title="合并与冲突"></a>合并与冲突</h1><p>git的改动描述采用的是行粒度的最小编辑距离<br>和并采用三方判定, 共同祖先和两方修改<br>将连续的冲突行组成块</p>
 <pre><code class=" mermaid">graph TD
     A[Base版本&lt;br/&gt;共同祖先] --&gt; B[Ours版本&lt;br/&gt;当前分支]
     A --&gt; C[Theirs版本&lt;br/&gt;要合并的分支]
@@ -325,6 +334,31 @@
 </ol>
 <h1 id="子模块"><a href="#子模块" class="headerlink" title="子模块"></a>子模块</h1><p><strong>添加子模块</strong></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs git">git submodule add &lt;repo-url&gt; [&lt;path&gt;]<br></code></pre></td></tr></table></figure>
+
+<h1 id="worktree"><a href="#worktree" class="headerlink" title="worktree"></a>worktree</h1><p><code>git worktree</code> 允许从同一个 Git 仓库创建多个工作目录，每个都有独立的文件状态和分支。</p>
+<p><strong>创建 worktree</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git worktree add &lt;路径&gt; &lt;分支名&gt;   <span class="hljs-comment"># 检出已有分支</span><br>git worktree add &lt;路径&gt; -b &lt;新分支&gt; <span class="hljs-comment"># 创建并检出新分支</span><br></code></pre></td></tr></table></figure>
+<p><strong>查看 worktree 列表</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">git worktree list<br><span class="hljs-comment"># 输出：工作目录路径 [分支名或提交哈希]</span><br></code></pre></td></tr></table></figure>
+<p><strong>删除 worktree</strong>：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash">git worktree remove &lt;路径&gt;     <span class="hljs-comment"># 安全删除（会检查是否有未提交更改）</span><br>git worktree remove --force &lt;路径&gt;  <span class="hljs-comment"># 强制删除</span><br>git worktree prune           <span class="hljs-comment"># 清理已删除目录的 worktree 记录</span><br></code></pre></td></tr></table></figure>
+
+<ol>
+<li>目录位置灵活性<ul>
+<li>Worktree 可以放在<strong>任何位置</strong>，不限于主仓库目录内</li>
+<li>每个 worktree 目录包含一个 <code>.git</code> <strong>文件</strong>（非目录），指向主仓库的 <code>.git/worktrees/&lt;name&gt;</code></li>
+<li>示例：<code>gitdir: /path/to/main/.git/worktrees/worktree-karma</code></li>
+</ul>
+</li>
+<li>分支与 Worktree 的关系<ul>
+<li><strong>一对一的绑定</strong>：一个 worktree 对应一个活跃分支（或 detached HEAD 状态）</li>
+<li><strong>禁止重复检出</strong>：同一个分支<strong>不能</strong>同时被多个 worktree 检出</li>
+<li><strong>多个分支可指向同一提交</strong>：多个分支可以指向相同的提交，但每个分支有自己的 worktree</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs bash"><span class="hljs-comment"># 错误：尝试重复检出同一分支会失败</span><br>git worktree add ../another feature-branch<br><span class="hljs-comment"># fatal: &#x27;feature-branch&#x27; is already checked out at &#x27;/path/to/existing&#x27;</span><br></code></pre></td></tr></table></figure>
+
 <h1 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h1><p><code># 注释</code></p>
 <a href="/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">regex</a>，`**`：跨目录匹配任意字符。
 <p>以 <code>/</code> 结尾表示忽略目录（而非同名文件），不以 <code>/</code> 结尾会同时匹配文件和目录, Git 忽略目录时，其下的所有内容（文件和子目录）都将被忽略。<br>默认表示匹配所有位置的文件, 以 <code>/</code> 开头表示从项目根目录开始匹配，默认从 <code>.gitignore</code> 所在目录的相对路径开始匹配。</p>
@@ -372,9 +406,14 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年2月24日</div>
+          <div>2026年3月28日</div>
         </div>
       
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2026年3月28日</div>
+        </div>
       
       
         <div class="license-meta-item">
@@ -416,9 +455,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Homotopy_Type_Theory/" title="Homotopy_Type_Theory">
+                      <a href="/MBTI/" title="MBTI">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Homotopy_Type_Theory</span>
+                        <span class="hidden-mobile">MBTI</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -426,8 +465,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Curry-Howard-Lambek_Correspondence/" title="Curry-Howard-Lambek_Correspondence">
-                        <span class="hidden-mobile">Curry-Howard-Lambek_Correspondence</span>
+                      <a href="/docker/" title="docker">
+                        <span class="hidden-mobile">docker</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
