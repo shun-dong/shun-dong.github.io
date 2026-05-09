@@ -1,0 +1,535 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>P-S 曲线</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: #241c40; /* 修改背景色 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            user-select: none;
+            color: #f8fafc;
+        }
+
+        h2 { 
+            margin-bottom: 5px; 
+            color: #e5e7eb; 
+        }
+
+        .subtitle { 
+            color: #cbd5f5; 
+            font-size: 14px; 
+            margin-bottom: 20px; 
+        }
+
+        /* 返回按钮 */
+        .back-btn {
+            position: fixed;
+            top: 16px;
+            left: 18px;
+            z-index: 1000;
+            padding: 6px 12px;
+            font-size: 13px;
+            border-radius: 4px;
+            border: 1px solid rgba(148, 163, 184, 0.6);
+            background: rgba(15, 23, 42, 0.9);
+            color: #e5e7eb;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+        }
+        .back-btn:hover {
+            background: rgba(30, 64, 175, 0.95);
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.5);
+            transform: translateY(-1px);
+        }
+        .back-btn-icon {
+            border-width: 0 0 2px 2px;
+            border-style: solid;
+            border-color: #e5e7eb;
+            width: 6px;
+            height: 6px;
+            transform: rotate(45deg);
+            margin-left: 2px;
+        }
+
+        .canvas-container {
+            position: relative;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            border-radius: 8px;
+            padding: 10px;
+            margin-top: 40px; /* 让出一点空间给顶部返回按钮 */
+        }
+        canvas {
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            cursor: crosshair;
+            display: block;
+        }
+        
+        .controls {
+            margin-top: 15px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 500;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+        button:hover { background-color: #0b5ed7; }
+        
+        .info-panel {
+            font-family: 'Consolas', monospace;
+            font-size: 13px;
+            color: #111827;
+            background: #e9ecef;
+            padding: 6px 12px;
+            border-radius: 4px;
+        }
+    
+        .legend {
+            margin-top: 10px;
+            display: flex;
+            gap: 20px;
+            font-size: 13px;
+            color: #e5e7eb;
+        }
+        .legend-item { display: flex; align-items: center; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; }
+        .line-dash { width: 15px; height: 2px; border-top: 2px dashed #10b981; margin-right: 6px; }
+    </style>
+</head>
+<body>
+
+    <!-- 返回博客按钮，href 改成你自己的博客首页地址即可 -->
+    <a class="back-btn" href="/" title="返回博客首页">
+        <span class="back-btn-icon"></span>
+        <span>返回博客</span>
+    </a>
+
+    <h2>P-S 交互曲线演示</h2>
+    
+    <div class="canvas-container">
+        <canvas id="mainCanvas" width="900" height="700"></canvas>
+    </div>
+    
+    <div class="legend">
+        <div class="legend-item"><div class="dot" style="background:#2c3e50"></div>输入分布 P(r)</div>
+        <div class="legend-item"><div class="dot" style="background:#d97706"></div>变换 S(r)</div>
+        <div class="legend-item"><div class="dot" style="background:#dc3545"></div>输出关系 P vs S</div>
+        <div class="legend-item"><div class="line-dash"></div>均值 E[S]</div>
+    </div>
+    
+    <div class="controls">
+        <button onclick="resetPoints()">重置视图</button>
+        <div id="stats" class="info-panel">初始化中...</div>
+    </div>
+
+<script>
+    const canvas = document.getElementById('mainCanvas');
+    const ctx = canvas.getContext('2d');
+
+    // 布局常量
+    const margin = { left: 50, right: 30, top: 30, bottom: 40 };
+    const w = 350; 
+    const h = 250;
+    
+    const vpP = {
+        id: 'P',
+        x: 50 + margin.left, y: 30 + margin.top, w: w, h: h,
+        title: "P(r) 输入分布 (密度)",
+        xLabel: "r", yLabel: "P",
+        range: { minX: -5, maxX: 5, minY: -0.1, maxY: 1.4 },
+        stepX: 1, stepY: 0.2
+    };
+    
+    const vpS = {
+        id: 'S',
+        x: 500 + margin.left, y: 30 + margin.top, w: w, h: h,
+        title: "S(r) 变换函数",
+        xLabel: "r", yLabel: "S",
+        range: { minX: -5, maxX: 5, minY: -3, maxY: 3 },
+        stepX: 1, stepY: 1
+    };
+    
+    const vpFinal = {
+        id: 'Final',
+        x: 275 + margin.left, y: 370 + margin.top, w: w, h: h,
+        title: "最终 P-S 曲线 (P vs S)",
+        xLabel: "S", yLabel: "P",
+        range: { minX: -3, maxX: 3, minY: -0.1, maxY: 1.4 },
+        stepX: 1, stepY: 0.2
+    };
+    
+    // 初始状态
+    let state = {
+        P: { valX: 0, valY: 0.8 }, 
+        S0: { valX: -2.0, valY: -1.0 },
+        S1: { valX: 2.0, valY: 1.5 }
+    };
+    
+    let isDragging = false;
+    let dragTarget = null;
+    
+    function getGaussianParams() {
+        const mu = state.P.valX;
+        let peak = Math.max(0.05, state.P.valY); 
+        const sigma = 1 / (peak * Math.sqrt(2 * Math.PI));
+        return { mu, sigma, peak };
+    }
+    
+    function funcP(r) {
+        const { mu, sigma, peak } = getGaussianParams();
+        return peak * Math.exp(-0.5 * Math.pow((r - mu) / sigma, 2));
+    }
+    
+    function getSigmoidParams() {
+        const minVal = state.S0.valY;
+        const maxVal = state.S1.valY;
+        const r0 = (state.S0.valX + state.S1.valX) / 2;
+        const width = state.S1.valX - state.S0.valX;
+        const safeWidth = Math.max(width, 0.01);
+        const k = 6 / safeWidth; 
+        return { k, r0, minVal, maxVal };
+    }
+    
+    function funcS(r) {
+        const { k, r0, minVal, maxVal } = getSigmoidParams();
+        return minVal + (maxVal - minVal) / (1 + Math.exp(-k * (r - r0)));
+    }
+    
+    function calculateMeanS() {
+        let sum = 0;
+        let sumArea = 0;
+        const step = 0.05;
+        for (let r = vpP.range.minX; r <= vpP.range.maxX; r += step) {
+            const p = funcP(r);
+            const s = funcS(r);
+            sum += s * p * step;
+            sumArea += p * step;
+        }
+        return sum / (sumArea || 1);
+    }
+    
+    function toScreen(valX, valY, vp) {
+        const r = vp.range;
+        const rangeX = r.maxX - r.minX;
+        const rangeY = r.maxY - r.minY;
+        const sx = vp.x + ((valX - r.minX) / rangeX) * vp.w;
+        const sy = vp.y + vp.h - ((valY - r.minY) / rangeY) * vp.h;
+        return { x: sx, y: sy };
+    }
+    
+    function toLogical(sx, sy, vp) {
+        const r = vp.range;
+        const rangeX = r.maxX - r.minX;
+        const rangeY = r.maxY - r.minY;
+        const valX = r.minX + ((sx - vp.x) / vp.w) * rangeX;
+        const valY = r.minY + ((vp.y + vp.h - sy) / vp.h) * rangeY;
+        return { valX, valY };
+    }
+    
+    function drawAxesAndGrid(vp) {
+        ctx.save();
+        ctx.beginPath();
+        ctx.rect(vp.x, vp.y, vp.w, vp.h);
+        ctx.clip();
+    
+        ctx.strokeStyle = "#eef0f2"; 
+        ctx.lineWidth = 1;
+        
+        const startX = Math.ceil(vp.range.minX / vp.stepX) * vp.stepX;
+        for (let v = startX; v <= vp.range.maxX; v += vp.stepX) {
+            const val = parseFloat(v.toFixed(2));
+            const p = toScreen(val, vp.range.minY, vp);
+            ctx.beginPath();
+            ctx.moveTo(p.x, vp.y);
+            ctx.lineTo(p.x, vp.y + vp.h);
+            ctx.stroke();
+        }
+    
+        const startY = Math.ceil(vp.range.minY / vp.stepY) * vp.stepY;
+        for (let v = startY; v <= vp.range.maxY; v += vp.stepY) {
+            const val = parseFloat(v.toFixed(2));
+            const p = toScreen(vp.range.minX, val, vp);
+            ctx.beginPath();
+            ctx.moveTo(vp.x, p.y);
+            ctx.lineTo(vp.x + vp.w, p.y);
+            ctx.stroke();
+        }
+    
+        ctx.strokeStyle = "#cbd5e1";
+        ctx.lineWidth = 1.5;
+        const origin = toScreen(0, 0, vp);
+        
+        if (origin.y >= vp.y && origin.y <= vp.y + vp.h) {
+            ctx.beginPath(); 
+            ctx.moveTo(vp.x, origin.y); 
+            ctx.lineTo(vp.x + vp.w, origin.y); 
+            ctx.stroke();
+        }
+        if (origin.x >= vp.x && origin.x <= vp.x + vp.w) {
+            ctx.beginPath(); 
+            ctx.moveTo(origin.x, vp.y); 
+            ctx.lineTo(origin.x, vp.y + vp.h); 
+            ctx.stroke();
+        }
+    
+        ctx.restore();
+    
+        ctx.fillStyle = "#94a3b8";
+        ctx.font = "11px Arial";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "top";
+    
+        for (let v = startX; v <= vp.range.maxX; v += vp.stepX) {
+            const val = parseFloat(v.toFixed(2));
+            const p = toScreen(val, vp.range.minY, vp);
+            if (p.x >= vp.x - 1 && p.x <= vp.x + vp.w + 1) {
+                ctx.fillText(val, p.x, vp.y + vp.h + 5);
+            }
+        }
+    
+        ctx.textAlign = "right";
+        ctx.textBaseline = "middle";
+        for (let v = startY; v <= vp.range.maxY; v += vp.stepY) {
+            const val = parseFloat(v.toFixed(2));
+            const p = toScreen(vp.range.minX, val, vp);
+            if (p.y >= vp.y -1 && p.y <= vp.y + vp.h + 1) {
+                ctx.fillText(val, vp.x - 8, p.y);
+            }
+        }
+    
+        ctx.fillStyle = "#1e293b";
+        ctx.font = "bold 13px system-ui";
+        ctx.textAlign = "center";
+        ctx.fillText(vp.title, vp.x + vp.w/2, vp.y - 25);
+        
+        ctx.font = "italic 12px serif";
+        ctx.fillStyle = "#64748b";
+        ctx.fillText(vp.xLabel, vp.x + vp.w - 10, vp.y + vp.h + 20);
+        ctx.save();
+        ctx.translate(vp.x - 35, vp.y + 20);
+        ctx.rotate(-Math.PI/2);
+        ctx.fillText(vp.yLabel, 0, 0);
+        ctx.restore();
+        
+        ctx.strokeRect(vp.x, vp.y, vp.w, vp.h);
+    }
+    
+    function drawGraphP() {
+        drawAxesAndGrid(vpP);
+        
+        ctx.save();
+        ctx.beginPath(); 
+        ctx.rect(vpP.x, vpP.y, vpP.w, vpP.h); 
+        ctx.clip();
+        
+        ctx.beginPath();
+        ctx.strokeStyle = "#2c3e50";
+        ctx.lineWidth = 2;
+        
+        const stepPix = 2;
+        for (let px = 0; px <= vpP.w; px += stepPix) {
+            const logical = toLogical(vpP.x + px, 0, vpP);
+            const val = funcP(logical.valX);
+            const pt = toScreen(logical.valX, val, vpP);
+            if (px === 0) ctx.moveTo(pt.x, pt.y);
+            else ctx.lineTo(pt.x, pt.y);
+        }
+        ctx.stroke();
+        ctx.restore();
+    
+        const pt = toScreen(state.P.valX, state.P.valY, vpP);
+        drawControlPoint(pt, "P", "#2c3e50");
+    }
+    
+    function drawGraphS() {
+        drawAxesAndGrid(vpS);
+        
+        ctx.save();
+        ctx.beginPath(); 
+        ctx.rect(vpS.x, vpS.y, vpS.w, vpS.h); 
+        ctx.clip();
+        
+        ctx.beginPath();
+        ctx.strokeStyle = "#d97706";
+        ctx.lineWidth = 2;
+
+        const stepPix = 2;
+        for (let px = 0; px <= vpS.w; px += stepPix) {
+            const logical = toLogical(vpS.x + px, 0, vpS);
+            const val = funcS(logical.valX);
+            const pt = toScreen(logical.valX, val, vpS);
+            if (px === 0) ctx.moveTo(pt.x, pt.y);
+            else ctx.lineTo(pt.x, pt.y);
+        }
+        ctx.stroke();
+        ctx.restore();
+    
+        const p0 = toScreen(state.S0.valX, state.S0.valY, vpS);
+        const p1 = toScreen(state.S1.valX, state.S1.valY, vpS);
+        drawControlPoint(p0, "S0", "#d97706");
+        drawControlPoint(p1, "S1", "#d97706");
+    }
+    
+    function drawGraphFinal() {
+        drawAxesAndGrid(vpFinal);
+        
+        ctx.save();
+        ctx.beginPath(); 
+        ctx.rect(vpFinal.x, vpFinal.y, vpFinal.w, vpFinal.h); 
+        ctx.clip();
+        
+        ctx.beginPath();
+        ctx.strokeStyle = "#dc3545";
+        ctx.lineWidth = 2.5;
+        
+        const rStart = vpP.range.minX - 2;
+        const rEnd = vpP.range.maxX + 2;
+        const rStep = 0.05;
+    
+        let first = true;
+        for (let r = rStart; r <= rEnd; r += rStep) {
+            const sVal = funcS(r);
+            const pVal = funcP(r);
+            const pt = toScreen(sVal, pVal, vpFinal);
+            if (first) { ctx.moveTo(pt.x, pt.y); first = false; }
+            else ctx.lineTo(pt.x, pt.y);
+        }
+        ctx.stroke();
+    
+        const meanS = calculateMeanS();
+        const meanX = toScreen(meanS, 0, vpFinal).x;
+        
+        if (meanX >= vpFinal.x && meanX <= vpFinal.x + vpFinal.w) {
+            ctx.beginPath();
+            ctx.setLineDash([5, 5]);
+            ctx.strokeStyle = "#10b981";
+            ctx.lineWidth = 1.5;
+            ctx.moveTo(meanX, vpFinal.y + vpFinal.h);
+            ctx.lineTo(meanX, vpFinal.y);
+            ctx.stroke();
+            ctx.setLineDash([]);
+            
+            ctx.fillStyle = "#10b981";
+            ctx.font = "bold 12px Arial";
+            ctx.textAlign = "left";
+            ctx.fillText(`E[S]=${meanS.toFixed(2)}`, meanX + 4, vpFinal.y + 15);
+        }
+    
+        ctx.restore();
+        
+        document.getElementById('stats').innerHTML = 
+            `Peak(r)=${state.P.valX.toFixed(2)} | Mean(S)=${meanS.toFixed(2)}`;
+    }
+    
+    function drawControlPoint(pt, label, color) {
+        ctx.beginPath();
+        ctx.shadowBlur = 4;
+        ctx.shadowColor = "rgba(0,0,0,0.3)";
+        ctx.arc(pt.x, pt.y, 6, 0, Math.PI * 2);
+        ctx.fillStyle = color;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = "white";
+        ctx.stroke();
+    
+        ctx.fillStyle = color;
+        ctx.font = "bold 12px Arial";
+        ctx.textAlign = "left";
+        ctx.fillText(label, pt.x + 10, pt.y - 5);
+    }
+    
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawGraphP();
+        drawGraphS();
+        drawGraphFinal();
+    }
+    
+    function getMouse(e) {
+        const r = canvas.getBoundingClientRect();
+        return { x: e.clientX - r.left, y: e.clientY - r.top };
+    }
+    function dist(a, b) { return Math.hypot(a.x - b.x, a.y - b.y); }
+    
+    canvas.addEventListener('mousedown', e => {
+        const m = getMouse(e);
+        const hit = 15;
+        
+        const ptP = toScreen(state.P.valX, state.P.valY, vpP);
+        if (dist(m, ptP) < hit) { isDragging=true; dragTarget='P'; return; }
+    
+        const ptS0 = toScreen(state.S0.valX, state.S0.valY, vpS);
+        if (dist(m, ptS0) < hit) { isDragging=true; dragTarget='S0'; return; }
+    
+        const ptS1 = toScreen(state.S1.valX, state.S1.valY, vpS);
+        if (dist(m, ptS1) < hit) { isDragging=true; dragTarget='S1'; return; }
+    });
+    
+    canvas.addEventListener('mousemove', e => {
+        const m = getMouse(e);
+        
+        if (!isDragging) {
+            const ptP = toScreen(state.P.valX, state.P.valY, vpP);
+            const ptS0 = toScreen(state.S0.valX, state.S0.valY, vpS);
+            const ptS1 = toScreen(state.S1.valX, state.S1.valY, vpS);
+            const hit = 15;
+            canvas.style.cursor = (dist(m, ptP)<hit||dist(m, ptS0)<hit||dist(m, ptS1)<hit) ? 'pointer' : 'default';
+            return;
+        }
+    
+        if (dragTarget === 'P') {
+            const loc = toLogical(m.x, m.y, vpP);
+            state.P.valX = loc.valX;
+            state.P.valY = Math.max(0.05, loc.valY);
+        } 
+        else if (dragTarget === 'S0') {
+            const loc = toLogical(m.x, m.y, vpS);
+            if (loc.valX < state.S1.valX - 0.2) {
+                state.S0.valX = loc.valX;
+                state.S0.valY = loc.valY;
+            }
+        } 
+        else if (dragTarget === 'S1') {
+            const loc = toLogical(m.x, m.y, vpS);
+            if (loc.valX > state.S0.valX + 0.2) {
+                state.S1.valX = loc.valX;
+                state.S1.valY = loc.valY;
+            }
+        }
+        draw();
+    });
+    
+    window.addEventListener('mouseup', () => { isDragging = false; dragTarget = null; });
+    
+    function resetPoints() {
+        state = { P: { valX: 0, valY: 0.8 }, S0: { valX: -2.0, valY: -1.0 }, S1: { valX: 2.0, valY: 1.5 } };
+        draw();
+    }
+    
+    draw();
+</script>
+</body>
+</html>
