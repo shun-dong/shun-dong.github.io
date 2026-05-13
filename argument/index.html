@@ -1,929 +1,626 @@
 
-
-<!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
-
-
-
-<head>
-  <meta charset="UTF-8">
-
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/only.ico">
-  <link rel="icon" href="/img/only.ico">
-  
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
-  <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
-  <meta name="author" content="采薇">
-  <meta name="keywords" content="">
-  
-    <meta name="description" content="辐角定理交互演示                      const { useMemo, useRef, useState } &#x3D; React;  const TAU &#x3D; 2 * Math.PI; const VIEW_W &#x3D; 480; const VIEW_H &#x3D; 390; const Z_SCALE &#x3D; 76;  function C(re, im &#x3D; 0) {">
-<meta property="og:type" content="website">
-<meta property="og:title" content="page.title">
-<meta property="og:url" content="http://kaelvio.com/argument/index.html">
-<meta property="og:site_name" content="采薇的博客">
-<meta property="og:description" content="辐角定理交互演示                      const { useMemo, useRef, useState } &#x3D; React;  const TAU &#x3D; 2 * Math.PI; const VIEW_W &#x3D; 480; const VIEW_H &#x3D; 390; const Z_SCALE &#x3D; 76;  function C(re, im &#x3D; 0) {">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-05-09T12:57:23.983Z">
-<meta property="article:modified_time" content="2026-05-09T12:55:15.684Z">
-<meta property="article:author" content="采薇">
-<meta name="twitter:card" content="summary_large_image">
-  
-  
-  
-  <title>page.title - 采薇的博客</title>
-
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
-
-
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"kaelvio.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
-  </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
-
-
-  
-<meta name="generator" content="Hexo 7.3.0"></head>
-
-
-<body>
-  
-
-  <header>
-    
-
-<div class="header-inner" style="height: 60vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>采薇的博客</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>主页Home</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档Archive</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/playground/" target="_self">
-                <i class="iconfont icon-exp-fill"></i>
-                <span>playground</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于采薇Kaelvio</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/links/" target="_self">
-                <i class="iconfont icon-link-fill"></i>
-                <span>友链links</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="page.title"></span>
-          
-        </div>
-
-        
-      </div>
-
-      
-    </div>
-  </div>
-</div>
-
-</div>
-
-  </header>
-
-  <main>
-    
-      <div class="container nopadding-x-md">
-        <div id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<article class="page-content">
-  <!doctype html>
+<!doctype html>
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>辐角定理交互演示</title>
+  <style>
+    .back-btn {
+      position: fixed;
+      top: 16px;
+      left: 18px;
+      z-index: 1000;
+      padding: 6px 12px;
+      font-size: 13px;
+      border-radius: 4px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+      color: #e5e7eb;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+      text-decoration: none;
+    }
+
+    .back-btn:hover {
+      background: rgba(30, 64, 175, 0.95);
+      box-shadow: 0 2px 8px rgba(15, 23, 42, 0.5);
+      transform: translateY(-1px);
+    }
+
+    .back-btn-icon {
+      border-width: 0 0 2px 2px;
+      border-style: solid;
+      border-color: #e5e7eb;
+      width: 6px;
+      height: 6px;
+      transform: rotate(45deg);
+      margin-left: 2px;
+    }
+  </style>
   <script src="https://cdn.tailwindcss.com"></script>
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
+
 <body>
+  <a class="back-btn" href="/" title="返回博客首页">
+    <span class="back-btn-icon"></span>
+    <span>返回博客</span>
+  </a>
   <div id="root"></div>
 
   <script type="text/babel">
-const { useMemo, useRef, useState } = React;
+    const { useMemo, useRef, useState } = React;
 
-const TAU = 2 * Math.PI;
-const VIEW_W = 480;
-const VIEW_H = 390;
-const Z_SCALE = 76;
+    const TAU = 2 * Math.PI;
+    const VIEW_W = 480;
+    const VIEW_H = 390;
+    const Z_SCALE = 76;
 
-function C(re, im = 0) {
-  return { re, im };
-}
-
-const DEFAULT_ZEROS = [C(-1.15, 0.55), C(0.78, -0.68), C(1.2, -0.68)];
-const DEFAULT_POLES = [C(-0.35, -0.85), C(1.12, 0.58)];
-
-function sub(a, b) {
-  return C(a.re - b.re, a.im - b.im);
-}
-function mul(a, b) {
-  return C(a.re * b.re - a.im * b.im, a.re * b.im + a.im * b.re);
-}
-function div(a, b) {
-  const d = b.re * b.re + b.im * b.im;
-  if (d < 1e-18) {
-    const direction = Math.atan2(a.im, a.re);
-    return C(1e9 * Math.cos(direction), 1e9 * Math.sin(direction));
-  }
-  return C((a.re * b.re + a.im * b.im) / d, (a.im * b.re - a.re * b.im) / d);
-}
-function abs(a) {
-  return Math.hypot(a.re, a.im);
-}
-function arg(a) {
-  return Math.atan2(a.im, a.re);
-}
-function dist(a, b) {
-  return Math.hypot(a.re - b.re, a.im - b.im);
-}
-function clamp(x, min, max) {
-  return Math.max(min, Math.min(max, x));
-}
-function fmt(x) {
-  if (!Number.isFinite(x)) return "∞";
-  if (Math.abs(x) < 1e-10) return "0";
-  return x.toFixed(2).replace(/[.]00$/, "");
-}
-function fmtComplex(z) {
-  const re = fmt(z.re);
-  const imAbs = fmt(Math.abs(z.im));
-  if (Math.abs(z.im) < 1e-10) return re;
-  if (Math.abs(z.re) < 1e-10) return `${z.im < 0 ? "−" : ""}${imAbs}i`;
-  return `${re} ${z.im < 0 ? "−" : "+"} ${imAbs}i`;
-}
-function normalizeDelta(d) {
-  while (d > Math.PI) d -= TAU;
-  while (d <= -Math.PI) d += TAU;
-  return d;
-}
-function clonePoints(points) {
-  return points.map((p) => C(p.re, p.im));
-}
-
-function rationalMap(z, zeros, poles) {
-  let numerator = C(1, 0);
-  let denominator = C(1, 0);
-  for (const a of zeros) numerator = mul(numerator, sub(z, a));
-  for (const b of poles) denominator = mul(denominator, sub(z, b));
-  return div(numerator, denominator);
-}
-
-function sampleCircle(center, radius, n = 720) {
-  const pts = [];
-  for (let k = 0; k <= n; k++) {
-    const t = (TAU * k) / n;
-    pts.push(C(center.re + radius * Math.cos(t), center.im + radius * Math.sin(t)));
-  }
-  return pts;
-}
-
-function countInside(list, center, radius) {
-  return list.filter((z) => dist(z, center) < radius - 1e-9).length;
-}
-function countNearBoundary(list, center, radius) {
-  return list.filter((z) => Math.abs(dist(z, center) - radius) < 0.035).length;
-}
-function hasCloseZeroPolePair(zeros, poles) {
-  for (const a of zeros) {
-    for (const b of poles) {
-      if (dist(a, b) < 0.045) return true;
+    function C(re, im = 0) {
+      return { re, im };
     }
-  }
-  return false;
-}
 
-function windingNumber(values) {
-  let sum = 0;
-  for (let i = 1; i < values.length; i++) {
-    const a0 = arg(values[i - 1]);
-    const a1 = arg(values[i]);
-    sum += normalizeDelta(a1 - a0);
-  }
-  return { raw: sum / TAU, rounded: Math.round(sum / TAU), totalArg: sum };
-}
+    const DEFAULT_ZEROS = [C(-1.15, 0.55), C(0.78, -0.68), C(1.2, -0.68)];
+    const DEFAULT_POLES = [C(-0.35, -0.85), C(1.12, 0.58)];
 
-function sortedQuantile(values, q) {
-  const xs = values.filter(Number.isFinite).slice().sort((a, b) => a - b);
-  if (!xs.length) return 1;
-  return xs[Math.min(xs.length - 1, Math.max(0, Math.floor(q * (xs.length - 1))))];
-}
-
-function pathFromPoints(points, mapper, skipBad = false) {
-  let path = "";
-  let drawing = false;
-  for (const p of points) {
-    if (!Number.isFinite(p.re) || !Number.isFinite(p.im)) {
-      drawing = false;
-      continue;
+    function sub(a, b) {
+      return C(a.re - b.re, a.im - b.im);
     }
-    const m = mapper(p);
-    if (skipBad && (!Number.isFinite(m.x) || !Number.isFinite(m.y))) {
-      drawing = false;
-      continue;
+    function mul(a, b) {
+      return C(a.re * b.re - a.im * b.im, a.re * b.im + a.im * b.re);
     }
-    path += `${drawing ? "L" : "M"}${m.x.toFixed(2)},${m.y.toFixed(2)} `;
-    drawing = true;
-  }
-  return path;
-}
-
-function stereographicToSphere(w) {
-  const r2 = w.re * w.re + w.im * w.im;
-  if (!Number.isFinite(r2) || r2 > 1e16) return { x: 0, y: 0, z: 1 };
-  return {
-    x: (2 * w.re) / (r2 + 1),
-    y: (2 * w.im) / (r2 + 1),
-    z: (r2 - 1) / (r2 + 1),
-  };
-}
-function projectSphere(P) {
-  const x = 136 + 82 * (0.9 * P.x + 0.34 * P.z);
-  const y = 128 + 82 * (-0.18 * P.x - 0.95 * P.y + 0.24 * P.z);
-  return { x, y };
-}
-
-function planeGrid({ xMin, xMax, yMin, yMax, step = 1, map }) {
-  const lines = [];
-  for (let x = Math.ceil(xMin); x <= Math.floor(xMax); x += step) {
-    const p1 = map(C(x, yMin));
-    const p2 = map(C(x, yMax));
-    lines.push(<line key={`vx${x}`} x1={p1.x} y1={p1.y} x2={p2.x} y2={p2.y} className="stroke-slate-200" strokeWidth="1" />);
-  }
-  for (let y = Math.ceil(yMin); y <= Math.floor(yMax); y += step) {
-    const p1 = map(C(xMin, y));
-    const p2 = map(C(xMax, y));
-    lines.push(<line key={`hy${y}`} x1={p1.x} y1={p1.y} x2={p2.x} y2={p2.y} className="stroke-slate-200" strokeWidth="1" />);
-  }
-  return lines;
-}
-
-function Slider({ label, value, min, max, step, onChange }) {
-  return (
-    <label className="grid gap-1 text-sm text-slate-700">
-      <div className="flex items-center justify-between">
-        <span>{label}</span>
-        <span className="font-mono text-slate-500">{Number(value).toFixed(2)}</span>
-      </div>
-      <input
-        type="range"
-        value={value}
-        min={min}
-        max={max}
-        step={step}
-        onChange={(e) => onChange(Number(e.target.value))}
-        className="w-full accent-slate-900"
-      />
-    </label>
-  );
-}
-
-function NumberInput({ value, onChange }) {
-  return (
-    <input
-      type="number"
-      step="0.01"
-      value={Number.isFinite(value) ? value : 0}
-      onChange={(e) => onChange(Number(e.target.value))}
-      className="w-full rounded-lg border border-slate-300 bg-white px-2 py-1 font-mono text-xs outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-200"
-    />
-  );
-}
-
-function PresetButton({ children, onClick }) {
-  return (
-    <button
-      onClick={onClick}
-      className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-50 hover:shadow"
-    >
-      {children}
-    </button>
-  );
-}
-
-function PointEditor({ title, points, setPoints, prefix, accentClass, kind }) {
-  function updatePoint(index, key, value) {
-    setPoints((prev) => prev.map((p, i) => (i === index ? C(key === "re" ? value : p.re, key === "im" ? value : p.im) : p)));
-  }
-  function addPoint() {
-    setPoints((prev) => {
-      const offset = 0.18 * prev.length;
-      return [...prev, C(clamp(offset, -1.6, 1.6), kind === "zero" ? 0.35 : -0.35)];
-    });
-  }
-  function removePoint(index) {
-    setPoints((prev) => prev.filter((_, i) => i !== index));
-  }
-
-  return (
-    <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-      <div className="mb-3 flex items-center justify-between gap-2">
-        <h3 className="text-sm font-semibold text-slate-800">{title}</h3>
-        <button onClick={addPoint} className="rounded-lg border border-slate-300 bg-white px-2 py-1 text-xs text-slate-700 hover:bg-slate-100">
-          + 添加
-        </button>
-      </div>
-      <div className="max-h-80 space-y-3 overflow-auto pr-1">
-        {points.length === 0 ? (
-          <div className="rounded-xl bg-white p-3 text-sm text-slate-500">当前没有{title.replace("设置", "")}。</div>
-        ) : (
-          points.map((p, i) => (
-            <div key={`${kind}-${i}`} className="rounded-xl bg-white p-3 shadow-sm ring-1 ring-slate-100">
-              <div className="mb-2 flex items-center justify-between">
-                <div className={`text-sm font-semibold ${accentClass}`}>{prefix}{i + 1}</div>
-                <button onClick={() => removePoint(i)} className="rounded-md px-2 py-1 text-xs text-rose-600 hover:bg-rose-50">
-                  删除
-                </button>
-              </div>
-              <div className="grid grid-cols-2 gap-2">
-                <label className="grid gap-1 text-xs text-slate-600">
-                  <span>实部</span>
-                  <NumberInput value={p.re} onChange={(v) => updatePoint(i, "re", v)} />
-                </label>
-                <label className="grid gap-1 text-xs text-slate-600">
-                  <span>虚部</span>
-                  <NumberInput value={p.im} onChange={(v) => updatePoint(i, "im", v)} />
-                </label>
-              </div>
-            </div>
-          ))
-        )}
-      </div>
-    </div>
-  );
-}
-
-function ArgumentPrincipleRationalMapDemo() {
-  const [center, setCenter] = useState(C(0, 0));
-  const [radius, setRadius] = useState(1.05);
-  const [zeros, setZeros] = useState(() => clonePoints(DEFAULT_ZEROS));
-  const [poles, setPoles] = useState(() => clonePoints(DEFAULT_POLES));
-  const [dragTarget, setDragTarget] = useState(null);
-  const leftRef = useRef(null);
-
-  const data = useMemo(() => {
-    const zPts = sampleCircle(center, radius, 900);
-    const wPts = zPts.map((z) => rationalMap(z, zeros, poles));
-    const zeroIn = countInside(zeros, center, radius);
-    const poleIn = countInside(poles, center, radius);
-    const nearZero = countNearBoundary(zeros, center, radius);
-    const nearPole = countNearBoundary(poles, center, radius);
-    const winding = windingNumber(wPts);
-    const magnitudes = wPts.map(abs).filter((x) => Number.isFinite(x));
-    const q90 = Math.max(1.2, sortedQuantile(magnitudes, 0.9));
-    return { zPts, wPts, zeroIn, poleIn, nearZero, nearPole, winding, q90 };
-  }, [center, radius, zeros, poles]);
-
-  const predicted = data.zeroIn - data.poleIn;
-  const boundaryWarning = data.nearZero + data.nearPole > 0;
-  const cancellationWarning = hasCloseZeroPolePair(zeros, poles);
-  const totalDegree = zeros.length - poles.length;
-
-  const zMap = (z) => ({ x: VIEW_W / 2 + Z_SCALE * z.re, y: VIEW_H / 2 - Z_SCALE * z.im });
-  const zUnmap = (x, y) => C((x - VIEW_W / 2) / Z_SCALE, (VIEW_H / 2 - y) / Z_SCALE);
-  const wScale = 118 / data.q90;
-  const wMap = (w) => ({
-    x: VIEW_W / 2 + wScale * clamp(w.re, -7, 7),
-    y: VIEW_H / 2 - wScale * clamp(w.im, -7, 7),
-  });
-  const spherePath = pathFromPoints(data.wPts, (w) => projectSphere(stereographicToSphere(w)), true);
-  const zCirclePath = pathFromPoints(data.zPts, zMap);
-  const wImagePath = pathFromPoints(data.wPts, wMap, true);
-
-  function pointerToComplex(e) {
-    const rect = leftRef.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * VIEW_W;
-    const y = ((e.clientY - rect.top) / rect.height) * VIEW_H;
-    return zUnmap(x, y);
-  }
-
-  function onPointerMove(e) {
-    if (!dragTarget) return;
-    const z = pointerToComplex(e);
-    const clipped = C(clamp(z.re, -2.2, 2.2), clamp(z.im, -1.75, 1.75));
-
-    if (dragTarget.type === "center") {
-      setCenter(clipped);
-    } else if (dragTarget.type === "zero") {
-      setZeros((prev) => prev.map((p, i) => (i === dragTarget.index ? clipped : p)));
-    } else if (dragTarget.type === "pole") {
-      setPoles((prev) => prev.map((p, i) => (i === dragTarget.index ? clipped : p)));
-    }
-  }
-
-  function stopDragging() {
-    setDragTarget(null);
-  }
-
-  function resetAll() {
-    setZeros(clonePoints(DEFAULT_ZEROS));
-    setPoles(clonePoints(DEFAULT_POLES));
-    setCenter(C(0, 0));
-    setRadius(1.05);
-  }
-
-  function randomizePoints() {
-    const rand = () => C(Number((Math.random() * 3.0 - 1.5).toFixed(2)), Number((Math.random() * 2.2 - 1.1).toFixed(2)));
-    setZeros(Array.from({ length: Math.max(1, zeros.length) }, rand));
-    setPoles(Array.from({ length: Math.max(1, poles.length) }, rand));
-  }
-
-  const centerScreen = zMap(center);
-  const zeroColor = "fill-emerald-500 stroke-emerald-800";
-  const poleColor = "stroke-rose-600";
-
-  return (
-    <div className="min-h-screen bg-slate-50 p-4 text-slate-900 md:p-6">
-      <div className="mx-auto max-w-7xl space-y-4">
-        <header className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
-          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-            <div>
-              <p className="text-sm font-medium uppercase tracking-[0.22em] text-slate-500">Complex analysis demo</p>
-              <h1 className="mt-1 text-2xl font-semibold tracking-tight md:text-3xl">辐角定理：可编辑零点与极点的有理函数</h1>
-              <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
-                当前函数为
-                <span className="mx-1 rounded-lg bg-slate-100 px-2 py-1 font-mono text-slate-800">
-                  f(z)=∏(z-aᵢ)/∏(z-bⱼ)
-                </span>
-                。拖动左图中的圆心、零点、极点，或在右侧面板直接输入坐标；右侧会同步显示像曲线 f(γ) 的绕数与黎曼球投影。
-              </p>
-            </div>
-            <div className="grid min-w-64 grid-cols-3 gap-2 rounded-2xl bg-slate-100 p-2 text-center">
-              <div className="rounded-xl bg-white p-3 shadow-sm">
-                <div className="text-xs text-slate-500">圆内零点</div>
-                <div className="text-2xl font-semibold text-emerald-600">{data.zeroIn}</div>
-              </div>
-              <div className="rounded-xl bg-white p-3 shadow-sm">
-                <div className="text-xs text-slate-500">圆内极点</div>
-                <div className="text-2xl font-semibold text-rose-600">{data.poleIn}</div>
-              </div>
-              <div className="rounded-xl bg-white p-3 shadow-sm">
-                <div className="text-xs text-slate-500">N − P</div>
-                <div className="text-2xl font-semibold text-slate-900">{predicted}</div>
-              </div>
-            </div>
-          </div>
-        </header>
-
-        <main className="grid gap-4 lg:grid-cols-[1.05fr_1fr]">
-          <section className="rounded-3xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
-            <div className="mb-3 flex items-center justify-between gap-3">
-              <div>
-                <h2 className="text-lg font-semibold">z 平面：移动的闭圆 γ</h2>
-                <p className="text-sm text-slate-500">绿色点是零点，红色叉是极点；三类对象都可在图中拖动。</p>
-              </div>
-              <div className="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-600">拖动圆心 / 零点 / 极点</div>
-            </div>
-            <svg
-              ref={leftRef}
-              viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
-              className="h-[390px] w-full touch-none cursor-crosshair rounded-2xl border border-slate-200 bg-white"
-              onPointerMove={onPointerMove}
-              onPointerUp={stopDragging}
-              onPointerLeave={stopDragging}
-            >
-              <rect x="0" y="0" width={VIEW_W} height={VIEW_H} fill="white" />
-              {planeGrid({ xMin: -3, xMax: 3, yMin: -2.5, yMax: 2.5, map: zMap })}
-              <line x1="0" y1={VIEW_H / 2} x2={VIEW_W} y2={VIEW_H / 2} className="stroke-slate-300" strokeWidth="1.5" />
-              <line x1={VIEW_W / 2} y1="0" x2={VIEW_W / 2} y2={VIEW_H} className="stroke-slate-300" strokeWidth="1.5" />
-              <path d={zCirclePath} fill="none" className="stroke-slate-900" strokeWidth="3" />
-              <circle cx={centerScreen.x + radius * Z_SCALE} cy={centerScreen.y} r="4" fill="#0f172a" opacity="0.8" />
-
-              {zeros.map((z, i) => {
-                const p = zMap(z);
-                return (
-                  <g
-                    key={`z${i}`}
-                    onPointerDown={(e) => {
-                      e.stopPropagation();
-                      e.currentTarget.setPointerCapture(e.pointerId);
-                      setDragTarget({ type: "zero", index: i });
-                    }}
-                    className="cursor-move"
-                  >
-                    <circle cx={p.x} cy={p.y} r="9" fill="rgba(16,185,129,0.13)" />
-                    <circle cx={p.x} cy={p.y} r="7" className={zeroColor} strokeWidth="2" />
-                    <text x={p.x + 10} y={p.y - 9} className="select-none fill-emerald-700 text-xs font-semibold">a{i + 1}</text>
-                  </g>
-                );
-              })}
-
-              {poles.map((z, i) => {
-                const p = zMap(z);
-                return (
-                  <g
-                    key={`p${i}`}
-                    onPointerDown={(e) => {
-                      e.stopPropagation();
-                      e.currentTarget.setPointerCapture(e.pointerId);
-                      setDragTarget({ type: "pole", index: i });
-                    }}
-                    className="cursor-move"
-                  >
-                    <circle cx={p.x} cy={p.y} r="11" fill="rgba(244,63,94,0.10)" />
-                    <line x1={p.x - 8} y1={p.y - 8} x2={p.x + 8} y2={p.y + 8} className={poleColor} strokeWidth="3" strokeLinecap="round" />
-                    <line x1={p.x + 8} y1={p.y - 8} x2={p.x - 8} y2={p.y + 8} className={poleColor} strokeWidth="3" strokeLinecap="round" />
-                    <text x={p.x + 11} y={p.y - 9} className="select-none fill-rose-700 text-xs font-semibold">b{i + 1}</text>
-                  </g>
-                );
-              })}
-
-              <g
-                onPointerDown={(e) => {
-                  e.currentTarget.setPointerCapture(e.pointerId);
-                  setDragTarget({ type: "center" });
-                }}
-                className="cursor-grab active:cursor-grabbing"
-              >
-                <circle cx={centerScreen.x} cy={centerScreen.y} r="15" fill="rgba(15,23,42,0.10)" />
-                <circle cx={centerScreen.x} cy={centerScreen.y} r="5" fill="#0f172a" />
-              </g>
-            </svg>
-          </section>
-
-          <section className="grid gap-4">
-            <div className="rounded-3xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
-              <div className="mb-3 flex items-center justify-between gap-3">
-                <div>
-                  <h2 className="text-lg font-semibold">w 平面：像曲线 f(γ)</h2>
-                  <p className="text-sm text-slate-500">蓝色闭曲线绕原点的次数就是 Δarg f(z)/(2π)。</p>
-                </div>
-                <div className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">
-                  wind ≈ {data.winding.raw.toFixed(3)} → {data.winding.rounded}
-                </div>
-              </div>
-              <svg viewBox={`0 0 ${VIEW_W} ${VIEW_H}`} className="h-[300px] w-full rounded-2xl border border-slate-200 bg-white md:h-[390px]">
-                <rect x="0" y="0" width={VIEW_W} height={VIEW_H} fill="white" />
-                {planeGrid({ xMin: -3, xMax: 3, yMin: -2.5, yMax: 2.5, map: wMap })}
-                <line x1="0" y1={VIEW_H / 2} x2={VIEW_W} y2={VIEW_H / 2} className="stroke-slate-300" strokeWidth="1.5" />
-                <line x1={VIEW_W / 2} y1="0" x2={VIEW_W / 2} y2={VIEW_H} className="stroke-slate-300" strokeWidth="1.5" />
-                <circle cx={VIEW_W / 2} cy={VIEW_H / 2} r="6" fill="#0f172a" />
-                <text x="251" y="190" className="fill-slate-700 text-xs font-semibold">0</text>
-                <path d={wImagePath} fill="none" stroke="#2563eb" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-                <circle cx={VIEW_W / 2} cy={VIEW_H / 2} r="38" fill="none" stroke="#94a3b8" strokeDasharray="4 5" />
-                <text x="16" y="28" className="fill-slate-500 text-xs">自动缩放：大值会被压到画面边缘；看黎曼球可理解趋近无穷远的部分。</text>
-              </svg>
-            </div>
-          </section>
-        </main>
-
-        <section className="grid gap-4 lg:grid-cols-[0.95fr_1.05fr]">
-          <div className="rounded-3xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
-            <h2 className="text-lg font-semibold">黎曼球视角</h2>
-            <p className="mt-1 text-sm leading-6 text-slate-500">
-              有理函数自然是黎曼球到黎曼球的映射。右侧曲线是把 w=f(z) 通过反立体投影画到球面上；当像曲线在平面上远离原点时，在球面上会靠近无穷远点。
-            </p>
-            <svg viewBox="0 0 272 256" className="mt-3 h-64 w-full rounded-2xl border border-slate-200 bg-gradient-to-br from-white to-slate-50">
-              <circle cx="136" cy="128" r="84" fill="white" stroke="#cbd5e1" strokeWidth="2" />
-              <ellipse cx="136" cy="128" rx="84" ry="21" fill="none" stroke="#e2e8f0" strokeWidth="1.5" />
-              <ellipse cx="136" cy="128" rx="40" ry="84" fill="none" stroke="#e2e8f0" strokeWidth="1.5" transform="rotate(18 136 128)" />
-              <ellipse cx="136" cy="128" rx="40" ry="84" fill="none" stroke="#e2e8f0" strokeWidth="1.5" transform="rotate(-28 136 128)" />
-              <circle cx="136" cy="45" r="4" fill="#f43f5e" />
-              <text x="145" y="48" className="fill-rose-600 text-xs font-semibold">∞</text>
-              <circle cx="136" cy="128" r="3.5" fill="#0f172a" />
-              <text x="145" y="126" className="fill-slate-700 text-xs font-semibold">0</text>
-              <path d={spherePath} fill="none" stroke="#2563eb" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </div>
-
-          <div className="rounded-3xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
-            <div className="flex items-center justify-between gap-3">
-              <h2 className="text-lg font-semibold">控制、编辑与读数</h2>
-              <div className="flex flex-wrap gap-2">
-                <button onClick={resetAll} className="rounded-xl bg-slate-900 px-3 py-2 text-sm text-white shadow-sm hover:bg-slate-700">重置</button>
-                <button onClick={randomizePoints} className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 shadow-sm hover:bg-slate-50">随机点位</button>
-              </div>
-            </div>
-
-            <div className="mt-4 grid gap-4 md:grid-cols-3">
-              <Slider label="圆心 Re(c)" value={center.re} min={-1.8} max={1.8} step={0.01} onChange={(v) => setCenter(C(v, center.im))} />
-              <Slider label="圆心 Im(c)" value={center.im} min={-1.5} max={1.5} step={0.01} onChange={(v) => setCenter(C(center.re, v))} />
-              <Slider label="半径 r" value={radius} min={0.25} max={2.2} step={0.01} onChange={setRadius} />
-            </div>
-
-            <div className="mt-4 flex flex-wrap gap-2">
-              <PresetButton onClick={() => { setCenter(zeros[0] ?? C(0, 0)); setRadius(0.42); }}>围住 a₁</PresetButton>
-              <PresetButton onClick={() => { setCenter(C(-0.7, -0.15)); setRadius(0.95); }}>示例：零点与极点抵消</PresetButton>
-              <PresetButton onClick={() => { setCenter(C(0.1, -0.05)); setRadius(1.55); }}>示例：多个奇点</PresetButton>
-              <PresetButton onClick={() => { setCenter(C(0, 0)); setRadius(2.05); }}>大圆：看总次数</PresetButton>
-            </div>
-
-            <div className="mt-5 grid gap-4 md:grid-cols-2">
-              <PointEditor title="零点设置" points={zeros} setPoints={setZeros} prefix="a" accentClass="text-emerald-700" kind="zero" />
-              <PointEditor title="极点设置" points={poles} setPoints={setPoles} prefix="b" accentClass="text-rose-700" kind="pole" />
-            </div>
-
-            <div className="mt-5 grid gap-3 md:grid-cols-2">
-              <div className="rounded-2xl bg-slate-50 p-4">
-                <div className="text-sm font-medium text-slate-500">辐角定理预测</div>
-                <div className="mt-1 text-2xl font-semibold">Δarg f = {predicted} · 2π</div>
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  因为圆内有 {data.zeroIn} 个零点、{data.poleIn} 个极点，所以 N − P = {predicted}。
-                </p>
-              </div>
-              <div className="rounded-2xl bg-blue-50 p-4">
-                <div className="text-sm font-medium text-blue-700">从像曲线直接测得</div>
-                <div className="mt-1 text-2xl font-semibold text-blue-800">wind(f(γ),0) = {data.winding.rounded}</div>
-                <p className="mt-2 text-sm leading-6 text-blue-800/80">
-                  数值积分得到 {data.winding.raw.toFixed(4)}。远离临界边界时它应是整数。
-                </p>
-              </div>
-            </div>
-
-            {boundaryWarning ? (
-              <div className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-800">
-                当前圆非常接近某个零点或极点。辐角定理要求边界上没有零点和极点；穿过这些点时，绕数会发生跳变。
-              </div>
-            ) : (
-              <div className="mt-4 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm leading-6 text-emerald-800">
-                当前边界避开了零点和极点。可以把左图中的圆连续移动，只要不穿过零点/极点，右图像曲线的绕数不会改变。
-              </div>
-            )}
-
-            {cancellationWarning && (
-              <div className="mt-4 rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm leading-6 text-rose-800">
-                某个零点与极点非常接近，图像会出现近似约消；这在有理函数中对应局部因子接近相互抵消。
-              </div>
-            )}
-
-            <div className="mt-4 rounded-2xl bg-slate-950 p-4 text-sm leading-6 text-slate-100">
-              <div className="flex items-center justify-between gap-3">
-                <div className="font-semibold">当前参数</div>
-                <div className="rounded-full bg-slate-800 px-2 py-1 text-xs text-slate-300">deg numerator − deg denominator = {totalDegree}</div>
-              </div>
-              <div className="mt-2 grid gap-1 font-mono text-xs text-slate-300 md:grid-cols-2">
-                {zeros.map((z, i) => <div key={`info-a${i}`}>a{i + 1} = {fmtComplex(z)}</div>)}
-                {poles.map((z, i) => <div key={`info-b${i}`}>b{i + 1} = {fmtComplex(z)}</div>)}
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-    </div>
-  );
-}
-
-ReactDOM.createRoot(document.getElementById("root")).render(<ArgumentPrincipleRationalMapDemo />);
-  </script>
-</body>
-</html>
-
-
-  
-
-</article>
-
-
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    
-
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
-        </div>
-        <div class="list-group" id="local-search-result"></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-    
-
-    
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
-    </div>
-  
-  
-  
-</div>
-
-  </footer>
-
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
-  <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
-  </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
+    function div(a, b) {
+      const d = b.re * b.re + b.im * b.im;
+      if (d < 1e-18) {
+        const direction = Math.atan2(a.im, a.re);
+        return C(1e9 * Math.cos(direction), 1e9 * Math.sin(direction));
       }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        typing(text);
-      
-    })(window, document);
+      return C((a.re * b.re + a.im * b.im) / d, (a.im * b.re - a.re * b.im) / d);
+    }
+    function abs(a) {
+      return Math.hypot(a.re, a.im);
+    }
+    function arg(a) {
+      return Math.atan2(a.im, a.re);
+    }
+    function dist(a, b) {
+      return Math.hypot(a.re - b.re, a.im - b.im);
+    }
+    function clamp(x, min, max) {
+      return Math.max(min, Math.min(max, x));
+    }
+    function fmt(x) {
+      if (!Number.isFinite(x)) return "∞";
+      if (Math.abs(x) < 1e-10) return "0";
+      return x.toFixed(2).replace(/[.]00$/, "");
+    }
+    function fmtComplex(z) {
+      const re = fmt(z.re);
+      const imAbs = fmt(Math.abs(z.im));
+      if (Math.abs(z.im) < 1e-10) return re;
+      if (Math.abs(z.re) < 1e-10) return `${z.im < 0 ? "−" : ""}${imAbs}i`;
+      return `${re} ${z.im < 0 ? "−" : "+"} ${imAbs}i`;
+    }
+    function normalizeDelta(d) {
+      while (d > Math.PI) d -= TAU;
+      while (d <= -Math.PI) d += TAU;
+      return d;
+    }
+    function clonePoints(points) {
+      return points.map((p) => C(p.re, p.im));
+    }
+
+    function rationalMap(z, zeros, poles) {
+      let numerator = C(1, 0);
+      let denominator = C(1, 0);
+      for (const a of zeros) numerator = mul(numerator, sub(z, a));
+      for (const b of poles) denominator = mul(denominator, sub(z, b));
+      return div(numerator, denominator);
+    }
+
+    function sampleCircle(center, radius, n = 720) {
+      const pts = [];
+      for (let k = 0; k <= n; k++) {
+        const t = (TAU * k) / n;
+        pts.push(C(center.re + radius * Math.cos(t), center.im + radius * Math.sin(t)));
+      }
+      return pts;
+    }
+
+    function countInside(list, center, radius) {
+      return list.filter((z) => dist(z, center) < radius - 1e-9).length;
+    }
+    function countNearBoundary(list, center, radius) {
+      return list.filter((z) => Math.abs(dist(z, center) - radius) < 0.035).length;
+    }
+    function hasCloseZeroPolePair(zeros, poles) {
+      for (const a of zeros) {
+        for (const b of poles) {
+          if (dist(a, b) < 0.045) return true;
+        }
+      }
+      return false;
+    }
+
+    function windingNumber(values) {
+      let sum = 0;
+      for (let i = 1; i < values.length; i++) {
+        const a0 = arg(values[i - 1]);
+        const a1 = arg(values[i]);
+        sum += normalizeDelta(a1 - a0);
+      }
+      return { raw: sum / TAU, rounded: Math.round(sum / TAU), totalArg: sum };
+    }
+
+    function sortedQuantile(values, q) {
+      const xs = values.filter(Number.isFinite).slice().sort((a, b) => a - b);
+      if (!xs.length) return 1;
+      return xs[Math.min(xs.length - 1, Math.max(0, Math.floor(q * (xs.length - 1))))];
+    }
+
+    function pathFromPoints(points, mapper, skipBad = false) {
+      let path = "";
+      let drawing = false;
+      for (const p of points) {
+        if (!Number.isFinite(p.re) || !Number.isFinite(p.im)) {
+          drawing = false;
+          continue;
+        }
+        const m = mapper(p);
+        if (skipBad && (!Number.isFinite(m.x) || !Number.isFinite(m.y))) {
+          drawing = false;
+          continue;
+        }
+        path += `${drawing ? "L" : "M"}${m.x.toFixed(2)},${m.y.toFixed(2)} `;
+        drawing = true;
+      }
+      return path;
+    }
+
+    function stereographicToSphere(w) {
+      const r2 = w.re * w.re + w.im * w.im;
+      if (!Number.isFinite(r2) || r2 > 1e16) return { x: 0, y: 0, z: 1 };
+      return {
+        x: (2 * w.re) / (r2 + 1),
+        y: (2 * w.im) / (r2 + 1),
+        z: (r2 - 1) / (r2 + 1),
+      };
+    }
+    function projectSphere(P) {
+      const x = 136 + 82 * (0.9 * P.x + 0.34 * P.z);
+      const y = 128 + 82 * (-0.18 * P.x - 0.95 * P.y + 0.24 * P.z);
+      return { x, y };
+    }
+
+    function planeGrid({ xMin, xMax, yMin, yMax, step = 1, map }) {
+      const lines = [];
+      for (let x = Math.ceil(xMin); x <= Math.floor(xMax); x += step) {
+        const p1 = map(C(x, yMin));
+        const p2 = map(C(x, yMax));
+        lines.push(<line key={`vx${x}`} x1={p1.x} y1={p1.y} x2={p2.x} y2={p2.y} className="stroke-slate-200" strokeWidth="1" />);
+      }
+      for (let y = Math.ceil(yMin); y <= Math.floor(yMax); y += step) {
+        const p1 = map(C(xMin, y));
+        const p2 = map(C(xMax, y));
+        lines.push(<line key={`hy${y}`} x1={p1.x} y1={p1.y} x2={p2.x} y2={p2.y} className="stroke-slate-200" strokeWidth="1" />);
+      }
+      return lines;
+    }
+
+    function Slider({ label, value, min, max, step, onChange }) {
+      return (
+        <label className="grid gap-1 text-sm text-slate-700">
+          <div className="flex items-center justify-between">
+            <span>{label}</span>
+            <span className="font-mono text-slate-500">{Number(value).toFixed(2)}</span>
+          </div>
+          <input
+            type="range"
+            value={value}
+            min={min}
+            max={max}
+            step={step}
+            onChange={(e) => onChange(Number(e.target.value))}
+            className="w-full accent-slate-900"
+          />
+        </label>
+      );
+    }
+
+    function NumberInput({ value, onChange }) {
+      return (
+        <input
+          type="number"
+          step="0.01"
+          value={Number.isFinite(value) ? value : 0}
+          onChange={(e) => onChange(Number(e.target.value))}
+          className="w-full rounded-lg border border-slate-300 bg-white px-2 py-1 font-mono text-xs outline-none transition focus:border-slate-900 focus:ring-2 focus:ring-slate-200"
+        />
+      );
+    }
+
+    function PresetButton({ children, onClick }) {
+      return (
+        <button
+          onClick={onClick}
+          className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-50 hover:shadow"
+        >
+          {children}
+        </button>
+      );
+    }
+
+    function PointEditor({ title, points, setPoints, prefix, accentClass, kind }) {
+      function updatePoint(index, key, value) {
+        setPoints((prev) => prev.map((p, i) => (i === index ? C(key === "re" ? value : p.re, key === "im" ? value : p.im) : p)));
+      }
+      function addPoint() {
+        setPoints((prev) => {
+          const offset = 0.18 * prev.length;
+          return [...prev, C(clamp(offset, -1.6, 1.6), kind === "zero" ? 0.35 : -0.35)];
+        });
+      }
+      function removePoint(index) {
+        setPoints((prev) => prev.filter((_, i) => i !== index));
+      }
+
+      return (
+        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+          <div className="mb-3 flex items-center justify-between gap-2">
+            <h3 className="text-sm font-semibold text-slate-800">{title}</h3>
+            <button onClick={addPoint} className="rounded-lg border border-slate-300 bg-white px-2 py-1 text-xs text-slate-700 hover:bg-slate-100">
+              + 添加
+            </button>
+          </div>
+          <div className="max-h-80 space-y-3 overflow-auto pr-1">
+            {points.length === 0 ? (
+              <div className="rounded-xl bg-white p-3 text-sm text-slate-500">当前没有{title.replace("设置", "")}。</div>
+            ) : (
+              points.map((p, i) => (
+                <div key={`${kind}-${i}`} className="rounded-xl bg-white p-3 shadow-sm ring-1 ring-slate-100">
+                  <div className="mb-2 flex items-center justify-between">
+                    <div className={`text-sm font-semibold ${accentClass}`}>{prefix}{i + 1}</div>
+                    <button onClick={() => removePoint(i)} className="rounded-md px-2 py-1 text-xs text-rose-600 hover:bg-rose-50">
+                      删除
+                    </button>
+                  </div>
+                  <div className="grid grid-cols-2 gap-2">
+                    <label className="grid gap-1 text-xs text-slate-600">
+                      <span>实部</span>
+                      <NumberInput value={p.re} onChange={(v) => updatePoint(i, "re", v)} />
+                    </label>
+                    <label className="grid gap-1 text-xs text-slate-600">
+                      <span>虚部</span>
+                      <NumberInput value={p.im} onChange={(v) => updatePoint(i, "im", v)} />
+                    </label>
+                  </div>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      );
+    }
+
+    function ArgumentPrincipleRationalMapDemo() {
+      const [center, setCenter] = useState(C(0, 0));
+      const [radius, setRadius] = useState(1.05);
+      const [zeros, setZeros] = useState(() => clonePoints(DEFAULT_ZEROS));
+      const [poles, setPoles] = useState(() => clonePoints(DEFAULT_POLES));
+      const [dragTarget, setDragTarget] = useState(null);
+      const leftRef = useRef(null);
+
+      const data = useMemo(() => {
+        const zPts = sampleCircle(center, radius, 900);
+        const wPts = zPts.map((z) => rationalMap(z, zeros, poles));
+        const zeroIn = countInside(zeros, center, radius);
+        const poleIn = countInside(poles, center, radius);
+        const nearZero = countNearBoundary(zeros, center, radius);
+        const nearPole = countNearBoundary(poles, center, radius);
+        const winding = windingNumber(wPts);
+        const magnitudes = wPts.map(abs).filter((x) => Number.isFinite(x));
+        const q90 = Math.max(1.2, sortedQuantile(magnitudes, 0.9));
+        return { zPts, wPts, zeroIn, poleIn, nearZero, nearPole, winding, q90 };
+      }, [center, radius, zeros, poles]);
+
+      const predicted = data.zeroIn - data.poleIn;
+      const boundaryWarning = data.nearZero + data.nearPole > 0;
+      const cancellationWarning = hasCloseZeroPolePair(zeros, poles);
+      const totalDegree = zeros.length - poles.length;
+
+      const zMap = (z) => ({ x: VIEW_W / 2 + Z_SCALE * z.re, y: VIEW_H / 2 - Z_SCALE * z.im });
+      const zUnmap = (x, y) => C((x - VIEW_W / 2) / Z_SCALE, (VIEW_H / 2 - y) / Z_SCALE);
+      const wScale = 118 / data.q90;
+      const wMap = (w) => ({
+        x: VIEW_W / 2 + wScale * clamp(w.re, -7, 7),
+        y: VIEW_H / 2 - wScale * clamp(w.im, -7, 7),
+      });
+      const spherePath = pathFromPoints(data.wPts, (w) => projectSphere(stereographicToSphere(w)), true);
+      const zCirclePath = pathFromPoints(data.zPts, zMap);
+      const wImagePath = pathFromPoints(data.wPts, wMap, true);
+
+      function pointerToComplex(e) {
+        const rect = leftRef.current.getBoundingClientRect();
+        const x = ((e.clientX - rect.left) / rect.width) * VIEW_W;
+        const y = ((e.clientY - rect.top) / rect.height) * VIEW_H;
+        return zUnmap(x, y);
+      }
+
+      function onPointerMove(e) {
+        if (!dragTarget) return;
+        const z = pointerToComplex(e);
+        const clipped = C(clamp(z.re, -2.2, 2.2), clamp(z.im, -1.75, 1.75));
+
+        if (dragTarget.type === "center") {
+          setCenter(clipped);
+        } else if (dragTarget.type === "zero") {
+          setZeros((prev) => prev.map((p, i) => (i === dragTarget.index ? clipped : p)));
+        } else if (dragTarget.type === "pole") {
+          setPoles((prev) => prev.map((p, i) => (i === dragTarget.index ? clipped : p)));
+        }
+      }
+
+      function stopDragging() {
+        setDragTarget(null);
+      }
+
+      function resetAll() {
+        setZeros(clonePoints(DEFAULT_ZEROS));
+        setPoles(clonePoints(DEFAULT_POLES));
+        setCenter(C(0, 0));
+        setRadius(1.05);
+      }
+
+      function randomizePoints() {
+        const rand = () => C(Number((Math.random() * 3.0 - 1.5).toFixed(2)), Number((Math.random() * 2.2 - 1.1).toFixed(2)));
+        setZeros(Array.from({ length: Math.max(1, zeros.length) }, rand));
+        setPoles(Array.from({ length: Math.max(1, poles.length) }, rand));
+      }
+
+      const centerScreen = zMap(center);
+      const zeroColor = "fill-emerald-500 stroke-emerald-800";
+      const poleColor = "stroke-rose-600";
+
+      return (
+        <div className="min-h-screen bg-slate-50 p-4 text-slate-900 md:p-6">
+          <div className="mx-auto max-w-7xl space-y-4">
+            <header className="rounded-3xl bg-white p-5 shadow-sm ring-1 ring-slate-200">
+              <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <p className="text-sm font-medium uppercase tracking-[0.22em] text-slate-500">Complex analysis demo</p>
+                  <h1 className="mt-1 text-2xl font-semibold tracking-tight md:text-3xl">辐角定理：可编辑零点与极点的有理函数</h1>
+                  <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-600">
+                    当前函数为
+                    <span className="mx-1 rounded-lg bg-slate-100 px-2 py-1 font-mono text-slate-800">
+                      f(z)=∏(z-aᵢ)/∏(z-bⱼ)
+                    </span>
+                    。拖动左图中的圆心、零点、极点，或在右侧面板直接输入坐标；右侧会同步显示像曲线 f(γ) 的绕数与黎曼球投影。
+                  </p>
+                </div>
+                <div className="grid min-w-64 grid-cols-3 gap-2 rounded-2xl bg-slate-100 p-2 text-center">
+                  <div className="rounded-xl bg-white p-3 shadow-sm">
+                    <div className="text-xs text-slate-500">圆内零点</div>
+                    <div className="text-2xl font-semibold text-emerald-600">{data.zeroIn}</div>
+                  </div>
+                  <div className="rounded-xl bg-white p-3 shadow-sm">
+                    <div className="text-xs text-slate-500">圆内极点</div>
+                    <div className="text-2xl font-semibold text-rose-600">{data.poleIn}</div>
+                  </div>
+                  <div className="rounded-xl bg-white p-3 shadow-sm">
+                    <div className="text-xs text-slate-500">N − P</div>
+                    <div className="text-2xl font-semibold text-slate-900">{predicted}</div>
+                  </div>
+                </div>
+              </div>
+            </header>
+
+            <main className="grid gap-4 lg:grid-cols-[1.05fr_1fr]">
+              <section className="rounded-3xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
+                <div className="mb-3 flex items-center justify-between gap-3">
+                  <div>
+                    <h2 className="text-lg font-semibold">z 平面：移动的闭圆 γ</h2>
+                    <p className="text-sm text-slate-500">绿色点是零点，红色叉是极点；三类对象都可在图中拖动。</p>
+                  </div>
+                  <div className="rounded-full bg-slate-100 px-3 py-1 text-xs text-slate-600">拖动圆心 / 零点 / 极点</div>
+                </div>
+                <svg
+                  ref={leftRef}
+                  viewBox={`0 0 ${VIEW_W} ${VIEW_H}`}
+                  className="h-[390px] w-full touch-none cursor-crosshair rounded-2xl border border-slate-200 bg-white"
+                  onPointerMove={onPointerMove}
+                  onPointerUp={stopDragging}
+                  onPointerLeave={stopDragging}
+                >
+                  <rect x="0" y="0" width={VIEW_W} height={VIEW_H} fill="white" />
+                  {planeGrid({ xMin: -3, xMax: 3, yMin: -2.5, yMax: 2.5, map: zMap })}
+                  <line x1="0" y1={VIEW_H / 2} x2={VIEW_W} y2={VIEW_H / 2} className="stroke-slate-300" strokeWidth="1.5" />
+                  <line x1={VIEW_W / 2} y1="0" x2={VIEW_W / 2} y2={VIEW_H} className="stroke-slate-300" strokeWidth="1.5" />
+                  <path d={zCirclePath} fill="none" className="stroke-slate-900" strokeWidth="3" />
+                  <circle cx={centerScreen.x + radius * Z_SCALE} cy={centerScreen.y} r="4" fill="#0f172a" opacity="0.8" />
+
+                  {zeros.map((z, i) => {
+                    const p = zMap(z);
+                    return (
+                      <g
+                        key={`z${i}`}
+                        onPointerDown={(e) => {
+                          e.stopPropagation();
+                          e.currentTarget.setPointerCapture(e.pointerId);
+                          setDragTarget({ type: "zero", index: i });
+                        }}
+                        className="cursor-move"
+                      >
+                        <circle cx={p.x} cy={p.y} r="9" fill="rgba(16,185,129,0.13)" />
+                        <circle cx={p.x} cy={p.y} r="7" className={zeroColor} strokeWidth="2" />
+                        <text x={p.x + 10} y={p.y - 9} className="select-none fill-emerald-700 text-xs font-semibold">a{i + 1}</text>
+                      </g>
+                    );
+                  })}
+
+                  {poles.map((z, i) => {
+                    const p = zMap(z);
+                    return (
+                      <g
+                        key={`p${i}`}
+                        onPointerDown={(e) => {
+                          e.stopPropagation();
+                          e.currentTarget.setPointerCapture(e.pointerId);
+                          setDragTarget({ type: "pole", index: i });
+                        }}
+                        className="cursor-move"
+                      >
+                        <circle cx={p.x} cy={p.y} r="11" fill="rgba(244,63,94,0.10)" />
+                        <line x1={p.x - 8} y1={p.y - 8} x2={p.x + 8} y2={p.y + 8} className={poleColor} strokeWidth="3" strokeLinecap="round" />
+                        <line x1={p.x + 8} y1={p.y - 8} x2={p.x - 8} y2={p.y + 8} className={poleColor} strokeWidth="3" strokeLinecap="round" />
+                        <text x={p.x + 11} y={p.y - 9} className="select-none fill-rose-700 text-xs font-semibold">b{i + 1}</text>
+                      </g>
+                    );
+                  })}
+
+                  <g
+                    onPointerDown={(e) => {
+                      e.currentTarget.setPointerCapture(e.pointerId);
+                      setDragTarget({ type: "center" });
+                    }}
+                    className="cursor-grab active:cursor-grabbing"
+                  >
+                    <circle cx={centerScreen.x} cy={centerScreen.y} r="15" fill="rgba(15,23,42,0.10)" />
+                    <circle cx={centerScreen.x} cy={centerScreen.y} r="5" fill="#0f172a" />
+                  </g>
+                </svg>
+              </section>
+
+              <section className="grid gap-4">
+                <div className="rounded-3xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
+                  <div className="mb-3 flex items-center justify-between gap-3">
+                    <div>
+                      <h2 className="text-lg font-semibold">w 平面：像曲线 f(γ)</h2>
+                      <p className="text-sm text-slate-500">蓝色闭曲线绕原点的次数就是 Δarg f(z)/(2π)。</p>
+                    </div>
+                    <div className="rounded-full bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700">
+                      wind ≈ {data.winding.raw.toFixed(3)} → {data.winding.rounded}
+                    </div>
+                  </div>
+                  <svg viewBox={`0 0 ${VIEW_W} ${VIEW_H}`} className="h-[300px] w-full rounded-2xl border border-slate-200 bg-white md:h-[390px]">
+                    <rect x="0" y="0" width={VIEW_W} height={VIEW_H} fill="white" />
+                    {planeGrid({ xMin: -3, xMax: 3, yMin: -2.5, yMax: 2.5, map: wMap })}
+                    <line x1="0" y1={VIEW_H / 2} x2={VIEW_W} y2={VIEW_H / 2} className="stroke-slate-300" strokeWidth="1.5" />
+                    <line x1={VIEW_W / 2} y1="0" x2={VIEW_W / 2} y2={VIEW_H} className="stroke-slate-300" strokeWidth="1.5" />
+                    <circle cx={VIEW_W / 2} cy={VIEW_H / 2} r="6" fill="#0f172a" />
+                    <text x="251" y="190" className="fill-slate-700 text-xs font-semibold">0</text>
+                    <path d={wImagePath} fill="none" stroke="#2563eb" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                    <circle cx={VIEW_W / 2} cy={VIEW_H / 2} r="38" fill="none" stroke="#94a3b8" strokeDasharray="4 5" />
+                    <text x="16" y="28" className="fill-slate-500 text-xs">自动缩放：大值会被压到画面边缘；看黎曼球可理解趋近无穷远的部分。</text>
+                  </svg>
+                </div>
+              </section>
+            </main>
+
+            <section className="grid gap-4 lg:grid-cols-[0.95fr_1.05fr]">
+              <div className="rounded-3xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
+                <h2 className="text-lg font-semibold">黎曼球视角</h2>
+                <p className="mt-1 text-sm leading-6 text-slate-500">
+                  有理函数自然是黎曼球到黎曼球的映射。右侧曲线是把 w=f(z) 通过反立体投影画到球面上；当像曲线在平面上远离原点时，在球面上会靠近无穷远点。
+                </p>
+                <svg viewBox="0 0 272 256" className="mt-3 h-64 w-full rounded-2xl border border-slate-200 bg-gradient-to-br from-white to-slate-50">
+                  <circle cx="136" cy="128" r="84" fill="white" stroke="#cbd5e1" strokeWidth="2" />
+                  <ellipse cx="136" cy="128" rx="84" ry="21" fill="none" stroke="#e2e8f0" strokeWidth="1.5" />
+                  <ellipse cx="136" cy="128" rx="40" ry="84" fill="none" stroke="#e2e8f0" strokeWidth="1.5" transform="rotate(18 136 128)" />
+                  <ellipse cx="136" cy="128" rx="40" ry="84" fill="none" stroke="#e2e8f0" strokeWidth="1.5" transform="rotate(-28 136 128)" />
+                  <circle cx="136" cy="45" r="4" fill="#f43f5e" />
+                  <text x="145" y="48" className="fill-rose-600 text-xs font-semibold">∞</text>
+                  <circle cx="136" cy="128" r="3.5" fill="#0f172a" />
+                  <text x="145" y="126" className="fill-slate-700 text-xs font-semibold">0</text>
+                  <path d={spherePath} fill="none" stroke="#2563eb" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </div>
+
+              <div className="rounded-3xl bg-white p-4 shadow-sm ring-1 ring-slate-200">
+                <div className="flex items-center justify-between gap-3">
+                  <h2 className="text-lg font-semibold">控制、编辑与读数</h2>
+                  <div className="flex flex-wrap gap-2">
+                    <button onClick={resetAll} className="rounded-xl bg-slate-900 px-3 py-2 text-sm text-white shadow-sm hover:bg-slate-700">重置</button>
+                    <button onClick={randomizePoints} className="rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm text-slate-700 shadow-sm hover:bg-slate-50">随机点位</button>
+                  </div>
+                </div>
+
+                <div className="mt-4 grid gap-4 md:grid-cols-3">
+                  <Slider label="圆心 Re(c)" value={center.re} min={-1.8} max={1.8} step={0.01} onChange={(v) => setCenter(C(v, center.im))} />
+                  <Slider label="圆心 Im(c)" value={center.im} min={-1.5} max={1.5} step={0.01} onChange={(v) => setCenter(C(center.re, v))} />
+                  <Slider label="半径 r" value={radius} min={0.25} max={2.2} step={0.01} onChange={setRadius} />
+                </div>
+
+                <div className="mt-4 flex flex-wrap gap-2">
+                  <PresetButton onClick={() => { setCenter(zeros[0] ?? C(0, 0)); setRadius(0.42); }}>围住 a₁</PresetButton>
+                  <PresetButton onClick={() => { setCenter(C(-0.7, -0.15)); setRadius(0.95); }}>示例：零点与极点抵消</PresetButton>
+                  <PresetButton onClick={() => { setCenter(C(0.1, -0.05)); setRadius(1.55); }}>示例：多个奇点</PresetButton>
+                  <PresetButton onClick={() => { setCenter(C(0, 0)); setRadius(2.05); }}>大圆：看总次数</PresetButton>
+                </div>
+
+                <div className="mt-5 grid gap-4 md:grid-cols-2">
+                  <PointEditor title="零点设置" points={zeros} setPoints={setZeros} prefix="a" accentClass="text-emerald-700" kind="zero" />
+                  <PointEditor title="极点设置" points={poles} setPoints={setPoles} prefix="b" accentClass="text-rose-700" kind="pole" />
+                </div>
+
+                <div className="mt-5 grid gap-3 md:grid-cols-2">
+                  <div className="rounded-2xl bg-slate-50 p-4">
+                    <div className="text-sm font-medium text-slate-500">辐角定理预测</div>
+                    <div className="mt-1 text-2xl font-semibold">Δarg f = {predicted} · 2π</div>
+                    <p className="mt-2 text-sm leading-6 text-slate-600">
+                      因为圆内有 {data.zeroIn} 个零点、{data.poleIn} 个极点，所以 N − P = {predicted}。
+                    </p>
+                  </div>
+                  <div className="rounded-2xl bg-blue-50 p-4">
+                    <div className="text-sm font-medium text-blue-700">从像曲线直接测得</div>
+                    <div className="mt-1 text-2xl font-semibold text-blue-800">wind(f(γ),0) = {data.winding.rounded}</div>
+                    <p className="mt-2 text-sm leading-6 text-blue-800/80">
+                      数值积分得到 {data.winding.raw.toFixed(4)}。远离临界边界时它应是整数。
+                    </p>
+                  </div>
+                </div>
+
+                {boundaryWarning ? (
+                  <div className="mt-4 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm leading-6 text-amber-800">
+                    当前圆非常接近某个零点或极点。辐角定理要求边界上没有零点和极点；穿过这些点时，绕数会发生跳变。
+                  </div>
+                ) : (
+                  <div className="mt-4 rounded-2xl border border-emerald-200 bg-emerald-50 p-4 text-sm leading-6 text-emerald-800">
+                    当前边界避开了零点和极点。可以把左图中的圆连续移动，只要不穿过零点/极点，右图像曲线的绕数不会改变。
+                  </div>
+                )}
+
+                {cancellationWarning && (
+                  <div className="mt-4 rounded-2xl border border-rose-200 bg-rose-50 p-4 text-sm leading-6 text-rose-800">
+                    某个零点与极点非常接近，图像会出现近似约消；这在有理函数中对应局部因子接近相互抵消。
+                  </div>
+                )}
+
+                <div className="mt-4 rounded-2xl bg-slate-950 p-4 text-sm leading-6 text-slate-100">
+                  <div className="flex items-center justify-between gap-3">
+                    <div className="font-semibold">当前参数</div>
+                    <div className="rounded-full bg-slate-800 px-2 py-1 text-xs text-slate-300">deg numerator − deg denominator = {totalDegree}</div>
+                  </div>
+                  <div className="mt-2 grid gap-1 font-mono text-xs text-slate-300 md:grid-cols-2">
+                    {zeros.map((z, i) => <div key={`info-a${i}`}>a{i + 1} = {fmtComplex(z)}</div>)}
+                    {poles.map((z, i) => <div key={`info-b${i}`}>b{i + 1} = {fmtComplex(z)}</div>)}
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      );
+    }
+
+    ReactDOM.createRoot(document.getElementById("root")).render(<ArgumentPrincipleRationalMapDemo />);
   </script>
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
-
-  <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
-  </noscript>
 </body>
+
 </html>
