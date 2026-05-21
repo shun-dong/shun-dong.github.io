@@ -1,0 +1,846 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/only.ico">
+  <link rel="icon" href="/img/only.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="采薇">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="理解 我们必须认为西西弗斯是幸福的.@[[加缪]]  灵感来自于 oh-my-opencode 有一个永远工作的主 agen t叫 Sisyphus, 但真正永远不能停下, 目前适合担任这个工作的反而是用户本身.[[AI]] 只是暂时地工作, 将用户留在时间长河. prompts engineering为通用目的训练的语言模型, 如果不给出范畴, 可能出现错位 context engineerin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sisyphus">
+<meta property="og:url" content="http://kaelvio.com/Sisyphus/index.html">
+<meta property="og:site_name" content="采薇的博客">
+<meta property="og:description" content="理解 我们必须认为西西弗斯是幸福的.@[[加缪]]  灵感来自于 oh-my-opencode 有一个永远工作的主 agen t叫 Sisyphus, 但真正永远不能停下, 目前适合担任这个工作的反而是用户本身.[[AI]] 只是暂时地工作, 将用户留在时间长河. prompts engineering为通用目的训练的语言模型, 如果不给出范畴, 可能出现错位 context engineerin">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260301162326.png">
+<meta property="article:published_time" content="2026-05-21T13:15:43.475Z">
+<meta property="article:modified_time" content="2026-05-21T13:15:43.475Z">
+<meta property="article:author" content="采薇">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://kaelvio.com/images/Pasted_image_20260301162326.png">
+  
+  
+  
+  <title>Sisyphus - 采薇的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kaelvio.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>采薇的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档Archive</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/playground/" target="_self">
+                <i class="iconfont icon-exp-fill"></i>
+                <span>演示playground</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/artwork/" target="_self">
+                <i class="iconfont icon-brush"></i>
+                <span>画廊artwork</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于采薇Kaelvio</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链links</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Sisyphus"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-05-21 21:15" pubdate>
+          2026年5月21日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          18 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Sisyphus</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><blockquote>
+<p>我们必须认为西西弗斯是幸福的.<br>@[[加缪]]</p>
+</blockquote>
+<p>灵感来自于 oh-my-opencode 有一个永远工作的主 agen t叫 Sisyphus, 但真正永远不能停下, 目前适合担任这个工作的反而是用户本身.<br>[[AI]] 只是暂时地工作, 将用户留在时间长河.</p>
+<h1 id="prompts-engineering"><a href="#prompts-engineering" class="headerlink" title="prompts engineering"></a>prompts engineering</h1><p>为通用目的训练的语言模型, 如果不给出范畴, 可能出现错位</p>
+<h1 id="context-engineering"><a href="#context-engineering" class="headerlink" title="context engineering"></a>context engineering</h1><p>无论多强的模型在上下文过长时都会显著变笨</p>
+<p>在经过失败的尝试后总结经验并回到失败前的上下文<br>让助手在对话开头称呼用户名以检查上下文窗口是否爆炸</p>
+<h1 id="harness-engineering"><a href="#harness-engineering" class="headerlink" title="harness engineering"></a>harness engineering</h1><p>语言模型没有现实意义下的主体性, 需要外部验证, 约束</p>
+<p>actor critic ~<a href="/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" title="强化学习">强化学习</a><br>先计划(+写测试)再执行<br>犯错&#x2F;一定量的工作后将经验写入skill<br>子agent, 隔离上下文</p>
+<p>rm重命名, 防止误伤重要文件<br>沙盒隔离</p>
+<h1 id="vibing-projects"><a href="#vibing-projects" class="headerlink" title="vibing projects"></a>vibing projects</h1><h2 id=""><a href="#" class="headerlink" title=""></a><a href="/torrent/" title="torrent">torrent</a></h2><p>你在一个 Godot 项目里协助开发<br>项目当前情况：</p>
+<ul>
+<li>人物敌人死亡存档等基础原型已经搭建</li>
+<li>现在优先推进可玩原型，正式美术后补</li>
+<li>第三方测试素材包已经放在：<br>asserts&#x2F;third_party&#x2F;</li>
+<li>当前素材规划文档：<br>documents&#x2F;asset-plan.md</li>
+<li>当前第2周开发切片文档：<br>documents&#x2F;week2.md</li>
+</ul>
+<p>你的工作方式要求：</p>
+<ul>
+<li>先阅读项目和文档，再动手修改</li>
+<li>优先基于现有文档和目录结构工作，不要自行改概念方向</li>
+<li>如果要改文件，直接实施，不要只给建议</li>
+<li>修改后说明改了什么、在哪些文件、有没有验证</li>
+<li>如果发现文档和实现冲突，以 documents&#x2F;week1.md 和 documents&#x2F;asset-plan.md 为准，并明确指出冲突</li>
+<li>优先自主测试，用godot的cli命令进行测试，直到没有问题或者实在无法解决才停下来把目前情况告诉用户等待解决</li>
+<li>用相对路径修改文件, 在自己的工作树做修改, 不要和主分支混淆. git操作留给用户</li>
+</ul>
+<p>请先阅读：</p>
+<ul>
+<li>README.md</li>
+<li>documents&#x2F;week1.md</li>
+<li>documents&#x2F;week2.md</li>
+</ul>
+<p>规划week2 wave4<br>增加物品和装备界面, 按tab可以打开<br>上面, {部位}&lt;-{装备图标, 下面是装备名}<br>图标先随便选一个第三方素材</p>
+<p>在避难所房间加一个回响商人, 对话可以打开商店界面<br>先要更新room.csv, 然后补全item.csv中的斗笠, 在这个房间随便放个第三方人物素材, 这个商人卖斗笠, 用固定业为货币</p>
+<p>写代码时用适当的抽象与继承, 保证后续开发的可复用性<br>素材的替代关系要放进documents&#x2F;asset-plan.md</p>
+<h2 id="AI-ask-many"><a href="#AI-ask-many" class="headerlink" title="[[AI#ask_many]]"></a>[[AI#ask_many]]</h2><p>description: ask many ai to get a comprehensive answer<br>mode: primary<br>model: bailian-coding-plan&#x2F;kimi-k2.5<br>temperature: 0.3<br>permission:<br>  edit: deny<br>  bash: ask<br>  webfetch: allow<br>  exa-websearch: allow<br>  task:<br>    ask-*: allow</p>
+<p>You are an AI agent focusing on using “task” tool to assign user’s question to subagents.</p>
+<ul>
+<li><p>subagent_type: The subagents begining with “ask-“ are designed to this condition. Assign multiple agents simultaneously. If user did not mention models explicitly, select refer to these useful groups:</p>
+<ul>
+<li>default: bailian-coding-plan&#x2F;kimi-k2.5, bailian-coding-plan&#x2F;glm-5</li>
+</ul>
+</li>
+<li><p>prompt: If the question concerns real time information, use exa-websearch or webfetch tools first, and pass the result with user’s question to subagents. Otherwise, pass the original user question to subagents.</p>
+</li>
+<li><p>description: Optional, brief description (3-5 words)</p>
+</li>
+<li><p>task_id: Optional, if the answer need to continue previous task conversations, please use correct id for the same agent.</p>
+</li>
+</ul>
+<p>After subagents answer, give a brief summary, focusing on difference of the answers.</p>
+<h2 id="opencode"><a href="#opencode" class="headerlink" title="opencode"></a>opencode</h2><p>这些任务实际上已被放弃</p>
+<ul>
+<li>project-todo<ul>
+<li>原理: 在 {项目根目录}&#x2F;.opencode&#x2F;todo&#x2F;{session_name}.md 下存储todo list, 并与数据库同步</li>
+<li>实现: 在用户发送对话后助手回答前将项目目录中的任务同步到数据库, 在todowrite后将数据库任务同步到项目本地</li>
+<li>细节: 本地的todo用md的任务列表(如 - [ ] 和- [x])存, 用emoji表示优先级 <code>⏫</code> (high), <code>🔼</code> (medium), <code>🔽</code> (low)</li>
+</ul>
+</li>
+<li>terminator<ul>
+<li>如果agent的名字是 <code>terminator-*</code> 则会在session回答后判断任务是否全部完成, 如果没有则再给session发消息提示 继续完成任务、及时更新待办</li>
+</ul>
+</li>
+<li><input disabled="" type="checkbox"> todoread被错误去掉了, 找一个别人改好的版本，可以用github action自动拉取 🔼<br>可以先放一下了, 这个东西感觉真没什么意思<br>本身opencode是能用的</li>
+</ul>
+<p>opencode后续任务先用 - 列表, 而不是 - [ ] 或者 - [x]<br>测试驱动, 任务驱动: 要告诉他自己跑测试<br>ulw权限才够<br>oh-my-opencode的架构是否真的高效??</p>
+<ul>
+<li><p>先规划再写, 这是可以的</p>
+</li>
+<li><p>并发构建这也是可以的</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+中间或许有些地方过于冗杂, 比如系统提示词, 可能占用过多上下文</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+文档或许也过于冗杂了, 或许传统的readme就够了</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+上下文压缩</p>
+</li>
+<li><p>[-] 学习 oh-my-opencode架构，在此基础上拓展askmany（Artemis） ，记得把opencode和ohmyopencode文档和源码给ai 🔼 ❌ 2026-03-03</p>
+</li>
+<li><p>opencode（vibe coding）配好了真的像软件界的3d打印机一样，可玩可生产力 </p>
+</li>
+<li><p>内置的agent和subagent直接解决</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+现在大体功能是可以了，但是有个问题是有些提示词只有对话开始有，这样效果可能不大好。hook应该可以解决这个问题 🔼 </p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+配置更多的模型 🔼  </p>
+</li>
+<li><p>subagent默认不能用todo， 要改</p>
+</li>
+</ul>
+<p>用户隔离？按照session名匹配todo？terminator agent+plugin？</p>
+<p>现在我希望开发两个opencode插件（用户自定义hook）以优化todo机制，注意保持简洁，两个应该都比较小</p>
+<p><img src="/images/Pasted_image_20260301162326.png" srcset="/img/loading.gif" lazyload></p>
+<h1 id="Claude-code"><a href="#Claude-code" class="headerlink" title="Claude code"></a>Claude code</h1><p>[[Anthropic]] 是一家有宗教氛围的公司, 其先后提出 [[MCP]], [[AI#skill]] 等工具使用规范, 并发布 Claude code 这一 CLI(command line interface, 命令行交互), 并形成了具有相当规模的生态系统.<br><a target="_blank" rel="noopener" href="https://github.com/shareAI-lab/learn-claude-code">shareAI-lab&#x2F;learn-claude-code: Bash is all you need - A nano Claude Code–like agent, built from 0 to 1</a> 该项目对于理解其原理有极大帮助. </p>
+<p>尽管本身技术并不复杂, 且有众多同类的<a href="/%E5%BC%80%E6%BA%90/" title="开源">开源</a>项目, 如 codex, gemini cli, [[opencode]], 但 Claude code 从未真正开源, 且该公司一定程度上站在开源者的对立面. 在2026年3月31日, 因为 npm 打包时泄露 source map, 源代码被逆向在 [[github]] 传播, 但该公司以 [[DMCA]] 为由下架了大量开源项目. </p>
+<p><a target="_blank" rel="noopener" href="https://github.com/paoloanzn">paoloanzn (Paolo Anzani)</a> 在2026年3月31日泄露的源码的基础上打开了一些测试功能并禁用了该公司的审查, 我在此基础上打开了 auto-mode 的功能并微调, 最终呈现为 [[fcode]]. 目前准备长期使用 fcode, 专注于实践, 不囿于形式. </p>
+<ol>
+<li>现在范式趋于稳定, 更新版本反而可能会遇到不兼容的问题</li>
+<li>自主可控, 安全</li>
+<li>对于此版本的cc, 网上有大量资料</li>
+</ol>
+<h1 id="opencode-1"><a href="#opencode-1" class="headerlink" title="opencode"></a>opencode</h1><p>以开源和美观著称的 AI cli 工具, 有著名的社区插件 oh-my-opencode, 通过主 agent 调度子 agent 以及一套完整的流程实现了长时间自主运行的能力, 但也有工作流过于冗杂带来的高消耗和混乱问题. </p>
+<p>由于 AI 工具的发展, 众多开发者提出 issue 和 pull request, 远超出项目组的审查能力, 导致诸如 todo read 工具被无通知地禁用的问题, 实际上阻碍了这个项目的发展.</p>
+<h1 id="history"><a href="#history" class="headerlink" title="history"></a>history</h1><h2 id="0"><a href="#0" class="headerlink" title="0."></a>0.</h2><p>2025年开始各个AI大多实现了工具调用, 但一开始流程还不完善, 同时仍然有用 JASON schema, AI + IDE 的. 在这一时期我做了一些 agentic 的项目, <a target="_blank" rel="noopener" href="https://github.com/shun-dong/obsidian-assistant-shanhai9000">shun-dong&#x2F;obsidian-assistant-shanhai9000</a>, <a target="_blank" rel="noopener" href="https://github.com/shun-dong/Robust_Prover">shun-dong&#x2F;Robust_Prover</a>, 但其能力完全被现在通用的 cli 工具涵盖.<br>而后 AI CLI 兴起, 模型专门优化, 使得这一方式成为主流.</p>
+<h2 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h2><p>雨循环35期间对 AI CLI 工具的探索，以 opencode 为主。</p>
+<p><strong>已完成：</strong></p>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 学习docker并创建隔离环境用于ai开发 🔼 ✅ 2026-03-01</li>
+<li><input checked="" disabled="" type="checkbox"> 查看opencode权限，有没有不能超出文件夹的限制？增加opencode沙盒 🔼 ✅ 2026-03-01</li>
+<li><input checked="" disabled="" type="checkbox"> opencode 暴露端口ngrok-&gt; Tunnel 🔼 ✅ 2026-03-01</li>
+<li><input checked="" disabled="" type="checkbox"> 重启一下agent mail ✅ 2026-02-13</li>
+<li><input checked="" disabled="" type="checkbox"> <a href="/openclaw/" title="openclaw">openclaw</a> 采用main（汇集所有agent的非敏感信息），administrator（我本人使用，裸目录），guest（用sandbox），如何实现main和个人agent通信？》传到github 🔼 ✅ 2026-02-16</li>
+<li><input checked="" disabled="" type="checkbox"> openclaw 看一下windows版本是不是真的不好， 什么是sandbox 🔼 ✅ 2026-02-12</li>
+<li><input checked="" disabled="" type="checkbox"> 上下文窗口爆了，我回滚了一下版本，检查一下这个版本的工作流有没有被篡改，readme有没有泄露个人信息 ✅ 2026-02-16</li>
+</ul>
+<p><strong>经验：</strong><br>说实话现在还是得看着ai，因为不知道什么时候上下文窗口超了。有没有解决方法 &#x2F; 叫名字。并且AI改了什么还是要大概看一下 &#x2F; 让AI复述需求，详述更改</p>
+<p>而后转向 claude code，并在源码泄露后基于其构建了 [[fcode]]。</p>
+<h1 id="reference-26-02-vibe-coding-tools"><a href="#reference-26-02-vibe-coding-tools" class="headerlink" title="reference 26.02 | vibe_coding_tools"></a>reference <a target="_blank" rel="noopener" href="https://www.xiaogenban1993.com/blog/26.02/vibe_coding_tools">26.02 | vibe_coding_tools</a></h1><hr>
+<p>[[Sisyphus+]]</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Sisyphus</div>
+      <div>http://kaelvio.com/Sisyphus/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>采薇</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年5月21日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/torrent_setting/" title="torrent_setting">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">torrent_setting</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/torrent_gameplay/" title="torrent_gameplay">
+                        <span class="hidden-mobile">torrent_gameplay</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '8062d5cb57e7f29a96d3acfa595f9c00'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

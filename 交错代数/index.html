@@ -1,0 +1,1579 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/only.ico">
+  <link rel="icon" href="/img/only.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="采薇">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="对称性与交错性 [!definition]symmetric 对称性. $f(\dots uv\dots)&#x3D;f(\dots vu\dots)$alternating 交错性. $f(\cdots vv \cdots) &#x3D; 0$skew-symmetric 反对称性. $f(\cdots u_i  u_j \cdots) &#x3D; -f(\cdots u_j  u_i \cd">
+<meta property="og:type" content="article">
+<meta property="og:title" content="交错代数">
+<meta property="og:url" content="http://kaelvio.com/%E4%BA%A4%E9%94%99%E4%BB%A3%E6%95%B0/index.html">
+<meta property="og:site_name" content="采薇的博客">
+<meta property="og:description" content="对称性与交错性 [!definition]symmetric 对称性. $f(\dots uv\dots)&#x3D;f(\dots vu\dots)$alternating 交错性. $f(\cdots vv \cdots) &#x3D; 0$skew-symmetric 反对称性. $f(\cdots u_i  u_j \cdots) &#x3D; -f(\cdots u_j  u_i \cd">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-05-21T14:04:35.649Z">
+<meta property="article:modified_time" content="2026-05-21T14:04:35.649Z">
+<meta property="article:author" content="采薇">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>交错代数 - 采薇的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kaelvio.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>采薇的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档Archive</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/playground/" target="_self">
+                <i class="iconfont icon-exp-fill"></i>
+                <span>演示playground</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/artwork/" target="_self">
+                <i class="iconfont icon-brush"></i>
+                <span>画廊artwork</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于采薇Kaelvio</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链links</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="交错代数"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-05-21 22:04" pubdate>
+          2026年5月21日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          8.1k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          68 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">交错代数</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="对称性与交错性"><a href="#对称性与交错性" class="headerlink" title="对称性与交错性"></a>对称性与交错性</h3><blockquote>
+<p>[!definition]<br>symmetric 对称性. $f(\dots uv\dots)&#x3D;f(\dots vu\dots)$<br>alternating 交错性. $f(\cdots vv \cdots) &#x3D; 0$<br>skew-symmetric 反对称性. $f(\cdots u_i  u_j \cdots) &#x3D; -f(\cdots u_j  u_i \cdots)$<br>If we change the succession condition to arbitrary condition, we call it complete.   </p>
+</blockquote>
+<p> 交错性相当于 $\sigma \cdot f&#x3D;\text{sgn}(\sigma)f$</p>
+<p>以下都要求 $\text{char} K \neq 2$，即保证 $2v&#x3D;0\implies v&#x3D;0$</p>
+<blockquote>
+<p>[!proposition]<br>symmetric $\iff$ complete symetric<br>alternating $\iff$ Skew-symmetric $\iff$ complete skew-symmetric $\iff$ complete alternating</p>
+</blockquote>
+<p>$Proof.$ (alternating $\implies$ skew-symmetric)<br>$$<br>\begin{align}<br>0&amp;&#x3D;f(\dots u+v,u+v\dots)\&amp;&#x3D;f(\dots uu\dots)+f(\dots uv\dots)+f(\dots vu\dots)+f(\dots vv\dots)<br> \&amp;&#x3D;f(\dots uv\dots)+f(\dots vu\dots)<br>\end{align}<br>$$<br>(Skew-symmetric $\implies$ complete skew-symmetric)<br>$$<br>\begin{align}<br>f(\dots v_i\dots v_j\dots)&amp;&#x3D;(-1)^{j-i}f(\dots v_jv_i\dots)&#x3D;(-1)^{j-i}(-1)^{j-(i+1)}f(\dots v_j\dots v_i\dots)\&amp;&#x3D;-f(\dots v_g\dots v_i\dots)<br>\end{align}<br>$$<br>(Complete skew-symmetric $\implies$ complete alternating)<br>$$<br>f(…v \dots v \dots)&#x3D;f(\dots 0 \dots v \dots)+f(\dots v \dots 0 \dots)&#x3D;0<br>$$<br>(Complete alternating $\implies$ alternating) trivial<br>$\blacksquare$</p>
+<h3 id="分级代数"><a href="#分级代数" class="headerlink" title="分级代数"></a>分级代数</h3><blockquote>
+<p>[!definition] K-algebra<br>$(R,+,\cdot_K,\circ)$</p>
+<ol>
+<li>K is a field</li>
+<li>$(R,+,\cdot_K)$ is a vector space</li>
+<li>$(R, +, \circ)$ is a ring</li>
+<li>the ring and the vector space are compatible i.e. m is a bilinear map.</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>E is a F-algebra $\iff F\to_{\mathbf{field}}E$</p>
+</blockquote>
+<p>For $\phi:F\to_{\mathbf{field}}E$, $f:F$, $e:E$, $f\cdot_F e&#x3D;\phi(f)\circ e$.</p>
+<blockquote>
+<p>[!definition] I-graded K-algebra<br>$R&#x3D;\bigoplus_{i\in I}R_i$<br>For $r_i\in R_i,r_j\in R_j$, $r_i\times r_j\in R_{i+j}$<br>Every $r_i\in R_i$ is said to be homogeneous of degree n.<br>For $r\in R$, $r&#x3D;\sum_{i\in I}r_i$, the non-zero $r_i$ is called the homogeneous components of r.<br>homogeneous linear map of degree i. $f:V\to W;\forall v\in V_j.f~v\in W_{i+j}$</p>
+</blockquote>
+<blockquote>
+<p>[!definition] Tensor algebra<br>V is K-linear space, $\bigotimes^kV:&#x3D;V^{\otimes k}$, $\bigotimes^0V&#x3D;K$<br>$\bigotimes V:&#x3D; \bigoplus_{k&#x3D;0}^{\infty} \bigotimes^kV$<br>$\otimes: \bigotimes^kV \mapsto \bigotimes^lV \to \bigotimes^{K+l}V:&#x3D;$<br>$v_1 \otimes \cdots \otimes v_k\mapsto v’_1 \otimes \cdots \otimes v’_l \mapsto v_1 \otimes \cdots \otimes v_k \otimes v’_1 \otimes \cdots \otimes v’_l$</p>
+</blockquote>
+<p>这里用 $\bigoplus$ 是为了和后面统一, 也可以用 $T^k(V)$<br>Recall that $\bigoplus_{i&#x3D;0}^{\infty} V_i \cong { (u_1, \dots, u_k) \mid u_i \in V_i \text{ are almost all zero} }$. Compare to $K[V]$, they are both graded vector space, but $\bigotimes V$ is not communicative.<br>Because tensor product has associative law, $\otimes$ is natural and not depends on the choice of basis. We can also check this by basis transformation.<br>We can see that $(\bigotimes V, +,\cdot_K,\otimes)$ is the free K-algebra.</p>
+<blockquote>
+<p>[!proposition] free K-algebra<br>For all K-algebra R, the following diagram commutes:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs tikz">\usepackage&#123;tikz-cd&#125;\begin&#123;document&#125;\begin&#123;tikzcd&#125;<br>V \arrow[r,&quot;\iota&quot;]\arrow[rd,&quot;f&quot;] &amp;\bigotimes V\arrow[d,dashed,&quot;\tilde f&quot;]\\<br>&amp; R<br>\end&#123;tikzcd&#125;\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<p>$Proof.$ Let $\tilde f:T(v)\to R;\sum_i \bigotimes_I a_{I_i}v_{I_i}\to\sum_i \bigotimes_I a_{I_i}f(v_{I_i})$ $\blacksquare$</p>
+<blockquote>
+<p>[!definition] Two-side ideal</p>
+<ol>
+<li>$I$ is a vector space</li>
+<li>$\forall x \in I. \forall y \in R.xy, yx \in I$ (not necessarily equal)</li>
+</ol>
+<p>An ideal of R is called homogeneous if for $r\in I$, all $r_i\in I$</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>$\left&lt; S \right&gt;:&#x3D;{\sum a\times r\times b|r\in S}$ is homogeneous, and $\left&lt; r \right&gt;_i&#x3D;\left{ \sum u&#x3D;\sum a\times r\times b |u\in R_i,r\in S\right}$</p>
+</blockquote>
+<blockquote>
+<p>[!prp]<br>$R&#x2F;I$ is an F-algebra</p>
+<p>If R, I are graded F-algebra, and I is an homogeneous ideal, then R&#x2F;I is an graded F-algebra. $R&#x2F;I&#x3D;\bigoplus R_i&#x2F;I_i$</p>
+</blockquote>
+<p>这里用等价类看并不直观，用非平凡的相等关系去看<br>$Proof.$ (graded) For $\bar{u},\bar{v}\in R_i&#x2F;I_i,\bar{u}&#x3D;\bar{v}$$<br>\iff u,v\in R_i,u&#x3D;v+w<del>for</del>some~w\in I_i\iff$ u, v have the same degree and $u+I&#x3D;v+I$</p>
+<h3 id="（反）对称空间"><a href="#（反）对称空间" class="headerlink" title="（反）对称空间"></a>（反）对称空间</h3><blockquote>
+<p>[!definition]<br>$I(V) :&#x3D; \langle  v \otimes v  |v\in V\rangle$<br>$\bigwedge V:&#x3D;\bigotimes V&#x2F;I(V)$<br>$J(V):&#x3D;\langle  v \otimes w - w \otimes v |v,w\in V \rangle$<br>$\bigodot V :&#x3D; \bigotimes V &#x2F; J(V)$</p>
+</blockquote>
+<p>这里为了统一也可以用 $\bigodot V$ 表示对称张量空间</p>
+<blockquote>
+<p>[!definition] exterior&#x2F;wedge product 外&#x2F;楔积; commutative product 交换积<br>Let $v\_1 \wedge v\_2 \wedge \cdots \wedge v\_k，v\_1\odot v\_2\odot\dots\odot v\_n$ be the equivalence class of $v\_1\otimes v\_2\otimes\dots \otimes v\_k$</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>association. $\xi\wedge (\eta\wedge \zeta)&#x3D;(\xi\wedge \eta)\wedge \zeta$, $\xi\odot (\eta\odot \zeta)$<br>commutation. For $\deg \xi&#x3D;k,\deg \eta&#x3D;l$,$\xi\wedge \eta&#x3D;(-1)^{kl}\eta\wedge \xi$, $\xi\odot \eta&#x3D;\eta\odot \xi$</p>
+</blockquote>
+<p>注意这里用希腊字母表示一般的张量，用小写英文字母表示普通的向量<br>$Proof.$ (association) It held by the association of tensor product.<br>(commutation) For $v, w\in V$</p>
+<p>$$0&#x3D;(v+w)\wedge(w+v)&#x3D;v\wedge v+v\wedge w+w\wedge v+w\wedge w&#x3D;v\wedge w+w\wedge v$$</p>
+<p>$$<br>\implies v\wedge w&#x3D;-w\wedge v$$</p>
+<p>$v\odot w&#x3D;v\odot w+(w\odot v-v\odot w)&#x3D;w\odot v$<br>For k-th order tensors, decompose it into times of vectors.<br>$\blacksquare$</p>
+<blockquote>
+<p>[!remark]<br>注意一般来说 $\bigodot V\bigoplus \bigwedge V\neq \bigotimes V<del>i.e.</del>\bigodot V\subsetneq I(V)$（有一个单射但非满射的嵌入，这里需要构造出像空间，即所有对称化过后的张量，证明见[[#通过反对称张量刻画外代数]]）</p>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> </li>
+</ul>
+<blockquote>
+<p>[!proposition]<br>设 $\dim V &#x3D; n$，则 $[e\<em>{i\_1} \wedge \cdots \wedge e\</em>{i\_k}]$ （其中 $1\leq i\_1&lt; \dots&lt; i\_k\leq n$）构成 $\bigwedge^k V$ 的一组基<br> $\dim\bigwedge^k V &#x3D; \binom{n}{k},\dim\bigwedge V&#x3D;2^n$  </p>
+</blockquote>
+<p>$Proof.$<br>(Generating) We know that $[e\<em>{i\_1}\otimes e\</em>{i\<em>2}\dots\otimes e\</em>{i\<em>k}]$ ($i\_1,i\_2\dots i\_k\in[n]$) is a basis of \bigotimes V. For $T\in \bigotimes V$, let $T&#x3D;\sum T^{i\_1i\_2\dots i\_k}e\</em>{i\<em>1}\otimes e\</em>{i\<em>2}\dots\otimes e\</em>{i\_k}$. </p>
+<p>$$<br>\tilde A(T)&#x3D;\sum_{i_1,i_2\dots i_k<del>are</del>different} T^{i_1i_2\dots i_k}e_{i_1}\wedge e_{i_2}\dots\wedge e_{i_k}<br>$$</p>
+<p>$$<br>&#x3D;\sum_{i_1&lt;i_2\dots&lt;i_k}\sum_{\sigma\in\mathfrak S_k}\text{sgn}(\sigma) T^{i_{\sigma(1)}i_{\sigma(2)}\dots i_{\sigma(k)}}e_{i_1}\wedge e_{i_2}\dots\wedge e_{i_k}<br>$$</p>
+<p>$$<br>\implies \left&lt; e_{i_1}\wedge e_{i_2}\dots\wedge e_{i_k}|i_1&lt;i_2\dots&lt;i_k \right&gt;&#x3D;\bigwedge V<br>$$<br> (Independent)<br>If $\sum\<em>{i\_1&lt;i\_2\dots&lt;i\_k} T^{i\_1i\_2\dots i\_k}e\</em>{i\<em>1}\wedge e\</em>{i\<em>2}\dots\wedge e\</em>{i\_k}&#x3D;0$, </p>
+<p>$$<br>\iff \sum_{i_1&lt;i_2\dots&lt;i_k} T^{i_1i_2\dots i_k}e_{i_1}\otimes  e_{i_2}\dots \otimes  e_{i_k} \in I$$</p>
+<p>But $e\<em>{i\_2}\dots \otimes  e\</em>{i\<em>k}$ do not have duplicated indices. $\implies T^{i\_1i\_2\dots i\_k}e\</em>{i\_1}&#x3D;0$<br>$\blacksquare$</p>
+<blockquote>
+<p>[!example]<br>$\bigwedge^1 \mathbb{R}^3 &#x3D; \langle e\_1, e\_2, e\_3 \rangle$<br>$\bigwedge^2 \mathbb{R}^3 &#x3D; \langle e\_1 \wedge e\_2, e\_1 \wedge e\_3, e\_2 \wedge e\_3 \rangle$<br>$\bigwedge^3 \mathbb{R}^3 &#x3D; \langle e\_1 \wedge e\_2 \wedge e\_3 \rangle$<br>$\bigwedge^k \mathbb{R}^3 &#x3D; 0$ for $k &gt; 3$</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>设 $\dim V &#x3D; n$，则 $[e\<em>{i\_1} \odot \cdots \odot e\</em>{i\_k}]$ （其中 $1\leq i\_1\leq \dots\leq i\_k\leq n$）构成 $\bigodot^k V$ 的一组基<br> $\dim \bigodot^k V &#x3D; \binom{n+k-1}{k},\dim \bigodot V&#x3D;\infty$  </p>
+</blockquote>
+<p>$Proof.$<br>(Generating) We know that $[e\<em>{i\_1}\otimes e\</em>{i\<em>2}\dots\otimes e\</em>{i\<em>k}]$ ($i\_1,i\_2\dots i\_k\in[n]$) is a basis of \bigotimes V. For $T\in \bigotimes V$, let $T&#x3D;\sum T^{i\_1i\_2\dots i\_k}e\</em>{i\<em>1}\otimes e\</em>{i\<em>2}\dots\otimes e\</em>{i\_k}$. </p>
+<p>$$<br>S(T)&#x3D;\sum_{i_1\leq\dots\leq i_k} T^{i_1i_2\dots i_k}e_{i_1}\odot e_{i_2}\dots \odot e_{i_k}<br>$$<br> (Independent)<br>If $\sum\<em>{i\_1&lt;i\_2\dots&lt;i\_k} T^{i\_1i\_2\dots i\_k}e\</em>{i\<em>1}\odot e\</em>{i\<em>2}\dots \odot e\</em>{i\_k}&#x3D;0$, </p>
+<p>$$<br>\iff \sum_{i_1&lt;i_2\dots&lt;i_k} T^{i_1i_2\dots i_k}e_{i_1}\otimes  e_{i_2}\dots \otimes  e_{i_k} \in J$$</p>
+<p>But $e\<em>{i\_2}\dots \otimes  e\</em>{i\<em>k}$ do not have decreasing indices. $\implies T^{i\_1i\_2\dots i\_k}e\</em>{i\_1}&#x3D;0$<br>$\blacksquare$</p>
+<blockquote>
+<p>[!remark] 函子化<br>协变函子 $\bigwedge f:\bigwedge U\to\bigwedge V:&#x3D;\omega^{a\<em>1a\_2\dots}\mapsto f^{b\_1}{}\</em>{a\<em>1}f^{b\_2}{}\</em>{a\_2}\dots \omega^{a\_1a\_2\dots}$<br>反变函子 $\bigwedge^<em>f:\bigwedge^</em> U\to\bigwedge^* V:&#x3D;\omega\mapsto v\_1v\_2\dots v\_i\mapsto\omega(fv\_1fv\_2\dots fv\_i)$<br>$\bigodot$ 同理, 同理也可以定义某一级的函子</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>$V &#x3D; U \oplus W$, $\bigwedge^k V &#x3D; \bigoplus\_{r+s&#x3D;k} \bigwedge^r U \otimes \bigwedge^s W$</p>
+</blockquote>
+<p>$Proof.$ 设 $\dim U&#x3D;m$, $\dim W&#x3D;n$, 取基 ${u\_1,\dots,u\_m}$ 和 ${w\_1,\dots,w\_n}$, 则它们的并是 $V$ 的一组基.</p>
+<p>$\bigwedge^k V$ 的基为 ${e\<em>{i\_1}\wedge\cdots\wedge e\</em>{i\_k}\mid 1\leq i\_1&lt;\cdots&lt;i\_k\leq m+n}$。每个基向量可写为 $r$ 个 $u$ 型向量与 $s&#x3D;k-r$ 个 $w$ 型向量的外积：</p>
+<p>$$<br>u_{a_1}\wedge\cdots\wedge u_{a_r}\wedge w_{b_1}\wedge\cdots\wedge w_{b_s}<br>$$</p>
+<p>其中 $1\leq a\_1&lt;\cdots&lt;a\_r\leq m$, $1\leq b\_1&lt;\cdots&lt;b\_s\leq n$。</p>
+<p>考虑线性映射 </p>
+<p>$$\phi_{r,s}: \bigwedge^r U \otimes \bigwedge^s W \to \bigwedge^k V,\quad (u_{a_1}\wedge\cdots\wedge u_{a_r})\otimes(w_{b_1}\wedge\cdots\wedge w_{b_s})\mapsto u_{a_1}\wedge\cdots\wedge u_{a_r}\wedge w_{b_1}\wedge\cdots\wedge w_{b_s}$$</p>
+<p>它将基映为基中不同的元素，且值域彼此不交（因 $r$ 不同则 $u$ 的个数不同），故 $\phi\<em>{r,s}$ 是单射。全体 ${\operatorname{im}\phi\</em>{r,s}}\_{r+s&#x3D;k}$ 生成的正是 $\bigwedge^k V$ 的所有基向量，故</p>
+<p>$$\bigwedge^k V &#x3D; \bigoplus_{r+s&#x3D;k} \operatorname{im}\phi_{r,s} \cong \bigoplus_{r+s&#x3D;k} \bigwedge^r U \otimes \bigwedge^s W$$</p>
+<p>维数验证：$\dim\bigwedge^k V&#x3D;\binom{m+n}{k}&#x3D;\sum\<em>{r+s&#x3D;k}\binom{m}{r}\binom{n}{s}&#x3D;\sum\</em>{r+s&#x3D;k}\dim(\bigwedge^r U\otimes\bigwedge^s W)$。<br>$\blacksquare$</p>
+<h3 id="（反）对称化张量"><a href="#（反）对称化张量" class="headerlink" title="（反）对称化张量"></a>（反）对称化张量</h3><p>通过反对称张量构造外代数（alternating tensor algebra） </p>
+<blockquote>
+<p>[!definition] symmetric&#x2F;anti-symmetric part of a tensor<br>$\widetilde{S}(v\<em>1\otimes\dots \otimes v\_k):&#x3D;\sum\</em>{\sigma\in \mathfrak{S}\<em>k}v\</em>{\sigma\<em>1}\otimes\dots \otimes v\</em>{\sigma\<em>k}$<br>$\widetilde{A}(v\_1\otimes\dots \otimes v\_k):&#x3D;\sum\</em>{\sigma\in \mathfrak{S}\<em>k}\text{sgn}(\sigma)v\</em>{\sigma\<em>1}\otimes\dots \otimes v\</em>{\sigma\_k}$<br>$S:&#x3D;\frac{1}{k!}\cdot \widetilde{S}$<br>$A:&#x3D;\frac{1}{k!}\cdot \widetilde{A}$</p>
+</blockquote>
+<p>这样记号的依据是每个张量都可以看成线性映射，而（反）对称化可以看成函子，实际上这还是对单子。</p>
+<p>$Proof.$<br>(independent of bases) 只需要证先交错化再基变换和先基变换再交错化效果一样<br>Let $v\<em>i&#x3D;e\_jT^j{\_i}$<br>$A(v\_1\otimes\dots \otimes v\_k)&#x3D;\frac{1}{k!}\sum\</em>{\sigma\in \mathfrak{S}\<em>k}\text{sgn}(\sigma)v\</em>{\sigma\<em>1}\otimes\dots \otimes v\</em>{\sigma\_k}$</p>
+<p>$$<br>&#x3D;\frac{1}{k!}\sum_{\sigma\in \mathfrak{S}<em>k}\text{sgn}(\sigma)\sum</em>{j_1,j_2\dots j_k}e_{j_1}T{^{j_1}}<em>{\sigma_1}\otimes\dots \otimes e</em>{j_k}T{^{j_k}}_{\sigma_k}$$</p>
+<p>$$<br>&#x3D;\frac{1}{k!}\sum_{j_1,j_2\dots j_k}e_{j_1}\otimes\dots \otimes e_{j_k}\left( \sum_{\sigma\in \mathfrak{S}<em>k}\text{sgn}(\sigma)T{^{j_1}}</em>{\sigma_1}\dots T{^{j_k}}_{\sigma_k} \right)$$</p>
+<p>Similarly, if $[v\_i]&#x3D;[e’\_j][T’^j{\_i}],[e’\_i]&#x3D;[e\_j][M^j{\_i}]$, we have </p>
+<p>$$<br>A(v_1\otimes\dots \otimes v_k)&#x3D;\frac{1}{k!} \sum_{j_1,j_2\dots j_k}e’<em>{j_1}\otimes\dots \otimes e’</em>{j_k} \left( \sum_{\sigma\in \mathfrak{S}<em>k}\text{sgn}(\sigma)T’{^{j_1}}</em>{\sigma_1}\dots T’{^{j_k}}_{\sigma_k} \right)$$</p>
+<p>$$<br>&#x3D;\frac{1}{k!}\sum_{j_1,j_2\dots j_k}\sum_{i_1,i_2\dots i_k}e_{i_1}M^{i_1}{<em>{j_1}}\otimes\dots \otimes e</em>{i_k}M^{i_k}{<em>{j_k}} \left( \sum</em>{\sigma\in \mathfrak{S}<em>k}\text{sgn}(\sigma)T’{^{j_1}}</em>{\sigma_1}\dots T’{^{j_k}}_{\sigma_k} \right)$$</p>
+<p>$$<br>&#x3D;\frac{1}{k!}\sum_{j_1,j_2\dots j_k}e_{j_1}\otimes\dots \otimes e_{j_k}\left( \sum_{\sigma\in \mathfrak{S}<em>k}\text{sgn}(\sigma)T{^{j_1}}</em>{\sigma_1}\dots T{^{j_k}}_{\sigma_k} \right)$$</p>
+<p>$\blacksquare$</p>
+<blockquote>
+<p>[!Remark] partially symmetric&#x2F;anti-symmetric<br> These processes are independent of choice of bases, so we can use abstract index notation.<br>(partially) anti-symmetric.<br>$T\<em>{[a\_1a\_2a\_3 \dots]b\_1b\_2\dots}:&#x3D;\sum\text{sgn}(\sigma)T\</em>{[a\<em>{\sigma(1)}a\</em>{\sigma(2)}a\<em>{\sigma(3)}\dots]b\_1b\_2\dots}$<br>(partially) symmetric.<br>$T\</em>{(a\<em>1a\_2a\_3 \dots)b\_1b\_2\dots}:&#x3D;\sum T\</em>{(a\<em>{\sigma(1)}a\</em>{\sigma(2)}a\_{\sigma(3)}\dots)b\_1b\_2\dots}$</p>
+</blockquote>
+<p>$\phi:U\otimes V\cong V\otimes U;T\<em>{ab}:&#x3D;\phi T\</em>{ba}$<br>用这种定义可以很自然地看出与基的选择无关<br>为了保证换了位置依然homogenous，我们只对同一边的指标操作。</p>
+<p>记号上对称群作用, 对称化, 反对称化都可以写成抽象指标的形式<br>$\sigma^{a\<em>1a\_2\dots}{}\</em>{b\<em>1b\_2\dots}T\</em>{a\<em>1a\_2\dots c\_1c\_2\dots}$<br>$A^{a\_1a\_2\dots}{}\</em>{b\<em>1b\_2\dots}T\</em>{a\<em>1a\_2\dots c\_1c\_2\dots}$<br>$S^{a\_1a\_2\dots}{}\</em>{b\<em>1b\_2\dots}T\</em>{a\<em>1a\_2\dots c\_1c\_2\dots}$<br>$A&#x3D;\sum\</em>{\sigma:\mathfrak{S}\<em>n}(\operatorname{sgn}\sigma)\sigma$<br>$S&#x3D;\sum\</em>{\sigma:\mathfrak{S}\_n}\sigma$</p>
+<blockquote>
+<p>[!exm] Lie algebra<br>$\mathfrak{g}$ is a vector space.<br>$[\_,\_]^a{\_{[bc]}}:\mathfrak{g}\times \mathfrak{g}\to \mathfrak{g}$ is called a Lie bracket.<br>$(\mathfrak{g},[\_,\_])$ is called a Lie algebra. </p>
+</blockquote>
+<blockquote>
+<p>[!proposition] (skew-)symmetric<br>$A(v\<em>{\sigma\_1}\otimes\dots \otimes v\</em>{\sigma\<em>k})&#x3D;\text{sgn}(\sigma)A(v\_1\otimes\dots \otimes v\_k)$<br>$S(v\</em>{\sigma\<em>1}\otimes\dots \otimes v\</em>{\sigma\<em>k})&#x3D;S(v\_1\otimes\dots \otimes v\_k)$<br>$A\circ S&#x3D;0$, $S\circ A&#x3D;0$<br>index notation.<br>$T\</em>{[a(bc)]}&#x3D;0$, $T\_{(a[bc])}&#x3D;0$</p>
+</blockquote>
+<blockquote>
+<p>[!proposition] idempotent</p>
+<ol>
+<li>$A\circ A&#x3D;A;S\circ S&#x3D;S$</li>
+<li>$A(\omega\otimes\eta)&#x3D;A(A(\omega)\otimes A(\eta))$; $S(\omega\otimes\eta)&#x3D;S(S(\omega)\otimes S(\eta))$<br>index notation.<br>$T\<em>{(a(bc))}&#x3D;T\</em>{(abc)}$, $T\<em>{[a[bc]]}&#x3D;T\</em>{[abc]}$</li>
+</ol>
+</blockquote>
+<p>$Proof.$<br>(2)</p>
+<p>$$RHS&#x3D;\frac{1}{(k+l)!k!l!}\sum_{\sigma\in\mathfrak S_{k+l}}\text{sgn}(\sigma)\left( \sum_{\tau\in\mathfrak S_k}\text{sgn}(\tau) v_{\tau\sigma(1)}\otimes\dots \otimes v_{\tau\sigma(k)} \right)\otimes\left( \sum_{\iota\in\mathfrak S_l}\text{sgn}(\iota)v_{\sigma(k+\iota(1))}\otimes\dots \otimes v_{\sigma(k+\iota(l))} \right)$$</p>
+<p>由于对称性 $\mathfrak S\_{k+l}$ 中每个置换出现 $k!l!$ 次</p>
+<p>$$<br>RHS&#x3D; \frac{1}{(k+l)!}\sum_{\sigma\in \mathfrak{S}<em>{k+l}}\text{sgn}(\sigma)v</em>{\sigma_1}\otimes\dots \otimes v_{\sigma_{k+l}}&#x3D;LHS<br>$$</p>
+<p>对称的情况同理<br>$\blacksquare$</p>
+<blockquote>
+<p>[!remark]<br>The versions with normalization can avoid most of the extra coefficients, but are only defined in $\text{char}K&#x3D;\infty$.<br>The versions with tilde are always well-defined.</p>
+</blockquote>
+<blockquote>
+<p>[!theorem] $\bigodot V\cong\operatorname{im}S,\bigwedge V\cong\operatorname{im}A$</p>
+</blockquote>
+<p>$Proof.$<br>($I\subset\text{Ker}~A$)</p>
+<p>$$S(v\otimes w-w\otimes v)&#x3D;S(v\otimes w)-S(w\otimes v)&#x3D;0,$$</p>
+<p>$$A(v\otimes v)&#x3D;-A(v\otimes v)\implies A(v\otimes v)&#x3D;0$$</p>
+<p>For $\omega\in I,$</p>
+<p>$$A(\omega)&#x3D;\sum_i A(u_i\otimes v_i\otimes v_i\otimes w_i)&#x3D;\sum_i A(A(u_i)\otimes A(v_i\otimes v_i)\otimes A(w_i))&#x3D;0$$</p>
+<p>i.e. $I\subset\text{Ker}<del>A$<br>Similarly, $J\subset \operatorname{ker}(S)$<br>Because $A$ is a projection map, $\bigotimes V&#x3D;\text{Im}</del>A\oplus\text{Ker}<del>A$<br>($I\supset\text{Ker}</del>A$)<br>For $\alpha&#x3D;v\<em>1\otimes\dots \otimes v\_k$, $A(\alpha)&#x3D;\frac{1}{k!}\sum\</em>{\sigma\in \mathfrak{S}\<em>k}\text{sgn}(\sigma)v\</em>{\sigma\<em>1}\otimes\dots \otimes v\</em>{\sigma\<em>k}\in \text{Im}~A$<br>$A(A(\alpha))&#x3D;\frac{1}{k!}\sum\</em>{\sigma\in \mathfrak{S}\<em>k}\text{sgn}(\sigma)v\</em>{\sigma\<em>1}\wedge\dots \wedge v\</em>{\sigma\_k}&#x3D;v\_1\wedge\dots\wedge v\_k&#x3D;A(\alpha)$<br>If $I\not\supset\text{Ker}~A$, we can find $\alpha\in \text{Ker}(A)-I$.<br>$A(A(\alpha))&#x3D;0,A(\alpha)\neq 0$. Contradiction.<br>$\blacksquare$</p>
+<blockquote>
+<p>[!remark]<br>只是说同构，其实有一个标量自由度<br>向量空间范畴里每个满射都可以分裂, 但是由于补空间的选择不唯一, 实际上这个嵌入也不唯一<br>我采用 $\omega\_1\wedge\omega\_2\dots\wedge\omega\_k\mapsto \tilde A(\omega\_1\otimes\omega\_2\otimes\dots \otimes\omega\_k)$<br>同时默认商对象只是普通的张量<br>e.g. We can write $u\wedge v&#x3D;2A(u\otimes v)$</p>
+</blockquote>
+<h3 id="（反）对称多重线性映射"><a href="#（反）对称多重线性映射" class="headerlink" title="（反）对称多重线性映射"></a>（反）对称多重线性映射</h3><blockquote>
+<p>[!definition] alternating; commutative muti-linear map<br>alternating. $f(\dots,v,v\dots)&#x3D;0$<br>commutative. $f(\dots u,v\dots)&#x3D;f(\dots v,u\dots)$<br>$\bigodot\_k V:&#x3D;$ all commutative muti-linear map<br>$\bigwedge\_k V:&#x3D;$ all alternating muti-linear map</p>
+</blockquote>
+<blockquote>
+<p>[!theorem]<br>$\bigodot\_k V\cong(\bigodot^k V)^*$<br>$\bigwedge\_k V\cong (\bigwedge^k V)^*$</p>
+</blockquote>
+<p>$Proof.$<br> If $f$ is alternating; commutative, $\widetilde f$ is skew-symmetric; symmetric.<br> 由张量积的泛性质和商空间的泛性质</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs tikz">\usepackage&#123;tikz-cd&#125;\begin&#123;document&#125;<br>\begin&#123;tikzcd&#125;<br>\bigotimes V \arrow[r, &quot;A;S&quot;] \arrow[dr, &quot;\widetilde f&quot;&#x27;] &amp; \bigwedge V;\bigodot V \arrow[d, dashed,&quot; \hat&#123;f&#125;&quot;] \\ &amp; K<br>\end&#123;tikzcd&#125;<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+<p>We only need to prove f is alternating; commutative $\iff \forall v\in I,\widetilde f~v&#x3D;0$<br>($\implies$) By definition<br>( $\Longleftarrow$ ) rank 1 tensors are enough<br>$\blacksquare$</p>
+<p>用泛性质定义自然有independent of bases</p>
+<p>For $\sigma\in \mathfrak{S}\<em>n,\omega\in V^{n*}$, $\sigma \cdot\omega:&#x3D;v\_1v\_2\dots v\_n\mapsto\omega~v\</em>{\sigma\<em>1}v\</em>{\sigma\<em>2}\dots v\</em>{\sigma\_n}$</p>
+<blockquote>
+<p>[!definition] Wedge product of alternating muti-linear map<br>$\mu\in \bigwedge\<em>k V,\psi\in \bigwedge\_l V,(\mu\mathring\wedge\psi)(v\</em>{1},v\<em>2\dots v\</em>{k+l}):&#x3D;\sum\<em>{\sigma\in \mathfrak S(k,l)}\text{sgn}(\sigma)\cdot\mu(v\</em>{\sigma\<em>1},v\</em>{\sigma\<em>2}\dots v\</em>{\sigma\<em>k})\cdot\psi(v\</em>{\sigma\<em>{k+1}},v\</em>{\sigma\<em>{k+2}}\dots v\</em>{\sigma\<em>{k+l}})$,<br>where $\mathfrak S(k,l):&#x3D;\left{ \sigma\in\mathfrak S(k+l) |\sigma\_1&lt;\sigma\_2\dots&lt;\sigma\_k,\sigma\</em>{k+1}&lt;\sigma\<em>{k+2}\dots&lt;\sigma\</em>{k+l}\right}$ is the (k,l)-shuffle</p>
+</blockquote>
+<p>By equivalence, we have wedge product of $(\bigwedge V)^*$.</p>
+<blockquote>
+<p>[!proposition]<br>$\mu\mathring\wedge\psi\in \bigwedge\_{k+l}$</p>
+</blockquote>
+<p>$Proof.$ If $v\_i&#x3D;v\_j$, </p>
+<p>$$(\mu\mathring\wedge\psi)(v_{1},v_2\dots v_{k+l})&#x3D;\sum_{\begin{align}<br>&amp;\sigma\in \mathfrak S(k,l),\(1\leq\sigma^{-1}(i)\leq k,&amp;k&lt;\sigma^{-1}(j)\leq k+l)or\(1\leq\sigma^{-1}(j)\leq k,&amp;k&lt;\sigma^{-1}(i)\leq k+l)<br>\end{align}}\text{sgn}(\sigma)\cdot\mu(v_{\sigma_1},v_{\sigma_2}\dots v_{\sigma_k})\cdot\psi(v_{\sigma_{k+1}},v_{\sigma_{k+2}}\dots v_{\sigma_{k+l}})&#x3D;$$</p>
+<p>$$\sum_{\begin{align}<br>&amp;\sigma\in \mathfrak S(k,l)\1\leq\sigma^{-1}(i)\leq k,&amp;k&lt;\sigma^{-1}(j)\leq k+l<br>\end{align}}\text{sgn}(\sigma)\cdot( \mu(v_{\sigma_1},v_{\sigma_2}\dots v_i\dots v_{\sigma_k})\cdot\psi(v_{\sigma_{k+1}},v_{\sigma_{k+2}}\dots v_j\dots v_{\sigma_{k+l}})-\mu(v_{\sigma_1},v_{\sigma_2}\dots v_j\dots v_{\sigma_k})\cdot\psi(v_{\sigma_{k+1}},v_{\sigma_{k+2}}\dots v_i\dots v_{\sigma_{k+l}}))&#x3D;0$$</p>
+<p>$\blacksquare$</p>
+<blockquote>
+<p>[!theorem]<br>$(\bigodot^k V)^<em>\cong \bigodot^k V^</em>$<br>$(\bigwedge^k V)^<em>\cong \bigwedge^k V^</em>$</p>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> 对称版本的<br>$Proof.$<br>$\phi:(V^<em>\times V^</em>)\to \bigwedge\_2 V;(f,g)\mapsto f\mathring\wedge g$<br>$f\mathring\wedge f(u,v)&#x3D;f(u)\cdot f(v)-f(u)\cdot f(v)&#x3D;0$<br>$\implies\phi$ is alternating bilinear $\implies \exists!\tilde \phi:\bigwedge^2 V^<em>\to \bigwedge\_2 V\cong(\bigwedge^2 V)^</em>$<br>If $\tilde\phi(f\wedge g)&#x3D;0\implies f\otimes g\in I\implies f&#x3D;g\implies f\wedge g&#x3D;0$<br>And $\dim V^<em>\wedge W^</em>&#x3D;\dim (V\wedge W)^*\implies \tilde\phi$ is bijective.<br>$\blacksquare$<br>We will also use $f \wedge g$ to denote both $f\mathring \wedge g$ and $f\wedge g$.</li>
+</ul>
+<blockquote>
+<p>[!proposition]<br>For every $\varphi\in \bigotimes^k(V^*)$<br>$A(\varphi)&#x3D;\varphi\circ A&#x3D;A(\varphi)\circ A$<br>$S(\varphi)&#x3D;\varphi\circ S&#x3D;S(\varphi)\circ S$<br>index notation<br>$T\<em>{[abc]}S^{abc}&#x3D;T\</em>{abc}S^{[abc]}&#x3D;T\<em>{[abc]}S^{[abc]}$<br>$T\</em>{(abc)}S^{abc}&#x3D;T\<em>{abc}S^{(abc)}&#x3D;T\</em>{(abc)}S^{(abc)}$</p>
+</blockquote>
+<p>$Proof.$<br>By definition $A(\varphi)&#x3D;\varphi\circ A$<br>$\implies A(\varphi)&#x3D;A(A(\varphi))&#x3D;A(\varphi)\circ A$<br>$\blacksquare$</p>
+<blockquote>
+<p>[!corollary] Alternating; Symmetric tensor<br>$T\<em>{[abc]}&#x3D;\delta{^{[m}}{\_a}\delta{^n}{\_b}\delta{^{l]}}{\_c}T\</em>{mnl}$<br>$T\<em>{(abc)}&#x3D;\delta{^{(m}}{\_a}\delta{^n}{\_b}\delta{^{l)}}{\_c}T\</em>{mnl}$<br>$A,S$ are exactly $\delta{^{[m}}{\_a}\delta{^n}{\_b}\delta{^{l]}}{\_c},\delta{^{(m}}{\_a}\delta{^n}{\_b}\delta{^{l)}}{\_c}$</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>$\dim V&#x3D;n,T^{[a\<em>1}{\</em>{b\<em>1}}T^{a\_2}{\</em>{b\<em>2}}\dots T^{a\_k]}{\</em>{b\<em>k}}&#x3D;T^{a\_1}{\</em>{[b\<em>1}}T^{a\_2}{\</em>{b\<em>2}}\dots T^{a\_k}{\</em>{b\<em>k]}}&#x3D;T^{[a\_1}{\</em>{[b\<em>1}}T^{a\_2}{\</em>{b\<em>2}}\dots T^{a\_k]}{\</em>{b\_k]}}$</p>
+</blockquote>
+<p>$Proof.$ By definition, $T^{[a\<em>1}{\</em>{b\<em>1}}T^{a\_2}{\</em>{b\<em>2}}\dots T^{a\_k]}{\</em>{b\<em>k}}&#x3D;\sum\text{sgn}(\sigma)T^{a\</em>{\sigma(1)}}{\<em>{b\_1}}T^{a\</em>{\sigma(2)}}{\<em>{b\_2}}\dots T^{a\</em>{\sigma(k)}}{\_{b\_k}}$</p>
+<p>$$<br>&#x3D;\sum\text{sgn}(\sigma^{-1})T^{a_1}{<em>{b</em>{\sigma^{-1}(1)}}}T^{a_2}{<em>{b</em>{\sigma^{-1}(2)}}}\dots T^{a_k}{<em>{b</em>{\sigma^{-1}(k)}}}&#x3D;T^{a_1}{<em>{[b_1}}T^{a_2}{</em>{b_2}}\dots T^{a_k}{_{b_k]}}$$</p>
+<p>$\implies T^{[[a\<em>1}{\</em>{b\<em>1}}T^{a\_2}{\</em>{b\<em>2}}\dots\_T^{a\_k]]}{\</em>{b\<em>k}}&#x3D;T^{[a\_1}{\</em>{[b\<em>1}}T^{a\_2}{\</em>{b\<em>2}}\dots T^{a\_k]}{\</em>{b\_k]}}$<br>$\blacksquare$</p>
+<blockquote>
+<p>[!definition] $K[x\<em>1~x\_2\dots x\</em>{\dim V}]\simeq K[V]\cong \bigodot V^*$</p>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> 一般化的对称-反对称分解</li>
+</ul>
+<p>注意在此之前的所有同构都是自然同构, 不依赖基(或 度规和体积元)的选取</p>
+<h2 id="行列式与体元"><a href="#行列式与体元" class="headerlink" title="行列式与体元"></a>行列式与体元</h2><blockquote>
+<p>[!definition] determinant<br>For $T\in Hom(V,V)$, $\dim V&#x3D;n$, $\det T:&#x3D;\bigwedge ^n T&#x3D;T{^{[a\<em>1}}{\</em>{a\<em>1}}T{^{a\_2}}{\</em>{a\<em>2}}\dots T{^{a\_n]}}{\</em>{a\<em>n}}:&#x3D;\delta ^{b\_1}{\</em>{[a\<em>1}}\delta^{b\_2}{\</em>{a\<em>2}}\dots\delta^{b\_n}{\</em>{a\<em>n}}\</em>{]}T{^{a\<em>1}}{\</em>{b\<em>1}}T{^{a\_2}}{\</em>{b\<em>2}}\dots T{^{a\_n}}{\</em>{b\_n}}$ (alternating before contracting) </p>
+</blockquote>
+<p>因此有时候也把 $\bigwedge^nV$ 记为 $\det V$<br>This definition is naturally independent of bases.</p>
+<blockquote>
+<p>[!example] $\det\delta&#x3D;1$</p>
+</blockquote>
+<p>由行列式的函子性($\det1&#x3D;1$), 或<br>$Proof.$<br>$\det \delta&#x3D;\frac{1}{n!}\sum\text{sgn}(\sigma)\delta ^{a\<em>{\sigma(1)}}{\</em>{a\<em>1}}\delta ^{a\</em>{\sigma(2)}}{\<em>{a\_2}}\dots\delta ^{a\</em>{\sigma(n)}}{\_{a\_n}}&#x3D;\frac{1}{n!}\sum\text{sgn}(\sigma)n^{c(\sigma)}&#x3D;1$, where $c(\sigma)$ is the number of cycles of $\sigma$.<br>(Combinatorial equation)<br>We know that the generating function of unsigned String number of first kind is $x^{\bar n}&#x3D;\sum_n \begin{bmatrix}n\k\end{bmatrix}x^n<br>$$\implies x^{\underline n}&#x3D;\sum_n\begin{bmatrix}n\k\end{bmatrix}(-1)^{n-k}x^k&#x3D;\sum_n(\text{\# of k-cycle})(\text{sgn of k-cycle})x^k$<br>Let $x&#x3D;n$, we get $\sum\text{sgn}(\sigma)n^{c(\sigma)}&#x3D;n!$<br>$\blacksquare$</p>
+<blockquote>
+<p>[!proposition] Equivalence definition 1<br> $\delta ^{a_1}{_{[b_1}}\delta^{a_2}{_{b_2}}\delta^{a_3}{_{b_3}}\dots_{]}\det T&#x3D;T{^{a_1}}{_{[b_1}}T{^{a_2}}{_{b_2}}T{^{a_3}}{_{b_3}}\dots_{]}$</p>
+</blockquote>
+<p>用更数学化的写法就是$A^nf&#x3D;\det f \cdot$<br>由此可以看出行列式不依赖体积元的选取<br>同理也可以把 $\bigwedge^nV$ 记为 $\det V$</p>
+<p>$Proof.$<br>Both sides are in $\bigwedge^n V\to\bigwedge^n V$, which has 1 dimension.<br>Because $\delta ^{a_1}{_{[b_1}}\delta^{a_2}{_{b_2}}\delta^{a_3}{_{b_3}}\dots_{]}\neq0$, there exists a unique $\lambda\in K$ s.t.  $\delta ^{a_1}{_{[b_1}}\delta^{a_2}{_{b_2}}\delta^{a_3}{_{b_3}}\dots_{]}\lambda&#x3D;T{^{a_1}}{_{[b_1}}T{^{a_2}}{_{b_2}}T{^{a_3}}{_{b_3}}\dots_{]}$<br>$\implies\delta ^{a_1}{_{[a_1}}\delta^{a_2}{_{a_2}}\dots_{]}\lambda&#x3D;T{^{a_1}}{_{[a_1}}T{^{a_2}}{_{a_2}}\dots_{]}\implies\lambda&#x3D;\det T$<br>Contract both sides of this definition, we get the original definition.<br>$\blacksquare$</p>
+<blockquote>
+<p>[!definition] Volume form<br>Note that for n-dimensional vector space V, $\dim\bigwedge_n V&#x3D;1$. We can choose a basis $[\epsilon]$. $\epsilon$ is called a volume form. We can find a unique $\tilde{\epsilon}\in\bigwedge^n V$ s.t. $\tilde\epsilon\epsilon&#x3D;n!$.</p>
+</blockquote>
+<blockquote>
+<p>[!remark] orientation<br>After choose $\epsilon$, for $\omega\in\bigwedge^n V$, if $\epsilon\omega&gt;0$, we call it has positive orientation; if $\epsilon\omega&lt;0$, we call it has negative orientation.<br>Note that every $\eta \in\bigwedge^n V^*$ can be written as $\lambda\epsilon(\lambda\in K)$, so there are only two possible orientation. </p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>For all $\epsilon\in\bigwedge^n V^*$, $v\in V$, $\epsilon(Tv_1,Tv_2\dots)&#x3D;\det T\cdot\epsilon(v_1,v_2\dots)$</p>
+</blockquote>
+<p>$Proof.$<br>由定义, 或<br>$$<br>LHS&#x3D;\epsilon_{[a_1a_2\dots]}T^{a_1}{_{b_1}}v^{b_1}T^{a_2}{_{b_2}}v^{b_2}\dots&#x3D;\epsilon_{[a_1a_2\dots]}T^{[a_1}{_{b_1}}T^{a_2}{_{b_2}}\dots^]v^{b_1}v^{b_2}\dots<br>$$<br>$$</p>
+<p>&#x3D;\epsilon_{[a_1a_2\dots]}\delta ^{a_1}{_{[b_1}}\delta^{a_2}{_{b_2}}\dots_{]}\det T \cdot v^{b_1}v^{b_2}\dots&#x3D;\epsilon_{[b_1b_2\dots]}\det T \cdot v^{b_1}v^{b_2}\dots&#x3D;RHS<br>$$<br>$\blacksquare$</p>
+<blockquote>
+<p>[!proposition] $\det TM&#x3D;\det T\cdot\det M$</p>
+</blockquote>
+<p>由函子性, 或<br>$Proof.$  $\epsilon(TMv_1,TMv_2\dots)&#x3D;\det TM\cdot\epsilon(v_1,v_2\dots)$<br>And $\epsilon(TMv_1,TMv_2\dots)&#x3D;\det T\cdot\epsilon(Mv_1,Mv_2\dots)&#x3D;\det T\cdot \det M\cdot\epsilon(v_1,v_2\dots)$<br>Find $\epsilon(v_1,v_2\dots)\neq0$, we get $\det TM&#x3D;\det T\cdot\det M$<br>$\blacksquare$</p>
+<blockquote>
+<p>[!theorem] 指标缩并<br>$\tilde{\epsilon}^{a_{1} \cdots a_{m} a_{m+1} \cdots a_{n}} \epsilon_{a_{1} \cdots a_{m} b_{m+1} \cdots b_{n}}&#x3D;(n-m)!m!\delta^{\left[a_{m+1}\right.}{_ {b_{m+1}}} \cdots \delta^{\left.a_{n}\right]} {_{b_n}}$</p>
+</blockquote>
+<p>For $I,J\in\binom{[n]}m$, $C^I_J\tilde\epsilon\epsilon&#x3D;(n-m)!m!A$</p>
+<p>$Proof.$<br>($\tilde{\epsilon}^{a_{1} \cdots a_{n}} \epsilon_{b_{1} \cdots b_{n}}&#x3D;n!\delta^{\left[a_{1}\right.}{ }_{b_{1}} \cdots \delta^{\left.a_{n}\right]}{ }_{b_{n}}$)<br>$\tilde{\epsilon}^{a_{1} \cdots a_{n}} \epsilon_{b_{1} \cdots b_{n}}\in \bigwedge^n V\to \bigwedge^n V$, which has 1 dimension.<br>$\implies\exists!\lambda<del>s.t.</del>\tilde{\epsilon}^{a_{1} \cdots a_{n}}\epsilon_{b_{1} \cdots b_{n}}\in \bigwedge^n V&#x3D;\lambda\delta^{\left[a_{1}\right.}{ }_{b_{1}} \cdots \delta^{\left.a_{n}\right]}{ }_{b_{n}}$. We contract both sides and get $\lambda&#x3D;n!$.<br>(general cases)<br>$$</p>
+<p>\begin{array}{l}<br>\delta^{\left[a_{1}\right.}{ }_{a_{1}} \delta^{a_{2}} {_{b_{2} }}\cdots \delta^{\left.a_{l}\right]} {_{b_{l}}} \<br>&#x3D;\frac{(l-1)!}{l!}\left(\delta^{a_{1}}{ }_{a_{1}} \delta^{\left[a_{2}\right.}{ }_{b_{2}} \cdots \delta^{\left.a_{l}\right]}{ }_{b_{l}}-\sum_{i&#x3D;2}^{l} \delta^{a_{i}}{ }_{a_{1}} \delta^{\left[a_{2}\right.}{ }_{b_{2}} \cdots \delta^{a_{1}} {_{b_{i}}} \cdots \delta^{\left.a_{l}\right]} {_{b_{l}}}\right) \<br>&#x3D;\frac{1}{l}\left(n \delta^{\left[a_{2}\right.}{ }_{b_{2}} \cdots \delta^{\left.a_{l}\right]} b_{l}-(l-1) \delta^{\left[a_{2}\right.} {_{b_{2}}} \cdots \delta^{\left.a_{l}\right]} {_{b_{l}}}\right) \<br>&#x3D;\frac{n-l+1}{l} \delta^{\left[a_{2}\right.} b_{2} \cdots \delta^{\left.a_{l}\right]} b_{l}<br>\end{array}<br>$$</p>
+<p>第一个等号实际上相当于配集分解, 系数源于归一化$\mathfrak{S}_l&#x3D;\mathfrak{S}_{l1}\sqcup(12)\mathfrak{S}_{l1}\dots(1l)\mathfrak{S}_{l1}$, 这里的 $\mathfrak{S}_{l1}$ 表示群作用的稳定子群<br>上式第一个等号是分别统计了上标参与交换与不参与交换的排列情况, 前面的因子是为了抵消反对称化方括号的展开式中带来的 $l!$ 与 $(n-l)!$ 因子, 第二项的负号是因为上标与进行了一次交换.<br>第二个等号 $\delta^{a_{i}}{ }_{a_{1}} \delta^{\left[a_{2}\right.}{ }_{b_{2}} \cdots \delta^{a_{1}} {_{b_{i}}} \cdots \delta^{\left.a_{l}\right]} {_{b_{l}}}&#x3D;\delta^{\left[a_{2}\right.} {_{b_{2}}} \cdots \delta^{\left.a_{l}\right]} {_{b_{l}}}$ 将反对称符号放在b上就可以了.</p>
+<p>$$</p>
+<p>\begin{array}{l}<br>\tilde{\epsilon}^{a_{1} \cdots a_{m} a_{m+1} \cdots a_{n}} \epsilon_{a_{1} \cdots a_{m} b_{m+1} \cdots b_{n}} \<br>&#x3D;n!\delta^{\left[a_{1}\right.} {_{a_{1}}} \cdots \delta^{a_{m}} {_{a_{m}}} \delta^{a_{m+1}} {_{b_{m+1}}} \cdots \delta^{\left.a_{n}\right]} {_{b_{n}}} \<br>&#x3D;n!\frac{1}{n} \delta^{\left[a_{2}\right.}{_{a_{2}}} \cdots \delta^{a_{m}}{ }_{a_{m}} \delta^{a_{m+1}} {_{b_{m+1}}} \cdots \delta^{\left.a_{n}\right]} {_{b_{n}}} \<br>&#x3D;n!\frac{1}{n} \frac{2}{n-1} \delta^{\left[a_{3}\right.} {_{a_{3}}} \cdots \delta^{a_{m}} {_{a_{m}}} \delta^{a_{m+1}} {_{b_{m+1}}} \cdots \delta^{\left.a_{n}\right]} {_{b_{n}}} \<br>\cdots \<br>&#x3D;n!\frac{1}{n} \frac{2}{n-1} \cdots \frac{m}{n-m+1} \delta^{\left[a_{m+1}\right.} {_{b_{m+1}}} \cdots \delta^{\left.a_{n}\right]} {_{b_{n}}} \<br>&#x3D;(n-m)!m!\delta^{\left[a_{m+1}\right.}{_{ b_{m+1}}} \cdots \delta^{\left.a_{n}\right]} {b_{n}}<br>\end{array}</p>
+<p>$$<br>$\blacksquare$</p>
+<blockquote>
+<p>[!theorem]<br>We can choose a positive ordered orthnormal basis $e_1,e_2\dots e_n$.<br>$\varepsilon:&#x3D;e_1\wedge e_2\dots\wedge e_n$. We have $\varepsilon_{a_1a_2\dots a_n}&#x3D;\tilde \varepsilon$. We call $\varepsilon$ as Levi-Civita tensor.</p>
+</blockquote>
+<p>与度规相容的体元<br>张量化（广义协变导数，坐标变换后形式不变，坐标无关）<br>$Proof.$<br>We only need to show that $\varepsilon^{a_1a_2\dots} g_{a_1b_1}g_{a_1b_1}\dots\varepsilon^{b_1b_2\dots}&#x3D;n!$<br>$$</p>
+<p>LHS&#x3D; \sum_{\sigma~\tau\in \mathfrak{S}_n}(e_1)^{a_{\sigma(1)}}\dots(e_n)^{a_{\sigma(n)}}g_{a_1b_1}\dots g_{a_nb_n}(e_1)^{a_{\tau(1)}}\dots(e_n)^{a_{\tau(n)}}<br>$$<br>$$</p>
+<p>&#x3D;\sum_{\sigma<del>\tau\in \mathfrak{S}_n}\delta_{\sigma(1)</del>\tau(1)}\dots\delta_{\sigma(n)<del>\tau(n)}&#x3D;\sum_{\sigma</del>\tau\in \mathfrak{S}_n}\delta_{\sigma~\tau}&#x3D;n!<br>$$<br>$\blacksquare$</p>
+<blockquote>
+<p>[!definition] Inner product on $\bigwedge^k U$<br>$g:V\to V\to F\leadsto\bigwedge g:\bigoplus_k(\bigwedge^k V\to\bigwedge^k V\to F)$</p>
+</blockquote>
+<p>对两个同阶张量有内积，满足对称、双线性、正定<br>$(u_1 \wedge \cdots \wedge u_k, v_1 \wedge \cdots \wedge v_k) \mapsto \det [g(u_i, v_j)]$</p>
+<blockquote>
+<p>[!definition] Hodge star operator<br>After choosing of $g$ and compatible $\varepsilon$<br>$\star\_ : \bigwedge^k U \to \bigwedge^{n-k} U:&#x3D;\omega\mapsto\varepsilon\omega$  </p>
+</blockquote>
+<blockquote>
+<p>s.t. $\forall \omega \in \bigwedge^k U, \quad \omega \wedge \star \omega &#x3D; \langle \omega, \omega \rangle \varepsilon$</p>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> 到底在做什么<br>&#x2F;<blockquote>
+<p>[!definition] cross product<br>For $\alpha,\beta\in V$, $\alpha \times\beta:&#x3D;\star(\alpha \wedge\beta)$</p>
+</blockquote>
+</li>
+</ul>
+<!-- Page 10 -->
+
+
+
+<blockquote>
+<p>[!remark]<br>&#x2F; ordered basis&#x3D;&gt; orientation, metric, volume </p>
+</blockquote>
+<!-- Page 11 -->
+
+<blockquote>
+<p>[!definition] $\Omega^k(M) :&#x3D; C^\infty(M) \otimes \bigwedge^k(T^<em>M) &#x3D; \bigwedge^k(T^</em>M)$，若 $M$ 是流形，则 $\Omega^k(M) \subset C^\infty(M)$</p>
+</blockquote>
+<blockquote>
+<p>[!definition] $\Omega^k(M) \to \Omega^{k+1}(M)$<br>$f, dx^i \mapsto df \wedge dx^i$<br>$d\omega_\alpha &#x3D; (d\bigwedge + 1), \omega_\alpha \wedge \omega_\beta$</p>
+</blockquote>
+<p>$\operatorname{d}!&#x3D;A\circ\nabla$</p>
+<blockquote>
+<p>[!prp] $d^2 f \wedge dx^i &#x3D; \frac{\partial^2 f}{\partial x^i \partial x^j} dx^i \wedge dx^j \wedge dx^i &#x3D; \sum_{i&lt;j} \left( \frac{\partial^2 f}{\partial x^i \partial x^j} - \frac{\partial^2 f}{\partial x^j \partial x^i} \right) dx^i \wedge dx^j \wedge dx^i &#x3D; 0$<br>$d^2 \omega &#x3D; d(d\omega) &#x3D; d(\partial_\alpha \omega_\alpha) &#x3D; \partial_\alpha \partial_\beta \omega_\alpha &#x3D; 0$</p>
+</blockquote>
+<blockquote>
+<p>[!definition] $\Omega^k_c(M)$<br>$\langle \omega, \eta \rangle &#x3D; \int_M \omega \wedge \star \eta$<br>$(f dx^i, g dx^j) \mapsto \int f g \langle dx^i, dx^j \rangle$</p>
+</blockquote>
+<blockquote>
+<p>[!definition] $d^k \wedge d^k &#x3D; 0$<br>Volume element</p>
+</blockquote>
+<blockquote>
+<p>[!definition] Hodge star operator<br>pick $\epsilon \in \bigwedge^n U$<br>$\star : \bigwedge^k U \to \bigwedge^{n-k} U$<br>s.t. $\forall \omega \in \bigwedge^k U, \quad \omega \wedge \star \omega &#x3D; \langle \omega, \omega \rangle \Omega$</p>
+</blockquote>
+<blockquote>
+<p>[!ex] $\star(e_{i_1} \wedge \cdots \wedge e_{i_k}) &#x3D; \frac{1}{(n-k)!} \varepsilon_{i_1 \cdots i_k j_1 \cdots j_{n-k}} e^{j_1} \wedge \cdots \wedge e^{j_{n-k}}$</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 非正式：<br>算子表示 $(\cdot)^*$<br>$(\star) \quad \star \quad \langle \cdot, \cdot \rangle$<br>e.g. $A^* \quad A \wedge B \quad \star A \quad \langle A, B \rangle$<br>导出关系：$\omega \mapsto \star \omega \quad \omega \mapsto \star \omega$</p>
+</blockquote>
+<!-- Page 12 -->
+
+<blockquote>
+<p>[!theorem] 33. generalized Stokes’ formula<br>$\int_{\partial M} \omega &#x3D; \int_M d\omega$<br>外微分的自然性 $d\omega &#x3D; d\varphi^*\omega$<br>积分的定性 $\int_{\partial M} \omega &#x3D; \int_M d\omega$<br>$\Rightarrow$ 边界无边界（微分同胚下不变）</p>
+</blockquote>
+<p>$TM :&#x3D; \bigcup_{p} T_pM$ 为切丛<br>$\mathcal{N}(M) :&#x3D; \Gamma(TM)$ 为丛的光滑截面空间  </p>
+<blockquote>
+<p>[!remark]<br>$\star \left( \omega_{a_1} \cdots \omega_{a_k} \right) &#x3D; \frac{1}{k!} \cdot g^{a_1 b_1} \cdots g^{a_k b_k} \cdot \varepsilon_{b_1 \cdots b_k a_{k+1} \cdots a_n} \cdot \omega_{a_1} \cdots \omega_{a_k}$<br>体积元 $\omega_{a_1 \cdots a_n} &#x3D; \frac{1}{\sqrt{|g|}} \cdot \varepsilon_{a_1 \cdots a_n}$<br>$\omega^{a_1 \cdots a_k} &#x3D; \frac{1}{\sqrt{|g|}} \cdot \varepsilon^{a_1 \cdots a_k a_{k+1} \cdots a_n} \cdot \omega_{a_{k+1} \cdots a_n}$<br>$\frac{1}{k!} \omega_{c_1 \cdots c_k} \omega_{c_1 \cdots c_k} \in \mathbb{R}$  </p>
+</blockquote>
+<p>$\varepsilon_{i_1 i_2} \left( e_i e_j - e_j e_i \right) \frac{1}{2}$<br>$\varepsilon_{abc} \in \det$  </p>
+<p>$\nabla \cdot F &#x3D; \star d \star F^\flat &#x3D; \frac{\sqrt{|g|}}{3!} g^{hk} g^{ij} g^{lm} \varepsilon_{klm} \frac{1}{3!} \varepsilon_{nij} \cdot g^{ab} \cdot \partial_p \sqrt{|g|} \cdot \varepsilon_{ade} \cdot g^{ab} \cdot g_{im} \cdot F^a$  </p>
+<p>$&#x3D; \frac{|g|}{6} \in \partial_p \varepsilon_{ade} F^a &#x3D; \frac{|g|}{3} \nabla_a F^a &#x3D; \delta_{i_1 \cdots i_k} \left( \partial_p \varepsilon_{i_1 \cdots i_k} \right) \cdot \varepsilon_{a_1 \cdots a_k} \cdot \delta^{a_1}_{i_1} \cdots \delta^{a_k}_{i_k}$  </p>
+<p>$\nabla \times F &#x3D; \left( \star d F^\flat \right)^a &#x3D; g^{ab} \varepsilon_{bkc} F^c$  </p>
+<p>$\varepsilon^{a_1 a_2} \varepsilon_{b_1 b_2} &#x3D; \delta^{a_1}_{b_1} \delta^{a_2}_{b_2} - \delta^{a_1}_{b_2} \delta^{a_2}_{b_1}$<br>$(e_i)^a (e_j)^b - (e_j)^a (e_i)^b \quad \xrightarrow{\text{if } a_i &#x3D; b_i} 0$  </p>
+<p>$\varepsilon^{a_1 a_2} \varepsilon_{b_1 b_2} &#x3D; \begin{vmatrix} \delta^{a_1}_{b_1} &amp; \delta^{a_1}_{b_2} \ \delta^{a_2}_{b_1} &amp; \delta^{a_2}_{b_2} \end{vmatrix} &#x3D; \delta^{a_1}_{b_1} \delta^{a_2}_{b_2} - \delta^{a_1}_{b_2} \delta^{a_2}_{b_1}$<br> %%</p>
+<h1 id="微分几何-外微分"><a href="#微分几何-外微分" class="headerlink" title="[[微分几何#外微分]]"></a>[[微分几何#外微分]]</h1><h1 id="表示论与计数"><a href="#表示论与计数" class="headerlink" title="表示论与计数"></a>表示论与计数</h1><ul>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://handwiki.org/wiki/Representation_theory_of_the_symmetric_group">Representation theory of the symmetric group - HandWiki</a> 🔼 </li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://handwiki.org/wiki/Young_symmetrizer#:~:text=In%20mathematics%2C%20a%20Young%20symmetrizer%20is%20an%20element,group%20of%20invertible%20linear%20transformations%20G%20L%20%28V%29.">Young symmetrizer - HandWiki</a> 🔼<br>对，这个自由度计算正好可以用你前面说的“对称群&#x2F;Young 对称性”来看。设</li>
+</ul>
+<p>$$</p>
+<p>\dim V&#x3D;N.</p>
+<p>$$</p>
+<p>Riemann 曲率张量降指标后写作</p>
+<p>$$</p>
+<p>R_{abcd}\in V^<em>\otimes V^</em>\otimes V^<em>\otimes V^</em>.</p>
+<p>$$</p>
+<p>它满足：</p>
+<p>$$</p>
+<p>R_{abcd}&#x3D;-R_{bacd},</p>
+<p>$$</p>
+<p>$$</p>
+<p>R_{abcd}&#x3D;-R_{abdc},</p>
+<p>$$</p>
+<p>$$</p>
+<p>R_{abcd}&#x3D;R_{cdab},</p>
+<p>$$</p>
+<p>以及第一 Bianchi 恒等式：</p>
+<p>$$</p>
+<p>R_{abcd}+R_{acdb}+R_{adbc}&#x3D;0.</p>
+<p>$$</p>
+<hr>
+<h2 id="1-先只用前三个对称性"><a href="#1-先只用前三个对称性" class="headerlink" title="1. 先只用前三个对称性"></a>1. 先只用前三个对称性</h2><p>因为</p>
+<p>$$</p>
+<p>R_{abcd}&#x3D;-R_{bacd},</p>
+<p>$$</p>
+<p>所以前两个指标 $ab$ 可以看成一个反对称指标：</p>
+<p>$$</p>
+<p>[ab].</p>
+<p>$$</p>
+<p>因为</p>
+<p>$$</p>
+<p>R_{abcd}&#x3D;-R_{abdc},</p>
+<p>$$</p>
+<p>所以后两个指标 $cd$ 也可以看成一个反对称指标：</p>
+<p>$$</p>
+<p>[cd].</p>
+<p>$$</p>
+<p>于是</p>
+<p>$$</p>
+<p>R_{abcd}</p>
+<p>$$</p>
+<p>可以先看成</p>
+<p>$$</p>
+<p>R_{[ab][cd]}\in \bigwedge^2 V^<em>\otimes \bigwedge^2 V^</em>.</p>
+<p>$$</p>
+<p>再用</p>
+<p>$$</p>
+<p>R_{abcd}&#x3D;R_{cdab},</p>
+<p>$$</p>
+<p>说明交换这两个二重指标时对称：</p>
+<p>$$</p>
+<p>R_{[ab][cd]}&#x3D;R_{[cd][ab]}.</p>
+<p>$$</p>
+<p>所以前三个对称性等价于</p>
+<p>$$</p>
+<p>R\in \operatorname{Sym}^2(\bigwedge^2 V^*).</p>
+<p>$$</p>
+<hr>
+<h2 id="2-计算前三个对称性后的自由度"><a href="#2-计算前三个对称性后的自由度" class="headerlink" title="2. 计算前三个对称性后的自由度"></a>2. 计算前三个对称性后的自由度</h2><p>先算</p>
+<p>$$</p>
+<p>\dim \bigwedge^2 V^*&#x3D;\binom{N}{2}&#x3D;\frac{N(N-1)}{2}.</p>
+<p>$$</p>
+<p>记</p>
+<p>$$</p>
+<p>m&#x3D;\binom{N}{2}.</p>
+<p>$$</p>
+<p>那么</p>
+<p>$$</p>
+<p>\operatorname{Sym}^2(\bigwedge^2 V^*)</p>
+<p>$$</p>
+<p>的维数是</p>
+<p>$$</p>
+<h1 id="binom-m-1-2"><a href="#binom-m-1-2" class="headerlink" title="\binom{m+1}{2}"></a>\binom{m+1}{2}</h1><p>\frac{m(m+1)}{2}.</p>
+<p>$$</p>
+<p>也就是</p>
+<p>$$</p>
+<p>\frac{1}{2}<br>\binom{N}{2}<br>\left(<br>\binom{N}{2}+1<br>\right).</p>
+<p>$$</p>
+<p>代入</p>
+<p>$$</p>
+<p>\binom{N}{2}&#x3D;\frac{N(N-1)}{2},</p>
+<p>$$</p>
+<p>得到</p>
+<p>$$</p>
+<p>\frac{1}{2}\cdot \frac{N(N-1)}{2}<br>\left(<br>\frac{N(N-1)}{2}+1<br>\right).</p>
+<p>$$</p>
+<p>整理为</p>
+<p>$$</p>
+<p>\frac{N(N-1)(N^2-N+2)}{8}.</p>
+<p>$$</p>
+<p>这是只用前三个对称性后的自由度。</p>
+<hr>
+<h2 id="3-Bianchi-恒等式减掉多少？"><a href="#3-Bianchi-恒等式减掉多少？" class="headerlink" title="3. Bianchi 恒等式减掉多少？"></a>3. Bianchi 恒等式减掉多少？</h2><p>第一 Bianchi 恒等式是</p>
+<p>$$</p>
+<p>R_{abcd}+R_{acdb}+R_{adbc}&#x3D;0.</p>
+<p>$$</p>
+<p>在前三个对称性已经成立的情况下，它等价于说完全反对称部分为零：</p>
+<p>$$</p>
+<p>R_{[abcd]}&#x3D;0.</p>
+<p>$$</p>
+<p>而完全反对称的四阶协变张量空间是</p>
+<p>$$</p>
+<p>\bigwedge^4 V^*.</p>
+<p>$$</p>
+<p>它的维数是</p>
+<p>$$</p>
+<p>\binom{N}{4}.</p>
+<p>$$</p>
+<p>所以 Bianchi 恒等式会删掉</p>
+<p>$$</p>
+<p>\binom{N}{4}</p>
+<p>$$</p>
+<p>个自由度。</p>
+<p>因此 Riemann 曲率张量的自由度为</p>
+<p>$$</p>
+<p>\dim \operatorname{Sym}^2(\bigwedge^2 V^*)-\dim \bigwedge^4 V^*.</p>
+<p>$$</p>
+<p>也就是</p>
+<p>$$</p>
+<p>\frac{m(m+1)}{2}-\binom{N}{4}.</p>
+<p>$$</p>
+<hr>
+<h2 id="4-具体代数化简"><a href="#4-具体代数化简" class="headerlink" title="4. 具体代数化简"></a>4. 具体代数化简</h2><p>因为</p>
+<p>$$</p>
+<p>m&#x3D;\binom{N}{2}&#x3D;\frac{N(N-1)}{2},</p>
+<p>$$</p>
+<p>所以</p>
+<p>$$</p>
+<h1 id="frac-m-m-1-2"><a href="#frac-m-m-1-2" class="headerlink" title="\frac{m(m+1)}{2}"></a>\frac{m(m+1)}{2}</h1><p>\frac{N(N-1)(N^2-N+2)}{8}.</p>
+<p>$$</p>
+<p>又有</p>
+<p>$$</p>
+<h1 id="binom-N-4"><a href="#binom-N-4" class="headerlink" title="\binom{N}{4}"></a>\binom{N}{4}</h1><p>\frac{N(N-1)(N-2)(N-3)}{24}.</p>
+<p>$$</p>
+<p>因此</p>
+<p>$$</p>
+<h1 id="dim-R"><a href="#dim-R" class="headerlink" title="\dim R"></a>\dim R</h1><h2 id="frac-N-N-1-N-2-N-2-8"><a href="#frac-N-N-1-N-2-N-2-8" class="headerlink" title="\frac{N(N-1)(N^2-N+2)}{8}"></a>\frac{N(N-1)(N^2-N+2)}{8}</h2><p>\frac{N(N-1)(N-2)(N-3)}{24}.</p>
+<p>$$</p>
+<p>通分：</p>
+<p>$$</p>
+<h1 id="dim-R-1"><a href="#dim-R-1" class="headerlink" title="\dim R"></a>\dim R</h1><p>\frac{N(N-1)}{24}<br>\left(<br>3(N^2-N+2)-(N-2)(N-3)<br>\right).</p>
+<p>$$</p>
+<p>展开括号：</p>
+<p>$$</p>
+<p>3(N^2-N+2)&#x3D;3N^2-3N+6,</p>
+<p>$$</p>
+<p>$$</p>
+<p>(N-2)(N-3)&#x3D;N^2-5N+6.</p>
+<p>$$</p>
+<p>所以</p>
+<p>$$</p>
+<h1 id="3-N-2-N-2-N-2-N-3"><a href="#3-N-2-N-2-N-2-N-3" class="headerlink" title="3(N^2-N+2)-(N-2)(N-3)"></a>3(N^2-N+2)-(N-2)(N-3)</h1><p>2N^2+2N.</p>
+<p>$$</p>
+<p>于是</p>
+<p>$$</p>
+<h1 id="dim-R-2"><a href="#dim-R-2" class="headerlink" title="\dim R"></a>\dim R</h1><p>\frac{N(N-1)}{24}(2N^2+2N).</p>
+<p>$$</p>
+<p>提取因子：</p>
+<p>$$</p>
+<p>2N^2+2N&#x3D;2N(N+1).</p>
+<p>$$</p>
+<p>所以</p>
+<p>$$</p>
+<h1 id="dim-R-3"><a href="#dim-R-3" class="headerlink" title="\dim R"></a>\dim R</h1><p>\frac{N(N-1)\cdot 2N(N+1)}{24}.</p>
+<p>$$</p>
+<p>即</p>
+<p>$$</p>
+<h1 id="dim-R-4"><a href="#dim-R-4" class="headerlink" title="\dim R"></a>\dim R</h1><p>\frac{N^2(N-1)(N+1)}{12}.</p>
+<p>$$</p>
+<p>最后得到</p>
+<p>$$</p>
+<h1 id="boxed-dim-R"><a href="#boxed-dim-R" class="headerlink" title="\boxed{\dim R"></a>\boxed{<br>\dim R</h1><p>\frac{N^2(N^2-1)}{12}<br>}.</p>
+<p>$$</p>
+<hr>
+<h2 id="5-Young-图解释"><a href="#5-Young-图解释" class="headerlink" title="5. Young 图解释"></a>5. Young 图解释</h2><p>前三个对称性给出</p>
+<p>$$</p>
+<p>\operatorname{Sym}^2(\bigwedge^2 V^*).</p>
+<p>$$</p>
+<p>这个空间分解为</p>
+<p>$$</p>
+<p>\operatorname{Sym}^2(\bigwedge^2 V^*)<br>\cong<br>S_{(2,2)}V^*<br>\oplus<br>\bigwedge^4 V^*.</p>
+<p>$$</p>
+<p>其中：</p>
+<ul>
+<li>$S_{(2,2)}V^*$ 是 Riemann 曲率真正所在的 Young 对称类型；</li>
+<li>$\bigwedge^4 V^*$ 是完全反对称的部分；</li>
+<li>Bianchi 恒等式正是把 $\bigwedge^4 V^*$ 这部分杀掉。</li>
+</ul>
+<p>所以</p>
+<p>$$</p>
+<p>R_{abcd}<br>\in<br>S_{(2,2)}V^*.</p>
+<p>$$</p>
+<p>Young 图是</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">□ □<br>□ □<br></code></pre></td></tr></table></figure>
+
+<p>也就是分拆</p>
+<p>$$</p>
+<p>(2,2).</p>
+<p>$$</p>
+<p>用 hook-content formula 直接算：</p>
+<p>$$</p>
+<h1 id="dim-S-2-2-V"><a href="#dim-S-2-2-V" class="headerlink" title="\dim S_{(2,2)}V^*"></a>\dim S_{(2,2)}V^*</h1><p>\prod_{(i,j)\in (2,2)}<br>\frac{N+j-i}{h(i,j)}.</p>
+<p>$$</p>
+<p>四个格子的因子分别是：</p>
+<p>$$</p>
+<p>\frac{N}{3},<br>\qquad<br>\frac{N+1}{2},<br>\qquad<br>\frac{N-1}{2},<br>\qquad<br>\frac{N}{1}.</p>
+<p>$$</p>
+<p>所以</p>
+<p>$$</p>
+<h1 id="dim-S-2-2-V-1"><a href="#dim-S-2-2-V-1" class="headerlink" title="\dim S_{(2,2)}V^*"></a>\dim S_{(2,2)}V^*</h1><p>\frac{N}{3}<br>\cdot<br>\frac{N+1}{2}<br>\cdot<br>\frac{N-1}{2}<br>\cdot<br>N.</p>
+<p>$$</p>
+<p>因此</p>
+<p>$$</p>
+<h1 id="dim-S-2-2-V-2"><a href="#dim-S-2-2-V-2" class="headerlink" title="\dim S_{(2,2)}V^*"></a>\dim S_{(2,2)}V^*</h1><p>\frac{N^2(N^2-1)}{12}.</p>
+<p>$$</p>
+<hr>
+<p>所以这件事的结构是：</p>
+<p>$$</p>
+<h1 id="text-Riemann-对称性"><a href="#text-Riemann-对称性" class="headerlink" title="\text{Riemann 对称性}"></a>\text{Riemann 对称性}</h1><p>\text{pair-wise antisymmetry}<br>+<br>\text{pair symmetry}<br>+<br>\text{Bianchi}.</p>
+<p>$$</p>
+<p>前三者给</p>
+<p>$$</p>
+<p>\operatorname{Sym}^2(\bigwedge^2 V^*),</p>
+<p>$$</p>
+<p>Bianchi 删掉</p>
+<p>$$</p>
+<p>\bigwedge^4 V^*,</p>
+<p>$$</p>
+<p>最后留下 Young 类型</p>
+<p>$$</p>
+<p>(2,2),</p>
+<p>$$</p>
+<p>维数就是</p>
+<p>$$</p>
+<p>\boxed{<br>\frac{N^2(N^2-1)}{12}<br>}.</p>
+<p>$$</p>
+<h1 id="Young-对称化子"><a href="#Young-对称化子" class="headerlink" title="Young 对称化子"></a>Young 对称化子</h1><p>Young 对称化子是对称化和反对称化的共同推广。</p>
+<p>你的笔记里已经有两个极端例子：</p>
+<p>$$</p>
+<p>S&#x3D;\sum_{\sigma\in\mathfrak S_n}\sigma,</p>
+<p>$$</p>
+<p>$$</p>
+<p>A&#x3D;\sum_{\sigma\in\mathfrak S_n}\operatorname{sgn}(\sigma)\sigma.</p>
+<p>$$</p>
+<p>它们分别对应：</p>
+<p>$$</p>
+<p>(n)</p>
+<p>$$</p>
+<p>和</p>
+<p>$$</p>
+<p>(1^n).</p>
+<p>$$</p>
+<p>也就是一整行和一整列的 Young 图。</p>
+<hr>
+<h2 id="1-Young-图"><a href="#1-Young-图" class="headerlink" title="1. Young 图"></a>1. Young 图</h2><p>一个分拆</p>
+<p>$$</p>
+<p>\lambda\vdash n</p>
+<p>$$</p>
+<p>就是把 $n$ 写成递减正整数之和：</p>
+<p>$$</p>
+<p>\lambda&#x3D;(\lambda_1,\lambda_2,\dots,\lambda_k),<br>\qquad<br>\lambda_1\geq \lambda_2\geq\cdots\geq \lambda_k.</p>
+<p>$$</p>
+<p>例如</p>
+<p>$$</p>
+<p>\lambda&#x3D;(2,1)</p>
+<p>$$</p>
+<p>对应 Young 图：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">□ □<br>□<br></code></pre></td></tr></table></figure>
+
+<p>总共有三个格子。</p>
+<hr>
+<h2 id="2-Young-tableau"><a href="#2-Young-tableau" class="headerlink" title="2. Young tableau"></a>2. Young tableau</h2><p>把数字 $1,\dots,n$ 填进 Young 图，得到一个 tableau。</p>
+<p>例如</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">1 2<br>3<br></code></pre></td></tr></table></figure>
+
+<p>对应的槽位可以写成</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">a b<br>c<br></code></pre></td></tr></table></figure>
+
+<p>意思是：</p>
+<ul>
+<li>第一格对应第一个指标 $a$；</li>
+<li>第二格对应第二个指标 $b$；</li>
+<li>第三格对应第三个指标 $c$。</li>
+</ul>
+<hr>
+<h2 id="3-行群和列群"><a href="#3-行群和列群" class="headerlink" title="3. 行群和列群"></a>3. 行群和列群</h2><p>给定一个 tableau $t$。</p>
+<h3 id="行群"><a href="#行群" class="headerlink" title="行群"></a>行群</h3><p>行群 $R_t$ 是保持每一行不变的置换群。</p>
+<p>例如</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">1 2<br>3<br></code></pre></td></tr></table></figure>
+
+<p>第一行有 $1,2$，第二行有 $3$，所以</p>
+<p>$$</p>
+<p>R_t\cong \mathfrak S_{\left{1,2\right}}\times \mathfrak S_{\left{3\right}}.</p>
+<p>$$</p>
+<p>也就是</p>
+<p>$$</p>
+<p>R_t&#x3D;{e,(12)}.</p>
+<p>$$</p>
+<h3 id="列群"><a href="#列群" class="headerlink" title="列群"></a>列群</h3><p>列群 $C_t$ 是保持每一列不变的置换群。</p>
+<p>同一个 tableau 中，第一列是 $1,3$，第二列是 $2$，所以</p>
+<p>$$</p>
+<p>C_t\cong \mathfrak S_{\left{1,3\right}}\times \mathfrak S_{\left{2\right}}.</p>
+<p>$$</p>
+<p>也就是</p>
+<p>$$</p>
+<p>C_t&#x3D;{e,(13)}.</p>
+<p>$$</p>
+<hr>
+<h2 id="4-行对称化子和列反对称化子"><a href="#4-行对称化子和列反对称化子" class="headerlink" title="4. 行对称化子和列反对称化子"></a>4. 行对称化子和列反对称化子</h2><p>定义行对称化子</p>
+<p>$$</p>
+<p>a_t&#x3D;\sum_{r\in R_t}r.</p>
+<p>$$</p>
+<p>定义列反对称化子</p>
+<p>$$</p>
+<p>b_t&#x3D;\sum_{c\in C_t}\operatorname{sgn}(c)c.</p>
+<p>$$</p>
+<p>然后定义 Young 对称化子</p>
+<p>$$</p>
+<p>y_t&#x3D;a_tb_t.</p>
+<p>$$</p>
+<p>也有作者用</p>
+<p>$$</p>
+<p>y_t&#x3D;b_ta_t.</p>
+<p>$$</p>
+<p>两种约定都常见，但顺序不同，具体公式会不同。只要固定一种即可。</p>
+<hr>
+<h2 id="5-例子：普通对称化"><a href="#5-例子：普通对称化" class="headerlink" title="5. 例子：普通对称化"></a>5. 例子：普通对称化</h2><p>Young 图</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs text">1 2 3<br></code></pre></td></tr></table></figure>
+
+<p>只有一行。</p>
+<p>这时</p>
+<p>$$</p>
+<p>R_t&#x3D;\mathfrak S_3,<br>\qquad<br>C_t&#x3D;{e}.</p>
+<p>$$</p>
+<p>所以</p>
+<p>$$</p>
+<p>a_t&#x3D;\sum_{\sigma\in\mathfrak S_3}\sigma,<br>\qquad<br>b_t&#x3D;e.</p>
+<p>$$</p>
+<p>因此</p>
+<p>$$</p>
+<p>y_t&#x3D;a_t.</p>
+<p>$$</p>
+<p>作用在张量上就是普通对称化：</p>
+<p>$$</p>
+<h1 id="y-tT-abc"><a href="#y-tT-abc" class="headerlink" title="y_tT_{abc}"></a>y_tT_{abc}</h1><p>\sum_{\sigma\in\mathfrak S_3}<br>T_{a_{\sigma(1)}a_{\sigma(2)}a_{\sigma(3)}}.</p>
+<p>$$</p>
+<p>归一化后就是</p>
+<p>$$</p>
+<p>T_{(abc)}.</p>
+<p>$$</p>
+<hr>
+<h2 id="6-例子：普通反对称化"><a href="#6-例子：普通反对称化" class="headerlink" title="6. 例子：普通反对称化"></a>6. 例子：普通反对称化</h2><p>Young 图</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">1<br>2<br>3<br></code></pre></td></tr></table></figure>
+
+<p>只有一列。</p>
+<p>这时</p>
+<p>$$</p>
+<p>R_t&#x3D;{e},<br>\qquad<br>C_t&#x3D;\mathfrak S_3.</p>
+<p>$$</p>
+<p>所以</p>
+<p>$$</p>
+<p>a_t&#x3D;e,<br>\qquad<br>b_t&#x3D;\sum_{\sigma\in\mathfrak S_3}\operatorname{sgn}(\sigma)\sigma.</p>
+<p>$$</p>
+<p>因此</p>
+<p>$$</p>
+<p>y_t&#x3D;b_t.</p>
+<p>$$</p>
+<p>作用在张量上就是普通反对称化：</p>
+<p>$$</p>
+<h1 id="y-tT-abc-1"><a href="#y-tT-abc-1" class="headerlink" title="y_tT_{abc}"></a>y_tT_{abc}</h1><p>\sum_{\sigma\in\mathfrak S_3}<br>\operatorname{sgn}(\sigma)<br>T_{a_{\sigma(1)}a_{\sigma(2)}a_{\sigma(3)}}.</p>
+<p>$$</p>
+<p>归一化后就是</p>
+<p>$$</p>
+<p>T_{[abc]}.</p>
+<p>$$</p>
+<hr>
+<h2 id="7-例子：混合对称性-2-1"><a href="#7-例子：混合对称性-2-1" class="headerlink" title="7. 例子：混合对称性 $(2,1)$"></a>7. 例子：混合对称性 $(2,1)$</h2><p>考虑 tableau</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">1 2<br>3<br></code></pre></td></tr></table></figure>
+
+<p>对应指标</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">a b<br>c<br></code></pre></td></tr></table></figure>
+
+<p>行群是</p>
+<p>$$</p>
+<p>R_t&#x3D;{e,(12)},</p>
+<p>$$</p>
+<p>列群是</p>
+<p>$$</p>
+<p>C_t&#x3D;{e,(13)}.</p>
+<p>$$</p>
+<p>所以</p>
+<p>$$</p>
+<p>a_t&#x3D;e+(12),</p>
+<p>$$</p>
+<p>$$</p>
+<p>b_t&#x3D;e-(13).</p>
+<p>$$</p>
+<p>Young 对称化子是</p>
+<p>$$</p>
+<p>y_t&#x3D;(e+(12))(e-(13)).</p>
+<p>$$</p>
+<p>作用在 $T_{abc}$ 上，可以理解成：</p>
+<p>先对第 $1,3$ 槽反对称，再对第 $1,2$ 槽对称。</p>
+<p>于是</p>
+<p>$$</p>
+<h1 id="y-tT-abc-2"><a href="#y-tT-abc-2" class="headerlink" title="(y_tT)_{abc}"></a>(y_tT)_{abc}</h1><p>T_{abc}-T_{cba}+T_{bac}-T_{cab}.</p>
+<p>$$</p>
+<p>这不是单纯的</p>
+<p>$$</p>
+<p>T_{(ab)c}</p>
+<p>$$</p>
+<p>也不是单纯的</p>
+<p>$$</p>
+<p>T_{[ac]b}.</p>
+<p>$$</p>
+<p>它是一种混合对称性。</p>
+<hr>
+<h2 id="8-Young-对称化子的归一化"><a href="#8-Young-对称化子的归一化" class="headerlink" title="8. Young 对称化子的归一化"></a>8. Young 对称化子的归一化</h2><p>一般来说，$y_t$ 不是严格的投影，而是满足</p>
+<p>$$</p>
+<p>y_t^2&#x3D;h_\lambda y_t,</p>
+<p>$$</p>
+<p>其中</p>
+<p>$$</p>
+<p>h_\lambda&#x3D;\prod_{\square\in\lambda}h(\square)</p>
+<p>$$</p>
+<p>是所有格子的 hook length 之积。</p>
+<p>因此真正的投影算子是</p>
+<p>$$</p>
+<p>e_t&#x3D;\frac{1}{h_\lambda}y_t.</p>
+<p>$$</p>
+<p>例如</p>
+<p>$$</p>
+<p>\lambda&#x3D;(2,1)</p>
+<p>$$</p>
+<p>的 hook lengths 是</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">3 1<br>1<br></code></pre></td></tr></table></figure>
+
+<p>所以</p>
+<p>$$</p>
+<p>h_\lambda&#x3D;3.</p>
+<p>$$</p>
+<p>于是</p>
+<p>$$</p>
+<p>e_t&#x3D;\frac{1}{3}y_t.</p>
+<p>$$</p>
+<hr>
+<h2 id="9-它和张量分解的关系"><a href="#9-它和张量分解的关系" class="headerlink" title="9. 它和张量分解的关系"></a>9. 它和张量分解的关系</h2><p>Young 对称化子可以把</p>
+<p>$$</p>
+<p>V^{\otimes n}</p>
+<p>$$</p>
+<p>分解成不同对称类型的部分。</p>
+<p>在特征 $0$ 下，有 Schur–Weyl 分解：</p>
+<p>$$</p>
+<p>V^{\otimes n}<br>\cong<br>\bigoplus_{\lambda\vdash n}<br>S_\lambda V\otimes \operatorname{Sp}_\lambda.</p>
+<p>$$</p>
+<p>其中：</p>
+<ul>
+<li>$S_\lambda V$ 是 Schur functor，表示某种张量对称类型；</li>
+<li>$\operatorname{Sp}_\lambda$ 是对称群 $\mathfrak S_n$ 的 Specht module；</li>
+<li>$\lambda$ 跑遍 $n$ 的所有分拆；</li>
+<li>如果 $\lambda$ 的行数超过 $\dim V$，对应部分为 $0$。</li>
+</ul>
+<p>普通对称张量是</p>
+<p>$$</p>
+<p>S^nV&#x3D;S_{(n)}V.</p>
+<p>$$</p>
+<p>普通交错张量是</p>
+<p>$$</p>
+<p>\bigwedge^nV&#x3D;S_{(1^n)}V.</p>
+<p>$$</p>
+<p>混合对称张量比如</p>
+<p>$$</p>
+<p>S_{(2,1)}V</p>
+<p>$$</p>
+<p>就是 Young 对称化子给出的新类型。</p>
+<hr>
+<h2 id="10-Riemann-曲率张量的例子"><a href="#10-Riemann-曲率张量的例子" class="headerlink" title="10. Riemann 曲率张量的例子"></a>10. Riemann 曲率张量的例子</h2><p>Riemann 曲率张量的代数对称性是</p>
+<p>$$</p>
+<p>R_{abcd}&#x3D;-R_{bacd},</p>
+<p>$$</p>
+<p>$$</p>
+<p>R_{abcd}&#x3D;-R_{abdc},</p>
+<p>$$</p>
+<p>$$</p>
+<p>R_{abcd}&#x3D;R_{cdab},</p>
+<p>$$</p>
+<p>以及第一 Bianchi 恒等式</p>
+<p>$$</p>
+<p>R_{[abc]d}&#x3D;0.</p>
+<p>$$</p>
+<p>这些对称性不是单纯的全对称或全反对称，而对应 Young 图</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs text">□ □<br>□ □<br></code></pre></td></tr></table></figure>
+
+<p>也就是分拆</p>
+<p>$$</p>
+<p>\lambda&#x3D;(2,2).</p>
+<p>$$</p>
+<p>所以可以说：</p>
+<p>$$</p>
+<p>R_{abcd}</p>
+<p>$$</p>
+<p>属于 Young 类型</p>
+<p>$$</p>
+<p>S_{(2,2)}V^*.</p>
+<p>$$</p>
+<p>这比逐条写对称性更结构化。</p>
+<hr>
+<h2 id="11-一个重要细节：行对称和列反对称不一定同时可见"><a href="#11-一个重要细节：行对称和列反对称不一定同时可见" class="headerlink" title="11. 一个重要细节：行对称和列反对称不一定同时可见"></a>11. 一个重要细节：行对称和列反对称不一定同时可见</h2><p>因为</p>
+<p>$$</p>
+<p>a_t b_t\neq b_t a_t</p>
+<p>$$</p>
+<p>一般不交换。</p>
+<p>所以 Young 对称化子不是简单地说：</p>
+<blockquote>
+<p>最后得到的张量同时在每一行对称、每一列反对称。</p>
+</blockquote>
+<p>更准确地说：</p>
+<blockquote>
+<p>Young 对称化子是一个“先行对称、再列反对称”或“先列反对称、再行对称”的投影算法；它的像空间是某个不可约的张量对称类型。</p>
+</blockquote>
+<p>如果只看符号</p>
+<p>$$</p>
+<p>T_{(ab)[ac]}</p>
+<p>$$</p>
+<p>容易误解，因为同一个指标位置同时参加多种操作时，顺序很重要。</p>
+<hr>
+<h2 id="12-总结"><a href="#12-总结" class="headerlink" title="12. 总结"></a>12. 总结</h2><p>可以这样记：</p>
+<p>$$</p>
+<p>\text{抽象指标换位}<br>\quad\leftrightarrow\quad<br>\mathfrak S_n \text{ 作用在张量槽位上}.</p>
+<p>$$</p>
+<p>$$</p>
+<p>T_{(a_1\cdots a_n)}<br>\quad\leftrightarrow\quad<br>\text{平凡表示投影}.</p>
+<p>$$</p>
+<p>$$</p>
+<p>T_{[a_1\cdots a_n]}<br>\quad\leftrightarrow\quad<br>\text{符号表示投影}.</p>
+<p>$$</p>
+<p>$$</p>
+<p>\text{Young 对称化子}<br>\quad\leftrightarrow\quad<br>\text{一般 Specht&#x2F;Schur 对称类型投影}.</p>
+<p>$$</p>
+<p>而缩并是：</p>
+<p>$$</p>
+<h1 id="text-缩并"><a href="#text-缩并" class="headerlink" title="\text{缩并}"></a>\text{缩并}</h1><p>\text{置换槽位}<br>+<br>\operatorname{ev}:V^*\otimes V\to K.</p>
+<p>$$</p>
+<p>所以它不是纯粹的置换群操作，而是张量范畴或 Brauer algebra 里的操作。</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>交错代数</div>
+      <div>http://kaelvio.com/交错代数/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>采薇</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年5月21日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/%E4%BE%9D%E8%B5%96%E7%B1%BB%E5%9E%8B%E8%AE%BA/" title="依赖类型论">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">依赖类型论</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/%E9%BD%90%E6%B3%BD%E5%85%8B/" title="齐泽克">
+                        <span class="hidden-mobile">齐泽克</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '57f6a42576ff8ed166a4ebae8b2575ca'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
