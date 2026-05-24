@@ -4,6 +4,32 @@
   
   
   <entry>
+    <title>流</title>
+    <link href="/%E6%B5%81/"/>
+    <url>/%E6%B5%81/</url>
+    
+    <content type="html"><![CDATA[<h1 id="理解-流"><a href="#理解-流" class="headerlink" title="理解 流"></a>理解 流</h1><a href="/%E5%90%8E%E5%AD%98%E5%9C%A8%E4%B8%BB%E4%B9%89/" title="后存在主义">存在</a>的具体化,个人化<p>以求生者作为基本目标,存在者作为进阶目标<br>对我来说,接近一种”野犬”的状态,不失自我,妥善地处理外界,<br>与外界不囿,使内在超越<br>？？？？？？？？？？？？？</p><ul><li>（视角不同）价值-需求（自然注意力）～注意力</li><li>&#x2F;回响注意力：代偿，执念，放下-&gt;压力</li><li>外源注意力</li><li>念流-注意力-意识：可以看作约束存在的延伸</li></ul><h1 id="后注意力-念流-模型"><a href="#后注意力-念流-模型" class="headerlink" title="后注意力(念流)模型"></a>后注意力(念流)模型</h1><p>后:[[深度学习]]中的attention<br>对人类<br>$F&#x3D;QK^TV$<br>$F,Q,K,V\in注意空间\times输入空间$<br>$W\in注意空间\times意义空间$<br>$E\in 意义空间\times 输入空间$<br>$E&#x3D;E_外+E_内$(广义)回响<br>$Q&#x3D;W_QE$凝聚念流,$W_Q$凝聚性注意力<br>$K&#x3D;W_KE$显著念流,$W_K$显著型注意力<br>$V&#x3D;W_VE$知觉,$W_V$生理感知,难以改变<br>念流的分量称为念<br>(严谨的数学模型见[[深度学习]],[[雨循环18_溯洄]],需要完善’学习’的部分)</p><p>&#x2F;Q+K</p><h1 id="执念-不囿"><a href="#执念-不囿" class="headerlink" title="执念(不囿)"></a>执念(不囿)</h1><p>超越的前提是放下执念，放下执念与欲望<br>是一种实在的,无阻碍的,前进的传递与回应的过程<br>不囿于执念,并非一味求稳,允许矛盾存在</p><p>对INFJ等(?哪些)<br>高显著的念为压力回响(狭义回响，执念),例如塔(山,业),应激<br>淹没(过多,[[Public&#x2F;overwhelm]]),<a href="%E8%BF%87%E9%87%8D">[迷失]</a>成为焦虑，影响内部回响</p><ul><li>逃离(海):拥抱[[阿尼玛(阿尼姆斯)|Anim]]</li><li>放下(release)<ul><li><a href="/%E5%9B%9E%E5%93%8D/" title="回响">(任务)回响</a>:降低与当下回响关联不大的显著性,外部备忘</li><li>(心态)呼吸:改变环境和完成顺序,升温(更加轻松地决策,[[顿感]])</li></ul></li><li>(坦然)面对:保持平静,专注当下(真实)</li></ul><ul><li>[[微光]]的状态容易失衡,囿于生存本能</li></ul><h1 id="超越-不屈"><a href="#超越-不屈" class="headerlink" title="超越(不屈)"></a>超越(不屈)</h1><ul><li><input disabled="" type="checkbox"> 探索方法<br>追求更高的境界<br>需要相应条件<a href="/%E8%BF%AD%E4%BB%A3/" title="迭代">迭代</a>,[[人际#深入]],[[健美|强壮,美观]]</li></ul><h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><p>对我而言当前主要是</p><ul><li>[[认知理论|获取能力]]<ul><li><a href="/%E7%9F%A5%E8%AF%86/" title="知识">知识</a></li><li>[[练习|熟练度]]</li></ul></li><li><input disabled="" type="checkbox"> 适度实践,积累经验,参与社会生活</li><li>维持开放正常的人际关系[[人际#沟通]]</li><li>保持[[健美|健康]]</li></ul><p>将学习生活看作整体,注意整体人的精神,精力的状态<br>学习,运动,娱乐等<a href="/%E8%BF%AD%E4%BB%A3/" title="迭代">合理搭配</a></p><p>在对某件具体事物上,提高[[效率]]<br>[[呼吸]]-注重事物本身</p><a href="/%E5%9B%9E%E5%93%8D/" title="回响">回响</a>-注重事物联系与完整性]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>overwhelm</title>
+    <link href="/overwhelm/"/>
+    <url>/overwhelm/</url>
+    
+    <content type="html"><![CDATA[]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>雨</title>
     <link href="/%E9%9B%A8/"/>
     <url>/%E9%9B%A8/</url>
@@ -279,19 +305,6 @@
     <url>/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/</url>
     
     <content type="html"><![CDATA[<h1 id="严格定义"><a href="#严格定义" class="headerlink" title="严格定义"></a>严格定义</h1><p>对于加分、乘法、Kleene星号（闭包）封闭<br>全体正则表达式存在到 $\Sigma^*$ (其实就是 $\Sigma [~]$)的同态，其中 $\Sigma$ 为字母表，象称为正则语言</p><p>Prop. 加法、乘法构成含幺环，Kleene星号幂等</p><h1 id="有限状态自动机"><a href="#有限状态自动机" class="headerlink" title="有限状态自动机"></a>有限状态自动机</h1><h1 id="限定符"><a href="#限定符" class="headerlink" title="限定符"></a>限定符</h1><p>()多字符 替换里用\数字表示<br>(a|b)a或b<br>[]字符类 </p><ul><li>a-z,A-Z,0-9</li><li>^排除<br>元字符</li><li>\d 数字</li><li>\w 单词 字母数字下划线</li><li>\s 空白符 tab和换行符</li><li>\b字符边界(空白隔开,零宽度断言)<br>大写:排除<br>.除换行符以外字符<br>^行首<br>$行尾<br>?可有可无<br>*可有(一个或多个)可无<br>+一个或多个(贪婪匹配:尽可能多)</li><li>+?懒惰匹配<br>{,}多次</li></ul><p>递归<br>平衡组</p><h1 id="断言"><a href="#断言" class="headerlink" title="断言"></a>断言</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs regex">(?&lt;=pattern)pattern(?=pattern)<br>(?&lt;!pattern)pattern(?!pattern)<br></code></pre></td></tr></table></figure>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>流</title>
-    <link href="/%E6%B5%81/"/>
-    <url>/%E6%B5%81/</url>
-    
-    <content type="html"><![CDATA[<h1 id="理解-流"><a href="#理解-流" class="headerlink" title="理解 流"></a>理解 流</h1><a href="/%E5%90%8E%E5%AD%98%E5%9C%A8%E4%B8%BB%E4%B9%89/" title="后存在主义">存在</a>的具体化,个人化<p>以求生者作为基本目标,存在者作为进阶目标<br>对我来说,接近一种”野犬”的状态,不失自我,妥善地处理外界,<br>与外界不囿,使内在超越<br>？？？？？？？？？？？？？</p><ul><li>（视角不同）价值-需求（自然注意力）～注意力</li><li>&#x2F;回响注意力：代偿，执念，放下-&gt;压力</li><li>外源注意力</li><li>念流-注意力-意识：可以看作约束存在的延伸</li></ul><h1 id="后注意力-念流-模型"><a href="#后注意力-念流-模型" class="headerlink" title="后注意力(念流)模型"></a>后注意力(念流)模型</h1><p>后:[[深度学习]]中的attention<br>对人类<br>$F&#x3D;QK^TV$<br>$F,Q,K,V\in注意空间\times输入空间$<br>$W\in注意空间\times意义空间$<br>$E\in 意义空间\times 输入空间$<br>$E&#x3D;E_外+E_内$(广义)回响<br>$Q&#x3D;W_QE$凝聚念流,$W_Q$凝聚性注意力<br>$K&#x3D;W_KE$显著念流,$W_K$显著型注意力<br>$V&#x3D;W_VE$知觉,$W_V$生理感知,难以改变<br>念流的分量称为念<br>(严谨的数学模型见[[深度学习]],[[雨循环18_溯洄]],需要完善’学习’的部分)</p><p>&#x2F;Q+K</p><h1 id="执念-不囿"><a href="#执念-不囿" class="headerlink" title="执念(不囿)"></a>执念(不囿)</h1><p>超越的前提是放下执念，放下执念与欲望<br>是一种实在的,无阻碍的,前进的传递与回应的过程<br>不囿于执念,并非一味求稳,允许矛盾存在</p><p>对INFJ等(?哪些)<br>高显著的念为压力回响(狭义回响，执念),例如塔(山,业),应激<br>淹没(过多,[[overwhelm]]),<a href="%E8%BF%87%E9%87%8D">[迷失]</a>成为焦虑，影响内部回响</p><ul><li>逃离(海):拥抱[[阿尼玛(阿尼姆斯)|Anim]]</li><li>放下(release)<ul><li><a href="/%E5%9B%9E%E5%93%8D/" title="回响">(任务)回响</a>:降低与当下回响关联不大的显著性,外部备忘</li><li>(心态)呼吸:改变环境和完成顺序,升温(更加轻松地决策,[[顿感]])</li></ul></li><li>(坦然)面对:保持平静,专注当下(真实)</li></ul><ul><li>[[微光]]的状态容易失衡,囿于生存本能</li></ul><h1 id="超越-不屈"><a href="#超越-不屈" class="headerlink" title="超越(不屈)"></a>超越(不屈)</h1><ul><li><input disabled="" type="checkbox"> 探索方法<br>追求更高的境界<br>需要相应条件<a href="/%E8%BF%AD%E4%BB%A3/" title="迭代">迭代</a>,[[人际#深入]],[[健美|强壮,美观]]</li></ul><h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><p>对我而言当前主要是</p><ul><li>[[认知理论|获取能力]]<ul><li><a href="/%E7%9F%A5%E8%AF%86/" title="知识">知识</a></li><li>[[练习|熟练度]]</li></ul></li><li><input disabled="" type="checkbox"> 适度实践,积累经验,参与社会生活</li><li>维持开放正常的人际关系[[人际#沟通]]</li><li>保持[[健美|健康]]</li></ul><p>将学习生活看作整体,注意整体人的精神,精力的状态<br>学习,运动,娱乐等<a href="/%E8%BF%AD%E4%BB%A3/" title="迭代">合理搭配</a></p><p>在对某件具体事物上,提高[[效率]]<br>[[呼吸]]-注重事物本身</p><a href="/%E5%9B%9E%E5%93%8D/" title="回响">回响</a>-注重事物联系与完整性]]></content>
     
     
     
