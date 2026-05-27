@@ -26,10 +26,12 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="仿射空间与射影空间仿射空间 $(\mathbb{A}:Set,V:Vect,\+\:V\to \operatorname{Aut}\mathbb{A})$ s.t. $T$ is simple transitive, $T_1&#x3D;1,T_vT_w&#x3D;T_{v+w}$For $PQ:\mathbb{A}$, $P-Q:&#x3D;\vec{QP}:&#x3D;v:Vs.t.~v+Q&amp;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-05-26T01:51:36.798Z">
-<meta property="article:modified_time" content="2026-05-26T01:51:36.798Z">
+<meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260526193317.png">
+<meta property="article:published_time" content="2026-05-27T00:36:59.945Z">
+<meta property="article:modified_time" content="2026-05-27T00:36:59.945Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://kaelvio.com/images/Pasted_image_20260526193317.png">
   
   
   
@@ -222,8 +224,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-05-26 09:51" pubdate>
-          2026年5月26日 上午
+        <time datetime="2026-05-27 08:36" pubdate>
+          2026年5月27日 早上
         </time>
       </span>
     
@@ -234,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.2k 字
+          2.5k 字
         
       </span>
     
@@ -245,7 +247,7 @@
         
         
         
-          19 分钟
+          21 分钟
         
       </span>
     
@@ -318,10 +320,10 @@
 <p>[!definition] 坐标环<br>若 $X\subset \mathbb A_k^n$, 它的坐标环 (coordinate ring) 是<br>$$</p>
 </blockquote>
 <blockquote>
-<p>\Gamma X&#x3D;k[x_1,\dots,x_n]&#x2F;I(X).</p>
+<p>k[ X]&#x3D;k[x_1,\dots,x_n]&#x2F;I(X).</p>
 </blockquote>
 <p>$$</p>
-<p>相当于只关心多项式在 $X$ 上的值, 都相同则不区分, 相当于全体 $X$ 上正则函数<br>For $f:X\to Y$, $\Gamma f:\Gamma Y\to \Gamma X:&#x3D;g\mapsto gf$.<br>可以证明这是仿射代数簇到有限生成不可约 $k$-代数 的范畴等价</p>
+<p>相当于只关心多项式在 $X$ 上的值, 都相同则不区分, 相当于全体 $X$ 上正则函数<br>For $f:X\to Y$, $k[ f]:k [Y]\to k[ X]:&#x3D;g\mapsto gf$.<br>可以证明这是仿射代数簇到有限生成不可约 $k$-代数 的范畴等价</p>
 <blockquote>
 <p>[!example]<br>Notice that $V(fg)&#x3D;V(f)\cup V(g)$<br>Consider $X&#x3D;V(xy)\subseteq \mathbb{A}^2_k$, $V(xy)&#x3D;V(x)\sqcup V(y)$, so it is reducible. So $k[X]$ is not a domain.<br>X is irreducible $\iff$ $I(X)$ is a prime ideal</p>
 </blockquote>
@@ -374,11 +376,24 @@
 <p>[!definition] 素谱<br>For commutative ring $A$, $\operatorname{Spec}A:&#x3D;\left{\mathfrak{p}\subseteq A\mid \mathfrak{p}<del>is</del>a<del>prime</del>ideal  \right}$</p>
 </blockquote>
 <blockquote>
-<p>[!definition] 剩余域<br>For $\mathfrak{p}\in \operatorname{Spec}A$, $\kappa(\mathfrak{p}):&#x3D;A_\mathfrak{p}&#x2F;\mathfrak{p}A_\mathfrak{p}$, 这里 $A_\mathfrak{p}:&#x3D;(A-\mathfrak{p})^{-1}A$ 表示局部化. $\iota_\mathfrak{p}:A\to\kappa(\mathfrak{p})$<br>For $f\in A$, 赋值 $f(\mathfrak{p}):&#x3D;\iota_\mathfrak{p}(f)$</p>
+<p>[!definition] 剩余域<br>For $\mathfrak{p}\in \operatorname{Spec}A$, $\kappa(\mathfrak{p}):&#x3D;A_\mathfrak{p}&#x2F;\mathfrak{p}A_\mathfrak{p}$, 这里 $A_\mathfrak{p}:&#x3D;(A-\mathfrak{p})^{-1}A$ 表示局部化. 诱导出赋值映射 $\iota_\mathfrak{p}:A\to\kappa(\mathfrak{p})$, 不引起歧义的情况下也可以记为 $f(\mathfrak{p}):&#x3D;\iota_\mathfrak{p}f$</p>
 </blockquote>
 <blockquote>
 <p>[!example]<br>$\operatorname{Spec} \mathbb{C}[z]&#x3D;\left{ \left&lt; z-c \right&gt; \mid c\in \mathbb{C}\right}\cup \left{ \left&lt; 0 \right&gt; \right}$<br>For $f\in \mathbb{C}[z]$, $f(\left&lt; z-c \right&gt;)&#x3D;f(c)\in \mathbb{C}$, $f(\left&lt; 0 \right&gt;)&#x3D;f(z)\in \mathbb{C}(z)$ </p>
 </blockquote>
+<p>但一个函数在所有点的赋值为 0 不一定是 零函数, 实际上只能推出属于 $\bigcap_{\mathfrak{p}\in \operatorname{Spec}A}\mathfrak{p}&#x3D;\sqrt {\left&lt; 0 \right&gt;}$ , 比如在 $\mathbb{C}[z]&#x2F;\left&lt; z^2 \right&gt;$ 中 $z$ 就是幂零元.</p>
+<p><img src="/images/Pasted_image_20260526193317.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>[!definition] Zariski 拓扑<br>对 $S\subseteq A$, $V(S):&#x3D;\left{ \mathfrak{p}\in \operatorname{Spec}A\mid \forall f\in S,\iota_{\mathfrak{p}}f&#x3D;0 \right}$<br>定义 Zariski 拓扑 的闭集族为 $\left{ V(I) \right}_{I\unlhd A}$<br>或者定义拓扑基 $D(f)&#x3D;\operatorname{Spec}A-V(f)$</p>
+</blockquote>
+<p>注意到 $$<br>\begin{align}<br>V(I) &amp; &#x3D;\left{ \mathfrak{p}\in \operatorname{Spec}A\mid \forall f\in I,\iota_{\mathfrak{p}}f&#x3D;0 \right} \<br> &amp; &#x3D;\left{ \mathfrak{p}\in \operatorname{Spec}A\mid \forall f\in I,f\in \mathfrak{p} \right} \<br> &amp; &#x3D;\left{ \mathfrak{p}\in \operatorname{Spec}A\mid I\subseteq \mathfrak{p} \right} \<br>\end{align}<br>$$<br>$\operatorname{Spec}A&#x3D;V(\varnothing)$, $\varnothing&#x3D;V(A)$.<br>$\bigcap_{\alpha\in \Lambda} V(I_\alpha)&#x3D;V(\sum_{\alpha\in\Lambda}I_\alpha)$<br>$\bigcup_{j\in J} V(I_j)&#x3D;V(\prod_{j\in J}I_j)$</p>
+<blockquote>
+<p>[!definition] 函数芽<br>定义函数的等价关系在某个点附近相等, 函数芽 $f_p$ 就是等价类</p>
+</blockquote>
+<blockquote>
+<p>[!definition] 结构层<br>$\mathcal{O}_{\operatorname{Spec}A}:\prod(U:\mathcal{T}_{\operatorname{Spec}A}),\prod(\mathfrak{p}:U),A_\mathfrak{p}$</p>
+</blockquote>
+<p>相当于对每个开集给出一个环, </p>
 <h2 id="Grobner-基"><a href="#Grobner-基" class="headerlink" title="Gröbner 基"></a>Gröbner 基</h2><blockquote>
 <p>[!definition] 单项式序<br>设 $R&#x3D;k[x_1,\dots,x_n]$. 一个单项式序 (term order) 是 $R$ 中所有单项式上的全序 $&lt;$, 满足:</p>
 <ol>
@@ -504,7 +519,7 @@ test_monomials = [1, x, y, x^2, x*y, x^2*y]
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年5月26日</div>
+          <div>2026年5月27日</div>
         </div>
       
       
@@ -552,8 +567,8 @@ test_monomials = [1, x, y, x^2, x*y, x^2*y]
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E6%B5%81/" title="流">
-                        <span class="hidden-mobile">流</span>
+                      <a href="/%E4%BE%9D%E8%B5%96%E7%B1%BB%E5%9E%8B%E8%AE%BA/" title="依赖类型论">
+                        <span class="hidden-mobile">依赖类型论</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
