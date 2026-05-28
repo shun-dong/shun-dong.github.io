@@ -1,56 +1,218 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="zh-CN">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>关于采薇Kaelvio</title>
+    <meta name="theme-color" content="#071a33">
+    <title>关于采薇 Kaelvio</title>
     <style>
+        :root {
+            --progress: 0;
+            --ink: #f7fbff;
+            --muted: rgba(230, 242, 255, 0.72);
+            --cyan: #7ff5ff;
+            --deep: #040914;
+            --serif: "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", serif;
+            --sans: "Inter", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+
         * {
-            margin: 0;
-            padding: 0;
             box-sizing: border-box;
         }
 
-        body {
-            background-color: #324b8f;
-            color: #fff;
-            font-family: 'Helvetica Neue', sans-serif;
-            overflow-x: hidden;
+        html {
+            min-height: 100%;
+            background: var(--deep);
+            scroll-behavior: smooth;
         }
 
-        /* --- 基础场景 --- */
+        body {
+            min-height: 100%;
+            margin: 0;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 48% -18%, rgba(119, 199, 255, 0.38), transparent 34vw),
+                radial-gradient(circle at 14% 22%, rgba(127, 245, 255, 0.16), transparent 24vw),
+                radial-gradient(circle at 88% 45%, rgba(255, 157, 207, 0.12), transparent 28vw),
+                linear-gradient(180deg, #324b8f 0%, #17396f 20%, #071a33 53%, #02050b 100%);
+            font-family: var(--sans);
+            overflow-x: hidden;
+            transition: background-color 0.4s ease;
+        }
+
+        body::before,
+        body::after {
+            position: fixed;
+            inset: 0;
+            z-index: 2;
+            pointer-events: none;
+            content: "";
+        }
+
+        body::before {
+            background:
+                linear-gradient(110deg, transparent 0 45%, rgba(129, 236, 255, 0.12) 48%, transparent 55%),
+                repeating-linear-gradient(180deg, rgba(255, 255, 255, 0.028) 0 1px, transparent 1px 12px);
+            mix-blend-mode: screen;
+            opacity: calc(0.48 - min(var(--progress), 0.6) * 0.24);
+            transform: translate3d(calc(var(--progress) * -54px), calc(var(--progress) * -130px), 0);
+        }
+
+        body::after {
+            background: radial-gradient(ellipse at center, transparent 0 46%, rgba(0, 3, 10, 0.62) 100%);
+        }
+
+        .starfield,
+        .leviathan-field {
+            position: fixed;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .starfield {
+            z-index: 0;
+            opacity: var(--star-opacity, 0.86);
+        }
+
+        .leviathan-field {
+            z-index: 2;
+            mix-blend-mode: screen;
+            opacity: var(--leviathan-opacity, 0);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button {
+            font: inherit;
+        }
+
+        .site-nav {
+            position: fixed;
+            top: 28px;
+            left: 34px;
+            right: 34px;
+            z-index: 30;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 24px;
+            color: rgba(246, 251, 255, 0.76);
+            font-family: var(--sans);
+            font-size: 12px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            mix-blend-mode: screen;
+        }
+
+        .brand-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--ink);
+            text-shadow: 0 0 18px rgba(127, 245, 255, 0.38);
+        }
+
+        .brand-link::before {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--cyan);
+            box-shadow: 0 0 16px var(--cyan);
+            content: "";
+        }
+
+        .nav-groups {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(52px, 1fr));
+            justify-content: flex-end;
+            gap: 18px;
+            align-items: flex-start;
+            text-align: right;
+            width: min(420px, 44vw);
+        }
+
+        .nav-group {
+            position: relative;
+            display: grid;
+            gap: 8px;
+            justify-items: center;
+            min-width: 0;
+        }
+
+        .nav-main,
+        .nav-sub a {
+            border: 0;
+            padding: 0;
+            color: inherit;
+            background: transparent;
+            cursor: pointer;
+            transition: color 0.2s ease, text-shadow 0.2s ease, opacity 0.2s ease;
+        }
+
+        .nav-main:hover,
+        .nav-main.is-active,
+        .nav-sub a:hover,
+        .nav-sub a.is-active {
+            color: #fff;
+            text-shadow: 0 0 14px rgba(127, 245, 255, 0.62);
+        }
+
+        .nav-sub {
+            position: absolute;
+            top: 24px;
+            left: 50%;
+            display: grid;
+            gap: 7px;
+            width: max-content;
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transform: translate(-50%, -4px);
+            transition: max-height 0.28s ease, opacity 0.28s ease, transform 0.28s ease;
+            font-size: 11px;
+            letter-spacing: 0.08em;
+            color: rgba(226, 241, 255, 0.54);
+            text-align: center;
+        }
+
+        .nav-group.is-open .nav-sub {
+            max-height: 130px;
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+
         .sea-container {
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 50vh;
-            z-index: 0;
+            height: 34vh;
+            z-index: 1;
             pointer-events: none;
-            opacity: 1.0;
-            transform: translateY(15vh);
+            opacity: var(--sea-opacity, 0.9);
+            transform: translateY(var(--sea-y, 16vh));
             transform-origin: bottom center;
+            transition: opacity 0.35s ease;
         }
 
         .canvas-container {
             position: fixed;
-            top: auto;
-            bottom: 0;
             left: 0;
-            width: 100%;
-            height: 60vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1;
+            right: auto;
+            bottom: 0;
+            width: 58vw;
+            height: 68vh;
+            z-index: 3;
             pointer-events: none;
-        }
-
-        .scroll-content {
-            position: relative;
-            z-index: 10;
-            padding-bottom: 50vh;
+            opacity: var(--line-opacity, 0.76);
+            transform: translateY(var(--line-y, 7vh)) scale(var(--line-scale, 0.9));
+            transform-origin: left bottom;
         }
 
         svg {
@@ -68,185 +230,429 @@
         }
 
         .main-line {
-            stroke: #fff;
-            stroke-width: 5px;
-            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.9));
-            z-index: 10;
+            stroke: rgba(252, 255, 255, 0.92);
+            stroke-width: 4.3px;
+            filter: drop-shadow(0 0 9px rgba(255, 255, 255, 0.85)) drop-shadow(0 0 28px rgba(92, 220, 255, 0.36));
         }
 
         .ghost-line {
-            stroke: #00d2ff;
-            stroke-width: 3.5px;
+            stroke: #66e6ff;
+            stroke-width: 3px;
             opacity: 0;
             mix-blend-mode: screen;
             pointer-events: none;
         }
 
         .wave-line {
-            stroke: #1a94da;
+            stroke: rgba(37, 169, 230, 0.64);
             stroke-width: 2px;
         }
 
         .sea-ghost {
-            stroke: #3da7ed;
+            stroke: rgba(94, 191, 243, 0.52);
             stroke-width: 2px;
-            opacity: 0.5;
+            opacity: 0.55;
         }
 
         .sea-main {
-            stroke: #00aaff;
-            stroke-width: 3px;
+            stroke: rgba(53, 190, 255, 0.86);
+            stroke-width: 2.8px;
         }
 
-        .section {
-            height: 100vh;
+        .ambient-field {
+            position: fixed;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .bubble {
+            position: absolute;
+            width: var(--size);
+            height: var(--size);
+            left: var(--x);
+            top: 112%;
+            border-radius: 50%;
+            border: 1px solid rgba(150, 238, 255, 0.24);
+            background: radial-gradient(circle at 35% 30%, rgba(255, 255, 255, 0.45), rgba(127, 245, 255, 0.05) 42%, transparent 70%);
+            opacity: 0.28;
+            animation: rise var(--duration) linear infinite;
+            animation-delay: var(--delay);
+        }
+
+        .story {
+            position: relative;
+            z-index: 10;
+        }
+
+        .chapter {
+            position: relative;
+            min-height: 118vh;
+            display: grid;
+            align-items: center;
+            padding: 18vh min(9vw, 118px);
+        }
+
+        .chapter.hero {
+            min-height: 132vh;
+            align-items: start;
+            padding-top: 24vh;
+        }
+
+        .chapter.echoes,
+        .chapter.slogan,
+        .chapter.contact {
+            min-height: 130vh;
+            place-items: center;
+            text-align: center;
+        }
+
+        .chapter.descent {
+            min-height: 145vh;
+            padding: 0;
             pointer-events: none;
         }
 
-        /* 【修改】增加 #sec8，保持深海的长篇幅感 */
-        #sec6,
-        #sec7,
-        #sec8 {
-            height: 200vh;
+        .chapter.swimout {
+            min-height: 150vh;
+            padding: 0;
+            pointer-events: none;
         }
 
-        /* --- 内容源隐藏 --- */
-        .content-source {
-            display: none;
+        .story-copy {
+            width: min(620px, calc(100vw - 46px));
+            color: var(--ink);
+            text-shadow: 0 2px 20px rgba(0, 8, 20, 0.46), 0 0 22px rgba(127, 245, 255, 0.14);
         }
 
-        /* --- Liquid Glass 文本框 --- */
-        .text-box {
-            position: fixed;
-            top: 30%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 100;
-            width: 500px;
-            height: 300px;
-            overflow-y: auto;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .story-copy.left {
+            margin-right: auto;
+        }
+
+        .story-copy.right {
+            margin-left: auto;
+        }
+
+        .story-copy.center {
+            margin-inline: auto;
+            text-align: center;
+        }
+
+        .kicker {
+            display: inline-flex;
             align-items: center;
-            text-align: left;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.02);
-            backdrop-filter: blur(12px) brightness(1.1);
-            -webkit-backdrop-filter: blur(12px) brightness(1.1);
-            border-radius: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            opacity: 0;
-            transition:
-                transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
-                background 0.3s ease,
-                box-shadow 0.3s ease,
-                border-color 0.3s ease;
-            box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.05), 0 15px 35px rgba(0, 0, 0, 0.2);
+            gap: 12px;
+            margin-bottom: 24px;
+            color: var(--cyan);
+            font-family: var(--sans);
+            font-size: 12px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            text-shadow: 0 0 18px rgba(127, 245, 255, 0.54);
         }
 
-        .text-box:hover {
-            transform: translate(-50%, -54%) scale(1.02);
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(255, 255, 255, 0.3);
-            box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.15), 0 20px 40px rgba(0, 210, 255, 0.15);
+        .kicker::before {
+            width: 42px;
+            height: 1px;
+            background: currentColor;
+            box-shadow: 0 0 12px currentColor;
+            content: "";
         }
 
-        .text-box::-webkit-scrollbar {
-            display: none;
+        h1,
+        h2,
+        p {
+            margin-top: 0;
         }
 
-        .text-box h2 {
-            margin-bottom: 0.8rem;
-            font-size: 1.8rem;
-            font-weight: 300;
-            letter-spacing: 2px;
-            color: #fff;
-            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
-        }
-
-        .text-box h3 {
-            margin-bottom: 0.8rem;
-            font-size: 1.4rem;
-            font-weight: 250;
-            letter-spacing: 2px;
-            color: #fff;
-            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
-        }
-
-        .text-box p {
-            line-height: 1.6;
-            font-size: 1rem;
-            color: #dbeeff;
-            font-weight: 300;
-            margin-bottom: 0.5rem;
-        }
-
-        .text-box b,
-        .text-box strong {
-            color: #00d2ff;
+        h1,
+        h2,
+        .slogan-text {
+            font-family: var(--serif);
             font-weight: 500;
+            letter-spacing: 0;
         }
 
-        .text-box a {
+        h1 {
+            margin-bottom: 20px;
+            font-size: clamp(54px, 9.4vw, 132px);
+            line-height: 0.92;
+            text-shadow: 0 0 30px rgba(127, 245, 255, 0.32), 0 0 86px rgba(81, 133, 255, 0.24);
+        }
+
+        h2 {
+            margin-bottom: 24px;
+            font-size: clamp(32px, 5vw, 66px);
+            line-height: 1.04;
+            text-shadow: 0 0 28px rgba(127, 245, 255, 0.22);
+        }
+
+        @media (min-width: 821px) {
+            h1 {
+                font-size: clamp(52px, 8.2vw, 116px);
+            }
+
+            h2 {
+                font-size: clamp(30px, 4.35vw, 56px);
+            }
+        }
+
+        .subtitle {
+            color: var(--muted);
+            font-family: var(--sans);
+            font-size: clamp(15px, 1.45vw, 19px);
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        p {
+            color: rgba(237, 247, 255, 0.82);
+            font-family: var(--serif);
+            font-size: clamp(16px, 1.55vw, 21px);
+            line-height: 1.88;
+            margin-bottom: 18px;
+        }
+
+        p.en {
+            color: rgba(237, 247, 255, 0.78);
+            font-family: var(--serif);
+            font-size: clamp(16px, 1.55vw, 21px);
+            line-height: 1.88;
+        }
+
+        .story-copy a {
+            border-bottom: 1px solid rgba(127, 245, 255, 0.42);
             color: #fff;
-            text-decoration: underline;
-            pointer-events: auto;
+            text-shadow: 0 0 16px rgba(127, 245, 255, 0.22);
         }
 
-        /* --- Home 按钮 --- */
-        .home-btn {
-            position: fixed;
-            top: 30px;
-            left: 30px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            z-index: 200;
+        .reveal-line {
+            display: block;
+            opacity: 0;
+            transform: translateY(24px);
+            filter: blur(6px);
+        }
+
+        .hero-mark {
+            margin-top: 8vh;
+            color: rgba(246, 251, 255, 0.54);
+            font-family: var(--sans);
+            font-size: 12px;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        .echo-orbit {
+            position: relative;
+            width: min(920px, 92vw);
+            min-height: 620px;
+            margin-inline: auto;
+        }
+
+        .echo-item {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            display: inline-block;
+            max-width: min(360px, 78vw);
+            color: rgba(245, 251, 255, 0.72);
+            font-family: var(--serif);
+            font-size: clamp(17px, 2vw, 25px);
+            line-height: 1.45;
+            text-shadow: 0 0 18px rgba(127, 245, 255, 0.22), 0 0 70px rgba(255, 157, 207, 0.18);
+            transform: translate(-50%, -50%) rotate(var(--angle)) translateX(var(--radius)) rotate(calc(var(--angle) * -1));
+            animation: drift 10s ease-in-out infinite;
+            animation-delay: var(--delay);
+        }
+
+        .echo-item.en {
+            color: rgba(207, 225, 244, 0.48);
+            font-family: var(--sans);
+            font-size: clamp(12px, 1.2vw, 15px);
+        }
+
+        .slogan-text {
+            margin: 0 auto 22px;
+            font-size: clamp(52px, 9vw, 128px);
+            line-height: 0.98;
+            text-shadow: 0 0 36px rgba(127, 245, 255, 0.32), 0 0 110px rgba(255, 157, 207, 0.22);
+        }
+
+        .slogan-en {
+            color: var(--cyan);
+            font-family: var(--sans);
+            font-size: clamp(16px, 2vw, 24px);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .contact-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(180px, 1fr));
+            gap: 16px 32px;
+            width: min(760px, 92vw);
+            margin: 38px auto 0;
+            text-align: left;
+        }
+
+        .contact-list a {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1), 0 4px 10px rgba(0, 0, 0, 0.2);
-            transition: all 0.3s ease;
-            cursor: pointer;
-            text-decoration: none;
+            justify-content: space-between;
+            gap: 16px;
+            padding-block: 14px;
+            border-bottom: 1px solid rgba(168, 233, 255, 0.22);
+            color: rgba(244, 250, 255, 0.86);
+            font-family: var(--sans);
+            font-size: 14px;
+            letter-spacing: 0.05em;
         }
 
-        .home-btn svg {
-            width: 20px;
-            height: 20px;
-            stroke: #fff;
-            stroke-width: 2;
-            fill: none;
-            filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.5));
-            transition: transform 0.3s ease;
+        .contact-list span:last-child {
+            color: rgba(127, 245, 255, 0.72);
         }
 
-        .home-btn:hover {
-            transform: translateY(-3px) scale(1.05);
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.8);
-            box-shadow: inset 0 0 15px rgba(255, 255, 255, 0.2), 0 8px 20px rgba(0, 210, 255, 0.3);
+        @keyframes drift {
+
+            0%,
+            100% {
+                margin-top: 0;
+            }
+
+            50% {
+                margin-top: -22px;
+            }
+        }
+
+        @keyframes rise {
+            to {
+                transform: translate3d(18px, -128vh, 0);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 820px) {
+            .site-nav {
+                top: 16px;
+                left: 18px;
+                right: 18px;
+                font-size: 10px;
+                gap: 12px;
+            }
+
+            .nav-groups {
+                width: min(300px, 64vw);
+                gap: 8px;
+            }
+
+            .nav-sub {
+                display: none;
+            }
+
+            .chapter {
+                min-height: 120vh;
+                padding: 18vh 22px;
+            }
+
+            .chapter.descent,
+            .chapter.swimout {
+                min-height: 165vh;
+            }
+
+            .canvas-container {
+                height: 56vh;
+                opacity: var(--line-opacity, 0);
+                transform: translateY(9vh) scale(1.05);
+            }
+
+            .story-copy,
+            .story-copy.left,
+            .story-copy.right {
+                width: 100%;
+                margin-inline: 0;
+            }
+
+            p {
+                font-size: 16px;
+            }
+
+            .echo-orbit {
+                min-height: 760px;
+            }
+
+            .echo-item,
+            .echo-item.en {
+                position: relative;
+                left: auto;
+                top: auto;
+                display: block;
+                margin: 0 auto 22px;
+                transform: none;
+                animation: none;
+            }
+
+            .contact-list {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto;
+            }
+
+            body::before,
+            .bubble,
+            .echo-item {
+                animation: none;
+            }
+
+            .ghost-line {
+                display: none;
+            }
+
+            .reveal-line {
+                opacity: 1;
+                transform: none;
+                filter: none;
+            }
         }
     </style>
 </head>
 
 <body>
+    <canvas class="starfield" id="starfield" aria-hidden="true"></canvas>
+    <canvas class="leviathan-field" id="leviathan-field" aria-hidden="true"></canvas>
 
-    <a href="/" class="home-btn" title="Return Home">
-        <svg viewBox="0 0 24 24">
-            <path
-                d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
-        </svg>
-    </a>
+    <nav class="site-nav" aria-label="页面导航">
+        <a class="brand-link" href="/">Kaelvio</a>
+        <div class="nav-groups">
+            <div class="nav-group" data-group="intro"><button class="nav-main" data-target="intro">Intro</button></div>
+            <div class="nav-group" data-group="about">
+                <button class="nav-main" data-target="inquiry">About</button>
+                <div class="nav-sub">
+                    <a href="#inquiry" data-target="inquiry">Inquiry</a>
+                    <a href="#humanities" data-target="humanities">Humanities</a>
+                    <a href="#travel" data-target="travel">Travel</a>
+                    <a href="#play" data-target="play">Play</a>
+                </div>
+            </div>
+            <div class="nav-group" data-group="echoes"><button class="nav-main" data-target="echoes">Echoes</button>
+            </div>
+            <div class="nav-group" data-group="contact"><button class="nav-main" data-target="contact">Contact</button>
+            </div>
+        </div>
+    </nav>
 
-    <div class="sea-container">
+    <div class="ambient-field" aria-hidden="true">
+        <span class="bubble" style="--x: 12%; --size: 8px; --duration: 16s; --delay: -2s;"></span>
+        <span class="bubble" style="--x: 26%; --size: 14px; --duration: 22s; --delay: -10s;"></span>
+        <span class="bubble" style="--x: 58%; --size: 10px; --duration: 18s; --delay: -7s;"></span>
+        <span class="bubble" style="--x: 74%; --size: 18px; --duration: 26s; --delay: -15s;"></span>
+        <span class="bubble" style="--x: 88%; --size: 7px; --duration: 20s; --delay: -4s;"></span>
+    </div>
+
+    <div class="sea-container" aria-hidden="true">
         <svg preserveAspectRatio="none" viewBox="0 0 1000 100">
             <g id="sea-group">
                 <path class="wave-line sea-ghost layer-1" d="" />
@@ -256,142 +662,167 @@
         </svg>
     </div>
 
-    <div class="canvas-container">
+    <div class="canvas-container" aria-hidden="true">
         <svg viewBox="0 0 1000 1000">
             <g id="ghost-pool"></g>
             <path class="morph-line main-line" d="" />
         </svg>
     </div>
 
-    <div class="scroll-content">
-        <div class="section" id="sec1">
-            <div id="sec1-content" class="content-source">
-                <h2>about me</h2>
-                <p><a href="/采薇">采薇</a>是我的自设, 我现在在读<a href="/数学">数学</a>系本科，我对各种理论都比较感兴趣，同时open minded，欢迎交流讨论。</p>
+    <main class="story" id="story">
+        <section class="chapter hero" id="hero" data-group="intro" data-frame="0" data-theme="surface">
+            <div class="story-copy left">
+                <span class="kicker">Start the experience</span>
+                <h1><span class="reveal-line">采薇</span><span class="reveal-line">Kaelvio</span></h1>
+                <p class="subtitle reveal-line">关于我 About Me</p>
+                <p class="hero-mark reveal-line">edge / neon / overlap / flow</p>
             </div>
-        </div>
-        <div class="section" id="sec2">
-            <div id="sec2-content" class="content-source">
-                <p>我喜欢学习新知识技术, 涉猎广泛(<del>极端杂食</del>).<br>
-                    我对<a href="/代数">代数</a>更感兴趣, 现在的方向是<a href="/图论">图论</a>, 同时对<a href="/理论计算机科学">理论计算机科学</a>有所了解.<br>
-                    写过一系列效率方面的程序, 欢迎关注我的<a href="/github.com/shun-dong">GitHub账号</a>.<br>
-                    希望能从理论上发展<a href="/formalized%20mathematics">形式化数学</a>.</p>
-            </div>
-        </div>
-        <div class="section" id="sec3">
-            <div id="sec3-content" class="content-source">
-                <p>我也有很多人文社科艺术方面的思考, 欢迎关注我的<a
-                        href="https://mp.weixin.qq.com/mp/profile_ext?action=home&__biz=Mzk2NDUwMzM3Ng%3D%3D">公众号</a>.<br>
-                    主要关注的哲学流派有<a href="/后存在主义">存在主义</a>, <a href="/分析哲学">分析哲学</a>, <a href="/斯多葛主义">斯多葛主义</a>.<br>
-                    我正在读《我身上有个不可战胜的夏天》、<em>On the Rode</em>、《金阁寺》, 我最近欣赏了<a href="/《红与黑》">摇滚红与黑</a>, <a
-                        href="/《黑客帝国》">《黑客帝国》</a>, <a href="/《禅与摩托车维修艺术》">《禅与摩托车维修艺术》</a>、<a
-                        href="/《爱欲之死》">《爱欲之死》</a>、<a href="/《撒哈拉的故事》">《撒哈拉的故事》</a>、<a href="/《悉达多》">《悉达多》</a>、<a
-                        href="/《达摩流浪者》">《达摩流浪者》</a>.</p>
-            </div>
-        </div>
-        <div class="section" id="sec4">
-            <div id="sec4-content" class="content-source">
-                <p>我喜欢旅行和户外活动, 经常去登山, 徒步，骑自行车，<a href="/飞盘">飞盘</a>(非常菜)…<br>
-                    现在每周都会出去转转，最近去了伦敦、香港、澳门、深圳、重庆.</p>
-            </div>
-        </div>
-        <div class="section" id="sec5">
-            <div id="sec5-content" class="content-source">
-                <p>我喜欢小动物, (或许)是福瑞控, 有一个<a href="/torrent">后启示录风格的世界观设定</a>, 在尝试画画, 3D建模, 做游戏... 平时ACGN都接触不深, 并且大多是北极圈,
-                    我是<a href="/《猫武士》">《猫武士》</a>冬青叶厨子, <a href="/《来自深渊》">《来自深渊》</a>、<a href="/《罗小黑战记》">《罗小黑战记》</a>、<a
-                        href="/《大理寺日志》">《大理寺日志》</a>都让我印象深刻. <br />游戏的话我主要玩单机, 时间随缘, 我玩<a href="/《极乐迪斯科》">《极乐迪斯科》</a>、<a
-                        href="/《光与影：33号远征队》">《光与影：33号远征队》</a>、<a href="/《塞尔达传说：王国之泪》">《塞尔达传说：王国之泪》</a>、<a
-                        href="/《丝之歌》">《丝之歌》</a>(我真幸运）、<a href="/《undertale》">《undertale》</a>、<a
-                        href="/《ori》">《ori》</a>...</p>
-            </div>
-        </div>
-        <div class="section" id="sec6">
-            <div id="sec6-content" class="content-source">
-                <p align="center">
-                    『保持热爱，奔赴山海』<br>
-                    『心有猛虎，细嗅蔷薇』<br>
-                    『凡是过往，皆为序章』<br>
-                    『让风将我吹回所来之处』<br>
-                    『永远年轻，永远热泪盈眶』<br>
-                    『向青草更青处漫溯』<br>
-                    『每一个单纯而直接的当下，都带着淡淡的喜悦』<br>
-                    <br>
-                    感谢陪伴
-                </p>
-            </div>
-        </div>
-        <div class="section" id="sec7">
-            <div id="sec7-content" class="content-source">
-                <p align="center">
-                <h2>保留迷惘的权利</h2>
-                <h3>The Right to Wander is Reserved</h3>
-                </p>
-            </div>
-        </div>
+        </section>
 
-        <!-- 【新增】第八幕：位置不变，只变文字 -->
-        <div class="section" id="sec8">
-            <div id="sec8-content" class="content-source">
-                <p>
-                <h2>contact me</h2>
-                <ul>
-                    <li>邮箱 <a href="mailto:sun_don@foxmail.com">sun_don@foxmail.com</a></li>
-                </ul>
-                <div style="margin-top:20px; font-size: 0.9em;">
-                    <a href="#" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;"
-                        style="color:#00d2ff;">重新开始</a>
+        <section class="chapter" id="intro" data-group="intro" data-frame="1" data-theme="clear">
+            <div class="story-copy right">
+                <span class="kicker">Intro</span>
+                <h2><span class="reveal-line">引子</span></h2>
+                <p><span class="reveal-line"><a href="/采薇/">采薇</a> 是我自设的名字。我现在在读 <a href="/数学/">数学</a> 系本科，对各种理论都感兴趣，非常
+                        open-minded，欢迎交流讨论。</span></p>
+                <p class="en"><span class="reveal-line"><a href="/采薇/">采薇</a> is the name I use for my original persona.
+                        I am currently an undergraduate student in <a href="/数学/">Mathematics</a>, interested in many
+                        kinds of theories, very open-minded, and always happy to communicate and discuss.</span></p>
+            </div>
+        </section>
+
+        <section class="chapter" id="inquiry" data-group="about" data-frame="2" data-theme="inquiry">
+            <div class="story-copy right">
+                <span class="kicker">Inquiry</span>
+                <h2><span class="reveal-line">求知</span></h2>
+                <p><span class="reveal-line">我喜欢学习新知识和新技术，涉猎广泛（<s>极端杂食</s>）。</span></p>
+                <p><span class="reveal-line">我对 <a href="/代数/">代数</a> 更感兴趣，现在的方向是 <a href="/代数组合/">代数组合</a>，同时对 <a
+                            href="/理论计算机科学/">理论计算机科学</a> 有所了解，希望能从理论上发展 <a
+                            href="/formalized%20mathematics/">形式化数学</a>。</span></p>
+                <p><span class="reveal-line">写过一系列效率方面的程序，欢迎关注我的 <a href="https://github.com/shun-dong" target="_blank"
+                            rel="noopener">GitHub 账号</a>。</span></p>
+                <p class="en"><span class="reveal-line">I enjoy learning new knowledge and new technologies, and my
+                        interests are very broad. I am especially interested in <a href="/代数/">Algebra</a>, and my
+                        current direction is <a href="/代数组合/">Algebraic Combinatorics</a>. I also have some
+                        understanding of <a href="/理论计算机科学/">Theoretical Computer Science</a>, and hope to develop <a
+                            href="/formalized%20mathematics/">formalized mathematics</a> from a theoretical
+                        perspective.</span></p>
+            </div>
+        </section>
+
+        <section class="chapter" id="humanities" data-group="about" data-frame="3" data-theme="humanities">
+            <div class="story-copy right">
+                <span class="kicker">Humanities</span>
+                <h2><span class="reveal-line">人文</span></h2>
+                <p><span class="reveal-line">我有很多人文社科和艺术方面的思考，会不时在 <a
+                            href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=Mzk2NDUwMzM3Ng%3D%3D"
+                            target="_blank" rel="noopener">公众号</a> 上写文章。我也自学过不少这方面的知识，主要关注的哲学流派有 <a
+                            href="/后存在主义/">存在主义</a>、<a href="/分析哲学/">分析哲学</a>、<a href="/斯多葛主义/">斯多葛主义</a>。</span></p>
+                <p><span class="reveal-line">我还热爱读书，正在读《我身上有个不可战胜的夏天》、<em>On the Road</em>、《金阁寺》。最近欣赏了 <a
+                            href="/《挽救计划》/">《挽救计划》</a>、<a href="/《红与黑》/">摇滚红与黑</a>、<a href="/《黑客帝国》/">《黑客帝国》</a>、<a
+                            href="/《禅与摩托车维修艺术》/">《禅与摩托车维修艺术》</a>、<a href="/《爱欲之死》/">《爱欲之死》</a>、<a
+                            href="/《撒哈拉的故事》/">《撒哈拉的故事》</a>、<a href="/《悉达多》/">《悉达多》</a>、<a
+                            href="/《达摩流浪者》/">《达摩流浪者》</a>。</span></p>
+                <p class="en"><span class="reveal-line">I have many thoughts on the humanities, social sciences, and
+                        arts. The philosophical traditions I mainly follow include <a href="/后存在主义/">Existentialism</a>,
+                        <a href="/分析哲学/">Analytic Philosophy</a>, and <a href="/斯多葛主义/">Stoicism</a>. Recently, I
+                        enjoyed Project Hail Mary, Le rouge et le noir - L'Opera Rock, The Matrix, Zen and the Art of
+                        Motorcycle Maintenance, The Agony of Eros, Stories of the Sahara, Siddhartha, and The Dharma
+                        Bums.</span></p>
+            </div>
+        </section>
+
+        <section class="chapter" id="travel" data-group="about" data-frame="4" data-theme="travel">
+            <div class="story-copy right">
+                <span class="kicker">Travel</span>
+                <h2><span class="reveal-line">行旅</span></h2>
+                <p><span class="reveal-line">我喜欢旅行和户外活动，经常去登山、徒步、骑自行车，也玩 <a
+                            href="/飞盘/">飞盘</a>（非常菜）……我现在每周都会出去转转，最近去了广州、伦敦、<a href="/香港/">香港</a>、澳门、<a
+                            href="/深圳/">深圳</a>、<a href="/重庆/">重庆</a>。</span></p>
+                <p class="en"><span class="reveal-line">I enjoy traveling and outdoor activities. I often go
+                        mountaineering, hiking, cycling, and play <a href="/飞盘/">frisbee</a> (very much a beginner). I
+                        now go out almost every week, and have recently visited Guangzhou, London, <a href="/香港/">Hong
+                            Kong</a>, Macao, <a href="/深圳/">Shenzhen</a>, and <a href="/重庆/">Chongqing</a>.</span></p>
+            </div>
+        </section>
+
+        <section class="chapter" id="play" data-group="about" data-frame="5" data-theme="play">
+            <div class="story-copy right">
+                <span class="kicker">Play</span>
+                <h2><span class="reveal-line">游艺</span></h2>
+                <p><span class="reveal-line">我喜欢小动物，（或许）是福瑞控，有一个 <a href="/torrent/">后启示录风格的世界观设定</a>。平时 ACGN
+                        都接触不深，并且大多是北极圈。我是 <a href="/《猫武士》/">《猫武士》</a> 冬青叶厨子，还比较喜欢 <a href="/《来自深渊》/">《来自深渊》</a>、<a
+                            href="/《罗小黑战记》/">《罗小黑战记》</a>、<a href="/《大理寺日志》/">《大理寺日志》</a>。</span></p>
+                <p><span class="reveal-line">游戏的话我主要玩单机，时间随缘。我玩 <a href="/《极乐迪斯科》/">《极乐迪斯科》</a>、<a
+                            href="/《光与影：33号远征队》/">《光与影：33号远征队》</a>、<a href="/《塞尔达传说：王国之泪》/">《塞尔达传说：王国之泪》</a>、<a
+                            href="/《丝之歌》/">《丝之歌》</a>（我真幸运）、<a href="/《undertale》/">《Undertale》</a>、<a
+                            href="/《ori》/">《Ori》</a>……</span></p>
+                <p class="en"><span class="reveal-line">I love small animals, and am perhaps a furry fan. I also have a
+                        <a href="/torrent/">post-apocalyptic worldbuilding setting</a>. As for games, I mainly play
+                        single-player games whenever I have time: Disco Elysium, Clair Obscur: Expedition 33, Tears of
+                        the Kingdom, Hollow Knight: Silksong, Undertale, and Ori.</span></p>
+            </div>
+        </section>
+
+        <section class="chapter descent" id="descent" data-group="about" data-frame="6" data-theme="deep"
+            aria-hidden="true"></section>
+
+        <section class="chapter swimout" id="swimout" data-group="about" data-frame="7" data-theme="deep"
+            aria-hidden="true"></section>
+
+        <section class="chapter echoes" id="echoes" data-group="echoes" data-frame="6" data-theme="deep">
+            <div class="story-copy center">
+                <span class="kicker">Echoes</span>
+                <h2><span class="reveal-line">回响</span></h2>
+                <div class="echo-orbit" aria-label="回响句子">
+                    <span class="echo-item" style="--angle: 0deg; --radius: 360px; --delay: -1s;">『保持热爱，奔赴山海』</span>
+                    <span class="echo-item" style="--angle: 48deg; --radius: 320px; --delay: -3s;">『心有猛虎，细嗅蔷薇』</span>
+                    <span class="echo-item" style="--angle: 96deg; --radius: 350px; --delay: -5s;">『凡是过往，皆为序章』</span>
+                    <span class="echo-item" style="--angle: 148deg; --radius: 310px; --delay: -7s;">『让风将我吹回所来之处』</span>
+                    <span class="echo-item" style="--angle: 202deg; --radius: 350px; --delay: -2s;">『永远年轻，永远热泪盈眶』</span>
+                    <span class="echo-item" style="--angle: 250deg; --radius: 320px; --delay: -6s;">『向青草更青处漫溯』</span>
+                    <span class="echo-item" style="--angle: 300deg; --radius: 355px; --delay: -4s;">『存在先于本质』</span>
+                    <span class="echo-item"
+                        style="--angle: 332deg; --radius: 210px; --delay: -8s;">『习惯不确定性中安住的感觉』</span>
+                    <span class="echo-item en" style="--angle: 22deg; --radius: 210px; --delay: -9s;">What is past is
+                        prologue.</span>
+                    <span class="echo-item en" style="--angle: 178deg; --radius: 225px; --delay: -10s;">Thank you for
+                        being here.</span>
                 </div>
-                </p>
             </div>
-        </div>
-    </div>
+        </section>
 
-    <div class="text-box" id="liquid-box">
-        <h2>LOADING...</h2>
-    </div>
+        <section class="chapter slogan" id="slogan" data-group="echoes" data-frame="7" data-theme="abyss">
+            <div class="story-copy center">
+                <p class="slogan-text reveal-line">保留迷惘的权利</p>
+                <p class="slogan-en reveal-line">Reserve the Right to Wander</p>
+            </div>
+        </section>
+
+        <section class="chapter contact" id="contact" data-group="contact" data-frame="7" data-theme="abyss">
+            <div class="story-copy center">
+                <span class="kicker">Contact Me</span>
+                <h2><span class="reveal-line">联系我</span></h2>
+                <div class="contact-list">
+                    <a href="mailto:sun_don@foxmail.com"><span>Email</span><span>sun_don@foxmail.com</span></a>
+                    <a href="https://github.com/shun-dong" target="_blank"
+                        rel="noopener"><span>GitHub</span><span>shun-dong</span></a>
+                    <a href="https://www.zhihu.com/people/shadow-8-10" target="_blank"
+                        rel="noopener"><span>Zhihu</span><span>采薇</span></a>
+                    <a href="https://space.bilibili.com/400064266" target="_blank"
+                        rel="noopener"><span>bilibili</span><span>采薇Kaelvio</span></a>
+                    <a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=Mzk2NDUwMzM3Ng%3D%3D"
+                        target="_blank" rel="noopener"><span>WeChat</span><span>薇蓝拾光</span></a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <script>
         gsap.registerPlugin(ScrollTrigger);
-
-        // --- Liquid Glass (保持不变) ---
-        (function generateLiquidGlass() {
-            const boxWidth = 500; const boxHeight = 300;
-            const id = 'liquid-glass-' + Math.random().toString(36).substr(2, 9);
-            function smoothStep(a, b, t) { t = Math.max(0, Math.min(1, (t - a) / (b - a))); return t * t * (3 - 2 * t); }
-            function length(x, y) { return Math.sqrt(x * x + y * y); }
-            function roundedRectSDF(x, y, width, height, radius) {
-                const qx = Math.abs(x) - width + radius;
-                const qy = Math.abs(y) - height + radius;
-                return Math.min(Math.max(qx, qy), 0) + length(Math.max(qx, 0), Math.max(qy, 0)) - radius;
-            }
-            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-            svg.style.position = 'absolute'; svg.style.width = '0'; svg.style.height = '0';
-            const filter = document.createElementNS('http://www.w3.org/2000/svg', 'filter');
-            filter.setAttribute('id', id); filter.setAttribute('x', '-50%'); filter.setAttribute('y', '-50%');
-            filter.setAttribute('width', '200%'); filter.setAttribute('height', '200%'); filter.setAttribute('color-interpolation-filters', 'sRGB');
-            const feImage = document.createElementNS('http://www.w3.org/2000/svg', 'feImage'); feImage.setAttribute('result', 'displacementMap');
-            const feDisplacementMap = document.createElementNS('http://www.w3.org/2000/svg', 'feDisplacementMap');
-            feDisplacementMap.setAttribute('in', 'SourceGraphic'); feDisplacementMap.setAttribute('in2', 'displacementMap');
-            feDisplacementMap.setAttribute('scale', '25'); feDisplacementMap.setAttribute('xChannelSelector', 'R'); feDisplacementMap.setAttribute('yChannelSelector', 'G');
-            filter.appendChild(feImage); filter.appendChild(feDisplacementMap); svg.appendChild(filter); document.body.appendChild(svg);
-            const canvas = document.createElement('canvas'); canvas.width = boxWidth; canvas.height = boxHeight;
-            const ctx = canvas.getContext('2d'); const imageData = ctx.createImageData(boxWidth, boxHeight); const data = imageData.data;
-            for (let i = 0; i < data.length; i += 4) {
-                const px = (i / 4) % boxWidth; const py = Math.floor((i / 4) / boxWidth);
-                const aspectRatio = boxHeight / boxWidth;
-                const uvX = px / boxWidth - 0.5; const uvY = (py / boxHeight - 0.5) * aspectRatio;
-                const dist = roundedRectSDF(uvX, uvY, 0.45, 0.45 * aspectRatio, 0.08);
-                const displacement = smoothStep(0.1, 0.0, dist + 0.02);
-                data[i] = ((uvX * displacement) * 0.5 + 0.5) * 255; data[i + 1] = ((uvY / aspectRatio * displacement) * 0.5 + 0.5) * 255; data[i + 2] = 0; data[i + 3] = 255;
-            }
-            ctx.putImageData(imageData, 0, 0); feImage.setAttributeNS('http://www.w3.org/1999/xlink', 'href', canvas.toDataURL());
-            const target = document.getElementById('liquid-box'); if (target) target.style.filter = `url(#${id})`;
-        })();
-
-        // --- 动画逻辑 ---
 
         const pathData = [
             "M 909.73 1616.97 C 682.87 1604.78 607.62 1374.19 634.96 1105.36 C 780.86 1216.98 832.46 1303.25 839.15 1357.55 C 834.9 1323.01 845.31 1320.47 842.26 1302.95 C 839.21 1285.43 920.99 1413.43 924.04 1447.97 C 927.09 1482.51 929.12 1231.84 942.26 1159.27 C 955.4 1086.7 946.26 1004.41 980.55 930.13 C 1030.26 870.7 1072.55 882.13 1079.41 835.84 C 1044.36 851.08 1033.51 836.28 1018.84 847.78 C 1022.21 831.91 1012.49 825.37 1017.7 814.19 C 1005.33 829.97 1000.3 824.35 993.95 831.46 C 997 820.92 987.09 802.76 992.68 791.71 C 929.19 821.3 926.39 861.81 899.6 895.58 C 883.6 866.25 893.89 859.33 893.63 833.1 C 872.3 857.93 856.55 842.43 848.68 855.64 C 849.31 804.85 871.79 765.1 889.06 754.43 C 868.49 742.75 852.74 738.94 835.73 744.78 C 862.14 689.41 928.43 679 963.48 669.61 C 840.56 594.18 792.69 342.31 772.11 336.02 C 794.59 301.35 773.06 153.54 1055.35 357.73 C 1054.27 344.78 1070.91 339.19 1068.24 334.36 C 1086.14 337.79 1085.13 346.42 1099.99 348.71 C 1117.26 332.08 1112.43 327.5 1117.39 309.47 C 1150.79 308.84 1177.01 317.91 1193.77 307.44 C 1210.53 296.96 1316.44 145.66 1379.87 142.81 C 1443.3 139.96 1492.44 395.95 1467.87 510.24 C 1481.39 526.62 1479.74 552.02 1492.7 557.73 C 1477.78 573.16 1480.83 577.03 1476.07 586.36 C 1518.67 634.74 1496.39 674.23 1491.05 693.53 C 1516.45 724.51 1516.95 729.34 1528.89 732.39 C 1543.37 756.52 1542.1 804.26 1506.79 810.61 C 1529.9 817.98 1507.04 871.31 1364.31 853.53 C 1283.55 861.66 1264.25 845.66 1264.25 845.66 L 1249.77 872.58 C 1249.77 872.58 1310.72 855.5 1398.34 949.98 C 1485.96 1044.46 1467.67 1061.98 1475.29 1082.55 C 1482.91 1113.03 1493.04 1139.79 1495.32 1176.36 C 1497.61 1212.93 1512.45 1295.13 1513.21 1331.7 C 1513.97 1368.27 1525.57 1455.12 1525.57 1480.26 C 1525.57 1505.4 1521.76 1590.98 1521.76 1590.98 C 1533.14 1675.12 1560.57 1743.69 1421.14 1863.69 C 1434.85 2001.98 1605.14 1989.4 1445.14 2080.83 C 1268 2029.4 1269.14 1982.54 1303.43 1916.26 C 1223.43 1876.26 1209.72 1857.97 1094.29 1896.83 C 1103.43 2000.83 1207.43 2017.97 1040.58 2059.12 C 916.01 2003.12 914.87 1929.98 975.44 1844.26 C 909.15 1800.83 910.3 1840.83 854.3 1808.83 C 865.64 1792.4 875.11 1770.62 882.85 1747.19 C 885.99 1737.67 888.85 1727.88 891.42 1718.07 C 901.03 1681.47 906.79 1644.56 909.16 1620.26",
@@ -411,122 +842,602 @@
             // 镜头7 (请替换)
         ];
 
-        const winW = window.innerWidth;
-
-        // 【修改】扩展位置数组到 8 个
-        // 最后一个位置 (index 7) 和 index 6 保持一致 (0.60 * winW)
-        const xPositionsPx = [
-            -1.00 * winW, -0.65 * winW, -0.30 * winW,
-            0.15 * winW, 0.70 * winW, 0.70 * winW,
-            0.60 * winW, 0.60 * winW
-        ];
-
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const chapters = Array.from(document.querySelectorAll('.chapter'));
+        const root = document.documentElement;
         const mainLine = document.querySelector('.main-line');
         const ghostPoolContainer = document.getElementById('ghost-pool');
-        for (let i = 0; i < 90; i++) {
-            const p = document.createElementNS("http://www.w3.org/2000/svg", "path");
-            p.setAttribute("class", "morph-line ghost-line");
-            ghostPoolContainer.appendChild(p);
-        }
-        const ghostPool = Array.from(document.querySelectorAll('.ghost-line'));
+        const starCanvas = document.getElementById('starfield');
+        const starCtx = starCanvas.getContext('2d');
+        const leviathanCanvas = document.getElementById('leviathan-field');
+        const leviathanCtx = leviathanCanvas.getContext('2d');
+        const ghostCount = 10;
+        const ghostCycle = 0.072;
+        const ghostRise = 1220;
+        const ghostOpacity = 0.56;
+        const ghostPool = [];
+        let normalizedPaths = [];
+        let currentProgress = 0;
+        let canvasWidth = 0;
+        let canvasHeight = 0;
+        let dpr = 1;
+        let leviathanLimbTargets = [];
+        const winW = () => window.innerWidth;
 
-        const seaContainer = document.querySelector('.sea-container');
-        const wavePath = "M -900,50 Q -800,20 -700,50 T -600, 50 T -500, 50 T -400, 50 T -300,50 T -200,50 T -100,50 T 100,50 T 300,50 T 600,50 T 900,50 T 1300,50 T 1700,50 T 2100,50";
+        const stars = Array.from({ length: 190 }, (_, i) => {
+            const seed = Math.sin(i * 917.13) * 10000;
+            const rand = seed - Math.floor(seed);
+            const angle = (i * 2.399963 + rand * 0.36) % (Math.PI * 2);
+            const radius = 42 + Math.pow((i % 97) / 96, 1.42) * 980 + rand * 90;
+            return {
+                angle,
+                radius,
+                size: 0.45 + (i % 5) * 0.18 + rand * 0.6,
+                glow: 0.32 + rand * 0.68,
+                spin: i % 2 === 0 ? 1 : -1,
+                twinkle: 0.7 + rand * 1.9,
+                phase: rand * Math.PI * 2
+            };
+        });
+
+        const framePositions = () => [
+            -0.09 * winW(), -0.08 * winW(), -0.08 * winW(),
+            -0.08 * winW(), -0.08 * winW(), -0.34 * winW(),
+            -0.86 * winW(), -2.46 * winW()
+        ];
+
+        const motionSteps = () => chapters.map((chapter, index) => {
+            const rawFrame = Number(chapter.dataset.frame || 0);
+            return {
+                progress: chapters.length === 1 ? 0 : index / (chapters.length - 1),
+                frame: clamp(rawFrame, 0, pathData.length - 1),
+                x: xFromFrame(rawFrame),
+                about: chapter.dataset.group === 'about'
+            };
+        });
+
+        for (let i = 0; i < ghostCount; i++) {
+            const p = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+            p.setAttribute('class', 'morph-line ghost-line');
+            ghostPoolContainer.appendChild(p);
+            ghostPool.push(p);
+        }
+
+        const wavePath = 'M -900,50 Q -800,20 -700,50 T -600,50 T -500,50 T -400,50 T -300,50 T -200,50 T -100,50 T 100,50 T 300,50 T 600,50 T 900,50 T 1300,50 T 1700,50 T 2100,50';
         const seaLayers = document.querySelectorAll('.sea-container path');
         gsap.set(seaLayers, { attr: { d: wavePath } });
-        gsap.set(".layer-1", { x: -300, opacity: 0.5 });
-        gsap.set(".layer-2", { x: -150, opacity: 0.6 });
-        gsap.set(".layer-3", { x: 0, opacity: 1 });
+        gsap.set('.layer-1', { x: -300, opacity: 0.48 });
+        gsap.set('.layer-2', { x: -150, opacity: 0.58 });
+        gsap.set('.layer-3', { x: 0, opacity: 0.9 });
 
         function fitSvgToPath() {
             gsap.set(mainLine, { attr: { d: pathData[0] } });
             const svg = document.querySelector('.canvas-container svg');
             const bbox = mainLine.getBBox();
-            const padding = 100;
+            const padding = 150;
             svg.setAttribute('viewBox', `${bbox.x - padding} ${bbox.y - padding} ${bbox.width + padding * 2} ${bbox.height + padding * 2}`);
-            gsap.set([mainLine, ...ghostPool], { transformOrigin: "center center" });
-            gsap.set(mainLine, { x: xPositionsPx[0] });
+            gsap.set([mainLine, ...ghostPool], { transformOrigin: 'center center' });
         }
-        fitSvgToPath();
 
-        let activeGhosts = []; let ghostIndex = 0; let lastSpawnProgress = 0; let spawnCounter = 0;
-        function updateGhosts(self) {
-            const currentProgress = self.progress; const direction = self.direction; const spawnThreshold = 0.01;
-            if (direction === 1) {
-                if (currentProgress > lastSpawnProgress + spawnThreshold) {
-                    const ghostEl = ghostPool[ghostIndex]; spawnCounter++; ghostEl.dataset.spawnId = spawnCounter;
-                    const currentD = mainLine.getAttribute('d'); const currentX = gsap.getProperty(mainLine, "x");
-                    gsap.killTweensOf(ghostEl);
-                    gsap.set(ghostEl, { attr: { d: currentD }, x: currentX, y: 0, opacity: 0.5, scale: 1 });
-                    activeGhosts.push({ element: ghostEl, spawnProgress: currentProgress, id: spawnCounter });
-                    ghostIndex = (ghostIndex + 1) % ghostPool.length; lastSpawnProgress = currentProgress;
+        function clamp(value, min, max) {
+            return Math.max(min, Math.min(max, value));
+        }
+
+        function xFromFrame(frame) {
+            const positions = framePositions();
+            return positions[clamp(frame, 0, positions.length - 1)] || 0;
+        }
+
+        function chapterProgress(id) {
+            const index = chapters.findIndex((chapter) => chapter.id === id);
+            return index < 0 || chapters.length <= 1 ? 0 : index / (chapters.length - 1);
+        }
+
+        function resizeVisualCanvases() {
+            dpr = Math.min(window.devicePixelRatio || 1, 2);
+            canvasWidth = window.innerWidth;
+            canvasHeight = window.innerHeight;
+            [starCanvas, leviathanCanvas].forEach((canvas) => {
+                canvas.width = Math.floor(canvasWidth * dpr);
+                canvas.height = Math.floor(canvasHeight * dpr);
+                canvas.style.width = `${canvasWidth}px`;
+                canvas.style.height = `${canvasHeight}px`;
+            });
+            starCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+            leviathanCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        }
+
+        function drawStarfield(progress, time) {
+            const ctx = starCtx;
+            const w = canvasWidth;
+            const h = canvasHeight;
+            const travelStart = chapterProgress('travel');
+            const playStart = chapterProgress('play');
+            const fadeOut = 1 - clamp((progress - travelStart) / Math.max(0.0001, playStart - travelStart), 0, 1);
+            const centerX = w * (0.54 - progress * 0.1);
+            const centerY = h * (0.32 + progress * 0.06);
+            const orbitStart = chapterProgress('hero');
+            const orbitEnd = orbitStart + Math.max(0.035, chapterProgress('intro') * 0.55);
+            const orbit = reducedMotion ? 0.42 : clamp((progress - orbitStart) / Math.max(0.0001, orbitEnd - orbitStart), 0, 1);
+            const trail = orbit * orbit;
+            const baseRotation = progress * Math.PI * 5.2;
+            const twinkleStrength = reducedMotion ? 0 : fadeOut * (1 - clamp(orbit * 1.2, 0, 1));
+
+            ctx.clearRect(0, 0, w, h);
+            if (fadeOut <= 0.01) return;
+            ctx.save();
+            ctx.globalCompositeOperation = 'lighter';
+            stars.forEach((star) => {
+                const radius = star.radius * Math.max(w, h) / 1300;
+                const angle = star.angle + baseRotation * star.spin * trail;
+                const x = centerX + Math.cos(angle) * radius;
+                const y = centerY + Math.sin(angle) * radius * 0.62;
+                if (x < -80 || x > w + 80 || y < -80 || y > h + 80) return;
+
+                const twinkle = 1 + Math.sin(time * 0.0018 * star.twinkle + star.phase) * 0.42 * twinkleStrength;
+                const alpha = (0.1 + star.glow * 0.26) * fadeOut * twinkle;
+                if (trail > 0.06) {
+                    const arc = trail * (0.34 + star.glow * 0.38);
+                    ctx.beginPath();
+                    ctx.ellipse(centerX, centerY, radius, radius * 0.62, 0, angle - arc * star.spin, angle);
+                    ctx.strokeStyle = `rgba(142, 232, 255, ${alpha * trail * 0.72})`;
+                    ctx.lineWidth = Math.max(0.6, star.size * (0.85 + trail * 0.9));
+                    ctx.stroke();
                 }
-            } else { lastSpawnProgress = currentProgress; }
-            const scrollSpeedFactor = -5000; const fadeDistance = 0.08;
-            activeGhosts = activeGhosts.filter((ghostObj) => {
-                if (parseInt(ghostObj.element.dataset.spawnId) !== ghostObj.id) return false;
-                const delta = currentProgress - ghostObj.spawnProgress;
-                if (delta < 0) { gsap.set(ghostObj.element, { opacity: 0 }); return false; }
-                const newY = delta * scrollSpeedFactor; const opacity = 0.3 * (1 - delta / fadeDistance);
-                if (opacity <= 0) { gsap.set(ghostObj.element, { opacity: 0 }); return false; }
-                gsap.set(ghostObj.element, { y: newY, opacity: opacity }); return true;
+
+                ctx.beginPath();
+                ctx.fillStyle = `rgba(246, 252, 255, ${alpha + 0.08 * fadeOut})`;
+                ctx.arc(x, y, star.size * (1 + 0.18 * twinkleStrength * (twinkle - 1)), 0, Math.PI * 2);
+                ctx.fill();
+            });
+            ctx.restore();
+        }
+
+        function leviathanPoint(t, offset = 0) {
+            const raw = clamp(t - offset, -0.75, 1.18);
+            const tt = clamp(raw, 0, 1);
+            const ease = tt * tt * (3 - 2 * tt);
+            if (raw < 0) {
+                return {
+                    x: canvasWidth * (-0.2 + raw * 0.88),
+                    y: canvasHeight * (0.88 - raw * 0.06)
+                };
+            }
+            const x = canvasWidth * (-0.2 + 1.46 * ease);
+            const y = canvasHeight * (0.88 - 0.72 * ease + 0.045 * Math.sin(tt * Math.PI * 1.25) + 0.025 * Math.sin(tt * Math.PI * 3.4));
+            return { x, y };
+        }
+
+        function drawLeviathan(progress) {
+            const ctx = leviathanCtx;
+            const w = canvasWidth;
+            const h = canvasHeight;
+            const start = chapterProgress('swimout');
+            const end = chapterProgress('slogan');
+            const travel = reducedMotion ? 0.62 : clamp((progress - start) / Math.max(0.0001, end - start), 0, 1);
+            const fadeIn = clamp(travel / 0.18, 0, 1);
+            const fadeOut = 1 - clamp((travel - 0.78) / 0.22, 0, 1);
+            const alpha = fadeIn * fadeOut;
+
+            ctx.clearRect(0, 0, w, h);
+            root.style.setProperty('--leviathan-opacity', (alpha * 0.9).toFixed(3));
+            if (alpha <= 0.01) return;
+
+            const count = 68;
+            const bodyWidthAt = (i) => {
+                if (i < 3) return [46, 49, 44][i];
+                if (i < 8) return 28 + (i - 3) * 1.8;
+                if (i < 38) return 36 - (i - 8) * 0.34;
+                return Math.max(4.2, 25 - (i - 38) * 0.72);
+            };
+            const points = [];
+            for (let i = 0; i < count; i++) {
+                const segmentOffset = i * 0.0105;
+                const p = leviathanPoint(travel, segmentOffset);
+                const wave = Math.sin(progress * 82 + i * 0.36) * 10 * (1 - i / count);
+                const prev = leviathanPoint(travel, segmentOffset + 0.01);
+                const dx = p.x - prev.x;
+                const dy = p.y - prev.y;
+                const length = Math.hypot(dx, dy) || 1;
+                points.push({
+                    x: p.x + (-dy / length) * wave,
+                    y: p.y + (dx / length) * wave,
+                    width: bodyWidthAt(i) * Math.min(w, h) / 760
+                });
+            }
+
+            ctx.save();
+            const leviathanScale = 5;
+            ctx.translate(w * 0.48, h * 0.54);
+            ctx.scale(leviathanScale, leviathanScale);
+            ctx.translate(-w * 0.48, -h * 0.54);
+            ctx.globalCompositeOperation = 'lighter';
+            ctx.shadowBlur = 30;
+            ctx.shadowColor = `rgba(95, 232, 255, ${0.35 * alpha})`;
+
+            const tangent = (i) => {
+                const prev = points[Math.max(0, i - 1)];
+                const next = points[Math.min(points.length - 1, i + 1)];
+                const dx = next.x - prev.x;
+                const dy = next.y - prev.y;
+                const length = Math.hypot(dx, dy) || 1;
+                return { dx: dx / length, dy: dy / length, nx: -dy / length, ny: dx / length };
+            };
+
+            const offsetPoint = (point, basis, side, along, out) => ({
+                x: point.x + basis.dx * along + basis.nx * side * out,
+                y: point.y + basis.dy * along + basis.ny * side * out
+            });
+
+            const smoothThrough = (line) => {
+                if (line.length < 2) return;
+                ctx.lineTo(line[0].x, line[0].y);
+                for (let i = 1; i < line.length - 1; i++) {
+                    const mid = {
+                        x: (line[i].x + line[i + 1].x) * 0.5,
+                        y: (line[i].y + line[i + 1].y) * 0.5
+                    };
+                    ctx.quadraticCurveTo(line[i].x, line[i].y, mid.x, mid.y);
+                }
+                ctx.lineTo(line[line.length - 1].x, line[line.length - 1].y);
+            };
+
+            const drawLimb = (limbIndex, bodyIndex, side, reach, thickness) => {
+                const base = points[bodyIndex];
+                const basis = tangent(bodyIndex);
+                const shoulder = offsetPoint(base, basis, side, -base.width * 0.25, base.width * 0.72);
+                const ideal = offsetPoint(base, basis, side, -reach * 0.58, base.width * 1.45 + reach * 0.28);
+                const currentTarget = leviathanLimbTargets[limbIndex];
+                const threshold = Math.max(42, reach * 1.28);
+                if (!currentTarget || Math.hypot(ideal.x - currentTarget.x, ideal.y - currentTarget.y) > threshold) {
+                    leviathanLimbTargets[limbIndex] = ideal;
+                }
+                const foot = leviathanLimbTargets[limbIndex];
+                const elbow = {
+                    x: shoulder.x * 0.52 + foot.x * 0.48 + basis.nx * side * reach * 0.36,
+                    y: shoulder.y * 0.52 + foot.y * 0.48 + basis.ny * side * reach * 0.36
+                };
+                ctx.beginPath();
+                ctx.moveTo(shoulder.x, shoulder.y);
+                ctx.bezierCurveTo(elbow.x, elbow.y, elbow.x, elbow.y, foot.x, foot.y);
+                ctx.strokeStyle = `rgba(238, 255, 255, ${0.24 * alpha})`;
+                ctx.lineWidth = thickness + 5;
+                ctx.lineCap = 'round';
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.moveTo(shoulder.x, shoulder.y);
+                ctx.bezierCurveTo(elbow.x, elbow.y, elbow.x, elbow.y, foot.x, foot.y);
+                ctx.strokeStyle = `rgba(86, 219, 255, ${0.46 * alpha})`;
+                ctx.lineWidth = thickness;
+                ctx.stroke();
+                ctx.beginPath();
+                ctx.arc(foot.x, foot.y, Math.max(3, thickness * 0.38), 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(245, 255, 255, ${0.24 * alpha})`;
+                ctx.fill();
+            };
+
+            drawLimb(0, 10, 1, 46, 11);
+            drawLimb(1, 10, -1, 46, 11);
+            drawLimb(2, 24, 1, 40, 10);
+            drawLimb(3, 24, -1, 40, 10);
+
+            const right = [];
+            const left = [];
+            for (let i = 0; i < points.length; i++) {
+                const basis = tangent(i);
+                right.push(offsetPoint(points[i], basis, 1, 0, points[i].width));
+                left.push(offsetPoint(points[i], basis, -1, 0, points[i].width));
+            }
+
+            const bodyGradient = ctx.createLinearGradient(w * 0.15, h * 0.2, w * 0.88, h * 0.72);
+            bodyGradient.addColorStop(0, `rgba(158, 252, 255, ${0.24 * alpha})`);
+            bodyGradient.addColorStop(0.45, `rgba(85, 205, 255, ${0.19 * alpha})`);
+            bodyGradient.addColorStop(1, `rgba(255, 162, 222, ${0.08 * alpha})`);
+
+            const head = points[0];
+            const headBasis = tangent(0);
+            const tail = points[points.length - 1];
+            const tailBasis = tangent(points.length - 1);
+            const headShell = [
+                { along: -1.5, radius: 0.12 },
+                { along: -1.36, radius: 0.42 },
+                { along: -1.12, radius: 0.58 },
+                { along: -0.86, radius: 0.68 },
+                { along: -0.58, radius: 0.88 },
+                { along: -0.34, radius: 1.06 },
+                { along: -0.12, radius: 1.18 },
+                { along: 0.26, radius: 1.26 },
+                { along: 0.62, radius: 1.22 },
+                { along: 0.94, radius: 1.02 },
+                { along: 1.18, radius: 0.72 }
+            ].map((node) => ({
+                center: offsetPoint(head, headBasis, 0, head.width * node.along, 0),
+                width: head.width * node.radius
+            }));
+            const headRight = headShell.map((node, index) => {
+                const prev = headShell[Math.max(0, index - 1)].center;
+                const next = headShell[Math.min(headShell.length - 1, index + 1)].center;
+                const dx = next.x - prev.x;
+                const dy = next.y - prev.y;
+                const len = Math.hypot(dx, dy) || 1;
+                return { x: node.center.x + (-dy / len) * node.width, y: node.center.y + (dx / len) * node.width };
+            });
+            const headLeft = headShell.map((node, index) => {
+                const prev = headShell[Math.max(0, index - 1)].center;
+                const next = headShell[Math.min(headShell.length - 1, index + 1)].center;
+                const dx = next.x - prev.x;
+                const dy = next.y - prev.y;
+                const len = Math.hypot(dx, dy) || 1;
+                return { x: node.center.x - (-dy / len) * node.width, y: node.center.y - (dx / len) * node.width };
+            });
+            const bodyStart = 10;
+            const tailTip = offsetPoint(tail, tailBasis, 0, tail.width * 1.15, 0);
+            const leftSide = left.slice(bodyStart).reverse();
+
+            ctx.beginPath();
+            ctx.moveTo(headRight[0].x, headRight[0].y);
+            smoothThrough(headRight.slice(1));
+            ctx.quadraticCurveTo(right[bodyStart - 2].x, right[bodyStart - 2].y, right[bodyStart].x, right[bodyStart].y);
+            smoothThrough(right.slice(bodyStart + 1));
+            ctx.quadraticCurveTo(tailTip.x, tailTip.y, leftSide[0].x, leftSide[0].y);
+            smoothThrough(leftSide.slice(1));
+            ctx.quadraticCurveTo(left[bodyStart - 2].x, left[bodyStart - 2].y, headLeft[headLeft.length - 1].x, headLeft[headLeft.length - 1].y);
+            smoothThrough(headLeft.slice(0, -1).reverse());
+            ctx.closePath();
+            ctx.fillStyle = bodyGradient;
+            ctx.fill();
+            ctx.strokeStyle = `rgba(176, 252, 255, ${0.46 * alpha})`;
+            ctx.lineWidth = 1.6;
+            ctx.stroke();
+
+            ctx.beginPath();
+            points.forEach((point, i) => i ? ctx.lineTo(point.x, point.y) : ctx.moveTo(point.x, point.y));
+            ctx.strokeStyle = `rgba(235, 254, 255, ${0.34 * alpha})`;
+            ctx.lineWidth = 2.2;
+            ctx.stroke();
+
+            [-1, 1].forEach((side) => {
+                const hornBase = offsetPoint(head, headBasis, side, head.width * 0.02, head.width * 0.72);
+                const hornTip = offsetPoint(head, headBasis, side, head.width * 0.92, head.width * 1.08);
+                const hornMid = offsetPoint(head, headBasis, side, head.width * 0.48, head.width * 1.24);
+                ctx.beginPath();
+                ctx.moveTo(hornBase.x, hornBase.y);
+                ctx.quadraticCurveTo(hornMid.x, hornMid.y, hornTip.x, hornTip.y);
+                ctx.strokeStyle = `rgba(246, 255, 255, ${0.58 * alpha})`;
+                ctx.lineWidth = 3.7;
+                ctx.lineCap = 'round';
+                ctx.stroke();
+            });
+
+            [-1, 1].forEach((side) => {
+                const eye = offsetPoint(head, headBasis, side, -head.width * 0.18, head.width * 0.42);
+                ctx.beginPath();
+                ctx.arc(eye.x, eye.y, Math.max(2.8, head.width * 0.08), 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(255, 255, 255, ${0.78 * alpha})`;
+                ctx.fill();
+                ctx.beginPath();
+                ctx.arc(eye.x, eye.y, Math.max(1.2, head.width * 0.035), 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(42, 255, 245, ${0.9 * alpha})`;
+                ctx.fill();
+            });
+
+            for (let i = 4; i < points.length - 4; i += 4) {
+                const point = points[i];
+                ctx.beginPath();
+                ctx.arc(point.x, point.y, Math.max(1.2, point.width * 0.1), 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(243, 255, 255, ${0.18 * alpha})`;
+                ctx.fill();
+            }
+            ctx.restore();
+        }
+
+        function renderVisuals(time = 0) {
+            drawStarfield(currentProgress, time);
+            drawLeviathan(currentProgress, time);
+            requestAnimationFrame(renderVisuals);
+        }
+
+        function progressMeta(progress) {
+            const steps = motionSteps();
+            const p = clamp(progress, 0, 1);
+            let from = steps[0];
+            let to = steps[steps.length - 1];
+            for (let i = 0; i < steps.length - 1; i++) {
+                if (p >= steps[i].progress && p <= steps[i + 1].progress) {
+                    from = steps[i];
+                    to = steps[i + 1];
+                    break;
+                }
+            }
+            const span = Math.max(0.0001, to.progress - from.progress);
+            const local = clamp((p - from.progress) / span, 0, 1);
+            return {
+                frame: to.frame,
+                fromFrame: from.frame,
+                toFrame: to.frame,
+                d: interpolatePath(from.frame, to.frame, local),
+                x: from.x + (to.x - from.x) * local,
+                about: from.about || to.about
+            };
+        }
+
+        function parsePathToCubics(pathString) {
+            const tokens = pathString.match(/[A-Za-z]|-?\d+(?:\.\d+)?/g) || [];
+            const cubics = [];
+            let cursor = { x: 0, y: 0 };
+            let start = { x: 0, y: 0 };
+            for (let i = 0; i < tokens.length;) {
+                const command = tokens[i++];
+                if (command === 'M') {
+                    cursor = { x: Number(tokens[i++]), y: Number(tokens[i++]) };
+                    start = { ...cursor };
+                } else if (command === 'L') {
+                    const end = { x: Number(tokens[i++]), y: Number(tokens[i++]) };
+                    cubics.push([
+                        cursor.x + (end.x - cursor.x) / 3,
+                        cursor.y + (end.y - cursor.y) / 3,
+                        cursor.x + (end.x - cursor.x) * 2 / 3,
+                        cursor.y + (end.y - cursor.y) * 2 / 3,
+                        end.x,
+                        end.y
+                    ]);
+                    cursor = end;
+                } else if (command === 'C') {
+                    const cubic = tokens.slice(i, i + 6).map(Number);
+                    cubics.push(cubic);
+                    cursor = { x: cubic[4], y: cubic[5] };
+                    i += 6;
+                }
+            }
+            return { start, cubics };
+        }
+
+        function appendStationaryCubic(path) {
+            const last = path.cubics[path.cubics.length - 1];
+            const x = last ? last[4] : path.start.x;
+            const y = last ? last[5] : path.start.y;
+            path.cubics.push([x, y, x, y, x, y]);
+        }
+
+        function rebuildNormalizedPaths() {
+            normalizedPaths = pathData.map(parsePathToCubics);
+            normalizedPaths.forEach((path) => {
+                if (path.cubics.length === 48) appendStationaryCubic(path);
+            });
+            const maxSegments = Math.max(...normalizedPaths.map((path) => path.cubics.length));
+            normalizedPaths.forEach((path, index) => {
+                while (path.cubics.length < maxSegments) {
+                    appendStationaryCubic(path);
+                    console.warn(`pathData frame ${index} was shorter than ${maxSegments}; padded with stationary C`);
+                }
             });
         }
 
-        const tl = gsap.timeline({
-            scrollTrigger: { trigger: ".scroll-content", start: "top top", end: "bottom bottom", scrub: 0.5, onUpdate: updateGhosts }
+        function interpolatePath(fromFrame, toFrame, local) {
+            const from = normalizedPaths[fromFrame] || normalizedPaths[0];
+            const to = normalizedPaths[toFrame] || from;
+            if (!from || !to) return pathData[toFrame] || pathData[0];
+            const amount = clamp(local, 0, 1);
+            const startX = from.start.x + (to.start.x - from.start.x) * amount;
+            const startY = from.start.y + (to.start.y - from.start.y) * amount;
+            const length = Math.min(from.cubics.length, to.cubics.length);
+            let d = `M ${startX.toFixed(2)} ${startY.toFixed(2)}`;
+            for (let i = 0; i < length; i++) {
+                const values = from.cubics[i].map((value, j) => value + (to.cubics[i][j] - value) * amount);
+                d += ` C ${values.map((value) => value.toFixed(2)).join(' ')}`;
+            }
+            return d;
+        }
+
+        function updateGhosts(progress) {
+            if (reducedMotion) return;
+            ghostPool.forEach((ghost, i) => {
+                const shifted = progress - i * ghostCycle / ghostCount;
+                const life = ((shifted / ghostCycle) % 1 + 1) % 1;
+                const ghostProgress = clamp(progress - life * ghostCycle, 0, 1);
+                const motion = progressMeta(ghostProgress);
+                const y = -life * ghostRise;
+                const opacity = motion.about ? Math.max(0, ghostOpacity * (1 - life)) : 0;
+                const hue = 188 + life * 18;
+                gsap.set(ghost, {
+                    attr: { d: motion.d },
+                    x: motion.x,
+                    y,
+                    opacity,
+                    scale: 1 + life * 0.02,
+                    stroke: `hsla(${hue}, 100%, ${70 + life * 12}%, ${opacity})`
+                });
+            });
+        }
+
+        function updateScene(progress) {
+            currentProgress = clamp(progress, 0, 1);
+            root.style.setProperty('--progress', progress.toFixed(4));
+            const motion = progressMeta(currentProgress);
+            gsap.set(mainLine, { attr: { d: motion.d }, x: motion.x });
+            const current = chapters.reduce((best, chapter, index) => {
+                const rect = chapter.getBoundingClientRect();
+                const score = Math.abs(rect.top + rect.height * 0.42 - window.innerHeight * 0.5);
+                return score < best.score ? { index, chapter, score } : best;
+            }, { index: 0, chapter: chapters[0], score: Infinity });
+
+            updateGhosts(progress);
+
+            const group = current.chapter.dataset.group;
+            document.querySelectorAll('.nav-group').forEach((el) => el.classList.toggle('is-open', el.dataset.group === 'about' && group === 'about'));
+            document.querySelectorAll('.nav-main, .nav-sub a').forEach((el) => {
+                const target = el.dataset.target;
+                const isMain = el.classList.contains('nav-main');
+                el.classList.toggle('is-active', target === current.chapter.id || (isMain && target === 'inquiry' && group === 'about'));
+            });
+
+            const deep = current.chapter.dataset.theme === 'deep' || current.chapter.dataset.theme === 'abyss';
+            const surface = current.index < 2;
+            const about = group === 'about';
+            const lineVisible = about || current.chapter.id === 'intro';
+            document.body.style.setProperty('--sea-opacity', (surface || deep) ? '0.82' : '0.16');
+            document.body.style.setProperty('--sea-y', deep ? '-118vh' : (surface ? '16vh' : '24vh'));
+            document.body.style.setProperty('--line-opacity', lineVisible ? '0.82' : '0');
+            document.body.style.setProperty('--line-y', lineVisible ? '7vh' : '11vh');
+            document.body.style.setProperty('--line-scale', lineVisible ? '0.92' : '0.86');
+            root.style.setProperty('--star-opacity', '0.64');
+        }
+
+        resizeVisualCanvases();
+        fitSvgToPath();
+        rebuildNormalizedPaths();
+        updateScene(0);
+        requestAnimationFrame(renderVisuals);
+
+        ScrollTrigger.create({
+            trigger: '#story',
+            start: 'top top',
+            end: 'bottom bottom',
+            scrub: reducedMotion ? false : 0.55,
+            onUpdate: (self) => updateScene(self.progress)
         });
 
-        const textBox = document.querySelector("#liquid-box");
-        textBox.innerHTML = document.getElementById('sec1-content').innerHTML;
-        gsap.set(textBox, { opacity: 1 });
+        gsap.utils.toArray('.chapter').forEach((chapter) => {
+            const lines = chapter.querySelectorAll('.reveal-line');
+            gsap.to(lines, {
+                opacity: 1,
+                y: 0,
+                filter: 'blur(0px)',
+                stagger: 0.075,
+                duration: reducedMotion ? 0 : 0.7,
+                ease: 'power2.out',
+                scrollTrigger: {
+                    trigger: chapter,
+                    start: 'top 62%',
+                    end: 'top 28%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        });
 
-        // 【修改】预读取 HTML 增加到 8
-        const sectionsHTML = [];
-        for (let i = 1; i <= 8; i++) {
-            const el = document.getElementById(`sec${i}-content`);
-            sectionsHTML.push(el ? el.innerHTML : "");
-        }
+        const totalDuration = 10;
+        gsap.to('.layer-1', { x: '+=600', ease: 'none', duration: totalDuration, repeat: -1 });
+        gsap.to('.layer-2', { x: '+=900', ease: 'none', duration: totalDuration * 1.2, repeat: -1 });
+        gsap.to('.layer-3', { x: '+=1200', ease: 'none', duration: totalDuration * 1.4, repeat: -1 });
 
-        // 循环构建时间轴
-        for (let i = 0; i < pathData.length - 1; i++) {
-            const label = `scene${i + 1}`;
-            const nextIndex = i + 1;
-            const currentIndex = i;
+        document.querySelectorAll('[data-target]').forEach((el) => {
+            el.addEventListener('click', (event) => {
+                const target = document.getElementById(el.dataset.target);
+                if (target) {
+                    event.preventDefault();
+                    target.scrollIntoView({ behavior: reducedMotion ? 'auto' : 'smooth', block: 'start' });
+                }
+            });
+        });
 
-            let sceneDuration = 20;
-            if (nextIndex === 5 || nextIndex === 6) sceneDuration = 35;
-            // 第8幕保持默认时长，或者你也可以在这里加 if (nextIndex === 7) sceneDuration = 30;
-
-            tl.to(mainLine, {
-                attr: { d: pathData[nextIndex] },
-                x: xPositionsPx[nextIndex],
-                duration: sceneDuration,
-                ease: "power1.inOut"
-            }, label);
-
-            if (nextIndex === 5) {
-                tl.to(".sea-container", { y: "-100vh", duration: sceneDuration, ease: "power2.inOut" }, label);
-                tl.to("body", { backgroundColor: "#000208", duration: sceneDuration, ease: "power1.inOut" }, label);
-            }
-
-            const fadeOutDuration = sceneDuration * 0.15;
-            const fadeInDuration = sceneDuration * 0.15;
-            const switchTime = fadeOutDuration + 0.1;
-            const fadeInStartTime = sceneDuration * 0.5;
-
-            tl.to(textBox, { opacity: 0, duration: fadeOutDuration, ease: "power1.out" }, label);
-            tl.call(() => { textBox.innerHTML = sectionsHTML[currentIndex]; }, null, `${label}+=${switchTime - 0.05}`);
-            tl.call(() => { textBox.innerHTML = sectionsHTML[nextIndex]; }, null, `${label}+=${switchTime + 0.05}`);
-            tl.to(textBox, { opacity: 1, duration: fadeInDuration, ease: "power1.in" }, `${label}+=${fadeInStartTime}`);
-        }
-
-        const totalTime = tl.duration();
-        tl.to(".layer-1", { x: "+=600", ease: "none", duration: totalTime }, 0);
-        tl.to(".layer-2", { x: "+=900", ease: "none", duration: totalTime }, 0);
-        tl.to(".layer-3", { x: "+=1200", ease: "none", duration: totalTime }, 0);
-        window.addEventListener('resize', () => location.reload());
-
+        window.addEventListener('resize', () => {
+            resizeVisualCanvases();
+            leviathanLimbTargets = [];
+            fitSvgToPath();
+            rebuildNormalizedPaths();
+            ScrollTrigger.refresh();
+            updateScene(currentProgress);
+        });
     </script>
 </body>
 
