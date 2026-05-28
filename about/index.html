@@ -104,7 +104,7 @@
             gap: 24px;
             color: rgba(246, 251, 255, 0.76);
             font-family: var(--sans);
-            font-size: 12px;
+            font-size: 14px;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             mix-blend-mode: screen;
@@ -113,14 +113,14 @@
         .brand-link {
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             color: var(--ink);
             text-shadow: 0 0 18px rgba(127, 245, 255, 0.38);
         }
 
         .brand-link::before {
-            width: 7px;
-            height: 7px;
+            width: 9px;
+            height: 9px;
             border-radius: 50%;
             background: var(--cyan);
             box-shadow: 0 0 16px var(--cyan);
@@ -129,12 +129,12 @@
 
         .nav-groups {
             display: grid;
-            grid-template-columns: repeat(4, minmax(52px, 1fr));
+            grid-template-columns: repeat(4, minmax(62px, 1fr));
             justify-content: flex-end;
-            gap: 18px;
+            gap: 22px;
             align-items: flex-start;
             text-align: right;
-            width: min(420px, 44vw);
+            width: min(500px, 48vw);
         }
 
         .nav-group {
@@ -352,6 +352,10 @@
             text-shadow: 0 0 18px rgba(127, 245, 255, 0.54);
         }
 
+        .kicker.reveal-line {
+            display: inline-flex;
+        }
+
         .kicker::before {
             width: 42px;
             height: 1px;
@@ -379,6 +383,16 @@
             font-size: clamp(54px, 9.4vw, 132px);
             line-height: 0.92;
             text-shadow: 0 0 30px rgba(127, 245, 255, 0.32), 0 0 86px rgba(81, 133, 255, 0.24);
+        }
+
+        .hero-script {
+            font-family: "Snell Roundhand", "Bodoni 72", "Didot", "Lucida Handwriting", "Brush Script MT", cursive;
+            font-style: italic;
+            font-weight: 300;
+            letter-spacing: 0.04em;
+            margin-top: 0.16em;
+            transform: translateY(0.08em);
+            opacity: 0.92;
         }
 
         h2 {
@@ -441,6 +455,10 @@
             font-size: 12px;
             letter-spacing: 0.18em;
             text-transform: uppercase;
+        }
+
+        .hero-kicker {
+            margin-top: 30px;
         }
 
         .echo-orbit {
@@ -625,7 +643,7 @@
     <canvas class="leviathan-field" id="leviathan-field" aria-hidden="true"></canvas>
 
     <nav class="site-nav" aria-label="页面导航">
-        <a class="brand-link" href="/">Kaelvio</a>
+        <a class="brand-link" href="/">Blog</a>
         <div class="nav-groups">
             <div class="nav-group" data-group="intro"><button class="nav-main" data-target="intro">Intro</button></div>
             <div class="nav-group" data-group="about">
@@ -672,17 +690,15 @@
     <main class="story" id="story">
         <section class="chapter hero" id="hero" data-group="intro" data-frame="0" data-theme="surface">
             <div class="story-copy left">
-                <span class="kicker">Start the experience</span>
-                <h1><span class="reveal-line">采薇</span><span class="reveal-line">Kaelvio</span></h1>
-                <p class="subtitle reveal-line">关于我 About Me</p>
-                <p class="hero-mark reveal-line">edge / neon / overlap / flow</p>
+                <h1><span class="reveal-line">采薇</span><span class="reveal-line hero-script">Kaelvio</span></h1>
+                <span class="kicker hero-kicker reveal-line">Start the experience</span>
             </div>
         </section>
 
         <section class="chapter" id="intro" data-group="intro" data-frame="1" data-theme="clear">
             <div class="story-copy right">
-                <span class="kicker">Intro</span>
                 <h2><span class="reveal-line">引子</span></h2>
+                <span class="kicker">Intro</span>
                 <p><span class="reveal-line"><a href="/采薇/">采薇</a> 是我自设的名字。我现在在读 <a href="/数学/">数学</a> 系本科，对各种理论都感兴趣，非常
                         open-minded，欢迎交流讨论。</span></p>
                 <p class="en"><span class="reveal-line"><a href="/采薇/">采薇</a> is the name I use for my original persona.
@@ -693,8 +709,8 @@
 
         <section class="chapter" id="inquiry" data-group="about" data-frame="2" data-theme="inquiry">
             <div class="story-copy right">
-                <span class="kicker">Inquiry</span>
                 <h2><span class="reveal-line">求知</span></h2>
+                <span class="kicker">Inquiry</span>
                 <p><span class="reveal-line">我喜欢学习新知识和新技术，涉猎广泛（<s>极端杂食</s>）。</span></p>
                 <p><span class="reveal-line">我对 <a href="/代数/">代数</a> 更感兴趣，现在的方向是 <a href="/代数组合/">代数组合</a>，同时对 <a
                             href="/理论计算机科学/">理论计算机科学</a> 有所了解，希望能从理论上发展 <a
@@ -712,8 +728,8 @@
 
         <section class="chapter" id="humanities" data-group="about" data-frame="3" data-theme="humanities">
             <div class="story-copy right">
-                <span class="kicker">Humanities</span>
                 <h2><span class="reveal-line">人文</span></h2>
+                <span class="kicker">Humanities</span>
                 <p><span class="reveal-line">我有很多人文社科和艺术方面的思考，会不时在 <a
                             href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=Mzk2NDUwMzM3Ng%3D%3D"
                             target="_blank" rel="noopener">公众号</a> 上写文章。我也自学过不少这方面的知识，主要关注的哲学流派有 <a
@@ -734,8 +750,8 @@
 
         <section class="chapter" id="travel" data-group="about" data-frame="4" data-theme="travel">
             <div class="story-copy right">
-                <span class="kicker">Travel</span>
                 <h2><span class="reveal-line">行旅</span></h2>
+                <span class="kicker">Travel</span>
                 <p><span class="reveal-line">我喜欢旅行和户外活动，经常去登山、徒步、骑自行车，也玩 <a
                             href="/飞盘/">飞盘</a>（非常菜）……我现在每周都会出去转转，最近去了广州、伦敦、<a href="/香港/">香港</a>、澳门、<a
                             href="/深圳/">深圳</a>、<a href="/重庆/">重庆</a>。</span></p>
@@ -748,8 +764,8 @@
 
         <section class="chapter" id="play" data-group="about" data-frame="5" data-theme="play">
             <div class="story-copy right">
-                <span class="kicker">Play</span>
                 <h2><span class="reveal-line">游艺</span></h2>
+                <span class="kicker">Play</span>
                 <p><span class="reveal-line">我喜欢小动物，（或许）是福瑞控，有一个 <a href="/torrent/">后启示录风格的世界观设定</a>。平时 ACGN
                         都接触不深，并且大多是北极圈。我是 <a href="/《猫武士》/">《猫武士》</a> 冬青叶厨子，还比较喜欢 <a href="/《来自深渊》/">《来自深渊》</a>、<a
                             href="/《罗小黑战记》/">《罗小黑战记》</a>、<a href="/《大理寺日志》/">《大理寺日志》</a>。</span></p>
@@ -772,8 +788,8 @@
 
         <section class="chapter echoes" id="echoes" data-group="echoes" data-frame="6" data-theme="deep">
             <div class="story-copy center">
-                <span class="kicker">Echoes</span>
                 <h2><span class="reveal-line">回响</span></h2>
+                <span class="kicker">Echoes</span>
                 <div class="echo-orbit" aria-label="回响句子">
                     <span class="echo-item" style="--angle: 0deg; --radius: 360px; --delay: -1s;">『保持热爱，奔赴山海』</span>
                     <span class="echo-item" style="--angle: 48deg; --radius: 320px; --delay: -3s;">『心有猛虎，细嗅蔷薇』</span>
@@ -801,18 +817,18 @@
 
         <section class="chapter contact" id="contact" data-group="contact" data-frame="7" data-theme="abyss">
             <div class="story-copy center">
-                <span class="kicker">Contact Me</span>
                 <h2><span class="reveal-line">联系我</span></h2>
+                <span class="kicker">Contact Me</span>
                 <div class="contact-list">
-                    <a href="mailto:sun_don@foxmail.com"><span>Email</span><span>sun_don@foxmail.com</span></a>
+                    <a href="mailto:sun_don@foxmail.com"><span>邮箱 Email</span><span>sun_don@foxmail.com</span></a>
                     <a href="https://github.com/shun-dong" target="_blank"
                         rel="noopener"><span>GitHub</span><span>shun-dong</span></a>
-                    <a href="https://www.zhihu.com/people/shadow-8-10" target="_blank"
-                        rel="noopener"><span>Zhihu</span><span>采薇</span></a>
+                    <a href="https://www.zhihu.com/people/shadow-8-10" target="_blank" rel="noopener"><span>知乎
+                            Zhihu</span><span>采薇</span></a>
                     <a href="https://space.bilibili.com/400064266" target="_blank"
                         rel="noopener"><span>bilibili</span><span>采薇Kaelvio</span></a>
                     <a href="https://mp.weixin.qq.com/mp/profile_ext?action=home&amp;__biz=Mzk2NDUwMzM3Ng%3D%3D"
-                        target="_blank" rel="noopener"><span>WeChat</span><span>薇蓝拾光</span></a>
+                        target="_blank" rel="noopener"><span>公众号 WeChat</span><span>薇蓝拾光</span></a>
                 </div>
             </div>
         </section>
@@ -975,7 +991,8 @@
                 if (x < -80 || x > w + 80 || y < -80 || y > h + 80) return;
 
                 const twinkle = 1 + Math.sin(time * 0.0018 * star.twinkle + star.phase) * 0.42 * twinkleStrength;
-                const alpha = (0.1 + star.glow * 0.26) * fadeOut * twinkle;
+                const initialGlow = 0.2 * twinkleStrength;
+                const alpha = (0.1 + star.glow * 0.26 + initialGlow) * fadeOut * twinkle;
                 if (trail > 0.06) {
                     const arc = trail * (0.34 + star.glow * 0.38);
                     ctx.beginPath();
@@ -986,7 +1003,7 @@
                 }
 
                 ctx.beginPath();
-                ctx.fillStyle = `rgba(246, 252, 255, ${alpha + 0.08 * fadeOut})`;
+                ctx.fillStyle = `rgba(246, 252, 255, ${alpha + (0.08 + initialGlow) * fadeOut})`;
                 ctx.arc(x, y, star.size * (1 + 0.18 * twinkleStrength * (twinkle - 1)), 0, Math.PI * 2);
                 ctx.fill();
             });
