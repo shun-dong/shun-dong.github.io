@@ -4,6 +4,19 @@
   
   
   <entry>
+    <title>artwork</title>
+    <link href="/artwork/"/>
+    <url>/artwork/</url>
+    
+    <content type="html"><![CDATA[<h2 id="2026-05"><a href="#2026-05" class="headerlink" title="2026.05"></a>2026.05</h2><p><img src="/images/xiaoxin.png"><br>反光反映周围色, 明暗交界处可以描红</p><p><img src="/images/kaelvio.jpg"><br>[[Flow&#x2F;采薇]]<br>反光, 亮度低于亮部, 采用滤色叠加模式, 用硬的笔刷涂, 需要模糊的边界用涂抹工具</p><p>闭塞, 在光影阶段涂</p><h2 id="2026-02"><a href="#2026-02" class="headerlink" title="2026.02"></a>2026.02</h2><p><img src="/images/pony.jpg"><br>小马(～￣▽￣)～</p><h2 id="2026-01"><a href="#2026-01" class="headerlink" title="2026.01"></a>2026.01</h2><p><img src="/images/2026.png"><br>反光反映环境色, 包括天光</p><h2 id="2025-11"><a href="#2025-11" class="headerlink" title="2025.11"></a>2025.11</h2><p><img src="/images/crown.png"><br>阴影边缘适当柔软, 气笔修饰</p><hr><p>see more in [[artwork+]]</p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>琉璃</title>
     <link href="/%E7%90%89%E7%92%83/"/>
     <url>/%E7%90%89%E7%92%83/</url>
@@ -1150,19 +1163,6 @@
     <url>/torrent_gameplay/</url>
     
     <content type="html"><![CDATA[<h2 id="战斗"><a href="#战斗" class="headerlink" title="战斗"></a>战斗</h2><p>体力值<br> 精神值</p><h3 id="近战"><a href="#近战" class="headerlink" title="近战"></a>近战</h3><p>**气(flow&#x2F;架势)**：战斗节奏资源，0层时人物暗淡</p><ul><li>获取：轻击命中、成功弹反</li><li>消耗：重击、冲刺</li><li>脱战后缓慢恢复</li></ul><p>轻击：快速攻击，可弹反，下批<br> 轻击命中敌人获得少量气，成功弹反获得一层气<br> ~<a href="%E8%94%9A%E8%93%9D">蔚蓝</a>:无气的时候人物为剪影<br> 重击：消耗一层气，范围较广，可弹反，冲刺后衔接<br> 切手技，跳跃衔接，格挡<br> 武器在于附加效果与手感（独特数值，范围）不同</p><h3 id="动作"><a href="#动作" class="headerlink" title="动作"></a>动作</h3><p>接近纯动物<br> 咬:相当于多一只手，增加手持物上限<br> 俯身:降低高度,加速,加强版可飞扑强化普攻<br> 扫尾:大范围<br> 鹰眼：看见隐藏<br> 爪：螳螂跳,爬墙</p><h3 id="法术"><a href="#法术" class="headerlink" title="法术"></a>法术</h3><p>类似克苏鲁的设定<br> 消耗精神值，不同精神值有不同的效果</p><h3 id="本能（装备）"><a href="#本能（装备）" class="headerlink" title="本能（装备）"></a>本能（装备）</h3><p>回响装备<br> 求生者本能</p><ul><li>使用业，会暂时消耗游离业(×)，一段时间后重新聚集</li><li>固定业(⊗)：高于初始阈值并成功存档后才能固定</li><li>游离业(×)：循环开始时的初始游离业</li><li>死亡时原地留下(当前值-阈值)的业掉落物</li></ul><p>存在者本能</p><ul><li>自由使用业，在求生者本能的基础上可以消耗游离业的上限</li></ul><p>~?归一心缘石 打加强版的梦境boss增强</p><h2 id="地图"><a href="#地图" class="headerlink" title="地图"></a>地图</h2><p>整体成椭圆，左右互通，暗示曾经是3维<br> 越往下越抽象，类似精神世界<br> 与现实的地球对应</p><h2 id="交互"><a href="#交互" class="headerlink" title="交互"></a>交互</h2><p>流动</p><p>？流程类<a href="%E3%80%8A%E9%9B%A8%E4%B8%96%E7%95%8C%E3%80%8B.md">《雨世界》</a><br> ？打击类<a href="%E3%80%8A%E7%A9%BA%E6%B4%9E%E9%AA%91%E5%A3%AB%E3%80%8B">《空洞骑士》</a><br> 触碰-主世界与末端，做成小彩蛋或小世界，类似空洞骑士和幻影猫中的小章节，可以考虑加入随机肉鸽元素</p><ul><li>物品</li><li>书本</li><li>人物</li><li>处境(自发与不由自主)(星图)</li><li>梦</li></ul><h3 id="NPC"><a href="#NPC" class="headerlink" title="NPC"></a>NPC</h3><p>？孤独<br> 对话</p><ul><li>输入<ul><li>？语言相似性检查</li><li>包含推荐选项</li><li>隐藏项<br> ‘共鸣’</li></ul></li><li>星图(类社交软件)</li></ul><p>？ai辅助</p><h2 id="美术"><a href="#美术" class="headerlink" title="美术"></a>美术</h2><p>采用类似 饥荒, 咩咩启示录的2.5d视角</p><p>~gris <a href="%E3%80%8A%E7%A9%BA%E6%B4%9E%E9%AA%91%E5%A3%AB%E3%80%8B">《空洞骑士》</a><br> ~兽圈meme<br> <a href="%E9%A3%8E%E6%A0%BC%E5%8C%96%E5%8A%A8%E7%94%BB">风格化动画</a>：拉丝镂空，碎片粒子<br> 风格化流体&#x2F;粒子(点)流体+插画渲染?贝塞尔<br> 【风格化火焰-哔哩哔哩】 <a href="https://b23.tv/E5f98iZ">https://b23.tv/E5f98iZ</a><br> 【火焰燃烧【2D特效分析】-哔哩哔哩】 <a href="https://b23.tv/pj3aP5B">https://b23.tv/pj3aP5B</a><br> 【火焰循环【2D特效分析】-哔哩哔哩】 <a href="https://b23.tv/DOKwioR">https://b23.tv/DOKwioR</a></p><p>？？低多边形&#x2F;基于此+多边形 的程序动画</p><p>留白<br> 霓虹：范光光晕，明暗对比</p><p>？<a href="%E7%A8%8B%E5%BA%8F%E5%8A%A8%E7%94%BB">程序动画</a><a href="%E3%80%8A%E9%9B%A8%E4%B8%96%E7%95%8C%E3%80%8B.md">《雨世界》</a><br> 【一种简单的程序化动画技术-哔哩哔哩】 【[argonaut][中字]一种简单的程序动画技术】 <a href="https://www.bilibili.com/video/BV1si4oefExA/?share_source=copy_web&vd_source=55f83207e6b9bcb77f93e22aac3e082a">https://www.bilibili.com/video/BV1si4oefExA/?share_source=copy_web&amp;vd_source=55f83207e6b9bcb77f93e22aac3e082a</a></p><h3 id="UI"><a href="#UI" class="headerlink" title="UI"></a>UI</h3><p>毛玻璃<br> 可选：</p><ul><li>禅</li><li>经典</li><li>表现</li></ul><p>仿照二游的立绘~<a href="%E3%80%8A%E6%98%8E%E6%97%A5%E6%96%B9%E8%88%9F%E3%80%8B">《明日方舟》</a>、<a href="%E3%80%8A%E9%87%8D%E8%BF%94%E6%9C%AA%E6%9D%A51999%E3%80%8B">《重返未来1999》</a></p><h2 id="音乐"><a href="#音乐" class="headerlink" title="音乐"></a>音乐</h2><p>疯感<br> 宿命感<br> 忧郁<br> 后摇<br> 致幻<br> 【［寅哲的年终总结］作品回顾+读评论-哔哩哔哩】 <a href="https://b23.tv/n8uuy7J">https://b23.tv/n8uuy7J</a></p><h2 id="社区谜题"><a href="#社区谜题" class="headerlink" title="社区谜题"></a>社区谜题</h2><h2 id="chill"><a href="#chill" class="headerlink" title="chill"></a>chill</h2><p>可以玩furry的梗但不要玩烂梗<br> 招笑npc<br> meme<br> 乐子人</p>]]></content>
-    
-    
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>artwork</title>
-    <link href="/artwork/"/>
-    <url>/artwork/</url>
-    
-    <content type="html"><![CDATA[<h2 id="2025-11"><a href="#2025-11" class="headerlink" title="2025.11"></a>2025.11</h2><p><img src="/images/crown.png"><br>阴影边缘适当柔软, 气笔修饰</p><h2 id="2026-01"><a href="#2026-01" class="headerlink" title="2026.01"></a>2026.01</h2><p><img src="/images/2026.png"><br>反光反映环境色, 包括天光</p><h2 id="2026-02"><a href="#2026-02" class="headerlink" title="2026.02"></a>2026.02</h2><p><img src="/images/pony.jpg"><br>小马(～￣▽￣)～</p><h2 id="2026-05"><a href="#2026-05" class="headerlink" title="2026.05"></a>2026.05</h2><p><img src="/images/xiaoxin.png"><br>反光反映周围色, 明暗交界处可以描红</p><p><img src="/images/kaelvio.jpg"><br>[[Flow&#x2F;采薇]]<br>反光, 亮度低于亮部, 采用滤色叠加模式, 用硬的笔刷涂, 需要模糊的边界用涂抹工具</p><p>闭塞, 在光影阶段涂</p><hr><p>see more in [[artwork+]]</p>]]></content>
     
     
     
