@@ -13,8 +13,14 @@
             --muted: rgba(230, 242, 255, 0.72);
             --cyan: #7ff5ff;
             --deep: #040914;
-            --serif: "Source Han Serif SC", "Source Han Serif CN", "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", "Songti TC", "SimSun", "PMingLiU", serif;
+            --serif: "Songti SC", "STSong", "Songti TC", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "YuMincho", "Yu Mincho", "Source Han Serif SC", "Source Han Serif CN", "Noto Serif SC", "Noto Serif CJK SC", "SimSun", "PMingLiU", serif;
             --sans: "Inter", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
+        }
+
+        @supports (-webkit-touch-callout: none) {
+            :root {
+                --serif: "Songti SC", "STSong", "Songti TC", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "YuMincho", "Yu Mincho", serif;
+            }
         }
 
         * {
