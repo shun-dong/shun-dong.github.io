@@ -13,7 +13,7 @@
             --muted: rgba(230, 242, 255, 0.72);
             --cyan: #7ff5ff;
             --deep: #040914;
-            --serif: "Source Han Serif SC", "Noto Serif CJK SC", "Songti SC", "SimSun", serif;
+            --serif: "Source Han Serif SC", "Source Han Serif CN", "Noto Serif SC", "Noto Serif CJK SC", "Songti SC", "STSong", "Songti TC", "SimSun", "PMingLiU", serif;
             --sans: "Inter", "Helvetica Neue", "PingFang SC", "Microsoft YaHei", sans-serif;
         }
 
@@ -209,13 +209,16 @@
             width: 58vw;
             height: 68vh;
             z-index: 3;
+            overflow: visible;
+            contain: none;
             pointer-events: none;
             opacity: var(--line-opacity, 0.76);
             transform: translateY(var(--line-y, 7vh)) scale(var(--line-scale, 0.9));
             transform-origin: left bottom;
         }
 
-        svg {
+        svg,
+        .canvas-container svg {
             width: 100%;
             height: 100%;
             overflow: visible;
@@ -593,9 +596,12 @@
             }
 
             .canvas-container {
-                height: 56vh;
+                left: -28vw;
+                width: 142vw;
+                height: 62vh;
+                overflow: visible;
                 opacity: var(--line-opacity, 0);
-                transform: translateY(9vh) scale(1.05);
+                transform: translateY(9vh) scale(0.78);
             }
 
             .story-copy,
