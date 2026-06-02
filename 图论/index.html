@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="基本定义   [!definition] 图$G &#x3D; (V, E)$，其中 $V$ 为顶点集（vertexm），$E$ 为边集（edge）。   [!definition] 图的分类    类型 边方向 允许多重边 允许环    简单图 无向 否 否   多重图 无向 是 否   伪图 无向 是 是   简单有向图 有向 否 否   有向多重图 有向 是 是   混合图 有向和无向的 是">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-05-23T00:42:58.374Z">
-<meta property="article:modified_time" content="2026-05-23T00:42:58.374Z">
+<meta property="article:published_time" content="2026-06-02T00:35:38.588Z">
+<meta property="article:modified_time" content="2026-06-02T00:35:38.589Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -222,8 +222,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-05-23 08:42" pubdate>
-          2026年5月23日 早上
+        <time datetime="2026-06-02 08:35" pubdate>
+          2026年6月2日 早上
         </time>
       </span>
     
@@ -283,6 +283,14 @@
         <div id="board">
           <article class="post-content mx-auto">
             <h1 id="seo-header">图论</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2026年6月2日 早上
+                  
+                
+              </p>
             
             
               <div class="markdown-body">
@@ -1062,7 +1070,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># define group</span><br>G = SymmetricGroup(<span class="hljs-number">3</span>)<br>elements = G.<span class="hljs-built_in">list</span>()<br>identity = G.identity()<br>order = <span class="hljs-built_in">len</span>(elements)<br><br><span class="hljs-keyword">for</span> n <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>^order):<br>	<span class="hljs-comment"># generating subset</span><br>	Omega = []<br>	<span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,n):<br>		<span class="hljs-keyword">if</span> n &amp; (<span class="hljs-number">2</span>^i):<br>			Omega.append(elements[i])<br>	<span class="hljs-keyword">if</span> G.subgroup(Omega).order() == order:<br>		cg = G.cayley\_graph(generators=Omega).to\_undirected()<br>		aut\_order = cg.automorphism\_group().order()<br>		<span class="hljs-built_in">print</span>(Omega, aut\_order)<br></code></pre></td></tr></table></figure>
 <p>(v2) check by hand<br>By listing all possible $\Omega$, we can find for every $\Omega$, there exists non-trivial $\pi:\operatorname{Aut}G$,s.t. $\operatorname{Im}\_\Omega\pi&#x3D;\Omega$. Therefore, $\operatorname{Aut}\Gamma$ is strictly larger than G.</p>
 <ul>
-<li><input disabled="" type="checkbox"> 小的GRR的例子？D7 #问老师  🔼 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">G = DihedralGroup(<span class="hljs-number">7</span>)<br>Omega = [<br>    G(<span class="hljs-string">&quot;(1,2,3,4,5,6,7)&quot;</span>),<br>    G(<span class="hljs-string">&quot;(2,7)(3,6)(4,5)&quot;</span>),<br>    G(<span class="hljs-string">&quot;(1,6)(2,5)(3,4)&quot;</span>),<br>    G(<span class="hljs-string">&quot;(1,5)(2,4)(6,7)&quot;</span>)<br>]<br>cg = G.cayley\_graph(generators=Omega).to\_undirected()<br></code></pre></td></tr></table></figure>
+<li><input checked="" disabled="" type="checkbox"> 小的GRR的例子？D7 #问老师 🔼 ✅ 2026-06-01<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs python">G = DihedralGroup(<span class="hljs-number">7</span>)<br>Omega = [<br>    G(<span class="hljs-string">&quot;(1,2,3,4,5,6,7)&quot;</span>),<br>    G(<span class="hljs-string">&quot;(2,7)(3,6)(4,5)&quot;</span>),<br>    G(<span class="hljs-string">&quot;(1,6)(2,5)(3,4)&quot;</span>),<br>    G(<span class="hljs-string">&quot;(1,5)(2,4)(6,7)&quot;</span>)<br>]<br>cg = G.cayley\_graph(generators=Omega).to\_undirected()<br></code></pre></td></tr></table></figure>
 ![[d7_cayley_plot_1.svg]]</li>
 </ul>
 <blockquote>
@@ -1462,9 +1470,14 @@ There exists at least 1 cubic 5-transitive graph $\Omega$.<br>$\tilde\Omega$ is 
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年5月23日</div>
+          <div>2026年6月2日</div>
         </div>
       
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2026年6月2日</div>
+        </div>
       
       
         <div class="license-meta-item">
@@ -1506,18 +1519,12 @@ There exists at least 1 cubic 5-transitive graph $\Omega$.<br>$\tilde\Omega$ is 
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E5%AD%98%E5%9C%A8%E4%B8%BB%E4%B9%89/" title="存在主义">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">存在主义</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/formalized_mathematics/" title="formalized_mathematics">
-                        <span class="hidden-mobile">formalized_mathematics</span>
+                      <a href="/artwork/" title="artwork">
+                        <span class="hidden-mobile">artwork</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
