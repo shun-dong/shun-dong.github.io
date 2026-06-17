@@ -21,21 +21,21 @@
   
     <meta name="description" content="仿射空间与射影空间仿射空间 $(\mathbb{A}:Set,V:Vect,\+\:V\to \operatorname{Aut}\mathbb{A})$ s.t. $T$ is simple transitive, $T_1&#x3D;1,T_vT_w&#x3D;T_{v+w}$For $PQ:\mathbb{A}$, $P-Q:&#x3D;\vec{QP}:&#x3D;v:Vs.t.~v+Q&amp;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="古典代数几何">
-<meta property="og:url" content="http://kaelvio.com/%E5%8F%A4%E5%85%B8%E4%BB%A3%E6%95%B0%E5%87%A0%E4%BD%95/index.html">
+<meta property="og:title" content="代数几何">
+<meta property="og:url" content="http://kaelvio.com/%E4%BB%A3%E6%95%B0%E5%87%A0%E4%BD%95/index.html">
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="仿射空间与射影空间仿射空间 $(\mathbb{A}:Set,V:Vect,\+\:V\to \operatorname{Aut}\mathbb{A})$ s.t. $T$ is simple transitive, $T_1&#x3D;1,T_vT_w&#x3D;T_{v+w}$For $PQ:\mathbb{A}$, $P-Q:&#x3D;\vec{QP}:&#x3D;v:Vs.t.~v+Q&amp;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260526193317.png">
-<meta property="article:published_time" content="2026-05-27T00:36:59.945Z">
-<meta property="article:modified_time" content="2026-05-27T00:36:59.945Z">
+<meta property="article:published_time" content="2026-06-17T00:20:20.406Z">
+<meta property="article:modified_time" content="2026-06-17T00:20:20.406Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://kaelvio.com/images/Pasted_image_20260526193317.png">
   
   
   
-  <title>古典代数几何 - 采薇的博客</title>
+  <title>代数几何 - 采薇的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -213,7 +213,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="古典代数几何"></span>
+            <span id="subtitle" data-typed-text="代数几何"></span>
           
         </div>
 
@@ -224,8 +224,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-05-27 08:36" pubdate>
-          2026年5月27日 早上
+        <time datetime="2026-06-17 08:20" pubdate>
+          2026年6月17日 早上
         </time>
       </span>
     
@@ -236,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.5k 字
+          2.7k 字
         
       </span>
     
@@ -247,7 +247,7 @@
         
         
         
-          21 分钟
+          23 分钟
         
       </span>
     
@@ -284,7 +284,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">古典代数几何</h1>
+            <h1 id="seo-header">代数几何</h1>
             
             
               <div class="markdown-body">
@@ -295,6 +295,20 @@
 <p>[!example] Riemann sphere<br>$\Sigma:&#x3D;\mathbb{P}^1_{\mathbb{C}}\simeq \mathbb{S}^2$ </p>
 </blockquote>
 <p>设$k[x_0, x_1, \dots, x_n]$是$n+1$元多项式环，若多项式$f$满足$f(tx_0, tx_1, \dots, tx_n) &#x3D; t^d f(x_0, \dots, x_n)$（$\forall t \in k^*$，$d \geq 0$为次数），则称$f$为<strong>d次齐次多项式</strong>。</p>
+<h2 id="层"><a href="#层" class="headerlink" title="层"></a>层</h2><blockquote>
+<p>[!definition] presheaf &amp; sheaf<br>For $X:\mathbf{Top},\mathcal{C}:\mathbf{Cat}$, $\mathcal{C}_X^{pre}:&#x3D;Open_X^{op}\to C$ is called the category of presheaves of  $\mathcal{C}$ of $X$, and $\mathscr{F}:\mathcal{C}^{pre}_X$ is called a presheaf of $\mathcal{C}$ of $X$.<br>Under the above assumptions, if $$<br>\bullet\to \mathscr{F}(U)\to\prod_i\mathscr{F}(U_i)\rightrightarrows\prod_{i~j} \mathscr{F}(U_i\cap U_j)<br>$$ is exact, then we call $\mathscr{F}$ a sheaf. The category of sheaves of $\mathcal{C}$ of $X$ is defined as a full subcategory of the category of presheaves of  $\mathcal{C}$ of $X$.</p>
+</blockquote>
+<blockquote>
+<p>[!definition] stalk<br>For $\mathscr{F}:\mathcal{C}^{pre}_X$, $p\in X$, the stalks at $p$ is defined as $\mathscr{F}_p:&#x3D;\underset{\longrightarrow}{\operatorname{lim}}{}_{U:Open_X,p\in U}\mathscr{F}(U)$. If $\mathcal{C}$ is a category of sets with some structure, $s:\mathscr{F}$ is called a section, and $s_p$ is defined as the image of $s$ in $\mathscr{F}_p$ and is called a germ.</p>
+</blockquote>
+<blockquote>
+<p>[!definition] space of sections a.k.a. espace étalé<br>Under the above assumptions, define $Et(\mathscr{F}):\mathbf{Top}$ as follows. $Set(Et(\mathscr{F})):&#x3D;\coprod_{p\in X}\mathscr{F}_p$, and $\left{ [s_p]_{p\in U}\mid U: Open_X,s\in \mathscr{F}(U) \right}$ is a basis of topology of $Et(\mathscr{F})$.</p>
+</blockquote>
+<blockquote>
+<p>[!definition] sheafification<br>The sheafification functor is the left-adjoint to the forgetful functor $U:\mathcal{C}_X\to \mathcal{C}^{pre}_X$ i.e. </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs tikz">\usepackage&#123;tikz-cd&#125;\begin&#123;document&#125;<br>\begin&#123;tikzcd&#125; \mathscr&#123;F&#125; \arrow[r, &quot;sh&quot;] \arrow[rd, &quot;f&quot;&#x27;] &amp; \mathscr&#123;F&#125;^&#123;sh&#125; \arrow[d, dashed, &quot;\tilde&#123;f&#125;&quot;] \\ &amp; \mathscr&#123;G&#125; <br>\end&#123;tikzcd&#125;\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+<p>commutes. The concrete construction is the selections of $\pi:\coprod_{p\in X}\mathscr{F}_p$.</p>
+</blockquote>
 <h2 id="代数簇"><a href="#代数簇" class="headerlink" title="代数簇"></a>代数簇</h2><blockquote>
 <p>[!definition] 代数簇(variety)<br>设$k[x_1, x_2, \dots, x_n]$是代数闭域$k$上的$n$元多项式环，$S \subseteq k[x_1, \dots, x_n]$是多项式(resp. 齐次多项式)集合。定义$S$在$n$维仿射空间$\mathbb{A}^n_k$(resp. $n$维射影空间$\mathbb{P}^n_k$)中的<strong>零点集</strong>： $$<br>V(S) &#x3D; { P \in \mathbb{A}^n_k (resp.\mathbb{P}^n_k)\mid f(P) &#x3D; 0 \quad \forall f \in S }<br>$$若$V(S)$满足“不可约性”（即无法表示为两个非空真子集$V_1, V_2$的并，其中$V_1, V_2$均为某多项式集合的零点集），则称$V(S)$为<strong>仿射代数簇</strong>（简称仿射簇）(resp. 射影代数簇)。</p>
 </blockquote>
@@ -506,8 +520,8 @@ test_monomials = [1, x, y, x^2, x*y, x^2*y]
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>古典代数几何</div>
-      <div>http://kaelvio.com/古典代数几何/</div>
+      <div>代数几何</div>
+      <div>http://kaelvio.com/代数几何/</div>
     </div>
     <div class="license-meta">
       
@@ -519,7 +533,7 @@ test_monomials = [1, x, y, x^2, x*y, x^2*y]
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年5月27日</div>
+          <div>2026年6月17日</div>
         </div>
       
       
@@ -563,18 +577,12 @@ test_monomials = [1, x, y, x^2, x*y, x^2*y]
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E7%90%89%E7%92%83/" title="琉璃">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">琉璃</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E6%B5%81/" title="流">
-                        <span class="hidden-mobile">流</span>
+                      <a href="/Sisyphus/" title="Sisyphus">
+                        <span class="hidden-mobile">Sisyphus</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -597,7 +605,7 @@ test_monomials = [1, x, y, x^2, x*y, x^2*y]
         var options = Object.assign(
           {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: '35b2404d2633e500c3672a0e6baffceb'
+            id: 'b2fe5ff4863cad368ccb46cd32f9964a'
           }
         )
         var gitalk = new Gitalk(options);
