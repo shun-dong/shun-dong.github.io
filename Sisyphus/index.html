@@ -27,8 +27,8 @@
 <meta property="og:description" content="理解 我们必须认为西西弗斯是幸福的.@[[加缪]]  灵感来自于 oh-my-opencode 有一个永远工作的主 agen t叫 Sisyphus, 但真正永远不能停下, 目前适合担任这个工作的反而是用户本身.[[AI]] 只是暂时地工作, 将用户留在时间长河. prompts engineering为通用目的训练的语言模型, 如果不给出范畴, 可能出现错位 context engineerin">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260301162326.png">
-<meta property="article:published_time" content="2026-06-17T00:20:20.384Z">
-<meta property="article:modified_time" content="2026-06-17T00:20:20.384Z">
+<meta property="article:published_time" content="2026-06-18T02:28:04.479Z">
+<meta property="article:modified_time" content="2026-06-18T02:28:04.479Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://kaelvio.com/images/Pasted_image_20260301162326.png">
@@ -224,8 +224,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-06-17 08:20" pubdate>
-          2026年6月17日 早上
+        <time datetime="2026-06-18 10:28" pubdate>
+          2026年6月18日 上午
         </time>
       </span>
     
@@ -247,7 +247,7 @@
         
         
         
-          20 分钟
+          21 分钟
         
       </span>
     
@@ -296,8 +296,10 @@
 <h1 id="prompts-engineering"><a href="#prompts-engineering" class="headerlink" title="prompts engineering"></a>prompts engineering</h1><p>为通用目的训练的语言模型, 如果不给出范畴, 可能出现错位</p>
 <h1 id="context-engineering"><a href="#context-engineering" class="headerlink" title="context engineering"></a>context engineering</h1><p>无论多强的模型在上下文过长时都会显著变笨</p>
 <p>在经过失败的尝试后总结经验并回到失败前的上下文<br>让助手在对话开头称呼用户名以检查上下文窗口是否爆炸</p>
-<h2 id="多轮返回拼接"><a href="#多轮返回拼接" class="headerlink" title="多轮返回拼接"></a>多轮返回拼接</h2><p>术语上我统一叫一次模型的输出为一轮返回<br>一个客户端输入和下次客户端输入前的模型输入叫一次对话</p>
-<p><a target="_blank" rel="noopener" href="https://api-docs.deepseek.com/zh-cn/guides/thinking_mode#%E5%A4%9A%E8%BD%AE%E5%AF%B9%E8%AF%9D%E6%8B%BC%E6%8E%A5">思考模式 | DeepSeek API Docs</a><br>初始输入包含工具列表和提示词<br>若不包含工具, 则后续输入不用拼接思考内容, 包含工具则需要<br>返回有三种类型, 思考, 回答和工具<br>若没有工具则结束本次对话, 有则客户端获取输入后再次输入</p>
+<h2 id="上下文拼接"><a href="#上下文拼接" class="headerlink" title="上下文拼接"></a>上下文拼接</h2><p>术语上我统一叫一次模型的输出为一次返回(response)<br>一个客户端输入和下次客户端输入前的模型输入叫一轮对话(turn)</p>
+<p><a target="_blank" rel="noopener" href="https://openai.com/zh-Hans-CN/index/unrolling-the-codex-agent-loop/">https://openai.com/zh-Hans-CN/index/unrolling-the-codex-agent-loop/</a><br>![[oai_Unrolling_the_Codex_agent_loop_Snapshot_1_desktop-light.svg]]</p>
+<p><a target="_blank" rel="noopener" href="https://api-docs.deepseek.com/zh-cn/guides/thinking_mode#%E5%A4%9A%E8%BD%AE%E5%AF%B9%E8%AF%9D%E6%8B%BC%E6%8E%A5">思考模式 | DeepSeek API Docs</a><br>初始输入包含工具列表和提示词<br>若不包含工具, 则后续输入不用拼接思考内容, 包含工具则需要<br>返回有三种类型, 思考, 回答和工具<br>若没有工具则结束本轮对话, 有则客户端获取输入后再次输入</p>
+<h2 id="KV-cache"><a href="#KV-cache" class="headerlink" title="KV-cache"></a>KV-cache</h2><p>在可能的情况下，我们通过向 <em>input</em> 追加一条<code>新</code>消息（而非修改之前的消息）来处理对话中发生的配置更改.</p>
 <h2 id="skill"><a href="#skill" class="headerlink" title="skill"></a>skill</h2><p>渐进式披露机制</p>
 <ol>
 <li>描述</li>
@@ -308,8 +310,8 @@
 <figure class="highlight livescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs livescript">.claude<span class="hljs-string">\skills\name</span><br>├──SKILL.md   元数据中包含name, description<br>├──references<span class="hljs-string">\</span><br>└──scripts<span class="hljs-string">\</span><br></code></pre></td></tr></table></figure>
 <h1 id="harness-engineering"><a href="#harness-engineering" class="headerlink" title="harness engineering"></a>harness engineering</h1><p>语言模型没有现实意义下的主体性, 需要外部验证, 约束</p>
 <p>actor critic ~<a href="/%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0/" title="强化学习">强化学习</a><br>先计划(+写测试)再执行<br>犯错&#x2F;一定量的工作后将经验写入skill<br>子agent, 隔离上下文</p>
-<p>rm重命名, 防止误伤重要文件<br>沙盒隔离</p>
-<h2 id="MCP"><a href="#MCP" class="headerlink" title="[[MCP]]"></a>[[MCP]]</h2><h2 id="RAG"><a href="#RAG" class="headerlink" title="RAG"></a>RAG</h2><p>Retrieval-Augmented Generation<br>把知识分段（比如一段是一个小节文本、条目、FAQ）、每段生成向量（embeddings）并入库（向量数据库&#x2F;全文检索库）,  把用户问题也做向量, 在知识库的向量中“相似性检索”，查找最相关的一小撮段落&#x2F;文档片段</p>
+<p>rm重命名, 防止误伤重要文件</p>
+<h2 id="沙盒"><a href="#沙盒" class="headerlink" title="沙盒"></a>沙盒</h2><h2 id="MCP"><a href="#MCP" class="headerlink" title="[[MCP]]"></a>[[MCP]]</h2><h2 id="RAG"><a href="#RAG" class="headerlink" title="RAG"></a>RAG</h2><p>Retrieval-Augmented Generation<br>把知识分段（比如一段是一个小节文本、条目、FAQ）、每段生成向量（embeddings）并入库（向量数据库&#x2F;全文检索库）,  把用户问题也做向量, 在知识库的向量中“相似性检索”，查找最相关的一小撮段落&#x2F;文档片段</p>
 <h1 id="ask-many"><a href="#ask-many" class="headerlink" title="ask many"></a>ask many</h1><p>这套机制的有效性类似于双评制，同时接收三个以上AI的返回，阅读第一二个，如果一样，则采用，如果不一样，就看第三个</p>
 <h1 id="vibing-projects"><a href="#vibing-projects" class="headerlink" title="vibing projects"></a>vibing projects</h1><h2 id=""><a href="#" class="headerlink" title=""></a><a href="/torrent/" title="torrent">torrent</a></h2><p>你在一个 Godot 项目里协助开发<br>项目当前情况：</p>
 <ul>
@@ -457,7 +459,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年6月17日</div>
+          <div>2026年6月18日</div>
         </div>
       
       
@@ -501,18 +503,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E4%BB%A3%E6%95%B0%E5%87%A0%E4%BD%95/" title="代数几何">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">代数几何</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E4%BE%9D%E8%B5%96%E7%B1%BB%E5%9E%8B%E8%AE%BA/" title="依赖类型论">
-                        <span class="hidden-mobile">依赖类型论</span>
+                      <a href="/%E4%BB%A3%E6%95%B0%E5%87%A0%E4%BD%95/" title="代数几何">
+                        <span class="hidden-mobile">代数几何</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
