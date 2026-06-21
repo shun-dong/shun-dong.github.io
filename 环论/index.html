@@ -21,13 +21,13 @@
   
     <meta name="description" content="理解 环论环（ring）是具有加法和乘法两种二元运算的结构，满足结合律，分配律等习见的运算法则，然而不要求乘法交换。交换环的根本例子是整数环 $\mathbb{Z}$。推而广之，在数论中，任意一个代数数域中的代数整数皆对加法和乘法构成交换环；正是在这个脉络下，Hilbert 于 1897 年出版的《数论报告》（Zahlbericht）中首次引进了环的术语，其原文是德文 der Zahlring，即">
 <meta property="og:type" content="article">
-<meta property="og:title" content="环论初步">
-<meta property="og:url" content="http://kaelvio.com/%E7%8E%AF%E8%AE%BA%E5%88%9D%E6%AD%A5/index.html">
+<meta property="og:title" content="环论">
+<meta property="og:url" content="http://kaelvio.com/%E7%8E%AF%E8%AE%BA/index.html">
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="理解 环论环（ring）是具有加法和乘法两种二元运算的结构，满足结合律，分配律等习见的运算法则，然而不要求乘法交换。交换环的根本例子是整数环 $\mathbb{Z}$。推而广之，在数论中，任意一个代数数域中的代数整数皆对加法和乘法构成交换环；正是在这个脉络下，Hilbert 于 1897 年出版的《数论报告》（Zahlbericht）中首次引进了环的术语，其原文是德文 der Zahlring，即">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-05-21T13:15:43.567Z">
-<meta property="article:modified_time" content="2026-05-21T13:15:43.567Z">
+<meta property="article:published_time" content="2026-06-21T01:59:50.849Z">
+<meta property="article:modified_time" content="2026-06-21T01:59:50.849Z">
 <meta property="article:author" content="采薇">
 <meta property="article:tag" content="代数学方法">
 <meta property="article:tag" content="vol-1">
@@ -36,7 +36,7 @@
   
   
   
-  <title>环论初步 - 采薇的博客</title>
+  <title>环论 - 采薇的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -214,7 +214,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="环论初步"></span>
+            <span id="subtitle" data-typed-text="环论"></span>
           
         </div>
 
@@ -225,8 +225,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-05-21 09:15" pubdate>
-          2026年5月21日 上午
+        <time datetime="2026-06-21 09:59" pubdate>
+          2026年6月21日 上午
         </time>
       </span>
     
@@ -237,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          29k 字
+          22k 字
         
       </span>
     
@@ -248,7 +248,7 @@
         
         
         
-          238 分钟
+          183 分钟
         
       </span>
     
@@ -285,7 +285,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">环论初步</h1>
+            <h1 id="seo-header">环论</h1>
             
             
               <div class="markdown-body">
@@ -364,21 +364,20 @@
 <p>^eg-Z-pid</p>
 <p>商环满足一些与商群共通的性质如下，证明和群的情形如出一辙，留作练习。</p>
 <blockquote>
-<p>[!proposition] 商环的泛性质<br>设 $I \subset R$ 为双边理想，则对任意环同态 $\varphi: R \to R’$ 满足 $\varphi(I)&#x3D;0$ 者，存在唯一的同态 $\bar{\varphi}: R&#x2F;I \to R’$ 使得下图交换。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs tikz">\usepackage&#123;tikz-cd&#125;\begin&#123;document&#125;\begin&#123;tikzcd&#125;<br>R \arrow[r, &quot;\varphi&quot;] \arrow[d] &amp; R&#x27; \\<br>R/I \arrow[ur, &quot;&#123;\exists! \,\bar&#123;\varphi&#125;&#125;&quot;&#x27;] &amp;<br>\end&#123;tikzcd&#125;\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+<p>[!proposition] 商环的泛性质<br>设 $I \subset R$ 为双边理想，则对任意环同态 $\varphi: R \to R’$ 满足 $\varphi(I)&#x3D;0$ 者，存在唯一的同态 $\bar{\varphi}: R&#x2F;I \to R’$ 使得下图交换。<br>![[tikzcd-20260620-230818-272.svg]]</p>
 </blockquote>
 <p>^prop-quotient-ring-univ-prop</p>
 <blockquote>
 <p>[!proposition] 第一同构定理<br>设 $\varphi: R \to R’$ 为环同态，则 $\operatorname{ker}(\varphi) :&#x3D; \varphi^{-1}(0)$ 是 $R$ 的双边理想，且诱导同态 $\bar{\varphi}: (R&#x2F;I) \to \operatorname{im}(\varphi)$ 是环同构。</p>
 </blockquote>
 <p>^prop-1st-homomorphism-ring</p>
-<p>接着观察到对任意环同态 $\varphi: R_1 \to R_2$，理想间有相应的原像映射：<br>$$<br> \begin{aligned}<br>    \left{ R_2 \text{的双边理想} \right} &amp; \longrightarrow \left{ R_1 \text{的双边理想} \right} \<br>    I_2 &amp; \longmapsto \varphi^{-1}(I_2).<br>\end{aligned}<br>$$</p>
+<p>接着观察到对任意环同态 $\varphi: R_1 \to R_2$，理想间有相应的原像映射：<br>$$<br> \begin{aligned}<br>    \operatorname{Ideal}(R;I) &amp; \longrightarrow \operatorname{Ideal}({R}&#x2F;{I}) \<br>    I_2 &amp; \longmapsto \varphi^{-1}(I_2).<br>\end{aligned}<br>$$<br>where $\operatorname{Ideal}(R;I):&#x3D;\left{ bilateral<del>ideal</del>J\subseteq R\mid I\subseteq J\right}$, $\operatorname{Ideal}(R):&#x3D;\operatorname{Ideal}(R:\varnothing)$.</p>
 <p>^eqn-ideal-preimage</p>
 <p>此映射满足<br>$$<br> I_2 \subset I’_2 \implies \varphi^{-1}(I_2) \subset \varphi^{-1}(I’_2).<br>$$<br>如取 $\varphi$ 为子环的包含映射 $R_1 \hookrightarrow R_2$，便得到 $I_2 \mapsto I_2 \cap R_1$。下面考虑另一个极端，即商同态或满同态(回忆命题 [[#^prop-1st-homomorphism-ring]])的情形。</p>
 <blockquote>
 <p>[!proposition] 第二同构定理<br>设 $\varphi: R_1 \to R_2$ 是满的环同态。则 [[#^eqn-ideal-preimage]] 诱导出双射<br>$$</p>
 </blockquote>
-<p>\begin{align}<br>\left{ I_{1}\mid \ker \varphi \subseteq  I_1\subseteq R_1\right}&amp;\longrightarrow \left{ I_2 \mid I_2\subseteq R_2\right}   \ I_1 &amp; \longmapsto \varphi_{\to}(I_1) \<br> \varphi^{\gets}(I_2) &amp; \longleftarrow!!!| I_2<br>\end{align}</p>
+<p>\begin{align}<br>\operatorname{Ideal}(R_2) &amp; \longrightarrow \operatorname{Ideal}(R_1;\ker \varphi) \ I_2&amp; \longmapsto \varphi_{\to}(I_2) \<br> \varphi_{\to}(I_1) &amp; \longleftarrow!!!| I_1<br>\end{align}</p>
 <blockquote>
 </blockquote>
 <p>$$</p>
@@ -386,6 +385,9 @@
 <p>而且合成同态 $R_1 \xrightarrow{\varphi} R_2 \twoheadrightarrow R_2&#x2F;I_2$ 诱导出环同构 $R_1&#x2F;\varphi^{-1}(I_2) \stackrel{\sim}{\rightarrow} R_2&#x2F;I_2$。</p>
 </blockquote>
 <p>^prop-2nd-homomorphism-ring</p>
+<blockquote>
+<p>[!corollary] corresponding theorem<br>For bilateral ideal $I$ of $R$, $\operatorname{Ideal}(R&#x2F;I)\cong \operatorname{Ideal}(R;I)$</p>
+</blockquote>
 <p>接着考虑子环 $S \subset R$ 及双边理想 $I \subset R$。合成同态 $S \hookrightarrow R \twoheadrightarrow R&#x2F;I$ 的像为 $R&#x2F;I$ 的子环 $(S+I)&#x2F;I$，它的核显然是 $I \cap S$。以下证明与群的情形同一套路，是故略去。</p>
 <blockquote>
 <p>[!proposition] 第三同构定理<br>设 $S$ 是 $R$ 的子环而 $I$ 是 $R$ 的双边理想，则合成同态 $S \twoheadrightarrow (S+I)&#x2F;I$ 诱导的环同态<br>$$<br> \theta: S&#x2F;I \cap S \to (S+I)&#x2F;I<br>$$<br>乃是同构。</p>
@@ -447,102 +449,7 @@
 <p>由此可以推导出 $k^2 &#x3D; -1$，$jk&#x3D;i&#x3D;-kj$，$ki&#x3D;j&#x3D;-ik$。细节留给读者。由向量空间结构和前两条性质，我们也说 $\mathbb{H}$ 是一个 “$\mathbb{R}$-代数”，定义 [[代数初步#^def-algebra-naive]] 将有详细解释。此外亦可将复数域 $\mathbb{C} &#x3D; \mathbb{R} \oplus \mathbb{R} i$ 嵌入 $\mathbb{H}$。下面验证 $\mathbb{H}$ 是除环：如定义共轭运算<br>$$<br> z &#x3D; a + bi + cj + dk \longmapsto \bar{z} &#x3D; a - bi -cj -dk<br>$$<br>则有性质 $\overline{z w} &#x3D; \bar{w}\bar{z}$，$z\bar{z} &#x3D; \bar{z}z &#x3D; a^2 + b^2 + c^2 + d^2 \in \mathbb{R}$，由此可得<br>$$<br> z^{-1} &#x3D; (z\bar{z})^{-1} \bar{z} &#x3D; (\underbracket{a^2 + b^2 + c^2 + d^2}_{\neq 0})^{-1} \bar{z}, \quad z \in \mathbb{H} \smallsetminus {0}.<br>$$<br>这里用到的关键性质可归结为 $a^2 + b^2 + c^2 &#x3D; -1$ 在实数域 $\mathbb{R}$ 中无解，更强的陈述是 $-1$ 在 $\mathbb{R}$ 中非平方和；具后一条件的域称作形实域（formally real field），它们在域论，二次型和模型论等研究中是饶富兴味的对象，见 [[Feng17]]，§9.1。</p>
 </blockquote>
 <p>^eg-Hamilton-quaternion</p>
-<h2 id="交换环初探"><a href="#交换环初探" class="headerlink" title="交换环初探"></a>交换环初探</h2><p>交换环的理论与一般的非交换情形面貌迥异，一方面体现于交换环所独有的一些概念与技术，另一方面则归因于交换环在代数几何，代数数论及代数组合学等领域中的关键地位。本节目的仅在铺陈基本概念，包括交换环的局部化（localization），较深入的研究将另辟专章讨论。</p>
-<p>本节只论含幺交换环，故理想不分左右。</p>
-<blockquote>
-<p>[!definition] 素理想与极大理想（prime ideal, maximal ideal）<br>环 $R$ 的真理想 $I$ 称为</p>
-<ul>
-<li><em>素理想</em>（prime ideal），如果 $xy \in I$ 蕴涵 $x \in I$ 或 $y \in I$；</li>
-<li><em>极大理想</em>（maximal ideal），如果 $I \neq R$ 且不存在严格包含 $I$ 的理想。</li>
-</ul>
-<p>分别记 $R$ 中素理想和极大理想所成的集合为 $\operatorname{Spec} R$ 与 $\operatorname{MaxSpec} R$，称为 $R$ 的素谱（prime spectrum）和极大理想谱（maximal spectrum）。</p>
-</blockquote>
-<p>^def-ring-ideal</p>
-<p>对任意环都能对左，右和双边理想定义极大性的概念，但用途不如交换情形来得广泛。</p>
-<blockquote>
-<p>[!lemma] 素理想的拉回<br>对任意环同态 $\varphi: R_1 \to R_2$，式 [[#^eqn-ideal-preimage]] 映素理想为素理想；换言之，由 $\varphi$ 导出映射<br>$$<br> \begin{align*}<br>    \varphi^\sharp: \operatorname{Spec} R_2 &amp; \longrightarrow \operatorname{Spec} R_1 \<br>    I_2 &amp; \longmapsto \varphi^{-1}(I_2).<br>\end{align*}<br>$$<br>以范畴语言诠释，映射<br>$$<br> \begin{align*}<br>    R &amp; \longmapsto \operatorname{Spec} R, \<br>    [\varphi: R_1 \to R_2] &amp; \longmapsto [\varphi^\sharp: \operatorname{Spec} R_2 \to \operatorname{Spec} R_1]<br>\end{align*}<br>$$<br>定义出函子 $\operatorname{Spec}: \mathsf{CRing}^\text{op} \to \mathsf{Set}$，其中 $\mathsf{CRing}$ 表示交换环所成的范畴。</p>
-</blockquote>
-<p>^prop-Spec-pullback</p>
-<p>$Proof.$ 设 $I_2$ 为 $R_2$ 的素理想。若在 $R_1$ 中有 $xy \in \varphi^{-1}(I_2)$，则 $\varphi(x)\varphi(y) \in I_2$，从而 $x$，$y$ 必有一者落在 $\varphi^{-1}(I_2)$。于是 $\varphi^{-1}(I_2)$ 为 $R_1$ 的素理想。为证明 $\operatorname{Spec}$ 给出函子 $\mathsf{CRing}^\text{op} \to \mathsf{Set}$，仅须对任一对可合成的同态 $\varphi$，$\psi$ 证明 $(\varphi \circ \psi)^\sharp &#x3D; \psi^\sharp \circ \varphi^\sharp$：观察到 $(\varphi \circ \psi)^{-1} &#x3D; \psi^{-1} \circ \varphi^{-1}$ 足矣。<br>$\blacksquare$</p>
-<blockquote>
-<p>[!remark]<br>对 $\operatorname{MaxSpec}$ 一般而言没有相应的结果，参看例 [[#^eg-localization-prime]]。</p>
-</blockquote>
-<blockquote>
-<p>[!proposition] 商环与理想类型<br>设 $I$ 为 $R$ 的真理想，则</p>
-<ol>
-<li>在命题 [[#^prop-2nd-homomorphism-ring]] 的双射<br>$$<br> \begin{align*}<br>\left{ J \subset R: \text{理想}, ; J \supset I \right} &amp; \longrightarrow { \bar{J} \subset R&#x2F;I : \text{理想} } \<br>J &amp; \longmapsto \bar{J} :&#x3D; J&#x2F;I<br>\end{align*}<br>$$<br>中，$\bar{J}$ 为素理想（极大理想）当且仅当 $J$ 亦然；</li>
-<li>$R&#x2F;I$ 为整环当且仅当 $I$ 为素理想；</li>
-<li>$R&#x2F;I$ 为域当且仅当 $I$ 为极大理想。</li>
-</ol>
-</blockquote>
-<p>^prop-prime-maximal-ideals</p>
-<p>$Proof.$ 先证明第一条断言。极大理想的情形是命题 [[#^prop-2nd-homomorphism-ring]] 的显然推论。引理 [[#^prop-Spec-pullback]] 表明 $\bar{J} \in \operatorname{Spec} R&#x2F;I \implies J \in \operatorname{Spec} R$。今假设 $J \in \operatorname{Spec} R$，$J \supset I$，则在 $R&#x2F;I$ 中 $\bar{x}\bar{y} \in \bar{J}$ 当且仅当 $xy \in J$，这里 $x,y$ 分别是 $\bar{x}, \bar{y}$ 的任意原像，这就表明 $\bar{J} \in \operatorname{Spec} R&#x2F;I$。</p>
-<p>取 $J&#x3D;I$，则余下两条断言分别化约为：$R$ 是整环（域）当且仅当 ${0}$ 是素理想（极大理想）。说 ${0}$ 是素理想无非是说 $xy&#x3D;0$ 当且仅当 $x&#x3D;0$ 或 $y&#x3D;0$，这正是整环定义。另一方面，${0}$ 是极大理想等价于 $R$ 仅有一个真理想 ${0}$，这相当于说对任意非零元 $x \in R$，理想 $Rx &#x3D; \left\langle x \right\rangle$ 只能是 $R$ 全体；换言之存在 $y$ 使得 $xy&#x3D;1&#x3D;yx$。<br>$\blacksquare$</p>
-<blockquote>
-<p>[!corollary] 极大理想与素理想<br>极大理想必为素理想。</p>
-</blockquote>
-<p>^prop-maximal-implies-prime</p>
-<p>其逆一般不成立，因为整环未必是域。</p>
-<blockquote>
-<p>[!proposition] 极大理想的存在性<br>设 $R$ 为任意环（未必交换）。对 $R$ 的任意真双边理想 $I$，存在极大双边理想 $\mathfrak{m}$ 使得 $\mathfrak{m} \supset I$。</p>
-</blockquote>
-<p>^prop-existence-maximal-ideal</p>
-<p>取 $I&#x3D;{0}$ 即知 $R$ 必有极大双边理想。此结果一般施于 $R$ 为交换环的情形。</p>
-<p>$Proof.$ 以下理想皆指双边理想。由命题 [[#^prop-2nd-homomorphism-ring]] 立即化约到 $I&#x3D;{0}$ 的情形，亦即 $R$ 中极大理想的存在性。先观察到 $R$ 的真理想构成一个偏序集 $(\mathcal{P}, \leq)$：定义 $I_1 \leq I_2 \iff I_1 \subset I_2$，于是 $\mathcal{P}$ 中的极大元正好是 $R$ 的极大理想。下面将运用 Zorn 引理（定理 [[集合论#^prop-Zorn]]）给出极大元。首先注意到 $\mathcal{P}$ 中任意链（即全序子集）都有上界：设 $\mathcal{C} \subset \mathcal{P}$ 为链，由全序性质可知 $J :&#x3D; \bigcup_{I \in \mathcal{C}} I$ 亦为 $R$ 的理想；若 $J &#x3D; R$，则存在 $I \in \mathcal{C}$ 使得 $1 \in I$，亦即 $I &#x3D; R$，与 $\mathcal{P}$ 的定义矛盾。是故 $J \in \mathcal{P}$ 提供了 $\mathcal{C}$ 的上界。证毕。<br>$\blacksquare$</p>
-<blockquote>
-<p>[!definition] 主理想环（principal ideal domain, PID）<br>设 $I$ 为 $R$ 的理想，若存在 $a \in R$ 使得 $I &#x3D; \left\langle a \right\rangle &#x3D; Ra$，则称 $I$ 为<em>主理想</em>（principal ideal）。若整环 $R$ 的所有理想皆为主理想，则称 $R$ 为<em>主理想环</em>（或主理想整环，PID）。</p>
-</blockquote>
-<p>^def-PID</p>
-<p>例如整数环 $\mathbb{Z}$ 即是主理想环（例 [[#^eg-Z-pid]]）。</p>
-<p>下面探讨交换环的局部化，思路是形式地在环中添进某些乘法逆元。</p>
-<blockquote>
-<p>[!definition] 乘性子集（multiplicative subset）<br>设 $R$ 为交换环。子集 $S \subset R$ 若对环的乘法构成幺半群，则称 $S$ 为 $R$ 的<em>乘性子集</em>。</p>
-</blockquote>
-<p>构作对乘性子集 $S$ 的<em>局部化</em> $R[S^{-1}]$ 如下。首先在集合 $R \times S$ 上定义关系<br>$$<br> (r,s) \sim (r’,s’) \iff \left[ \exists t \in S, ; trs’ &#x3D; tr’s \right].<br>$$<br>易证 $\sim$ 是等价关系，相应的商集记为 $R[S^{-1}]$，其中的等价类 $[r,s]$ 应该设想为”商” $r&#x2F;s$，且对任意 $t \in S$ 皆有 $[r,s]&#x3D;[rt,st]$。以下定义的环运算因而是顺理成章的：<br>$$<br> \begin{gather*}<br>    [r,s] + [r’,s’] &#x3D; [rs’ + r’s, ss’], \<br>    [r,s] \cdot [r’,s’] &#x3D; [rr’, ss’].<br>\end{gather*}<br>$$<br>请读者验证 $R[S^{-1}]$ 对此确实成交换环，零元为 $0 &#x3D; [0, s]$ 而幺元为 $1 &#x3D; [s,s]$，其中 $s \in S$ 可任取。由此得到<br>$$<br> [r,s]&#x3D;0 \iff \left[ \exists t \in S, ; tr&#x3D;0 \right].<br>$$</p>
-<p>^eqn-localization-zero</p>
-<p>因此 $R[S^{-1}]$ 是零环当且仅当存在 $s \in S$ 使得 $sR&#x3D;0$，我们既假定 $R$ 含幺元，这也相当于说 $0 \in S$；一般总排除这种情形。</p>
-<p>另一方面，$r \mapsto [r,1]$ 给出环同态 $R \to R[S^{-1}]$。注意到 $s \in S$ 的像落在 $R[S^{-1}]^\times$ 中，其逆无非是 $[1,s]$。局部化应当同态射 $R \to R[S^{-1}]$ 一并考量。从范畴论的角度看，局部化构造 $R \to R[S^{-1}]$ 是令 $S$ 中元素可逆的”最经济”的方式，它被以下的泛性质唯一刻画。</p>
-<blockquote>
-<p>[!proposition]<br>局部化 $R \to R[S^{-1}]$ 满足下述泛性质：任意交换环的同态 $\varphi: R \to A$ 若满足 $\varphi(S) \subset A^\times$，则存在唯一的环同态 $\varphi[S^{-1}]: R[S^{-1}] \to A$ 使下图交换。<br>$$<br> \begin{tikzcd}<br>    R \arrow[r, “\varphi”] \arrow[d] &amp; A \<br>    R[S^{-1}] \arrow[ru, “{\varphi[S^{-1}]}”‘] &amp;<br>\end{tikzcd}<br>$$</p>
-</blockquote>
-<p>$Proof.$ 图表交换等价于<br>$$<br> [r,s] &#x3D;[r,1] \cdot [1,s] \xmapsto{\varphi[S^{-1}]} \varphi(r) \varphi(s)^{-1} \in A.<br>$$<br>反过来，易证此式确实定义了环同态 $R[S^{-1}] \to A$。<br>$\blacksquare$</p>
-<blockquote>
-<p>[!lemma] 局部化中的可逆元<br>设 $S \subset R$ 为乘性子集，$0 \notin S$，则 $[r,s] \in R[S^{-1}]$ 可逆当且仅当存在 $r_1 \in R$ 使得 $rr_1 \in S$。</p>
-</blockquote>
-<p>^prop-localization-units</p>
-<p>$Proof.$ 若 $rr_1 \in S$ 则 $[r,s] [r_1 s, rr_1] &#x3D; 1$。反之设存在 $[r’,s’]$ 使得 $[r,s][r’,s’] &#x3D; 1$，则存在 $t \in S$ 使得 $trr’ &#x3D; tss’$，因而 $r(tr’) \in S$。<br>$\blacksquare$</p>
-<p>原环 $R$ 的部分信息可能在局部化过程中丢失。由 [[#^eqn-localization-zero]] 可知<br>$$<br> \operatorname{ker} \left[ R \to R[S^{-1}] \right] &#x3D; \left{r \in R : \exists s \in S, ; sr&#x3D;0 \right}.<br>$$<br>我们希望取尽可能大的 $S$ 使得 $R[S^{-1}]$ 是 $R$ 的扩环。前述讨论自然引向以下结果。</p>
-<blockquote>
-<p>[!lemma] 全分式环（total ring of fractions）<br>设 $S \subset R$ 为乘性子集，$0 \notin S$。则局部化态射 $R \to R[S^{-1}]$ 是单射当且仅当 $S$ 不含零因子。另一方面，$R \smallsetminus {0}$ 中的所有非零因子构成 $R$ 的乘性子集，相应的局部化记为<br>$$<br> R \hookrightarrow \text{Frac}(R),<br>$$<br>而 $\text{Frac}(R)$ 称为 $R$ 的<em>全分式环</em>。</p>
-</blockquote>
-<p>当 $R$ 是整环时，$\text{Frac}(R)$ 无非是对 $S :&#x3D; R \smallsetminus {0}$ 的局部化；此时由引理 [[#^prop-localization-units]] 知 $\text{Frac}(R)$ 是域：事实上 $r \neq 0$ 时 $[r,s]^{-1} &#x3D; [s,r]$；称此为 $R$ 的<em>分式域</em>（field of fractions）。</p>
-<blockquote>
-<p>[!example]<br>整数环 $\mathbb{Z}$ 的分式域同构于 $\mathbb{Q}$：将 $[r,s] \in \text{Frac}(\mathbb{Z})$ 映至 $r&#x2F;s$ 即可。</p>
-</blockquote>
-<p>下面研究局部化对理想的影响。给定乘性子集 $S$，$0 \notin S$。对任意理想 $I \subset R$，定义<br>$$<br> I[S^{-1}] :&#x3D; \left{ [r, s] : r \in I, ; s \in S \right} \subset R[S^{-1}].<br>$$<br>由 $R[S^{-1}]$ 的环结构定义，易证 $I[S^{-1}]$ 事实上是由 $I$ 在 $R \to R[S^{-1}]$ 下的像所生成的理想。另一方面，据 [[#^eqn-ideal-preimage]] 可得理想间的映射<br>$$<br> J \mapsto I :&#x3D; { r \in R : [r,1] \in J }<br>$$</p>
-<p>^eqn-ideal-preimage-localization</p>
-<p>其中 $J$ 是 $R[S^{-1}]$ 的理想，而右式无非是 $J$ 对 $R \to R[S^{-1}]$ 的原像。兹考察<br>$$<br> \begin{tikzcd}<br>    \left{ I: R \text{ 的理想} \right} \arrow[r, yshift&#x3D;5, “{I \mapsto I[S^{-1}]}”] &amp; { J: R[S^{-1}] \text{ 的理想} }. \arrow[l, yshift&#x3D;-5, “{\eqref{eqn:ideal-preimage-localization}}”]<br>\end{tikzcd}<br>$$<br>今断言上图按</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tikz">\begin&#123;tikzpicture&#125; [baseline, xscale=0.5, yscale=0.4] \draw[-&gt;, rounded corners] (1, 0) -- (0, 0) -- (0, 1) -- (1, 1); \end&#123;tikzpicture&#125;<br></code></pre></td></tr></table></figure>
-<p>之合成是 $\mathrm{id}$：显然 $I \mapsfrom J$ 蕴涵 $I[S^{-1}] \subset J$，另一方面，对任意 $[r,s] \in J$ 皆有 $[r,1] &#x3D; [r,s][s,1] \in J$，故 $r \in I$，于是 $J \subset I[S^{-1}]$。由此可见 $I \mapsto I[S^{-1}]$ 为满而 [[#^eqn-ideal-preimage-localization]] 为单。然而若不限定所论的理想，则上图按</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs tikz">\begin&#123;tikzpicture&#125; [baseline, xscale=0.5, yscale=0.4] \draw[-&gt;, rounded corners] (0, 1) -- (1, 1) -- (1, 0) -- (0, 0); \end&#123;tikzpicture&#125;<br></code></pre></td></tr></table></figure>
-<p>合成未必是 $\mathrm{id}$，从以下证明可以窥见端倪。</p>
-<blockquote>
-<p>[!proposition] 局部化的理想对应<br>令 $S$ 为 $R$ 的乘性子集，$0 \notin S$。</p>
-<ol>
-<li>对任意理想 $I$，等式 $I[S^{-1}] &#x3D; R[S^{-1}]$ 成立当且仅当 $I \cap S \neq \emptyset$。</li>
-<li>映射 $I \mapsto I[S^{-1}]$ 诱导出双射<br>$$<br> {I \in \operatorname{Spec} R : I \cap S &#x3D; \emptyset } \stackrel{1:1}{\longrightarrow} \operatorname{Spec} R[S^{-1}],<br>$$<br>其逆是前述之 [[#^eqn-ideal-preimage-localization]]。</li>
-<li>上述双射保持包含关系：$I_1 \subset I_2 \iff I_1[S^{-1}] \subset I_2[S^{-1}]$。</li>
-</ol>
-</blockquote>
-<p>^prop-localization-ideals</p>
-<p>$Proof.$ 由于 $1 \in R[S^{-1}]$ 对应到形如 $[r, s]$ 并存在 $t \in S$ 使 $tr &#x3D; ts \in S$ 的等价类，立得第一条断言。</p>
-<p>现在设 $I \in \operatorname{Spec} R$，$I \cap S &#x3D; \emptyset$。则在 $R[S^{-1}]$ 中<br>$$<br> [r_1, s_1] [r_2, s_2] \in I[S^{-1}] \iff r_1 r_2 \in I \iff \left( r_1 \in I ; \text{或} ; r_2 \in I \right),<br>$$<br>故 $I[S^{-1}]$ 为素理想。它对 $R \to R[S^{-1}]$ 的原像等于<br>$$<br> {r \in R : \exists a \in I, ; s \in S, \quad [r, 1] &#x3D; [a, s] } \in \operatorname{Spec} R \quad \because;\text{引理 [[#^prop-Spec-pullback]]};<br>$$<br>此集可进一步改写为 ${ r \in R : \exists s \in S, ; rs \in I }$，由于 $S$ 与素理想 $I$ 不交，此原像无非是 $I$。配合先前的讨论，这就证明了 $I \mapsto I[S^{-1}]$ 在素理想层面是双射。关于包含关系的断言是显然的。<br>$\blacksquare$</p>
-<p>前述双射又可表作<br>$$<br> \operatorname{Spec} R[S^{-1}] &#x3D; \operatorname{Spec} R \smallsetminus {I \in \operatorname{Spec} R : I \cap S \neq \emptyset }.<br>$$<br>若视素谱 $\operatorname{Spec} R$ 为某种意义下的”空间”，不妨设想 $R \mapsto R[S^{-1}]$ 的效果是在 $\operatorname{Spec} R$ 中隐去与 $S$ 有交的”点”，这就解释了局部化一词的由来。篇幅所限，这里还不能详细展开素谱的几何意涵。</p>
-<blockquote>
-<p>[!example] 在素理想处的局部化<br>取定 $\mathfrak{p} \in \operatorname{Spec} R$，则 $S :&#x3D; R \smallsetminus \mathfrak{p}$ 为乘性子集。由前述双射知 $R_\mathfrak{p} :&#x3D; R[S^{-1}]$ 的素理想一一对应于 $R$ 中包含于 $\mathfrak{p}$ 的素理想，而 $\mathfrak{p}[S^{-1}] &#x3D; \mathfrak{p} R_\mathfrak{p}$ 是 $R_\mathfrak{p}$ 唯一的极大理想，尽管相应的 $\mathfrak{p} \in \operatorname{Spec} R$ 未必极大。这是交换环论的常用技巧。</p>
-</blockquote>
-<p>^eg-localization-prime</p>
-<h2 id="间奏-Mobius-反演"><a href="#间奏-Mobius-反演" class="headerlink" title="间奏: Möbius 反演"></a>间奏: Möbius 反演</h2><p>Möbius 反演公式是组合学与数论中的基本工具。之所以专辟一节讨论，有三重目的：一是迅速地补全我们需要的情形，二是演示环论的一种有趣应用，三则是说明如何从高观点梳理经典的 Möbius 反演公式，将之阐述为偏序集中的一套计数手段。本节将取法 [[Stan09]]，§§3.7–3.8，以代数工具演绎 Möbius 反演的基本理路。</p>
+<h2 id="交换环论"><a href="#交换环论" class="headerlink" title="[[交换环论]]"></a>[[交换环论]]</h2><h2 id="间奏-Mobius-反演"><a href="#间奏-Mobius-反演" class="headerlink" title="间奏: Möbius 反演"></a>间奏: Möbius 反演</h2><p>Möbius 反演公式是组合学与数论中的基本工具。之所以专辟一节讨论，有三重目的：一是迅速地补全我们需要的情形，二是演示环论的一种有趣应用，三则是说明如何从高观点梳理经典的 Möbius 反演公式，将之阐述为偏序集中的一套计数手段。本节将取法 [[Stan09]]，§§3.7–3.8，以代数工具演绎 Möbius 反演的基本理路。</p>
 <blockquote>
 <p>[!definition] 局部有限偏序集（locally finite poset）<br>若非空偏序集 $(P, \leq)$ 中对任意 $x \leq y$，子集 $[x,y] :&#x3D; { z \in P: x \leq z \leq y }$ 皆有限，则称 $(P,\leq)$ 为<em>局部有限偏序集</em>。</p>
 </blockquote>
@@ -672,88 +579,7 @@
 <p>[!proposition]<br>整数环 $\mathbb{Z}$ 是环范畴 $\mathsf{Ring}$ 的始对象。</p>
 </blockquote>
 <p>读者可能要问：环范畴里是否总有一般的小 $\varinjlim$？由于本章只论非零含幺环，答案是否定的：以下例子说明一对同态 $f,g: R \to S$ 的余等化子未必存在。考虑多项式环 $R &#x3D; \mathbb{C}[X]$ 和 $S &#x3D; \mathbb{C}$，取同态 $f: P \mapsto P(0)$ 和 $g: P \mapsto P(1)$，其中 $P \in \mathbb{C}[X]$。若有环同态 $h: S \to T$ 满足 $hf&#x3D;hg$，取 $P(X)&#x3D;-X$ 则有 $h(1) &#x3D; h(P(0)-P(1)) &#x3D; 0$，这与 $h(1)&#x3D;1$ 矛盾。</p>
-<h2 id="从幺半群环到多项式环"><a href="#从幺半群环到多项式环" class="headerlink" title="从幺半群环到多项式环"></a>从幺半群环到多项式环</h2><p>读者对有理系数多项式环 $\mathbb{Q}[X] &#x3D; \left{ a_0 + a_1 X + \cdots + a_n X^n : n \geq 0, ; a_i \in \mathbb{Q} \right}$ 理应是熟悉的，它作为 $\mathbb{Q}$-向量空间以 ${ X^i : i \geq 0 }$ 为基，其间的乘法不外是幺半群 $(\mathbb{Z}_{\geq 0}, +)$ 上加法的改述。若代之以一般的幺半群便得到如下推广。以下固定环 $R$，考察以其元素为系数的多项式。</p>
-<blockquote>
-<p>[!definition] 幺半群环（monoid ring）<br>令 $M$ 为幺半群。<em>幺半群环</em> $R[M]$ 定义如下：其元素是积集 $R^M$ 中形如 $(r_m)_{m \in M}$ 的列，至多仅有限多项非零；惯常将 $(r_m)_{m \in M}$ 形式地写作 $R$ 上的有限线性组合<br>$$<br> f &#x3D; \sum_{m \in M} r_m m,<br>$$<br>这里的 $r_m$ 称为 $m$ 在 $f$ 中的系数。分别定义 $R[M]$ 的加法和乘法为<br>$$<br> \begin{align*}<br>    \left( \sum_m r_m m \right) + \left( \sum_m s_m m \right) &amp; &#x3D; \sum_m (r_m + s_m) m, \<br>    \left( \sum_m r_m m \right) \cdot \left( \sum_m s_m m \right) &amp; &#x3D; \sum_m \left( \sum_{\substack{x, y \in M \ xy&#x3D;m}} r_x s_y \right) m,<br>\end{align*}<br>$$<br>易见其中每个和都仅有有限个非零项，故运算良定。</p>
-</blockquote>
-<p>^def-monoidal-ring</p>
-<p>不难验证 $R[M]$ 满足环的公理，其零元是 $0 &#x3D; \sum_m 0 \cdot m$，幺元是 $1 &#x3D; 1_R \cdot 1_M$：这里的 $1_R$，$1_M$ 分别表 $R$ 和 $M$ 的幺元。事实上 $R[M]$ 的乘法运算是由 $(rm) \cdot (r’m’) &#x3D; rr’ (mm’)$ 和分配律所唯一确定的 ($r,r’ \in R$, $m, m’ \in M$)。乘法结合律仅须对形如 $rm$ 的项验证即可。</p>
-<p>注意到幺半群环带有自然的同态<br>$$<br> \begin{tikzcd}[row sep&#x3D;tiny]<br>    M \arrow[r, “\text{幺半群}”] &amp; (R[M], \cdot) \<br>    m \arrow[mapsto, r] \arrow[phantom, u, sloped, “\in” description] &amp; 1 \cdot m \arrow[phantom, u, sloped, “\in” description]<br>\end{tikzcd} \quad<br>\begin{tikzcd}[row sep&#x3D;tiny]<br>    R \arrow[r, “\text{环}”] &amp; R[M] \<br>    r \arrow[mapsto, r] \arrow[phantom, u, sloped, “\in” description] &amp; r \cdot 1. \arrow[phantom, u, sloped, “\in” description]<br>\end{tikzcd}<br>$$<br>两者皆单，而且其像在 $R[M]$ 中对乘法互相交换，即 $(r \cdot 1)(1 \cdot m) &#x3D; (1 \cdot m)(r \cdot 1)$（尽管 $R$，$M$ 各自都未必交换）。这为 $R[M]$ 的构造提供了一个泛性质的解释。</p>
-<blockquote>
-<p>[!proposition] 幺半群环的泛性质<br>幺半群环由下述泛性质刻画：对任意环 $S$，幺半群同态 $f: M \to (S, \cdot)$ 及环同态 $g: R \to S$，若 $f$ 和 $g$ 的像对 $S$ 的乘法互相交换，则存在唯一的环同态 $\varphi: R[M] \to S$，使得 $f$ 和 $g$ 分别等于 $M \to R[M]$ 和 $R \to R[M]$ 合成上 $\varphi$。</p>
-</blockquote>
-<p>^prop-monoid-ring-universal</p>
-<p>$Proof.$ 唯一的取法是 $\varphi(rm) &#x3D; g(r)f(m)$。细节留给读者。<br>$\blacksquare$</p>
-<p>倘若读者愿提前调用 §[[代数初步#^sec-algebra-def]] 的语汇，特别是命题 [[代数初步#^prop-algebra-as-homomorphism]]，那么当 $R$ 交换时上述同态 $R \hookrightarrow R[M]$ 赋予 $R[M]$ 一个 $R$-代数的结构；职是之故，$R[M]$ 也称为交换环 $R$ 上的<em>幺半群代数</em>（monoid algebra）。</p>
-<blockquote>
-<p>[!definition] 群环（group ring）<br>当 $M$ 为群时，环 $R[M]$ 称为 $M$ 在 $R$ 上的<em>群环</em>。当 $R$ 交换时也称之为 $R$ 上的<em>群代数</em>（group algebra）。</p>
-</blockquote>
-<p>^def-group-ring</p>
-<p>群环是表示理论的基本语言。这里先回到本节开头的楔子，同时也是环论中最基本的构造之一：多项式环。</p>
-<blockquote>
-<p>[!definition] 多项式环（polynomial ring）<br>对集合 $\mathcal{X}$ 取 $(\mathbf{M}(\mathcal{X}), \cdot)$ 为 $\mathcal{X}$ 上的自由交换幺半群（定义 [[群论#^def-free-comm-monoid]]，注意：此处改用乘法符号），则 $R[\mathcal{X}] :&#x3D; R[\mathbf{M}(\mathcal{X})]$ 称为 $R$ 上以 $\mathcal{X}$ 为变元集的多项式环，它带有自然映射 $\mathcal{X} \to R[\mathcal{X}]$。当 $\mathcal{X} &#x3D; {X, Y, \ldots}$ 时也写作 $R[\mathcal{X}] &#x3D; R[X, Y, \ldots]$。</p>
-</blockquote>
-<p>当 $R$ 交换时，也称 $R[\mathcal{X}]$ 是以 $\mathcal{X}$ 为变元集的多项式代数（polynomial algebra），依此类推。</p>
-<blockquote>
-<p>[!proposition] 多项式环的泛性质<br>以下泛性质刻画 $R[\mathcal{X}]$ 和 $\mathcal{X} \to R[\mathcal{X}]$：对任意环 $S$，映射 $f: \mathcal{X} \to S$ 及环同态 $g: R \to S$，若 $f$ 和 $g$ 的像在 $S$ 中对乘法相交换，$f$ 的像对乘法也交换，则存在唯一的环同态 $\varphi: R[\mathcal{X}] \to S$ 使得 $f$ 和 $g$ 分别等于 $\mathcal{X} \to R[\mathcal{X}]$ 和 $R \to R[\mathcal{X}]$ 合成上 $\varphi$。</p>
-</blockquote>
-<p>^prop-polynomial-ring-universal</p>
-<p>$Proof.$ 这是幺半群环与 $\mathbf{M}(\mathcal{X})$ 的泛性质的嫁接。<br>$\blacksquare$</p>
-<p>称映射 $\mathbf{M}(\mathcal{X}) \to R[\mathcal{X}]$ 的像为单项式（monomial）。对任意 $f \in R[\mathcal{X}]$，称 $1 \in \mathbf{M}(\mathcal{X})$ 在 $f$ 中的系数为 $f$ 的常数项。注意到一些性质：</p>
-<ul>
-<li>$R[\mathcal{X}]$ 交换当且仅当 $R$ 交换；</li>
-<li>若 $R$ 是交换整环，则 $R[\mathcal{X}]$ 亦然；</li>
-<li>任意环同态 $R \to R’$ 和映射 $\mathcal{X} \to \mathcal{X}’$ 诱导出自然的同态 $R[\mathcal{X}] \to R’[\mathcal{X}’]$；</li>
-<li>对任意集合 $\mathcal{X}$，$\mathcal{Y}$ 有自然同构 $R[\mathcal{X}][\mathcal{Y}] &#x3D; R[\mathcal{Y}][\mathcal{X}] &#x3D; R[\mathcal{X} \sqcup \mathcal{Y}]$。</li>
-</ul>
-<p>以最后一个性质为例，我们既可直接给出自明的同构，也可用泛性质说明：对任意环 $S$，给定环同态 $\varphi: R[\mathcal{X}][\mathcal{Y}] \to S$ 相当于给定像相交换的映射 $\mathcal{Y} \to S$ 及环同态 $R[\mathcal{X}] \to S$；对后者再应用一次泛性质，知其无非是给定映射 $\mathcal{Y} \to S$，$\mathcal{X} \to S$（亦即给定 $\mathcal{X} \sqcup \mathcal{Y} \to S$）及环同态 $R \to S$，使得三者的像对乘法交换。这正是 $R[\mathcal{X} \sqcup \mathcal{Y}]$ 的泛性质。</p>
-<blockquote>
-<p>[!definition] 有理函数域（field of rational functions）<br>若 $F$ 是域，多项式环 $F[\mathcal{X}]$ 的分式域 $F(\mathcal{X})$ 称为 $F$ 上以 $\mathcal{X}$ 为变元集的<em>有理函数域</em>。当 $\mathcal{X} &#x3D; {X, Y, \ldots}$ 时也写作 $F(\mathcal{X}) &#x3D; F(X, Y, \ldots)$。</p>
-</blockquote>
-<p>一如前述的多项式，这里的有理函数实非函数，只是约定俗成。稍后将看到数学分析里的幂级数（如 $e^X &#x3D; \sum_{n \geq 0} X^n&#x2F;n!$）等也有形式的构造。</p>
-<p>我们进一步把 $R[\mathcal{X}]$ 写明白。回忆 $\mathbf{M}(\mathcal{X})$ 中的元素可以唯一地表成 $X_1^{a_1} \cdots X_n^{a_n}$ 的形式，其中 $X_1, \ldots, X_n \in \mathcal{X}$ 而 $a_1, \ldots, a_n \geq 0$（不计顺序）。因而 $R[\mathcal{X}]$ 中的元素是形如 $X_1^{a_1} \cdots X_n^{a_n}$ 的”单项式”的线性组合（以 $R$ 为系数）；这确乎是多项式的抽象版本，变元集正是 $\mathcal{X}$。以下专门考察 $\mathcal{X} &#x3D; {X_1, \ldots, X_n}$ 的情形，此时 $R[\mathcal{X}] &#x3D; R[X_1, \ldots, X_n]$ 为 $n$ 元多项式环；元素用经典的记号 $f &#x3D; f(X_1, \ldots, X_n)$ 表之。环 $R[X_1, \ldots, X_n]$ 中的元素表作<br>$$<br> f &#x3D; \sum_{a_1, \ldots, a_n \in \mathbb{Z}_{\geq 0}} c_{a_1, \ldots, a_n} X_1^{a_1} \cdots X_n^{a_n}.<br>$$</p>
-<p>下标稍嫌繁杂，我们顺势引进方便的<em>多重指标</em>（multi-index）符号<br>$$<br> \begin{align*}<br>    \mathbf{a} &amp; :&#x3D; (a_1, \ldots, a_n), \quad a_1, \ldots, a_n \in \mathbb{Z}_{\geq 0}, \<br>    |\mathbf{a}| &amp; :&#x3D; a_1 + \cdots + a_n, \<br>    c_{\mathbf{a}} &amp; :&#x3D; c_{a_1, \ldots, a_n}, \<br>    \mathbf{X}^{\mathbf{a}} &amp; :&#x3D; X_1^{a_1} \cdots X_n^{a_n}.<br>\end{align*}<br>$$<br>准此，定义多项式 $f$ 的<em>全次数</em>（total degree）为 $\deg f :&#x3D; \max\left{ |\mathbf{a}| : |c_{\mathbf{a}}|\neq 0 \right}$。如果 $f$ 满足于 $c_{\mathbf{a}} \neq 0 \iff |\mathbf{a}|&#x3D;m$，则称 $f$ 是 $m$ 次<em>齐次多项式</em>（homogeneous polynomial）。</p>
-<p>对多重指标 $\mathbf{a} &#x3D; (a_1, \ldots, a_n)$, $\mathbf{b} &#x3D; (b_1, \ldots, b_n)$，置 $\mathbf{a} + \mathbf{b} :&#x3D; (a_1 + b_1, \ldots, a_n + b_n)$，那么 $R[X_1, \ldots, X_n]$ 中的乘法化成简练的形式<br>$$<br> \left( \sum_{\mathbf{a}’} c’_{\mathbf{a}’} \mathbf{X}^{\mathbf{a}’} \right) \cdot \left( \sum_{\mathbf{a}’’} c’’_{\mathbf{a}’’} \mathbf{X}^{\mathbf{a}’’} \right) &#x3D; \sum_{\mathbf{a}} ; \underbracket{ \left( \sum_{\mathbf{a}’ + \mathbf{a}’’ &#x3D; \mathbf{a}} c’_{\mathbf{a}’} c’’_{\mathbf{a}’’} \right) }_{\text{有限和}} \mathbf{X}^{\mathbf{a}}.<br>$$</p>
-<p>^eqn-polynomial-multiplication</p>
-<p>当 $n&#x3D;1$，我们回到熟知的单变元多项式环 $R[X]$。形如 $X^n + a_{n-1} X^{n-1} + \cdots + a_0 \in R[X]$ 的多项式（$n \geq 1$）称为<em>首一多项式</em>（monic polynomial）。微积分学中的求导运算可以形式地定义在 $R[X]$ 上。</p>
-<blockquote>
-<p>[!proposition] 形式导数<br>映射<br>$$<br> \begin{align*}<br>    \partial: R[X] &amp; \longrightarrow R[X] \<br>    f(X) &#x3D; \sum_{k \geq 0} a_k X^k &amp; \longmapsto f’(X) :&#x3D; \sum_{k \geq 1} k a_k X^{k-1}<br>\end{align*}<br>$$<br>满足于</p>
-<ul>
-<li>$(rf + sg)’ &#x3D; rf’ + sg’$，其中 $r, s \in R$ 而 $f, g \in R[X]$；</li>
-<li>Leibniz 律：$(fg)’ &#x3D; fg’ + f’g$。</li>
-</ul>
-</blockquote>
-<p>^prop-polynomial-derivation</p>
-<p>$Proof.$ 直接验证。<br>$\blacksquare$</p>
-<p>在多变元情形 $R[X_1, \ldots, X_n]$ 可以对每个变元求偏导 $\partial_i :&#x3D; \frac{\partial}{\partial X_i}$，方式是显然的。</p>
-<blockquote>
-<p>[!definition] 形式幂级数与 Laurent 级数（formal power series, formal Laurent series）<br>定义 $n$ 元<em>形式幂级数环</em> $R \llbracket X_1, \ldots, X_n \rrbracket$ 为 $R[X_1, \ldots, X_n]$ 对理想族<br>$$<br> \begin{gather*}<br>    \mathfrak{a}_i :&#x3D; {\left\langle X_1, \ldots, X_n \right\rangle^i}, \quad \mathfrak{a}_1 \supset \mathfrak{a}_2 \supset \cdots,<br>\end{gather*}<br>$$<br>的完备化；按 §[[#^sec-ring-basics]] 的定义，<br>$$<br> {\left\langle X_1, \ldots, X_n \right\rangle} &#x3D; {f \in R[X_1, \ldots, X_n] : \text{常数项}&#x3D;0}.<br>$$<br>另一方面，假设 $R$ 交换并取 $R\llbracket X\rrbracket$ 的乘性子集<br>$$<br> S :&#x3D; {\mathbf{X}^{\mathbf{a}} : |\mathbf{a}| \geq 0 }.<br>$$<br>则 $R\llbracket X_1, \ldots, X_n \rrbracket$ 对 $S$ 的局部化记为 $R(!(X_1, \ldots, X_n)!)$，称作 $R$ 上的 $n$ 元<em>形式 Laurent 级数环</em>。</p>
-</blockquote>
-<p>^def-formal-series</p>
-<blockquote>
-<p>[!remark]<br>不难递归地证明 $\mathfrak{a}_i$ 的元素皆为 ${ \mathbf{X}^{\mathbf{a}} : |\mathbf{a}| \geq i }$ 中元素以 $R$ 为系数的线性组合。形式幂级数环的元素一般定义为形如<br>$$<br> \sum_{\mathbf{a}} c_{\mathbf{a}} \mathbf{X}^{\mathbf{a}}, \quad c_{\mathbf{a}} \in R<br>$$<br>的无穷和；这里不要求任何收敛性，故曰”形式”。其加法(逐系数相加)和乘法(参看 [[#^eqn-polynomial-multiplication]])运算都和多项式情形类似，兹不赘述。以下说明这般定义的环无非就是 $R\llbracket X_1, \ldots, X_n \rrbracket$。</p>
-<p>先观察到商映射给出加法群的同构<br>$$<br> R_{&lt;i} :&#x3D; \left{\sum_{|\mathbf{a}|&lt; i} c_{\mathbf{a}} \mathbf{X}^{\mathbf{a}} : c_{\mathbf{a}} \in R \right} \stackrel{\sim}{\rightarrow} R[X_1, \ldots, X_n]&#x2F;\mathfrak{a}_i, \quad i \geq 0.<br>$$<br>在此同构下，商同态 $R[X_1, \ldots, X_n]&#x2F;\mathfrak{a}_{i+1} \twoheadrightarrow R[X_1, \ldots, X_n]&#x2F;\mathfrak{a}_i$ 等同于截断映射 $\tau_{&lt;i}: R_{&lt;i+1} \to R_{&lt;i}$（即舍弃 $|\mathbf{a}| &#x3D; i$ 的项）；留意到 $\tau_{&lt;0} &#x3D; 0$。由此得出同构<br>$$<br> \begin{align*}<br>    \varprojlim_{i \geq 1} R_{&lt;i} &amp; \stackrel{\sim}{\longrightarrow} \left{ \text{无穷和}; \sum_{\mathbf{a}} c_{\mathbf{a}} \mathbf{X}^{\mathbf{a}}  \right} \<br>    (f_i)_{i \geq 1} &amp; \longmapsto \sum_{i \geq 1} \left( f_i - \tau_{&lt;i-1}(f_i) \right),<br>\end{align*}<br>$$<br>其逆为<br>$$<br> \begin{gather*}<br>    \sum_{\mathbf{a}} c_{\mathbf{a}} \mathbf{X}^{\mathbf{a}} \longmapsto (f_i)_{i \geq 1}, \qquad f_i :&#x3D; \sum_{|\mathbf{a}| &lt; i} c_{\mathbf{a}} \mathbf{X}^{\mathbf{a}}.<br>\end{gather*}<br>$$<br>可直接验证两边的环结构在同构下相匹配。</p>
-<p>由此亦可看出局部化 $R(!(X_1, \ldots, X_n)!)$ 相当于在无穷和 $\sum_{\mathbf{a}} c_{\mathbf{a}} \mathbf{X}^{\mathbf{a}}$ 中容许在至多有限个项中 $a_1, \ldots, a_n$ 可取负整数值。这正是复变函数论中亚纯函数在有限阶极点附近的 Laurent 展开式。</p>
-</blockquote>
-<p>同于多项式情形，我们称 $f &#x3D; \sum_{\mathbf{a}} c_{\mathbf{a}} \mathbf{X}^{\mathbf{a}}$ 中的系数 $c_{\mathbf{0}} &#x3D; c_{(0, \ldots, 0)}$ 为 $f$ 的常数项。</p>
-<blockquote>
-<p>[!proposition]<br>形式幂级数 $f \in R\llbracket X_1, \ldots, X_n \rrbracket$ 可逆当且仅当其常数项 $c_{\mathbf{0}}$ 在 $R$ 中可逆。</p>
-</blockquote>
-<p>作为推论，若 $R$ 为域且 $n&#x3D;1$（即单变元情形），则 $R(!(X)!)$ 无非是 $R \llbracket X \rrbracket$ 的分式域；请读者对照 $\mathbb{Q}_p$ 的情形。</p>
-<p>$Proof.$ 考虑对理想 $\mathfrak{a}_1 &#x3D; \left\langle X_1, \ldots, X_n \right\rangle$ 的商同态 $R\llbracket X_1, \ldots, X_n \rrbracket \twoheadrightarrow R$，它将 $f$ 映至 $c_{\mathbf{0}}$。故 $f$ 可逆蕴涵 $c_{\mathbf{0}} \in R^\times$。下面证明其逆命题。假设 $f$ 的常数项可逆，以 $c_{\mathbf{0}}^{-1} f$ 代 $f$，可化约到 $f \in 1 + \mathfrak{a}_1$ 的情形。后续论证类似于命题 [[#^prop-p-adic]] 的证明：置 $a :&#x3D; 1 - f$，$a \in \mathfrak{a}_1$。在 Hausdorff 拓扑环 $R \llbracket X_1, \ldots, X_n \rrbracket$ 中有等式<br>$$<br> (1-a)^{-1} &#x3D; 1 + a + a^2 + \cdots \quad \text{(收敛级数)},<br>$$<br>故 $f$ 可逆。<br>$\blacksquare$</p>
-<p>最后假设 $R$ 交换。多项式 $f \in R[X,Y,\ldots]$ 可在任意点 $(x,y, \ldots) \in R \times R \times \cdots$ 上取值，记为 $f(x,y,\ldots)$ 或 $\text{ev}_{(x,y,\ldots)}(f)$，办法是在表达式中代入 $X&#x3D;x$，$Y&#x3D;y$ 等等。推而广之，考虑以 $\mathcal{X}$ 为变元集的多项式，设 $R \to R’$ 是交换环的同态，命题 [[#^prop-polynomial-ring-universal]] 之泛性质蕴涵：对任意映射 $\sigma: \mathcal{X} \to R’$，存在唯一的同态 $\text{ev}_\sigma: R[\mathcal{X}] \to R’$ 满足 $\forall X \in \mathcal{X}, ;\text{ev}_\sigma(X) &#x3D; \sigma(X)$。这相当于视 $\sigma$ 为空间 $(R’)^\mathcal{X}$ 中的点，对多项式 $f \in R[\mathcal{X}]$ 在该点求值。这就给出环同态<br>$$<br> \begin{aligned}<br>    \text{ev}: R[\mathcal{X}] &amp; \longrightarrow \left{ \text{映射 } (R’)^\mathcal{X} \to R’ \right} \<br>    f &amp; \longmapsto \left[ \sigma \mapsto \text{ev}_\sigma(f) \right],<br>\end{aligned}<br>$$</p>
-<p>^eqn-polynomial-ev</p>
-<p>右侧的环结构来自函数的逐点加法和乘法，乘法幺元为常值函数 $1$。简单起见取恒等同态 $R’&#x3D;R$，那么同态 $\text{ev}$ 将一个多项式 $f \in R[\mathcal{X}]$ 映至相应的多项式函数 $R^\mathcal{X} \to R$。多项式与多项式函数一般来说是不同的概念。举例明之，取 $p$ 为素数，$R &#x3D; \mathbb{Z}&#x2F;p\mathbb{Z}$ 而 $\mathcal{X} &#x3D; {X}$ 为独点集，则多项式 $f(X) &#x3D; X^p - X$ 在 $R$ 上恒取零值（这是初等数论中的 Fermat 小定理，见注记 [[Galois理论#^rem-Fermat-little]]），然而 $f$ 作为 $(\mathbb{Z}&#x2F;p\mathbb{Z})[X]$ 的元素非零，于是 [[#^eqn-polynomial-ev]] 非单。</p>
-<p>另一方面，以下命题表明当 $R$ 为无穷整环时，其上的多项式与多项式函数是一回事。</p>
-<blockquote>
-<p>[!proposition] 无穷整环上的多项式函数<br>当 $R$ 为无穷整环时，[[#^eqn-polynomial-ev]] 中的 $\mathrm{ev}$（取 $R’&#x3D;R$）是单同态。</p>
-</blockquote>
-<p>^prop-polynomial-function</p>
-<p>$Proof.$ 须说明 $\text{ev}(f)&#x3D;0 \implies f&#x3D;0$。因为 $f$ 只涉及 $\mathcal{X}$ 中有限多个变元，问题化约到有限元情形 $R[\mathcal{X}] &#x3D; R[X_1, \ldots, X_n]$；以下对 $n \geq 1$ 递归地论证。当 $n&#x3D;1$ 时，因为域 $\text{Frac}(R)$ 上多项式的根数不超过次数，断言得证。当 $n \geq 2$ 时，将 $f \neq 0$ 写作<br>$$<br> f &#x3D; \sum_{i&#x3D;0}^m f_i(X_1, \ldots, X_{n-1}) X_n^i, \quad f_i \in R[X_1, \ldots, X_{n-1}], ; f_m \neq 0.<br>$$<br>于是存在 $(r_1, \ldots, r_{n-1}) \in R^{n-1}$ 使 $f_m(r_1, \ldots, r_{n-1}) \neq 0$。因之 $f(r_1, \ldots, r_{n-1}, X) \in R[X]$ 非零多项式，从而非零函数。证毕。<br>$\blacksquare$</p>
-<blockquote>
-<p>[!remark]<br>现在回到一般框架，给定环同态 $\phi: R \to R’$。对于 $R’$ 中的一族元素 $\mathcal{E} &#x3D; {s_x}_{x \in \mathcal{X}}$（视同映射 $\sigma: \mathcal{X} \to R’$），环同态 $\text{ev}_\sigma: R[\mathcal{X}] \to R’$ 的像记为 $R[\mathcal{E}]$，它是 $R’$ 的子环，称为 ${s_x}_x$ 在 $R$ 上生成的子环。当 $\mathcal{X}&#x3D;{1, \ldots, n}$ 时将之简记为 $R[s_1, \ldots, s_n]$，由下述形式的元素构成<br>$$<br> \begin{gather*}<br>    f(s_1, \ldots, s_n) :&#x3D; \text{ev}_{(s_1, \ldots, s_n)}(f) &#x3D; \sum_{\mathbf{a}} \phi(c_{\mathbf{a}}) s_1^{a_1} \cdots s_n^{a_n}, \<br>    \text{其中} \quad f &#x3D; \sum_{\mathbf{a}} c_{\mathbf{a}} X^{\mathbf{a}} \in R[X_1, \ldots, X_n].<br>\end{gather*}<br>$$<br>局部化的符号 $R[S^{-1}]$ 和此处类似，实属有意为之，缘由就留给读者琢磨了。</p>
-</blockquote>
-<h2 id="唯一分解性"><a href="#唯一分解性" class="headerlink" title="唯一分解性"></a>唯一分解性</h2><p>本节探讨整环 $R$ 中元素的乘积分解，聚焦于整环中的整除性，以及如何将元素表成不可约元的乘积。数论中的经典案例是 $R &#x3D; \mathbb{Z}$，或者推而广之，$R$ 是某些由代数整数构成的环，如例 [[#^eg-Gauss-integers]] 的 Gauss 整数环。这些问题曾有力地推动了交换环论的发展。唯一分解性质在代数几何学中也扮演要角，它反映代数方程的零点集上一些较精密的几何性质。</p>
+<h2 id="多项式环"><a href="#多项式环" class="headerlink" title="[[多项式环]]"></a>[[多项式环]]</h2><h2 id="唯一分解性"><a href="#唯一分解性" class="headerlink" title="唯一分解性"></a>唯一分解性</h2><p>本节探讨整环 $R$ 中元素的乘积分解，聚焦于整环中的整除性，以及如何将元素表成不可约元的乘积。数论中的经典案例是 $R &#x3D; \mathbb{Z}$，或者推而广之，$R$ 是某些由代数整数构成的环，如例 [[#^eg-Gauss-integers]] 的 Gauss 整数环。这些问题曾有力地推动了交换环论的发展。唯一分解性质在代数几何学中也扮演要角，它反映代数方程的零点集上一些较精密的几何性质。</p>
 <p>在整环 $R$ 中定义整除关系 $x \mid y \iff (\exists a \in R, ; y&#x3D;ax) \iff \left\langle y \right\rangle \subset \left\langle x \right\rangle$。留意到 $x,y$ 相互整除当且仅当它们差一个 $R^\times$ 中元素。在整除性问题中 $R^\times$ 显然不起作用，故我们引进商幺半群 $\mathcal{P} :&#x3D; (R \smallsetminus {0})&#x2F;R^\times$。如不另外申明，本节以 $\mathring{x} \in \mathcal{P}$ 标记 $x \in R \smallsetminus {0}$ 的像，这只是临时的符号。易见整除性赋予 $\mathcal{P}$ 偏序：<br>$$<br> \mathring{y} \leq \mathring{x} \iff x \mid y.<br>$$<br>如果 $x, y \in R$ 在 $\mathcal{P}$ 中有上确界 $\mathring{d}$（定义 [[集合论#^def-max-sup]]），$d \in R$ 是其原像，则称 $d$ 是 $x,y$ 的最大公因子（greatest common divisor）；按上确界定义 $\mathring{d}$ 是唯一的。若 $x,y$ 的最大公因子为 $\mathring{1}$，则称 $x,y$ 互素（coprime）。</p>
 <p>我们以后谈及唯一分解，最大公因子等概念时，实际都是在 $\mathcal{P} :&#x3D; (R \smallsetminus {0})&#x2F;R^\times$ 中考虑。又因为 $\mathring{x} &#x3D; \mathring{y} \iff \left\langle x \right\rangle&#x3D;\left\langle y \right\rangle$，所以 $\mathcal{P}$ 的元素可等同于 $R$ 的主理想。</p>
 <blockquote>
@@ -1020,8 +846,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>环论初步</div>
-      <div>http://kaelvio.com/环论初步/</div>
+      <div>环论</div>
+      <div>http://kaelvio.com/环论/</div>
     </div>
     <div class="license-meta">
       
@@ -1033,7 +859,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年5月21日</div>
+          <div>2026年6月21日</div>
         </div>
       
       
@@ -1077,18 +903,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E7%9F%A5%E8%AF%86/" title="知识">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">知识</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95/" title="深度优先算法">
-                        <span class="hidden-mobile">深度优先算法</span>
+                      <a href="/Sisyphus/" title="Sisyphus">
+                        <span class="hidden-mobile">Sisyphus</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -1111,7 +931,7 @@
         var options = Object.assign(
           {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: '619250ab6fc45f5405c941fefb70bdd4'
+            id: '2001d38de0f2c0b4fd7a3f14bc53de68'
           }
         )
         var gitalk = new Gitalk(options);
