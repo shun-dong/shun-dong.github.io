@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="理解 环论环（ring）是具有加法和乘法两种二元运算的结构，满足结合律，分配律等习见的运算法则，然而不要求乘法交换。交换环的根本例子是整数环 $\mathbb{Z}$。推而广之，在数论中，任意一个代数数域中的代数整数皆对加法和乘法构成交换环；正是在这个脉络下，Hilbert 于 1897 年出版的《数论报告》（Zahlbericht）中首次引进了环的术语，其原文是德文 der Zahlring，即">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-06-21T01:59:50.849Z">
-<meta property="article:modified_time" content="2026-06-21T01:59:50.849Z">
+<meta property="article:published_time" content="2026-06-22T01:22:23.443Z">
+<meta property="article:modified_time" content="2026-06-22T01:22:23.443Z">
 <meta property="article:author" content="采薇">
 <meta property="article:tag" content="代数学方法">
 <meta property="article:tag" content="vol-1">
@@ -225,8 +225,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-06-21 09:59" pubdate>
-          2026年6月21日 上午
+        <time datetime="2026-06-22 09:22" pubdate>
+          2026年6月22日 上午
         </time>
       </span>
     
@@ -237,7 +237,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          22k 字
+          11k 字
         
       </span>
     
@@ -248,7 +248,7 @@
         
         
         
-          183 分钟
+          95 分钟
         
       </span>
     
@@ -449,64 +449,7 @@
 <p>由此可以推导出 $k^2 &#x3D; -1$，$jk&#x3D;i&#x3D;-kj$，$ki&#x3D;j&#x3D;-ik$。细节留给读者。由向量空间结构和前两条性质，我们也说 $\mathbb{H}$ 是一个 “$\mathbb{R}$-代数”，定义 [[代数初步#^def-algebra-naive]] 将有详细解释。此外亦可将复数域 $\mathbb{C} &#x3D; \mathbb{R} \oplus \mathbb{R} i$ 嵌入 $\mathbb{H}$。下面验证 $\mathbb{H}$ 是除环：如定义共轭运算<br>$$<br> z &#x3D; a + bi + cj + dk \longmapsto \bar{z} &#x3D; a - bi -cj -dk<br>$$<br>则有性质 $\overline{z w} &#x3D; \bar{w}\bar{z}$，$z\bar{z} &#x3D; \bar{z}z &#x3D; a^2 + b^2 + c^2 + d^2 \in \mathbb{R}$，由此可得<br>$$<br> z^{-1} &#x3D; (z\bar{z})^{-1} \bar{z} &#x3D; (\underbracket{a^2 + b^2 + c^2 + d^2}_{\neq 0})^{-1} \bar{z}, \quad z \in \mathbb{H} \smallsetminus {0}.<br>$$<br>这里用到的关键性质可归结为 $a^2 + b^2 + c^2 &#x3D; -1$ 在实数域 $\mathbb{R}$ 中无解，更强的陈述是 $-1$ 在 $\mathbb{R}$ 中非平方和；具后一条件的域称作形实域（formally real field），它们在域论，二次型和模型论等研究中是饶富兴味的对象，见 [[Feng17]]，§9.1。</p>
 </blockquote>
 <p>^eg-Hamilton-quaternion</p>
-<h2 id="交换环论"><a href="#交换环论" class="headerlink" title="[[交换环论]]"></a>[[交换环论]]</h2><h2 id="间奏-Mobius-反演"><a href="#间奏-Mobius-反演" class="headerlink" title="间奏: Möbius 反演"></a>间奏: Möbius 反演</h2><p>Möbius 反演公式是组合学与数论中的基本工具。之所以专辟一节讨论，有三重目的：一是迅速地补全我们需要的情形，二是演示环论的一种有趣应用，三则是说明如何从高观点梳理经典的 Möbius 反演公式，将之阐述为偏序集中的一套计数手段。本节将取法 [[Stan09]]，§§3.7–3.8，以代数工具演绎 Möbius 反演的基本理路。</p>
-<blockquote>
-<p>[!definition] 局部有限偏序集（locally finite poset）<br>若非空偏序集 $(P, \leq)$ 中对任意 $x \leq y$，子集 $[x,y] :&#x3D; { z \in P: x \leq z \leq y }$ 皆有限，则称 $(P,\leq)$ 为<em>局部有限偏序集</em>。</p>
-</blockquote>
-<p>对于局部有限的 $(P, \leq)$，定义环 $(I(P, \leq),+,\star)$ 如下。</p>
-<ul>
-<li>它作为加法群由所有函数 $f: {(x,y) \in P^2 : x \leq y } \to \mathbb{Q}$ 构成，加法为 $(f+g)(x,y) &#x3D; f(x,y) + g(x,y)$；</li>
-<li>乘法定为 $(f \star g)(x,y) &#x3D; \sum_{z: ; x \leq z \leq y} f(x,z) g(z,y)$；</li>
-<li>乘法幺元 $\delta \in I(P, \leq)$ 为<br>$$<br> \delta(x,y) &#x3D; \begin{cases} 1, &amp; x&#x3D;y \ 0, &amp; x &lt; y \end{cases}<br>$$<br>这是数学中常用的符号记法，称为 Kronecker 的 $\delta$。</li>
-</ul>
-<p><strong>局部有限</strong>确保 $I(P, \leq)$ 的乘法是良定的。环公理的验证毫无困难，例如乘法结合律成立的缘由就和矩阵乘法情形如出一辙；细节留给读者。如在定义中容许函数取值在任意域 $\Bbbk$ 中，便得到所谓 $\Bbbk$ 上的<em>关联代数</em>（incidence algebra）；域上代数的概念将在 §[[代数初步#^sec-algebra-def]] 介绍，这里按下不表。</p>
-<p>翻转序关系得到的 $(P, \geq)$ 依然是局部有限偏序集。细观乘法定义可知</p>
-<p>$$<br> I(P,\geq) &#x3D; I(P, \leq)^\text{op}.<br>$$<br>^eqn-incidence-ring-op</p>
-<blockquote>
-<p>[!lemma] 关联环的可逆性判别<br>设 $(P, \leq)$ 局部有限，对任意 $f \in I(P, \leq)$，以下陈述等价：</p>
-<ul>
-<li>$f$ 有乘法左逆元，</li>
-<li>对每个 $x \in P$ 皆有 $f(x,x) \neq 0$，</li>
-<li>$f$ 有乘法右逆元。</li>
-</ul>
-<p>特别地，在环 $I(P, \leq)$ 中左可逆 $\iff$ 可逆 $\iff$ 右可逆。</p>
-</blockquote>
-<p>^prop-incidence-ring-inv</p>
-<p>$Proof.$ 公式 $g \star f &#x3D; \delta$ 展开后无非是<br>$$<br> \begin{align*}<br>    g(x,x)f(x,x) &amp; &#x3D;1, \quad x \in P \<br>    g(x,y) f(y,y) &amp; &#x3D; - \sum_{x \leq z &lt; y} g(x,z) f(z,y), \quad x,y \in P, ; x &lt; y.<br>\end{align*}<br>$$<br>因而此式成立蕴涵 $\forall x ; f(x,x) \neq 0$；反之，当 $\forall x ; f(x,x) \neq 0$ 时上式唯一递归地定义了 $g(x,y)$ 使得 $g \star f &#x3D; \delta$。由此可见 $f$ 左可逆等价于 $f(x,x) \neq 0$。考虑 $(P,\geq)$ 并利用 [[#^eqn-incidence-ring-op]] 便得到右可逆的情形。<br>$\blacksquare$</p>
-<p>对于局部有限偏序集 $(P,\leq)$，定义<br>$$<br> \begin{gather*}<br>    \zeta &#x3D; \zeta_P \in I(P, \leq), \quad \forall x \leq y, ; \zeta(x,y) &#x3D; 1, \<br>    \mu &#x3D; \mu_P \in I(P, \leq), \quad \mu :&#x3D; \zeta^{-1}.<br>\end{gather*}<br>$$<br>此处 $\zeta$ 的可逆性由引理 [[#^prop-incidence-ring-inv]] 保证。我们也称函数 $\mu$ 为 $(P, \leq)$ 的 <em>Möbius 函数</em> $\mu$。性质 $\mu \star \zeta &#x3D; \delta &#x3D; \zeta \star \mu$ 展开了无非是<br>$$<br> \sum_{z \in [x,y]} \mu(x,z) &#x3D; \delta(x,y) &#x3D; \sum_{z \in [x,y]} \mu(z,y).<br>$$</p>
-<p>^eqn-Mobius-eq</p>
-<p>回顾引理 [[#^prop-incidence-ring-inv]] 证明中的递归公式，还能进一步导出 $\mu$ 取值在 $\mathbb{Z}$。这对后续应用是要紧的。</p>
-<blockquote>
-<p>[!proposition] Möbius 反演公式（Möbius inversion formula）（Gian-Carlo Rota, 1964）<br>设 $(A,+)$ 为交换群。设偏序集 $(P,\leq)$ 满足<br>$$<br> \forall x \in P, \quad {y \in P: y \leq x } ;\text{有限},<br>$$<br>则 $(P,\leq)$ 为局部有限偏序集；并且对任意函数 $f,g: P \to A$，有<br>$$<br> \forall x,\quad g(x) &#x3D; \sum_{y \leq x} f(y) \iff \forall x,\quad f(x) &#x3D; \sum_{y \leq x} g(y) \mu(y,x).<br>$$</p>
-</blockquote>
-<p>^prop-Mobius-inversion</p>
-<p>$Proof.$ 条件显然蕴涵 $(P,\leq)$ 局部有限，且断言中的和式皆有限。如第一式成立，则<br>$$<br> \begin{align*}<br>    \sum_{y \leq x} g(y) \mu(y,x) &amp; &#x3D; \sum_{z \leq y \leq x} f(z) \mu(y,x) \<br>    &amp; &#x3D; \sum_{z \leq x} \left( \sum_{z \leq y \leq x} \mu(y,x) \right) f(z).<br>\end{align*}<br>$$<br>同理，如第二式成立则<br>$$<br> \sum_{y \leq x} f(y) &#x3D; \sum_{z \leq x} \left( \sum_{z \leq y \leq x} \mu(z,y)\right) g(z).<br>$$<br>代入 $\mathbb{Z}$ 中的等式 [[#^eqn-Mobius-eq]] 立得断言。<br>$\blacksquare$</p>
-<p>This can be seen as a special case of $g&#x3D;f<em>\zeta\iff f&#x3D;g</em>\mu$.</p>
-<blockquote>
-<p>[!example] 色多项式（chromatic polynomial）<br>试问如何用一个有 $q$ 种颜色的色盘为一份地图上色，使得相邻的区&#x2F;县颜色相异？下图是兰州市的例子，我们也一并给出图论的改述。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs tikz">\begin&#123;tikzpicture&#125;<br>    \node (PIC) at (0,0) &#123;\includegraphics[width=185pt]&#123;Lanzhou.png&#125;&#125;;<br>    \node (TXT) [right=2em of PIC.east, text width=150pt, align=left] &#123;<br>        若用顶点对应区县，相邻者以边相连，那么原问题就等价于为一个有限平面图 $\Gamma$ 的每个顶点上色（$q$ 种选择），使得每条边的两端不同色。如此则可探讨任意有限图的着色。称这种着色方式为&quot;恰当&quot;的。<br>    &#125;;<br>    \node (NOTE) [above=0.5em of TXT.north, text width=120pt, align=left, below delimiter=|] &#123;<br>        \footnotesize \textcolor&#123;red&#125;&#123;$\bigstar$&#125; 图源: \href&#123;https://commons.wikimedia.org/wiki/File:Administrative_Division_Lanzhou.svg&#125;&#123;Wikimedia Commons&#125;，蓝线为黄河。<br>    &#125;;<br>\end&#123;tikzpicture&#125;<br></code></pre></td></tr></table></figure>
-
-<p>记 $\Gamma$ 的所有恰当着色方式的个数为 $M_\Gamma(q)$。为了计数，先不管着色是否恰当，则着色方式恰有 $q^{V(\Gamma)}$ 种，其中 $V(\Gamma)$ 为顶点或者说区县的个数。我们称 $\Gamma’$ 是 $\Gamma$ 的子地图，如果 $\Gamma’$ 是从 $\Gamma$ 合并若干行政区划得到的，或从图论角度看就是缩并，记为 $\Gamma’ \leq \Gamma$。如是则使 $\Gamma$ 的全体子地图对 $\leq$ 构成有限偏序集。于是看出<br>$$<br> q^{V(\Gamma)} &#x3D; \sum_{\Gamma’ \leq \Gamma} M_{\Gamma’}(q);<br>$$<br>诚然，对任何一种地图着色，总能合并相邻的同色区县使之变为恰当的。现在应用命题 [[#^prop-Mobius-inversion]] 导出<br>$$<br> M_\Gamma(q) &#x3D; \sum_{\Gamma’ \leq \Gamma} q^{V(\Gamma’)} \mu(\Gamma’, \Gamma).<br>$$<br>视 $q$ 为变元，则整系数多项式 $M_\Gamma(q)$ 给出图 $\Gamma$ 的一个代数不变量，称为 $\Gamma$ 的色多项式，这是 Birkhoff 研究四色问题时引入的。在统计物理学中，$M_\Gamma(q)$ 对应于反铁磁 $q$-态 Potts 模型的配分函数在零温极限的情形；见 [[Sok05]]。</p>
-</blockquote>
-<p>下一步是推导经典的 Möbius 反演，仍需几道工序。</p>
-<blockquote>
-<p>[!lemma] 积偏序集的 Möbius 函数<br>设 $(P_1, \leq), \ldots, (P_n, \leq)$ 为局部有限偏序集。赋予积集 $P :&#x3D; \prod_{i&#x3D;1}^n P_i$ 序结构 $(x_i)_{i&#x3D;1}^n \leq (y_i)_{i&#x3D;1}^n \iff \forall i; x_i \leq y_i$，则 $(P, \leq)$ 依然是局部有限偏序集，其 Möbius 函数为<br>$$<br> \mu_P\left( x, y \right) &#x3D; \prod_{i&#x3D;1}^n \mu_{P_i}(x_i, y_i), \quad x&#x3D;(x_i)_i, ; y&#x3D;(y_i)_i \in P<br>$$</p>
-</blockquote>
-<p>^prop-Mobius-prod</p>
-<p>$Proof.$ 极易看出 $(P, \leq)$ 是局部有限偏序集。剩下工作是对如上定义的 $\mu_P$ 验证 [[#^eqn-Mobius-eq]]，这可以归结为 $P$ 上的求和公式<br>$$<br> \sum_{\substack{z &#x3D; (z_i)_i \in P \ x \leq z \leq y}} &#x3D; \sum_{x_1 \leq z_1 \leq y_1} \cdots \sum_{x_n \leq z_n \leq y_n}.<br>$$<br>$\blacksquare$</p>
-<p>尚需一个毫不困难的推广。考虑一族局部有限的偏序集 $(P_i, \leq)_{i \in I}$。假定对”几乎所有的”下标 $i$（确切地说，至多有限个下标除外），我们取定了元素 $\mathring{x}_i \in P_i$。定义所谓<em>受限积</em> $P :&#x3D; {\prod}’_i P_i$ 为<br>$$<br> \left{ (x_i)_i \in \prod_{i \in I} P_i : \text{对几乎所有 $i$，有}; x_i &#x3D; \mathring{x}_i  \right}<br>$$<br>此处 ${\prod}’_i P_i$ 继承 $\prod_i P_i$ 的积偏序：$(x_i)_i \leq (y_i)_i \iff \forall i; x_i \leq y_i$。那么 $(P, \leq)$ 仍然局部有限，而且 Möbius 函数的表法照旧<br>$$<br> \mu_P\left( x, y \right) &#x3D; \prod_i \mu_{P_i}(x_i, y_i)<br>$$<br>对几乎所有 $i$ 都有 $x_i &#x3D; y_i &#x3D; \mathring{x}_i$ 而 $\mu_{P_i}(\mathring{x}_i, \mathring{x}_i)&#x3D;1$，乘积因之有限。欲证上式仅须对每个 $x \leq y$ 验证 [[#^eqn-Mobius-eq]]，然而该式中仅涉及使得 $x_i, y_i \neq \mathring{x}_i$ 的有限多个下标 $i$，问题立刻化约到有限积的情形。现在可以阐述经典的 Möbius 反演公式。</p>
-<blockquote>
-<p>[!example] 全序集上的 Möbius 函数<br>考虑全序集 $(\mathbb{Z}_{\geq 0}, \leq)$，它当然使得 ${y: y \leq x}$ 对每个 $x$ 皆为有限集。取<br>$$<br> \mu(n,m) :&#x3D; \begin{cases} 1, &amp; n-m &#x3D; 0 \ -1, &amp; n-m &#x3D; -1, \ 0, &amp; \text{其它情形}. \end{cases}<br>$$<br>不待计算立见 [[#^eqn-Mobius-eq]] 成立。此即所求的 Möbius 函数。在此特例下，请读者将命题 [[#^prop-Mobius-inversion]] 的反演公式翻译为一望可知的计数原理。</p>
-</blockquote>
-<blockquote>
-<p>[!example] 经典的 Möbius 反演（A. F. Möbius, 1832）<br>现在赋予 $\mathbb{Z}_{\geq 1}$ 整除偏序：定义 $n \prec m \iff n \mid m$；同样地，${y : y \prec x }$ 对每个 $x$ 都有限，因为每个正整数仅有有限多个因子。正整数的唯一分解给出偏序集的同构：<br>$$<br> \begin{align*}<br>    {\prod}’_{p: \text{素数}} (\mathbb{Z}_{\geq 0}, \leq) &amp; \stackrel{\sim}{\longrightarrow} (\mathbb{Z}_{\geq 1}, \prec) \<br>    (n_p)_p &amp; \longmapsto \prod_{p: \text{素数}} p^{n_p},<br>\end{align*}<br>$$<br>左端实际是之前解释过的受限积，取 $\mathring{x}_p &#x3D; 0$。因此 $\prod_p p^{n_p}$ 有限，映射是良定的。根据引理 [[#^prop-Mobius-prod]] 的受限积版本，$(\mathbb{Z}_{\geq 1}, \prec)$ 的 Möbius 函数 $\mu$ 表作<br>$$<br> \begin{align*}<br>    \mu\left( \prod_p p^{n_p}, \prod_p p^{m_p} \right) &amp; &#x3D; \prod_{p: \text{素数}} \mu_{(\mathbb{Z}_{\geq 0}, \leq)}(n_p, m_p) \<br>    &amp; &#x3D;\begin{cases}<br>        \prod_{\substack{p: \text{素数}}} (-1)^{n_p - m_p}, &amp; \forall p \quad n_p-m_p \geq -1 \<br>        0, &amp; \exists p\quad n_p - m_p &lt; -1.<br>    \end{cases}\end{align*}<br>$$<br>记 $\mu(n) :&#x3D; \mu(1,n)$，则 $\mu(d,n) &#x3D; \mu(n&#x2F;d)$，而上式给出直截了当的描述<br>$$<br> \mu(n) &#x3D; \begin{cases}<br>    (-1)^{(n; \text{的素因子个数})}, &amp; n; \text{无平方因子} \neq 1, \<br>    0, &amp; \text{其它情形}.<br>\end{cases}<br>$$<br>对于交换群 $(A,+)$ 及任意函数 $f, g: \mathbb{Z}_{\geq 1} \to A$，命题 [[#^prop-Mobius-inversion]] 化作<br>$$<br> \forall n,; g(n) &#x3D; \sum_{d \mid n} f(d) \iff \forall n,; f(n) &#x3D; \sum_{d \mid n} g(d) \mu\left( \frac{n}{d} \right).<br>$$</p>
-<p>此即熟知的 Möbius 反演公式，实践中又分为<br>(a) 加性情形：$A$ 取为 $\mathbb{Z}$，$\mathbb{C}$ 等加法群，以及<br>(b) 乘性情形：$A$ 取为 $\mathbb{Q}^\times$ 或非零有理多项式 $\mathbb{Q}(X)^\times$ 等乘法群。<br>但理论框架并无二致。</p>
-</blockquote>
-<p>^eg-Mobius-classical</p>
-<p>现在来考虑一个初等应用。对于任意 $n \in \mathbb{Z}_{\geq 1}$，熟知的 Euler 函数 $\varphi(n) :&#x3D; |(\mathbb{Z}&#x2F;n\mathbb{Z})^\times|$ 无非是计算所有 $\leq n$ 而与 $n$ 互素的正整数个数。以下等式恒成立：<br>$$<br> \begin{gathered}<br>    \sum_{d \mid n} \varphi(d) &#x3D; n, \<br>    \sum_{d \mid n} d \mu\left( \frac{n}{d} \right) &#x3D; \varphi(n).<br>\end{gathered}<br>$$</p>
-<p>^eqn-Euler-phi-sum</p>
-<p>第一式的一种解释如下：将 $n$ 个有理数 $\frac{1}{n}, \ldots, \frac{n}{n}$ 全化作最简分数，则 $\varphi(d)$ 正好是其中分母化为 $d$ 的元素个数；应用 Möbius 反演立得第二式。这些都是初等数论中熟知的性质。</p>
-<h2 id="环的极限与完备化"><a href="#环的极限与完备化" class="headerlink" title="环的极限与完备化"></a>环的极限与完备化</h2><p>本节中出现的 $I$ 皆为非空集或非空范畴。我们将按照直积，$\varprojlim$ 和 $\varinjlim$ 的顺序解说，顺带引入点集拓扑的语言来讨论完备化（completion）。</p>
+<h2 id="交换环论"><a href="#交换环论" class="headerlink" title="[[交换环论]]"></a>[[交换环论]]</h2><h2 id="环的极限与完备化"><a href="#环的极限与完备化" class="headerlink" title="环的极限与完备化"></a>环的极限与完备化</h2><p>本节中出现的 $I$ 皆为非空集或非空范畴。我们将按照直积，$\varprojlim$ 和 $\varinjlim$ 的顺序解说，顺带引入点集拓扑的语言来讨论完备化（completion）。</p>
 <blockquote>
 <p>[!definition] 环的直积（direct product of rings）<br>设 ${R_i : i \in I}$ 为一族环。其直积 $\prod_{i \in I} R_i$ 在加法群的层次与定义 [[群论#^def-monoid-times]] 相同，我们在 $\prod_{i \in I} R_i$ 上定义乘法运算为<br>$$<br> (r_i)_{i \in I} \cdot (s_i)_{i \in I} &#x3D; (r_i \cdot s_i)_{i \in I}.<br>$$<br>换言之，$\prod_{i \in I} R_i$ 同时是乘法幺半群的直积，其幺元是 $(1_{R_i})_{i \in I}$。易证 $\prod_{i \in I} R_i$ 满足环的公理。</p>
 </blockquote>
@@ -579,200 +522,7 @@
 <p>[!proposition]<br>整数环 $\mathbb{Z}$ 是环范畴 $\mathsf{Ring}$ 的始对象。</p>
 </blockquote>
 <p>读者可能要问：环范畴里是否总有一般的小 $\varinjlim$？由于本章只论非零含幺环，答案是否定的：以下例子说明一对同态 $f,g: R \to S$ 的余等化子未必存在。考虑多项式环 $R &#x3D; \mathbb{C}[X]$ 和 $S &#x3D; \mathbb{C}$，取同态 $f: P \mapsto P(0)$ 和 $g: P \mapsto P(1)$，其中 $P \in \mathbb{C}[X]$。若有环同态 $h: S \to T$ 满足 $hf&#x3D;hg$，取 $P(X)&#x3D;-X$ 则有 $h(1) &#x3D; h(P(0)-P(1)) &#x3D; 0$，这与 $h(1)&#x3D;1$ 矛盾。</p>
-<h2 id="多项式环"><a href="#多项式环" class="headerlink" title="[[多项式环]]"></a>[[多项式环]]</h2><h2 id="唯一分解性"><a href="#唯一分解性" class="headerlink" title="唯一分解性"></a>唯一分解性</h2><p>本节探讨整环 $R$ 中元素的乘积分解，聚焦于整环中的整除性，以及如何将元素表成不可约元的乘积。数论中的经典案例是 $R &#x3D; \mathbb{Z}$，或者推而广之，$R$ 是某些由代数整数构成的环，如例 [[#^eg-Gauss-integers]] 的 Gauss 整数环。这些问题曾有力地推动了交换环论的发展。唯一分解性质在代数几何学中也扮演要角，它反映代数方程的零点集上一些较精密的几何性质。</p>
-<p>在整环 $R$ 中定义整除关系 $x \mid y \iff (\exists a \in R, ; y&#x3D;ax) \iff \left\langle y \right\rangle \subset \left\langle x \right\rangle$。留意到 $x,y$ 相互整除当且仅当它们差一个 $R^\times$ 中元素。在整除性问题中 $R^\times$ 显然不起作用，故我们引进商幺半群 $\mathcal{P} :&#x3D; (R \smallsetminus {0})&#x2F;R^\times$。如不另外申明，本节以 $\mathring{x} \in \mathcal{P}$ 标记 $x \in R \smallsetminus {0}$ 的像，这只是临时的符号。易见整除性赋予 $\mathcal{P}$ 偏序：<br>$$<br> \mathring{y} \leq \mathring{x} \iff x \mid y.<br>$$<br>如果 $x, y \in R$ 在 $\mathcal{P}$ 中有上确界 $\mathring{d}$（定义 [[集合论#^def-max-sup]]），$d \in R$ 是其原像，则称 $d$ 是 $x,y$ 的最大公因子（greatest common divisor）；按上确界定义 $\mathring{d}$ 是唯一的。若 $x,y$ 的最大公因子为 $\mathring{1}$，则称 $x,y$ 互素（coprime）。</p>
-<p>我们以后谈及唯一分解，最大公因子等概念时，实际都是在 $\mathcal{P} :&#x3D; (R \smallsetminus {0})&#x2F;R^\times$ 中考虑。又因为 $\mathring{x} &#x3D; \mathring{y} \iff \left\langle x \right\rangle&#x3D;\left\langle y \right\rangle$，所以 $\mathcal{P}$ 的元素可等同于 $R$ 的主理想。</p>
-<blockquote>
-<p>[!definition] 唯一分解环（unique factorization domain, UFD）<br>整环 $R$ 中的非零元 $r$ 称为<em>不可约</em>的（irreducible），如果 $r \notin R^\times$ 而且在 $R$ 中 $d \mid r$ 蕴涵 $\left\langle d \right\rangle &#x3D; \left\langle r \right\rangle$ 或 $d \in R^\times$。不可约性仅取决于 $r$ 在 $\mathcal{P}$ 中的像。如果 $\mathcal{P}$ 的每个元素 $\mathring{r}$ 都能写成<br>$$<br> \mathring{r} &#x3D; \prod_{i&#x3D;1}^n \mathring{p}_i, \quad n \in \mathbb{Z}_{\geq 0}<br>$$<br>其中 $\mathring{p}_i \in \mathcal{P}$ 不可约，而且 ${\mathring{p}_1, \ldots, \mathring{p}_n }$（计重数但不计顺序）是唯一的，则称 $R$ 为<em>唯一分解环</em>（或唯一分解整环，UFD）；称 $\mathring{p}_1, \ldots, \mathring{p}_n$（或其原像 $p_1, \ldots, p_n \in R$）是 $\mathring{r}$（或其原像 $r \in R$）的不可约因子。约定 $n&#x3D;0 \iff \mathring{r}&#x3D;1$。</p>
-</blockquote>
-<p>^def-UFD</p>
-<p>众所周知 $\mathbb{Z}$ 是唯一分解环，这一事实也称作算术基本定理。在唯一分解环中若 $a \mid b$ 而 $b \neq 0$，那么将 $a$ 和 $b&#x2F;a$ 的不可约分解相乘便得到 $b$ 的不可约分解；作为推论，$a$ 的不可约因子（计重数）构成 $b$ 的不可约因子的子集，而精确到 $R^\times$，任意 $b \in R \smallsetminus {0}$ 只有有限多个因子。</p>
-<p>如果整环 $R$ 中的非零元 $p$ 满足 $p \notin R^\times$ 而且 $p \mid ab \iff (p \mid a) \vee (p \mid b)$，则称 $p$ 是<em>素元</em>（prime element）。我们先作些初步观察：</p>
-<ul>
-<li>元素 $p$ 是素元当且仅当 $\left\langle p \right\rangle$ 是素理想。</li>
-<li>素元必不可约：若有分解 $p&#x3D;ab$ 则不妨设 $p \mid a$，因此 $a,p$ 相互整除，$b \in R^\times$。其逆对一般整环不成立。</li>
-<li>唯一分解环中任两个元素 $x,y \neq 0$ 总有最大公因子。进一步，此环的不可约元 $p$ 皆为素元：若 $(p \nmid a) \wedge (p \nmid b)$，那么 $a,b$ 的不可约分解相乘后仍不含 $p$，故有 $p \nmid ab$。</li>
-<li>命 $\mathcal{P}_0$ 为 $R$ 中所有 $\neq R$ 的主理想的集合，配备偏序 $\subset$，则元素 $p \in R \smallsetminus {0}$ 不可约当且仅当 $\left\langle p \right\rangle$ 在 $\mathcal{P}_0$ 中是极大元。</li>
-<li>在唯一分解环中，$\mathcal{P}_0$ 中的无穷升链 $\left\langle a_1 \right\rangle \subset \left\langle a_2 \right\rangle \subset \cdots$ 必须”稳定化”，具体地说，存在 $m \geq 1$ 使得 $\left\langle a_m \right\rangle &#x3D; \left\langle a_{m+1} \right\rangle &#x3D; \cdots$。这是由于精确到 $R^\times$，每个 $a_i$ 只能有有限多个因子。此性质称为偏序集 $\mathcal{P}_0$ 的<em>升链条件</em>（ascending chain condition, ACC）。</li>
-<li>反过来说，若 $\mathcal{P}_0$ 满足升链条件如上，那么任意非零元 $r \in R$ 都能分解为不可约元的积。设若不然，则有分解 $r &#x3D; r_1 r’$，$r_1 &#x3D; r_2 r’’$ 等等，使得 $r’, r’’, \ldots \notin R^\times$，故 $\left\langle r_1 \right\rangle \subsetneq \left\langle r_2 \right\rangle \subsetneq \cdots$ 以至于无穷，矛盾。</li>
-<li>如果 $R$ 中的不可约元皆为素元，例如唯一分解环，那么不可约分解满足定义 [[#^def-UFD]] 中的唯一性。理路同于算术基本定理的证明：假若 $\mathcal{P}$ 中有两个不可约分解 $\mathring{p}_1 \cdots \mathring{p}_m &#x3D; \mathring{q}_1 \cdots \mathring{q}_n$，则由素性知存在 $j$ 使得 $p_1 \mid q_j$，由不可约性知 $\left\langle p_1 \right\rangle &#x3D; \left\langle q_j \right\rangle$。于是等式两边可以消掉 $\mathring{p}_1 &#x3D; \mathring{q}_j$，如是反复以推导唯一性。</li>
-</ul>
-<p>于是我们得到唯一分解环的另一种刻画。</p>
-<blockquote>
-<p>[!proposition]<br>整环 $R$ 是唯一分解环的充要条件是</p>
-<ul>
-<li>在 $R$ 中所有 $\neq R$ 的主理想构成的偏序集 $(\mathcal{P}_0, \subset)$ 满足升链条件；</li>
-<li>$R$ 中的不可约元皆是素元。</li>
-</ul>
-</blockquote>
-<p>$Proof.$ 业已说明唯一分解环满足所列条件。反之，上述讨论表明 $\mathcal{P}_0$ 的升链条件保证不可约分解存在，不可约元为素元则保证唯一性。<br>$\blacksquare$</p>
-<p>局部化保持唯一分解性。</p>
-<blockquote>
-<p>[!proposition] 局部化保持 UFD<br>设 $S$ 是唯一分解环 $R$ 的乘性子集，$0 \notin S$，则 $R[S^{-1}]$ 也是唯一分解环。</p>
-</blockquote>
-<p>^prop-UFD-localization</p>
-<p>$Proof.$ 因 $R[S^{-1}] \hookrightarrow \text{Frac}(R)$ 故 $R[S^{-1}]$ 为整环。现将 $R$ 中的不可约元 $p$ 划作两类。<br>(i) $p$ 整除某个 $S$ 中元素；依引理 [[#^prop-localization-units]]，这等价于 $p$ 在 $R[S^{-1}]$ 中可逆。<br>(ii) $p$ 不整除 $S$ 中任一元素；此时 $p$ 在 $R[S^{-1}]$ 中不可约，证明如下。首先它的像不可逆。其次设 $p &#x3D; \frac{r}{s} \cdot \frac{r’}{s’}$，则 $p$ 为素元故 $ss’p &#x3D; rr’$ 蕴涵 $p \mid r$ 或 $p \mid r’$；不妨设 $p \mid r$，则从 $1 &#x3D; \frac{r&#x2F;p}{s} \cdot \frac{r’}{s’}$ 可见 $\frac{r’}{s’}$ 在 $R[S^{-1}]$ 中可逆。</p>
-<p>给定非零元 $\frac{r}{s} \in R[S^{-1}]$。在 $R$ 中作不可约分解 $\mathring{r} &#x3D; \prod_{i&#x3D;1}^m \mathring{p}_i \cdot \prod_{j&#x3D;1}^n \mathring{q}_j$，其中 $p_i$，$q_j$ 分属 (i), (ii) 两类不可约元。那么 $\prod_{j&#x3D;1}^n \mathring{q}_j$ 就给出 $\mathring{\frac{r}{s}}$ 的不可约分解。另外 $\left\langle q_j \right\rangle$ 是素理想且不交 $S$；命题 [[#^prop-localization-ideals]] 说明 $\left\langle q_j \right\rangle[S^{-1}] &#x3D; q_j R[S^{-1}]$ 也是素理想。按稍早的讨论，这就确保 $R[S^{-1}]$ 中不可约分解的唯一性。<br>$\blacksquare$</p>
-<p>现在着手将唯一分解性推广到主理想环上。</p>
-<blockquote>
-<p>[!lemma] 主理想环的升链条件<br>对于主理想环 $R$ 中的理想升链<br>$$<br> \mathfrak{a}_1 \subset \mathfrak{a}_2 \subset \cdots,<br>$$<br>总存在 $m \geq 1$ 使得 $\mathfrak{a}_m &#x3D; \mathfrak{a}_{m+1} &#x3D; \cdots$。</p>
-</blockquote>
-<p>^prop-ACC-PID</p>
-<p>换言之，$R$ 的理想满足升链条件。在定义 [[模论#^def-ACC-DCC-mod]] 将有更加系统的研究。</p>
-<p>$Proof.$ 由于 $\mathfrak{a} &#x3D; \bigcup_{i&#x3D;1}^\infty \mathfrak{a}_i$ 仍为理想，可写成 $\mathfrak{a}&#x3D; \left\langle a \right\rangle$ 的形式。取 $m$ 充分大使得 $a \in \mathfrak{a}_m$ 即可。<br>$\blacksquare$</p>
-<blockquote>
-<p>[!theorem] 主理想环是 UFD<br>主理想环都是唯一分解环，其中的非零素理想皆由单个不可约元生成，因而是极大理想。</p>
-</blockquote>
-<p>^prop-PID-UFD</p>
-<p>$Proof.$ 鉴于唯一分解环的刻画和引理 [[#^prop-ACC-PID]]，仅须证明 $R$ 中每个不可约元 $p$ 都是素元即可建立唯一分解性。由于 $R$ 是主理想环，不可约元的定义蕴涵 $\left\langle p \right\rangle$ 是 $R$ 的极大理想；推论 [[#^prop-maximal-implies-prime]] 蕴涵 $\left\langle p \right\rangle$ 是素理想，于是 $p$ 是素元。<br>$\blacksquare$</p>
-<p>判定一个环是否为主理想环并不容易。回顾基本案例，证明 $\mathbb{Z}$ 是主理想环的传统办法是带余除法，我们将此办法略作推广如下。</p>
-<blockquote>
-<p>[!lemma] Euclid 环<br>设 $R$ 为整环，若存在良序集 $L$（定义 [[集合论#^def-well-ordered]]）和函数 $N: R \smallsetminus {0} \to L$，使得对任意 $x \in R$，$d \in R \smallsetminus {0}$ 都存在 $q \in R$ 使 $r :&#x3D; x-qd$ 满足<br>$$<br> r&#x3D;0,  \quad \text{或者}\quad r \neq 0 ;\text{而}; N(r) &lt; N(d).<br>$$<br>则 $R$ 是主理想环，因而也是唯一分解环。满足此条件的 $R$ 称作 Euclid 环（Euclidean domain）。</p>
-</blockquote>
-<p>^prop-Euclidean-ring</p>
-<p>$Proof.$ 以上条件是带余除法的直接推广，$r$ 扮演了余数的角色。仿照 $R&#x3D;\mathbb{Z}$ 的情形，容易证明对任意非零理想 $\mathfrak{a} \subset R$，若 $a \in \mathfrak{a} \smallsetminus {0}$ 取到最小可能的 $N(a) \in L$，则 $\mathfrak{a} &#x3D; \left\langle a \right\rangle$。<br>$\blacksquare$</p>
-<blockquote>
-<p>[!example] 域上单变元多项式环<br>域 $\Bbbk$ 上的一元多项式环 $\Bbbk[X]$ 是主理想环。为此取 $N$ 为次数函数 $\deg: \Bbbk[X] \smallsetminus {0} \to \mathbb{Z}_{\geq 0}$ 即可，这相当于运用域上多项式的带余除法。</p>
-</blockquote>
-<p>^eg-polynomial-PID</p>
-<blockquote>
-<p>[!example] Gauss 整数环（Gauss integers）<br>Gauss 整数环定义为<br>$$<br> \mathbb{Z}[\sqrt{-1}] :&#x3D; \left{ x+y\sqrt{-1} : x,y \in \mathbb{Z} \right} \quad \text{(作为 $\mathbb{C}$ 的子环)}.<br>$$<br>兹断言这是 Euclid 环，因此是主理想环。在引理 [[#^prop-Euclidean-ring]] 中取范数映射<br>$$<br> N(x+y\sqrt{-1}) &#x3D; |x+y\sqrt{-1}|^2 &#x3D; x^2 + y^2 ;\in \mathbb{Z}_{\geq 0}.<br>$$<br>为了验证所需条件，仅须对给定的 $x, d$ 取 $q \in \mathbb{Z}[\sqrt{-1}]$ 为复平面上距 $\frac{x}{d}$ 最近的整点，并注意到 $\left| \frac{x}{d} - q \right|^2 \leq \frac{1}{2^2} + \frac{1}{2^2} &#x3D; \frac{1}{2} \implies N(x-qd) &lt; N(d)$。</p>
-<p>注意到 $\mathbb{Z}[\sqrt{-1}]$ 对共轭运算 $z \mapsto \bar{z}$ 封闭，$N(z)&#x3D;z\bar{z}$ 是乘法幺半群的同态，由此不难推得 $\mathbb{Z}[\sqrt{-1}]^\times &#x3D; N^{-1}(\mathbb{Z}^\times) &#x3D; {\pm 1, \pm\sqrt{-1}}$。</p>
-</blockquote>
-<p>^eg-Gauss-integers</p>
-<p>基于数论的考量，一个自然的推广是考虑无平方因子的 $D \in \mathbb{Z}_{\neq 0}$，相应的<em>二次数域</em>（quadratic number field）$\mathbb{Q}(\sqrt{D}) :&#x3D; \mathbb{Q} + \mathbb{Q}\sqrt{D} \subset \mathbb{C}$ 和包含于其中的某一类整环 $\mathfrak{o}_D$，并研究其是否具唯一分解性或为主理想环。合理的选择是取 $\mathbb{Q}(\sqrt{D})$ 中由代数整数构成的子环<br>$$<br> \mathfrak{o}_D :&#x3D; \begin{cases}<br>    \mathbb{Z} \oplus \mathbb{Z} \sqrt{D}, &amp; D \not\equiv 1 \pmod 4 \<br>    \mathbb{Z} \oplus \mathbb{Z} \cdot \frac{1 + \sqrt{D}}{2}, &amp; D \equiv 1 \pmod 4.<br>\end{cases}<br>$$</p>
-<p>^eqn-quadratic-integer</p>
-<p>整性是 §[[代数初步#^sec-integrality-finiteness]] 的主题，先请读者动手验证 $\mathfrak{o}_D$ 为子环。当 $D&gt;0$ 时仍有许多相关问题未解。对于 $D &lt; 0$，Heegner–Stark 定理完全确定了使 $\mathfrak{o}_D$ 为主理想环的 $D$：<br>$$<br> D &#x3D; -1, -2, -3, -7, -11, -19, -43, -67, -163.<br>$$<br>这是更广阔的 Gauss 类数问题的一则特例。20 世纪以降的数论发展表明，这一大类代数&#x2F;数论问题与模形式(分析学对象)和椭圆曲线(几何学对象)有极为密切的联系，例证之一是 D. Goldfeld 对类数问题取得的重大突破，谨向感兴趣的读者推荐他自撰的综述 [[Go85]]。</p>
-<p>且看如何用 $\mathbb{Z}[\sqrt{-1}]$ 的唯一分解性来证明数论中一个绝非显然的定理，对 $\mathbb{Z}[\sqrt{-1}]$ 结构的进一步梳理留作习题。</p>
-<blockquote>
-<p>[!theorem] Fermat 平方和定理<br>素数 $p$ 能写成 $x^2 + y^2$ 的形式（$x,y \in \mathbb{Z}$）当且仅当 $p&#x3D;2$ 或 $p \equiv 1 \pmod 4$；解 $(x,y)$ 在至多差一个重排和符号的意义下唯一。</p>
-</blockquote>
-<p>^prop-sum-squares</p>
-<p>$Proof.$ 这是不可约元分类的一个简单结论。任何不可约元 $\mathfrak{p} \in \mathbb{Z}[\sqrt{-1}]$ 都整除 $N(\mathfrak{p}) :&#x3D; \mathfrak{p}\bar{\mathfrak{p}} \in \mathbb{Z}$，因而整除某个素数 $p \in \mathbb{Z}$，该素数唯一：若 $\mathfrak{p}$ 整除另一素数 $p’$，那么从 $p\mathbb{Z} + p’\mathbb{Z} &#x3D; \mathbb{Z}$ 推出 $\mathfrak{p} \mid 1$，矛盾。不可约元的分类化约到以下问题：对于每个素数 $p$，研究它在 $\mathbb{Z}[\sqrt{-1}]$ 中的不可约分解。</p>
-<p>照例以 $\mathring{\xi}$ 表示 $\xi$（非零元）$\bmod; \mathbb{Z}[\sqrt{-1}]^\times$ 的类，任何非零整数 $a$ 在 $\mathbb{Z}[\sqrt{-1}]$ 中可以作唯一分解<br>$$<br> \mathring{a} &#x3D; \prod_{\mathring{\mathfrak{p}}} \mathring{\mathfrak{p}}^{n(\mathfrak{p})}, \quad \mathfrak{p} \in \mathbb{Z}[\sqrt{-1}]: \text{相异不可约元},<br>$$<br>出现的不可约因子分成两种：</p>
-<ul>
-<li>$\mathring{\mathfrak{p}} \neq \mathring{\bar{\mathfrak{p}}}$，此时 $\bar{a}&#x3D;a$ 和唯一分解性蕴涵 $n(\mathfrak{p}) &#x3D; n(\bar{\mathfrak{p}})$；</li>
-<li>$\mathring{\mathfrak{p}} &#x3D; \mathring{\bar{\mathfrak{p}}}$，其中 $u \in \mathbb{Z}[\sqrt{-1}]^\times &#x3D; {\pm 1, \pm\sqrt{-1}}$，直接计算表明精确到 $\mathbb{Z}[\sqrt{-1}]^\times$，唯二可能是 $\mathfrak{p} \in \mathbb{Z}$ 或 $\mathfrak{p} &#x3D; 1 \pm \sqrt{-1}$。</li>
-</ul>
-<p>对分解的两边取 $N$ 得 $a^2 &#x3D; \prod_{\mathring{\mathfrak{p}}} N(\mathfrak{p})^{n(\mathfrak{p})}$。今取 $a&#x3D;p$ 为素数，由 $N(\mathfrak{p}) \in \mathbb{Z}_{&gt; 1}$ 知不可约分解中至多只有两个不可约元，特别地，对任意 $\mathfrak{q} \in \mathbb{Z}[\sqrt{-1}]$，等式 $p &#x3D; \mathfrak{q}\bar{\mathfrak{q}}$ 蕴涵 $\mathfrak{q}$ 不可约。特例：$2 &#x3D; N(1 + \sqrt{-1})$ 蕴涵 $1 \pm \sqrt{-1}$ 不可约。</p>
-<p>于是 $p$ 的分解有三种互斥的情形：</p>
-<ul>
-<li><strong>分裂</strong>（split）：$\mathring{p} &#x3D; \mathring{\mathfrak{p}} \mathring{\bar{\mathfrak{p}}}$ 可约而 $\mathring{\mathfrak{p}} \neq \mathring{\bar{\mathfrak{p}}}$，此时必有 $p &#x3D; \mathfrak{p}\bar{\mathfrak{p}} &#x3D; N(\mathfrak{p})$，这是因为两边都是正整数，可以排除可逆元 ${\pm\sqrt{-1}, \pm 1}$ 的作用。</li>
-<li><strong>分歧</strong>（ramified）：$\mathring{p} &#x3D; \mathring{\mathfrak{p}}^2$ 可约，$\mathring{\bar{\mathfrak{p}}} &#x3D; \mathring{\mathfrak{p}}$；因为 $p$ 是素数，不可能有 $\mathfrak{p} \in \mathbb{Z}$，故可以设 $\mathfrak{p} &#x3D; 1 \pm \sqrt{-1}$ 而 $p &#x3D; N(\mathfrak{p}) &#x3D; 2$。</li>
-<li><strong>惯性</strong>（inert）：$\mathring{p} &#x3D; \mathring{\mathfrak{p}}$ 不可约，适当用 $\mathbb{Z}[\sqrt{-1}]^\times$ 调整 $\mathfrak{p}$ 后可设 $\mathfrak{p} \in \mathbb{Z}$。</li>
-</ul>
-<p>令 $\mathfrak{p} &#x3D; x + \sqrt{-1}y \in \mathbb{Z}[\sqrt{-1}]$，那么 $N(\mathfrak{p}) &#x3D; x^2 + y^2$。综上，平方和问题 $p &#x3D; x^2 + y^2$ 有解当且仅当 $p &#x3D; N(\mathfrak{p})$，此式成立时 $\mathfrak{p}$ 不可约，正好对应到 $p$ 分裂或分歧的情形。此时从唯一分解性（精确到 $\pm 1, \pm\sqrt{-1}$ 和 $\mathfrak{p} \leftrightarrow \bar{\mathfrak{p}}$）直接推出解 $(x,y)$ 的唯一性（精确到符号和重排）。欲证的断言归结到以下性质：素数 $p$<br>$$<br> \text{分歧} \iff p&#x3D;2, \quad \text{分裂} \iff p \equiv 1 \pmod{4}, \quad \text{惯性} \iff p \equiv 3 \pmod{4}.<br>$$<br>分歧情形 $p&#x3D;2$ 已经处理。此外容易验证 $x^2 + y^2 \equiv 0,1,2 \pmod{4}$，因此 $p \equiv 3 \pmod{4}$ 导致 $p$ 是惯性素数。以下设 $p \equiv 1 \pmod{4}$。初等数论告诉我们 $(\mathbb{Z}&#x2F;p\mathbb{Z})^\times$ 是 $p-1$ 阶循环群；事实上任何有限域的乘法群皆循环（本章习题）。任取 $(\mathbb{Z}&#x2F;p\mathbb{Z})^\times$ 的生成元 $g \bmod p$，数论中称 $g$ 为 $\bmod; p$ 的原根（primitive root），那么 $g^{\frac{p-1}{2}} \equiv -1 \pmod p$，故整数 $t :&#x3D; g^{\frac{p-1}{4}}$ 满足同余式 $t^2 + 1 \equiv 0 \pmod p$。因而在 $\mathbb{Z}[\sqrt{-1}]$ 中 $p \mid (t + \sqrt{-1})(t - \sqrt{-1})$。显然 $p \nmid (t \pm \sqrt{-1})$，于是 $p$ 在 $\mathbb{Z}[\sqrt{-1}]$ 中可约，从 $p \neq 2$ 遂知 $p$ 分裂。<br>$\blacksquare$</p>
-<p>一般说来，{Euclid 环} $\subsetneq$ {主理想环} $\subsetneq$ {唯一分解环}，是主理想环而非 Euclid 环的例子参见 [[Wil73]]；因而上述种种判准的效力委实有限。往后将在交换代数部分作更深入的介绍。以下着眼于唯一分解环上的多项式环。</p>
-<blockquote>
-<p>[!proposition] 一次因式检验法<br>考虑唯一分解环 $R$ 上的多项式<br>$$<br> f(X) &#x3D; a_n X^n + a_{n-1}X^{n-1} + \cdots + a_0, \quad a_n \neq 0.<br>$$<br>若 $\alpha \in \text{Frac}(R)$ 满足 $f(\alpha)&#x3D;0$ 则 $\alpha$ 可表作 $p&#x2F;q$，其中 $p,q \in R$ 互素，$q \mid a_n$ 而 $p \mid a_0$。</p>
-</blockquote>
-<p>特别地，若 $\alpha \in \text{Frac}(R)$ 是 $R[X]$ 中首一多项式的根，则 $\alpha \in R$；满足这条性质的整环称为<em>整闭</em>环（integrally closed domain）。</p>
-<p>$Proof.$ 在唯一分解环中总存在互素的 $p,q$ 使得 $\alpha &#x3D; p&#x2F;q$。从 $0 &#x3D; \sum_{i&#x3D;0}^n a_i p^i q^{n-i}$ 可知 $q \mid a_n p^n$，$p \mid a_0 q^n$；断言是互素性质的直接结论。<br>$\blacksquare$</p>
-<p>对于唯一分解环 $R$ 中的不可约元 $p$，照例记其类为 $\mathring{p} \in (R \smallsetminus {0})&#x2F;R^\times &#x3D;: \mathcal{P}$。定义函数 $v_p: R \smallsetminus {0} \to \mathbb{Z}_{\geq 0}$ 以使任意 $a \neq 0$ 在 $(R \smallsetminus {0})&#x2F;R^\times$ 中分解为<br>$$<br> \mathring{a} &#x3D; \prod_{\mathring{p}: v_p(a) \neq 0} \mathring{p}^{v_p(a)},<br>$$</p>
-<p>显然 $v_p(ab) &#x3D; v_p(a) + v_p(b)$，借此可将 $v_p$ 延拓为群同态 $\text{Frac}(R)^\times \to \mathbb{Z}$。约定 $v_p(0) :&#x3D; \infty$，则 $v_p(ab) &#x3D; v_p(a)+v_p(b)$ 在 $\text{Frac}(R)$ 中恒成立。不难看出 $(\forall p ; v_p(a) &#x3D; 0) \iff a \in R^\times$。</p>
-<blockquote>
-<p>[!definition]<br>设 $R$ 为唯一分解环，$K :&#x3D; \mathrm{Frac}(R)$ 而 $p \in R$ 为不可约元。对任意非零多项式 $f(X) &#x3D; \sum_{i&#x3D;0}^n a_i X^i \in K[X]$ 定义<br>$$<br> v_p(f) :&#x3D; \min{ v_p(a_i) : i &#x3D; 0, \ldots, n}.<br>$$<br>继而定义 $K^\times&#x2F;R^\times$ 的元素<br>$$<br> c_p(f) :&#x3D; \mathring{p}^{v_p(f)}, \quad c(f) :&#x3D; \prod_{\mathring{p}: v_p(f) \neq 0} c_p(f),<br>$$</p>
-</blockquote>
-<blockquote>
-<p>[!lemma] Gauss 引理（Gauss’s lemma）<br>对每个不可约元 $p$，函数 $c$ 皆满足乘性 $c(fg) &#x3D; c(f)c(g)$。</p>
-</blockquote>
-<p>^prop-Gauss-lemma</p>
-<p>$Proof.$ 设 $f,g \in K[X] \smallsetminus {0}$。置 $f &#x3D; c(f) f^\flat$，$g &#x3D; c(g) g^\flat$ 以化约到 $c(f) &#x3D; c(g) &#x3D; 1$ 的情形，此时显然有 $f,g \in R[X]$。我们将证明对每个 $p$ 皆有 $v_p(fg) &#x3D; 0$。</p>
-<p>对任意非零 $h \in R[X]$ 显然有 $v_p(h) \geq 0$，而且 $v_p(h) &gt; 0$ 当且仅当 $h$ 在 $R[X]&#x2F;pR[X] &#x3D; (R&#x2F;\left\langle p \right\rangle)[X]$ 中的像为零。由于 $\left\langle p \right\rangle$ 为素理想，$(R&#x2F;\left\langle p \right\rangle)[X]$ 是整环；代入 $h&#x3D;f,g,fg$ 即得 $v_p(fg)&#x3D;0$。<br>$\blacksquare$</p>
-<blockquote>
-<p>[!remark] Gauss 引理的首一特例<br>Gauss 引理一个常用的特例如下：设 $f,g \in K[X]$ 是首一多项式，则 $fg \in R[X] \implies f,g \in R[X]$：这是因为首一多项式总满足 $v_p \leq 0$，而 $R[X]$ 的元素满足 $v_p \geq 0$。因此对任意 $p$ 皆有 $v_p(f) + v_p(g) &#x3D; v_p(fg) &#x3D; 0$，故 $v_p(f)&#x3D;v_p(g)&#x3D;0$。</p>
-</blockquote>
-<p>^rem-Gauss-lemma-monic</p>
-<blockquote>
-<p>[!theorem] 多项式环的 UFD 性<br>设 $R$ 是唯一分解环。对任意 $n \geq 0$，环 $R[X_1, \ldots, X_n]$ 仍是唯一分解环，其中不可约元的分类为<br>(a) $f &#x3D; a$，其中 $a$ 是 $R$ 的不可约元，<br>(b) $c(f)&#x3D;1$ 而且 $f$ 在 $K[X_1, \ldots, X_n]$ 中不可约。</p>
-</blockquote>
-<p>^prop-polynomial-UFD</p>
-<p>$Proof.$ 基于自然同构 $R[X_1, \ldots, X_{n+1}] \simeq R[X_1, \ldots, X_n][X_{n+1}]$，探讨 $n&#x3D;1$ 即环 $R[X]$ 的情形即可。</p>
-<p>置 $K :&#x3D; \text{Frac}(R)$。由例 [[#^eg-polynomial-PID]] 知 $K[X]$ 是唯一分解环。<br>(a) 注意到 $R[X]^\times &#x3D; R^\times$。易见 $R$ 的不可约元在 $R[X]$ 中仍不可约。<br>(b) 今考察 $K[X]$ 中满足 $c(f)&#x3D;1$ 的不可约元 $f$。假设 $f &#x3D; gh$，其中 $g, h \in R[X]$，则不失一般性可设 $g \in R[X] \cap K[X]^\times$，而 $c(f)&#x3D;1$ 蕴涵 $g \in R^\times$。</p>
-<p>综之，这两类元素都是 $R[X]$ 的不可约元。任意非零的 $f \in R[X]$ 在 $K[X]$ 中能分解为<br>$$<br> f &#x3D; a p_1 \cdots p_n<br>$$<br>其中 $a \in K^\times$ 而 $p_1, \ldots, p_n$ 是 $K[X]$ 的不可约元。将各个 $p_i$ 用 $K^\times$ 中的元素调整，可以假设 $c(p_i)&#x3D;1$，这样的 $p_i \in R[X]$ 精确到 $R^\times$。引理 [[#^prop-Gauss-lemma]] 蕴涵 $c(f)&#x3D;c(a)$，而在 $R$ 中还有唯一分解 $a &#x3D; q_1 \cdots q_m$。如是得到的分解 $f &#x3D; q_1 \cdots q_m p_1 \cdots p_n$ 至多差个 $R^\times$ 是唯一的。这就说明 $R[X]$ 的唯一分解性。<br>$\blacksquare$</p>
-<blockquote>
-<p>[!example]<br>设 $R$ 是唯一分解环，定理 [[#^prop-polynomial-UFD]] 和命题 [[#^prop-UFD-localization]] 蕴涵 $R[X_1, \ldots, X_n]$ 的局部化也是唯一分解环；例如多变元 Laurent 多项式环 $R[X_1^{\pm 1}, \ldots, X_n^{\pm 1}]$ 等等。</p>
-</blockquote>
-<blockquote>
-<p>[!example] 分圆多项式与最大公因子<br>考虑任一唯一分解环 $R$ 及非零元 $X \in R$，例如多项式环 $\mathbb{Q}[X], \mathbb{Z}[X] \ni X$。对任意 $a, b \in \mathbb{Z}_{\geq 1}$，记其最大公因数为 $(a,b)$，今将往证 $X^{(a,b)} - 1$ 是 $X^a - 1$ 和 $X^b - 1$ 的最大公因子；将证明的结论其实稍强：$R$ 中理想之和 $(X^a - 1) + (X^b - 1)$ 等于 $\left( X^{(a,b)} - 1 \right)$。<br>(i) 如果 $a \mid b$，由 $X^b - 1 &#x3D; (X^a -1)(1 + X^a + \cdots + X^{a(\frac{b}{a} - 1)})$ 可知 $X^a - 1 &#x3D; X^{(a,b)} - 1 \mid X^b - 1$。<br>(ii) 注意到对交换环中的任意元素 $f, g, t$ 皆有<br>    $$<br> (f) + (g) &#x3D; (f) + (g+tf).<br>$$<br>    今设 $a &lt; b$，$a \nmid b$。在 $\mathbb{Z}$ 中作带余除法 $b &#x3D; aq + r$（$0 &lt; r &lt; a$），则<br>    $$<br> X^b - 1 &#x3D; X^r(X^{aq}-1) + (X^r - 1).<br>$$<br>    由 $X^a - 1 \mid X^{aq} - 1$ 立得理想的等式 $(X^a - 1) + (X^b - 1) &#x3D; (X^a - 1) + (X^r - 1)$；而在 $\mathbb{Z}$ 中又有 $(a) + (b) &#x3D; (a) + (r)$，亦即 $(a,b)&#x3D;(a,r)$。根据辗转相除法，或者说对 $\max{a,b}$ 递归，终归能化约到情形 (i)。</p>
-</blockquote>
-<p>^eg-gcd-cyclotomic</p>
-<blockquote>
-<p>[!theorem] Eisenstein 判准（Eisenstein’s criterion）<br>设 $R$ 是唯一分解环，$K :&#x3D; \mathrm{Frac}(R)$ 而 $p$ 是其中的不可约元。若 $f &#x3D; \sum_{i&#x3D;0}^n a_i X^i \in R[X]$ 满足</p>
-<ul>
-<li>存在指标 $k \leq n$ 使得 $0 \leq i &lt; k \implies p \mid a_i$，</li>
-<li>$p \nmid a_k$，</li>
-<li>$p^2 \nmid a_0$，</li>
-</ul>
-<p>则 $f$ 必有次数 $\geq k$ 的不可约因子。特别地，当 $k&#x3D;n$ 时 $f$ 在 $K[X]$ 中不可约，进一步假设 $c(f)&#x3D;1$ 则 $f$ 在 $R[X]$ 中不可约。</p>
-</blockquote>
-<p>^prop-Eisenstein-criterion</p>
-<p>$Proof.$ 根据定理 [[#^prop-polynomial-UFD]] 在 $R[X]$ 中作分解 $f &#x3D; a p_1 \cdots p_m$，其中 $a \in R$ 而 $p_1, \ldots, p_m$ 是满足 $c(p_i)&#x3D;1$ 的不可约多项式。我们的条件蕴涵 $p \nmid a$。记 $p_i$ 的常数项为 $c_i$，由于 $p^2 \nmid a_0$，适当重排下标后可以假设<br>$$<br> \begin{gather*}<br>    p \mid c_1, \quad p^2 \nmid c_1, \<br>    i&gt;1 \implies p \nmid c_i.<br>\end{gather*}<br>$$<br>考虑 $f$ 在环 $(R&#x2F;\left\langle p \right\rangle)[X]$ 中的像，可得等式<br>$$<br> (a \bmod p) \cdot \prod_{i&#x3D;1}^m (p_i \bmod p) &#x3D; \bar{a}_k X^k + \text{高次项}, \quad \bar{a}_k \neq 0.<br>$$<br>由于 $R&#x2F;\left\langle p \right\rangle$ 是整环，$a \cdot \prod_{i &gt; 1} p_i$ 在 $\bmod p$ 之后常数项非零，因而 $p_1 \bmod p$ 形如<br>$$<br> \bar{b}_k X^k + \text{高次项}, \quad \bar{b}_k \neq 0,<br>$$<br>于是 $\deg p_1 \geq k$，明所欲证。<br>$\blacksquare$</p>
-<h2 id="对称多项式入门"><a href="#对称多项式入门" class="headerlink" title="对称多项式入门"></a>对称多项式入门</h2><p>取定交换环 $R$。对于任意 $n \in \mathbb{Z}_{\geq 1}$，对称群 $\mathfrak{S}_n$ 在多项式环 $R[X_1, \ldots, X_n]$ 上有自明的作用<br>$$<br> (\sigma f)(X_1, \ldots, X_n) &#x3D; f(X_{\sigma(1)}, \ldots, X_{\sigma(n)}), \quad \sigma \in \mathfrak{S}_n, ; f \in R[X_1, \ldots, X_n].<br>$$<br>定义<br>$$<br> \Lambda_n &#x3D; R[X_1, \ldots, X_n]^{\mathfrak{S}_n} :&#x3D; \left{ f \in R[X_1, \ldots, X_n] : \forall \sigma \in \mathfrak{S}_n, ; \sigma f &#x3D; f \right}.<br>$$<br>易见此作用满足性质<br>$$<br> \sigma(f + g) &#x3D; \sigma(f) + \sigma(g), \quad \sigma(fg) &#x3D; \sigma(f) \sigma(g), \quad \sigma(1)&#x3D;1<br>$$<br>因此 $\Lambda_n$ 是 $R[X_1, \ldots, X_n]$ 的子环，称为 $R$ 上的 $n$ 元对称多项式环（ring of symmetric polynomials），其元素称为 $n$ 元<em>对称多项式</em>（symmetric polynomial）。对域 $F$ 上的有理函数环也有相应的版本 $F(X_1, \ldots, X_n)^{\mathfrak{S}_n}$。</p>
-<p>将 $f \in R[X_1, \ldots, X_n]$ 用 §[[#^sec-polynomial-ring]] 的多重指标符号展成 $\sum_{\mathbf{a}} c_{\mathbf{a}} \mathbf{X}^{\mathbf{a}}$，那么对称性等价于：若下标 $\mathbf{a} &#x3D; (a_1, \ldots, a_n)$ 和 $\mathbf{b} &#x3D; (b_1, \ldots, b_n)$ 差一个重排，则 $c_{\mathbf{a}} &#x3D; c_{\mathbf{b}}$。</p>
-<p>考虑一族正整数 $\lambda_1, \ldots, \lambda_r$，其中 $1 \leq r \leq n$，不计顺序，容许重复。置<br>$$<br> m_{\lambda_1, \ldots, \lambda_r} :&#x3D; \sum_{\mathbf{a}} \mathbf{X}^{\mathbf{a}},<br>$$<br>其指标 $\mathbf{a}$ 取遍 $(\lambda_1, \ldots, \lambda_r, 0, \ldots, 0)$ 的所有不同排列（$n$ 个分量）。为了得到唯一性，今后总排定 $\lambda_1, \ldots, \lambda_r$ 的顺序，记为<br>$$<br> \begin{align*}<br>    \lambda &amp; :&#x3D; (\lambda_1 \geq \lambda_2 \geq \cdots \geq \lambda_r), \quad \lambda_i \in \mathbb{Z}, ; 1 \leq \lambda_i \leq n, \<br>    m_\lambda &amp; :&#x3D; m_{\lambda_1, \ldots, \lambda_r}.<br>\end{align*}<br>$$<br>称 $r$ 为 $\lambda$ 的长度。之前讨论表明所有 $f \in \Lambda_n$ 都能表成有限和 $f &#x3D; \sum_\lambda r_\lambda m_\lambda$，其中的系数 $r_\lambda$ 是唯一确定的。如果 $R$ 是域，这无非是说向量空间 $\Lambda_n$ 有一组基 $(m_\lambda)_\lambda$；对于一般的 $R$，相应的概念则是自由 $R$-模（定义 [[模论#^def-free-module]]），暂时不必钻研这些术语。这里的 $m_{\lambda}$ 称为单项对称函数（monomial symmetric functions ）</p>
-<p>以上资料 $\lambda &#x3D; (\lambda_1 \geq \cdots \geq \lambda_r)$ 常称作分拆（partition），对此有格外方便的表法曰 <em>Young 图</em>（Young diagram）：我们从上而下，在第 $i$ 个横行从左而右放置 $\lambda_i$ 个方格，例如</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs tikz">\usepackage&#123;ytableau&#125;<br>\ytableausetup&#123;mathmode&#125;<br>\begin&#123;document&#125;<br>(3 \geq 2 \geq 1 \geq 1): \ydiagram&#123;3,2,1,1&#125; \qquad (5 \geq 4 \geq 1): \ydiagram&#123;5,4,1&#125;<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
-<p>等等。容易看出如是图表与分拆 $\lambda &#x3D; (\lambda_1 \geq \cdots \geq \lambda_r)$ 有一一对应。如果分拆的长度 $r$（即 Young 图的高度）超过给定的 $n$，相应的 $m_\lambda \in \Lambda_n$ 规定为 $0$。</p>
-<p>处理 Young 图的一般性质时宜抛开宽度限制。此时 Young 图具备明显的”共轭”操作：将对应于 $\lambda &#x3D; (\lambda_1 \geq \cdots)$ 的 Young 图对轴 $\diagdown$ 作镜射，所得图形依然是 Young 图；假它在第 $i$ 个横行有 $\bar{\lambda}_i$ 个方格，相应的资料记为 $\bar{\lambda} &#x3D; (\bar{\lambda}_1 \geq \cdots)$，称 $\bar{\lambda}$ 为 $\lambda$ 的<em>共轭</em>（conjugate）。显然 $\overline{\overline{\lambda}} &#x3D; \lambda$。一例如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs tikz">\usepackage&#123;ytableau&#125;<br>\ytableausetup&#123;mathmode&#125;<br>\begin&#123;document&#125;<br>\lambda: \ydiagram&#123;3,2,1,1&#125; \longmapsto \bar&#123;\lambda&#125;: \ydiagram&#123;4,2,1&#125;.<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
-
-<blockquote>
-<p>[!definition]<br>为分拆或 Young 图定义</p>
-<ul>
-<li><strong>支配序</strong>（dominance order）记 $\mu \leq \lambda$，如果对每个 $k$ 都有<br>$$<br> \mu_1 + \cdots + \mu_k \leq \lambda_1 + \cdots + \lambda_k,<br>$$</li>
-<li><strong>字典序</strong>（lexicographic order）记 $\mu \prec \lambda$，如果存在 $k \geq 1$ 使得<br>$$<br>0 \leq i &lt; k \implies \mu_i &#x3D; \lambda_i, \quad \mu_k &lt; \lambda_k.<br>$$</li>
-</ul>
-<p>当 $k$ 超过 $\lambda$（或 $\mu$）的行数时，约定 $\lambda_k&#x3D;0$（或 $\mu_k&#x3D;0$）。</p>
-</blockquote>
-<p>^eqn-dominance-order</p>
-<blockquote>
-<p>[!proposition] 支配序与字典序<br>全体分拆或 Young 图对支配序 $\leq$ 构成偏序集，对字典序 $\preceq$ 构成全序集，而且对每个 $\lambda$，集合 ${\mu: \mu \leq \lambda }$ 有限。我们有 $\mu \leq \lambda \implies \mu \preceq \lambda$。</p>
-</blockquote>
-<p>^prop-dominance-lex-order</p>
-<p>$Proof.$ 前半部属显然。今假设 $\mu &lt; \lambda$，则可取最小的 $k \geq 1$ 使得 $\mu_k &lt; \lambda_k$，此即字典序 $\mu \prec \lambda$ 定义中的 $k$。<br>$\blacksquare$</p>
-<p>尽管 $\Lambda_n$ 中元素能唯一地表作诸 $m_\lambda$ 的 $R$-线性组合，但这组基对乘法的性质并不明朗，实用上还有些累赘。为此我们引进如下经典对象。</p>
-<blockquote>
-<p>[!definition] 初等对称多项式（elementary symmetric polynomial）<br>对于 $1 \leq k \leq n$，定义<br>$$<br> e_k :&#x3D; \sum_{1 \leq i_1 &lt; \cdots &lt; i_k \leq n} X_{i_1} \cdots X_{i_k}.<br>$$<br>易见这是 $\Lambda_n$ 中的元素，称为第 $k$ 个 $n$ 元<em>初等对称多项式</em>。</p>
-</blockquote>
-<p>^def-elementary-symm-poly</p>
-<p>令 $e_0 :&#x3D; 1$，于是用类似生成函数的等价的刻画是<br>$$<br> \begin{gather*}<br>    \sum_{i&#x3D;0}^n e_i Y^{n-i} &#x3D; \prod_{i&#x3D;1}^n (Y + X_i), \quad \text{或者} \<br>    E(Y) :&#x3D; \sum_{i&#x3D;0}^n e_i Y^i &#x3D; \prod_{i&#x3D;1}^n (1 + X_i Y)<br>\end{gather*}<br>$$<br>其中 $Y$ 是额外引入的变元。后面一个式子相当于将前面一个式子等式两边除以 $Y^{n}$, 再将 $Y^{-1}$ 替换为新的 $Y$.</p>
-<p>对每个分拆 $\lambda &#x3D; (\lambda_1 \geq \cdots \geq \lambda_r)$ 定义<br>$$<br> e_\lambda :&#x3D; e_{\lambda_1} \cdots e_{\lambda_r}<br>$$<br>这在当 $n$ 大于等于 $\bar{\lambda}$ 的长度时有意义，并且 $e_\lambda \in \Lambda_n$。</p>
-<blockquote>
-<p>[!lemma] $m_\lambda$ 与 $e_{\bar{\lambda}}$ 的关系<br>对于任意 $\lambda &#x3D; (\lambda_1 \geq \cdots \geq \lambda_r)$ 和 $n \geq r$，存在一族 $a_{\lambda, \mu} \in \mathbb{Z}_{\geq 0}$，其中 $\mu \leq \lambda$，使得<br>$$<br> e_{\bar{\lambda}} &#x3D; \sum_{\mu \leq \lambda} a_{\lambda, \mu} m_\mu, \quad a_{\lambda, \lambda}&#x3D;1<br>$$<br>在 $\Lambda_n$ 中成立，其中 $\mu \leq \lambda$ 意谓支配序 [[#^eqn-dominance-order]]。</p>
-</blockquote>
-<p>^prop-m-lambda-e-lambda</p>
-<p>$Proof.$ 按定义，乘积 $e_{\bar{\lambda}} &#x3D; e_{\bar{\lambda}_1} e_{\bar{\lambda}_2} \cdots$ 为所有单项式<br>$$<br> \left( X_{i_1} \cdots X_{i_{\bar{\lambda}_1}} \right) \left( X_{j_1} \cdots X_{j_{\bar{\lambda}_2}} \right) \cdots &#x3D; X_1^{b_1} \cdots X_n^{b_n}<br>$$<br>的和，其下标满足 $i_1 &lt; \cdots &lt; i_{\bar{\lambda}_1}$, $j_1 &lt; \cdots &lt; j_{\bar{\lambda}_2}$ 等等。因此有 $e_{\bar{\lambda}} &#x3D; \sum_\mu a_{\lambda, \mu} m_\mu$，其中 $a_{\lambda, \mu} \in \mathbb{Z}_{\geq 0}$。欲进一步理解 $a_{\lambda, \mu}$，必须梳理每个变元 $X_i$ 在左式中出现的次数 $b_i$。为此，我们将下标 $i_1, \ldots$ 和 $j_1, \ldots$ 等等（作为变元的标记）逐列填入 $\lambda$ 的 Young 图，如：</p>
-<blockquote>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs tikz">\usepackage&#123;ytableau&#125;<br>\begin&#123;document&#125;<br>\begin&#123;ytableau&#125;<br>    i_1 &amp; j_1 &amp; \none[\cdots] \\<br>    i_2 &amp; j_2 &amp; \none[\ddots] \\<br>    \none &amp; \none[\vdots] &amp; \none \\<br>    \none[\vdots] &amp; j_&#123;\bar&#123;\lambda&#125;_2&#125; &amp; \none \\<br>    \none[\vdots] &amp; \none &amp; \none \\<br>    i_&#123;\bar&#123;\lambda&#125;_1&#125; &amp; \none &amp; \none<br>\end&#123;ytableau&#125;<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
-<p>每列数字严格递增，故 $\leq r$ 的数字只能填入前 $r$ 行，共有 $\lambda_1 + \cdots + \lambda_r$ 个空位，于是对每个 $r \geq 1$ 皆有 $b_1 + \cdots + b_r \leq \lambda_1 + \cdots + \lambda_r$。特别地，当 $(b_1 \geq \cdots \geq b_n) &#x3D;: \mu$ 时也是如此，故支配序的定义蕴涵 $a_{\lambda,\mu} \neq 0 \implies \mu \leq \lambda$。</p>
-<p>当 $\mu&#x3D;\lambda$ 时，以上论证表明 Young 图恰有一种填法：在第 $i$ 行置 $\lambda_i &#x3D; b_i$ 个 $i$。故 $m_\lambda$ 之系数 $a_{\lambda, \lambda} &#x3D; 1$。明所欲证。<br>$\blacksquare$</p>
-</blockquote>
-<p>泛性质给出从 $n$ 元多项式环 $R[t_1, \ldots, t_n]$ 到 $\Lambda_n$ 的同态 $\Phi$，它映每个 $t_i$ 为 $e_i$，而 $\Phi|_R &#x3D; \mathrm{id}_R$。</p>
-<blockquote>
-<p>[!theorem] 对称多项式基本定理（fundamental theorem of symmetric polynomials）<br>自然同态 $\Phi: R[t_1, \ldots, t_n] \xrightarrow{t_i \mapsto e_i} \Lambda_n$ 是环同构，因此我们无妨将 $\Lambda_n$ 和 $n$ 元多项式环 $R[e_1, \ldots, e_n]$ 等同。</p>
-<p>若 $F$ 为域，则有 $F(X_1, \ldots, X_n)^{\mathfrak{S}_n} &#x3D; F(e_1, \ldots, e_n)$。</p>
-</blockquote>
-<p>^prop-fund-thm-symmetric-poly</p>
-<p>$Proof.$ 引理 [[#^prop-m-lambda-e-lambda]] 和命题 [[#^prop-dominance-lex-order]] 表明 $e_{\bar{\lambda}}$ 和 $m_\lambda$ 之间由一个幂幺三角阵联系（诸 $\lambda$ 以 $\preceq$ 排序）。由此知每个 $f \in \Lambda_n$ 都能表作有限和 $f &#x3D; \sum_\lambda c_\lambda e_{\bar{\lambda}}$，其中 $\lambda$ 取遍所有长度 $\leq n$ 的分拆，而 $c_\lambda \in R$ 是唯一确定的：这源于 $m_\lambda$ 的相应性质。</p>
-<p>考虑到 $e_{\bar{\lambda}} &#x3D; \prod_{i \geq 1} e_{\bar{\lambda}_i}$, $e_{(0)} :&#x3D; 1$ 和明显的性质（$\lambda$ 长度 $\leq n$）$\iff (\bar{\lambda}_1 \leq n)$，这相当于说任意 $f$ 都能唯一地表成 $e_1, \ldots, e_n$ 的多项式。这就证明了前半部。</p>
-<p>现在设 $F$ 为域，显见包含关系 $F(e_1, \ldots, e_n) \subset F(X_1, \ldots, X_n)^{\mathfrak{S}_n}$。反之任一非零元 $f \in F(X_1, \ldots, X_n)^{\mathfrak{S}_n}$ 可表作分式 $g&#x2F;h$；取 $\tilde{h} :&#x3D; \prod_{\sigma \in \mathfrak{S}_n} \sigma h$，则 $\tilde{h}, f\tilde{h} \in \Lambda_n$。由此导出 $f &#x3D; f\tilde{h}&#x2F;\tilde{h} \in F(e_1, \ldots, e_n)$。证毕。<br>$\blacksquare$</p>
-<blockquote>
-<p>[!example] 判别式（discriminant）<br>显然 $\displaystyle\prod_{1 \leq i &lt; j \leq n} (X_i - X_j)^2$ 属于 $\mathbb{Z}[X_1, \ldots, X_n]^{\mathfrak{S}_n}$，故可记为 $\delta \in \mathbb{Z}[e_1, \ldots, e_n]$。令 $F$ 为域，$x_1, \ldots, x_n \in F$。考虑以 $Y$ 为变元的首一多项式 $P &#x3D; \sum_{i&#x3D;0}^n (-1)^i c_i Y^{n-i} &#x3D; \prod_{i&#x3D;1}^n (Y - x_i)$，则其系数由 $c_i &#x3D; e_i(X_1 &#x3D; x_1, \ldots, X_n &#x3D; x_n)$ 确定。因此<br>$$<br> P; \text{有重根} \iff \prod_{i &lt; j} (x_i - x_j)^2 &#x3D; 0 \iff \delta(e_1 &#x3D; c_1, \ldots, e_n &#x3D; c_n) &#x3D; 0.<br>$$<br>这提供了检验重根的一种算法。</p>
-</blockquote>
-<p>^eg-polynomial-discriminant</p>
-<p>另一类常见的对称多项式是<em>幂和</em>（power sum）。对每个 $k \in \mathbb{Z}_{\geq 0}$ 定义<br>$$<br> p_k :&#x3D; \sum_{r&#x3D;1}^n X_r^k \quad \in \Lambda_n.<br>$$</p>
-<blockquote>
-<p>[!theorem] Newton 公式（Newton’s identities）<br>幂和 $p_1, \ldots, p_n, \ldots$ 满足于<br>$$<br> \sum_{\substack{i+j&#x3D;k \ 0 \leq i \leq n \ j \geq 1}} (-1)^{j+1} e_i p_j &#x3D;<br>\begin{cases}<br>    k e_k, &amp; 1 \leq k \leq n \<br>    0, &amp; k &gt; n.<br>\end{cases}<br>$$</p>
-</blockquote>
-<p>$Proof.$ 应用以 $Y$ 为变元的生成级数，在 $R[[_Y_]]$ 中形式地计算<br>$$<br> \begin{align*}<br>    P(Y) &amp; :&#x3D; \sum_{k \geq 1} p_k Y^{k-1} &#x3D; \sum_{r&#x3D;1}^n \frac{X_r}{1 - X_r Y}, \<br>    E(Y) &amp; :&#x3D; \sum_{k&#x3D;0}^n e_k Y^k &#x3D; \prod_{r&#x3D;1}^n (1 + X_r Y).<br>\end{align*}<br>$$<br>于焉导出 $P(-Y) &#x3D; \frac{\mathrm{d}}{\mathrm{d} Y} \log E(Y) &#x3D; E’(Y)&#x2F;E(Y)$。移项展开后比较系数即可。<br>$\blacksquare$</p>
-<p>对于 $1 \leq k \leq n$，Newton 公式将 $p_k$ 递归地表为 $(-1)^{k+1} k e_k + R[e_1, \ldots, e_{k-1}]$ 的元素。当 $R \supset \mathbb{Q}$ 时，因为 $p_1 &#x3D; e_1$，由此又可以递归地说明</p>
-<ul>
-<li>$R[p_1, \cdots, p_n] &#x3D; R[e_1, \ldots, e_n] &#x3D; \Lambda_n$，</li>
-<li>$R[p_1, \ldots, p_n]$ 可以视同 $R$ 上的 $n$ 元多项式环。</li>
-</ul>
-<p>以上获得的结论与方法同等重要，这还仅只是敲开了对称多项式理论的大门，有心一窥堂奥的读者可参阅 [[Mac95]]。</p>
-<h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><ol>
+<h2 id="多项式环"><a href="#多项式环" class="headerlink" title="[[多项式环]]"></a>[[多项式环]]</h2><h2 id="唯一分解性"><a href="#唯一分解性" class="headerlink" title="[[唯一分解性]]"></a>[[唯一分解性]]</h2><h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><ol>
 <li><p>证明若环 $R$ 的每个元素 $x$ 都满足 $x^2&#x3D;x$，则 $R$ 交换。也请尝试 $x^3&#x3D;x$ 的情形。</p>
 </li>
 <li><p>证明除环的素子域总包含于中心。</p>
@@ -859,7 +609,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年6月21日</div>
+          <div>2026年6月22日</div>
         </div>
       
       
