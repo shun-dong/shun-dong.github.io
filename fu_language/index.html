@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="fu_language├── README.md├── .git&#x2F;├── .gitignore├── .vscode&#x2F;├── tokenizer.c└── tokenizer.exe   Let’s Build A Simple Interpreter. Part 1. - Ruslan’s Blog 🔼 参考rycheung&#x2F;tiny-mltt: An learn">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-06-09T01:14:15.329Z">
-<meta property="article:modified_time" content="2026-06-09T01:14:15.329Z">
+<meta property="article:published_time" content="2026-06-23T01:47:39.643Z">
+<meta property="article:modified_time" content="2026-06-23T01:47:39.643Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -222,8 +222,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-06-09 09:14" pubdate>
-          2026年6月9日 上午
+        <time datetime="2026-06-23 09:47" pubdate>
+          2026年6月23日 上午
         </time>
       </span>
     
@@ -324,8 +324,10 @@
 <p>%% is Ring Z这只是一个项, 相当于一个只声明了类型的量, 直观上来讲我们希望将足够的信息编码到类型中 %%</p>
 <p>数学图景, 空间中所有都是类型(命题, 结构), 我们能从方位得出命题强弱<br>或许可以用同构意义下的等价类(所谓的&amp;1)来研究实例, 把所有的东西都提升到类型的层面研究, 比如之前提到过的完备有序域, 又比如用  环结构并且到所有环结构都有同态 来在同构意义下唯一刻画环<br>此时自然有类到”实例”的箭头(&#x2F; 任意类型到非空类型都有箭头的, 这里指的是??同态)<br>但是这里a: 完备有序域, 取出来的不是实数, 而是实数的一个实例<br>就不能 %% a: of Ring Int %% a: (Int, +, * _ )然后a本身是带有结构的? 这一点会带来冗余<br>或许可以a : (Int, +, * _ ).R</p>
 <p>希望可以多一层, 自动给出同态<br>而HoTT实现的是刻画等价的结构??商结构<br>或许可以给同态类似于等价的语法, a ~ b i.e. Hom(a, b) 类比与 a &#x3D; b i.e. Id(a, b)<br>然后用f : a ~ b 用f.map表示其中的映射</p>
-<p>为了构建Hom具体来讲 可以分三类：运算(包括常量)字段、关系字段、纯性质字段，只有前两类需要在同态里写“保结构”的条件，纯性质本身一般不用再“定义映射”。<br> <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs fu">f add x y = add f x f y<br>f zero = zero<br>x ≤ y → f x ≤ f y            // 保序<br>add_assoc : ∀ x y z, add add x y z = _  //这点不用在Hom中体现<br></code></pre></td></tr></table></figure></p>
-<h1 id="广义宏"><a href="#广义宏" class="headerlink" title="广义宏"></a>广义宏</h1><p>能改变命名空间或直接读取表达式的称为广义宏, 用%表示 (或许已经类似于<code>by</code>了)<br>例如我们可以在语法上说6&#x2F;3的除数是3, 但不能说2的除数是3, 6&#x2F;3和2只是在值上相等, 其实是两个表达式<br>语义上同构的对象视为相同，但语法上要区分</p>
+<p>为了构建Hom具体来讲 可以分三类：运算(包括常量)字段、关系字段、纯性质字段，只有前两类需要在同态里写“保结构”的条件，纯性质本身一般不用再“定义映射”。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs fu">f add x y = add f x f y<br>f zero = zero<br>x ≤ y → f x ≤ f y            // 保序<br>add_assoc : ∀ x y z, add add x y z = _  //这点不用在Hom中体现<br></code></pre></td></tr></table></figure>
+
+<h1 id="广义宏"><a href="#广义宏" class="headerlink" title="广义宏"></a>广义宏</h1><p>能改变命名空间或直接读取表达式的称为广义宏, 用<code>#</code>表示 (或许已经类似于<code>by</code>了)<br>例如我们可以在语法上说6&#x2F;3的除数是3, 但不能说2的除数是3, 6&#x2F;3和2只是在值上相等, 其实是两个表达式<br>语义上同构的对象视为相同，但语法上要区分</p>
 <p>如果加了export, 才可以通过name.something访问<br>packet :&#x3D; {n: Nat :&#x3D; 1<br>export n}&#x2F;&#x2F;export n &#x3D;&#x3D; (expr n, 1) 注意这里实际上用了n的名字, 所以是语法上的<br>a &#x3D; packet.”n”&#x2F;&#x2F; &#x2F; _ . _ 是查找函数</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs fu">//另一个文件<br>//环境: (&quot;packet&quot;, (&quot;n&quot;, 1)), _<br>%import &quot;packet&quot; form env;<br>// _ from _ 是另一种查找函数, &quot;packet&quot; form env = &quot;packet&quot;, (&quot;n&quot;, 1)<br>//这里import将packet加入命名空间, 这里依旧是不能覆盖已有值的<br>//注意import实际上可以用于假设公理<br>//import &quot;classic&quot;, ((a -&gt; False)-&gt; False) = a<br>a = packet.&quot;n&quot;<br>%import &quot;n&quot; form &quot;packet&quot; from env;<br>//如果在同一个文件, 也可以甚至可以直接import packet, 然后环境中就有n了<br>b = n<br>%import (&quot;packet&quot; from env) as &quot;p&quot;;//这里的 _ as _ 是替换函数<br><br></code></pre></td></tr></table></figure>
 
@@ -417,7 +419,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年6月9日</div>
+          <div>2026年6月23日</div>
         </div>
       
       
@@ -461,9 +463,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E7%84%A6%E8%99%91/" title="焦虑">
+                      <a href="/%E4%BB%A3%E6%95%B0%E5%87%A0%E4%BD%95/" title="代数几何">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">焦虑</span>
+                        <span class="hidden-mobile">代数几何</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -471,8 +473,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E5%9B%BE%E8%AE%BA/" title="图论">
-                        <span class="hidden-mobile">图论</span>
+                      <a href="/%E7%8E%AF%E8%AE%BA/" title="环论">
+                        <span class="hidden-mobile">环论</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
