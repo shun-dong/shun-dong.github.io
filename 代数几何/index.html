@@ -27,8 +27,8 @@
 <meta property="og:description" content="仿射空间与射影空间仿射空间 $(\mathbb{A}:Set,V:Vect,\+\:V\to \operatorname{Aut}\mathbb{A})$ s.t. $T$ is simple transitive, $T_1&#x3D;1,T_vT_w&#x3D;T_{v+w}$For $PQ:\mathbb{A}$, $P-Q:&#x3D;\vec{QP}:&#x3D;v:Vs.t.~v+Q&amp;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260526193317.png">
-<meta property="article:published_time" content="2026-06-23T01:47:39.678Z">
-<meta property="article:modified_time" content="2026-06-23T01:47:39.678Z">
+<meta property="article:published_time" content="2026-06-27T00:56:56.538Z">
+<meta property="article:modified_time" content="2026-06-27T00:56:56.538Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://kaelvio.com/images/Pasted_image_20260526193317.png">
@@ -224,8 +224,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-06-23 09:47" pubdate>
-          2026年6月23日 上午
+        <time datetime="2026-06-27 08:56" pubdate>
+          2026年6月27日 早上
         </time>
       </span>
     
@@ -236,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.9k 字
+          2k 字
         
       </span>
     
@@ -247,7 +247,7 @@
         
         
         
-          16 分钟
+          17 分钟
         
       </span>
     
@@ -310,14 +310,42 @@
 <p>commutes. The concrete construction is the selections of $\pi:\coprod_{p\in X}\mathscr{F}_p$.</p>
 </blockquote>
 <h2 id="代数簇"><a href="#代数簇" class="headerlink" title="代数簇"></a>代数簇</h2><blockquote>
-<p>[!definition] 代数簇(variety)<br>设$k[x_1, x_2, \dots, x_n]$是代数闭域$k$上的$n$元多项式环，$S \subseteq k[x_1, \dots, x_n]$是多项式(resp. 齐次多项式)集合。定义$S$在$n$维仿射空间$\mathbb{A}^n_k$(resp. $n$维射影空间$\mathbb{P}^n_k$)中的<strong>零点集</strong>： $$<br>V(S) &#x3D; { P \in \mathbb{A}^n_k (resp.\mathbb{P}^n_k)\mid f(P) &#x3D; 0 \quad \forall f \in S }<br>$$若$V(S)$满足“不可约性”（即无法表示为两个非空真子集$V_1, V_2$的并，其中$V_1, V_2$均为某多项式集合的零点集），则称$V(S)$为<strong>仿射代数簇</strong>（简称仿射簇）(resp. 射影代数簇)。</p>
+<p>[!definition] 代数集(algebraic set)<br>设$k[x_1, x_2, \dots, x_n]$是代数闭域$k$上的$n$元多项式环，$S \subseteq k[x_1, \dots, x_n]$是多项式(resp. 齐次多项式)集合。定义$S$在$n$维仿射空间$\mathbb{A}^n_k$(resp. $n$维射影空间$\mathbb{P}^n_k$)中的<strong>零点集</strong>为代数集. $$<br>V(S) &#x3D; { P \in \mathbb{A}^n_k (resp.\mathbb{P}^n_k)\mid f(P) &#x3D; 0 \quad \forall f \in S }<br>$$</p>
 </blockquote>
-<p>有的地方把不满足不可约性的一般情况称为代数集</p>
+<p>In GTM52, they use the notation $Z(S)$.</p>
 <blockquote>
-<p>[!example]<br>For $0\in k[x_1,x_2\dots x_n]$, $V(0)&#x3D;k^n$.<br>For $y-x^2\in k[x,y]$, $V(y-x^2)$ is a parabolic.</p>
+<p>[!example]<br>For $y-x^2\in k[x,y]$, $V(y-x^2)$ is a parabolic.</p>
 </blockquote>
 <blockquote>
-<p>[!definition] 代数簇间的态射<br>向量值多项式, 如果是射影簇的话要求齐次</p>
+<p>[!proposition] $V(S)&#x3D;V(\left&lt; S \right&gt;)$</p>
+</blockquote>
+<blockquote>
+<p>[!proposition] </p>
+<ol>
+<li>The union of two algebraic sets is an algebraic set.</li>
+<li>The intersection of algebraic sets is an algebraic set.</li>
+<li>The empty space and the whole space are algebraic sets.</li>
+</ol>
+</blockquote>
+<p>$idea.$<br>Let $Y_1:&#x3D;V(S_1)$, $Y_2:&#x3D;V(S_2)$, $Y_{\alpha}:&#x3D;V(S_\alpha)$,<br>$Y_1\cup Y_2&#x3D;Z(S_1S_2)$, $\bigcap_{\alpha}Y_{\alpha}&#x3D;V\left( \bigcup S_{\alpha} \right)$.<br>$\varnothing&#x3D;V(1),\mathbb{A}^n_k&#x3D;V(0)$</p>
+<blockquote>
+<p>[!definition] Zariski topology<br>The open sets are the complements of the algebraic sets.</p>
+</blockquote>
+<blockquote>
+<p>[!example] Zariski topology of $\mathbb{A}^1$<br>$k[z]$ is a PID $\implies$ ideals are of form $\left&lt; f(z) \right&gt;$<br>$k$ is algebraically close $\implies$ $f(z)&#x3D;c(z-a_1)\dots(z-a_n)$<br>$\implies V(\left&lt; f(z) \right&gt;)&#x3D;\left{ a_1\dots a_n \right}$ i.e. finite sets<br>$k$ is algebraically close $\implies$ $\mathbb{A}^1$ is infinite<br>(for $\mathbb{F}_q$, there exists infinite many irreducible polynomials but finite first order polynomials, so it is not algebraically clossed.)<br>For $U,V\in Open(\mathbb{A}^1)$, $U\cap V$ is infinite $\implies$ $\mathbb{A}^1$ is not Haustoff.</p>
+</blockquote>
+<blockquote>
+<p>[!definition] irreducible<br>For $X:\mathbf{Top}$, non-empty $Y\subseteq X$ is said to be irreducible $\iff \not\exists proper~Y_1,Y_2$ being close w.r.t $Y$ and $Y_1\cup Y_2&#x3D;Y$.</p>
+</blockquote>
+<blockquote>
+<p>[!proposition] irreducible<br>Y is irreducible in X $\implies \bar Y$ is irreducible in X.</p>
+</blockquote>
+<p>$Proof.$ If $\bar Y&#x3D;Y_1\cup Y_2$ are closed, because $Y$ is closed, then one of them includes Y.<br>close $\implies \bar Y\subseteq Y_i$<br>$\blacksquare$</p>
+<blockquote>
+<p>[!example] irreducible sets w.r.t. $\mathbb{A}^1$<br>The close sets are finite.<br>Any non-empty open set is dense and irriducile.</p>
+</blockquote>
+<blockquote>
+<p>[!definition] affine (algebraic) variety<br>We call irreducible closed subsets of $\mathbb{A}^n$ affine (algebraic) variety.<br>And we called irreducible quasi-affine variety</p>
 </blockquote>
 <blockquote>
 <p>[!definition] 点集的消失理想<br>对任意子集 $X\subset \mathbb{P}^n_kor\mathbb{A}^n_k$, 定义<br>$$</p>
@@ -330,6 +358,17 @@
 <p>它称为 $X$ 的消失理想 (vanishing ideal).</p>
 </blockquote>
 <p>^def-vanishing-ideal</p>
+<blockquote>
+<p>[!proposition] </p>
+<ol>
+<li>If $S_1\subseteq S_2\subseteq A$, then $V(S_1)\supseteq V(S_2)$, $V(S_1)\cap V(S_2)&#x3D;V(S_1\cup S_2)$.</li>
+<li>If $Y_1\subseteq Y_2\subseteq \mathbb{A}^n$, then $I(Y_1)\supseteq I(Y_2)$, $I(Y_1)\cap I(Y_2)&#x3D;I(Y_1\cap Y_2)$.</li>
+<li></li>
+</ol>
+</blockquote>
+<blockquote>
+<p>[!definition] 代数簇间的态射<br>向量值多项式, 如果是射影簇的话要求齐次</p>
+</blockquote>
 <blockquote>
 <p>[!definition] 坐标环<br>若 $X\subset \mathbb A_k^n$, 它的坐标环 (coordinate ring) 是<br>$$</p>
 </blockquote>
@@ -408,6 +447,7 @@
 <p>[!definition] 结构层<br>$\mathcal{O}_{\operatorname{Spec}A}:\prod(U:\mathcal{T}_{\operatorname{Spec}A}),\prod(\mathfrak{p}:U),A_\mathfrak{p}$</p>
 </blockquote>
 <p>相当于对每个开集给出一个环, </p>
+<h1 id="acknowledgement"><a href="#acknowledgement" class="headerlink" title="acknowledgement"></a>acknowledgement</h1><p>This article referred <em>The Rising Sea</em> and GTM52. </p>
 
                 
               </div>
@@ -438,7 +478,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年6月23日</div>
+          <div>2026年6月27日</div>
         </div>
       
       
