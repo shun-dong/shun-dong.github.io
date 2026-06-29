@@ -27,8 +27,8 @@
 <meta property="og:description" content="仿射空间与射影空间仿射空间 $(\mathbb{A}:Set,V:Vect,\+\:V\to \operatorname{Aut}\mathbb{A})$ s.t. $T$ is simple transitive, $T_1&#x3D;1,T_vT_w&#x3D;T_{v+w}$For $PQ:\mathbb{A}$, $P-Q:&#x3D;\vec{QP}:&#x3D;v:Vs.t.~v+Q&amp;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260526193317.png">
-<meta property="article:published_time" content="2026-06-28T07:57:18.424Z">
-<meta property="article:modified_time" content="2026-06-28T07:57:18.425Z">
+<meta property="article:published_time" content="2026-06-29T07:14:18.618Z">
+<meta property="article:modified_time" content="2026-06-29T07:14:18.618Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="http://kaelvio.com/images/Pasted_image_20260526193317.png">
@@ -224,8 +224,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-06-28 03:57" pubdate>
-          2026年6月28日 凌晨
+        <time datetime="2026-06-29 15:14" pubdate>
+          2026年6月29日 下午
         </time>
       </span>
     
@@ -236,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.3k 字
+          2.8k 字
         
       </span>
     
@@ -247,7 +247,7 @@
         
         
         
-          20 分钟
+          24 分钟
         
       </span>
     
@@ -285,14 +285,6 @@
         <div id="board">
           <article class="post-content mx-auto">
             <h1 id="seo-header">代数几何</h1>
-            
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    本文最后更新于 2026年6月28日 凌晨
-                  
-                
-              </p>
             
             
               <div class="markdown-body">
@@ -336,10 +328,14 @@
 </blockquote>
 <p>$Proof.$ If $\bar Y&#x3D;Y_1\cup Y_2$ are closed, because $Y$ is closed, then one of them includes Y.<br>close $\implies \bar Y\subseteq Y_i$<br>$\blacksquare$</p>
 <blockquote>
-<p>[!example] irreducible sets w.r.t. $\mathbb{A}^1$<br>The close sets are finite.<br>Any non-empty open set is dense and irriducile.</p>
+<p>[!example] irreducible sets w.r.t. $\mathbb{A}^1$<br>The close sets are finite.</p>
 </blockquote>
 <blockquote>
-<p>[!definition] affine (algebraic) variety<br>We call irreducible closed subsets of $\mathbb{A}^n$ affine (algebraic) variety.<br>And we called irreducible quasi-affine variety</p>
+<p>[!proposition]<br>Any non-empty open subset of an irreducible space is dense and irriducile.</p>
+</blockquote>
+<p>$Proof.$<br>(dense)<br>Suppose not, let $U$ s.t. $O\cap U&#x3D;\varnothing$. Then $X&#x3D;O^c\cup U^c$. contradiction.<br>(irreducible)<br>Suppose not, let $O&#x3D;U\cup V$, where $U,V$ are closed subsets. Then $O$ is closed. contradiction.<br>$\blacksquare$</p>
+<blockquote>
+<p>[!definition] affine (algebraic) variety<br>We call irreducible closed subsets of $\mathbb{A}^n$ affine (algebraic) varieties.<br>And we called irreducible open subsets quasi-affine varieties.</p>
 </blockquote>
 <blockquote>
 <p>[!definition] 点集的消失理想<br>对任意子集 $X\subset \mathbb{P}^n_kor\mathbb{A}^n_k$, 定义<br>$$</p>
@@ -393,17 +389,73 @@
 <blockquote>
 <p>[!remark]<br>If $k$ is not algebraically closed, these results do not hold.<br>For example, in $\mathbb{A}_{\mathbb{R}}^2$, $V(x^2+y^2+1)&#x3D;\varnothing$.</p>
 </blockquote>
-<p>kliu</p>
 <blockquote>
-<p>[!definition] 代数簇间的态射<br>向量值多项式, 如果是射影簇的话要求齐次</p>
+<p>[!definition] 仿射坐标环(affine coordinate ring)<br>For affine algebraic set $Y$, 它的坐标环 (coordinate ring) 是<br>$$</p>
 </blockquote>
 <blockquote>
-<p>[!definition] 坐标环<br>若 $X\subset \mathbb A_k^n$, 它的坐标环 (coordinate ring) 是<br>$$</p>
-</blockquote>
-<blockquote>
-<p>k[ X]&#x3D;k[x_1,\dots,x_n]&#x2F;I(X).</p>
+<p>k[ Y]&#x3D;k[x_1,\dots,x_n]&#x2F;I(Y).</p>
 </blockquote>
 <p>$$</p>
+<p>GTM 52 uses notation $A(Y)$ where $A&#x3D;k[X]$.</p>
+<blockquote>
+<p>[!remark]<br>For affine variety $Y$, $k[Y]$ is an integer domain and a finitely generated $k$-algebra. Any finitely generated $k$-algebra as well as domain can be written as $k[X]&#x2F;I$ where $I$ is a prime ideal, which implies $I&#x3D;I(Y)$ for some affine variety.</p>
+</blockquote>
+<blockquote>
+<p>[!definition] Noetherian topological space<br>If the closed subsets satisfied descending chain condition, we call the space Noetherian topological space.</p>
+</blockquote>
+<blockquote>
+<p>[!example]<br>$\mathbb{A}^n$ is a Noetherian topological space. For close $Y_1\supseteq Y_2 \supseteq Y_3\dots$, $I(Y_1)\subseteq I(Y_2)\subseteq\dots$. $k[X]$ is a Noetherian ring $\implies$ $I(Y_i)$ is eventually stable $\implies$ $Y_i&#x3D;V(I(Y_i))$ is eventually stable.</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>In a Noetherian topological space $X$, every non-empty closed subset $Y$ can be written as a finite union of irreducible closed subsets $Y&#x3D;\bigcup_{i&#x3D;1}^rY_i$.<br>If we require $Y_i$ are not contained in another, then $\left{ Y_i \right}$ is unique. They are called the irreducible components of $Y$.</p>
+</blockquote>
+<p>$Proof.$<br>(existence)<br>Let $\mathfrak{S}$ be set of non-empty closed subsets that do not satisfy such condition. Suppose.$\mathfrak{S}\neq\varnothing$.  Noetherian $\implies$ there exists minimal $Y\in \mathfrak{S}$ under $\subseteq$. There exists close $Y_1,Y_2$ s.t. $Y_1\cup Y_2&#x3D;Y$, for example $Y_1&#x3D;Y_2&#x3D;Y$. Because $Y$ is not irreducible, we can find $Y_1,Y_2\neq Y$. By minimality of $Y$, $Y_1,Y_2$ can be written as finite union of irreducible closed subsets. contradiction.<br>(uniqueness)<br>Suppose $Y&#x3D;\bigcup_{i&#x3D;1}^m Y_i&#x3D;\bigcup_{j&#x3D;1}^n Y’_j$ are irreducible compositions. $\implies$ $Y_1’&#x3D;\bigcup_{i&#x3D;1}^m(Y_1’\cap Y_{i})$. Because $Y’_1$ is irreducible, $Y’_1\subseteq Y_i$ for some i. Similarly $Y_i\subseteq Y_j’$ for some j.Then $Y_1’\subseteq Y’_j$ $\implies j&#x3D;1$ and $Y_i&#x3D;Y_1’$…<br>$\blacksquare$</p>
+<blockquote>
+<p>[!definition] dimension of topological space<br>For $X:\mathbf{Top}$, we define the dimension $\dim X$ to be the supremum of n s.t. $Z_0 \subset Z_1\subset \dots\subset Z_n$ of irriducible closed subsets of $X$.</p>
+</blockquote>
+<blockquote>
+<p>[!example]<br>$\dim \mathbb{A}^1&#x3D;1$ because the irreducible closed subsets of $\mathbb{A}^1$ are.only the whole space of a single points.</p>
+</blockquote>
+<blockquote>
+<p>[!definition] the height of a prime ideal<br>In a ring $A$, the height of a prime ideal $\operatorname{height}\mathfrak{p}$ is the superimum of n s.t. $\mathfrak{p}_0\subset \mathfrak{p}_1\dots\subset \mathfrak{p}_n&#x3D;\mathfrak{p}$ of prime ideals.<br>The Krull dimension of $A$ is defined to be the supremum of the heights of prime ideals.</p>
+</blockquote>
+<p>The Krull dimension can be seem as the topological dimension of $\operatorname{Spec}A$.</p>
+<blockquote>
+<p>[!proposition] Krull dimension<br>For an affine algebraic set $Y$, the topological dimension is equal to the Krull dimension of $k[Y]$.</p>
+</blockquote>
+<p>$Proof.$<br>By $\left{ affine~varieties\right}\cong\operatorname{Spec}k[X]$, for affine variety $Z$ s.t. $Z\subseteq Y$, $I(Y)\subseteq I(Z)$. By the corresponding thm, $I(Z)$ can be seem as an element of $\operatorname{Spec}k[X]&#x2F;I(Y)&#x3D;\operatorname{Spec}k[Y]$.<br>$\blacksquare$</p>
+<blockquote>
+<p>[!theorem]<br>Let $k$ be a field, $B$ be an integral domain as well as a finitely generated $k$-algebra.</p>
+<ol>
+<li>$\dim B&#x3D;\deg_kK(B)$, where RHS is the transcendence degree of the quotient field $K(B)$.</li>
+<li>For $\mathfrak{p}\in \operatorname{Spec}B$, $\operatorname{height}\mathfrak{p}+\dim B&#x2F;\mathfrak{p}&#x3D;\dim B$.</li>
+</ol>
+</blockquote>
+<p>^abasd</p>
+<p>$Proof.$ By [[交换代数]]。</p>
+<blockquote>
+<p>[!proposition] $\dim \mathbb{A}^n&#x3D;n$</p>
+</blockquote>
+<p>$Proof.$<br>The coordinate ring of $\mathbb{A}^n$ is $k[X]&#x2F;I(\mathbb{A}^n)&#x3D;k[X]&#x2F;\mathfrak{0}&#x3D;k[X]$<br>By [[#^abasd]], $\dim k[X]&#x3D;n$.<br>$\blacksquare$</p>
+<blockquote>
+<p>[!proposition]<br>For quasi-affine variety $Y$, $\dim Y &#x3D; \dim \bar Y$.</p>
+</blockquote>
+<p>$Proof.$<br>For irreducible closed subsets in.$Y$ $Z_0\subset Z_1\dots\subset Z_n$, $\bar Z_0\subset \bar Z_1\dots\subset\bar Z_n$ are irreducible closed subsets in.$\bar Y$ (notice that the closure are taken in $\bar Y$. For irreducible subset, the last element of the maximal chain is itself.) $\implies \dim Y\leq \dim \bar Y$.<br>If $\dim Y$ is finite, let $Z_0\subset Z_1\subset \dots Z_n$ is a maximal chain. </p>
+<ul>
+<li><input disabled="" type="checkbox"> </li>
+</ul>
+<blockquote>
+<p>[!theorem] Krull’s Hauptidealsatz<br>Let A be a noetherian ring, and let $f\in A$ be an element which is neither a zero divisor nor a unit. Then every minimal prime ideal p containing f has height 1.</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>A noetherian integral domain A is a unique factorization domain if and only if every prime ideal of height 1 is principal.</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>A variety $Y$ in A” has dimension n - 1 if and only if it is the zero set Z(f) of a single nonconstant irreducible polynomial in $A &#x3D;k[x_1, \dots ,x_n]$.</p>
+</blockquote>
+<blockquote>
+<p>[!remark]<br>A prime ideal of height 2 in a polynomial ring cannot necessarily be generated by two elements.</p>
+</blockquote>
 <p>相当于只关心多项式在 $X$ 上的值, 都相同则不区分, 相当于全体 $X$ 上正则函数<br>For $f:X\to Y$, $k[ f]:k [Y]\to k[ X]:&#x3D;g\mapsto gf$.<br>可以证明这是仿射代数簇到有限生成不可约 $k$-代数 的范畴等价</p>
 <blockquote>
 <p>[!example]<br>Notice that $V(fg)&#x3D;V(f)\cup V(g)$<br>Consider $X&#x3D;V(xy)\subseteq \mathbb{A}^2_k$, $V(xy)&#x3D;V(x)\sqcup V(y)$, so it is reducible. So $k[X]$ is not a domain.</p>
@@ -504,14 +556,9 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年6月28日</div>
+          <div>2026年6月29日</div>
         </div>
       
-      
-        <div class="license-meta-item license-meta-date">
-          <div>更新于</div>
-          <div>2026年6月28日</div>
-        </div>
       
       
         <div class="license-meta-item">
@@ -553,18 +600,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E7%8E%AF%E8%AE%BA/" title="环论">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">环论</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/fu_language/" title="fu_language">
-                        <span class="hidden-mobile">fu_language</span>
+                      <a href="/%E7%8E%AF%E8%AE%BA/" title="环论">
+                        <span class="hidden-mobile">环论</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
