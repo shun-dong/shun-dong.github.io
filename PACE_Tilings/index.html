@@ -1,0 +1,1090 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/only.ico">
+  <link rel="icon" href="/img/only.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="采薇">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="Incidences in Hyperbolic Geometry and Tilings of SurfacesAuthor: Yuchong Zhang. Project OverviewFomin and Pylyavskyy [[Fomin-Pylyavskyy-incidences-tilings-2023]] developed a framework that unifies man">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PACE_Tilings">
+<meta property="og:url" content="http://kaelvio.com/PACE_Tilings/index.html">
+<meta property="og:site_name" content="采薇的博客">
+<meta property="og:description" content="Incidences in Hyperbolic Geometry and Tilings of SurfacesAuthor: Yuchong Zhang. Project OverviewFomin and Pylyavskyy [[Fomin-Pylyavskyy-incidences-tilings-2023]] developed a framework that unifies man">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260701192354.png">
+<meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260701192423.png">
+<meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260701192446.png">
+<meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260701192525.png">
+<meta property="article:published_time" content="2026-07-04T23:58:10.057Z">
+<meta property="article:modified_time" content="2026-07-04T23:58:10.057Z">
+<meta property="article:author" content="采薇">
+<meta property="article:tag" content="PACE">
+<meta property="article:tag" content="hyperbolic-geometry">
+<meta property="article:tag" content="incidence-geometry">
+<meta property="article:tag" content="tilings">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://kaelvio.com/images/Pasted_image_20260701192354.png">
+  
+  
+  
+  <title>PACE_Tilings - 采薇的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kaelvio.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>采薇的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档Archive</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/playground/" target="_self">
+                <i class="iconfont icon-exp-fill"></i>
+                <span>演示playground</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/artwork/" target="_self">
+                <i class="iconfont icon-brush"></i>
+                <span>画廊artwork</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于采薇Kaelvio</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链links</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="PACE_Tilings"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-07-05 07:58" pubdate>
+          2026年7月5日 早上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          23 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">PACE_Tilings</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="Incidences-in-Hyperbolic-Geometry-and-Tilings-of-Surfaces"><a href="#Incidences-in-Hyperbolic-Geometry-and-Tilings-of-Surfaces" class="headerlink" title="Incidences in Hyperbolic Geometry and Tilings of Surfaces"></a>Incidences in Hyperbolic Geometry and Tilings of Surfaces</h1><p>Author: Yuchong Zhang.</p>
+<h2 id="Project-Overview"><a href="#Project-Overview" class="headerlink" title="Project Overview"></a>Project Overview</h2><p>Fomin and Pylyavskyy [[Fomin-Pylyavskyy-incidences-tilings-2023]] developed a framework that unifies many incidence theorems in projective geometry. Instead of proving Pappus, Desargues, and related theorems separately, incidence conditions are encoded into tiled surfaces, and a global cancellation argument forces one incidence relation from the others.</p>
+<p>The proposal states that their results can be generalized to incidence theorems in elliptic geometry and hyperbolic geometry. Elliptic geometry appears to give no new information, while in hyperbolic geometry two hyperbolic geodesics can meet in three different ways in the projective completion of the hyperbolic plane:</p>
+<ul>
+<li><strong>P</strong>: the geodesics meet inside the hyperbolic plane.</li>
+<li><strong>I</strong>: the geodesics meet at an ideal boundary point.</li>
+<li><strong>E</strong>: the geodesics meet outside the closed hyperbolic disk.</li>
+</ul>
+<blockquote>
+<p>[!exercise] Main research question<br>Given a tiled surface, and given a label $P,I,$ or $E$ on each tile, when does this type assignment come from a genuine hyperbolic incidence configuration?</p>
+<p>Furthermore, when do partial type assumptions force the type of a remaining tile, thereby producing a genuinely typed hyperbolic incidence theorem?</p>
+</blockquote>
+<p>^exercise-main-research-question</p>
+<p>The expected background is linear algebra, graph theory, and elementary projective geometry. No prior knowledge of hyperbolic geometry or the Fomin-Pylyavskyy theory is required.</p>
+<h2 id="Classical-Motivation-Linear-Incidence-Theorems"><a href="#Classical-Motivation-Linear-Incidence-Theorems" class="headerlink" title="Classical Motivation: Linear Incidence Theorems"></a>Classical Motivation: Linear Incidence Theorems</h2><p>Linear incidence theorems concern configurations of points, lines, and subspaces in projective spaces, viewed through their relative positions. A typical result asserts that a finite collection of incidence relations, together with suitable nondegeneracy assumptions, forces an additional incidence relation. Classical examples include Desargues’ theorem and Pappus’ theorem.</p>
+<p>In Hilbert’s foundations of projective geometry [[Hilbert-foundations-geometry-1902]], Desargues’ theorem is closely tied to associativity in projective coordinates, while Pappus’ theorem is similarly tied to commutativity. Modern incidence geometry also has effective verification procedures: Grassmann-Cayley algebras, elimination, and Gröbner-basis methods can turn many incidence proofs into mechanical calculations [[Sturmfels-projective-configurations-1991]]; [[Richter-Gebert-mechanical-theorem-proving-1995]]; [[Li-Wu-bracket-algebra-2001]].</p>
+<p>The central problem is therefore not only to list incidence theorems or prove them one by one, but to understand the structures organizing them. A topological answer was initiated by Richter-Gebert [[Richter-Gebert-meditations-ceva-2006]], pursued by Glynn [[Glynn-rabbit-hole-2013]], Richter-Gebert-Li [[Richter-Gebert-Li-coordinate-free-2019]], Baralić-Curien-Milićević-Obradović-Petrić-Zekić-Živaljević [[Baralic-et-al-proofs-surfaces-2020]], and developed systematically by Fomin-Pylyavskyy [[Fomin-Pylyavskyy-incidences-tilings-2023]].</p>
+<p>The master theorem of Fomin-Pylyavskyy associates linear incidence implications to quadrilateral tilings of closed connected oriented surfaces. This also suggests that an incidence theorem may carry a topological complexity: one can ask on which oriented surfaces the statement admits such a proof, and how the answer depends on the formulation. Since closed connected oriented surfaces are classified by genus, a natural invariant is the minimal genus of such a surface.</p>
+<h2 id="A-Quick-Start-on-Fomin-Pylyavskyy-Theory"><a href="#A-Quick-Start-on-Fomin-Pylyavskyy-Theory" class="headerlink" title="A Quick Start on Fomin-Pylyavskyy Theory"></a>A Quick Start on Fomin-Pylyavskyy Theory</h2><p>Let us consider a linear incidence theorem valid in $\mathbb{P}^2_k$ for some field $k$. Let $T$ be a bicolored quadrilateral tiling of a closed connected oriented surface. Black vertices are labeled by points of a projective plane, and white vertices are labeled by lines.</p>
+<p>Each tile consists of two black vertices and two white vertices. If they are labeled by $A,B$ and $\ell,m$, respectively, the boundary of the tile is required to be<br>$$</p>
+<p>A-\ell-B-m-A.</p>
+<p>$$<br>Such a tile is denoted $S(A,B;\ell,m)$.</p>
+<blockquote>
+<p>[!definition] Coherent tile<br>A tile $S(A,B;\ell,m)$ is called coherent if:</p>
+<ol>
+<li>neither $A$ nor $B$ lies on $\ell$ or $m$;</li>
+<li>either $A&#x3D;B$ or $\ell&#x3D;m$, or else the three points $A,B,\ell\cap m$ are collinear.</li>
+</ol>
+</blockquote>
+<p>^definition-coherent-tile</p>
+<p><img src="/images/Pasted_image_20260701192354.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>[!theorem] Fomin-Pylyavskyy master theorem<br>Let $T$ be a bicolored quadrilateral tiling of a closed connected oriented surface, with black vertices labeled by points and white vertices labeled by lines in a projective plane. If all but one tiles are coherent, then the remaining tile is coherent as well.</p>
+</blockquote>
+<p>^theorem-fomin-pylyavskyy-master</p>
+<p>$Proof.$ The algebraic reason is cancellation of mixed cross-ratios. Choose vector representatives of the point labels and covector representatives of the line labels. For an edge $A-\ell$ on a tile, label it with the pairing $\langle A,\ell\rangle$. This pairing is defined in projective space up to nonzero scaling, and the nonincidence assumption makes it nonzero.</p>
+<p>For each tile $S(A,B;\ell,m)$, set<br>$$</p>
+<p>\chi(A,B;\ell,m):&#x3D;<br>\frac{\langle A,\ell\rangle\langle B,m\rangle}<br>{\langle A,m\rangle\langle B,\ell\rangle}.</p>
+<p>$$<br>This is a well-defined projective invariant. Moreover, the tile is coherent if and only if<br>$$</p>
+<p>\chi(A,B;\ell,m)&#x3D;1.</p>
+<p>$$<br>Indeed, if $A\neq B$ and $\ell\neq m$, then the line $(AB)$ meets $\ell\cap m$ if and only if there is a nonzero vector of the form $\lambda A+\mu B$ annihilated by both $\ell$ and $m$, which is equivalent to<br>$$</p>
+<p>\langle A,\ell\rangle\langle B,m\rangle-\langle A,m\rangle\langle B,\ell\rangle&#x3D;0.</p>
+<p>$$</p>
+<p>Multiplying $\chi(A,B;\ell,m)$ over all tiles of $T$, each edge pairing appears once in the numerator and once in the denominator because the surface is oriented and adjacent tiles traverse an edge in opposite directions. Hence<br>$$</p>
+<p>\prod_{\tau\in T}\chi(\tau)&#x3D;1.</p>
+<p>$$<br>If all but one tiles are coherent, all but one cross-ratios are $1$, so the remaining one is also $1$.</p>
+<p>$\blacksquare$</p>
+<p>The source notes that this master theorem plays the same role as Menelaus’ multiplicative cancellation in triangular-tiling proofs. The general version in dimension $n$ replaces “line” by “hyperplane” and has the same proof. The source contains an unresolved reference “Theorem??” at this point.</p>
+<blockquote>
+<p>[!example] Desargues’ theorem<br>Let $a,b,c$ be distinct concurrent lines in the projective plane. Pick distinct points<br>$$</p>
+</blockquote>
+<blockquote>
+<p>A_1,A_2\in a\setminus(b\cup c),\quad<br>B_1,B_2\in b\setminus(a\cup c),\quad<br>C_1,C_2\in c\setminus(a\cup b).</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>Set<br>$$</p>
+</blockquote>
+<blockquote>
+<p>A&#x3D;(B_1C_1)\cap(B_2C_2),\quad<br>B&#x3D;(A_1C_1)\cap(A_2C_2),\quad<br>C&#x3D;(A_1B_1)\cap(A_2B_2).</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>Then $A,B,C$ are collinear.</p>
+</blockquote>
+<p>^example-desargues-theorem<br><img src="/images/Pasted_image_20260701192423.png" srcset="/img/loading.gif" lazyload></p>
+<p>For the tiling proof, let<br>$$</p>
+<p>a&#x3D;(A_1A_2),\quad b&#x3D;(B_1B_2),\quad c&#x3D;(C_1C_2),</p>
+<p>$$<br>and<br>$$</p>
+<p>a_1&#x3D;(B_1C_1),\quad b_1&#x3D;(A_1C_1),\quad c_1&#x3D;(A_1B_1),</p>
+<p>$$<br>$$</p>
+<p>a_2&#x3D;(B_2C_2),\quad b_2&#x3D;(A_2C_2),\quad c_2&#x3D;(A_2B_2).</p>
+<p>$$<br>The six tiles in the sphere tiling encode six coherence conditions. The first five are immediate from the construction. For example, $a_1\cap c&#x3D;C_1$, and $A_1,B,C_1$ are collinear because $B\in b_1&#x3D;(A_1C_1)$. Since the product of the six mixed cross-ratios is $1$, the remaining cross-ratio is also $1$. Thus the last tile is coherent, so $B,C,a_1\cap a_2$ are collinear. Since $a_1\cap a_2&#x3D;A$, this says exactly that $A,B,C$ are collinear.</p>
+<blockquote>
+<p>[!example] Generic Pappus’ theorem<br>Let $P_1,\dots,P_6$ be six generic points in the projective plane. Then any two of the following three conditions imply the third:</p>
+<ul>
+<li><strong>A</strong>: $(P_1P_2),(P_3P_4),(P_5P_6)$ are concurrent.</li>
+<li><strong>B</strong>: $(P_2P_3),(P_4P_5),(P_6P_1)$ are concurrent.</li>
+<li><strong>C</strong>: $(P_1P_4),(P_2P_5),(P_3P_6)$ are concurrent.</li>
+</ul>
+</blockquote>
+<p>^example-generic-pappus<br><img src="/images/Pasted_image_20260701192446.png" srcset="/img/loading.gif" lazyload></p>
+<p>For the tiling proof, define<br>$$</p>
+<p>A&#x3D;(P_3P_4)\cap(P_5P_6),\quad<br>B&#x3D;(P_2P_3)\cap(P_1P_6),\quad<br>C&#x3D;(P_1P_4)\cap(P_2P_5),</p>
+<p>$$<br>and let<br>$$</p>
+<p>a&#x3D;(BC),\quad b&#x3D;(AC),\quad c&#x3D;(AB).</p>
+<p>$$<br>Thus<br>$$</p>
+<p>A&#x3D;b\cap c,\quad B&#x3D;a\cap c,\quad C&#x3D;a\cap b.</p>
+<p>$$<br>The nine tiles of the torus tiling encode the following nine coherence conditions:</p>
+<ul>
+<li>$P_3,P_4,b\cap c$ are collinear.</li>
+<li>$P_5,P_6,b\cap c$ are collinear.</li>
+<li>$P_2,P_3,a\cap c$ are collinear.</li>
+<li>$P_6,P_1,a\cap c$ are collinear.</li>
+<li>$P_1,P_4,a\cap b$ are collinear.</li>
+<li>$P_2,P_5,a\cap b$ are collinear.</li>
+<li>$P_1,P_2,b\cap c$ are collinear.</li>
+<li>$P_4,P_5,a\cap c$ are collinear.</li>
+<li>$P_3,P_6,a\cap b$ are collinear.</li>
+</ul>
+<p>The first six conditions hold by construction. The last three are exactly the three concurrency conditions in Pappus’ theorem. If any two of them hold, then eight of the nine tiles are coherent. Since the product of all nine mixed cross-ratios is $1$, the ninth is also $1$, giving the remaining concurrency condition.</p>
+<p>The source notes that this generic version is not Pappus’ theorem in full generality, because the statement and proof require general-position assumptions. A tiling-based proof of the full theorem is given in [[Pylyavskyy-Skopenkov-incidences-tilings-fields-2026]], Section 2.4.</p>
+<blockquote>
+<p>[!exercise] Question 1<br>Can every theorem of linear incidence geometry in the projective plane be obtained as a special case of the master theorem?</p>
+</blockquote>
+<p>^exercise-linear-incidence-question-1</p>
+<blockquote>
+<p>[!exercise] Question 2<br>For each incidence theorem, determine the minimal genus of a tiling that proves the theorem. Can this minimal genus be arbitrarily large?</p>
+</blockquote>
+<p>^exercise-linear-incidence-question-2</p>
+<blockquote>
+<p>[!exercise] Question 3<br>Is there an efficient algorithm for constructing a tiling that delivers a proof of a given incidence theorem?</p>
+</blockquote>
+<p>^exercise-linear-incidence-question-3</p>
+<p>Question 1 has been addressed from several perspectives [[Kuhne-Larson-absolute-incidence-2025]]; [[Pylyavskyy-Skopenkov-incidences-tilings-fields-2026]]; [[Izosimov-surface-topology-2026]]; [[Zhang-incidence-genus-tilings]]. The answer is negative if the master theorem may be used only once, and positive if one may use it multiple times along with the axioms of projective spaces and first-order classical logic.</p>
+<p>Question 2 is answered in [[Zhang-incidence-genus-tilings]]: the minimal genus can be any integer and reflects a certain sense of “commutativity” in the incidence theorem.</p>
+<p>Question 3 is also answered in [[Zhang-incidence-genus-tilings]] in a specific sense. For a fixed-form incidence implication, where auxiliary points or lines may not be constructed in the proof, one can effectively construct a tiling for a given field-universal incidence theorem if it exists.</p>
+<h2 id="From-Projective-Geometry-to-Hyperbolic-Geometry"><a href="#From-Projective-Geometry-to-Hyperbolic-Geometry" class="headerlink" title="From Projective Geometry to Hyperbolic Geometry"></a>From Projective Geometry to Hyperbolic Geometry</h2><p>The main goal is to extend the tiling-based technique from projective geometry to other settings, including elliptic geometry, hyperbolic geometry, Möbius geometry, and perhaps other settings. This proposal discusses elliptic and hyperbolic geometry.</p>
+<h3 id="Elliptic-and-Hyperbolic-Spaces-in-the-Projective-Model"><a href="#Elliptic-and-Hyperbolic-Spaces-in-the-Projective-Model" class="headerlink" title="Elliptic and Hyperbolic Spaces in the Projective Model"></a>Elliptic and Hyperbolic Spaces in the Projective Model</h3><blockquote>
+<p>[!definition] Elliptic space<br>Let $\beta_E$ be a positive definite symmetric bilinear form on $V$. The $n$-dimensional elliptic space is<br>$$</p>
+</blockquote>
+<blockquote>
+<p>\mathbb{E}^n:&#x3D;\mathbb{P}_{\mathbb{R}}^n,</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>equipped with the metric induced from the unit sphere<br>$$</p>
+</blockquote>
+<blockquote>
+<p>S_E^n&#x3D;{x\in V\mid\beta_E(x,x)&#x3D;1}</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>after identifying antipodal points. Thus<br>$$</p>
+</blockquote>
+<blockquote>
+<p>\mathbb{E}^n\simeq S_E^n&#x2F;{\pm1}.</p>
+</blockquote>
+<p>$$</p>
+<p>^definition-elliptic-space</p>
+<p>For two points $p&#x3D;[x]$ and $q&#x3D;[y]$, their elliptic distance is<br>$$</p>
+<p>d_E(p,q)&#x3D;\arccos\left(<br>\frac{|\beta_E(x,y)|}{\sqrt{\beta_E(x,x)\beta_E(y,y)}}<br>\right).</p>
+<p>$$<br>这里类似在球面上, 因此表达式类似夹角<br>A projective $k$-flat in $E^n$ is a subset of the form<br>$$</p>
+<p>\mathbb{P}(W)\subset\mathbb{P}(V),\quad \dim W&#x3D;k+1.</p>
+<p>$$<br>这里由于是射影坐标, 维数是 $k+1$.<br>In particular, an elliptic hyperplane is<br>$$</p>
+<p>H_u&#x3D;{[x]\in E^n\mid \beta_E(x,u)&#x3D;0},\quad u\in V\setminus{0}.</p>
+<p>$$<br>If $u$ is normalized by $\beta_E(u,u)&#x3D;1$, then the signed sine of the oriented distance from a lift $x$ to $H_u$ is<br>$$</p>
+<p>\sin\delta_{H_u}([x])&#x3D;\frac{\beta_E(x,u)}{\sqrt{\beta_E(x,x)}}.</p>
+<p>$$<br>因为是向量到平面的夹角所以是 sin<br>The sign depends on choices of lifts and orientations, but the ratios in the mixed cross-ratio are independent of these choices.</p>
+<blockquote>
+<p>[!definition] Hyperbolic space<br>Let $\beta_H$ be a symmetric bilinear form of signature $(n,1)$ on $V$. For example,<br>$$</p>
+</blockquote>
+<blockquote>
+<p>\beta_H(x,y)&#x3D;x_1y_1+\cdots+x_ny_n-x_{n+1}y_{n+1}.</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>这里选择东海岸度规, 和广义相对论一致<br>The projective model of $n$-dimensional hyperbolic space is<br>$$</p>
+</blockquote>
+<blockquote>
+<p>\mathbb{H}^n:&#x3D;{[x]\in\mathbb{P}(V)\mid\beta_H(x,x)&lt;0}.</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>对应的是类空间隔, 光锥之内.</p>
+</blockquote>
+<p>^definition-hyperbolic-space-projective-model</p>
+<p>Its ideal boundary is the projectivized null cone<br>$$</p>
+<p>\partial \mathbb{H}^n&#x3D;{[x]\in\mathbb{P}(V)\mid\beta_H(x,x)&#x3D;0}.</p>
+<p>$$<br>Equivalently, $\mathbb{H}^n$ is the image in $\mathbb{P}(V)$ of the hyperboloid<br>$$</p>
+<p>\widehat {\mathbb{H}}^n&#x3D;{x\in V\mid\beta_H(x,x)&#x3D;-1,\ x_{n+1}&gt;0}.</p>
+<p>$$<br>For two points $p&#x3D;[x]$ and $q&#x3D;[y]$, with lifts normalized by $\beta_H(x,x)&#x3D;\beta_H(y,y)&#x3D;-1$, their hyperbolic distance is determined by<br>$$</p>
+<p>\cosh d_H(p,q)&#x3D;-\beta_H(x,y).</p>
+<p>$$<br>A hyperbolic $k$-flat is<br>$$</p>
+<p>\mathbb{P}(W)\cap \mathbb{H}^n,\quad \dim W&#x3D;k+1,</p>
+<p>$$<br>where $\beta_H|_W$ has signature $(k,1)$. </p>
+<p>Suppose $p$ be the Plücker maps.<br>For flat $a,b$, let $a+ b,a\times b$ be their join and meet.<br>if $a\times b&#x3D;0$, use $a\oplus b$ to denote disjoint join.<br>$p(a)\wedge p(b)&#x3D;p(a \oplus b)$<br>$\Omega^{-1}(\Omega p(a)\wedge\Omega p(b))&#x3D;:p(a)\vee p(b)&#x3D;p(a\times b)$.<br>实际上在射影空间, 关于维数的直觉才是正确的, 比如两点确定一条直线, 即对射影点 (0-flat) $a&#x3D;\mathbb{P}(A),b&#x3D;\mathbb{P}(B)$, $\dim A&#x3D;\dim B&#x3D;1$,  $\dim (A\oplus B)&#x3D;2$, 是射影直线 (1-flat)<br>在 3 维空间 ($\mathbb{P}^3$) 中, 两条相交(广义的相交, 包含平行, 即交于无穷远点)直线 (1-flat) $l&#x3D;\mathbb{P}(L),m&#x3D;\mathbb{P}(M)$, $\dim L&#x3D;\dim M&#x3D;2$, $\dim (L\times M)&#x3D;1$, 则 $\dim (L +M)&#x3D;\dim L+\dim M-\dim(L\times M)&#x3D;3$, 是射影平面 (2-flat)</p>
+<blockquote>
+<p>[!example] 用 $\beta$ 判断是否是 hyperbolic flat<br>For $V\subseteq\mathbb{R}^3$ s.t. $\dim V&#x3D;1$, suppose $V&#x3D;span~v$. $\beta|_V(\lambda v,\lambda v)&#x3D;\lambda^2(v_1^2+v_2^2-v_3^2)$.<br>$V$ is a hyperbolic flat  $\iff[v]\in \mathbb{H}^2$<br>这也是 $\mathbb{H}^2$ 要求模长为负的原因</p>
+</blockquote>
+<p>A hyperbolic hyperplane is<br>$$</p>
+<p>H_u&#x3D;{[x]\in \mathbb{H}^n\mid\beta_H(x,u)&#x3D;0},</p>
+<p>$$<br>where $u\in V$ is spacelike, i.e.<br>$$</p>
+<p>\beta_H(u,u)&gt;0.</p>
+<p>$$<br>我感觉在这个度规的选取下应该是类时间隔<br>If $u$ is normalized by $\beta_H(u,u)&#x3D;1$, and $x$ is normalized by $\beta_H(x,x)&#x3D;-1$, then the signed hyperbolic distance from $[x]$ to the oriented hyperplane $H_u$ satisfies<br>$$</p>
+<p>\sinh\delta_{H_u}([x])&#x3D;\beta_H(x,u).</p>
+<p>$$</p>
+<p>这里可以看成嵌入在3维实空间中2维实流形<br>For arc-length geodesic $\gamma(t)\in \hat{\mathbb{H}}^2$, $\beta(\gamma(t) ,\gamma(t))&#x3D;-1$. take derivative $\implies \beta( \gamma(t),\dot \gamma(t) )&#x3D; 0,\beta( \dot\gamma(t),\dot\gamma(t))+\beta( \gamma(t),\ddot{\gamma}(t) )&#x3D; 0$.<br>$\beta( \dot\gamma(t),\dot\gamma(t) )&#x3D;1\implies \beta( \gamma(t),\ddot{\gamma}(t))&#x3D;-1$<br>$\beta( \gamma(t),\dot \gamma(t) )&#x3D; 0\implies T_{\gamma(t)}\hat{\mathbb{H}}^2\bot_{\beta} \gamma(t)$<br>$\gamma(t)$ is geodesic $\implies \nabla_{\dot \gamma(t)}\dot\gamma(t)&#x3D;0$ $\implies\gamma(t)&#x2F;&#x2F;\ddot{\gamma}(t)$<br>Let $\ddot{\gamma}(t)&#x3D;\lambda(t)\gamma(t)$<br>$\left&lt; \ddot{\gamma}(t),\gamma(t) \right&gt;&#x3D;\lambda(t)\left&lt; \gamma(t),\gamma(t) \right&gt;&#x3D;-\lambda(t)&#x3D;-1$<br>$\implies \gamma(t)&#x3D;\ddot{\gamma}(t)$<br>$\implies \gamma(t)&#x3D;\cosh t \gamma(0)+\sinh t\dot\gamma(0)\in span\left{ \gamma(0),\dot\gamma(0) \right}\cap \hat{\mathbb{H}}^2$</p>
+<blockquote>
+<p>[!definition] Polarity<br>In both elliptic and hyperbolic cases, write $\beta$ for the relevant bilinear form. For a linear subspace $W\subset V$, define its $\beta$-polar subspace by<br>$$</p>
+</blockquote>
+<blockquote>
+<p>W^\perp:&#x3D;{v\in V\mid\beta(v,w)&#x3D;0\text{ for all }w\in W}.</p>
+</blockquote>
+<p>$$</p>
+<p>^definition-polarity</p>
+<p>If $a&#x3D;\mathbb{P}(E)$ and $b&#x3D;\mathbb{P}(F)$ are complementary projective flats, with<br>$$</p>
+<p>\dim E+\dim F&#x3D;\dim V,</p>
+<p>$$<br>then the basic incidence bracket may be written as<br>$$</p>
+<p>[a,b]&#x3D;\Omega(e_0\wedge\cdots\wedge e_r\wedge f_0\wedge\cdots\wedge f_s),</p>
+<p>$$<br>where<br>$$</p>
+<p>E&#x3D;\operatorname{span}(e_0,\dots,e_r),\quad F&#x3D;\operatorname{span}(f_0,\dots,f_s),</p>
+<p>$$<br>and $\Omega\in\bigwedge^{n+1}V^*$ is a fixed volume form.</p>
+<p>Equivalently, using the polarity induced by $\beta$, if $\dim E&#x3D;\dim F^\perp&#x3D;r+1$ and<br>$$</p>
+<p>F^\perp&#x3D;\operatorname{span}(n_0,\dots,n_r),</p>
+<p>$$<br>one may use<br>$$</p>
+<p>[a,b]_\beta:&#x3D;\det(\beta(e_i,n_j))_{0\leq i,j\leq r}.</p>
+<p>$$</p>
+<blockquote>
+<p>[!definition] Mixed cross-ratio for complementary flats<br>For four alternating complementary flats $a_1,a_2,a_3,a_4$, where $a_1,a_3$ have the same dimension and $a_2,a_4$ have the complementary dimension, define<br>$$</p>
+</blockquote>
+<blockquote>
+<p>\operatorname{MCR}_\beta(a_1,a_3;a_2,a_4)<br>:&#x3D;<br>\frac{[a_1,a_2]_\beta[a_3,a_4]_\beta}<br>{[a_3,a_2]_\beta[a_1,a_4]_\beta}.</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>A quadrilateral tile is called coherent if<br>$$</p>
+</blockquote>
+<blockquote>
+<p>\operatorname{MCR}_\beta(a_1,a_3;a_2,a_4)&#x3D;1.</p>
+</blockquote>
+<p>$$</p>
+<p>^definition-mixed-cross-ratio-beta<br>用体积形式诱导的括号效果是一样的, 并且由于上下抵消, 甚至可以不用相容的体积形式<br>但是度规可以筛选哪些子空间可以作为 hyperbolic flat</p>
+<blockquote>
+<p>[!exercise] Well-definedness of the mixed cross-ratio<br>Show that this mixed cross-ratio is well-defined and invariant under base change.</p>
+</blockquote>
+<p>^exercise-mcr-well-defined</p>
+<ul>
+<li><input disabled="" type="checkbox"> The numerator is not zero</li>
+</ul>
+<p>Suppose $a_i&#x3D;\mathbb{P}(A_i)\cap \mathbb{H}^n$ with a basis of $A_i$ and the wedge of these vector is $\alpha_i$.<br>(必须要指定一组 $A_i$ 的基否则括号不是确定的)<br>Let $a_i’$ be the same flat with different basis and the wedge of these vector is $\alpha_i’$.<br>By the Plücker mapping, $[\alpha_i]&#x3D;[\alpha’_i]$$<br>\implies\alpha_i’&#x3D;\lambda_i\alpha_i$ for some $\lambda_i\in \mathbb{R}$.<br>$[a\_i’,a\_j’]&#x3D;\Omega(\alpha\_i’\wedge\alpha\_j’)&#x3D;\lambda\_j\lambda\_j\Omega(\alpha\_i\wedge\alpha\_j)&#x3D;\lambda\_i\lambda\_j[a\_i,a\_j]$</p>
+<h1 id="operatorname-MCR-beta-a-1’-a-3’-a-2’-a-4’"><a href="#operatorname-MCR-beta-a-1’-a-3’-a-2’-a-4’" class="headerlink" title="$$\operatorname{MCR}_\beta(a_1’,a_3’;a_2’,a_4’)"></a>$$<br>\operatorname{MCR}_\beta(a_1’,a_3’;a_2’,a_4’)</h1><p>\frac{\lambda_1\lambda_2\lambda_3\lambda_4[a_1,a_2]_\beta[a_3,a_4]_\beta}<br>{\lambda_1\lambda_2\lambda_3\lambda_4[a_3,a_2]_\beta[a_1,a_4]_\beta}<br>&#x3D;\operatorname{MCR}_\beta(a_1,a_3;a_2,a_4)<br>$$</p>
+<p>$\blacksquare$</p>
+<p>For example, in $\mathbb{H}^2$, let $\dim A\<em>{1}&#x3D;\dim A\</em>{3}&#x3D;1,\dim A\<em>{2}&#x3D;\dim A\</em>{4}&#x3D;2$<br>Then $a\_1,a\_3$ are projective points and $a\_2,a\_4$ are projective lines.</p>
+<blockquote>
+<p>[!definition] Point-hyperplane mixed cross-ratio<br>In the special case where $a\_1&#x3D;[x]$ and $a\_3&#x3D;[y]$ are points, while $a\_2&#x3D;H\_u$ and $a\_4&#x3D;H\_v$ are hyperplanes,</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>\operatorname{MCR}_\beta([x],[y];H_u,H_v)&#x3D;<br>\frac{\beta(x,u)\beta(y,v)}{\beta(x,v)\beta(y,u)}.<br>$$</p>
+</blockquote>
+<p>^definition-point-hyperplane-mcr</p>
+<p>Thus, in elliptic space,</p>
+<p>$$<br>\operatorname{MCR}<em>E([x],[y];H_u,H_v)&#x3D;<br>\frac{\sin\delta</em>{H_u}([x])\sin\delta_{H_v}([y])}<br>{\sin\delta_{H_v}([x])\sin\delta_{H_u}([y])},<br>$$</p>
+<p>whereas in hyperbolic space,</p>
+<p>$$<br>\operatorname{MCR}<em>H([x],[y];H_u,H_v)&#x3D;<br>\frac{\sinh\delta</em>{H_u}([x])\sinh\delta_{H_v}([y])}<br>{\sinh\delta_{H_v}([x])\sinh\delta_{H_u}([y])}.<br>$$</p>
+<blockquote>
+<p>[!exercise] Master theorem for elliptic or hyperbolic geometry<br>State and prove the master theorem for elliptic geometry or hyperbolic geometry. Specifically, explain what a “coherent tile” means geometrically, and rigorously prove it.</p>
+</blockquote>
+<p>^exercise-elliptic-hyperbolic-master-theorem<br>Consider<br>![[tikzcd-20260702-113328-637.svg|161]]<br>Let $A&#x3D;[x],B&#x3D;[y],l&#x3D;H\_u,m&#x3D;H\_v$<br>$AB&#x3D;\mathbb{P}(span{x,y})$<br>For $C&#x3D;[\lambda x+\mu y]\in AB\cap l\cap m$,<br>$C\in l\implies \beta(z,u)&#x3D;\beta(\lambda x+\mu y,u)&#x3D;\lambda\beta(x,u)+\mu\beta(y,u)&#x3D;0$<br>$C\in m\implies \beta(z,v)&#x3D;\beta(\lambda x+\mu y,v)&#x3D;\lambda\beta(x,v)+\mu\beta(y,v)&#x3D;0$<br>If exists solution, $\begin{vmatrix}\beta(x,u) &amp; \beta(y,u)\\beta(x,v) &amp; \beta(y,v)\end{vmatrix}&#x3D;0$.<br>$\implies \frac{\beta(x,u)\beta(y,v)}{\beta(x,v)\beta(y,u)}&#x3D;1$</p>
+<ul>
+<li><input disabled="" type="checkbox"> 一般维度 ? 或许相交条件不再等价于 交比为1</li>
+</ul>
+<p>$p((a+ b) \times m \times l)&#x3D;\Omega^{-1}(\Omega p(m)\wedge\Omega p(l)\wedge\Omega(p(a)\wedge p(b)))$</p>
+<p>$\Omega(p(a)\wedge p(l))\Omega(p(b)\wedge p(m))$</p>
+<h3 id="Incidence-Types-in-Hyperbolic-Geometry"><a href="#Incidence-Types-in-Hyperbolic-Geometry" class="headerlink" title="Incidence Types in Hyperbolic Geometry"></a>Incidence Types in Hyperbolic Geometry</h3><p>Compared to projective geometry, there is no new information in incidence theorems in elliptic geometry. Thus the proposal focuses on hyperbolic geometry, beginning with dimension $2$.</p>
+<p>In the Klein disk model of the hyperbolic plane, $\mathbb{H}^2$ is the interior of a disk, and hyperbolic geodesics are chords of the disk. Two hyperbolic geodesics do not always meet inside $\mathbb{H}^2$, but if the disk is viewed inside the projective plane, the projective lines containing the two chords always meet. Their intersection occurs in one of three regions.<br>取 $[x,y,z]\in\hat{\mathbb{H}}^2$, 在 Klein 圆盘上的投影是 $\kappa[x,y,z]&#x3D;\left( \frac{x}{z}, \frac{y}{z} \right)$, projection to $\Pi:z&#x3D;1$, 由于 $z^2&#x3D;1+x^2+y^2$, $\left( \frac{x}{z} \right)^2+\left( \frac{y}{z} \right)^2&#x3D;\frac{x^2+y^2}{z^2}&lt;1$.<br>For geodesic $\gamma(t)$, $\kappa~\gamma(t)\in span\left{ \gamma(0),\dot\gamma(0) \right}\cap\Pi$ which is a line<br>注意与 Poincare 圆盘区分</p>
+<p><img src="/images/Pasted_image_20260701192525.png" srcset="/img/loading.gif" lazyload></p>
+<blockquote>
+<p>[!definition] Hyperbolic geodesic intersection types<br>The three types are:</p>
+<ul>
+<li>$P$: proper interior intersection.</li>
+<li>$I$: ideal shared endpoint.</li>
+<li>$E$: exterior outside intersection.</li>
+</ul>
+<p>We use the notation</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>P&#x3D;\text{proper},\quad I&#x3D;\text{ideal},\quad E&#x3D;\text{exterior}.<br>$$</p>
+</blockquote>
+<p>^definition-hyperbolic-incidence-types</p>
+<p>In a hyperbolic version of a Fomin-Pylyavskyy tile</p>
+<p>$$<br>f&#x3D;S(b_1,b_2;w_1,w_2),<br>$$</p>
+<p>the interpretation is:</p>
+<ul>
+<li><p>the black vertices $b\_1,b\_2$ represent points in $H^2$;</p>
+</li>
+<li><p>the white vertices $w\_1,w\_2$ represent hyperbolic geodesics;</p>
+</li>
+<li><p>the two white geodesics meet at a projective point $C\_f$;</p>
+</li>
+<li><p>the coherence condition says that the geodesic through $b\_1$ and $b\_2$ also passes through $C\_f$ in the projective completion.</p>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+对高维情况不再是测地线</p>
+</li>
+</ul>
+<p>Thus each coherent tile has a type</p>
+<p>$$<br>\tau_f\in{P,I,E}.<br>$$</p>
+<p>This extra type information is invisible in ordinary projective incidence geometry and elliptic geometry, but it is natural in hyperbolic geometry.</p>
+<h2 id="The-PACE-Problems"><a href="#The-PACE-Problems" class="headerlink" title="The PACE Problems"></a>The PACE Problems</h2><p>Let $T$ be a black-white quadrilateral tiled surface. Suppose each tile $f$ is assigned a type</p>
+<p>$$<br>\tau_f\in{P,I,E}.<br>$$</p>
+<blockquote>
+<p>[!exercise] Problem 1: Hyperbolic Type Pattern Realization<br>When does there exist a genuine hyperbolic incidence configuration whose tile types are exactly the prescribed values $\tau\_f$?</p>
+</blockquote>
+<p>^exercise-hyperbolic-type-pattern-realization</p>
+<p>There is also a stronger version. Suppose one tile $f^*$ is designated as the conclusion tile. Prescribe types only on the other tiles:</p>
+<p>$$<br>\alpha:F(T)\setminus{f^*}\to{P,I,E}.<br>$$</p>
+<p>Define the set of possible conclusion types by</p>
+<h1 id="operatorname-Comp-f-alpha"><a href="#operatorname-Comp-f-alpha" class="headerlink" title="$$\operatorname{Comp}_{f^*}(\alpha)"></a>$$<br>\operatorname{Comp}_{f^*}(\alpha)</h1><p>{\sigma\in{P,I,E}\mid\text{there exists a realization in which }f^*\text{ has type }\sigma}.<br>$$</p>
+<blockquote>
+<p>[!exercise] Problem 2: Typed Hyperbolic Incidence Theorem<br>When is $\operatorname{Comp}\_{f^*}(\alpha)$ a singleton?</p>
+</blockquote>
+<p>^exercise-typed-hyperbolic-incidence-theorem</p>
+<p>If</p>
+<p>$$<br>\operatorname{Comp}_{f^*}(\alpha)&#x3D;{\sigma},<br>$$<br>then the partial type assumptions force the conclusion tile to have type $\sigma$. This gives a typed hyperbolic incidence theorem. Ordinary Fomin-Pylyavskyy theory says that if all assumption tiles are coherent, then the conclusion tile is coherent. The new hyperbolic question asks whether the conclusion tile’s type is also forced.</p>
+<blockquote>
+<p>[!remark] Non-uniqueness of conclusion type<br>It can be easily verified that the type of the conclusion tile is not always uniquely determined.</p>
+</blockquote>
+<p>^remark-conclusion-type-not-always-unique</p>
+<blockquote>
+<p>[!exercise] Examples of determined and undetermined conclusion types<br>Give concrete examples for both the “uniquely determined” case and the “not uniquely determined” case.</p>
+</blockquote>
+<p>^exercise-determined-undetermined-types</p>
+<h2 id="Bibliography"><a href="#Bibliography" class="headerlink" title="Bibliography"></a>Bibliography</h2><ol>
+<li>[[Baralic-et-al-proofs-surfaces-2020]]</li>
+<li>[[Fomin-incidences-tilings-slides-2024]]</li>
+<li>[[Fomin-Pylyavskyy-incidences-tilings-2023]]</li>
+<li>[[Glynn-rabbit-hole-2013]]</li>
+<li>[[Hilbert-foundations-geometry-1902]]</li>
+<li>[[Izosimov-surface-topology-2026]]</li>
+<li>[[Katzenberger-Richter-Gebert-manifold-proving-2026]]</li>
+<li>[[Kuhne-Larson-absolute-incidence-2025]]</li>
+<li>[[Li-Wu-bracket-algebra-2001]]</li>
+<li>[[Mayhew-Newman-Whittle-missing-axiom-2018]]</li>
+<li>[[Mnev-configuration-varieties-1985]]</li>
+<li>[[Mnev-universality-1988]]</li>
+<li>[[Pylyavskyy-Skopenkov-incidences-tilings-fields-2026]]</li>
+<li>[[Richter-Gebert-mechanical-theorem-proving-1995]]</li>
+<li>[[Richter-Gebert-meditations-ceva-2006]]</li>
+<li>[[Richter-Gebert-Li-coordinate-free-2019]]</li>
+<li>[[Shor-stretchability-np-hard-1991]]</li>
+<li>[[Sturmfels-projective-configurations-1991]]</li>
+<li>[[Vamos-missing-axiom-1978]]</li>
+<li>[[Zhang-incidence-genus-tilings]]</li>
+</ol>
+<ul>
+<li>S. Fomin and P. Pylyavskyy, Incidences and tilings, preprint, 2023, arXiv:2305.07728.<br>This is the original work of Sergey Fomin and Pasha Pylyavskyy, which the authors systemetically developed the techniques of tiling-based proofs and introduced many combinatorial intepretations. Anyone who choose my project should read this paper carefully.</li>
+</ul>
+<h2 id="Incidences-tilings-and-fields"><a href="#Incidences-tilings-and-fields" class="headerlink" title="Incidences, tilings, and fields"></a>Incidences, tilings, and fields</h2><p>P. Pylyavskyy and M. Skopenkov, International Mathematics Research Notices 2026 (2026), no. 7, rnag046<br>The authors of this paper formalized the notion of tiling proofs and studied field-dependent incidence theorems as well as how the restriction on the underlying field affect the sense of tiling proofs one can give. They also showed that a sphere-tiling proof exists implies that it is division-ring-universal.</p>
+<ul>
+<li>我可以讲形式化的部分</li>
+</ul>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2><ul>
+<li><p>L. K¨uhne, M. Larson, Absolute incidence theorems and tilings, preprint, 2025, arXiv:2512.14316.<br>The authors showed that if a field-universal incidence theorem has a surface-tiling proof which uses the master theorem once, then a ring-theoretic version of it is commutative-ring-universal, thereby they gave a field-universal incidence theorem that does not have any one-step surface-tiling proof.</p>
+</li>
+<li><p>A. Izosimov, Surface topology and incidence theorems over division rings, preprint, 2026, arXiv:2603.00288.<br>The author generalized the tiling-based techniques systematically to division rings, and show that for an incidence theorem, a sphere-tiling proof exists implies that it is division-ring-universal. They also generalized the setting to arbitrary rings.</p>
+</li>
+<li><p>M. Katzenberger and J. Richter-Gebert, Manifold-based proving methods in projective geometry, preprint, 2026, arXiv:2601.17446.<br>The authors showed that the provability of the master theorem is equivalent to Menelaus theorem.</p>
+</li>
+<li><p>Y. Zhang, Incidence geometry and genus of tiled surfaces, unpublished manuscript.<br>Broadly speaking, the paper addresses the following question: In what sense, and for what kinds of field-universal incidence statements, can a surface tiling of genus g give a proof?</p>
+</li>
+<li><p>A. Izosimov and P. Pylyavskyy, The dimer model and dynamical incidence geometry, preprint, 2025.<br>This paper is not directly related to the project, but the readers may to read it for fun.**</p>
+</li>
+</ul>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/PACE/" class="print-no-link">#PACE</a>
+      
+        <a href="/tags/hyperbolic-geometry/" class="print-no-link">#hyperbolic-geometry</a>
+      
+        <a href="/tags/incidence-geometry/" class="print-no-link">#incidence-geometry</a>
+      
+        <a href="/tags/tilings/" class="print-no-link">#tilings</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>PACE_Tilings</div>
+      <div>http://kaelvio.com/PACE_Tilings/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>采薇</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年7月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/%E4%BB%A3%E6%95%B0%E5%87%A0%E4%BD%95/" title="代数几何">
+                        <span class="hidden-mobile">代数几何</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '39574c7b6c635e64000079f775212d27'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
