@@ -19,19 +19,19 @@
   <meta name="author" content="Yuchong Zhang">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Project OverviewFomin and Pylyavskyy [^FP23] developed a framework that unifies many incidence theorems in projective geometry. Instead of proving Pappus, Desargues, and related theorems separately, i">
+    <meta name="description" content="2026.7.9We confirmed that future meetings will take place three times per week, on Monday, Wednesday, and Friday. We discussed pseudoline arrangements, and the fact that deciding whether a pseudoline">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tiling_Proof">
 <meta property="og:url" content="http://kaelvio.com/Tiling_Proof/index.html">
 <meta property="og:site_name" content="采薇的博客">
-<meta property="og:description" content="Project OverviewFomin and Pylyavskyy [^FP23] developed a framework that unifies many incidence theorems in projective geometry. Instead of proving Pappus, Desargues, and related theorems separately, i">
+<meta property="og:description" content="2026.7.9We confirmed that future meetings will take place three times per week, on Monday, Wednesday, and Friday. We discussed pseudoline arrangements, and the fact that deciding whether a pseudoline">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260701192354.png">
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260701192423.png">
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260701192446.png">
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260701192525.png">
-<meta property="article:published_time" content="2026-07-10T00:14:04.577Z">
-<meta property="article:modified_time" content="2026-07-10T00:14:04.577Z">
+<meta property="article:published_time" content="2026-07-12T05:14:33.062Z">
+<meta property="article:modified_time" content="2026-07-12T05:14:33.062Z">
 <meta property="article:author" content="采薇">
 <meta property="article:tag" content="PACE">
 <meta property="article:tag" content="hyperbolic-geometry">
@@ -231,8 +231,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-07-10 08:14" pubdate>
-          2026年7月10日 早上
+        <time datetime="2026-07-12 13:14" pubdate>
+          2026年7月12日 下午
         </time>
       </span>
     
@@ -243,7 +243,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.6k 字
+          3.3k 字
         
       </span>
     
@@ -254,7 +254,7 @@
         
         
         
-          22 分钟
+          28 分钟
         
       </span>
     
@@ -296,7 +296,11 @@
             
               <div class="markdown-body">
                 
-                <h2 id="Project-Overview"><a href="#Project-Overview" class="headerlink" title="Project Overview"></a>Project Overview</h2><p>Fomin and Pylyavskyy [^FP23] developed a framework that unifies many incidence theorems in projective geometry. Instead of proving Pappus, Desargues, and related theorems separately, incidence conditions are encoded into tiled surfaces, and a global cancellation argument forces one incidence relation from the others.</p>
+                <h2 id="2026-7-9"><a href="#2026-7-9" class="headerlink" title="2026.7.9"></a>2026.7.9</h2><p>We confirmed that future meetings will take place three times per week, on Monday, Wednesday, and Friday.</p>
+<p>We discussed pseudoline arrangements, and the fact that deciding whether a pseudoline arrangement is stretchable is NP-hard. This means that if the incidence realization problem in hyperbolic space is essentially the same as the general problem of determining whether a pseudoline arrangement is stretchable, then we should not expect a simple combinatorial criterion.</p>
+<p>We discussed an analogue of the master theorem in M&quot;obius geometry. By the Veblen–Young coordinatization theorem, we know that a projective space satisfying Desargues’ theorem is isomorphic to a projective space over a division ring, while a projective space satisfying Pappus’ theorem is isomorphic to a projective space over a field. In M&quot;obius geometry, the analogue of Desargues’ theorem is the bundle theorem (FP Theorem 5.1), and the analogue of Pappus’ theorem is Miquel’s theorem (FP Corollary 11.8).</p>
+<p>We discussed the possibility that Cox’s chain theorem, Clifford’s chain theorem, and the 3D&#x2F;4D consistency of Desargues’ theorem in Fomin–Pylyavskyy’s paper may be intrinsically related.</p>
+<h2 id="Project-Overview"><a href="#Project-Overview" class="headerlink" title="Project Overview"></a>Project Overview</h2><p>Fomin and Pylyavskyy [^FP23] developed a framework that unifies many incidence theorems in projective geometry. Instead of proving Pappus, Desargues, and related theorems separately, incidence conditions are encoded into tiled surfaces, and a global cancellation argument forces one incidence relation from the others.</p>
 <p>The proposal states that their results can be generalized to incidence theorems in elliptic geometry and hyperbolic geometry. Elliptic geometry appears to give no new information, while in hyperbolic geometry two hyperbolic geodesics can meet in three different ways in the projective completion of the hyperbolic plane:</p>
 <ul>
 <li><strong>P</strong>: the geodesics meet inside the hyperbolic plane.</li>
@@ -614,7 +618,47 @@
 <p>[!exercise] Examples of determined and undetermined conclusion types<br>Give concrete examples for both the “uniquely determined” case and the “not uniquely determined” case.</p>
 </blockquote>
 <p>^exercise-determined-undetermined-types</p>
-<h2 id="Reading-Notes"><a href="#Reading-Notes" class="headerlink" title="Reading Notes"></a>Reading Notes</h2><ul>
+<h2 id="Pesudoline"><a href="#Pesudoline" class="headerlink" title="Pesudoline"></a>Pesudoline</h2><blockquote>
+<p>[!definition] pseudoline<br>A line arrangement is the partition of the plane induced by a set of lines in the plane.<br>A pseudoline is a simple curve in the plane that goes to infinity in two directions. (In other words, a pseudoline is the image of a line under a homeomorphism of the plane.)<br>A collection of pseudolines is a set of pseudolines such that any two members of the set intersect at most once, and cross if they intersect.<br>A pseudoline arrangement is the partition of the plane induced by a collection of pseudolines.<br>A pseudoline arrangement is stretchable (or realizable) if there is an arrangement of lines with the same combinatorial structure.<br>A line or pseudoline arrangement is uniform if no three lines intersect in a point and no two lines are parallel.<br>[^sho91]</p>
+</blockquote>
+<blockquote>
+<p>[!remark] The stretchability of a pseudoline arrangement can be formalized by a provability of a incidence theorem.<br>Suppose $L$ is a collection pseudoline, $P$ is the intersections of them, and $M$ be the relations of $L,P$ (which can be written as a matrix [^ps26]). Let $L^*&#x3D;L\cup\set{l^*}$, $P^*&#x3D;P\cup\set{p^*}$, $M^*&#x3D;M\cup\set{p^<em>\notin l^</em>}$. Consider the incidence theorem $\forall L^*~P^*, M^<em>\implies p^</em>\in l^*$, which is true iff the pseudoline arrangement is not stretchable.</p>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> 这段还有个小点不清晰, 交点顺序是否编码</li>
+</ul>
+<blockquote>
+<p>[!remark]<br>我感觉问题不能研究 realization, 双曲空间会遇到的问题之前的射影空间incidence thm也会遇到, 但之前的结构都是形式化了一组用非退化和退化条件定义的incidence thm, 然后证明若存在 tiling proof 则正确, 有的指出存在incidence thm 不能被 tiling proof证明<br>Formally, $(form,proof):Tiling\to \coprod_{M} IncThm(M)$ is well-defined but not surjective.</p>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> 之前也会有 tiling 对应虚真命题 ? 举个例子.能否判定是不是虚真的呢</li>
+</ul>
+<p>通过类似的结构可以绕开可实现性的问题</p>
+<ul>
+<li>形式化: typed incidence thm 和 typed tiling, 并给出type tiling 的一些限制条件</li>
+<li>可靠性: 然后证明能有 typed tiling 的 typed incidence thm 一定正确, </li>
+<li>完备性: 最后讨论一些最重要最基本的typed incidence thm是否能被 typed tiling证明 (这一步类似用原始tiling证明 Desargues 和 Pappus 定理); 是不是所有的 typed incidence thm 都能由某个 typed tiling 证明 (这一步类似后面的人找反例的过程)</li>
+</ul>
+<p>或许应该用 [kl25] 的对偶版本形式化, 因为一旦涉及点就可能不在双曲空间内</p>
+<blockquote>
+<p>[!definition] typed incidence theorem</p>
+<ul>
+<li>Non-degeneracy condition $\set{l,m}\leadsto l\neq m$</li>
+<li>Non-cocurrent condition $\set{l,m,n}\leadsto l,m,n$ are not cocurrent (in or out of the hyperbolic space)</li>
+<li>Cocurrent condition $\set{l,m,n}_C(C\subseteq\set{P,I,E})\leadsto l,m,n$ is rank 2 and in one of cases in $C$. (use $C&#x3D;\set{P,I,E}$ to not specify the condition) </li>
+<li>作为结论的 $\set{l_0,m_0,n_0}_C$</li>
+</ul>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> 需要附加非退化条件(rank 2) ? 否则不能谈论交点位置 ? 原始incidence thm 的非退化性</li>
+</ul>
+<blockquote>
+<p>[!definition] typed tiling proof<br>Given a marked bijiective simplicial complex tiling, for $f&#x3D;S(A,B;l,m)_{C_f}$<br>![[tikzcd-20260711-115625-620.svg|145]]<br>,  introduce auxiliary lines $s_A,t_A,s_B,t_B,r_f$ and interpret<br>$$<br>A&#x3D;s_A\cap t_A,\qquad B&#x3D;s_B\cap t_B<br>$$<br>Add non-degeneracy conditions<br>$$<br> {l,m},{s_A,t_A},{s_B,t_B}<br>$$<br>and edge non-cocurrent conditions<br>$$<br> {s_A,t_A,l},\quad {s_A,t_A,m},\quad {s_B,t_B,l},\quad {s_B,t_B,m}.<br>$$<br>The tile coherence with allowed type set $C_f\subseteq{P,I,E}$ is encoded by<br>$$<br> {r_f,s_A,t_A}_{\left{P\right}},\quad {r_f,s_B,t_B}_{\left{P\right}},\quad {r_f,l,m}_{C_f}.<br>$$</p>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> 这个也可以先传到group project上。眼下我有几个comment。首先射影空间上的realization问题，对于infinite field，一个surface tiling proof是一定能realize的。你就把“点”全取在一条直线上，“超平面”全都在一个codim 2的pencil上，那么一定可以realize，且tiling里需要满足的退化条件也都满足（只是不一定是“general position”）。因此realization的问题对于双曲几何是新的。&gt;&gt;&gt;&gt;这是什么意思呢, 还有对于非退化条件如何把握 ⏫</li>
+</ul>
+<h2 id="Mobius-geometry"><a href="#Mobius-geometry" class="headerlink" title="Mobius geometry"></a>Mobius geometry</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
 <li>The original Fomin-Pylyavskyy paper[^FP23] should be read carefully; it systematically develops tiling-based proofs and the combinatorial interpretations behind them.</li>
 <li>Pylyavskyy and Skopenkov[^PS26] formalize tiling proofs, study field-dependent incidence theorems, and show that a sphere-tiling proof implies division-ring universality.</li>
 <li>Kühne and Larson[^KL25] show that a field-universal incidence theorem with a one-step surface-tiling proof has a commutative-ring-universal version, and give a field-universal theorem without such a one-step proof.</li>
@@ -631,7 +675,7 @@
 <li><input disabled="" type="checkbox"> Clarify the premise complex.</li>
 <li><input disabled="" type="checkbox"> 讲的时候有的图不要擦，如德萨格定理</li>
 </ul>
-<p>[^BCM+20]: Baralić, Curien, Milićević, Obradović, Petrić, Zekić, and Živaljević, proofs by surfaces, 2020.<br>[^Fom24]: Fomin, incidences and tilings slides, 2024.<br>[^FP23]: Fomin and Pylyavskyy, <em>Incidences and tilings</em>, preprint, 2023, arXiv:2305.07728.<br>[^Gly13]: Glynn, incidence geometry notes, 2013.<br>[^Hil02]: Hilbert, <em>Foundations of Geometry</em>, 1902.<br>[^Izo26]: Izosimov, <em>Surface topology and incidence theorems over division rings</em>, preprint, 2026, arXiv:2603.00288.<br>[^IP25]: Izosimov and Pylyavskyy, <em>The dimer model and dynamical incidence geometry</em>, preprint, 2025.<br>[^KRG26]: Katzenberger and Richter-Gebert, <em>Manifold-based proving methods in projective geometry</em>, preprint, 2026, arXiv:2601.17446.<br>[^KL25]: Kühne and Larson, <em>Absolute incidence theorems and tilings</em>, preprint, 2025, arXiv:2512.14316.<br>[^LW01]: Li and Wu, bracket algebra methods for incidence geometry, 2001.<br>[^MNW18]: Mayhew, Newman, and Whittle, missing axiom configurations, 2018.<br>[^Mne85]: Mnëv, configuration varieties, 1985.<br>[^Mne88]: Mnëv, universality theorem, 1988.<br>[^PS26]: Pylyavskyy and Skopenkov, <em>Incidences, tilings, and fields</em>, International Mathematics Research Notices 2026, no. 7, rnag046.<br>[^RG95]: Richter-Gebert, mechanical theorem proving in projective geometry, 1995.<br>[^RG06]: Richter-Gebert, meditations on Ceva-type incidence theorems, 2006.<br>[^RGL19]: Richter-Gebert and Li, coordinate-free incidence proofs, 2019.<br>[^Sho91]: Shor, stretchability is NP-hard, 1991.<br>[^Stu91]: Sturmfels, projective configurations and bracket algebra, 1991.<br>[^Vam78]: Vámos, missing axiom example, 1978.<br>[^Zha]: Zhang, <em>Incidence geometry and genus of tiled surfaces</em>, unpublished manuscript.</p>
+<p>[^BCM+20]: Baralić, Curien, Milićević, Obradović, Petrić, Zekić, and Živaljević, proofs by surfaces, 2020.<br>[^Fom24]: Fomin, incidences and tilings slides, 2024.<br>[^FP23]: Fomin and Pylyavskyy, <em>Incidences and tilings</em>, preprint, 2023, arXiv:2305.07728.<br>[^Gly13]: Glynn, incidence geometry notes, 2013.<br>[^Hil02]: Hilbert, <em>Foundations of Geometry</em>, 1902.<br>[^Izo26]: Izosimov, <em>Surface topology and incidence theorems over division rings</em>, preprint, 2026, arXiv:2603.00288.<br>[^IP25]: Izosimov and Pylyavskyy, <em>The dimer model and dynamical incidence geometry</em>, preprint, 2025.<br>[^KRG26]: Katzenberger and Richter-Gebert, <em>Manifold-based proving methods in projective geometry</em>, preprint, 2026, arXiv:2601.17446.<br>[^KL25]: Kühne and Larson, <em>Absolute incidence theorems and tilings</em>, preprint, 2025, arXiv:2512.14316.<br>[^LW01]: Li and Wu, bracket algebra methods for incidence geometry, 2001.<br>[^MNW18]: Mayhew, Newman, and Whittle, missing axiom configurations, 2018.<br>[^Mne85]: Mnëv, configuration varieties, 1985.<br>[^Mne88]: Mnëv, universality theorem, 1988.<br>[^PS26]: Pylyavskyy and Skopenkov, <em>Incidences, tilings, and fields</em>, International Mathematics Research Notices 2026, no. 7, rnag046.<br>[^RG95]: Richter-Gebert, mechanical theorem proving in projective geometry, 1995.<br>[^RG06]: Richter-Gebert, meditations on Ceva-type incidence theorems, 2006.<br>[^RGL19]: Richter-Gebert and Li, coordinate-free incidence proofs, 2019.<br>[^Sho91]: Peter W. Shor, Stretchability of pseudolines is NP-hard, Applied Geometry and Discrete Mathematics (Peter Gritzmann and Bernd Sturmfels, eds.), DIMACS Series in Discrete Mathematics and Theoretical Computer Science, vol. 4, American Mathematical Society, Providence, RI, 1991, pp. 531–554<br>[^Stu91]: Sturmfels, projective configurations and bracket algebra, 1991.<br>[^Vam78]: Vámos, missing axiom example, 1978.<br>[^Zha]: Zhang, <em>Incidence geometry and genus of tiled surfaces</em>, unpublished manuscript.</p>
 
                 
               </div>
@@ -675,7 +719,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年7月10日</div>
+          <div>2026年7月12日</div>
         </div>
       
       
