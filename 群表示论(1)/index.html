@@ -19,21 +19,23 @@
   <meta name="author" content="采薇">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Maintain and iterate the user&#39;s Obsidian Note vault. 包含知识库的通用概念和格式, 以及三种具体任务的规范">
+    <meta name="description" content="进程$C:A\to \circlearrowright B$$A\in group,B\in set^\times$ group action$A\in ring, B\in ab$ A-mod$A\in filde,B\in ab$ A-vector space$A\in group,B\in vect^\times$ representation  [!definition] represen">
 <meta property="og:type" content="article">
-<meta property="og:title" content="雨">
-<meta property="og:url" content="http://kaelvio.com/%E9%9B%A8/index.html">
+<meta property="og:title" content="群表示论(1)">
+<meta property="og:url" content="http://kaelvio.com/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA(1)/index.html">
 <meta property="og:site_name" content="采薇的博客">
-<meta property="og:description" content="Maintain and iterate the user&#39;s Obsidian Note vault. 包含知识库的通用概念和格式, 以及三种具体任务的规范">
+<meta property="og:description" content="进程$C:A\to \circlearrowright B$$A\in group,B\in set^\times$ group action$A\in ring, B\in ab$ A-mod$A\in filde,B\in ab$ A-vector space$A\in group,B\in vect^\times$ representation  [!definition] represen">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-07-15T00:13:14.366Z">
-<meta property="article:modified_time" content="2026-07-15T00:13:14.366Z">
+<meta property="article:published_time" content="2026-07-15T00:13:14.359Z">
+<meta property="article:modified_time" content="2026-07-15T00:13:14.359Z">
 <meta property="article:author" content="采薇">
+<meta property="article:tag" content="linear-algebra">
+<meta property="article:tag" content="representation-theory">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>雨 - 采薇的博客</title>
+  <title>群表示论(1) - 采薇的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -211,7 +213,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="雨"></span>
+            <span id="subtitle" data-typed-text="群表示论(1)"></span>
           
         </div>
 
@@ -234,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.7k 字
+          2.5k 字
         
       </span>
     
@@ -245,7 +247,7 @@
         
         
         
-          15 分钟
+          21 分钟
         
       </span>
     
@@ -282,55 +284,362 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">雨</h1>
+            <h1 id="seo-header">群表示论(1)</h1>
             
             
               <div class="markdown-body">
                 
-                <h2 id="通用概念"><a href="#通用概念" class="headerlink" title="通用概念"></a>通用概念</h2><h3 id="项目-project"><a href="#项目-project" class="headerlink" title="项目 (project)"></a>项目 (project)</h3><p>笔记针对某一核心对象, 本身可以看作为了理解或构建的迷你项目, 而工程项目往往以文档来整理和管理, 本质统一.<br>以 [[Markdown]] 文件的形式通过 Obsidian 统一管理, 通过 [[projecter]] 以 <code>README.md</code> 的形式分发到工程目录.</p>
-<p>判断是否应在一篇笔记中记录的依据是集中程度, 类似 wiki, 整个笔记库没有用文件夹划分领域的结构, 比如不应该在<a href="/%E7%8E%AF%E8%AE%BA/" title="环论">环论</a>中包含所有环论的知识, 而是应该在该笔记中包括环论的一些基础的通用的信息, 并在[[多项式环]]等单独的笔记写出具体的性质, 然后在两篇笔记适当的位置放 wiki 链接</p>
-<p>&#x2F; 现在的 [[AI]] 工具大部分还是聚焦于项目级的, 像 <a href="/openclaw/" title="openclaw">openclaw</a> 引入复杂的跨项目记忆反而会影响效果, 全局调控还是要由人来做.</p>
-<h3 id="雨循环-rain-iteration-rain-iteration"><a href="#雨循环-rain-iteration-rain-iteration" class="headerlink" title="雨循环 (rain iteration, rain, iteration)"></a>雨循环 (rain iteration, rain, iteration)</h3><p>名字源于[[《雨世界》]], 存在者本能. 指的是<a href="%E6%88%91">[采薇]</a>自我迭代, 和外界交互这一系列特殊的项目, 类似于主函数 (main), 体现了项目这个概念的广泛与统一.</p>
-<p>雨循环的标志在生活中自然产生, 每个标志所属的一段时间称为一个雨循环, 雨循环的时间长度不定, 几天到半个月.</p>
-<h3 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h3><ol start="0">
-<li>内容至上, 保持简洁</li>
-<li>删除冗余结构, 但不要删掉有意义的信息, 保持清晰. </li>
-<li>整理不是搬运. 不要把其他笔记整段复制过来制造重复, 要概括、融入、改写为目标笔记自身的历史或结构. </li>
-<li>操作前要先调查相关笔记, 尤其是被整理对象的反链、正向链接、关键词出现位置和明显历史节点.</li>
-</ol>
-<h2 id="格式"><a href="#格式" class="headerlink" title="格式"></a>格式</h2><p>记录采用 Obsidian Markdown 格式, 支持 Callout 块和 mermaid 画图.<br>对数学的笔记在此基础上有更细节的要求, 参考 [[Mathdown]] skill.</p>
-<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>文件位置视可见性 (是否公开) 而定, 分别是 <code>Note/Public</code>, <code>Note/Flow</code>, <code>Note/Private</code>.</p>
-<p>主标题为项目名称</p>
-<p>可以有的结构, 并不强制</p>
-<ul>
-<li>文稿 YAML 头: 文稿的元数据, 如别名, 可见性, 在工程项目文件中的位置等, 包含 name 和 description 以统一 skill 和 工程文档, 后续通常不再设置摘要等标题, description 中可以用 wiki 链接或 Latex 公式等简单的 m:arkdown 语法</li>
-<li>进程 或 Process 标题: 待办, 零散笔记</li>
-<li>正文</li>
-<li>资源 或 Source 标题: 文稿历史, 来源, 参考与致谢</li>
-</ul>
-<p>由于实物发展的渐进性并借鉴工程上的方法, 历史部分采用三位版本号进行管理, 每个版本作为资源一节的小标题. 同时这也暗示不只是增加内容, 也会有修改和精简. 首位为具有标志性的阶段序号(iteration), 中位为规划进行的阶段序号(stage), 末位为着手处理的阶段序号(wave). 在工程目录中这体现为 <a href="/git/" title="git">git</a> 逻辑, 在笔记中则为该板块.</p>
-<p>每篇正文只能从二级标题开始<br>标题层级不易过深, 避免为了结构整齐而凑的没有内容的标题</p>
-<p>初次出现的如果已经(或者将要)有其他笔记需要用 wiki 链接, 避免机械罗列, 需要说明联系, 必要时补充对应笔记中的信息, 但不是搬运大量段落</p>
-<h3 id="符号"><a href="#符号" class="headerlink" title="符号"></a>符号</h3><p>一篇完整的笔记不应该包含除了通用的标点和符号 以及 详细说明且必要的局部符号 以外的符号, 但是可以在完成的过程中适当使用符号, 并且允许这种未完成的状态保持相当长的时间:</p>
-<ul>
-<li><code>/ 不确定的内容</code></li>
-<li><code>? 疑问</code></li>
-<li><code>- [ ] (用于行首) 后续或许需要完成的</code> 在较为完整的笔记中尽量只在 Process 节出现这种待办</li>
-</ul>
-<h3 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h3><p>允许因为编写者不同等因素导致不同段落语言不同<br>在使用某种语言时如果遇到某个词汇通用习惯是用另一语言时, 应该用更通用的语言, 比如用 token 而非 词元,  如果该词汇较难, 则用括号标注一些细节, 比如 RAG (retrieval-augmented generation, 检索增强生成), 如果某一语言是译自其他语言, 比如专业术语, 用括号标注原始词汇, 比如, 主理想整环 (principle ideal domain, PID)<br>统一用英文标点及其规则</p>
-<h3 id="雨循环笔记"><a href="#雨循环笔记" class="headerlink" title="雨循环笔记"></a>雨循环笔记</h3><p>标题包含循环序号, 标志(精神世界的某种事物), 即 <code>雨循环&#123;序号&#125; &#123;标志&#125;</code>, 标志可以循环开始后确定, 位于 <code>Note/Private</code>.</p>
-<p>具有时效性的内容记录在当前雨循环中, 包括与外界规定相关的和当前关注的. 在雨循环结束后, 将新循环继续关注的移到新循环, 还没有在一般项目的相应篇目记录的相关的待办和笔记移到相应篇目, 仅留下对该循环的记录和零散的笔记, 待办.</p>
-<h3 id="Note-README-md"><a href="#Note-README-md" class="headerlink" title="Note/README.md"></a><code>Note/README.md</code></h3><p>汇总信息, 主要是待办.</p>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>在撰写和修改笔记时遵循其中的规范, 若用户要求执行具体的整理任务则阅读细则, 不是每次都有整理任务, 一次整理任务通常只执行其中一种, 或至多组合其中一到两种. 用户的笔记永远是最宝贵的, 不要默认执行整理；先根据用户当前请求选择对应 reference, 再开始操作. </p>
-<ul>
-<li>用户要“找哪些笔记值得整理”“筛选候选笔记”“看看接下来整理什么”时, 使用 <code>references/find-candidates.md</code>. </li>
-<li>用户指定某篇普通项目&#x2F;主题笔记并要求“整理”“重构”“合并相关内容”时, 使用 <code>references/organize-note.md</code>. </li>
-<li>用户指定某个雨循环并要求“结束”“归档”“移到各项目笔记”时, 使用 <code>references/archive-rain-cycle.md</code>.</li>
-</ul>
-<p>如果用户同时要求筛选并整理, 可以先用候选筛选 reference 选出目标, 再对选中的少数笔记使用一般整理 reference.<br>如果用户同时要求雨循环归档和整理目标项目笔记, 可以先归档, 再只整理被归档内容影响到的目标笔记. </p>
-<h2 id="资源"><a href="#资源" class="headerlink" title="资源"></a>资源</h2><h3 id="v0"><a href="#v0" class="headerlink" title="v0"></a>v0</h3><p>在2024年前, 尝试过各种任务和思想管理的方法, 但大多过于严格, 没有可操作性.</p>
-<h3 id="v1"><a href="#v1" class="headerlink" title="v1"></a>v1</h3><p>2024年暑假, 引入雨循环的机制, 从最初的琐碎记录不断完善.<br>以前的笔记往往用 log 标记 进程 或 Process 一节, 用 References 或 Acknowledgment 标记 参考 或 Source 一节</p>
-<h3 id="v2"><a href="#v2" class="headerlink" title="v2"></a>v2</h3><p>2026年, 至此 Obsidian 的文件结构, 电脑的文件管理稳定下来了, 形成了综合统一的方案.</p>
+                <h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><p>$C:A\to \circlearrowright B$<br>$A\in group,B\in set^\times$ group action<br>$A\in ring, B\in ab$ A-mod<br>$A\in filde,B\in ab$ A-vector space<br>$A\in group,B\in vect^\times$ representation</p>
+<blockquote>
+<p>[!definition] representation, 表示<br>Let $A$ be an algebraic structure at least $\mathbf{Monoid}$, usually we choose $\mathbf{Group},\mathbf{AssocAlg}, \mathbf{LieAlg}$ etc.<br>$V:\mathbf{Vect}$<br>(representation) $A\curvearrowright V:&#x3D;A\to \circlearrowright V$</p>
+</blockquote>
+<blockquote>
+<p>[!definition] subrepresentation<br>(subrepresentation) $U\leq V<del>&amp;</del>(a:A)\to U<del>is</del>a\curvearrowright-invariant$</p>
+</blockquote>
+<p>Note that $\left{ 0 \right}$ satisfied the condition.</p>
+<blockquote>
+<p>[!definition] direct sum<br>$\lambda_1:A\curvearrowright V_1$; $\lambda_2:A\curvearrowright V_2$<br>(direct sum) $\lambda_1 \oplus \lambda_2:A \curvearrowright(V_1 \oplus V_2):&#x3D;a\mapsto (\lambda_1 a,\lambda_2 a)$</p>
+</blockquote>
+<blockquote>
+<p>[!definition] irreducible, indecomposable<br>$\lambda:A\curvearrowright  V$<br> (irreducible) $(\lambda’\leq \lambda)\to \lambda’&#x3D;\lambda\mid \lambda’&#x3D;\lambda_0$<br> (indecomposable) $\neg(\lambda_1<del>\lambda_2\leq\lambda</del>nontrivail<del>&amp;</del>\lambda&#x3D;\lambda_1 \oplus \lambda_2)$</p>
+</blockquote>
+<blockquote>
+<p>[!definition] quiver<br>(quiver) directed graphs allowing self-loop and multi-edges</p>
+</blockquote>
+<blockquote>
+<p>[!definition] path algebra<br>(path algebra) $kQ:\mathbf{AssocAlg}:&#x3D;\bigoplus_{p:Path(Q)}k$</p>
+</blockquote>
+<h2 id="群表示"><a href="#群表示" class="headerlink" title="群表示"></a>群表示</h2><blockquote>
+<p>[!definition] 群表示<br>设 $G$ 为群. $G$ 在 $k$-向量空间 $V$ 上的一个表示是群同态<br>$$</p>
+</blockquote>
+<blockquote>
+<p>\omega:G\to GL(V).</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>若不强调 $\omega$, 也说 $V$ 是一个 $G$-表示或 $k[G]$-模.</p>
+</blockquote>
+<p>^definition-group-representation</p>
+<blockquote>
+<p>[!proposition] 群表示与群代数模<br>设 $G$ 为群. 给出 $G$-表示 $V$ 等价于给出 $k[G]$-模结构.</p>
+</blockquote>
+<p>^proposition-representation-group-algebra-module</p>
+<p>$Proof.$ 若 $\omega:G\to GL(V)$ 是表示, 定义<br>$$</p>
+<p>\left(\sum_g a_g g\right)v&#x3D;\sum_g a_g\omega(g)v.</p>
+<p>$$<br>这给出 $k[G]$-模结构.</p>
+<p>反之, 若 $V$ 是 $k[G]$-模, 则每个 $g\in G$ 作用为可逆线性映射, 因为 $g^{-1}$ 给出其逆. 于是得到群同态<br>$$</p>
+<p>G\to GL(V).</p>
+<p>$$<br>二者互逆.</p>
+<p>$\blacksquare$</p>
+<blockquote>
+<p>[!remark] 群代数语言<br>在此语言下, 子表示就是 $k[G]$-子模, 不可约表示就是单 $k[G]$-模, 半单表示就是半单 $k[G]$-模.</p>
+</blockquote>
+<p>^remark-group-algebra-language</p>
+<blockquote>
+<p>[!definition] 子表示<br>设 $V$ 为 $G$-表示. 子空间 $W\subset V$ 称为 $G$-不变子空间, 若<br>$$</p>
+</blockquote>
+<blockquote>
+<p>gW\subset W,\quad \forall g\in G.</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>此时 $W$ 称为 $V$ 的子表示.</p>
+</blockquote>
+<p>^definition-subrepresentation</p>
+<blockquote>
+<p>[!definition] $G$-同态<br>设 $V,W$ 为 $G$-表示. 线性映射 $f:V\to W$ 称为 $G$-同态, 若<br>$$</p>
+</blockquote>
+<blockquote>
+<p>f(gv)&#x3D;gf(v),\quad g\in G,\ v\in V.</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>所有 $G$-同态组成的向量空间记为<br>$$</p>
+</blockquote>
+<blockquote>
+<p>\operatorname{Hom}_G(V,W).</p>
+</blockquote>
+<p>$$</p>
+<p>^definition-g-homomorphism</p>
+<p>由此可以定义 G-群表示的范畴 $\mathbf{Rep}_k(G)$.</p>
+<blockquote>
+<p>[!proposition] 子表示与商表示<br>$W\subset V$ 是子表示, 当且仅当商空间 $V&#x2F;W$ 上存在自然的 $G$-表示结构, 使得商映射<br>$$</p>
+</blockquote>
+<blockquote>
+<p>V\to V&#x2F;W</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>为 $G$-同态.</p>
+</blockquote>
+<p>^proposition-subrepresentation-quotient</p>
+<p>$Proof.$ 若 $W$ 是 $G$-不变的, 定义<br>$$</p>
+<p>g\cdot(v+W)&#x3D;gv+W.</p>
+<p>$$<br>若 $v+W&#x3D;v’+W$, 则 $v-v’\in W$, 从而<br>$$</p>
+<p>g(v-v’)\in W.</p>
+<p>$$<br>故定义良定.</p>
+<p>反之, 若商表示存在且商映射为 $G$-同态, 则 $w\in W$ 的像为零, 因此 $gw$ 的像也为零, 即 $gw\in W$.</p>
+<p>$\blacksquare$</p>
+<blockquote>
+<p>[!proposition] 核与像<br>若 $f:V\to W$ 是 $G$-同态, 则 $\ker f$ 是 $V$ 的子表示, $\operatorname{im}f$ 是 $W$ 的子表示.</p>
+</blockquote>
+<p>^proposition-kernel-image-subrepresentations</p>
+<p>$Proof.$ 若 $v\in\ker f$, 则<br>$$</p>
+<p>f(gv)&#x3D;gf(v)&#x3D;0,</p>
+<p>$$<br>故 $gv\in\ker f$. 像的情形类似.</p>
+<p>$\blacksquare$</p>
+<h2 id="直和、张量积与对偶表示"><a href="#直和、张量积与对偶表示" class="headerlink" title="直和、张量积与对偶表示"></a>直和、张量积与对偶表示</h2><blockquote>
+<p>[!definition] 直和表示<br>若 $V,W$ 是 $G$-表示, 则直和表示定义在<br>$$</p>
+</blockquote>
+<blockquote>
+<p>V\oplus W</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>上:<br>$$</p>
+</blockquote>
+<blockquote>
+<p>g(v,w)&#x3D;(gv,gw).</p>
+</blockquote>
+<p>$$</p>
+<p>^definition-direct-sum-representation</p>
+<blockquote>
+<p>[!definition] 张量积表示<br>张量积表示定义在<br>$$</p>
+</blockquote>
+<blockquote>
+<p>V\otimes W</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>上:<br>$$</p>
+</blockquote>
+<blockquote>
+<p>g(v\otimes w)&#x3D;(gv)\otimes(gw).</p>
+</blockquote>
+<p>$$</p>
+<p>^definition-tensor-product-representation</p>
+<blockquote>
+<p>[!definition] 对偶表示<br>对偶表示定义在 $V^*$ 上:<br>$$</p>
+</blockquote>
+<blockquote>
+<p>(g\phi)(v)&#x3D;\phi(g^{-1}v).</p>
+</blockquote>
+<p>$$</p>
+<p>^definition-dual-representation</p>
+<blockquote>
+<p>[!proposition] $V^*\otimes W$ 与线性映射空间<br>若 $V,W$ 是有限维 $G$-表示, 则存在自然同构<br>$$</p>
+</blockquote>
+<blockquote>
+<p>V^*\otimes W\simeq\operatorname{Hom}_k(V,W).</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>在此同构下, $V^*\otimes W$ 上的张量积表示对应于 $\operatorname{Hom}_k(V,W)$ 上的作用<br>$$</p>
+</blockquote>
+<blockquote>
+<p>(gf)(v)&#x3D;gf(g^{-1}v).</p>
+</blockquote>
+<p>$$</p>
+<p>^proposition-dual-tensor-hom</p>
+<p>$Proof.$ 自然同构由<br>$$</p>
+<p>\phi\otimes w\mapsto(v\mapsto\phi(v)w)</p>
+<p>$$<br>给出. 直接计算可得该同构与 $G$-作用相容.</p>
+<p>$\blacksquare$</p>
+<h2 id="不可约与半单"><a href="#不可约与半单" class="headerlink" title="不可约与半单"></a>不可约与半单</h2><blockquote>
+<p>[!definition] 不可约表示<br>非零 $G$-表示 $V$ 称为不可约的, 若它没有非零真子表示.</p>
+</blockquote>
+<p>^definition-irreducible-representation</p>
+<blockquote>
+<p>[!remark] 不可约表示与单模<br>在模论语言中, 不可约表示就是单模.</p>
+</blockquote>
+<p>^remark-irreducible-simple-module</p>
+<blockquote>
+<p>[!example]<br>n 的分拆 和 $\mathfrak{S}_n$ 的不可约表示 一一对应<br>令 $S^\lambda$ 为将 $\lambda$ 的 Young 表填上数字张成的线性空间，对 $\mathfrak{S}_n$ 的作用视为行对称、列反对称的，这是所有的不可约表示</p>
+</blockquote>
+<blockquote>
+<p>[!definition] 半单表示<br>$G$-表示 $V$ 称为半单的或完全可约的, 若存在不可约子表示 $V_i$, 使得<br>$$</p>
+</blockquote>
+<blockquote>
+<p>V&#x3D;\bigoplus_i V_i.</p>
+</blockquote>
+<p>$$</p>
+<p>^definition-semisimple-representation</p>
+<blockquote>
+<p>[!proposition] 半单表示与不变补空间<br>有限维表示 $V$ 半单, 当且仅当任意子表示 $W\subset V$ 都存在 $G$-不变补空间, 即存在子表示 $W’$, 使得<br>$$</p>
+</blockquote>
+<blockquote>
+<p>V&#x3D;W\oplus W’.</p>
+</blockquote>
+<p>$$</p>
+<p>^proposition-semisimple-invariant-complement</p>
+<p>$Proof.$ 先设 $V$ 半单. 对不可约直和因子的个数作归纳. 若<br>$$</p>
+<p>V&#x3D;U\oplus V’,</p>
+<p>$$<br>其中 $U$ 不可约, 且 $V’$ 半单. 设 $W\subset V$ 为子表示. 令<br>$$</p>
+<p>p:V&#x3D;U\oplus V’\to U</p>
+<p>$$<br>为投影.</p>
+<p>若 $p(W)&#x3D;0$, 则 $W\subset V’$. 由归纳假设, 存在 $V’$ 的子表示 $L$ 使得<br>$$</p>
+<p>V’&#x3D;W\oplus L.</p>
+<p>$$<br>于是<br>$$</p>
+<p>V&#x3D;W\oplus(U\oplus L).</p>
+<p>$$</p>
+<p>若 $p(W)&#x3D;U$, 令<br>$$</p>
+<p>K&#x3D;W\cap V’.</p>
+<p>$$<br>由归纳假设, 存在 $V’$ 的子表示 $L$ 使得<br>$$</p>
+<p>V’&#x3D;K\oplus L.</p>
+<p>$$<br>断言<br>$$</p>
+<p>V&#x3D;W\oplus L.</p>
+<p>$$<br>交为零: 若 $x\in W\cap L$, 则 $x\in W\cap V’&#x3D;K$, 又 $x\in L$, 所以 $x&#x3D;0$.</p>
+<p>再证和为全空间. 任取 $v\in V$. 由于 $p(W)&#x3D;U$, 可取 $w\in W$ 使得 $p(w)&#x3D;p(v)$. 则<br>$$</p>
+<p>v-w\in V’&#x3D;K\oplus L.</p>
+<p>$$<br>写<br>$$</p>
+<p>v-w&#x3D;k+\ell,\quad k\in K,\ \ell\in L.</p>
+<p>$$<br>因为 $k\in K\subset W$, 所以<br>$$</p>
+<p>v&#x3D;(w+k)+\ell\in W+L.</p>
+<p>$$<br>故 $V&#x3D;W\oplus L$.</p>
+<p>反之, 若任意子表示都有不变补空间. 若 $V&#x3D;0$, 结论显然. 若 $V\neq0$, 取非零子表示 $U\subset V$ 中维数最小者, 则 $U$ 不可约. 由假设,<br>$$</p>
+<p>V&#x3D;U\oplus U’,</p>
+<p>$$<br>其中 $U’$ 是子表示. 对 $U’$ 归纳, 即得 $V$ 为不可约表示的直和.</p>
+<p>$\blacksquare$</p>
+<h3 id="Schur-引理"><a href="#Schur-引理" class="headerlink" title="Schur 引理"></a>Schur 引理</h3><blockquote>
+<p>[!lemma] Schur 引理<br>设 $V,W$ 为不可约 $G$-表示. 若<br>$$</p>
+</blockquote>
+<blockquote>
+<p>f\in\operatorname{Hom}_G(V,W),</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>则 $f&#x3D;0$ 或 $f$ 为同构.</p>
+</blockquote>
+<p>^lemma-schur</p>
+<p>$Proof.$ 由前文命题, $\ker f$ 是 $V$ 的子表示, $\operatorname{im}f$ 是 $W$ 的子表示. 由于 $V,W$ 不可约, 若 $f\neq0$, 则<br>$$</p>
+<p>\ker f&#x3D;0,\quad \operatorname{im}f&#x3D;W.</p>
+<p>$$<br>故 $f$ 为同构.</p>
+<p>$\blacksquare$</p>
+<blockquote>
+<p>[!corollary] 不可约表示的自同态环<br>若 $V$ 为不可约 $G$-表示, 则<br>$$</p>
+</blockquote>
+<blockquote>
+<p>\operatorname{End}_G(V)</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>是除环.</p>
+</blockquote>
+<p>^corollary-end-irreducible-division-ring</p>
+<p>$Proof.$ 任意非零 $f\in\operatorname{End}_G(V)$ 由 Schur 引理是同构, 故可逆.</p>
+<p>$\blacksquare$</p>
+<blockquote>
+<p>[!theorem] 代数闭域上的 Schur 引理<br>若 $k$ 代数闭, $V$ 是有限维不可约 $G$-表示, 则<br>$$</p>
+</blockquote>
+<blockquote>
+<p>\operatorname{End}_G(V)&#x3D;k\operatorname{id}_V.</p>
+</blockquote>
+<p>$$</p>
+<p>^theorem-schur-algebraically-closed</p>
+<p>$Proof.$ 取 $f\in\operatorname{End}_G(V)$. 由于 $k$ 代数闭, $f$ 有特征值 $\lambda\in k$. 于是<br>$$</p>
+<p>f-\lambda\operatorname{id}_V</p>
+<p>$$<br>不是可逆映射. 由上一推论, 它只能为零. 故<br>$$</p>
+<p>f&#x3D;\lambda\operatorname{id}_V.</p>
+<p>$$</p>
+<p>$\blacksquare$</p>
+<h3 id="Maschke-定理"><a href="#Maschke-定理" class="headerlink" title="Maschke 定理"></a>Maschke 定理</h3><blockquote>
+<p>[!theorem] Maschke 定理<br>设 $G$ 为有限群, 且<br>$$</p>
+</blockquote>
+<blockquote>
+<p>\operatorname{char}k\nmid |G|.</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>则任意有限维 $G$-表示都是半单的.</p>
+</blockquote>
+<p>^theorem-maschke</p>
+<p>$Proof.$ 设 $W\subset V$ 为子表示. 先取任意线性投影<br>$$</p>
+<p>p:V\to W</p>
+<p>$$<br>满足 $p|_W&#x3D;\operatorname{id}_W$. 定义平均投影<br>$$</p>
+<p>P(v)&#x3D;\frac{1}{|G|}\sum_{g\in G}gp(g^{-1}v).</p>
+<p>$$<br>由于 $\operatorname{char}k\nmid |G|$, 标量 $|G|$ 在 $k$ 中可逆.</p>
+<p>若 $w\in W$, 则 $g^{-1}w\in W$, 故<br>$$</p>
+<p>p(g^{-1}w)&#x3D;g^{-1}w.</p>
+<p>$$<br>于是<br>$$</p>
+<p>P(w)&#x3D;\frac{1}{|G|}\sum_{g\in G}w&#x3D;w.</p>
+<p>$$<br>因此 $P|_W&#x3D;\operatorname{id}_W$.</p>
+<p>对 $h\in G$,<br>$$</p>
+<p>P(hv)&#x3D;\frac{1}{|G|}\sum_{g\in G}gp(g^{-1}hv).</p>
+<p>$$<br>令 $g&#x3D;hk$, 则<br>$$</p>
+<p>P(hv)&#x3D;\frac{1}{|G|}\sum_{k\in G}hkp(k^{-1}v)&#x3D;hP(v).</p>
+<p>$$<br>故 $P$ 是 $G$-同态. 于是<br>$$</p>
+<p>V&#x3D;W\oplus\ker P,</p>
+<p>$$<br>且 $\ker P$ 是 $G$-不变补空间. 由上一节命题, $V$ 半单.</p>
+<p>$\blacksquare$</p>
+<blockquote>
+<p>[!remark] Maschke 定理的特征条件<br>条件 $\operatorname{char}k\nmid |G|$ 是必要的. 若特征整除 $|G|$, 有限群表示可能不完全可约.</p>
+</blockquote>
+<p>^remark-maschke-characteristic-condition</p>
+<h3 id="交换群的不可约表示"><a href="#交换群的不可约表示" class="headerlink" title="交换群的不可约表示"></a>交换群的不可约表示</h3><blockquote>
+<p>[!proposition] 交换群的不可约表示<br>设 $K$ 是代数闭域, $G$ 为交换群, 则不可约 $G$-表示都是 1 维的.</p>
+</blockquote>
+<p>$Proof.$<br>令 $V$ 为不可约 $G$-表示. 对于 $g\in G$, 令 $\lambda_g$ 是 $\varphi(g)$ 的特征值, $V_g$ 是其特征子空间.<br>由于 $\forall h\in G,hg&#x3D;gh$, 故 $V_g$ 是 $G$-不变子空间. 由于 $V$ 不可约, $V_g&#x3D;V$. 从而 $\varphi(g)&#x3D;\lambda_gid_V$, 故可对角化. 再由于 $V$ 不可约, $\dim V&#x3D;1$.<br>$\blacksquare$</p>
+<blockquote>
+<p>[!definition] dual group<br>$\hat G$ 是所有不可约 $G$-表示</p>
+</blockquote>
+<p>对于 $\hat G$ 中元素, 由于 $\operatorname{tr}:GL(\mathbb{C})\cong \mathbb{C}^\times$, 因此也可以看成是特征标.</p>
+<blockquote>
+<p>[!exercise]<br>求 $n$-阶循环群 $\left&lt; a \right&gt;$ 的不可约复表示.</p>
+</blockquote>
+<p>对于 $\varphi:\left&lt; a \right&gt;\to \mathbb{C}^\times$, $\varphi(a)^n&#x3D;1$, 因此 $\varphi(a)$ 可以取任意 $n$ 次单位根.<br>故 $\left&lt; a \right&gt; \cong \hat {\left&lt; a \right&gt;}$.</p>
+<blockquote>
+<p>[!lemma]<br>$G&#x3D;H_1 \times H_2\implies \hat G&#x3D;\hat H_1 \times \hat H_2$.</p>
+</blockquote>
+<p>For $\varphi_1:\hat H_1$, $$</p>
+<blockquote>
+<p>[!theorem] $G\cong\hat G$<br>设 $K$ 是代数闭域, $G$ 为有限交换群, $G\cong\hat G$.</p>
+</blockquote>
+<p>$Proof.$<br>由有限交换群的结构定理, $G\cong \left&lt; a\_1 \right&gt;\times \left&lt; a\_2 \right&gt;\dots \times\left&lt; a\_s \right&gt;$.</p>
+<h2 id="特征标"><a href="#特征标" class="headerlink" title="特征标"></a>特征标</h2><p>本节假设 $V$ 有限维.</p>
+<blockquote>
+<p>[!definition] 特征标<br>$G$-表示 $\omega:G\to GL(V)$ 的特征标是函数</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>\chi_V:G\to k,\quad \chi_V(g)&#x3D;\operatorname{tr}(\omega(g)).<br>$$</p>
+</blockquote>
+<p>^definition-character</p>
+<p>直观来讲之所以用迹而不是行列式是因为能保存更多信息. 考虑对角矩阵 $\Lambda&#x3D;diag(\lambda\_1,\dots\lambda\_n)$, $\operatorname{tr}\Lambda^k&#x3D;\sum\_i\lambda\_i^k$, $\det \Lambda^k&#x3D;\left( \prod\_i\lambda\_i \right)^k$.</p>
+<p>类函数即在共轭类上值相同的函数</p>
+<blockquote>
+<p>[!proposition] 特征标是类函数<br>特征标是类函数, 即</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>\chi_V(hgh^{-1})&#x3D;\chi_V(g).<br>$$</p>
+</blockquote>
+<p>^proposition-character-class-function</p>
+<p>$Proof.$ 有</p>
+<p>$$<br>\omega(hgh^{-1})&#x3D;\omega(h)\omega(g)\omega(h)^{-1}.<br>$$</p>
+<p>相似线性算子有相同迹, 故结论成立.</p>
+<p>$\blacksquare$</p>
+<blockquote>
+<p>[!proposition] 直和和张量积的特征标<br>若 $V,W$ 为有限维表示, 则</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>\chi_{V\oplus W}&#x3D;\chi_V+\chi_W,<br>$$</p>
+</blockquote>
+<blockquote>
+<p>并且</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>\chi_{V\otimes W}&#x3D;\chi_V\chi_W.<br>$$</p>
+</blockquote>
+<p>^proposition-character-direct-sum-tensor</p>
+<p>$Proof.$ 直和情形来自分块对角矩阵的迹. 张量积情形可在基下验证: 若 $A$ 与 $B$ 分别为 $g$ 在 $V,W$ 上的矩阵, 则 $g$ 在 $V\otimes W$ 上的矩阵为 Kronecker 积 $A\otimes B$, 其迹为</p>
+<p>$$<br>\operatorname{tr}(A\otimes B)&#x3D;\operatorname{tr}(A)\operatorname{tr}(B).<br>$$</p>
+<p>$\blacksquare$</p>
+<blockquote>
+<p>[!remark] 特征标的作用<br>特征标把表示的线性结构压缩为一个函数. 在有限群表示论中, 特征标是分类半单表示的重要工具.</p>
+</blockquote>
+<p>^remark-character-role</p>
 
                 
               </div>
@@ -340,6 +649,15 @@
               <div class="post-metas my-3">
   
   
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/linear-algebra/" class="print-no-link">#linear-algebra</a>
+      
+        <a href="/tags/representation-theory/" class="print-no-link">#representation-theory</a>
+      
+    </div>
+  
 </div>
 
 
@@ -348,8 +666,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>雨</div>
-      <div>http://kaelvio.com/雨/</div>
+      <div>群表示论(1)</div>
+      <div>http://kaelvio.com/群表示论(1)/</div>
     </div>
     <div class="license-meta">
       
@@ -405,12 +723,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/%E9%9B%A8/" title="雨">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">雨</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA(1)/" title="群表示论(1)">
-                        <span class="hidden-mobile">群表示论(1)</span>
+                      <a href="/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA_4/" title="群表示论_4">
+                        <span class="hidden-mobile">群表示论_4</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -433,7 +757,7 @@
         var options = Object.assign(
           {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: '91f284c3dffd2d71d0ec015987c337cc'
+            id: '3729114752a257fd2ff4ede9e727e662'
           }
         )
         var gitalk = new Gitalk(options);

@@ -1,0 +1,1100 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/only.ico">
+  <link rel="icon" href="/img/only.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="采薇">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="进程$C:A\to \circlearrowright B$$A\in group,B\in set^\times$ group action$A\in ring, B\in ab$ A-mod$A\in filde,B\in ab$ A-vector space$A\in group,B\in vect^\times$ representation  [!definition] represen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="群表示论_4">
+<meta property="og:url" content="http://kaelvio.com/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA_4/index.html">
+<meta property="og:site_name" content="采薇的博客">
+<meta property="og:description" content="进程$C:A\to \circlearrowright B$$A\in group,B\in set^\times$ group action$A\in ring, B\in ab$ A-mod$A\in filde,B\in ab$ A-vector space$A\in group,B\in vect^\times$ representation  [!definition] represen">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-07-15T00:13:14.358Z">
+<meta property="article:modified_time" content="2026-07-15T00:13:14.358Z">
+<meta property="article:author" content="采薇">
+<meta property="article:tag" content="linear-algebra">
+<meta property="article:tag" content="representation-theory">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>群表示论_4 - 采薇的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kaelvio.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>采薇的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档Archive</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/playground/" target="_self">
+                <i class="iconfont icon-exp-fill"></i>
+                <span>演示playground</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/artwork/" target="_self">
+                <i class="iconfont icon-brush"></i>
+                <span>画廊artwork</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于采薇Kaelvio</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链links</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="群表示论_4"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-07-15 08:13" pubdate>
+          2026年7月15日 早上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          2.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          23 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">群表示论_4</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h2><p>$C:A\to \circlearrowright B$<br>$A\in group,B\in set^\times$ group action<br>$A\in ring, B\in ab$ A-mod<br>$A\in filde,B\in ab$ A-vector space<br>$A\in group,B\in vect^\times$ representation</p>
+<blockquote>
+<p>[!definition] representation, 表示<br>Let $A$ be an algebraic structure at least $\mathbf{Monoid}$, usually we choose $\mathbf{Group},\mathbf{AssocAlg}, \mathbf{LieAlg}$ etc.<br>$V:\mathbf{Vect}$<br>(representation) $A\curvearrowright V:&#x3D;A\to \circlearrowright V$</p>
+</blockquote>
+<blockquote>
+<p>[!definition] subrepresentation<br>(subrepresentation) $U\leq V<del>&amp;</del>(a:A)\to U<del>is</del>a\curvearrowright-invariant$</p>
+</blockquote>
+<p>Note that $\left{ 0 \right}$ satisfied the condition.</p>
+<blockquote>
+<p>[!definition] direct sum<br>$\lambda_1:A\curvearrowright V_1$; $\lambda_2:A\curvearrowright V_2$<br>(direct sum) $\lambda_1 \oplus \lambda_2:A \curvearrowright(V_1 \oplus V_2):&#x3D;a\mapsto (\lambda_1 a,\lambda_2 a)$</p>
+</blockquote>
+<blockquote>
+<p>[!definition] irreducible, indecomposable<br>$\lambda:A\curvearrowright  V$<br> (irreducible) $(\lambda’\leq \lambda)\to \lambda’&#x3D;\lambda\mid \lambda’&#x3D;\lambda_0$<br> (indecomposable) $\neg(\lambda_1<del>\lambda_2\leq\lambda</del>nontrivail<del>&amp;</del>\lambda&#x3D;\lambda_1 \oplus \lambda_2)$</p>
+</blockquote>
+<blockquote>
+<p>[!definition] quiver<br>(quiver) directed graphs allowing self-loop and multi-edges</p>
+</blockquote>
+<blockquote>
+<p>[!definition] path algebra<br>(path algebra) $kQ:\mathbf{AssocAlg}:&#x3D;\bigoplus_{p:Path(Q)}k$</p>
+</blockquote>
+<h2 id="群表示"><a href="#群表示" class="headerlink" title="群表示"></a>群表示</h2><blockquote>
+<p>[!definition] 群表示<br>设 $G$ 为群. $G$ 在 $k$-向量空间 $V$ 上的一个表示是群同态<br>$$</p>
+</blockquote>
+<blockquote>
+<p>\omega:G\to GL(V).</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>若不强调 $\omega$, 也说 $V$ 是一个 $G$-表示或 $k[G]$-模.</p>
+</blockquote>
+<p>^definition-group-representation</p>
+<blockquote>
+<p>[!proposition] 群表示与群代数模<br>设 $G$ 为群. 给出 $G$-表示 $V$ 等价于给出 $k[G]$-模结构.</p>
+</blockquote>
+<p>^proposition-representation-group-algebra-module</p>
+<p>$Proof.$ 若 $\omega:G\to GL(V)$ 是表示, 定义<br>$$</p>
+<p>\left(\sum_g a_g g\right)v&#x3D;\sum_g a_g\omega(g)v.</p>
+<p>$$<br>这给出 $k[G]$-模结构.</p>
+<p>反之, 若 $V$ 是 $k[G]$-模, 则每个 $g\in G$ 作用为可逆线性映射, 因为 $g^{-1}$ 给出其逆. 于是得到群同态<br>$$</p>
+<p>G\to GL(V).</p>
+<p>$$<br>二者互逆.</p>
+<p>$\blacksquare$</p>
+<blockquote>
+<p>[!remark] 群代数语言<br>在此语言下, 子表示就是 $k[G]$-子模, 不可约表示就是单 $k[G]$-模, 半单表示就是半单 $k[G]$-模.</p>
+</blockquote>
+<p>^remark-group-algebra-language</p>
+<blockquote>
+<p>[!definition] 子表示<br>设 $V$ 为 $G$-表示. 子空间 $W\subset V$ 称为 $G$-不变子空间, 若<br>$$</p>
+</blockquote>
+<blockquote>
+<p>gW\subset W,\quad \forall g\in G.</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>此时 $W$ 称为 $V$ 的子表示.</p>
+</blockquote>
+<p>^definition-subrepresentation</p>
+<blockquote>
+<p>[!definition] $G$-同态<br>设 $V,W$ 为 $G$-表示. 线性映射 $f:V\to W$ 称为 $G$-同态, 若<br>$$</p>
+</blockquote>
+<blockquote>
+<p>f(gv)&#x3D;gf(v),\quad g\in G,\ v\in V.</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>所有 $G$-同态组成的向量空间记为<br>$$</p>
+</blockquote>
+<blockquote>
+<p>\operatorname{Hom}_G(V,W).</p>
+</blockquote>
+<p>$$</p>
+<p>^definition-g-homomorphism</p>
+<p>由此可以定义 G-群表示的范畴 $\mathbf{Rep}_k(G)$.</p>
+<blockquote>
+<p>[!proposition] 子表示与商表示<br>$W\subset V$ 是子表示, 当且仅当商空间 $V&#x2F;W$ 上存在自然的 $G$-表示结构, 使得商映射<br>$$</p>
+</blockquote>
+<blockquote>
+<p>V\to V&#x2F;W</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>为 $G$-同态.</p>
+</blockquote>
+<p>^proposition-subrepresentation-quotient</p>
+<p>$Proof.$ 若 $W$ 是 $G$-不变的, 定义<br>$$</p>
+<p>g\cdot(v+W)&#x3D;gv+W.</p>
+<p>$$<br>若 $v+W&#x3D;v’+W$, 则 $v-v’\in W$, 从而<br>$$</p>
+<p>g(v-v’)\in W.</p>
+<p>$$<br>故定义良定.</p>
+<p>反之, 若商表示存在且商映射为 $G$-同态, 则 $w\in W$ 的像为零, 因此 $gw$ 的像也为零, 即 $gw\in W$.</p>
+<p>$\blacksquare$</p>
+<blockquote>
+<p>[!proposition] 核与像<br>若 $f:V\to W$ 是 $G$-同态, 则 $\ker f$ 是 $V$ 的子表示, $\operatorname{im}f$ 是 $W$ 的子表示.</p>
+</blockquote>
+<p>^proposition-kernel-image-subrepresentations</p>
+<p>$Proof.$ 若 $v\in\ker f$, 则<br>$$</p>
+<p>f(gv)&#x3D;gf(v)&#x3D;0,</p>
+<p>$$<br>故 $gv\in\ker f$. 像的情形类似.</p>
+<p>$\blacksquare$</p>
+<h2 id="直和、张量积与对偶表示"><a href="#直和、张量积与对偶表示" class="headerlink" title="直和、张量积与对偶表示"></a>直和、张量积与对偶表示</h2><blockquote>
+<p>[!definition] 直和表示<br>若 $V,W$ 是 $G$-表示, 则直和表示定义在<br>$$</p>
+</blockquote>
+<blockquote>
+<p>V\oplus W</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>上:<br>$$</p>
+</blockquote>
+<blockquote>
+<p>g(v,w)&#x3D;(gv,gw).</p>
+</blockquote>
+<p>$$</p>
+<p>^definition-direct-sum-representation</p>
+<blockquote>
+<p>[!definition] 张量积表示<br>张量积表示定义在<br>$$</p>
+</blockquote>
+<blockquote>
+<p>V\otimes W</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>上:<br>$$</p>
+</blockquote>
+<blockquote>
+<p>g(v\otimes w)&#x3D;(gv)\otimes(gw).</p>
+</blockquote>
+<p>$$</p>
+<p>^definition-tensor-product-representation</p>
+<blockquote>
+<p>[!definition] 对偶表示<br>对偶表示定义在 $V^*$ 上:<br>$$</p>
+</blockquote>
+<blockquote>
+<p>(g\phi)(v)&#x3D;\phi(g^{-1}v).</p>
+</blockquote>
+<p>$$</p>
+<p>^definition-dual-representation</p>
+<blockquote>
+<p>[!proposition] $V^*\otimes W$ 与线性映射空间<br>若 $V,W$ 是有限维 $G$-表示, 则存在自然同构<br>$$</p>
+</blockquote>
+<blockquote>
+<p>V^*\otimes W\simeq\operatorname{Hom}_k(V,W).</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>在此同构下, $V^*\otimes W$ 上的张量积表示对应于 $\operatorname{Hom}_k(V,W)$ 上的作用<br>$$</p>
+</blockquote>
+<blockquote>
+<p>(gf)(v)&#x3D;gf(g^{-1}v).</p>
+</blockquote>
+<p>$$</p>
+<p>^proposition-dual-tensor-hom</p>
+<p>$Proof.$ 自然同构由<br>$$</p>
+<p>\phi\otimes w\mapsto(v\mapsto\phi(v)w)</p>
+<p>$$<br>给出. 直接计算可得该同构与 $G$-作用相容.</p>
+<p>$\blacksquare$</p>
+<h2 id="不可约与半单"><a href="#不可约与半单" class="headerlink" title="不可约与半单"></a>不可约与半单</h2><blockquote>
+<p>[!definition] 不可约表示<br>非零 $G$-表示 $V$ 称为不可约的, 若它没有非零真子表示.</p>
+</blockquote>
+<p>^definition-irreducible-representation</p>
+<blockquote>
+<p>[!remark] 不可约表示与单模<br>在模论语言中, 不可约表示就是单模.</p>
+</blockquote>
+<p>^remark-irreducible-simple-module</p>
+<blockquote>
+<p>[!example]<br>n 的分拆 和 $\mathfrak{S}_n$ 的不可约表示 一一对应<br>令 $S^\lambda$ 为将 $\lambda$ 的 Young 表填上数字张成的线性空间，对 $\mathfrak{S}_n$ 的作用视为行对称、列反对称的，这是所有的不可约表示</p>
+</blockquote>
+<blockquote>
+<p>[!definition] 半单表示<br>$G$-表示 $V$ 称为半单的或完全可约的, 若存在不可约子表示 $V_i$, 使得<br>$$</p>
+</blockquote>
+<blockquote>
+<p>V&#x3D;\bigoplus_i V_i.</p>
+</blockquote>
+<p>$$</p>
+<p>^definition-semisimple-representation</p>
+<blockquote>
+<p>[!proposition] 半单表示与不变补空间<br>有限维表示 $V$ 半单, 当且仅当任意子表示 $W\subset V$ 都存在 $G$-不变补空间, 即存在子表示 $W’$, 使得<br>$$</p>
+</blockquote>
+<blockquote>
+<p>V&#x3D;W\oplus W’.</p>
+</blockquote>
+<p>$$</p>
+<p>^proposition-semisimple-invariant-complement</p>
+<p>$Proof.$ 先设 $V$ 半单. 对不可约直和因子的个数作归纳. 若<br>$$</p>
+<p>V&#x3D;U\oplus V’,</p>
+<p>$$<br>其中 $U$ 不可约, 且 $V’$ 半单. 设 $W\subset V$ 为子表示. 令<br>$$</p>
+<p>p:V&#x3D;U\oplus V’\to U</p>
+<p>$$<br>为投影.</p>
+<p>若 $p(W)&#x3D;0$, 则 $W\subset V’$. 由归纳假设, 存在 $V’$ 的子表示 $L$ 使得<br>$$</p>
+<p>V’&#x3D;W\oplus L.</p>
+<p>$$<br>于是<br>$$</p>
+<p>V&#x3D;W\oplus(U\oplus L).</p>
+<p>$$</p>
+<p>若 $p(W)&#x3D;U$, 令<br>$$</p>
+<p>K&#x3D;W\cap V’.</p>
+<p>$$<br>由归纳假设, 存在 $V’$ 的子表示 $L$ 使得<br>$$</p>
+<p>V’&#x3D;K\oplus L.</p>
+<p>$$<br>断言<br>$$</p>
+<p>V&#x3D;W\oplus L.</p>
+<p>$$<br>交为零: 若 $x\in W\cap L$, 则 $x\in W\cap V’&#x3D;K$, 又 $x\in L$, 所以 $x&#x3D;0$.</p>
+<p>再证和为全空间. 任取 $v\in V$. 由于 $p(W)&#x3D;U$, 可取 $w\in W$ 使得 $p(w)&#x3D;p(v)$. 则<br>$$</p>
+<p>v-w\in V’&#x3D;K\oplus L.</p>
+<p>$$<br>写<br>$$</p>
+<p>v-w&#x3D;k+\ell,\quad k\in K,\ \ell\in L.</p>
+<p>$$<br>因为 $k\in K\subset W$, 所以<br>$$</p>
+<p>v&#x3D;(w+k)+\ell\in W+L.</p>
+<p>$$<br>故 $V&#x3D;W\oplus L$.</p>
+<p>反之, 若任意子表示都有不变补空间. 若 $V&#x3D;0$, 结论显然. 若 $V\neq0$, 取非零子表示 $U\subset V$ 中维数最小者, 则 $U$ 不可约. 由假设,<br>$$</p>
+<p>V&#x3D;U\oplus U’,</p>
+<p>$$<br>其中 $U’$ 是子表示. 对 $U’$ 归纳, 即得 $V$ 为不可约表示的直和.</p>
+<p>$\blacksquare$</p>
+<h3 id="Schur-引理"><a href="#Schur-引理" class="headerlink" title="Schur 引理"></a>Schur 引理</h3><blockquote>
+<p>[!lemma] Schur 引理<br>设 $V,W$ 为不可约 $G$-表示. 若<br>$$</p>
+</blockquote>
+<blockquote>
+<p>f\in\operatorname{Hom}_G(V,W),</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>则 $f&#x3D;0$ 或 $f$ 为同构.</p>
+</blockquote>
+<p>^lemma-schur</p>
+<p>$Proof.$ 由前文命题, $\ker f$ 是 $V$ 的子表示, $\operatorname{im}f$ 是 $W$ 的子表示. 由于 $V,W$ 不可约, 若 $f\neq0$, 则<br>$$</p>
+<p>\ker f&#x3D;0,\quad \operatorname{im}f&#x3D;W.</p>
+<p>$$<br>故 $f$ 为同构.</p>
+<p>$\blacksquare$</p>
+<blockquote>
+<p>[!corollary] 不可约表示的自同态环<br>若 $V$ 为不可约 $G$-表示, 则<br>$$</p>
+</blockquote>
+<blockquote>
+<p>\operatorname{End}_G(V)</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>是除环.</p>
+</blockquote>
+<p>^corollary-end-irreducible-division-ring</p>
+<p>$Proof.$ 任意非零 $f\in\operatorname{End}_G(V)$ 由 Schur 引理是同构, 故可逆.</p>
+<p>$\blacksquare$</p>
+<blockquote>
+<p>[!theorem] 代数闭域上的 Schur 引理<br>若 $k$ 代数闭, $V$ 是有限维不可约 $G$-表示, 则<br>$$</p>
+</blockquote>
+<blockquote>
+<p>\operatorname{End}_G(V)&#x3D;k\operatorname{id}_V.</p>
+</blockquote>
+<p>$$</p>
+<p>^theorem-schur-algebraically-closed</p>
+<p>$Proof.$ 取 $f\in\operatorname{End}_G(V)$. 由于 $k$ 代数闭, $f$ 有特征值 $\lambda\in k$. 于是<br>$$</p>
+<p>f-\lambda\operatorname{id}_V</p>
+<p>$$<br>不是可逆映射. 由上一推论, 它只能为零. 故<br>$$</p>
+<p>f&#x3D;\lambda\operatorname{id}_V.</p>
+<p>$$</p>
+<p>$\blacksquare$</p>
+<h3 id="Maschke-定理"><a href="#Maschke-定理" class="headerlink" title="Maschke 定理"></a>Maschke 定理</h3><blockquote>
+<p>[!theorem] Maschke 定理<br>设 $G$ 为有限群, 且<br>$$</p>
+</blockquote>
+<blockquote>
+<p>\operatorname{char}k\nmid |G|.</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>则任意有限维 $G$-表示都是半单的.</p>
+</blockquote>
+<p>^theorem-maschke</p>
+<p>$Proof.$ 设 $W\subset V$ 为子表示. 先取任意线性投影<br>$$</p>
+<p>p:V\to W</p>
+<p>$$<br>满足 $p|_W&#x3D;\operatorname{id}_W$. 定义平均投影<br>$$</p>
+<p>P(v)&#x3D;\frac{1}{|G|}\sum_{g\in G}gp(g^{-1}v).</p>
+<p>$$<br>由于 $\operatorname{char}k\nmid |G|$, 标量 $|G|$ 在 $k$ 中可逆.</p>
+<p>若 $w\in W$, 则 $g^{-1}w\in W$, 故<br>$$</p>
+<p>p(g^{-1}w)&#x3D;g^{-1}w.</p>
+<p>$$<br>于是<br>$$</p>
+<p>P(w)&#x3D;\frac{1}{|G|}\sum_{g\in G}w&#x3D;w.</p>
+<p>$$<br>因此 $P|_W&#x3D;\operatorname{id}_W$.</p>
+<p>对 $h\in G$,<br>$$</p>
+<p>P(hv)&#x3D;\frac{1}{|G|}\sum_{g\in G}gp(g^{-1}hv).</p>
+<p>$$<br>令 $g&#x3D;hk$, 则<br>$$</p>
+<p>P(hv)&#x3D;\frac{1}{|G|}\sum_{k\in G}hkp(k^{-1}v)&#x3D;hP(v).</p>
+<p>$$<br>故 $P$ 是 $G$-同态. 于是<br>$$</p>
+<p>V&#x3D;W\oplus\ker P,</p>
+<p>$$<br>且 $\ker P$ 是 $G$-不变补空间. 由上一节命题, $V$ 半单.</p>
+<p>$\blacksquare$</p>
+<blockquote>
+<p>[!remark] Maschke 定理的特征条件<br>条件 $\operatorname{char}k\nmid |G|$ 是必要的. 若特征整除 $|G|$, 有限群表示可能不完全可约.</p>
+</blockquote>
+<p>^remark-maschke-characteristic-condition</p>
+<h3 id="交换群的不可约表示"><a href="#交换群的不可约表示" class="headerlink" title="交换群的不可约表示"></a>交换群的不可约表示</h3><blockquote>
+<p>[!proposition] 交换群的不可约表示<br>设 $K$ 是代数闭域, $G$ 为交换群, 则不可约 $G$-表示都是 1 维的.</p>
+</blockquote>
+<p>$Proof.$<br>令 $V$ 为不可约 $G$-表示. 对于 $g\in G$, 令 $\lambda_g$ 是 $\varphi(g)$ 的特征值, $V_g$ 是其特征子空间.<br>由于 $\forall h\in G,hg&#x3D;gh$, 故 $V_g$ 是 $G$-不变子空间. 由于 $V$ 不可约, $V_g&#x3D;V$. 从而 $\varphi(g)&#x3D;\lambda_gid_V$, 故可对角化. 再由于 $V$ 不可约, $\dim V&#x3D;1$.<br>$\blacksquare$</p>
+<blockquote>
+<p>[!definition] dual group<br>$\hat G$ 是所有不可约 $G$-表示</p>
+</blockquote>
+<p>对于 $\hat G$ 中元素, 由于 $\operatorname{tr}:GL(\mathbb{C})\cong \mathbb{C}^\times$, 因此也可以看成是特征标.</p>
+<blockquote>
+<p>[!exercise]<br>求 $n$-阶循环群 $\left&lt; a \right&gt;$ 的不可约复表示.</p>
+</blockquote>
+<p>对于 $\varphi:\left&lt; a \right&gt;\to \mathbb{C}^\times$, $\varphi(a)^n&#x3D;1$, 因此 $\varphi(a)$ 可以取任意 $n$ 次单位根.<br>故 $\left&lt; a \right&gt; \cong \hat {\left&lt; a \right&gt;}$.</p>
+<blockquote>
+<p>[!lemma]<br>$G&#x3D;H_1 \times H_2\implies \hat G&#x3D;\hat H_1 \times \hat H_2$.</p>
+</blockquote>
+<p>$\varphi_1:\hat H_1$, $\varphi_2:\hat H_2$ induce $\varphi:\hat G:&#x3D;(h_1,h_2)\mapsto \varphi(h_1)\varphi(h_2)$.<br>$\varphi:\hat G$ induces $\varphi_1:\hat H_1:&#x3D;\varphi|_{H_1}$, $\varphi_1:\hat H_2:&#x3D;\varphi|_{H_2}$.</p>
+<blockquote>
+<p>[!theorem] $G\cong\hat G$<br>设 $K$ 是代数闭域, $G$ 为有限交换群, $G\cong\hat G$.</p>
+</blockquote>
+<p>$Proof.$<br>由有限交换群的结构定理, $G\cong \left&lt; a_1 \right&gt;\times \left&lt; a_2 \right&gt;\dots \times\left&lt; a_s \right&gt;$.<br>$\blacksquare$</p>
+<h3 id="不可约表示的构造方法"><a href="#不可约表示的构造方法" class="headerlink" title="不可约表示的构造方法"></a>不可约表示的构造方法</h3><blockquote>
+<p>[!proposition] 线性表示与群同态的合成<br>令 $\varphi:G\to \operatorname{Aut}V$, $T:H\to G$, 则 $\varphi T$ 是一个 $H$-表示</p>
+<ol>
+<li>若 $\varphi T$ 不可约, 则 $\varphi$ 不可约</li>
+<li>若 $\varphi$ 不可约且 $T$ 为满同态, 则 $\varphi T$ 不可约.</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>[!definition] 提升与分解<br>对于 $N\unlhd  G$, $\pi:G\to G&#x2F;N$ 为商映射. 对于 $G&#x2F;N$-表示 $\bar\varphi$, $\varphi:&#x3D;\bar \varphi \pi$ 称为其 <strong>提升</strong>.<br>对于 $G$-表示 $\varphi$, 若正规子群 $N\subseteq \operatorname{ker}\varphi$, 令 $\bar \varphi:G&#x2F;N\to \operatorname{Aut}V:&#x3D;gN\mapsto \varphi(g)$, 称为其 <strong>分解</strong>.</p>
+</blockquote>
+<blockquote>
+<p>[!theorem]<br>$Rep_K(G&#x2F;N)\cong Rep_K(G;N)$ 保持不可约性</p>
+</blockquote>
+<blockquote>
+<p>[!theorem]<br>$G$ 的 1 次表示 $\cong Rep(G&#x2F;[G,G])$</p>
+</blockquote>
+<blockquote>
+<p>[!example]<br>$\mathfrak{S}_n$ 的 1 次表示有平凡表示 和 $\operatorname{sgn}$</p>
+</blockquote>
+<h2 id="特征标"><a href="#特征标" class="headerlink" title="特征标"></a>特征标</h2><p>本节假设 $V$ 有限维.</p>
+<blockquote>
+<p>[!definition] 特征标<br>$G$-表示 $\omega:G\to GL(V)$ 的特征标是函数<br>$$</p>
+</blockquote>
+<blockquote>
+<p>\chi_V:G\to k,\quad \chi_V(g)&#x3D;\operatorname{tr}(\omega(g)).</p>
+</blockquote>
+<p>$$</p>
+<p>^definition-character</p>
+<p>直观来讲之所以用迹而不是行列式是因为能保存更多信息. 考虑对角矩阵 $\Lambda&#x3D;diag(\lambda_1,\dots\lambda_n)$, $\operatorname{tr}\Lambda^k&#x3D;\sum_i\lambda_i^k$, $\det \Lambda^k&#x3D;\left( \prod_i\lambda_i \right)^k$.</p>
+<p>类函数即在共轭类上值相同的函数</p>
+<blockquote>
+<p>[!proposition] 特征标是类函数<br>特征标是类函数, 即<br>$$</p>
+</blockquote>
+<blockquote>
+<p>\chi_V(hgh^{-1})&#x3D;\chi_V(g).</p>
+</blockquote>
+<p>$$</p>
+<p>^proposition-character-class-function</p>
+<p>$Proof.$ 有<br>$$</p>
+<p>\omega(hgh^{-1})&#x3D;\omega(h)\omega(g)\omega(h)^{-1}.</p>
+<p>$$<br>相似线性算子有相同迹, 故结论成立.</p>
+<p>$\blacksquare$</p>
+<blockquote>
+<p>[!proposition] 直和和张量积的特征标<br>若 $V,W$ 为有限维表示, 则<br>$$</p>
+</blockquote>
+<blockquote>
+<p>\chi_{V\oplus W}&#x3D;\chi_V+\chi_W,</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>并且<br>$$</p>
+</blockquote>
+<blockquote>
+<p>\chi_{V\otimes W}&#x3D;\chi_V\chi_W.</p>
+</blockquote>
+<p>$$</p>
+<p>^proposition-character-direct-sum-tensor</p>
+<p>$Proof.$ 直和情形来自分块对角矩阵的迹. 张量积情形可在基下验证: 若 $A$ 与 $B$ 分别为 $g$ 在 $V,W$ 上的矩阵, 则 $g$ 在 $V\otimes W$ 上的矩阵为 Kronecker 积 $A\otimes B$, 其迹为<br>$$</p>
+<p>\operatorname{tr}(A\otimes B)&#x3D;\operatorname{tr}(A)\operatorname{tr}(B).</p>
+<p>$$</p>
+<p>$\blacksquare$</p>
+<blockquote>
+<p>[!remark] 特征标的作用<br>特征标把表示的线性结构压缩为一个函数. 在有限群表示论中, 特征标是分类半单表示的重要工具.</p>
+</blockquote>
+<p>^remark-character-role</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/linear-algebra/" class="print-no-link">#linear-algebra</a>
+      
+        <a href="/tags/representation-theory/" class="print-no-link">#representation-theory</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>群表示论_4</div>
+      <div>http://kaelvio.com/群表示论_4/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>采薇</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年7月15日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA(1)/" title="群表示论(1)">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">群表示论(1)</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA_3/" title="群表示论_3">
+                        <span class="hidden-mobile">群表示论_3</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '1df83c7909adae0c545209e9dcbaa873'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
