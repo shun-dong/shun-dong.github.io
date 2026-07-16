@@ -21,13 +21,13 @@
   
     <meta name="description" content="进程$C:A\to \circlearrowright B$$A\in group,B\in set^\times$ group action$A\in ring, B\in ab$ A-mod$A\in filde,B\in ab$ A-vector space$A\in group,B\in vect^\times$ representation  [!definition] represen">
 <meta property="og:type" content="article">
-<meta property="og:title" content="群表示论_4">
-<meta property="og:url" content="http://kaelvio.com/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA_4/index.html">
+<meta property="og:title" content="群表示论_5">
+<meta property="og:url" content="http://kaelvio.com/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA_5/index.html">
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="进程$C:A\to \circlearrowright B$$A\in group,B\in set^\times$ group action$A\in ring, B\in ab$ A-mod$A\in filde,B\in ab$ A-vector space$A\in group,B\in vect^\times$ representation  [!definition] represen">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-07-15T00:13:14.358Z">
-<meta property="article:modified_time" content="2026-07-15T00:13:14.358Z">
+<meta property="article:published_time" content="2026-07-16T00:01:38.350Z">
+<meta property="article:modified_time" content="2026-07-16T00:01:38.350Z">
 <meta property="article:author" content="采薇">
 <meta property="article:tag" content="linear-algebra">
 <meta property="article:tag" content="representation-theory">
@@ -35,7 +35,7 @@
   
   
   
-  <title>群表示论_4 - 采薇的博客</title>
+  <title>群表示论_5 - 采薇的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -213,7 +213,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="群表示论_4"></span>
+            <span id="subtitle" data-typed-text="群表示论_5"></span>
           
         </div>
 
@@ -224,8 +224,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-07-15 08:13" pubdate>
-          2026年7月15日 早上
+        <time datetime="2026-07-16 08:01" pubdate>
+          2026年7月16日 早上
         </time>
       </span>
     
@@ -236,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.7k 字
+          3.6k 字
         
       </span>
     
@@ -247,7 +247,7 @@
         
         
         
-          23 分钟
+          31 分钟
         
       </span>
     
@@ -284,7 +284,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">群表示论_4</h1>
+            <h1 id="seo-header">群表示论_5</h1>
             
             
               <div class="markdown-body">
@@ -317,9 +317,12 @@
 </blockquote>
 <p>$$</p>
 <blockquote>
-<p>若不强调 $\omega$, 也说 $V$ 是一个 $G$-表示或 $k[G]$-模.</p>
+<p>若不强调 $\omega$, 也说 $V$ 是一个 $G$-表示或 $k[G]$-模.<br>$\deg \omega:&#x3D;\dim V$ 称为群表示的次数</p>
 </blockquote>
 <p>^definition-group-representation</p>
+<blockquote>
+<p>[!example] 平凡表示<br>$\underline 1:G\to GL(\mathbb{C}):&#x3D;g\mapsto id_\mathbb{C}$</p>
+</blockquote>
 <blockquote>
 <p>[!proposition] 群表示与群代数模<br>设 $G$ 为群. 给出 $G$-表示 $V$ 等价于给出 $k[G]$-模结构.</p>
 </blockquote>
@@ -582,20 +585,20 @@
 <blockquote>
 <p>[!definition] dual group<br>$\hat G$ 是所有不可约 $G$-表示</p>
 </blockquote>
-<p>对于 $\hat G$ 中元素, 由于 $\operatorname{tr}:GL(\mathbb{C})\cong \mathbb{C}^\times$, 因此也可以看成是特征标.</p>
+<p>对于 $\hat G$ 中元素, 由于 $\operatorname{tr}:GL(\mathbb{C})\cong \mathbb{C}^\times$, 因此也可以看成是特征标.<br>但对于非交换群，不可约表示通常不是一维，也不能自然组成群，通常写作 $\operatorname{Irr}(G)$</p>
 <blockquote>
 <p>[!exercise]<br>求 $n$-阶循环群 $\left&lt; a \right&gt;$ 的不可约复表示.</p>
 </blockquote>
-<p>对于 $\varphi:\left&lt; a \right&gt;\to \mathbb{C}^\times$, $\varphi(a)^n&#x3D;1$, 因此 $\varphi(a)$ 可以取任意 $n$ 次单位根.<br>故 $\left&lt; a \right&gt; \cong \hat {\left&lt; a \right&gt;}$.</p>
+<p>对于 $\varphi:\left&lt; a \right&gt;\to \mathbb{C}^\times$, $\varphi(a)^n&#x3D;1$, 因此 $\varphi(a)$ 可以取任意 $n$ 次单位根.<br>故 $\left&lt; a \right&gt; \simeq \hat {\left&lt; a \right&gt;}$.<br>但是注意这里的选取不是自然的</p>
 <blockquote>
 <p>[!lemma]<br>$G&#x3D;H_1 \times H_2\implies \hat G&#x3D;\hat H_1 \times \hat H_2$.</p>
 </blockquote>
 <p>$\varphi_1:\hat H_1$, $\varphi_2:\hat H_2$ induce $\varphi:\hat G:&#x3D;(h_1,h_2)\mapsto \varphi(h_1)\varphi(h_2)$.<br>$\varphi:\hat G$ induces $\varphi_1:\hat H_1:&#x3D;\varphi|_{H_1}$, $\varphi_1:\hat H_2:&#x3D;\varphi|_{H_2}$.</p>
 <blockquote>
-<p>[!theorem] $G\cong\hat G$<br>设 $K$ 是代数闭域, $G$ 为有限交换群, $G\cong\hat G$.</p>
+<p>[!theorem] $G\simeq\hat G$<br>设 $K$ 是代数闭域, $G$ 为有限交换群, $G\simeq\hat G$.</p>
 </blockquote>
 <p>$Proof.$<br>由有限交换群的结构定理, $G\cong \left&lt; a_1 \right&gt;\times \left&lt; a_2 \right&gt;\dots \times\left&lt; a_s \right&gt;$.<br>$\blacksquare$</p>
-<h3 id="不可约表示的构造方法"><a href="#不可约表示的构造方法" class="headerlink" title="不可约表示的构造方法"></a>不可约表示的构造方法</h3><blockquote>
+<h2 id="提升与分解"><a href="#提升与分解" class="headerlink" title="提升与分解"></a>提升与分解</h2><blockquote>
 <p>[!proposition] 线性表示与群同态的合成<br>令 $\varphi:G\to \operatorname{Aut}V$, $T:H\to G$, 则 $\varphi T$ 是一个 $H$-表示</p>
 <ol>
 <li>若 $\varphi T$ 不可约, 则 $\varphi$ 不可约</li>
@@ -624,14 +627,17 @@
 <p>$$</p>
 <p>^definition-character</p>
 <p>直观来讲之所以用迹而不是行列式是因为能保存更多信息. 考虑对角矩阵 $\Lambda&#x3D;diag(\lambda_1,\dots\lambda_n)$, $\operatorname{tr}\Lambda^k&#x3D;\sum_i\lambda_i^k$, $\det \Lambda^k&#x3D;\left( \prod_i\lambda_i \right)^k$.</p>
-<p>类函数即在共轭类上值相同的函数</p>
 <blockquote>
-<p>[!proposition] 特征标是类函数<br>特征标是类函数, 即<br>$$</p>
+<p>[!definition] 类函数<br>类函数 $f:G\to K$ 即在共轭类上值相同的函数<br>群 $G$ 的类函数构成环 $Class_K(G)$</p>
 </blockquote>
+<p>$\operatorname{ch}:K_0(\operatorname{Rep}_{\mathbb C}(G))\longrightarrow\operatorname{Class}_{\mathbb C}(G)$</p>
 <blockquote>
-<p>\chi_V(hgh^{-1})&#x3D;\chi_V(g).</p>
+<p>[!proposition] </p>
+<ol>
+<li>$\chi_\varphi(1)&#x3D;\deg \varphi$</li>
+<li>特征标是类函数, 即 $\chi_V(hgh^{-1})&#x3D;\chi_V(g)$</li>
+</ol>
 </blockquote>
-<p>$$</p>
 <p>^proposition-character-class-function</p>
 <p>$Proof.$ 有<br>$$</p>
 <p>\omega(hgh^{-1})&#x3D;\omega(h)\omega(g)\omega(h)^{-1}.</p>
@@ -660,6 +666,96 @@
 <p>[!remark] 特征标的作用<br>特征标把表示的线性结构压缩为一个函数. 在有限群表示论中, 特征标是分类半单表示的重要工具.</p>
 </blockquote>
 <p>^remark-character-role</p>
+<blockquote>
+<p>[!definition] 类函数的内积<br>$\langle\chi,\psi\rangle_G&#x3D;\frac1{|G|}\sum_{g\in G}\chi(g)\overline{\psi(g)}$</p>
+</blockquote>
+<blockquote>
+<p>[!theorem] Character orthogonality theorem<br>For $\lambda:G\to \operatorname{Aut}V$, $\mu:G\to \operatorname{Aut}W$, $\langle\chi_\lambda,\chi_\mu\rangle&#x3D;\delta_{\lambda\mu}$.</p>
+</blockquote>
+<p> $Proof.$<br> For $A:V\to W$, define $T(A)&#x3D;\frac1{|G|}\sum_{g\in G}\chi_\lambda(g)A\chi_\mu(g)^{-1}$.<br> For $h\in G$, $\chi_\lambda(h)T(A)\chi_\mu(h)^{-1}&#x3D;\frac1{|G|}\sum_{g\in G}\chi_\lambda(hg)A\chi_\mu(hg)^{-1}&#x3D;T(A)$<br> $\implies \chi_\lambda(h)T(A) &#x3D;T(A)\chi_\mu(h)$ i.e. $T(A)\in \operatorname{Hom}_G(V,W)$<br> By Schur’s lemma, if $V\not\cong W$, $T(A)&#x3D;0$, otherwise $T(A)&#x3D;\lambda I$<br> …</p>
+<blockquote>
+<p>[!theorem]<br> $\#\operatorname{Irr}_{\mathbb{C}}(G)&#x3D;\#{\text{conjugacy classes}}.$</p>
+</blockquote>
+<blockquote>
+<p>[!corollary]<br>不可约复特征标构成类函数空间的一组正交规范基</p>
+</blockquote>
+<p>$\dim\operatorname{Class}_{\mathbb C}(G)&#x3D;\#{\text{conjugacy classes}}.$</p>
+<blockquote>
+<p>[!proposition]<br>$\langle\chi_A,\chi_B\rangle_G&#x3D;\dim\operatorname{Hom}_G(A,B)$</p>
+</blockquote>
+<p>$Proof.$<br>直和分解</p>
+<blockquote>
+<p>[!theorem]<br>有限群 $G$ 的任一不可约复表示的次数都能整除G的阶.</p>
+</blockquote>
+<h2 id="诱导与限制"><a href="#诱导与限制" class="headerlink" title="诱导与限制"></a>诱导与限制</h2><blockquote>
+<p>[!definition] 诱导表示<br>对于 $H\leq G$, $K[G]$ 是一个 $K[H]$ 模 &amp; $K[G]$ 模.<br>对于 $H$ 在 $W$ 上的表示 $\rho$, $\operatorname{Ind}_H^GW:&#x3D;K[G]\otimes_{K[H]}W$ 是左 $K[G]$ 模, 其上的 $G$ 表示记为 $\operatorname{Ind}^G_H \rho$.</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>设 $H \leq G$ ， $G$ 有左陪集分解： $G &#x3D; \cup_{i &#x3D; 1}^{m} x_{i} H$ ，则 $Ind_{H}^{G} W$ 有作为左 $k \left[G\right]$ 模的直和分解：</p>
+<p>$$</p>
+</blockquote>
+<blockquote>
+<p>Ind_{H}^{G} W \cong \oplus_{i &#x3D; 1}^{m} \left(x_{i} k \left[H\right] \bigotimes_{k \left[H\right]} W\right)</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>特别地，有 $dim Ind_{H}^{G} W &#x3D; \left[G : H\right] dim W$ 。</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>设 $H \leq L \leq G$ 。对 $k \left[H\right]$ 模 $W$ ，有 $k \left[G\right]$ 模同构：</p>
+<p>$$</p>
+</blockquote>
+<blockquote>
+<p>Ind_{L}^{G} Ind_{H}^{L} W \cong Ind_{H}^{G} W</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>[!definition] 限制表示<br>设 $H$ 是 $G$ 的子群， $U$ 是 $k \left[G\right]$ 模。则 $U$ 上有自然的 $k \left[H\right]$ 模结构，记作 $Res_{H}^{G} U$ 。而 $Res_{H}^{G} U$ 上 $H$ 的表示称为限制表示。</p>
+</blockquote>
+<blockquote>
+<p>[!proposition] 诱导是限制的左伴随</p>
+</blockquote>
+<blockquote>
+<p>[!definition] 诱导特征标，限制特征标</p>
+</blockquote>
+<blockquote>
+<p>[!corollary] Frobenius互反律<br>设 $H \leq G$ ， $\varphi$ 是 $H$ 的一个特征标， $\psi$ 是 $G$ 的一个特征标。那么有</p>
+<p>$$</p>
+</blockquote>
+<blockquote>
+<p>\langle Ind_{H}^{G} \varphi , \psi \rangle_{G} &#x3D;\langle \varphi , Res_{H}^{G} \psi \rangle_{H}</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>换言之， $Ind_{H}^{G} : \mathcal{C} \left(H\right) \rightarrow \mathcal{C} \left(G\right)$ 和 $Res_{H}^{G} : \mathcal{C} \left(G\right) \rightarrow \mathcal{C} \left(H\right)$ 是互为伴随的线性映射。</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>设 $H , K$ 是 $G$ 的子群， $x_{1} , . . . , x_{m}$ 是 $G$ 的 $\left(K , H\right)$ 双陪集划分的代表元， $K_{i} :&#x3D; K \cap x_{i} H x_{i}^{- 1}$ ， $W$ 是 $k \left[H\right]$ 模。令 $W_{i}$ 是按照定义 6.12 给出的 $k \left[x_{i} H x_{i}^{- 1}\right]$ 模。那么有 $k \left[K\right]$ 模同构：$$</p>
+</blockquote>
+<blockquote>
+<p>Res_{K}^{G} Ind_{H}^{G} W \cong \oplus_{i &#x3D; 1}^{m} Ind_{K_{i}}^{K} Res_{K_{i}}^{x_{i} H x_{i}^{- 1}} W_{i}</p>
+</blockquote>
+<p>$$</p>
+<blockquote>
+<p>[!theorem] Mackey既约准则<br>设 $H \leq G$ ， $x_{1} , . . . , x_{m}$ 是 $G$ 的 $\left(H , H\right)$ 双陪集划分的代表元， $H_{i} :&#x3D; H \cap x_{i} H x_{i}^{- 1}$ ， $\chi : H \rightarrow \mathbb{C}$ 是 $H$ 的一个特征标。则 $Ind_{H}^{G} \chi$ 既约当且仅当 $\chi$ 既约，并且 $Res_{H_{i}}^{H} \chi$ 与 $Res_{H_{i}}^{x_{i} H x_{i}^{- 1}} \chi^{x_{i}}$ 正交对 $i \in \left{2 , . . . , m\right}$ 成立。</p>
+</blockquote>
+<blockquote>
+<p>[!definition] 置换表示<br>对于 $G\curvearrowright X$, 诱导出 $G$ 在 $\mathbb{C}[X]$ 的表示, $\chi(g)&#x3D;|X^g|:&#x3D;\#\set{x\in X\mid gx&#x3D;x}$.</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>Suppose $X&#x3D;\coprod_i Gx_i$.<br>$\mathbb{C}[X]\cong \bigoplus_i\operatorname{Ind}_{G_{x_i}}^G\mathbf{1}$</p>
+</blockquote>
+<blockquote>
+<p>[!definition] 标准表示<br>For $V\cong \mathbb{C}^n$, $V_{\mathrm{std}}&#x3D;{(x_1,\dots,x_n)\in\mathbb C^n:\sum_i x_i&#x3D;0}$<br>$\mathfrak{S}_n\curvearrowright V_{\operatorname{std}}$ 是不可约表示</p>
+</blockquote>
+<blockquote>
+<p>[!example]<br>$\mathbb C[3]\cong\operatorname{Ind}_{S_2}^{S_3}\mathbf1\cong \mathbf{1}\oplus V_{std}$</p>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> 如何用特征标求表示的分解和次数</li>
+<li>求群的所有不可约表示</li>
+<li>列特征标的方程求出次数</li>
+</ul>
 
                 
               </div>
@@ -686,8 +782,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>群表示论_4</div>
-      <div>http://kaelvio.com/群表示论_4/</div>
+      <div>群表示论_5</div>
+      <div>http://kaelvio.com/群表示论_5/</div>
     </div>
     <div class="license-meta">
       
@@ -699,7 +795,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年7月15日</div>
+          <div>2026年7月16日</div>
         </div>
       
       
@@ -743,18 +839,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA(1)/" title="群表示论(1)">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">群表示论(1)</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA_3/" title="群表示论_3">
-                        <span class="hidden-mobile">群表示论_3</span>
+                      <a href="/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA_4(1)/" title="群表示论_4(1)">
+                        <span class="hidden-mobile">群表示论_4(1)</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -777,7 +867,7 @@
         var options = Object.assign(
           {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: '1df83c7909adae0c545209e9dcbaa873'
+            id: '0adda68bfc59c5b7b8feb429588af00a'
           }
         )
         var gitalk = new Gitalk(options);

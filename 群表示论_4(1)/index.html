@@ -21,13 +21,13 @@
   
     <meta name="description" content="进程$C:A\to \circlearrowright B$$A\in group,B\in set^\times$ group action$A\in ring, B\in ab$ A-mod$A\in filde,B\in ab$ A-vector space$A\in group,B\in vect^\times$ representation  [!definition] represen">
 <meta property="og:type" content="article">
-<meta property="og:title" content="群表示论_3">
-<meta property="og:url" content="http://kaelvio.com/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA_3/index.html">
+<meta property="og:title" content="群表示论_4(1)">
+<meta property="og:url" content="http://kaelvio.com/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA_4(1)/index.html">
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="进程$C:A\to \circlearrowright B$$A\in group,B\in set^\times$ group action$A\in ring, B\in ab$ A-mod$A\in filde,B\in ab$ A-vector space$A\in group,B\in vect^\times$ representation  [!definition] represen">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-07-15T00:13:14.357Z">
-<meta property="article:modified_time" content="2026-07-15T00:13:14.357Z">
+<meta property="article:published_time" content="2026-07-16T00:01:38.349Z">
+<meta property="article:modified_time" content="2026-07-16T00:01:38.349Z">
 <meta property="article:author" content="采薇">
 <meta property="article:tag" content="linear-algebra">
 <meta property="article:tag" content="representation-theory">
@@ -35,7 +35,7 @@
   
   
   
-  <title>群表示论_3 - 采薇的博客</title>
+  <title>群表示论_4(1) - 采薇的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -213,7 +213,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="群表示论_3"></span>
+            <span id="subtitle" data-typed-text="群表示论_4(1)"></span>
           
         </div>
 
@@ -224,8 +224,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-07-15 08:13" pubdate>
-          2026年7月15日 早上
+        <time datetime="2026-07-16 08:01" pubdate>
+          2026年7月16日 早上
         </time>
       </span>
     
@@ -236,7 +236,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          2.4k 字
+          2.7k 字
         
       </span>
     
@@ -247,7 +247,7 @@
         
         
         
-          21 分钟
+          23 分钟
         
       </span>
     
@@ -284,7 +284,7 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">群表示论_3</h1>
+            <h1 id="seo-header">群表示论_4(1)</h1>
             
             
               <div class="markdown-body">
@@ -582,19 +582,38 @@
 <blockquote>
 <p>[!definition] dual group<br>$\hat G$ 是所有不可约 $G$-表示</p>
 </blockquote>
-<p>对于 $\hat G$ 中元素, 由于 $\operatorname{tr}:GL(\mathbb{C})\cong \mathbb{C}^\times$, 因此也可以看成是特征标.</p>
+<p>对于 $\hat G$ 中元素, 由于 $\operatorname{tr}:GL(\mathbb{C})\cong \mathbb{C}^\times$, 因此也可以看成是特征标.<br>但对于非交换群，不可约表示通常不是一维，也不能自然组成群，通常写作 </p>
 <blockquote>
 <p>[!exercise]<br>求 $n$-阶循环群 $\left&lt; a \right&gt;$ 的不可约复表示.</p>
 </blockquote>
-<p>对于 $\varphi:\left&lt; a \right&gt;\to \mathbb{C}^\times$, $\varphi(a)^n&#x3D;1$, 因此 $\varphi(a)$ 可以取任意 $n$ 次单位根.<br>故 $\left&lt; a \right&gt; \cong \hat {\left&lt; a \right&gt;}$.</p>
+<p>对于 $\varphi:\left&lt; a \right&gt;\to \mathbb{C}^\times$, $\varphi(a)^n&#x3D;1$, 因此 $\varphi(a)$ 可以取任意 $n$ 次单位根.<br>故 $\left&lt; a \right&gt; \simeq \hat {\left&lt; a \right&gt;}$.<br>但是注意这里的选取不是自然的</p>
 <blockquote>
 <p>[!lemma]<br>$G&#x3D;H_1 \times H_2\implies \hat G&#x3D;\hat H_1 \times \hat H_2$.</p>
 </blockquote>
-<p>$\varphi_1:\hat H_1$, $\varphi_2:\hat H_2$ indu</p>
+<p>$\varphi_1:\hat H_1$, $\varphi_2:\hat H_2$ induce $\varphi:\hat G:&#x3D;(h_1,h_2)\mapsto \varphi(h_1)\varphi(h_2)$.<br>$\varphi:\hat G$ induces $\varphi_1:\hat H_1:&#x3D;\varphi|_{H_1}$, $\varphi_1:\hat H_2:&#x3D;\varphi|_{H_2}$.</p>
 <blockquote>
-<p>[!theorem] $G\cong\hat G$<br>设 $K$ 是代数闭域, $G$ 为有限交换群, $G\cong\hat G$.</p>
+<p>[!theorem] $G\simeq\hat G$<br>设 $K$ 是代数闭域, $G$ 为有限交换群, $G\simeq\hat G$.</p>
 </blockquote>
-<p>$Proof.$<br>由有限交换群的结构定理, $G\cong \left&lt; a_1 \right&gt;\times \left&lt; a_2 \right&gt;\dots \times\left&lt; a_s \right&gt;$.</p>
+<p>$Proof.$<br>由有限交换群的结构定理, $G\cong \left&lt; a_1 \right&gt;\times \left&lt; a_2 \right&gt;\dots \times\left&lt; a_s \right&gt;$.<br>$\blacksquare$</p>
+<h3 id="不可约表示的构造方法"><a href="#不可约表示的构造方法" class="headerlink" title="不可约表示的构造方法"></a>不可约表示的构造方法</h3><blockquote>
+<p>[!proposition] 线性表示与群同态的合成<br>令 $\varphi:G\to \operatorname{Aut}V$, $T:H\to G$, 则 $\varphi T$ 是一个 $H$-表示</p>
+<ol>
+<li>若 $\varphi T$ 不可约, 则 $\varphi$ 不可约</li>
+<li>若 $\varphi$ 不可约且 $T$ 为满同态, 则 $\varphi T$ 不可约.</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>[!definition] 提升与分解<br>对于 $N\unlhd  G$, $\pi:G\to G&#x2F;N$ 为商映射. 对于 $G&#x2F;N$-表示 $\bar\varphi$, $\varphi:&#x3D;\bar \varphi \pi$ 称为其 <strong>提升</strong>.<br>对于 $G$-表示 $\varphi$, 若正规子群 $N\subseteq \operatorname{ker}\varphi$, 令 $\bar \varphi:G&#x2F;N\to \operatorname{Aut}V:&#x3D;gN\mapsto \varphi(g)$, 称为其 <strong>分解</strong>.</p>
+</blockquote>
+<blockquote>
+<p>[!theorem]<br>$Rep_K(G&#x2F;N)\cong Rep_K(G;N)$ 保持不可约性</p>
+</blockquote>
+<blockquote>
+<p>[!theorem]<br>$G$ 的 1 次表示 $\cong Rep(G&#x2F;[G,G])$</p>
+</blockquote>
+<blockquote>
+<p>[!example]<br>$\mathfrak{S}_n$ 的 1 次表示有平凡表示 和 $\operatorname{sgn}$</p>
+</blockquote>
 <h2 id="特征标"><a href="#特征标" class="headerlink" title="特征标"></a>特征标</h2><p>本节假设 $V$ 有限维.</p>
 <blockquote>
 <p>[!definition] 特征标<br>$G$-表示 $\omega:G\to GL(V)$ 的特征标是函数<br>$$</p>
@@ -667,8 +686,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>群表示论_3</div>
-      <div>http://kaelvio.com/群表示论_3/</div>
+      <div>群表示论_4(1)</div>
+      <div>http://kaelvio.com/群表示论_4(1)/</div>
     </div>
     <div class="license-meta">
       
@@ -680,7 +699,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年7月15日</div>
+          <div>2026年7月16日</div>
         </div>
       
       
@@ -724,9 +743,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA(1)/" title="群表示论(1)">
+                      <a href="/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA_5/" title="群表示论_5">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">群表示论(1)</span>
+                        <span class="hidden-mobile">群表示论_5</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -734,8 +753,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA_2/" title="群表示论_2">
-                        <span class="hidden-mobile">群表示论_2</span>
+                      <a href="/%E9%9B%A8/" title="雨">
+                        <span class="hidden-mobile">雨</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -758,7 +777,7 @@
         var options = Object.assign(
           {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: 'dd240efde484d210f79d550818ffbae7'
+            id: '1edb3d7523a7b4132aaece233ec978d2'
           }
         )
         var gitalk = new Gitalk(options);
