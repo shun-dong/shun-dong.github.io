@@ -30,8 +30,8 @@
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260701192423.png">
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260701192446.png">
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260701192525.png">
-<meta property="article:published_time" content="2026-07-12T05:14:33.062Z">
-<meta property="article:modified_time" content="2026-07-12T05:14:33.062Z">
+<meta property="article:published_time" content="2026-07-16T23:57:11.865Z">
+<meta property="article:modified_time" content="2026-07-16T23:57:11.866Z">
 <meta property="article:author" content="采薇">
 <meta property="article:tag" content="PACE">
 <meta property="article:tag" content="hyperbolic-geometry">
@@ -231,8 +231,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-07-12 13:14" pubdate>
-          2026年7月12日 下午
+        <time datetime="2026-07-17 07:57" pubdate>
+          2026年7月17日 早上
         </time>
       </span>
     
@@ -243,7 +243,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.3k 字
+          3.4k 字
         
       </span>
     
@@ -254,7 +254,7 @@
         
         
         
-          28 分钟
+          29 分钟
         
       </span>
     
@@ -292,6 +292,14 @@
         <div id="board">
           <article class="post-content mx-auto">
             <h1 id="seo-header">Tiling_Proof</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2026年7月17日 早上
+                  
+                
+              </p>
             
             
               <div class="markdown-body">
@@ -591,7 +599,7 @@
 <p>Thus each coherent tile has a type<br>$$</p>
 <p>\tau_f\in{P,I,E}.</p>
 <p>$$<br>This extra type information is invisible in ordinary projective incidence geometry and elliptic geometry, but it is natural in hyperbolic geometry.</p>
-<h2 id="The-PACE-Problems"><a href="#The-PACE-Problems" class="headerlink" title="The PACE Problems"></a>The PACE Problems</h2><p>Let $T$ be a black-white quadrilateral tiled surface. Suppose each tile $f$ is assigned a type<br>$$</p>
+<h3 id="Pesudoline"><a href="#Pesudoline" class="headerlink" title="Pesudoline"></a>Pesudoline</h3><p>Let $T$ be a black-white quadrilateral tiled surface. Suppose each tile $f$ is assigned a type<br>$$</p>
 <p>\tau_f\in{P,I,E}.</p>
 <p>$$</p>
 <blockquote>
@@ -618,7 +626,7 @@
 <p>[!exercise] Examples of determined and undetermined conclusion types<br>Give concrete examples for both the “uniquely determined” case and the “not uniquely determined” case.</p>
 </blockquote>
 <p>^exercise-determined-undetermined-types</p>
-<h2 id="Pesudoline"><a href="#Pesudoline" class="headerlink" title="Pesudoline"></a>Pesudoline</h2><blockquote>
+<blockquote>
 <p>[!definition] pseudoline<br>A line arrangement is the partition of the plane induced by a set of lines in the plane.<br>A pseudoline is a simple curve in the plane that goes to infinity in two directions. (In other words, a pseudoline is the image of a line under a homeomorphism of the plane.)<br>A collection of pseudolines is a set of pseudolines such that any two members of the set intersect at most once, and cross if they intersect.<br>A pseudoline arrangement is the partition of the plane induced by a collection of pseudolines.<br>A pseudoline arrangement is stretchable (or realizable) if there is an arrangement of lines with the same combinatorial structure.<br>A line or pseudoline arrangement is uniform if no three lines intersect in a point and no two lines are parallel.<br>[^sho91]</p>
 </blockquote>
 <blockquote>
@@ -658,7 +666,24 @@
 <ul>
 <li><input disabled="" type="checkbox"> 这个也可以先传到group project上。眼下我有几个comment。首先射影空间上的realization问题，对于infinite field，一个surface tiling proof是一定能realize的。你就把“点”全取在一条直线上，“超平面”全都在一个codim 2的pencil上，那么一定可以realize，且tiling里需要满足的退化条件也都满足（只是不一定是“general position”）。因此realization的问题对于双曲几何是新的。&gt;&gt;&gt;&gt;这是什么意思呢, 还有对于非退化条件如何把握 ⏫</li>
 </ul>
-<h2 id="Mobius-geometry"><a href="#Mobius-geometry" class="headerlink" title="Mobius geometry"></a>Mobius geometry</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<h2 id="Mobius-geometry"><a href="#Mobius-geometry" class="headerlink" title="Mobius geometry"></a>Mobius geometry</h2><h2 id="Polarity-Master-Theorem"><a href="#Polarity-Master-Theorem" class="headerlink" title="Polarity Master Theorem"></a>Polarity Master Theorem</h2><blockquote>
+<p>[!definition] polarity cross ratio<br>For $A<del>B</del>C~D\in \mathbb{P}$, non-degenerate symmetric bilinear form $\beta$, the polarity cross ratio is defined as<br>$$<br>\chi_\beta(A,B;C,D):&#x3D;\frac{\beta(A,C)\beta(B,D)} {\beta(B,C)\beta(A,D)}<br>$$</p>
+</blockquote>
+<blockquote>
+<p>[!definition] polarity tile<br>a tile is a topological quadrilateral (that is,a closed oriented disk with four marked points on its boundary) whose vertices are clockwise labeled $A,B,C,D$, where $A<del>C</del>B~D\in \mathbb{P}$ are points, denoted as $(A,B;C,D)$.<br>Such tile is called coherent if $\chi_\beta(A,B;C,D)&#x3D;1$.<br>Geometrically, it is equivalent to</p>
+<ul>
+<li>points on the same edge are not harmonic conjugates, and</li>
+<li>there exist identical elements along the diagonal or these equivalent conditions are satisfied:</li>
+</ul>
+<ol>
+<li>$A^\perp\cap B^\perp&#x3D;AB^\perp,C,D$ are collinear on $l_1$;</li>
+<li>$A,B,C^\perp\cap D^\perp&#x3D;CD^\perp$ are collinear on $l_2$;</li>
+<li>$AB,C^\perp,D^\perp$ are concurrent at $p_1$;</li>
+<li>$A^\perp,B^\perp,CD$ are concurrent at $p_2$,<br>where $p_1,l_1;p_2,l_2$ are a pole-polar pairs and $p_1\in l_2,p_2\in l_1$.</li>
+</ol>
+</blockquote>
+<p>? Veronese–octahedron proof</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
 <li>The original Fomin-Pylyavskyy paper[^FP23] should be read carefully; it systematically develops tiling-based proofs and the combinatorial interpretations behind them.</li>
 <li>Pylyavskyy and Skopenkov[^PS26] formalize tiling proofs, study field-dependent incidence theorems, and show that a sphere-tiling proof implies division-ring universality.</li>
 <li>Kühne and Larson[^KL25] show that a field-universal incidence theorem with a one-step surface-tiling proof has a commutative-ring-universal version, and give a field-universal theorem without such a one-step proof.</li>
@@ -719,9 +744,14 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年7月12日</div>
+          <div>2026年7月17日</div>
         </div>
       
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2026年7月17日</div>
+        </div>
       
       
         <div class="license-meta-item">
@@ -763,9 +793,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/git/" title="git">
+                      <a href="/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA/" title="群表示论">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">git</span>
+                        <span class="hidden-mobile">群表示论</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -773,8 +803,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E4%BB%A3%E6%95%B0%E5%87%A0%E4%BD%95/" title="代数几何">
-                        <span class="hidden-mobile">代数几何</span>
+                      <a href="/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA_4(1)/" title="群表示论_4(1)">
+                        <span class="hidden-mobile">群表示论_4(1)</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
