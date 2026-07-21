@@ -30,8 +30,8 @@
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260701192423.png">
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260701192446.png">
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260701192525.png">
-<meta property="article:published_time" content="2026-07-19T00:31:38.799Z">
-<meta property="article:modified_time" content="2026-07-19T00:31:38.800Z">
+<meta property="article:published_time" content="2026-07-21T01:05:13.753Z">
+<meta property="article:modified_time" content="2026-07-21T01:05:13.753Z">
 <meta property="article:author" content="采薇">
 <meta property="article:tag" content="PACE">
 <meta property="article:tag" content="hyperbolic-geometry">
@@ -231,8 +231,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-07-19 08:31" pubdate>
-          2026年7月19日 早上
+        <time datetime="2026-07-21 09:05" pubdate>
+          2026年7月21日 上午
         </time>
       </span>
     
@@ -243,7 +243,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.4k 字
+          3.7k 字
         
       </span>
     
@@ -254,7 +254,7 @@
         
         
         
-          29 分钟
+          31 分钟
         
       </span>
     
@@ -292,14 +292,6 @@
         <div id="board">
           <article class="post-content mx-auto">
             <h1 id="seo-header">Tiling_Proof</h1>
-            
-              <p id="updated-time" class="note note-info" style="">
-                
-                  
-                    本文最后更新于 2026年7月19日 早上
-                  
-                
-              </p>
             
             
               <div class="markdown-body">
@@ -673,16 +665,25 @@
 <p>[!definition] polarity tile<br>a tile is a topological quadrilateral (that is,a closed oriented disk with four marked points on its boundary) whose vertices are clockwise labeled $A,B,C,D$, where $A<del>C</del>B~D\in \mathbb{P}$ are points, denoted as $(A,B;C,D)$.<br>Such tile is called coherent if $\chi_\beta(A,B;C,D)&#x3D;1$.<br>Geometrically, it is equivalent to</p>
 <ul>
 <li>points on the same edge are not harmonic conjugates, and</li>
-<li>there exist identical elements along the diagonal or these equivalent conditions are satisfied:</li>
+<li>Some diagonal points are the same or $(*)$ lines joining diagonal points are harmonic conjugates.</li>
 </ul>
+</blockquote>
+<p>The $(*)$ condition has several characteristics: </p>
 <ol>
 <li>$A^\perp\cap B^\perp&#x3D;AB^\perp,C,D$ are collinear on $l_1$;</li>
 <li>$A,B,C^\perp\cap D^\perp&#x3D;CD^\perp$ are collinear on $l_2$;</li>
 <li>$AB,C^\perp,D^\perp$ are concurrent at $p_1$;</li>
 <li>$A^\perp,B^\perp,CD$ are concurrent at $p_2$,<br>where $p_1,l_1;p_2,l_2$ are a pole-polar pairs and $p_1\in l_2,p_2\in l_1$.</li>
 </ol>
+<blockquote>
+<p>[!theorem] 定向覆叠上的二着色判据<br>设 $Q$ 是闭曲面 $S$ 的胞腔 quadrangulation。以下两件事等价：</p>
+<ol>
+<li>$Q$ 中每条 orientation-preserving 闭路长度为偶数，每条 orientation-reversing 闭路长度为奇数；</li>
+<li>$Q$ 提升到定向二重覆叠后是二分图，并且 sheet 交换映射 $\tau$ 交换白黑两色。</li>
+</ol>
 </blockquote>
-<p>? Veronese–octahedron proof</p>
+<p>$Proof.$<br>以下 $0,1\in \mathbb{F}_2$<br>$(2\implies1)$ 令 $c:\tilde Q \to  \mathbb{F}_2$ 为着色映射, $c(v,i+1)&#x3D;c(v,i)+1$. 对 $(u,i)\sim (v,j)\in \tilde Q$, $c( u,i)&#x3D;c( v,j)+1$.<br>对圈 $\gamma&#x3D;v_1\sim\dots v_k\sim v_1\in Q$, 提升到 $\tilde\gamma&#x3D;(v_1,i_1)\sim \dots (v_k,i_k)\sim (v_1,i_{k+1})$, $c(v_1,i_{k+1})&#x3D;k+c(v_1,i_1)$. 若 $k$ 为奇数, $i_{k+1}&#x3D;i_1+1$, 则 $\gamma$ orientation-reversing. 若 $k$ 为偶数, $i_{k+1}&#x3D;i_1$, 则 $\gamma$ orientation-preserving.<br>$(1\implies2)$ 对 $\tilde Q$ 中的圈 $\tilde\gamma&#x3D;(v_1,i_1)\sim \dots\sim (v_1,i_{1})$, 即使中间通过奇数步到 $(v_1,i_1+1)$ 也需要再花奇数步回到 $(v_1,i_{1})$. 因为 $(v,i)$ 到 $(v,i+1)$ 要经过奇数步, 因此颜色不同.<br>$\blacksquare$</p>
+<p>原先的命题当然能证, 确实有新东西, 比如 Hesse<br>那么我感觉这种新的 tiling 能&#x3D;&#x3D;增加&#x3D;&#x3D;的范围其实是不显式出现点在二次型上或切于二次型,</p>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
 <li>The original Fomin-Pylyavskyy paper[^FP23] should be read carefully; it systematically develops tiling-based proofs and the combinatorial interpretations behind them.</li>
 <li>Pylyavskyy and Skopenkov[^PS26] formalize tiling proofs, study field-dependent incidence theorems, and show that a sphere-tiling proof implies division-ring universality.</li>
@@ -744,14 +745,9 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年7月19日</div>
+          <div>2026年7月21日</div>
         </div>
       
-      
-        <div class="license-meta-item license-meta-date">
-          <div>更新于</div>
-          <div>2026年7月19日</div>
-        </div>
       
       
         <div class="license-meta-item">
@@ -793,12 +789,18 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA/" title="群表示论">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">群表示论</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA/" title="群表示论">
-                        <span class="hidden-mobile">群表示论</span>
+                      <a href="/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA_4(1)/" title="群表示论_4(1)">
+                        <span class="hidden-mobile">群表示论_4(1)</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
