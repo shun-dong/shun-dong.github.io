@@ -30,8 +30,8 @@
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260701192423.png">
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260701192446.png">
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260701192525.png">
-<meta property="article:published_time" content="2026-07-21T01:05:13.753Z">
-<meta property="article:modified_time" content="2026-07-21T01:05:13.753Z">
+<meta property="article:published_time" content="2026-07-23T23:54:35.247Z">
+<meta property="article:modified_time" content="2026-07-23T23:54:35.247Z">
 <meta property="article:author" content="采薇">
 <meta property="article:tag" content="PACE">
 <meta property="article:tag" content="hyperbolic-geometry">
@@ -231,8 +231,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-07-21 09:05" pubdate>
-          2026年7月21日 上午
+        <time datetime="2026-07-24 07:54" pubdate>
+          2026年7月24日 早上
         </time>
       </span>
     
@@ -243,7 +243,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          3.7k 字
+          4.5k 字
         
       </span>
     
@@ -254,7 +254,7 @@
         
         
         
-          31 分钟
+          38 分钟
         
       </span>
     
@@ -658,9 +658,10 @@
 <ul>
 <li><input disabled="" type="checkbox"> 这个也可以先传到group project上。眼下我有几个comment。首先射影空间上的realization问题，对于infinite field，一个surface tiling proof是一定能realize的。你就把“点”全取在一条直线上，“超平面”全都在一个codim 2的pencil上，那么一定可以realize，且tiling里需要满足的退化条件也都满足（只是不一定是“general position”）。因此realization的问题对于双曲几何是新的。&gt;&gt;&gt;&gt;这是什么意思呢, 还有对于非退化条件如何把握 ⏫</li>
 </ul>
-<h2 id="Mobius-geometry"><a href="#Mobius-geometry" class="headerlink" title="Mobius geometry"></a>Mobius geometry</h2><h2 id="Polarity-Master-Theorem"><a href="#Polarity-Master-Theorem" class="headerlink" title="Polarity Master Theorem"></a>Polarity Master Theorem</h2><blockquote>
+<h2 id="Mobius-geometry"><a href="#Mobius-geometry" class="headerlink" title="Mobius geometry"></a>Mobius geometry</h2><h2 id="Polarity-Tiling"><a href="#Polarity-Tiling" class="headerlink" title="Polarity Tiling"></a>Polarity Tiling</h2><blockquote>
 <p>[!definition] polarity cross ratio<br>For $A<del>B</del>C~D\in \mathbb{P}$, non-degenerate symmetric bilinear form $\beta$, the polarity cross ratio is defined as<br>$$<br>\chi_\beta(A,B;C,D):&#x3D;\frac{\beta(A,C)\beta(B,D)} {\beta(B,C)\beta(A,D)}<br>$$</p>
 </blockquote>
+<p>If $A,B,C,D$ are collinear, $\chi_\beta(A,B;C,D)&#x3D;\chi(A,B;C,D)$, where the right hand side is the codinary cross-ratio.</p>
 <blockquote>
 <p>[!definition] polarity tile<br>a tile is a topological quadrilateral (that is,a closed oriented disk with four marked points on its boundary) whose vertices are clockwise labeled $A,B,C,D$, where $A<del>C</del>B~D\in \mathbb{P}$ are points, denoted as $(A,B;C,D)$.<br>Such tile is called coherent if $\chi_\beta(A,B;C,D)&#x3D;1$.<br>Geometrically, it is equivalent to</p>
 <ul>
@@ -676,14 +677,68 @@
 <li>$A^\perp,B^\perp,CD$ are concurrent at $p_2$,<br>where $p_1,l_1;p_2,l_2$ are a pole-polar pairs and $p_1\in l_2,p_2\in l_1$.</li>
 </ol>
 <blockquote>
-<p>[!theorem] 定向覆叠上的二着色判据<br>设 $Q$ 是闭曲面 $S$ 的胞腔 quadrangulation。以下两件事等价：</p>
+<p>[!remark]<br>所有的 FP tiling 都可以通过将线换成对应极点来变成 polarity tiling。<br>这种变换方法将导致原命题和对偶命题对应相同的 polarity tiling。这或许是合理的，即对偶命题中只有一个能被直接表示，比如线切于二次曲线可以表示为<br>![[tikzcd-20260722-231801-399.svg]]<br>其中 $A,B\notin \beta$，但是似乎无法表达点在二次曲线上。</p>
+</blockquote>
+<p>&#x2F; 我感觉这种新的 tiling 能&#x3D;&#x3D;增加&#x3D;&#x3D;的范围其实是不显式出现点在二次型上或切于二次型。比如在原先框架中帕斯卡和布那安桑定理就已经能证明了。</p>
+<h3 id="Topology-of-Tiling-Surface"><a href="#Topology-of-Tiling-Surface" class="headerlink" title="Topology of Tiling Surface"></a>Topology of Tiling Surface</h3><h4 id="Orientation-and-Cycles"><a href="#Orientation-and-Cycles" class="headerlink" title="Orientation and Cycles"></a>Orientation and Cycles</h4><blockquote>
+<p>[!proposition] 定向覆叠上的二着色判据<br>设 $Q$ 是闭曲面 $S$ 的胞腔 quadrangulation。以下两件事等价：</p>
 <ol>
 <li>$Q$ 中每条 orientation-preserving 闭路长度为偶数，每条 orientation-reversing 闭路长度为奇数；</li>
 <li>$Q$ 提升到定向二重覆叠后是二分图，并且 sheet 交换映射 $\tau$ 交换白黑两色。</li>
 </ol>
 </blockquote>
-<p>$Proof.$<br>以下 $0,1\in \mathbb{F}_2$<br>$(2\implies1)$ 令 $c:\tilde Q \to  \mathbb{F}_2$ 为着色映射, $c(v,i+1)&#x3D;c(v,i)+1$. 对 $(u,i)\sim (v,j)\in \tilde Q$, $c( u,i)&#x3D;c( v,j)+1$.<br>对圈 $\gamma&#x3D;v_1\sim\dots v_k\sim v_1\in Q$, 提升到 $\tilde\gamma&#x3D;(v_1,i_1)\sim \dots (v_k,i_k)\sim (v_1,i_{k+1})$, $c(v_1,i_{k+1})&#x3D;k+c(v_1,i_1)$. 若 $k$ 为奇数, $i_{k+1}&#x3D;i_1+1$, 则 $\gamma$ orientation-reversing. 若 $k$ 为偶数, $i_{k+1}&#x3D;i_1$, 则 $\gamma$ orientation-preserving.<br>$(1\implies2)$ 对 $\tilde Q$ 中的圈 $\tilde\gamma&#x3D;(v_1,i_1)\sim \dots\sim (v_1,i_{1})$, 即使中间通过奇数步到 $(v_1,i_1+1)$ 也需要再花奇数步回到 $(v_1,i_{1})$. 因为 $(v,i)$ 到 $(v,i+1)$ 要经过奇数步, 因此颜色不同.<br>$\blacksquare$</p>
-<p>原先的命题当然能证, 确实有新东西, 比如 Hesse<br>那么我感觉这种新的 tiling 能&#x3D;&#x3D;增加&#x3D;&#x3D;的范围其实是不显式出现点在二次型上或切于二次型,</p>
+<p>$Proof.$<br>以下 $0,1\in \mathbb{F}_2$<br>$(2\implies1)$ 令 $c: V(\tilde Q) \to  \mathbb{F}_2$ 为着色映射, $c(v,i+1)&#x3D;c(v,i)+1$. 对 $(u,i)\sim (v,j)\in \tilde Q$, $c( u,i)&#x3D;c( v,j)+1$.<br>对圈 $\gamma&#x3D;v_1\sim\dots v_k\sim v_1\in Q$, 提升到 $\tilde\gamma&#x3D;(v_1,i_1)\sim \dots (v_k,i_k)\sim (v_1,i_{k+1})$, $c(v_1,i_{k+1})&#x3D;k+c(v_1,i_1)$. 若 $k$ 为奇数, $i_{k+1}&#x3D;i_1+1$, 则 $\gamma$ orientation-reversing. 若 $k$ 为偶数, $i_{k+1}&#x3D;i_1$, 则 $\gamma$ orientation-preserving.<br>$(1\implies2)$ 对 $\tilde Q$ 中的圈 $\tilde\gamma&#x3D;(v_1,i_1)\sim \dots\sim (v_1,i_{1})$, 即使中间通过奇数步到 $(v_1,i_1+1)$ 也需要再花奇数步回到 $(v_1,i_{1})$. 因为 $(v,i)$ 到 $(v,i+1)$ 要经过奇数步, 因此颜色不同.<br>$\blacksquare$</p>
+<p>我把 存在 $S$ 使上述条件成立的 $Q$ 称为 quasi-bipartite quadrangulation</p>
+<blockquote>
+<p>[!lemma]<br>对于quasi-bipartite graph $Q$,<br>$$</p>
+</blockquote>
+<p>\prod_{f\in F(Q)}\chi_\beta(f)&#x3D;1.<br>$$</p>
+<p>$Proof.$<br>(良定义 $\chi_\beta(f)$)<br>固定 $\widetilde Q$ 的一个方向。对一个面 $f$，任选其一个提升 $\widetilde f$。沿 $\widetilde Q$ 的正方向，若一条边是从白点到黑点, 则端点内积在分母, 记为 +, 否则在分子, 记为 -. </p>
+<p>选择另一个 lift 时，$\tau$ 同时反转 $\widetilde Q$ 的方向和交换两种颜色, 这使得每条边的符号不变, 内积顺序相反, 由 $\beta$ 的对称性, $\chi_\beta(f)$ 不变.</p>
+<p>(消去律)<br>同一条边在相同两个 tile 中的符号相反.<br>$\blacksquare$</p>
+<blockquote>
+<p>[!theorem] Polarity Master Theorem</p>
+</blockquote>
+<p>这也说明了 polarity tiling 可以证明一些原先无法证明的东西</p>
+<blockquote>
+<p>[!example] Hesse’s Theorem<br>完全四点型的两组对边共轭推出第三组对边共轭。</p>
+</blockquote>
+<p>![[tikzcd-20260723-005345-757.svg]]</p>
+<blockquote>
+<p>[!definition] Coherent Polarity $2n$-gons</p>
+</blockquote>
+<p>单条的也只能是偶数长边界</p>
+<blockquote>
+<p>[!proposition]<br>设 $\Sigma$ 是一个只有一个边界圈的曲面. 边界上取 $2n$ 个点, 若存在一个 quasi-bipartite quadrangulation $Q$, 使得 $V(\partial Q)$ 对应这些点, 则组成一个 coherent polarity polygon.</p>
+</blockquote>
+<p>对应 [^fp23] Corollary 4.2 4.3 </p>
+<p>关于更多的例子，可以考虑在不可定向曲面上造命题</p>
+<p>或者对已有的 tiling 看成一个二重覆盖</p>
+<h4 id="Euler-Genus"><a href="#Euler-Genus" class="headerlink" title="Euler Genus"></a>Euler Genus</h4><p>这里应该可以参照张老师的论文给一个刻画</p>
+<blockquote>
+<p>[!definition] Quadratic Length<br>$$<br> \operatorname{ql}_{(G,\varepsilon)}(\delta) :&#x3D; \min \left{ 2r+s ;\middle|; \begin{aligned} \delta &amp;&#x3D; [x_1,y_1]\cdots[x_r,y_r] z_1^2\cdots z_s^2,\ \varepsilon(x_i)&amp;&#x3D;\varepsilon(y_i)&#x3D;0,\ \varepsilon(z_j)&amp;&#x3D;1 \end{aligned} \right}.<br>$$<br>其中 $r,s\geq0$，不存在这种表达时取 $\infty$。<br>这里：</p>
+<ul>
+<li>$x_i,y_i,z_j$ 是 $G$ 中任意元素；</li>
+<li>它们不需要生成整个 $G$；</li>
+<li>它们分别是曲面标准生成元 $a_i,b_i,c_j$ 的像；</li>
+<li>一个交换子块贡献 Euler genus $2$；</li>
+<li>一个平方块贡献 Euler genus $1$；</li>
+<li>$\varepsilon&#x3D;0$ 表示对应闭路保持定向；</li>
+<li>$\varepsilon&#x3D;1$ 表示对应闭路翻转定向。</li>
+</ul>
+</blockquote>
+<p>这个应该是新定义的</p>
+<blockquote>
+<p>[!theorem]<br>$$<br>\operatorname{eg}_{\mathrm{pol}}(I) &#x3D; \operatorname{ql}_{(G_I,\varepsilon_I)}(\delta_I)<br>$$</p>
+</blockquote>
+<h3 id="From-Aspect-of-Cayley-Klein-Geometry"><a href="#From-Aspect-of-Cayley-Klein-Geometry" class="headerlink" title="From Aspect of Cayley-Klein Geometry"></a>From Aspect of Cayley-Klein Geometry</h3><blockquote>
+<p>[!proposition]<br>$\chi_\beta(A,B;C,D)&#x3D;1\implies AB\perp_\beta CD$</p>
+</blockquote>
+<p>注意到在 CK 几何中，Hesse 定理对应的是三角形的垂心定理</p>
+<p>更好的说法是考虑 CK 几何，现在实二次曲线的情况实际上对应双曲几何，也就是说有的命题是在双曲平面内部的 （共轭的点分处内外），直接关于absolute 对偶不能保证这一点</p>
+<ul>
+<li><input disabled="" type="checkbox"> 彭赛内闭合定理或许可以选一条作为 absolute (aka $\beta$)</li>
+</ul>
 <h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
 <li>The original Fomin-Pylyavskyy paper[^FP23] should be read carefully; it systematically develops tiling-based proofs and the combinatorial interpretations behind them.</li>
 <li>Pylyavskyy and Skopenkov[^PS26] formalize tiling proofs, study field-dependent incidence theorems, and show that a sphere-tiling proof implies division-ring universality.</li>
@@ -745,7 +800,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年7月21日</div>
+          <div>2026年7月24日</div>
         </div>
       
       
@@ -789,18 +844,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA/" title="群表示论">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">群表示论</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA_4(1)/" title="群表示论_4(1)">
-                        <span class="hidden-mobile">群表示论_4(1)</span>
+                      <a href="/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA/" title="群表示论">
+                        <span class="hidden-mobile">群表示论</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
