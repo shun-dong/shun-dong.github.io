@@ -30,8 +30,8 @@
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260701192423.png">
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260701192446.png">
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260701192525.png">
-<meta property="article:published_time" content="2026-07-26T07:26:50.433Z">
-<meta property="article:modified_time" content="2026-07-26T07:26:50.433Z">
+<meta property="article:published_time" content="2026-07-26T22:12:02.624Z">
+<meta property="article:modified_time" content="2026-07-26T22:12:02.624Z">
 <meta property="article:author" content="采薇">
 <meta property="article:tag" content="PACE">
 <meta property="article:tag" content="hyperbolic-geometry">
@@ -231,8 +231,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-07-26 15:26" pubdate>
-          2026年7月26日 下午
+        <time datetime="2026-07-27 06:12" pubdate>
+          2026年7月27日 早上
         </time>
       </span>
     
@@ -243,7 +243,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.5k 字
+          4.6k 字
         
       </span>
     
@@ -254,7 +254,7 @@
         
         
         
-          38 分钟
+          39 分钟
         
       </span>
     
@@ -689,7 +689,9 @@
 </ol>
 </blockquote>
 <p>$Proof.$<br>以下 $0,1\in \mathbb{F}_2$<br>$(2\implies1)$ 令 $c: V(\tilde Q) \to  \mathbb{F}_2$ 为着色映射, $c(v,i+1)&#x3D;c(v,i)+1$. 对 $(u,i)\sim (v,j)\in \tilde Q$, $c( u,i)&#x3D;c( v,j)+1$.<br>对圈 $\gamma&#x3D;v_1\sim\dots v_k\sim v_1\in Q$, 提升到 $\tilde\gamma&#x3D;(v_1,i_1)\sim \dots (v_k,i_k)\sim (v_1,i_{k+1})$, $c(v_1,i_{k+1})&#x3D;k+c(v_1,i_1)$. 若 $k$ 为奇数, $i_{k+1}&#x3D;i_1+1$, 则 $\gamma$ orientation-reversing. 若 $k$ 为偶数, $i_{k+1}&#x3D;i_1$, 则 $\gamma$ orientation-preserving.<br>$(1\implies2)$ 对 $\tilde Q$ 中的圈 $\tilde\gamma&#x3D;(v_1,i_1)\sim \dots\sim (v_1,i_{1})$, 即使中间通过奇数步到 $(v_1,i_1+1)$ 也需要再花奇数步回到 $(v_1,i_{1})$. 因为 $(v,i)$ 到 $(v,i+1)$ 要经过奇数步, 因此颜色不同.<br>$\blacksquare$</p>
-<p>我把 存在 $S$ 使上述条件成立的 $Q$ 称为 quasi-bipartite quadrangulation<br>在 quadrangulation 中同伦道路的奇偶性相同，因此检查生成元就够了</p>
+<p>我把 存在 $S$ 使上述条件成立的 $Q$ 称为 quasi-bipartite quadrangulation</p>
+<p>~  同调代数<br>$c:C^0(Q,\mathbb{F}_2)$ 是一个二染色当且仅当 $c$ 是闭的, 即 $\operatorname{d}!c&#x3D;0$<br>$\lambda:H^1(Q,\mathbb{F}_2):&#x3D; [\gamma]\mapsto |\gamma|+\mathbb{F}_2$ 是良定义的<br>在 quadrangulation 中同伦道路的奇偶性相同，因此检查生成元就够了<br>令 $w_1$ 为第一 Stiefel-Whitney class, 令 $\Omega&#x3D;\lambda+w_1$, 则满足 quasi-bipartite 的条件当且仅当 $\Omega&#x3D;0$.</p>
+<p>~ 群展示理论</p>
 <blockquote>
 <p>[!lemma]<br>对于quasi-bipartite graph $Q$,<br>$$</p>
 </blockquote>
@@ -725,10 +727,14 @@
 <p>关于更多的例子，可以考虑在不可定向曲面上造命题</p>
 <p>或者对已有的 tiling 看成一个二重覆盖</p>
 <h4 id="Euler-Genus"><a href="#Euler-Genus" class="headerlink" title="Euler Genus"></a>Euler Genus</h4><p>这里应该可以参照张老师的论文给一个刻画</p>
+<blockquote>
+<p>[!definition]<br>$\operatorname{sql}^{odd}_{G,\varepsilon}(\gamma):&#x3D;\min\set{l\mid \gamma &#x3D; g_1^2\dots g_l^2,\epsilon(g_i)&#x3D;1}$</p>
+</blockquote>
 <p>或许还是分类讨论好一些, genus 或许无法表达所有信息</p>
 <blockquote>
-<p>[!theorem]<br>$$<br>\operatorname{eg}_{\mathrm{pol}}(I) &#x3D; \operatorname{ql}_{(G_I,\varepsilon_I)}(\delta_I)<br>$$</p>
+<p>[!theorem]<br>$\operatorname{sql}^{odd}_{G_I,\varepsilon_I}(\delta_I)&#x3D;eg_{el}(I)$</p>
 </blockquote>
+<p>%%<br>$$<br>\operatorname{eg}_{\mathrm{pol}}(I) &#x3D; \operatorname{ql}_{(G_I,\varepsilon_I)}(\delta_I)<br>$$ %%</p>
 <h3 id="From-Aspect-of-Cayley-Klein-Geometry"><a href="#From-Aspect-of-Cayley-Klein-Geometry" class="headerlink" title="From Aspect of Cayley-Klein Geometry"></a>From Aspect of Cayley-Klein Geometry</h3><blockquote>
 <p>[!proposition]<br>$\chi_\beta(A,B;C,D)&#x3D;1\implies AB\perp_\beta CD$</p>
 </blockquote>
@@ -798,7 +804,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年7月26日</div>
+          <div>2026年7月27日</div>
         </div>
       
       
