@@ -19,21 +19,21 @@
   <meta name="author" content="采薇">
   <meta name="keywords" content="">
   
-    <meta name="description" content="理解1234567void dfs(int step)&#123;	判断边界	尝试每一种可能 for(i&#x3D;1;i&lt;&#x3D;n;i++)&#123;		继续下一步 dfs(step+1)		&#125;	返回&#125;  Kosaraju算法第一次 DFS 的完成时间给 SCC 间的“凝聚图（DAG）”提供了一个拓扑序的反向顺序；第二次在转置图上，只要按这个序遍历，每次启动 DFS 都会落在某个“">
+    <meta name="description" content="原本叫业, 但其实佛教中的业更强调因果, 接近于执念的后果与[[《心经》|佛家]]不同,存粹但执念 最主要最纯粹的执念叫使命 or 宿命 无从逃避放不下 &lt;-&gt;sant&#x2F;dreamer&#x2F;outer&#x2F;区别在于向内外寻找:听从你的内心&#x2F;保持那一份热爱热爱但能放下&#x2F;[[采薇]] abyssarsurvivor&#x2F;sant其实survi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="深度优先算法">
-<meta property="og:url" content="http://kaelvio.com/%E6%B7%B1%E5%BA%A6%E4%BC%98%E5%85%88%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:title" content="执念">
+<meta property="og:url" content="http://kaelvio.com/%E6%89%A7%E5%BF%B5/index.html">
 <meta property="og:site_name" content="采薇的博客">
-<meta property="og:description" content="理解1234567void dfs(int step)&#123;	判断边界	尝试每一种可能 for(i&#x3D;1;i&lt;&#x3D;n;i++)&#123;		继续下一步 dfs(step+1)		&#125;	返回&#125;  Kosaraju算法第一次 DFS 的完成时间给 SCC 间的“凝聚图（DAG）”提供了一个拓扑序的反向顺序；第二次在转置图上，只要按这个序遍历，每次启动 DFS 都会落在某个“">
+<meta property="og:description" content="原本叫业, 但其实佛教中的业更强调因果, 接近于执念的后果与[[《心经》|佛家]]不同,存粹但执念 最主要最纯粹的执念叫使命 or 宿命 无从逃避放不下 &lt;-&gt;sant&#x2F;dreamer&#x2F;outer&#x2F;区别在于向内外寻找:听从你的内心&#x2F;保持那一份热爱热爱但能放下&#x2F;[[采薇]] abyssarsurvivor&#x2F;sant其实survi">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-05-21T13:15:43.558Z">
-<meta property="article:modified_time" content="2026-05-21T13:15:43.558Z">
+<meta property="article:published_time" content="2026-08-12T01:22:54.814Z">
+<meta property="article:modified_time" content="2026-08-12T01:22:54.814Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>深度优先算法 - 采薇的博客</title>
+  <title>执念 - 采薇的博客</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -211,7 +211,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="深度优先算法"></span>
+            <span id="subtitle" data-typed-text="执念"></span>
           
         </div>
 
@@ -222,8 +222,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-05-21 21:15" pubdate>
-          2026年5月21日 晚上
+        <time datetime="2026-08-12 09:22" pubdate>
+          2026年8月12日 上午
         </time>
       </span>
     
@@ -234,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          210 字
+          111 字
         
       </span>
     
@@ -245,7 +245,7 @@
         
         
         
-          2 分钟
+          1 分钟
         
       </span>
     
@@ -282,18 +282,15 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">深度优先算法</h1>
+            <h1 id="seo-header">执念</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="理解"><a href="#理解" class="headerlink" title="理解"></a>理解</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs cpp"><span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">dfs</span><span class="hljs-params">(<span class="hljs-type">int</span> step)</span></span>&#123;<br>	判断边界<br>	尝试每一种可能 <span class="hljs-keyword">for</span>(i=<span class="hljs-number">1</span>;i&lt;=n;i++)&#123;<br>		继续下一步 <span class="hljs-built_in">dfs</span>(step<span class="hljs-number">+1</span>)<br>		&#125;<br>	返回<br>&#125;<br></code></pre></td></tr></table></figure>
-
-<h1 id="Kosaraju算法"><a href="#Kosaraju算法" class="headerlink" title="Kosaraju算法"></a>Kosaraju算法</h1><p>第一次 DFS 的完成时间给 SCC 间的“凝聚图（DAG）”提供了一个拓扑序的反向顺序；第二次在转置图上，只要按这个序遍历，每次启动 DFS 都会落在某个“尚未提取的源 SCC”（在转置图中是源），从而恰好把它整个拿下。</p>
-<ul>
-<li>不保证“同一 SCC 的节点在栈中是连续块”。</li>
-<li>但保证“跨 SCC 的相对先后”符合凝聚图的偏序：若存在 C1 -&gt; C2（C1、C2 是不同 SCC），则 C2 中至少有一个节点的完成时间晚于 C1 中所有节点；因此在按完成时间降序的顺序中，C2 整体不会被 C1 打散到前面。</li>
-</ul>
+                <p>原本叫业, 但其实佛教中的业更强调因果, 接近于执念的后果<br>与[[《心经》|佛家]]不同,存粹但执念</p>
+<p>最主要最纯粹的执念叫使命 or 宿命</p>
+<p>无从逃避<br>放不下</p>
+<p>&lt;-&gt;<br>sant&#x2F;dreamer&#x2F;outer<br>&#x2F;区别在于向内外寻找:听从你的内心&#x2F;保持那一份热爱<br>热爱但能放下<br>&#x2F;[[采薇]] abyssar<br>survivor&#x2F;sant<br>其实survivor和sant也有相似之处</p>
 
                 
               </div>
@@ -311,8 +308,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>深度优先算法</div>
-      <div>http://kaelvio.com/深度优先算法/</div>
+      <div>执念</div>
+      <div>http://kaelvio.com/执念/</div>
     </div>
     <div class="license-meta">
       
@@ -324,7 +321,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年5月21日</div>
+          <div>2026年8月12日</div>
         </div>
       
       
@@ -368,18 +365,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E7%9F%A5%E8%AF%86/" title="知识">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">知识</span>
-                        <span class="visible-mobile">上一篇</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="正则表达式">
-                        <span class="hidden-mobile">正则表达式</span>
+                      <a href="/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA/" title="群表示论">
+                        <span class="hidden-mobile">群表示论</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -402,7 +393,7 @@
         var options = Object.assign(
           {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
           {
-            id: '1e3cf5025cb62ba076279c92578b4c51'
+            id: '1e93f2a17d0b9e22250951fb001812e7'
           }
         )
         var gitalk = new Gitalk(options);
