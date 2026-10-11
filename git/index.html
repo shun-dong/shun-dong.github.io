@@ -19,15 +19,15 @@
   <meta name="author" content="采薇">
   <meta name="keywords" content="">
   
-    <meta name="description" content=".git 目录结构git init 初始化仓库, 建立.git 【原理解析】让你完全搞明白Git是如何管理你的代码的】git:快照,相同的留链接 :分布式版本管理&lt;-&gt;集中:增量式工作区$\xrightarrow{add}$暂存区$\xrightarrow{commit}$代码仓库 .git一种扁平结构:内容与结构分开储存, 思路与我的obsidian类似  blob,标题:哈希值,内">
+    <meta name="description" content=".git 目录结构git init 初始化仓库, 建立.git 【原理解析】让你完全搞明白Git是如何管理你的代码的】git:快照,相同的留链接 :分布式版本管理&lt;-&gt;集中:增量式工作区$&#92;xrightarrow&#123;add&#125;$暂存区$&#92;xrightarrow&#123;commit&#125;$代码仓库 .git一种扁平结构:内容与结构分开储存, 思路">
 <meta property="og:type" content="article">
 <meta property="og:title" content="git">
 <meta property="og:url" content="http://kaelvio.com/git/index.html">
 <meta property="og:site_name" content="采薇的博客">
-<meta property="og:description" content=".git 目录结构git init 初始化仓库, 建立.git 【原理解析】让你完全搞明白Git是如何管理你的代码的】git:快照,相同的留链接 :分布式版本管理&lt;-&gt;集中:增量式工作区$\xrightarrow{add}$暂存区$\xrightarrow{commit}$代码仓库 .git一种扁平结构:内容与结构分开储存, 思路与我的obsidian类似  blob,标题:哈希值,内">
+<meta property="og:description" content=".git 目录结构git init 初始化仓库, 建立.git 【原理解析】让你完全搞明白Git是如何管理你的代码的】git:快照,相同的留链接 :分布式版本管理&lt;-&gt;集中:增量式工作区$&#92;xrightarrow&#123;add&#125;$暂存区$&#92;xrightarrow&#123;commit&#125;$代码仓库 .git一种扁平结构:内容与结构分开储存, 思路">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-07-13T00:13:57.695Z">
-<meta property="article:modified_time" content="2026-07-13T00:13:57.695Z">
+<meta property="article:published_time" content="2026-10-11T10:28:38.200Z">
+<meta property="article:modified_time" content="2026-10-11T10:28:38.200Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -222,8 +222,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-07-13 08:13" pubdate>
-          2026年7月13日 早上
+        <time datetime="2026-10-11 18:28" pubdate>
+          2026年10月11日 晚上
         </time>
       </span>
     
@@ -288,14 +288,14 @@
               <div class="markdown-body">
                 
                 <h1 id="git-目录结构"><a href="#git-目录结构" class="headerlink" title=".git 目录结构"></a>.git 目录结构</h1><p>git init 初始化仓库, 建立.git</p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11z4y1X79p/?share_source=copy_web&vd_source=55f83207e6b9bcb77f93e22aac3e082a">【原理解析】让你完全搞明白Git是如何管理你的代码的】</a><br>git:快照,相同的留链接 :分布式版本管理&lt;-&gt;集中:增量式<br>工作区$\xrightarrow{add}$暂存区$\xrightarrow{commit}$代码仓库</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV11z4y1X79p/?share_source=copy_web&vd_source=55f83207e6b9bcb77f93e22aac3e082a">【原理解析】让你完全搞明白Git是如何管理你的代码的】</a><br>git:快照,相同的留链接 :分布式版本管理&lt;-&gt;集中:增量式<br>工作区$&#92;xrightarrow&#123;add&#125;$暂存区$&#92;xrightarrow&#123;commit&#125;$代码仓库</p>
 <p>.git一种扁平结构:内容与结构分开储存, 思路与我的obsidian类似</p>
 <ul>
 <li>blob,标题:哈希值,内容:代码内容, 避免内容重复的文件占用空间</li>
 <li>tree,类似目录记录文件结构, 包含标题哈希值对应的文件标题</li>
 <li>commit, 记录版本提交信息, 包含tree、作者、前一次提交</li>
 </ul>
-<p>git add生成blob,更新暂存区tree<br>git commit生成快照(commit文件) -a先add，相当于先执行git add -u（-u&#x3D;–update更新已跟踪文件）<br>untracked$\xrightarrow{add<del>.}$tracked(已跟踪)$\xrightarrow{修改}$unstaged$\xrightarrow{add</del>-u}$staged(已暂存) to be committed</p>
+<p>git add生成blob,更新暂存区tree<br>git commit生成快照(commit文件) -a先add，相当于先执行git add -u（-u&#x3D;–update更新已跟踪文件）<br>untracked$&#92;xrightarrow&#123;add&#126;.&#125;$tracked(已跟踪)$&#92;xrightarrow&#123;修改&#125;$unstaged$&#92;xrightarrow&#123;add&#126;&#45;u&#125;$staged(已暂存) to be committed</p>
 <p>git status检查当前状态<br>git log 历史提交</p>
 <h1 id="提交-commit"><a href="#提交-commit" class="headerlink" title="提交(commit)"></a>提交(commit)</h1><p>每个commit指向前一次commit</p>
 <p>提交规范:</p>
@@ -389,7 +389,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年7月13日</div>
+          <div>2026年10月11日</div>
         </div>
       
       
@@ -433,9 +433,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E5%9B%BE%E8%AE%BA/" title="图论">
+                      <a href="/Haskell/" title="Haskell">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">图论</span>
+                        <span class="hidden-mobile">Haskell</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -443,8 +443,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E4%BB%A3%E6%95%B0%E5%87%A0%E4%BD%95/" title="代数几何">
-                        <span class="hidden-mobile">代数几何</span>
+                      <a href="/fu_language/" title="fu_language">
+                        <span class="hidden-mobile">fu_language</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -768,7 +768,23 @@
       </script>
     
 
-  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+  <script id="mathjax-mathtools">
+(function () {
+  var math = window.MathJax;
+  if (!math || (math.startup && math.startup.document)) return;
+  math.loader = math.loader || {};
+  math.loader.load = Array.from(new Set((math.loader.load || []).concat('[tex]/mathtools')));
+  math.tex = math.tex || {};
+  var packages = math.tex.packages;
+  if (Array.isArray(packages)) {
+    math.tex.packages = Array.from(new Set(packages.concat('mathtools')));
+  } else {
+    packages = math.tex.packages = packages || {};
+    packages['[+]'] = Array.from(new Set((packages['[+]'] || []).concat('mathtools')));
+  }
+})();
+</script>
+<script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

@@ -19,20 +19,22 @@
   <meta name="author" content="采薇">
   <meta name="keywords" content="">
   
-    <meta name="description" content="理解 环论环（ring）是具有加法和乘法两种二元运算的结构，满足结合律，分配律等习见的运算法则，然而不要求乘法交换。交换环的根本例子是整数环 $\mathbb{Z}$。推而广之，在数论中，任意一个代数数域中的代数整数皆对加法和乘法构成交换环；正是在这个脉络下，Hilbert 于 1897 年出版的《数论报告》（Zahlbericht）中首次引进了环的术语，其原文是德文 der Zahlring，即">
+    <meta name="description" content="理解 环论环（ring）是具有加法和乘法两种二元运算的结构，满足结合律，分配律等习见的运算法则，然而不要求乘法交换。交换环的根本例子是整数环 $&#92;mathbb&#123;Z&#125;$。推而广之，在数论中，任意一个代数数域中的代数整数皆对加法和乘法构成交换环；正是在这个脉络下，Hilbert 于 1897 年出版的《数论报告》（Zahlbericht）中首次引进了环的术语，其原文是德文">
 <meta property="og:type" content="article">
 <meta property="og:title" content="环论">
 <meta property="og:url" content="http://kaelvio.com/%E7%8E%AF%E8%AE%BA/index.html">
 <meta property="og:site_name" content="采薇的博客">
-<meta property="og:description" content="理解 环论环（ring）是具有加法和乘法两种二元运算的结构，满足结合律，分配律等习见的运算法则，然而不要求乘法交换。交换环的根本例子是整数环 $\mathbb{Z}$。推而广之，在数论中，任意一个代数数域中的代数整数皆对加法和乘法构成交换环；正是在这个脉络下，Hilbert 于 1897 年出版的《数论报告》（Zahlbericht）中首次引进了环的术语，其原文是德文 der Zahlring，即">
+<meta property="og:description" content="理解 环论环（ring）是具有加法和乘法两种二元运算的结构，满足结合律，分配律等习见的运算法则，然而不要求乘法交换。交换环的根本例子是整数环 $&#92;mathbb&#123;Z&#125;$。推而广之，在数论中，任意一个代数数域中的代数整数皆对加法和乘法构成交换环；正是在这个脉络下，Hilbert 于 1897 年出版的《数论报告》（Zahlbericht）中首次引进了环的术语，其原文是德文">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-06-28T07:57:18.509Z">
-<meta property="article:modified_time" content="2026-06-28T07:57:18.509Z">
+<meta property="og:image" content="http://kaelvio.com/images/tikzcd-20260620-230818-272.svg">
+<meta property="article:published_time" content="2026-10-11T10:28:39.758Z">
+<meta property="article:modified_time" content="2026-10-11T10:28:39.758Z">
 <meta property="article:author" content="采薇">
 <meta property="article:tag" content="代数学方法">
 <meta property="article:tag" content="vol-1">
 <meta property="article:tag" content="环论">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://kaelvio.com/images/tikzcd-20260620-230818-272.svg">
   
   
   
@@ -225,8 +227,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-06-28 15:57" pubdate>
-          2026年6月28日 下午
+        <time datetime="2026-10-11 18:28" pubdate>
+          2026年10月11日 晚上
         </time>
       </span>
     
@@ -237,7 +239,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          11k 字
+          16k 字
         
       </span>
     
@@ -248,7 +250,7 @@
         
         
         
-          95 分钟
+          131 分钟
         
       </span>
     
@@ -290,120 +292,113 @@
             
               <div class="markdown-body">
                 
-                <h2 id="理解-环论"><a href="#理解-环论" class="headerlink" title="理解 环论"></a>理解 环论</h2><p>环（ring）是具有加法和乘法两种二元运算的结构，满足结合律，分配律等习见的运算法则，然而不要求乘法交换。交换环的根本例子是整数环 $\mathbb{Z}$。推而广之，在数论中，任意一个代数数域中的代数整数皆对加法和乘法构成交换环；正是在这个脉络下，Hilbert 于 1897 年出版的《数论报告》（<em>Zahlbericht</em>）中首次引进了环的术语，其原文是德文 <em>der Zahlring</em>，即”数环”。非交换环的根本例子是域上的 $n \times n$-矩阵环，譬如 $n \times n$-实矩阵环 $M_n(\mathbb{R})$。综之，环结构在数学中的份量一目了然。</p>
+                <h2 id="理解-环论"><a href="#理解-环论" class="headerlink" title="理解 环论"></a>理解 环论</h2><p>环（ring）是具有加法和乘法两种二元运算的结构，满足结合律，分配律等习见的运算法则，然而不要求乘法交换。交换环的根本例子是整数环 $&#92;mathbb&#123;Z&#125;$。推而广之，在数论中，任意一个代数数域中的代数整数皆对加法和乘法构成交换环；正是在这个脉络下，Hilbert 于 1897 年出版的《数论报告》（<em>Zahlbericht</em>）中首次引进了环的术语，其原文是德文 <em>der Zahlring</em>，即”数环”。非交换环的根本例子是域上的 $n &#92;times n$-矩阵环，譬如 $n &#92;times n$-实矩阵环 $M&#95;n&#40;&#92;mathbb&#123;R&#125;&#41;$。综之，环结构在数学中的份量一目了然。</p>
 <p>交换环与非交换环无论在性质或研究视角上都有明显差异，域和除环又各有其独特的方法论，必须各辟专章讨论。本章目的仅是铺陈共通的基本概念，并间杂以具体的经典结果，如：Wedderburn 小定理 [[#^prop-Wedderburn-little-thm]]，唯一分解性 §[[#^sec-UFD]] 以及对称多项式的初步理论 §[[#^sec-symmetric-poly]]；这些结果还会在后续章节登场。</p>
-<p>如不另作说明，我们仅考虑含幺元的环，而且一般假设环 $\neq {0}$。为了避免悖论，论及环范畴 $\mathsf{Ring}$ 时我们仍沿用约定 [[范畴论基础#^con-U-small]]，假定所论的环在集合论意义下都是”小”的。</p>
+<p>如不另作说明，我们仅考虑含幺元的环，而且一般假设环 $&#92;neq &#92;&#123;0&#92;&#125;$。为了避免悖论，论及环范畴 $&#92;mathsf&#123;Ring&#125;$ 时我们仍沿用约定 [[范畴论基础#^con-U-small]]，假定所论的环在集合论意义下都是”小”的。</p>
 <blockquote>
 <p>[!remark] 温馨体示<br>本章内容较偏于形式面向，着眼于为后继章节搭建合适的框架，前半部内容在一般的抽象代数课程多有涉及。在 §[[#^sec-Mobius]] 介绍 Möbius 反演（Möbius inversion）有双重目的，一是顾及未熟悉经典 Möbius 反演公式的读者，二是说明环论语言对计数组合学的应用；习题中还会提供进一步的例子。</p>
 <p>对称多项式也是大学数学课程常涉及的内容，我们在 §[[#^sec-symmetric-poly]] 引进的 Young 图处理手法<strong>既非最快也不是最简单的</strong>，其用意是介绍一套应用范围更广的思考模式。</p>
 </blockquote>
 <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>环是一种具备加，减与乘法运算的代数结构，亦可视为叠架在一个交换群(运算写作加法)上的乘法结构，后一观点在理论上往往更为便利。</p>
 <blockquote>
-<p>[!definition] 环（ring）<br>(含幺)<em>环</em>是一组资料 $(R, +, \cdot)$，其中</p>
+<p>[!definition] 环（ring）<br>(含幺)<em>环</em>是一组资料 $&#40;R, &#43;, &#92;cdot&#41;$，其中</p>
 <ol>
-<li>$(R, +)$ 是交换群，二元运算用加法符号记作 $(a,b) \mapsto a+b$，加法幺元记为 $0$，称之为 $R$ 的加法群；</li>
-<li>乘法运算 $\cdot: R \times R \to R$ 简记为 $a \cdot b &#x3D; ab$，满足下述性质：对所有 $a, b, c \in R$，<ul>
-<li>$a(b+c) &#x3D; ab+ac$，$(b+c)a &#x3D; ba + ca$（分配律，或曰双线性），</li>
-<li>$a(bc) &#x3D; (ab)c$（乘法结合律）；</li>
+<li>$&#40;R, &#43;&#41;$ 是交换群，二元运算用加法符号记作 $&#40;a,b&#41; &#92;mapsto a&#43;b$，加法幺元记为 $0$，称之为 $R$ 的加法群；</li>
+<li>乘法运算 $&#92;cdot: R &#92;times R &#92;to R$ 简记为 $a &#92;cdot b &#61; ab$，满足下述性质：对所有 $a, b, c &#92;in R$，<ul>
+<li>$a&#40;b&#43;c&#41; &#61; ab&#43;ac$，$&#40;b&#43;c&#41;a &#61; ba &#43; ca$（分配律，或曰双线性），</li>
+<li>$a&#40;bc&#41; &#61; &#40;ab&#41;c$（乘法结合律）；</li>
 </ul>
 </li>
-<li>存在元素 $1 \in R$ 使得对所有 $a \in R$ 皆有 $a \cdot 1 &#x3D; a &#x3D; 1 \cdot a$，称作 $R$ 的(乘法)幺元。</li>
+<li>存在元素 $1 &#92;in R$ 使得对所有 $a &#92;in R$ 皆有 $a &#92;cdot 1 &#61; a &#61; 1 &#92;cdot a$，称作 $R$ 的(乘法)幺元。</li>
 </ol>
-<p>除去和幺元相关性质得到的 $(R, +, \cdot)$ 称作无幺环（rng）。若子集 $S \subset R$ 对 $(+, \cdot)$ 也构成环，并且和 $R$ 共用同样的乘法幺元 $1$，则称 $S$ 为 $R$ 的子环（subring），或称 $R$ 是 $S$ 的环扩张或扩环（ring extension）。</p>
+<p>除去和幺元相关性质得到的 $&#40;R, &#43;, &#92;cdot&#41;$ 称作无幺环（rng）。若子集 $S &#92;subset R$ 对 $&#40;&#43;, &#92;cdot&#41;$ 也构成环，并且和 $R$ 共用同样的乘法幺元 $1$，则称 $S$ 为 $R$ 的子环（subring），或称 $R$ 是 $S$ 的环扩张或扩环（ring extension）。</p>
 </blockquote>
 <p>^def-ring</p>
-<p>以上定义蕴涵了 $(R, \cdot)$ 构成幺半群，故幺元 $1$ 是唯一的，必要时标注为 $1_R$。子环 $S \subset R$ 的定义相当于说 $(S, +)$ 为子群而 $(S, \cdot)$ 为子幺半群。左乘映射 $b \mapsto ab$ 对每个 $a \in R$ 都是加法群 $(R, +)$ 的自同态，故环论公理蕴涵 $a \cdot 0 &#x3D; 0$；同理 $0 \cdot a &#x3D; 0$。此外，$(-1)a + a &#x3D; (-1 + 1) a &#x3D; 0$ 蕴涵 $(-1)a &#x3D; -a$；同理 $a(-1) &#x3D; -a$。</p>
-<p>留意到满足 $1&#x3D;0$ 的环只有一个元素 $0$，称作<em>零环</em>（zero ring）。本章如不另作说明，环皆指非零的含幺环，并将 $(R, +, \cdot)$ 简记为 $R$，其中对乘法可逆的元素全体记为 $R^\times$；这和先前关于幺半群中可逆元的符号是一致的。</p>
+<p>以上定义蕴涵了 $&#40;R, &#92;cdot&#41;$ 构成幺半群，故幺元 $1$ 是唯一的，必要时标注为 $1&#95;R$。子环 $S &#92;subset R$ 的定义相当于说 $&#40;S, &#43;&#41;$ 为子群而 $&#40;S, &#92;cdot&#41;$ 为子幺半群。左乘映射 $b &#92;mapsto ab$ 对每个 $a &#92;in R$ 都是加法群 $&#40;R, &#43;&#41;$ 的自同态，故环论公理蕴涵 $a &#92;cdot 0 &#61; 0$；同理 $0 &#92;cdot a &#61; 0$。此外，$&#40;&#45;1&#41;a &#43; a &#61; &#40;&#45;1 &#43; 1&#41; a &#61; 0$ 蕴涵 $&#40;&#45;1&#41;a &#61; &#45;a$；同理 $a&#40;&#45;1&#41; &#61; &#45;a$。</p>
+<p>留意到满足 $1&#61;0$ 的环只有一个元素 $0$，称作<em>零环</em>（zero ring）。本章如不另作说明，环皆指非零的含幺环，并将 $&#40;R, &#43;, &#92;cdot&#41;$ 简记为 $R$，其中对乘法可逆的元素全体记为 $R^&#92;times$；这和先前关于幺半群中可逆元的符号是一致的。</p>
 <blockquote>
-<p>[!definition] 相反环（opposite ring）<br>设 $R$ 为环，定义其相反环 $R^\text{op} &#x3D; (R, +, \odot)$，其中仅乘法运算 $\odot$ 改为<br>$$<br> a \odot b :&#x3D; ba, \quad a, b \in R.<br>$$<br>若 $R^\text{op}&#x3D;R$（即：$ab&#x3D;ba$ 恒成立），则 $R$ 称为<em>交换环</em>（commutative ring）。</p>
+<p>[!definition] 相反环（opposite ring）<br>设 $R$ 为环，定义其相反环 $R^&#92;text&#123;op&#125; &#61; &#40;R, &#43;, &#92;odot&#41;$，其中仅乘法运算 $&#92;odot$ 改为<br>$$ a &#92;odot b :&#61; ba, &#92;quad a, b &#92;in R. $$<br>若 $R^&#92;text&#123;op&#125;&#61;R$（即：$ab&#61;ba$ 恒成立），则 $R$ 称为<em>交换环</em>（commutative ring）。</p>
 </blockquote>
 <p>^def-opposite-ring</p>
 <blockquote>
-<p>[!definition] 环同态（ring homomorphism）<br>设 $R, S$ 为环，映射 $\varphi: R \to S$ 若满足下列条件则称为环同态：对所有 $a, b \in R$</p>
+<p>[!definition] 环同态（ring homomorphism）<br>设 $R, S$ 为环，映射 $&#92;varphi: R &#92;to S$ 若满足下列条件则称为环同态：对所有 $a, b &#92;in R$</p>
 <ul>
-<li>$\varphi(a+b) &#x3D; \varphi(a)+\varphi(b)$，这相当于说 $\varphi$ 是加法群的同态；</li>
-<li>$\varphi(ab)&#x3D;\varphi(a)\varphi(b)$；</li>
-<li>$\varphi(1_R) &#x3D; 1_S$，以上两条相当于说 $\varphi$ 是乘法幺半群的同态。</li>
+<li>$&#92;varphi&#40;a&#43;b&#41; &#61; &#92;varphi&#40;a&#41;&#43;&#92;varphi&#40;b&#41;$，这相当于说 $&#92;varphi$ 是加法群的同态；</li>
+<li>$&#92;varphi&#40;ab&#41;&#61;&#92;varphi&#40;a&#41;&#92;varphi&#40;b&#41;$；</li>
+<li>$&#92;varphi&#40;1&#95;R&#41; &#61; 1&#95;S$，以上两条相当于说 $&#92;varphi$ 是乘法幺半群的同态。</li>
 </ul>
-<p>如去掉与 $1_R$，$1_S$ 相关的条件，就得到无幺环之间的同态概念。</p>
+<p>如去掉与 $1&#95;R$，$1&#95;S$ 相关的条件，就得到无幺环之间的同态概念。</p>
 </blockquote>
 <p>^def-ring-homomorphism</p>
 <p>由此可导出环的同构（即可逆同态），自同态，自同构等概念，与 §[[范畴论基础#^sec-cat-and-morphism]] 探讨范畴论时同一套路，不再赘述。</p>
-<p>一个同态 $\varphi$ 是同构当且仅当它是双射，$\varphi$ 的像 $\operatorname{im}(\varphi)$ 是 $S$ 的子环。对环同态依然有<em>核</em> $\operatorname{ker}(\varphi) :&#x3D; \varphi^{-1}(0)$ 的概念，我们马上会看到同态的核无非是环的双边理想（two-sided ideal）。</p>
+<p>一个同态 $&#92;varphi$ 是同构当且仅当它是双射，$&#92;varphi$ 的像 $&#92;operatorname&#123;im&#125;&#40;&#92;varphi&#41;$ 是 $S$ 的子环。对环同态依然有<em>核</em> $&#92;operatorname&#123;ker&#125;&#40;&#92;varphi&#41; :&#61; &#92;varphi^&#123;&#45;1&#125;&#40;0&#41;$ 的概念，我们马上会看到同态的核无非是环的双边理想（two-sided ideal）。</p>
 <blockquote>
-<p>[!example] 矩阵环（matrix ring）<br>非交换环的基本例子是矩阵环：设 $n \in \mathbb{Z}_{\geq 1}$ 而 $R$ 为环，定义矩阵环 $M_n(R)$ 使其元素为 $n \times n$ 阶矩阵<br>$$<br> (a_{ij})_{1 \leq i,j \leq n} &#x3D; \begin{pmatrix}<br>    a_{11} &amp; \cdots &amp; a_{1n} \<br>    \vdots &amp; &amp; \vdots \<br>    a_{n1} &amp; \cdots &amp; a_{nn}<br>\end{pmatrix}, \quad \forall i,j,; a_{ij} \in R<br>$$<br>加法，乘法定义为习见的矩阵运算；注意到这里不要求 $R$ 交换。矩阵环的幺元是<br>$$<br> 1 &#x3D; \left( \begin{smallmatrix} 1_R &amp; &amp; \ &amp; \ddots &amp; \ &amp; &amp; 1_R \end{smallmatrix} \right).<br>$$</p>
+<p>[!example] 矩阵环（matrix ring）<br>非交换环的基本例子是矩阵环：设 $n &#92;in &#92;mathbb&#123;Z&#125;&#95;&#123;&#92;geq 1&#125;$ 而 $R$ 为环，定义矩阵环 $M&#95;n&#40;R&#41;$ 使其元素为 $n &#92;times n$ 阶矩阵<br>$$ &#40;a&#95;&#123;ij&#125;&#41;&#95;&#123;1 &#92;leq i,j &#92;leq n&#125; &#61; &#92;begin&#123;pmatrix&#125;&#10;    a&#95;&#123;11&#125; &#38; &#92;cdots &#38; a&#95;&#123;1n&#125; &#92;&#92;&#10;    &#92;vdots &#38; &#38; &#92;vdots &#92;&#92;&#10;    a&#95;&#123;n1&#125; &#38; &#92;cdots &#38; a&#95;&#123;nn&#125;&#10;&#92;end&#123;pmatrix&#125;, &#92;quad &#92;forall i,j,&#92;; a&#95;&#123;ij&#125; &#92;in R $$<br>加法，乘法定义为习见的矩阵运算；注意到这里不要求 $R$ 交换。矩阵环的幺元是<br>$$ 1 &#61; &#92;left&#40; &#92;begin&#123;smallmatrix&#125; 1&#95;R &#38; &#38; &#92;&#92; &#38; &#92;ddots &#38; &#92;&#92; &#38; &#38; 1&#95;R &#92;end&#123;smallmatrix&#125; &#92;right&#41;. $$</p>
 </blockquote>
 <p>^eg-matrix-ring</p>
 <blockquote>
-<p>[!example] 自同态环（endomorphism ring）<br>设 $(A, +)$ 为交换群，则 $A$ 的自同态集 $\operatorname{End}(A)$ 具有自然的环结构：自同态的合成给出乘法 $\phi \psi &#x3D; \phi \circ \psi$，其中 $\phi, \psi \in \operatorname{End}(A)$，而加法可以”逐点地”定义成<br>$$<br> \phi + \psi: a \longmapsto \phi(a) + \psi(a).<br>$$<br>容易验证这使 $(\operatorname{End}(A), +, \cdot)$ 成环，幺元是 $\mathrm{id}_A$。</p>
+<p>[!example] 自同态环（endomorphism ring）<br>设 $&#40;A, &#43;&#41;$ 为交换群，则 $A$ 的自同态集 $&#92;operatorname&#123;End&#125;&#40;A&#41;$ 具有自然的环结构：自同态的合成给出乘法 $&#92;phi &#92;psi &#61; &#92;phi &#92;circ &#92;psi$，其中 $&#92;phi, &#92;psi &#92;in &#92;operatorname&#123;End&#125;&#40;A&#41;$，而加法可以”逐点地”定义成<br>$$ &#92;phi &#43; &#92;psi: a &#92;longmapsto &#92;phi&#40;a&#41; &#43; &#92;psi&#40;a&#41;. $$<br>容易验证这使 $&#40;&#92;operatorname&#123;End&#125;&#40;A&#41;, &#43;, &#92;cdot&#41;$ 成环，幺元是 $&#92;mathrm&#123;id&#125;&#95;A$。</p>
 </blockquote>
 <p>^eg-End-ring</p>
-<p>接着考虑环的商。设 $R$ 为环，这里的思路和 §[[群论#^sec-homomorphism]] 类似：给定集合 $R$ 上的等价关系 $\sim$，试问在什么条件下能赋予 $R&#x2F;\sim$ 典范的环结构，使得商映射 $R \to R&#x2F;\sim$，$r \mapsto [r]$ 为环同态？环同态首先必是加法群的同态，因而等价关系由一个加法子群 $I \subset R$ 确定，使得对所有 $r, r’ \in R$ 有<br>$$<br> (r \sim r’) \iff (r-r’ \sim 0) \iff (r-r’ \in I).<br>$$</p>
-<p>现在计入乘法，$\sim$ 须满足条件<br>$$<br> (r \sim r’) \wedge (s \sim s’) \implies (rs \sim r’s’).<br>$$<br>由环的公理易知 $rs - r’s’ &#x3D; r(s-s’) + (r-r’)s’$。因此我们的条件化归为：$\forall r \in R$，有 $rI \subset I$，$Ir \subset I$；这里<br>$$<br> \begin{align*}<br>    rI &amp; :&#x3D; {ra : a \in I} \subset R, \<br>    Ir &amp; :&#x3D; {ar : a \in I} \subset R,<br>\end{align*}<br>$$<br>两者皆为 $R$ 的加法子群。事实上由 $R$ 含幺元可知以上条件等价于 $IR &#x3D; I &#x3D; RI$。于是我们提炼出以下定义。</p>
+<p>接着考虑环的商。设 $R$ 为环，这里的思路和 §[[群论#^sec-homomorphism]] 类似：给定集合 $R$ 上的等价关系 $&#92;sim$，试问在什么条件下能赋予 $R&#x2F;&#92;sim$ 典范的环结构，使得商映射 $R &#92;to R&#x2F;&#92;sim$，$r &#92;mapsto &#91;r&#93;$ 为环同态？环同态首先必是加法群的同态，因而等价关系由一个加法子群 $I &#92;subset R$ 确定，使得对所有 $r, r’ &#92;in R$ 有<br>$$ &#40;r &#92;sim r’&#41; &#92;iff &#40;r&#45;r’ &#92;sim 0&#41; &#92;iff &#40;r&#45;r’ &#92;in I&#41;. $$</p>
+<p>现在计入乘法，$&#92;sim$ 须满足条件<br>$$ &#40;r &#92;sim r’&#41; &#92;wedge &#40;s &#92;sim s’&#41; &#92;implies &#40;rs &#92;sim r’s’&#41;. $$<br>由环的公理易知 $rs &#45; r’s’ &#61; r&#40;s&#45;s’&#41; &#43; &#40;r&#45;r’&#41;s’$。因此我们的条件化归为：$&#92;forall r &#92;in R$，有 $rI &#92;subset I$，$Ir &#92;subset I$；这里<br>$$ &#92;begin&#123;align&#42;&#125;&#10;    rI &#38; :&#61; &#92;&#123;ra : a &#92;in I&#92;&#125; &#92;subset R, &#92;&#92;&#10;    Ir &#38; :&#61; &#92;&#123;ar : a &#92;in I&#92;&#125; &#92;subset R,&#10;&#92;end&#123;align&#42;&#125; $$<br>两者皆为 $R$ 的加法子群。事实上由 $R$ 含幺元可知以上条件等价于 $IR &#61; I &#61; RI$。于是我们提炼出以下定义。</p>
 <blockquote>
-<p>[!definition] 理想（ideal）<br>设 $R$ 为环，$I \subset R$ 为加法子群。<br>(i) 若对每个 $r \in R$ 皆有 $rI \subset I$，则称 $I$ 为 $R$ 的<em>左理想</em>（left ideal）；<br>(ii) 若对每个 $r \in R$ 皆有 $Ir \subset I$，则称 $I$ 为 $R$ 的<em>右理想</em>（right ideal）；<br>(iii) 若 $I$ 兼为左，右理想，则称作<em>双边理想</em>（two-sided ideal）。</p>
-<p>满足 $I \neq R$ 的左，右或双边理想称为真理想（proper ideal）。交换环的左，右理想不分，简称为理想。</p>
+<p>[!definition] 理想（ideal）<br>设 $R$ 为环，$I &#92;subset R$ 为加法子群。<br>(i) 若对每个 $r &#92;in R$ 皆有 $rI &#92;subset I$，则称 $I$ 为 $R$ 的<em>左理想</em>（left ideal）；<br>(ii) 若对每个 $r &#92;in R$ 皆有 $Ir &#92;subset I$，则称 $I$ 为 $R$ 的<em>右理想</em>（right ideal）；<br>(iii) 若 $I$ 兼为左，右理想，则称作<em>双边理想</em>（two-sided ideal）。</p>
+<p>满足 $I &#92;neq R$ 的左，右或双边理想称为真理想（proper ideal）。交换环的左，右理想不分，简称为理想。</p>
 </blockquote>
 <p>^def-ideals</p>
-<p>关于加法子群的前提可以放宽为 $I$ 对加法封闭且非空，因为 $(-1)r &#x3D; -r$。理想具有以下几种最简单的运算。</p>
+<p>关于加法子群的前提可以放宽为 $I$ 对加法封闭且非空，因为 $&#40;&#45;1&#41;r &#61; &#45;r$。理想具有以下几种最简单的运算。</p>
 <ul>
-<li>设 $I_1$，$I_2$ 为 $R$ 的左理想（或右理想，双边理想），则 $I_1 + I_2$ 与 $I_1 \cap I_2$ 亦然。推而广之，对于任意一族 $R$ 的左理想（或右理想，双边理想）${ I_t: t \in T }$，定义其和<br>$$<br> \sum_{t \in T} I_t :&#x3D; \left{ r_{t_1} + \cdots + r_{t_n} :<br>  \begin{array}{l}<br>  n \in \mathbb{Z}_{\geq 1}, ; t_1, \ldots, t_n \in T, \<br>  \forall 1 \leq j \leq n, ; r_{t_j} \in I_{t_j}<br>  \end{array} \right},<br>$$<br>对 $T &#x3D; \emptyset$ 约定空和为 ${0}$，则 $\sum_{t \in T} I_t$ 也是左理想（或右理想，双边理想）。同理，当 $T \neq \emptyset$ 时，类似断言对交 $\bigcap_{t \in T} I_t$ 也成立。</li>
-<li>对 $R$ 的任意子集 $S$，定义由 $S$ 生成的左理想（或右理想，双边理想）为包含 $S$ 的最小的左理想（或右理想，双边理想），即 $\bigcap_{I \supset S} I$，其中 $I$ 取遍左理想（或右理想，双边理想）。</li>
-<li>设 $I$ 为双边理想，$S$ 为<strong>子环</strong>，则 $S+I$ 亦为子环。</li>
-<li>设 $S$ 为<strong>子环</strong>，$I$ 在 $R$ 中为左理想（或右理想，双边理想，子环），则 $S \cap I$ 在 $\mathbf{S}$ 中为左理想（或右理想，双边理想，子环）。</li>
-<li>定义双边理想 $I$，$J$ 的积 $IJ$ 为由子集 ${xy : x \in I,; y \in J}$ 生成的理想，注意到 $IJ$ 的元素能表为这些 $xy$ 的和。积运算具有以下简单性质，<br>$$<br> \begin{gather*}<br>IJ \subset I \cap J \subset I+J, \<br>(\sum_{t \in T} I_t) J &#x3D; \sum_{t \in T} (I_t J), \quad J(\sum_{t \in T} I_t) &#x3D; \sum_{t \in T} J I_t, \<br>I(JK) &#x3D; (IJ)K.<br>\end{gather*}<br>$$<br>利用最后一条结合律，可定义有限多个理想的积 $I_1 \cdots I_n$；理想 $I$ 的幂次可递归地按 $I^0 &#x3D; R$ 和 $I^k &#x3D; I \cdot I^{k-1}$ 来定义，此处 $k \in \mathbb{Z}_{\geq 1}$。</li>
+<li>设 $I&#95;1$，$I&#95;2$ 为 $R$ 的左理想（或右理想，双边理想），则 $I&#95;1 &#43; I&#95;2$ 与 $I&#95;1 &#92;cap I&#95;2$ 亦然。推而广之，对于任意一族 $R$ 的左理想（或右理想，双边理想）$&#92;&#123; I&#95;t: t &#92;in T &#92;&#125;$，定义其和<br>$$ &#92;sum&#95;&#123;t &#92;in T&#125; I&#95;t :&#61; &#92;left&#92;&#123; r&#95;&#123;t&#95;1&#125; &#43; &#92;cdots &#43; r&#95;&#123;t&#95;n&#125; :&#10;    &#92;begin&#123;array&#125;&#123;l&#125;&#10;        n &#92;in &#92;mathbb&#123;Z&#125;&#95;&#123;&#92;geq 1&#125;, &#92;; t&#95;1, &#92;ldots, t&#95;n &#92;in T, &#92;&#92;&#10;        &#92;forall 1 &#92;leq j &#92;leq n, &#92;; r&#95;&#123;t&#95;j&#125; &#92;in I&#95;&#123;t&#95;j&#125;&#10;    &#92;end&#123;array&#125; &#92;right&#92;&#125;, $$<br>对 $T &#61; &#92;emptyset$ 约定空和为 $&#92;&#123;0&#92;&#125;$，则 $&#92;sum&#95;&#123;t &#92;in T&#125; I&#95;t$ 也是左理想（或右理想，双边理想）。同理，当 $T &#92;neq &#92;emptyset$ 时，类似断言对交 $&#92;bigcap&#95;&#123;t &#92;in T&#125; I&#95;t$ 也成立。</li>
+<li>对 $R$ 的任意子集 $S$，定义由 $S$ 生成的左理想（或右理想，双边理想）为包含 $S$ 的最小的左理想（或右理想，双边理想），即 $&#92;bigcap&#95;&#123;I &#92;supset S&#125; I$，其中 $I$ 取遍左理想（或右理想，双边理想）。</li>
+<li>设 $I$ 为双边理想，$S$ 为<strong>子环</strong>，则 $S&#43;I$ 亦为子环。</li>
+<li>设 $S$ 为<strong>子环</strong>，$I$ 在 $R$ 中为左理想（或右理想，双边理想，子环），则 $S &#92;cap I$ 在 $&#92;mathbf&#123;S&#125;$ 中为左理想（或右理想，双边理想，子环）。</li>
+<li>定义双边理想 $I$，$J$ 的积 $IJ$ 为由子集 $&#92;&#123;xy : x &#92;in I,&#92;; y &#92;in J&#92;&#125;$ 生成的理想，注意到 $IJ$ 的元素能表为这些 $xy$ 的和。积运算具有以下简单性质，<br>$$ &#92;begin&#123;gather&#42;&#125;&#10;      IJ &#92;subset I &#92;cap J &#92;subset I&#43;J, &#92;&#92;&#10;      &#40;&#92;sum&#95;&#123;t &#92;in T&#125; I&#95;t&#41; J &#61; &#92;sum&#95;&#123;t &#92;in T&#125; &#40;I&#95;t J&#41;, &#92;quad J&#40;&#92;sum&#95;&#123;t &#92;in T&#125; I&#95;t&#41; &#61; &#92;sum&#95;&#123;t &#92;in T&#125; J I&#95;t, &#92;&#92;&#10;      I&#40;JK&#41; &#61; &#40;IJ&#41;K.&#10;  &#92;end&#123;gather&#42;&#125; $$<br>利用最后一条结合律，可定义有限多个理想的积 $I&#95;1 &#92;cdots I&#95;n$；理想 $I$ 的幂次可递归地按 $I^0 &#61; R$ 和 $I^k &#61; I &#92;cdot I^&#123;k&#45;1&#125;$ 来定义，此处 $k &#92;in &#92;mathbb&#123;Z&#125;&#95;&#123;&#92;geq 1&#125;$。</li>
 </ul>
-<p>一般将有限个元素 $r_1, \ldots, r_n \in R$ 生成的双边理想记为 $\left\langle r_1, \ldots, r_n \right\rangle$。在交换环的情形也习惯写作 $(r_1, \ldots, r_n)$。</p>
+<p>一般将有限个元素 $r&#95;1, &#92;ldots, r&#95;n &#92;in R$ 生成的双边理想记为 $&#92;left&#92;langle r&#95;1, &#92;ldots, r&#95;n &#92;right&#92;rangle$。在交换环的情形也习惯写作 $&#40;r&#95;1, &#92;ldots, r&#95;n&#41;$。</p>
 <blockquote>
-<p>[!definition] 商环（quotient ring）<br>设 $I$ 为 $R$ 的双边理想，赋予加法群 $R&#x2F;I$ 乘法运算如下<br>$$<br> (r+I) \cdot (s+I) :&#x3D; (rs + I), \quad r, s \in R.<br>$$<br>则 $R&#x2F;I$ 构成一个环，称为 $R$ 模 $I$ 的<em>商环</em>。商映射 $R \twoheadrightarrow R&#x2F;I$ 称为<em>商同态</em>（quotient homomorphism）。</p>
+<p>[!definition] 商环（quotient ring）<br>设 $I$ 为 $R$ 的双边理想，赋予加法群 $R&#x2F;I$ 乘法运算如下<br>$$ &#40;r&#43;I&#41; &#92;cdot &#40;s&#43;I&#41; :&#61; &#40;rs &#43; I&#41;, &#92;quad r, s &#92;in R. $$<br>则 $R&#x2F;I$ 构成一个环，称为 $R$ 模 $I$ 的<em>商环</em>。商映射 $R &#92;twoheadrightarrow R&#x2F;I$ 称为<em>商同态</em>（quotient homomorphism）。</p>
 </blockquote>
-<p>我们在定义 [[#^def-ideals]] 前的讨论中业已说明了 $R&#x2F;I$ 确实成环，其幺元是 $1_{R&#x2F;I} &#x3D; 1_R + I$；而且从定义立得 $R \twoheadrightarrow R&#x2F;I$ 确实为同态。须注意到 $R&#x2F;I$ 是零环当且仅当 $I&#x3D;R$，我们通常仅考虑 $I$ 是真理想的情形。取商 $R&#x2F;I$ 的操作有时也叫作 $\bmod ;I$。</p>
+<p>我们在定义 [[#^def-ideals]] 前的讨论中业已说明了 $R&#x2F;I$ 确实成环，其幺元是 $1&#95;&#123;R&#x2F;I&#125; &#61; 1&#95;R &#43; I$；而且从定义立得 $R &#92;twoheadrightarrow R&#x2F;I$ 确实为同态。须注意到 $R&#x2F;I$ 是零环当且仅当 $I&#61;R$，我们通常仅考虑 $I$ 是真理想的情形。取商 $R&#x2F;I$ 的操作有时也叫作 $&#92;bmod &#92;;I$。</p>
 <blockquote>
-<p>[!example] 整数环的商<br>设 $n \in \mathbb{Z}$，则 $n\mathbb{Z}$ 是 $\mathbb{Z}$ 的理想。当 $n \neq 0$ 时商环 $\mathbb{Z}&#x2F;n\mathbb{Z}$ 中的运算无非就是数论中的同余类操作。反过来看，任意理想 $I \subset \mathbb{Z}$ 必为 $I&#x3D;n\mathbb{Z}$ 的形式：$I&#x3D;{0}$ 时自不待言，如非零则取 $I \cap \mathbb{Z}_{&gt; 0}$ 中的极小元 $n$，由带余除法知 $I$ 中元素必被 $n$ 整除；如要求 $n \geq 0$，则 $n$ 是唯一确定的。这表明 $\mathbb{Z}$ 是稍后将介绍的主理想环（principal ideal domain，PID，定义 [[#^def-PID]]）的初等例子。</p>
+<p>[!example] 整数环的商<br>设 $n &#92;in &#92;mathbb&#123;Z&#125;$，则 $n&#92;mathbb&#123;Z&#125;$ 是 $&#92;mathbb&#123;Z&#125;$ 的理想。当 $n &#92;neq 0$ 时商环 $&#92;mathbb&#123;Z&#125;&#x2F;n&#92;mathbb&#123;Z&#125;$ 中的运算无非就是数论中的同余类操作。反过来看，任意理想 $I &#92;subset &#92;mathbb&#123;Z&#125;$ 必为 $I&#61;n&#92;mathbb&#123;Z&#125;$ 的形式：$I&#61;&#92;&#123;0&#92;&#125;$ 时自不待言，如非零则取 $I &#92;cap &#92;mathbb&#123;Z&#125;&#95;&#123;&#62; 0&#125;$ 中的极小元 $n$，由带余除法知 $I$ 中元素必被 $n$ 整除；如要求 $n &#92;geq 0$，则 $n$ 是唯一确定的。这表明 $&#92;mathbb&#123;Z&#125;$ 是稍后将介绍的主理想环（principal ideal domain，PID，定义 [[#^def-PID]]）的初等例子。</p>
 </blockquote>
 <p>^eg-Z-pid</p>
 <p>商环满足一些与商群共通的性质如下，证明和群的情形如出一辙，留作练习。</p>
 <blockquote>
-<p>[!proposition] 商环的泛性质<br>设 $I \subset R$ 为双边理想，则对任意环同态 $\varphi: R \to R’$ 满足 $\varphi(I)&#x3D;0$ 者，存在唯一的同态 $\bar{\varphi}: R&#x2F;I \to R’$ 使得下图交换。<br>![[tikzcd-20260620-230818-272.svg]]</p>
+<p>[!proposition] 商环的泛性质<br>设 $I &#92;subset R$ 为双边理想，则对任意环同态 $&#92;varphi: R &#92;to R’$ 满足 $&#92;varphi&#40;I&#41;&#61;0$ 者，存在唯一的同态 $&#92;bar&#123;&#92;varphi&#125;: R&#x2F;I &#92;to R’$ 使得下图交换。<br><img src="/images/tikzcd-20260620-230818-272.svg" srcset="/img/loading.gif" lazyload alt="tikzcd-20260620-230818-272.svg"></p>
 </blockquote>
 <p>^prop-quotient-ring-univ-prop</p>
 <blockquote>
-<p>[!proposition] 第一同构定理<br>设 $\varphi: R \to R’$ 为环同态，则 $\operatorname{ker}(\varphi) :&#x3D; \varphi^{-1}(0)$ 是 $R$ 的双边理想，且诱导同态 $\bar{\varphi}: (R&#x2F;I) \to \operatorname{im}(\varphi)$ 是环同构。</p>
+<p>[!proposition] 第一同构定理<br>设 $&#92;varphi: R &#92;to R’$ 为环同态，则 $&#92;operatorname&#123;ker&#125;&#40;&#92;varphi&#41; :&#61; &#92;varphi^&#123;&#45;1&#125;&#40;0&#41;$ 是 $R$ 的双边理想，且诱导同态 $&#92;bar&#123;&#92;varphi&#125;: &#40;R&#x2F;I&#41; &#92;to &#92;operatorname&#123;im&#125;&#40;&#92;varphi&#41;$ 是环同构。</p>
 </blockquote>
 <p>^prop-1st-homomorphism-ring</p>
-<p>接着观察到对任意环同态 $\varphi: R_1 \to R_2$，理想间有相应的原像映射：<br>$$<br> \begin{aligned}<br>    \operatorname{Ideal}(R;I) &amp; \longrightarrow \operatorname{Ideal}({R}&#x2F;{I}) \<br>    I_2 &amp; \longmapsto \varphi^{-1}(I_2).<br>\end{aligned}<br>$$<br>where $\operatorname{Ideal}(R;I):&#x3D;\left{ bilateral<del>ideal</del>J\subseteq R\mid I\subseteq J\right}$, $\operatorname{Ideal}(R):&#x3D;\operatorname{Ideal}(R:\varnothing)$.</p>
+<p>接着观察到对任意环同态 $&#92;varphi: R&#95;1 &#92;to R&#95;2$，理想间有相应的原像映射：<br>$$ &#92;begin&#123;aligned&#125;&#10;    &#92;operatorname&#123;Ideal&#125;&#40;R;I&#41; &#38; &#92;longrightarrow &#92;operatorname&#123;Ideal&#125;&#40;&#123;R&#125;&#x2F;&#123;I&#125;&#41; &#92;&#92;&#10;    I&#95;2 &#38; &#92;longmapsto &#92;varphi^&#123;&#45;1&#125;&#40;I&#95;2&#41;.&#10;&#92;end&#123;aligned&#125; $$<br>where $&#92;operatorname&#123;Ideal&#125;&#40;R;I&#41;:&#61;&#92;left&#92;&#123; bilateral&#126;ideal&#126;J&#92;subseteq R&#92;mid I&#92;subseteq J&#92;right&#92;&#125;$, $&#92;operatorname&#123;Ideal&#125;&#40;R&#41;:&#61;&#92;operatorname&#123;Ideal&#125;&#40;R:&#92;varnothing&#41;$.</p>
 <p>^eqn-ideal-preimage</p>
-<p>此映射满足<br>$$<br> I_2 \subset I’_2 \implies \varphi^{-1}(I_2) \subset \varphi^{-1}(I’_2).<br>$$<br>如取 $\varphi$ 为子环的包含映射 $R_1 \hookrightarrow R_2$，便得到 $I_2 \mapsto I_2 \cap R_1$。下面考虑另一个极端，即商同态或满同态(回忆命题 [[#^prop-1st-homomorphism-ring]])的情形。</p>
+<p>此映射满足<br>$$ I&#95;2 &#92;subset I’&#95;2 &#92;implies &#92;varphi^&#123;&#45;1&#125;&#40;I&#95;2&#41; &#92;subset &#92;varphi^&#123;&#45;1&#125;&#40;I’&#95;2&#41;. $$<br>如取 $&#92;varphi$ 为子环的包含映射 $R&#95;1 &#92;hookrightarrow R&#95;2$，便得到 $I&#95;2 &#92;mapsto I&#95;2 &#92;cap R&#95;1$。下面考虑另一个极端，即商同态或满同态(回忆命题 [[#^prop-1st-homomorphism-ring]])的情形。</p>
 <blockquote>
-<p>[!proposition] 第二同构定理<br>设 $\varphi: R_1 \to R_2$ 是满的环同态。则 [[#^eqn-ideal-preimage]] 诱导出双射<br>$$</p>
-</blockquote>
-<p>\begin{align}<br>\operatorname{Ideal}(R_2) &amp; \longrightarrow \operatorname{Ideal}(R_1;\ker \varphi) \ I_2&amp; \longmapsto \varphi_{\to}(I_2) \<br> \varphi_{\to}(I_1) &amp; \longleftarrow!!!| I_1<br>\end{align}</p>
-<blockquote>
-</blockquote>
-<p>$$</p>
-<blockquote>
-<p>而且合成同态 $R_1 \xrightarrow{\varphi} R_2 \twoheadrightarrow R_2&#x2F;I_2$ 诱导出环同构 $R_1&#x2F;\varphi^{-1}(I_2) \stackrel{\sim}{\rightarrow} R_2&#x2F;I_2$。</p>
+<p>[!proposition] 第二同构定理<br>设 $&#92;varphi: R&#95;1 &#92;to R&#95;2$ 是满的环同态。则 [[#^eqn-ideal-preimage]] 诱导出双射<br>$$&#10;&#92;begin&#123;align&#125;&#10;&#92;operatorname&#123;Ideal&#125;&#40;R&#95;2&#41; &#38; &#92;longrightarrow &#92;operatorname&#123;Ideal&#125;&#40;R&#95;1;&#92;ker &#92;varphi&#41; &#92;&#92; I&#95;2&#38; &#92;longmapsto &#92;varphi&#95;&#123;&#92;to&#125;&#40;I&#95;2&#41; &#92;&#92;&#10; &#92;varphi&#95;&#123;&#92;to&#125;&#40;I&#95;1&#41; &#38; &#92;longleftarrow&#92;&#33;&#92;&#33;&#92;&#33;| I&#95;1&#10;&#92;end&#123;align&#125;&#10;$$<br>而且合成同态 $R&#95;1 &#92;xrightarrow&#123;&#92;varphi&#125; R&#95;2 &#92;twoheadrightarrow R&#95;2&#x2F;I&#95;2$ 诱导出环同构 $R&#95;1&#x2F;&#92;varphi^&#123;&#45;1&#125;&#40;I&#95;2&#41; &#92;stackrel&#123;&#92;sim&#125;&#123;&#92;rightarrow&#125; R&#95;2&#x2F;I&#95;2$。</p>
 </blockquote>
 <p>^prop-2nd-homomorphism-ring</p>
 <blockquote>
-<p>[!corollary] corresponding theorem<br>For bilateral ideal $I$ of $R$, $\operatorname{Ideal}(R&#x2F;I)\cong \operatorname{Ideal}(R;I)$</p>
+<p>[!corollary] corresponding theorem<br>For bilateral ideal $I$ of $R$, $&#92;operatorname&#123;Ideal&#125;&#40;R&#x2F;I&#41;&#92;cong &#92;operatorname&#123;Ideal&#125;&#40;R;I&#41;$</p>
 </blockquote>
-<p>接着考虑子环 $S \subset R$ 及双边理想 $I \subset R$。合成同态 $S \hookrightarrow R \twoheadrightarrow R&#x2F;I$ 的像为 $R&#x2F;I$ 的子环 $(S+I)&#x2F;I$，它的核显然是 $I \cap S$。以下证明与群的情形同一套路，是故略去。</p>
+<p>接着考虑子环 $S &#92;subset R$ 及双边理想 $I &#92;subset R$。合成同态 $S &#92;hookrightarrow R &#92;twoheadrightarrow R&#x2F;I$ 的像为 $R&#x2F;I$ 的子环 $&#40;S&#43;I&#41;&#x2F;I$，它的核显然是 $I &#92;cap S$。以下证明与群的情形同一套路，是故略去。</p>
 <blockquote>
-<p>[!proposition] 第三同构定理<br>设 $S$ 是 $R$ 的子环而 $I$ 是 $R$ 的双边理想，则合成同态 $S \twoheadrightarrow (S+I)&#x2F;I$ 诱导的环同态<br>$$<br> \theta: S&#x2F;I \cap S \to (S+I)&#x2F;I<br>$$<br>乃是同构。</p>
+<p>[!proposition] 第三同构定理<br>设 $S$ 是 $R$ 的子环而 $I$ 是 $R$ 的双边理想，则合成同态 $S &#92;twoheadrightarrow &#40;S&#43;I&#41;&#x2F;I$ 诱导的环同态<br>$$ &#92;theta: S&#x2F;I &#92;cap S &#92;to &#40;S&#43;I&#41;&#x2F;I $$<br>乃是同构。</p>
 </blockquote>
 <p>^prop-3rd-homomorphism-ring</p>
 <p>和左理想或右理想相关的构造将在模论（module theory）部分统一处理。</p>
-<h2 id="几类特殊的环"><a href="#几类特殊的环" class="headerlink" title="几类特殊的环"></a>几类特殊的环</h2><p>设 $R$ 为环，以下皆假设 $R$ 非零。对任意 $x \in R$，定义其<em>中心化子</em>（centralizer）<br>$$<br> Z_R(x) :&#x3D; \left{ r \in R : rx&#x3D;xr \right};<br>$$<br>环 $R$ 的<em>中心</em>（center）定为<br>$$<br> Z_R :&#x3D; \left{r \in R : \forall s \in R, rs&#x3D;sr \right} &#x3D; \bigcap_{x \in R} Z_R(x).<br>$$<br>这些都是 $R$ 的子环，而且 $Z_R$ 是交换环。</p>
-<p>既然 $R$ 对乘法构成幺半群，故可定义其中元素的左逆与右逆。设 $r \in R$ 非零，若 $r$ 可逆，其逆记为 $r^{-1}$；全体可逆元构成的乘法群记为 $R^\times$。若存在 $r’ \neq 0$ 使得 $rr’&#x3D;0$ 则称 $r$ 为<em>左零因子</em>（left zero divisor）；条件改作 $r’r&#x3D;0$ 则称<em>右零因子</em>（right zero divisor）。为 $R$ 中左或右零因子的元素统称为<em>零因子</em>（zero divisor）。元素 $r \in R \smallsetminus {0}$ 非左零因子当且仅当 $r$ 的左乘满足消去律，这是由于 $ra&#x3D;rb \iff r(a-b)&#x3D;0$；右零因子的情形类似。</p>
-<p>由于环对加法成群，对其中元素可取任意整数倍：如 $(-1)r &#x3D; -r$，$nr &#x3D; \underbracket{r + \cdots + r}_{n; \text{项}}$，$(-n)r &#x3D; -nr$ 等等（设 $n \geq 0$）。不难验证映射<br>$$<br> \begin{aligned}<br>    \mathbb{Z} &amp; \longrightarrow R \<br>    a &amp; \longmapsto a \cdot 1_R<br>\end{aligned}<br>$$</p>
+<h2 id="几类特殊的环"><a href="#几类特殊的环" class="headerlink" title="几类特殊的环"></a>几类特殊的环</h2><p>设 $R$ 为环，以下皆假设 $R$ 非零。对任意 $x &#92;in R$，定义其<em>中心化子</em>（centralizer）<br>$$ Z&#95;R&#40;x&#41; :&#61; &#92;left&#92;&#123; r &#92;in R : rx&#61;xr &#92;right&#92;&#125;; $$<br>环 $R$ 的<em>中心</em>（center）定为<br>$$ Z&#95;R :&#61; &#92;left&#92;&#123;r &#92;in R : &#92;forall s &#92;in R, rs&#61;sr &#92;right&#92;&#125; &#61; &#92;bigcap&#95;&#123;x &#92;in R&#125; Z&#95;R&#40;x&#41;. $$<br>这些都是 $R$ 的子环，而且 $Z&#95;R$ 是交换环。</p>
+<p>既然 $R$ 对乘法构成幺半群，故可定义其中元素的左逆与右逆。设 $r &#92;in R$ 非零，若 $r$ 可逆，其逆记为 $r^&#123;&#45;1&#125;$；全体可逆元构成的乘法群记为 $R^&#92;times$。若存在 $r’ &#92;neq 0$ 使得 $rr’&#61;0$ 则称 $r$ 为<em>左零因子</em>（left zero divisor）；条件改作 $r’r&#61;0$ 则称<em>右零因子</em>（right zero divisor）。为 $R$ 中左或右零因子的元素统称为<em>零因子</em>（zero divisor）。元素 $r &#92;in R &#92;smallsetminus &#92;&#123;0&#92;&#125;$ 非左零因子当且仅当 $r$ 的左乘满足消去律，这是由于 $ra&#61;rb &#92;iff r&#40;a&#45;b&#41;&#61;0$；右零因子的情形类似。</p>
+<p>由于环对加法成群，对其中元素可取任意整数倍：如 $&#40;&#45;1&#41;r &#61; &#45;r$，$nr &#61; &#92;underbracket&#123;r &#43; &#92;cdots &#43; r&#125;&#95;&#123;n&#92;; &#92;text&#123;项&#125;&#125;$，$&#40;&#45;n&#41;r &#61; &#45;nr$ 等等（设 $n &#92;geq 0$）。不难验证映射<br>$$ &#92;begin&#123;aligned&#125;&#10;    &#92;mathbb&#123;Z&#125; &#38; &#92;longrightarrow R &#92;&#92;&#10;    a &#38; &#92;longmapsto a &#92;cdot 1&#95;R&#10;&#92;end&#123;aligned&#125; $$</p>
 <p>^eqn-ring-struct-morphism</p>
-<p>为环同态；这也是从 $\mathbb{Z}$ 到 $R$ 的唯一同态，像包含于 $Z_R$。由命题 [[#^prop-1st-homomorphism-ring]] 和例 [[#^eg-Z-pid]] 知其像必同构于某个 $\mathbb{Z}&#x2F;p\mathbb{Z}$，其中 $p \in \mathbb{Z}_{\geq 0}$ 是唯一的。此时必有 $p \neq 1$，否则在 $R$ 中 $1&#x3D;0$ 将导致 $R$ 是零环。记此数 $p$ 为 $\text{char}(R)$。</p>
+<p>为环同态；这也是从 $&#92;mathbb&#123;Z&#125;$ 到 $R$ 的唯一同态，像包含于 $Z&#95;R$。由命题 [[#^prop-1st-homomorphism-ring]] 和例 [[#^eg-Z-pid]] 知其像必同构于某个 $&#92;mathbb&#123;Z&#125;&#x2F;p&#92;mathbb&#123;Z&#125;$，其中 $p &#92;in &#92;mathbb&#123;Z&#125;&#95;&#123;&#92;geq 0&#125;$ 是唯一的。此时必有 $p &#92;neq 1$，否则在 $R$ 中 $1&#61;0$ 将导致 $R$ 是零环。记此数 $p$ 为 $&#92;text&#123;char&#125;&#40;R&#41;$。</p>
 <blockquote>
-<p>[!definition] 特征（characteristic）<br>设 $R$ 非零环，定义其<em>特征</em>为上述的 $\text{char}(R)$。</p>
+<p>[!definition] 特征（characteristic）<br>设 $R$ 非零环，定义其<em>特征</em>为上述的 $&#92;text&#123;char&#125;&#40;R&#41;$。</p>
 </blockquote>
 <p>^def-ring-characteristic</p>
-<p>如果 $R$ 中没有非零的零因子，则 $\mathbb{Z}&#x2F;p\mathbb{Z}$ 亦然，后者成立当且仅当 $p&#x3D;0$ 或素数。以下的公式在域论中格外有用：设交换环 $R$ 的特征为素数 $p$，则<br>$$<br> (u+v)^{p^m} &#x3D; u^{p^m} + v^{p^m}, \quad u, v \in R, ; m \geq 0;<br>$$</p>
+<p>如果 $R$ 中没有非零的零因子，则 $&#92;mathbb&#123;Z&#125;&#x2F;p&#92;mathbb&#123;Z&#125;$ 亦然，后者成立当且仅当 $p&#61;0$ 或素数。以下的公式在域论中格外有用：设交换环 $R$ 的特征为素数 $p$，则<br>$$ &#40;u&#43;v&#41;^&#123;p^m&#125; &#61; u^&#123;p^m&#125; &#43; v^&#123;p^m&#125;, &#92;quad u, v &#92;in R, &#92;; m &#92;geq 0; $$</p>
 <p>^eqn-freshmen-dream</p>
 <p>这是 $R$ 上二项式定理和引理 [[群论#^prop-Wielandt-lemma]] 的直接应用。</p>
 <blockquote>
@@ -415,157 +410,157 @@
 <p>^def-field</p>
 <p>按本节的约定，除环不能是零环；某些文献将除环称作体（skew field）。</p>
 <blockquote>
-<p>[!example]<br>设 $p$ 为素数，则商环 $\mathbb{Z}&#x2F;p\mathbb{Z}$ 是域，一般记为 $\mathbb{F}_p$。诚然，若 $x \in \mathbb{Z}$ 和 $p$ 互素，则辗转相除法表明 $xy + pz &#x3D; 1$ 有整数解 $y,z$，因而 $y+p\mathbb{Z}$ 给出 $x+p\mathbb{Z}$ 的乘法逆元。</p>
+<p>[!example]<br>设 $p$ 为素数，则商环 $&#92;mathbb&#123;Z&#125;&#x2F;p&#92;mathbb&#123;Z&#125;$ 是域，一般记为 $&#92;mathbb&#123;F&#125;&#95;p$。诚然，若 $x &#92;in &#92;mathbb&#123;Z&#125;$ 和 $p$ 互素，则辗转相除法表明 $xy &#43; pz &#61; 1$ 有整数解 $y,z$，因而 $y&#43;p&#92;mathbb&#123;Z&#125;$ 给出 $x&#43;p&#92;mathbb&#123;Z&#125;$ 的乘法逆元。</p>
 </blockquote>
-<p>除环 $D$ 中可作除法，故存在包含 $1$ 的最小子域，称为 $D$ 的<em>素子域</em>（prime subfield）；当 $\text{char}(D)&#x3D;0$ 时，$\mathbb{Z} \hookrightarrow D$，故其素子域同构于有理数域 $\mathbb{Q}$；若 $\text{char}(D)&#x3D;p &gt; 0$，其素子域是上述之 $\mathbb{F}_p$。</p>
+<p>除环 $D$ 中可作除法，故存在包含 $1$ 的最小子域，称为 $D$ 的<em>素子域</em>（prime subfield）；当 $&#92;text&#123;char&#125;&#40;D&#41;&#61;0$ 时，$&#92;mathbb&#123;Z&#125; &#92;hookrightarrow D$，故其素子域同构于有理数域 $&#92;mathbb&#123;Q&#125;$；若 $&#92;text&#123;char&#125;&#40;D&#41;&#61;p &#62; 0$，其素子域是上述之 $&#92;mathbb&#123;F&#125;&#95;p$。</p>
 <p>环上的拓扑，几何结构或有限性等条件往往与其代数性质有着微妙的关系。下述两个结果是绝佳范例。定理 [[#^prop-Wedderburn-little-thm]] 的证明略需一些多项式和初等数论的知识。</p>
 <blockquote>
 <p>[!proposition]<br>有限环 $D$ 若无非零的零因子，则 $D$ 必为除环。</p>
 </blockquote>
-<p>$Proof.$ 设 $x \in D$，$x \neq 0$。由条件可知从 $D$ 到自身的左乘映射 $L_x: r \mapsto xr$ 为单射。因为 $D$ 有限，$L_x$ 自动是双射，故存在 $x’ \in R$ 使得 $xx’&#x3D;1$，即 $x$ 右可逆。同理，考虑右乘映射可知 $x$ 左可逆。因而 $x \in D^\times$。<br>$\blacksquare$</p>
+<p>$Proof.$ 设 $x &#92;in D$，$x &#92;neq 0$。由条件可知从 $D$ 到自身的左乘映射 $L&#95;x: r &#92;mapsto xr$ 为单射。因为 $D$ 有限，$L&#95;x$ 自动是双射，故存在 $x’ &#92;in R$ 使得 $xx’&#61;1$，即 $x$ 右可逆。同理，考虑右乘映射可知 $x$ 左可逆。因而 $x &#92;in D^&#92;times$。<br>$&#92;blacksquare$</p>
 <blockquote>
 <p>[!theorem] Wedderburn 小定理（Wedderburn’s little theorem）<br>有限除环必为域。</p>
 </blockquote>
 <p>^prop-Wedderburn-little-thm</p>
-<p>$Proof.$（E. Witt）设 $D$ 为有限除环。对任意 $r \in D^\times$，应用 $r^{\pm 1}$ 在 $D$ 上的共轭作用可知对任意 $x \in D$，<br>$$<br> xr &#x3D; rx \iff r^{-1}x &#x3D; xr^{-1}.<br>$$<br>由之得到两条推论：第一，$Z_D(x) \smallsetminus {0}$ 对取逆封闭，因而 $Z_D(x)$ 是子除环；第二，$Z_D \smallsetminus {0}$ 也对取逆封闭，从而 $Z_D$ 是域。以下置 $F :&#x3D; Z_D$，记其基数为 $q \in \mathbb{Z}_{\geq 2}$。</p>
-<p>注意到 $D$ 在 $F$ 的乘法作用下构成 $F$-向量空间，由假设知 $n :&#x3D; \dim_F D$ 有限。下面证明 $n &#x3D; 1$，由此立见 $D &#x3D; F$ 交换。</p>
-<p>对乘法群 $D^\times &#x3D; D \smallsetminus {0}$ 的共轭作用应用引理 [[群论#^prop-orbit-decomp]]，可得<br>$$<br> q^n - 1 &#x3D; \underbracket{q-1}_{&#x3D; |F^\times|} + \sum_x (D^\times : Z_D(x)^\times)<br>$$</p>
+<p>$Proof.$（E. Witt）设 $D$ 为有限除环。对任意 $r &#92;in D^&#92;times$，应用 $r^&#123;&#92;pm 1&#125;$ 在 $D$ 上的共轭作用可知对任意 $x &#92;in D$，<br>$$ xr &#61; rx &#92;iff r^&#123;&#45;1&#125;x &#61; xr^&#123;&#45;1&#125;. $$<br>由之得到两条推论：第一，$Z&#95;D&#40;x&#41; &#92;smallsetminus &#92;&#123;0&#92;&#125;$ 对取逆封闭，因而 $Z&#95;D&#40;x&#41;$ 是子除环；第二，$Z&#95;D &#92;smallsetminus &#92;&#123;0&#92;&#125;$ 也对取逆封闭，从而 $Z&#95;D$ 是域。以下置 $F :&#61; Z&#95;D$，记其基数为 $q &#92;in &#92;mathbb&#123;Z&#125;&#95;&#123;&#92;geq 2&#125;$。</p>
+<p>注意到 $D$ 在 $F$ 的乘法作用下构成 $F$-向量空间，由假设知 $n :&#61; &#92;dim&#95;F D$ 有限。下面证明 $n &#61; 1$，由此立见 $D &#61; F$ 交换。</p>
+<p>对乘法群 $D^&#92;times &#61; D &#92;smallsetminus &#92;&#123;0&#92;&#125;$ 的共轭作用应用引理 [[群论#^prop-orbit-decomp]]，可得<br>$$ q^n &#45; 1 &#61; &#92;underbracket&#123;q&#45;1&#125;&#95;&#123;&#61; |F^&#92;times|&#125; &#43; &#92;sum&#95;x &#40;D^&#92;times : Z&#95;D&#40;x&#41;^&#92;times&#41; $$</p>
 <p>^eqn-Wedderburn-little</p>
-<p>其中 $x$ 取遍 $D^\times \smallsetminus F^\times$ 在共轭作用下的一组代表元。注意到 $Z_D(x)$ 也是 $F$-向量空间，维数记为 $n(x) \in \mathbb{Z}_{\geq 1}$，故 $n(x) &lt; n$ 而<br>$$<br> (D^\times : Z_D(x)^\times) &#x3D; \dfrac{q^n - 1}{q^{n(x)} - 1}.<br>$$<br>兹断言 $n(x) \mid n$。根据初等数论的结果或稍后的例 [[#^eg-gcd-cyclotomic]]，可知 $q^n - 1$ 和 $q^{n(x)} - 1$ 的最大公因子是 $q^{(n, n(x))} - 1$，因此 $\frac{q^n - 1}{q^{n(x)} - 1} &#x3D; (D^\times : Z_D(x)^\times) \in \mathbb{Z}$ 导致所求之 $n(x) \mid n$。另一条途径则是将 $D$ 视为除环 $Z_D(x)$ 上的左向量空间，那么 $n&#x2F;n(x) &#x3D; \dim_{Z_D(x)} D$；这需要 §[[模论#^sec-vector-space]] 的理论，留给读者探究。</p>
-<p>下面将应用分圆多项式（cyclotomic polynomial）的理论：这是一族最高次项系数为 $1$（简称首一，monic）的整系数多项式 $\Phi_r(X)$，$r \in \mathbb{Z}_{\geq 1}$，使得<br>$$<br> \begin{gather*}<br>    X^m - 1 &#x3D; \prod_{r \mid m} \Phi_r(X), \quad m \in \mathbb{Z}_{\geq 1}, \<br>    \deg \Phi_r &#x3D; \varphi(r) :&#x3D; |(\mathbb{Z}&#x2F;r\mathbb{Z})^\times| \qquad \text{(Euler 函数)}<br>\end{gather*}<br>$$<br>恒成立。直接的定义是<br>$$<br> \begin{align*}<br>    \Phi_m(X) &amp; &#x3D; (X^m - 1) \cdot \prod_{\substack{p: \text{素数} \ p \mid m}} (X^{m&#x2F;p} - 1)^{-1} \cdot \prod_{\substack{p \neq q: \text{素数} \ pq \mid m}} (X^{m&#x2F;pq} - 1) \cdots \<br>    &amp; &#x3D; \prod_{d \mid m} (X^d - 1)^{\mu(m&#x2F;d)}, \<br>    \deg \Phi_m &amp; &#x3D; \sum_{d \mid m} d \mu\left( \frac{m}{d} \right) &#x3D; \sum_{h \mid m} \frac{m}{h} \cdot \mu(h) \<br>    &amp; &#x3D; \varphi(m) \qquad \because \text{初等数论，或 [[#^eqn-Euler-phi-sum]]};<br>\end{align*}<br>$$<br>其中 $\mu$ 表 Möbius 函数（Möbius function）<br>$$<br> \mu(d) &#x3D; \begin{cases}<br>    (-1)^{(d ;\text{的素因子个数})}, &amp; d ;\text{无 $1$ 之外的平方因子} \<br>    0, &amp; d ; \text{有平方因子} \neq 1.<br>\end{cases}<br>$$<br>由于在整系数多项式环中 $X^{(a,b)}-1$ 是 $X^a - 1$ 和 $X^b - 1$ 的最大公因子（例 [[#^eg-gcd-cyclotomic]]），这般定义的 $\Phi_m(X)$ 确实是首一整系数多项式，它实际是运用容斥原理从 $X^m - 1$ 移除所有来自 $X^d - 1$（$d \mid m, d \neq m$）的首一因子后的硬核；我们将在 §[[#^sec-Mobius]] 讨论 Möbius 反演的一般框架，并在例 [[#^eg-Mobius-classical]] 回顾这里用上的经典版本（精确地说是其”乘性”情形）。分圆多项式的系统性研究是 §[[Galois理论#^sec-cyclotomic-ext]] 的任务。</p>
-<p>在复数域 $\mathbb{C}$ 上 $\Phi_m(X)$ 可分解为 $\prod_\zeta (X-\zeta)$，其中 $\zeta$ 取遍 $\mathbb{C}^\times$ 中的 $m$ 次单位原根。因为 $n(x) \mid n$ 而 $n(x) &lt; n$，我们有整系数首一多项式之间的整除关系<br>$$<br> \Phi_n(X) \mid X^n - 1, \quad \Phi_n(X) \mid \prod_{\substack{d \mid n \ d \nmid n(x)}} \Phi_d(X) &#x3D; \frac{X^n - 1}{X^{n(x)} - 1};<br>$$<br>上式也可以透过在 $\mathbb{C}$ 上作分解来证明。代值 $X \leadsto q \in \mathbb{Z}$ 以后可见 [[#^eqn-Wedderburn-little]] 中的 $q^n-1$ 及每一项 $\frac{q^n - 1}{q^{n(x)} - 1}$ 都被 $\Phi_n(q)$ 整除，因而 $\Phi_n(q) \mid q-1$。另一方面，假若 $n&gt;1$，则对每个 $\mathbb{C}^\times$ 中的 $n$ 次单位原根 $\zeta$ 皆有</p>
+<p>其中 $x$ 取遍 $D^&#92;times &#92;smallsetminus F^&#92;times$ 在共轭作用下的一组代表元。注意到 $Z&#95;D&#40;x&#41;$ 也是 $F$-向量空间，维数记为 $n&#40;x&#41; &#92;in &#92;mathbb&#123;Z&#125;&#95;&#123;&#92;geq 1&#125;$，故 $n&#40;x&#41; &#60; n$ 而<br>$$ &#40;D^&#92;times : Z&#95;D&#40;x&#41;^&#92;times&#41; &#61; &#92;dfrac&#123;q^n &#45; 1&#125;&#123;q^&#123;n&#40;x&#41;&#125; &#45; 1&#125;. $$<br>兹断言 $n&#40;x&#41; &#92;mid n$。根据初等数论的结果或稍后的例 [[#^eg-gcd-cyclotomic]]，可知 $q^n &#45; 1$ 和 $q^&#123;n&#40;x&#41;&#125; &#45; 1$ 的最大公因子是 $q^&#123;&#40;n, n&#40;x&#41;&#41;&#125; &#45; 1$，因此 $&#92;frac&#123;q^n &#45; 1&#125;&#123;q^&#123;n&#40;x&#41;&#125; &#45; 1&#125; &#61; &#40;D^&#92;times : Z&#95;D&#40;x&#41;^&#92;times&#41; &#92;in &#92;mathbb&#123;Z&#125;$ 导致所求之 $n&#40;x&#41; &#92;mid n$。另一条途径则是将 $D$ 视为除环 $Z&#95;D&#40;x&#41;$ 上的左向量空间，那么 $n&#x2F;n&#40;x&#41; &#61; &#92;dim&#95;&#123;Z&#95;D&#40;x&#41;&#125; D$；这需要 §[[模论#^sec-vector-space]] 的理论，留给读者探究。</p>
+<p>下面将应用分圆多项式（cyclotomic polynomial）的理论：这是一族最高次项系数为 $1$（简称首一，monic）的整系数多项式 $&#92;Phi&#95;r&#40;X&#41;$，$r &#92;in &#92;mathbb&#123;Z&#125;&#95;&#123;&#92;geq 1&#125;$，使得<br>$$ &#92;begin&#123;gather&#42;&#125;&#10;    X^m &#45; 1 &#61; &#92;prod&#95;&#123;r &#92;mid m&#125; &#92;Phi&#95;r&#40;X&#41;, &#92;quad m &#92;in &#92;mathbb&#123;Z&#125;&#95;&#123;&#92;geq 1&#125;, &#92;&#92;&#10;    &#92;deg &#92;Phi&#95;r &#61; &#92;varphi&#40;r&#41; :&#61; |&#40;&#92;mathbb&#123;Z&#125;&#x2F;r&#92;mathbb&#123;Z&#125;&#41;^&#92;times| &#92;qquad &#92;text&#123;&#40;Euler 函数&#41;&#125;&#10;&#92;end&#123;gather&#42;&#125; $$<br>恒成立。直接的定义是<br>$$ &#92;begin&#123;align&#42;&#125;&#10;    &#92;Phi&#95;m&#40;X&#41; &#38; &#61; &#40;X^m &#45; 1&#41; &#92;cdot &#92;prod&#95;&#123;&#92;substack&#123;p: &#92;text&#123;素数&#125; &#92;&#92; p &#92;mid m&#125;&#125; &#40;X^&#123;m&#x2F;p&#125; &#45; 1&#41;^&#123;&#45;1&#125; &#92;cdot &#92;prod&#95;&#123;&#92;substack&#123;p &#92;neq q: &#92;text&#123;素数&#125; &#92;&#92; pq &#92;mid m&#125;&#125; &#40;X^&#123;m&#x2F;pq&#125; &#45; 1&#41; &#92;cdots &#92;&#92;&#10;    &#38; &#61; &#92;prod&#95;&#123;d &#92;mid m&#125; &#40;X^d &#45; 1&#41;^&#123;&#92;mu&#40;m&#x2F;d&#41;&#125;, &#92;&#92;&#10;    &#92;deg &#92;Phi&#95;m &#38; &#61; &#92;sum&#95;&#123;d &#92;mid m&#125; d &#92;mu&#92;left&#40; &#92;frac&#123;m&#125;&#123;d&#125; &#92;right&#41; &#61; &#92;sum&#95;&#123;h &#92;mid m&#125; &#92;frac&#123;m&#125;&#123;h&#125; &#92;cdot &#92;mu&#40;h&#41; &#92;&#92;&#10;    &#38; &#61; &#92;varphi&#40;m&#41; &#92;qquad &#92;because &#92;text&#123;初等数论，或 &#91;&#91;&#35;^eqn&#45;Euler&#45;phi&#45;sum&#93;&#93;&#125;;&#10;&#92;end&#123;align&#42;&#125; $$<br>其中 $&#92;mu$ 表 Möbius 函数（Möbius function）<br>$$ &#92;mu&#40;d&#41; &#61; &#92;begin&#123;cases&#125;&#10;    &#40;&#45;1&#41;^&#123;&#40;d &#92;;&#92;text&#123;的素因子个数&#125;&#41;&#125;, &#38; d &#92;;&#92;text&#123;无 $1$ 之外的平方因子&#125; &#92;&#92;&#10;    0, &#38; d &#92;; &#92;text&#123;有平方因子&#125; &#92;neq 1.&#10;&#92;end&#123;cases&#125; $$<br>由于在整系数多项式环中 $X^&#123;&#40;a,b&#41;&#125;&#45;1$ 是 $X^a &#45; 1$ 和 $X^b &#45; 1$ 的最大公因子（例 [[#^eg-gcd-cyclotomic]]），这般定义的 $&#92;Phi&#95;m&#40;X&#41;$ 确实是首一整系数多项式，它实际是运用容斥原理从 $X^m &#45; 1$ 移除所有来自 $X^d &#45; 1$（$d &#92;mid m, d &#92;neq m$）的首一因子后的硬核；我们将在 §[[#^sec-Mobius]] 讨论 Möbius 反演的一般框架，并在例 [[#^eg-Mobius-classical]] 回顾这里用上的经典版本（精确地说是其”乘性”情形）。分圆多项式的系统性研究是 §[[Galois理论#^sec-cyclotomic-ext]] 的任务。</p>
+<p>在复数域 $&#92;mathbb&#123;C&#125;$ 上 $&#92;Phi&#95;m&#40;X&#41;$ 可分解为 $&#92;prod&#95;&#92;zeta &#40;X&#45;&#92;zeta&#41;$，其中 $&#92;zeta$ 取遍 $&#92;mathbb&#123;C&#125;^&#92;times$ 中的 $m$ 次单位原根。因为 $n&#40;x&#41; &#92;mid n$ 而 $n&#40;x&#41; &#60; n$，我们有整系数首一多项式之间的整除关系<br>$$ &#92;Phi&#95;n&#40;X&#41; &#92;mid X^n &#45; 1, &#92;quad &#92;Phi&#95;n&#40;X&#41; &#92;mid &#92;prod&#95;&#123;&#92;substack&#123;d &#92;mid n &#92;&#92; d &#92;nmid n&#40;x&#41;&#125;&#125; &#92;Phi&#95;d&#40;X&#41; &#61; &#92;frac&#123;X^n &#45; 1&#125;&#123;X^&#123;n&#40;x&#41;&#125; &#45; 1&#125;; $$<br>上式也可以透过在 $&#92;mathbb&#123;C&#125;$ 上作分解来证明。代值 $X &#92;leadsto q &#92;in &#92;mathbb&#123;Z&#125;$ 以后可见 [[#^eqn-Wedderburn-little]] 中的 $q^n&#45;1$ 及每一项 $&#92;frac&#123;q^n &#45; 1&#125;&#123;q^&#123;n&#40;x&#41;&#125; &#45; 1&#125;$ 都被 $&#92;Phi&#95;n&#40;q&#41;$ 整除，因而 $&#92;Phi&#95;n&#40;q&#41; &#92;mid q&#45;1$。另一方面，假若 $n&#62;1$，则对每个 $&#92;mathbb&#123;C&#125;^&#92;times$ 中的 $n$ 次单位原根 $&#92;zeta$ 皆有</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs tikz">\begin&#123;tikzpicture&#125;[baseline=(O)]<br>    \draw (0,0) circle [radius=1cm];<br>    \draw (-2,0) -- (2,0);<br>    \coordinate (O) at (0:1cm); \coordinate (Q) at (2,0);  \coordinate (Z) at (60:1cm);<br>    \node[below right] at (O) &#123;$1$&#125;; \draw[fill=black] (O) circle [radius=1.5pt];<br>    \node[above] at (Q) &#123;$q$&#125;; \draw[fill=black] (Q) circle [radius=1.5pt];<br>    \node[above] at (Z) &#123;$\zeta$&#125;;<br>    \draw (Q) -- (Z);<br>\end&#123;tikzpicture&#125; \qquad<br>\implies \quad |q-\zeta| &gt; q-1 \geq 1.<br></code></pre></td></tr></table></figure>
 
-<p>于是 $|\Phi_n(q)| &#x3D; \prod_\zeta |q-\zeta| &gt; q-1$，导出矛盾。<br>$\blacksquare$</p>
+<p>于是 $|&#92;Phi&#95;n&#40;q&#41;| &#61; &#92;prod&#95;&#92;zeta |q&#45;&#92;zeta| &#62; q&#45;1$，导出矛盾。<br>$&#92;blacksquare$</p>
 <p>非交换除环的发现甚晚，可稽的最早例子是 W. Hamilton 于 1843 年发现的<em>四元数代数</em>（quaternion algebra）。以后探讨有限维代数时将给出构造这类除环的一些系统性的方法。</p>
 <blockquote>
-<p>[!example] 四元数（Hamilton quaternion）<br>考虑以 $1, i, j, k$ 为基的实向量空间 $\mathbb{H} :&#x3D; \mathbb{R} 1 \oplus \mathbb{R} i \oplus \mathbb{R} j \oplus \mathbb{R} k$。其上具有良定的乘法使得 $\mathbb{H}$ 成环并满足：</p>
+<p>[!example] 四元数（Hamilton quaternion）<br>考虑以 $1, i, j, k$ 为基的实向量空间 $&#92;mathbb&#123;H&#125; :&#61; &#92;mathbb&#123;R&#125; 1 &#92;oplus &#92;mathbb&#123;R&#125; i &#92;oplus &#92;mathbb&#123;R&#125; j &#92;oplus &#92;mathbb&#123;R&#125; k$。其上具有良定的乘法使得 $&#92;mathbb&#123;H&#125;$ 成环并满足：</p>
 <ul>
-<li>乘法 $(x,y) \mapsto xy$ 是 $\mathbb{H}$ 上的双线性映射；</li>
-<li>$1$ 是乘法单位元，故我们可将 $\mathbb{R}$ 等同于 $\mathbb{R} \cdot 1$ 嵌入 $Z_{\mathbb{H}}$；</li>
-<li>$i^2 &#x3D; j^2 &#x3D; -1$；</li>
-<li>$ij&#x3D;k&#x3D;-ji$。</li>
+<li>乘法 $&#40;x,y&#41; &#92;mapsto xy$ 是 $&#92;mathbb&#123;H&#125;$ 上的双线性映射；</li>
+<li>$1$ 是乘法单位元，故我们可将 $&#92;mathbb&#123;R&#125;$ 等同于 $&#92;mathbb&#123;R&#125; &#92;cdot 1$ 嵌入 $Z&#95;&#123;&#92;mathbb&#123;H&#125;&#125;$；</li>
+<li>$i^2 &#61; j^2 &#61; &#45;1$；</li>
+<li>$ij&#61;k&#61;&#45;ji$。</li>
 </ul>
-<p>由此可以推导出 $k^2 &#x3D; -1$，$jk&#x3D;i&#x3D;-kj$，$ki&#x3D;j&#x3D;-ik$。细节留给读者。由向量空间结构和前两条性质，我们也说 $\mathbb{H}$ 是一个 “$\mathbb{R}$-代数”，定义 [[代数初步#^def-algebra-naive]] 将有详细解释。此外亦可将复数域 $\mathbb{C} &#x3D; \mathbb{R} \oplus \mathbb{R} i$ 嵌入 $\mathbb{H}$。下面验证 $\mathbb{H}$ 是除环：如定义共轭运算<br>$$<br> z &#x3D; a + bi + cj + dk \longmapsto \bar{z} &#x3D; a - bi -cj -dk<br>$$<br>则有性质 $\overline{z w} &#x3D; \bar{w}\bar{z}$，$z\bar{z} &#x3D; \bar{z}z &#x3D; a^2 + b^2 + c^2 + d^2 \in \mathbb{R}$，由此可得<br>$$<br> z^{-1} &#x3D; (z\bar{z})^{-1} \bar{z} &#x3D; (\underbracket{a^2 + b^2 + c^2 + d^2}_{\neq 0})^{-1} \bar{z}, \quad z \in \mathbb{H} \smallsetminus {0}.<br>$$<br>这里用到的关键性质可归结为 $a^2 + b^2 + c^2 &#x3D; -1$ 在实数域 $\mathbb{R}$ 中无解，更强的陈述是 $-1$ 在 $\mathbb{R}$ 中非平方和；具后一条件的域称作形实域（formally real field），它们在域论，二次型和模型论等研究中是饶富兴味的对象，见 [[Feng17]]，§9.1。</p>
+<p>由此可以推导出 $k^2 &#61; &#45;1$，$jk&#61;i&#61;&#45;kj$，$ki&#61;j&#61;&#45;ik$。细节留给读者。由向量空间结构和前两条性质，我们也说 $&#92;mathbb&#123;H&#125;$ 是一个 “$&#92;mathbb&#123;R&#125;$-代数”，定义 [[代数初步#^def-algebra-naive]] 将有详细解释。此外亦可将复数域 $&#92;mathbb&#123;C&#125; &#61; &#92;mathbb&#123;R&#125; &#92;oplus &#92;mathbb&#123;R&#125; i$ 嵌入 $&#92;mathbb&#123;H&#125;$。下面验证 $&#92;mathbb&#123;H&#125;$ 是除环：如定义共轭运算<br>$$ z &#61; a &#43; bi &#43; cj &#43; dk &#92;longmapsto &#92;bar&#123;z&#125; &#61; a &#45; bi &#45;cj &#45;dk $$<br>则有性质 $&#92;overline&#123;z w&#125; &#61; &#92;bar&#123;w&#125;&#92;bar&#123;z&#125;$，$z&#92;bar&#123;z&#125; &#61; &#92;bar&#123;z&#125;z &#61; a^2 &#43; b^2 &#43; c^2 &#43; d^2 &#92;in &#92;mathbb&#123;R&#125;$，由此可得<br>$$ z^&#123;&#45;1&#125; &#61; &#40;z&#92;bar&#123;z&#125;&#41;^&#123;&#45;1&#125; &#92;bar&#123;z&#125; &#61; &#40;&#92;underbracket&#123;a^2 &#43; b^2 &#43; c^2 &#43; d^2&#125;&#95;&#123;&#92;neq 0&#125;&#41;^&#123;&#45;1&#125; &#92;bar&#123;z&#125;, &#92;quad z &#92;in &#92;mathbb&#123;H&#125; &#92;smallsetminus &#92;&#123;0&#92;&#125;. $$<br>这里用到的关键性质可归结为 $a^2 &#43; b^2 &#43; c^2 &#61; &#45;1$ 在实数域 $&#92;mathbb&#123;R&#125;$ 中无解，更强的陈述是 $&#45;1$ 在 $&#92;mathbb&#123;R&#125;$ 中非平方和；具后一条件的域称作形实域（formally real field），它们在域论，二次型和模型论等研究中是饶富兴味的对象，见 [[Feng17]]，§9.1。</p>
 </blockquote>
 <p>^eg-Hamilton-quaternion</p>
-<h2 id="交换代数"><a href="#交换代数" class="headerlink" title="[[交换代数]]"></a>[[交换代数]]</h2><h2 id="环的极限与完备化"><a href="#环的极限与完备化" class="headerlink" title="环的极限与完备化"></a>环的极限与完备化</h2><p>本节中出现的 $I$ 皆为非空集或非空范畴。我们将按照直积，$\varprojlim$ 和 $\varinjlim$ 的顺序解说，顺带引入点集拓扑的语言来讨论完备化（completion）。</p>
+<h2 id="交换代数"><a href="#交换代数" class="headerlink" title="[[交换代数]]"></a>[[交换代数]]</h2><h2 id="环的极限与完备化"><a href="#环的极限与完备化" class="headerlink" title="环的极限与完备化"></a>环的极限与完备化</h2><p>本节中出现的 $I$ 皆为非空集或非空范畴。我们将按照直积，$&#92;varprojlim$ 和 $&#92;varinjlim$ 的顺序解说，顺带引入点集拓扑的语言来讨论完备化（completion）。</p>
 <blockquote>
-<p>[!definition] 环的直积（direct product of rings）<br>设 ${R_i : i \in I}$ 为一族环。其直积 $\prod_{i \in I} R_i$ 在加法群的层次与定义 [[群论#^def-monoid-times]] 相同，我们在 $\prod_{i \in I} R_i$ 上定义乘法运算为<br>$$<br> (r_i)_{i \in I} \cdot (s_i)_{i \in I} &#x3D; (r_i \cdot s_i)_{i \in I}.<br>$$<br>换言之，$\prod_{i \in I} R_i$ 同时是乘法幺半群的直积，其幺元是 $(1_{R_i})_{i \in I}$。易证 $\prod_{i \in I} R_i$ 满足环的公理。</p>
+<p>[!definition] 环的直积（direct product of rings）<br>设 $&#92;&#123;R&#95;i : i &#92;in I&#92;&#125;$ 为一族环。其直积 $&#92;prod&#95;&#123;i &#92;in I&#125; R&#95;i$ 在加法群的层次与定义 [[群论#^def-monoid-times]] 相同，我们在 $&#92;prod&#95;&#123;i &#92;in I&#125; R&#95;i$ 上定义乘法运算为<br>$$ &#40;r&#95;i&#41;&#95;&#123;i &#92;in I&#125; &#92;cdot &#40;s&#95;i&#41;&#95;&#123;i &#92;in I&#125; &#61; &#40;r&#95;i &#92;cdot s&#95;i&#41;&#95;&#123;i &#92;in I&#125;. $$<br>换言之，$&#92;prod&#95;&#123;i &#92;in I&#125; R&#95;i$ 同时是乘法幺半群的直积，其幺元是 $&#40;1&#95;&#123;R&#95;i&#125;&#41;&#95;&#123;i &#92;in I&#125;$。易证 $&#92;prod&#95;&#123;i &#92;in I&#125; R&#95;i$ 满足环的公理。</p>
 </blockquote>
 <p>^def-ring-direct-product</p>
-<p>对每个 $j \in I$，投影映射 $(r_i)_{i \in I} \mapsto r_j$ 是 $\prod_{i \in I} R_i$ 到 $R_j$ 的环同态。环直积及其投影同态在环范畴中也满足泛性质（对照引理 [[群论#^prop-product-monoid-univ-prop]]），证明与幺半群情形相同，此处略去。</p>
+<p>对每个 $j &#92;in I$，投影映射 $&#40;r&#95;i&#41;&#95;&#123;i &#92;in I&#125; &#92;mapsto r&#95;j$ 是 $&#92;prod&#95;&#123;i &#92;in I&#125; R&#95;i$ 到 $R&#95;j$ 的环同态。环直积及其投影同态在环范畴中也满足泛性质（对照引理 [[群论#^prop-product-monoid-univ-prop]]），证明与幺半群情形相同，此处略去。</p>
 <blockquote>
-<p>[!theorem] 中国剩余定理（Chinese remainder theorem）<br>设 $R$ 为环，$I_1, \ldots I_n$ 为一族理想。假设对每个 $i \neq j$ 皆有 $I_i + I_j &#x3D; R$，则环同态<br>$$<br> \begin{align*}<br>    \varphi: R &amp; \longrightarrow \prod_{i&#x3D;1}^n R&#x2F;I_i, \<br>    r &amp; \longmapsto \left( r \bmod I_i \right)_{i&#x3D;1}^n<br>\end{align*}<br>$$<br>诱导出环同构 $R \big&#x2F; (\bigcap_{i&#x3D;1}^n I_i) \stackrel{\sim}{\rightarrow} \prod_{i&#x3D;1}^n R&#x2F;I_i$。</p>
+<p>[!theorem] 中国剩余定理（Chinese remainder theorem）<br>设 $R$ 为环，$I&#95;1, &#92;ldots I&#95;n$ 为一族理想。假设对每个 $i &#92;neq j$ 皆有 $I&#95;i &#43; I&#95;j &#61; R$，则环同态<br>$$ &#92;begin&#123;align&#42;&#125;&#10;    &#92;varphi: R &#38; &#92;longrightarrow &#92;prod&#95;&#123;i&#61;1&#125;^n R&#x2F;I&#95;i, &#92;&#92;&#10;    r &#38; &#92;longmapsto &#92;left&#40; r &#92;bmod I&#95;i &#92;right&#41;&#95;&#123;i&#61;1&#125;^n&#10;&#92;end&#123;align&#42;&#125; $$<br>诱导出环同构 $R &#92;big&#x2F; &#40;&#92;bigcap&#95;&#123;i&#61;1&#125;^n I&#95;i&#41; &#92;stackrel&#123;&#92;sim&#125;&#123;&#92;rightarrow&#125; &#92;prod&#95;&#123;i&#61;1&#125;^n R&#x2F;I&#95;i$。</p>
 </blockquote>
 <p>^prop-CRT</p>
-<p>连带地，$\varphi$ 也诱导群同构 $\left( R \big&#x2F; (\bigcap_{i&#x3D;1}^n I_i)\right)^\times \stackrel{\sim}{\rightarrow} \prod_{i&#x3D;1}^n \left(R&#x2F;I_i\right)^\times$。</p>
-<p>$Proof.$ 显然 $\operatorname{ker}(\varphi) &#x3D; \bigcap_{i&#x3D;1}^n I_i$，仅须证明 $\varphi$ 是满的。取定 $1 \leq i \leq n$，对每个 $j \neq i$ 存在 $r_j \in I_i$ 和 $s_j \in I_j$ 使得 $r_j + s_j &#x3D; 1$。以下的连乘积 $\prod_j$ 约定为按 $j&#x3D;1,2,\ldots$ 循序相乘：展开 $1 &#x3D; \prod_{j \neq i} (r_j + s_j)$ 并分离 $s :&#x3D; \prod_j s_j \in \prod_{j \neq i} I_j$ 与其余诸项之和 $r \in I_i$，遂得<br>$$<br> 1 &#x3D; r + s \in I_i + \prod_{j \neq i} I_j.<br>$$<br>因此 $y_i :&#x3D; s$ 在 $R&#x2F;I_j$（$j \neq i$）中的像是 $0$，在 $R&#x2F;I_i$ 中的像是 $1$。由于对任意 $x_1, \ldots, x_n \in R$ 有<br>$$<br> \varphi(x_1 y_1 + \cdots + x_n y_n) &#x3D; (x_i \bmod I_i)_{i&#x3D;1}^n,<br>$$<br>故 $\varphi$ 确为满射。<br>$\blacksquare$</p>
-<p>现于定理中取 $R&#x3D;\mathbb{Z}$，$I_i &#x3D; a_i \mathbb{Z}$，其中 $a_i \geq 1$；如置 $a$ 为 $a_1, \ldots, a_n$ 的最小公倍数，则 $\bigcap_{i&#x3D;1}^n I_i &#x3D; a\mathbb{Z}$。定理的条件相当于 $a_1, \ldots, a_n$ 两两互素，而结论是说 $\mathbb{Z}&#x2F;a\mathbb{Z} \stackrel{\sim}{\rightarrow} \prod_{i&#x3D;1}^n \mathbb{Z}&#x2F;a_i\mathbb{Z}$。这是中国剩余定理在初等数论中的面貌。</p>
-<p>今将证明环范畴 $\mathsf{Ring}$ 中存在非空的 $\varprojlim$。下面沿用 §[[范畴论基础#^sec-limits]] 的符号，考虑函子 $\beta: I^\text{op} \to \mathsf{Ring}$，其中 $I$ 是小范畴（见约定 [[范畴论基础#^con-U-small]]）。为了符号方便，不妨就假定 $I$ 实际是一个小的非空偏序集 $(I, \leq)$，而 $\beta$ 对应到环族 ${R_i &#x3D; \beta(i) }_{i \in I}$ 及同态族 ${\varphi_{ij} &#x3D; \beta(j \to i): R_i \to R_j }_{i \geq j}$，后者须满足相容条件<br>$$<br> i \geq j \geq k \implies \varphi_{jk} \varphi_{ij} &#x3D; \varphi_{ik}: R_i \to R_k.<br>$$</p>
-<p>下面构造极限 $\varprojlim_{i \in I} R_i$，其手法与群的情形 §[[群论#^sec-group-limit]] 是一贯的。</p>
+<p>连带地，$&#92;varphi$ 也诱导群同构 $&#92;left&#40; R &#92;big&#x2F; &#40;&#92;bigcap&#95;&#123;i&#61;1&#125;^n I&#95;i&#41;&#92;right&#41;^&#92;times &#92;stackrel&#123;&#92;sim&#125;&#123;&#92;rightarrow&#125; &#92;prod&#95;&#123;i&#61;1&#125;^n &#92;left&#40;R&#x2F;I&#95;i&#92;right&#41;^&#92;times$。</p>
+<p>$Proof.$ 显然 $&#92;operatorname&#123;ker&#125;&#40;&#92;varphi&#41; &#61; &#92;bigcap&#95;&#123;i&#61;1&#125;^n I&#95;i$，仅须证明 $&#92;varphi$ 是满的。取定 $1 &#92;leq i &#92;leq n$，对每个 $j &#92;neq i$ 存在 $r&#95;j &#92;in I&#95;i$ 和 $s&#95;j &#92;in I&#95;j$ 使得 $r&#95;j &#43; s&#95;j &#61; 1$。以下的连乘积 $&#92;prod&#95;j$ 约定为按 $j&#61;1,2,&#92;ldots$ 循序相乘：展开 $1 &#61; &#92;prod&#95;&#123;j &#92;neq i&#125; &#40;r&#95;j &#43; s&#95;j&#41;$ 并分离 $s :&#61; &#92;prod&#95;j s&#95;j &#92;in &#92;prod&#95;&#123;j &#92;neq i&#125; I&#95;j$ 与其余诸项之和 $r &#92;in I&#95;i$，遂得<br>$$ 1 &#61; r &#43; s &#92;in I&#95;i &#43; &#92;prod&#95;&#123;j &#92;neq i&#125; I&#95;j. $$<br>因此 $y&#95;i :&#61; s$ 在 $R&#x2F;I&#95;j$（$j &#92;neq i$）中的像是 $0$，在 $R&#x2F;I&#95;i$ 中的像是 $1$。由于对任意 $x&#95;1, &#92;ldots, x&#95;n &#92;in R$ 有<br>$$ &#92;varphi&#40;x&#95;1 y&#95;1 &#43; &#92;cdots &#43; x&#95;n y&#95;n&#41; &#61; &#40;x&#95;i &#92;bmod I&#95;i&#41;&#95;&#123;i&#61;1&#125;^n, $$<br>故 $&#92;varphi$ 确为满射。<br>$&#92;blacksquare$</p>
+<p>现于定理中取 $R&#61;&#92;mathbb&#123;Z&#125;$，$I&#95;i &#61; a&#95;i &#92;mathbb&#123;Z&#125;$，其中 $a&#95;i &#92;geq 1$；如置 $a$ 为 $a&#95;1, &#92;ldots, a&#95;n$ 的最小公倍数，则 $&#92;bigcap&#95;&#123;i&#61;1&#125;^n I&#95;i &#61; a&#92;mathbb&#123;Z&#125;$。定理的条件相当于 $a&#95;1, &#92;ldots, a&#95;n$ 两两互素，而结论是说 $&#92;mathbb&#123;Z&#125;&#x2F;a&#92;mathbb&#123;Z&#125; &#92;stackrel&#123;&#92;sim&#125;&#123;&#92;rightarrow&#125; &#92;prod&#95;&#123;i&#61;1&#125;^n &#92;mathbb&#123;Z&#125;&#x2F;a&#95;i&#92;mathbb&#123;Z&#125;$。这是中国剩余定理在初等数论中的面貌。</p>
+<p>今将证明环范畴 $&#92;mathsf&#123;Ring&#125;$ 中存在非空的 $&#92;varprojlim$。下面沿用 §[[范畴论基础#^sec-limits]] 的符号，考虑函子 $&#92;beta: I^&#92;text&#123;op&#125; &#92;to &#92;mathsf&#123;Ring&#125;$，其中 $I$ 是小范畴（见约定 [[范畴论基础#^con-U-small]]）。为了符号方便，不妨就假定 $I$ 实际是一个小的非空偏序集 $&#40;I, &#92;leq&#41;$，而 $&#92;beta$ 对应到环族 $&#92;&#123;R&#95;i &#61; &#92;beta&#40;i&#41; &#92;&#125;&#95;&#123;i &#92;in I&#125;$ 及同态族 $&#92;&#123;&#92;varphi&#95;&#123;ij&#125; &#61; &#92;beta&#40;j &#92;to i&#41;: R&#95;i &#92;to R&#95;j &#92;&#125;&#95;&#123;i &#92;geq j&#125;$，后者须满足相容条件<br>$$ i &#92;geq j &#92;geq k &#92;implies &#92;varphi&#95;&#123;jk&#125; &#92;varphi&#95;&#123;ij&#125; &#61; &#92;varphi&#95;&#123;ik&#125;: R&#95;i &#92;to R&#95;k. $$</p>
+<p>下面构造极限 $&#92;varprojlim&#95;&#123;i &#92;in I&#125; R&#95;i$，其手法与群的情形 §[[群论#^sec-group-limit]] 是一贯的。</p>
 <blockquote>
-<p>[!proposition] 环的投射极限<br>定义 $\prod_{i \in I} R_i$ 的子环<br>$$<br> \varprojlim_{i \in I} R_i :&#x3D; \left{ (r_i)_{i \in I} \in \prod_{i \in I} R_i : ; \forall i \geq j,; \varphi_{ij}(r_i) &#x3D; r_j \right}.<br>$$<br>则 $\varprojlim_{i \in I} R_i$ 连同投影同态族 $\left( p_j: \varprojlim_{i \in I} R_i \to R_j \right)_{j \in I}$ 满足如下泛性质：对任意环 $S$ 及同态族 $(q_j: S \to R_j)_{j \in I}$，若图表<br>$$<br> \begin{tikzcd}<br>    S \arrow[r, “q_i”] \arrow[rd, “q_j”‘] &amp; R_i \arrow[d, “\varphi_{ij}”] \<br>    &amp;  R_j<br>\end{tikzcd}<br>$$<br>对 $I$ 中每个 $i \geq j$ 皆交换，则存在唯一环同态 $\varphi: S \to \varprojlim_{i \in I} R_i$ 使下图对每个 $j \in I$ 皆交换：<br>$$<br> \begin{tikzcd}<br>    S \arrow[r, “q_j”] \arrow[d, “{\exists! , \varphi}”‘] &amp; R_j \<br>    \varprojlim_{i \in I} R_i \arrow[ru, “p_j”‘] &amp;<br>\end{tikzcd}<br>$$</p>
+<p>[!proposition] 环的投射极限<br>定义 $&#92;prod&#95;&#123;i &#92;in I&#125; R&#95;i$ 的子环<br>$$ &#92;varprojlim&#95;&#123;i &#92;in I&#125; R&#95;i :&#61; &#92;left&#92;&#123; &#40;r&#95;i&#41;&#95;&#123;i &#92;in I&#125; &#92;in &#92;prod&#95;&#123;i &#92;in I&#125; R&#95;i : &#92;; &#92;forall i &#92;geq j,&#92;; &#92;varphi&#95;&#123;ij&#125;&#40;r&#95;i&#41; &#61; r&#95;j &#92;right&#92;&#125;. $$<br>则 $&#92;varprojlim&#95;&#123;i &#92;in I&#125; R&#95;i$ 连同投影同态族 $&#92;left&#40; p&#95;j: &#92;varprojlim&#95;&#123;i &#92;in I&#125; R&#95;i &#92;to R&#95;j &#92;right&#41;&#95;&#123;j &#92;in I&#125;$ 满足如下泛性质：对任意环 $S$ 及同态族 $&#40;q&#95;j: S &#92;to R&#95;j&#41;&#95;&#123;j &#92;in I&#125;$，若图表<br>$$ &#92;begin&#123;tikzcd&#125;&#10;    S &#92;arrow&#91;r, “q&#95;i”&#93; &#92;arrow&#91;rd, “q&#95;j”‘&#93; &#38; R&#95;i &#92;arrow&#91;d, “&#92;varphi&#95;&#123;ij&#125;”&#93; &#92;&#92;&#10;    &#38;  R&#95;j&#10;&#92;end&#123;tikzcd&#125; $$<br>对 $I$ 中每个 $i &#92;geq j$ 皆交换，则存在唯一环同态 $&#92;varphi: S &#92;to &#92;varprojlim&#95;&#123;i &#92;in I&#125; R&#95;i$ 使下图对每个 $j &#92;in I$ 皆交换：<br>$$ &#92;begin&#123;tikzcd&#125;&#10;    S &#92;arrow&#91;r, “q&#95;j”&#93; &#92;arrow&#91;d, “&#123;&#92;exists&#33; &#92;, &#92;varphi&#125;”‘&#93; &#38; R&#95;j &#92;&#92;&#10;    &#92;varprojlim&#95;&#123;i &#92;in I&#125; R&#95;i &#92;arrow&#91;ru, “p&#95;j”‘&#93; &#38;&#10;&#92;end&#123;tikzcd&#125; $$</p>
 </blockquote>
-<p>$Proof.$ 由于每个 $\varphi_{ij}$ 都是环同态，易见 $\varprojlim_i R_i$ 为 $\prod_{i \in I} R_i$ 的子环。图表交换相当于说对每个 $s \in S$ 皆有 $\varphi(s) &#x3D; (q_i(s))_{i \in I}$，后者落在 $\varprojlim_i R_i$ 中当且仅当 $(S, q_i)$ 满足命题中的交换性条件。这就唯一给出了 $\varphi$。<br>$\blacksquare$</p>
-<p>对于一般的小范畴 $I$，极限 $\varprojlim \beta \subset \prod_{i \in \operatorname{Ob}(I)} \beta(i)$ 的构造方法完全类似。现在转向其特例完备化，假设 $(I, \leq)$ 为滤过偏序集（定义 [[集合论#^def-filtrant-poset]]）。</p>
+<p>$Proof.$ 由于每个 $&#92;varphi&#95;&#123;ij&#125;$ 都是环同态，易见 $&#92;varprojlim&#95;i R&#95;i$ 为 $&#92;prod&#95;&#123;i &#92;in I&#125; R&#95;i$ 的子环。图表交换相当于说对每个 $s &#92;in S$ 皆有 $&#92;varphi&#40;s&#41; &#61; &#40;q&#95;i&#40;s&#41;&#41;&#95;&#123;i &#92;in I&#125;$，后者落在 $&#92;varprojlim&#95;i R&#95;i$ 中当且仅当 $&#40;S, q&#95;i&#41;$ 满足命题中的交换性条件。这就唯一给出了 $&#92;varphi$。<br>$&#92;blacksquare$</p>
+<p>对于一般的小范畴 $I$，极限 $&#92;varprojlim &#92;beta &#92;subset &#92;prod&#95;&#123;i &#92;in &#92;operatorname&#123;Ob&#125;&#40;I&#41;&#125; &#92;beta&#40;i&#41;$ 的构造方法完全类似。现在转向其特例完备化，假设 $&#40;I, &#92;leq&#41;$ 为滤过偏序集（定义 [[集合论#^def-filtrant-poset]]）。</p>
 <blockquote>
-<p>[!definition] 环的完备化（completion of a ring）<br>设 $R$ 为环，$(\mathfrak{a}_i)_{i \in I}$ 为一族 $R$ 的双边真理想，使得 $i \geq j$ 蕴涵 $\mathfrak{a}_i \subset \mathfrak{a}_j$，从而导出商映射 $\varphi_{ij}: R&#x2F;\mathfrak{a}_i \to R&#x2F;\mathfrak{a}_j$。相应的极限 $\varprojlim_{i \in I} R&#x2F;\mathfrak{a}_i$ 称作 $R$ 对 $(\mathfrak{a}_i)_{i \in I}$ 的<em>完备化</em>。</p>
+<p>[!definition] 环的完备化（completion of a ring）<br>设 $R$ 为环，$&#40;&#92;mathfrak&#123;a&#125;&#95;i&#41;&#95;&#123;i &#92;in I&#125;$ 为一族 $R$ 的双边真理想，使得 $i &#92;geq j$ 蕴涵 $&#92;mathfrak&#123;a&#125;&#95;i &#92;subset &#92;mathfrak&#123;a&#125;&#95;j$，从而导出商映射 $&#92;varphi&#95;&#123;ij&#125;: R&#x2F;&#92;mathfrak&#123;a&#125;&#95;i &#92;to R&#x2F;&#92;mathfrak&#123;a&#125;&#95;j$。相应的极限 $&#92;varprojlim&#95;&#123;i &#92;in I&#125; R&#x2F;&#92;mathfrak&#123;a&#125;&#95;i$ 称作 $R$ 对 $&#40;&#92;mathfrak&#123;a&#125;&#95;i&#41;&#95;&#123;i &#92;in I&#125;$ 的<em>完备化</em>。</p>
 </blockquote>
 <p>^def-ring-completion</p>
-<p>从商同态族 $R \to R&#x2F;\mathfrak{a}_i$ 导出自然的环同态 $\iota: R \to \varprojlim_i R&#x2F;\mathfrak{a}_i$，其核是 $\bigcap_i \mathfrak{a}_i$；以 $R&#x2F;\operatorname{ker}(\iota)$ 代 $R$，总能化约到 $\operatorname{ker}(\iota)&#x3D;{0}$ 的情形，以下不妨如是假设。</p>
-<p>令 $\mathfrak{A}_j$ 表 $\varprojlim_i R&#x2F;\mathfrak{a}_i \to R&#x2F;\mathfrak{a}_j$ 的核，即<br>$$<br> \mathfrak{A}_j &#x3D; \left{ (r_i)_{i \in I} \in \varprojlim_i R&#x2F;\mathfrak{a}_i : ; i \leq j \implies r_i&#x3D;0 \right}.<br>$$<br>兹引进<em>拓扑环</em>（topological ring）的概念：这意谓一个环兼有拓扑空间结构，而环的加法，取负和乘法皆连续；特别地，拓扑环对加法构成拓扑交换群。现在赋予每个 $R_i :&#x3D; R&#x2F;\mathfrak{a}_i$ 离散拓扑，则 $\varprojlim_{i \in I} R&#x2F;\mathfrak{a}_i$ 无非是对加法群 $R$ 及 ${\mathfrak{a}_i}_{i \in I}$ 作定义 [[群论#^def-group-completion]] 的完备化。因而 $(\varprojlim_i R_i, +)$ 成为完备 Hausdorff 拓扑群，理想族 ${\mathfrak{A}_i}_{i \in I}$ 给出 $0$ 处的邻域基。进一步，$\varprojlim_i R_i$ 成拓扑环：乘法连续性是下述性质的直接推论<br>$$<br> (j,k \geq i) \implies \mathfrak{A}_j \cdot \mathfrak{A}_k \subset \mathfrak{A}_i.<br>$$<br>若每个 $R&#x2F;\mathfrak{a}_i$ 皆为有限环，则从引理 [[群论#^prop-completion-compactness]] 知 $\varprojlim_i R&#x2F;\mathfrak{a}_i$ 是紧的。</p>
+<p>从商同态族 $R &#92;to R&#x2F;&#92;mathfrak&#123;a&#125;&#95;i$ 导出自然的环同态 $&#92;iota: R &#92;to &#92;varprojlim&#95;i R&#x2F;&#92;mathfrak&#123;a&#125;&#95;i$，其核是 $&#92;bigcap&#95;i &#92;mathfrak&#123;a&#125;&#95;i$；以 $R&#x2F;&#92;operatorname&#123;ker&#125;&#40;&#92;iota&#41;$ 代 $R$，总能化约到 $&#92;operatorname&#123;ker&#125;&#40;&#92;iota&#41;&#61;&#92;&#123;0&#92;&#125;$ 的情形，以下不妨如是假设。</p>
+<p>令 $&#92;mathfrak&#123;A&#125;&#95;j$ 表 $&#92;varprojlim&#95;i R&#x2F;&#92;mathfrak&#123;a&#125;&#95;i &#92;to R&#x2F;&#92;mathfrak&#123;a&#125;&#95;j$ 的核，即<br>$$ &#92;mathfrak&#123;A&#125;&#95;j &#61; &#92;left&#92;&#123; &#40;r&#95;i&#41;&#95;&#123;i &#92;in I&#125; &#92;in &#92;varprojlim&#95;i R&#x2F;&#92;mathfrak&#123;a&#125;&#95;i : &#92;; i &#92;leq j &#92;implies r&#95;i&#61;0 &#92;right&#92;&#125;. $$<br>兹引进<em>拓扑环</em>（topological ring）的概念：这意谓一个环兼有拓扑空间结构，而环的加法，取负和乘法皆连续；特别地，拓扑环对加法构成拓扑交换群。现在赋予每个 $R&#95;i :&#61; R&#x2F;&#92;mathfrak&#123;a&#125;&#95;i$ 离散拓扑，则 $&#92;varprojlim&#95;&#123;i &#92;in I&#125; R&#x2F;&#92;mathfrak&#123;a&#125;&#95;i$ 无非是对加法群 $R$ 及 $&#92;&#123;&#92;mathfrak&#123;a&#125;&#95;i&#92;&#125;&#95;&#123;i &#92;in I&#125;$ 作定义 [[群论#^def-group-completion]] 的完备化。因而 $&#40;&#92;varprojlim&#95;i R&#95;i, &#43;&#41;$ 成为完备 Hausdorff 拓扑群，理想族 $&#92;&#123;&#92;mathfrak&#123;A&#125;&#95;i&#92;&#125;&#95;&#123;i &#92;in I&#125;$ 给出 $0$ 处的邻域基。进一步，$&#92;varprojlim&#95;i R&#95;i$ 成拓扑环：乘法连续性是下述性质的直接推论<br>$$ &#40;j,k &#92;geq i&#41; &#92;implies &#92;mathfrak&#123;A&#125;&#95;j &#92;cdot &#92;mathfrak&#123;A&#125;&#95;k &#92;subset &#92;mathfrak&#123;A&#125;&#95;i. $$<br>若每个 $R&#x2F;&#92;mathfrak&#123;a&#125;&#95;i$ 皆为有限环，则从引理 [[群论#^prop-completion-compactness]] 知 $&#92;varprojlim&#95;i R&#x2F;&#92;mathfrak&#123;a&#125;&#95;i$ 是紧的。</p>
 <blockquote>
-<p>[!remark] 进制拓扑与完备化<br>令 $\hat{R} :&#x3D; \varprojlim_i R&#x2F;\mathfrak{a}_i$。就拓扑观点看，这里的构造相当于令 $(\mathfrak{a}_i)_{i \in I}$ 为 $0 \in R$ 的一组邻域基，使 $R$ 成 Hausdorff 拓扑环（见 [[群论#^eqn-top-group-Hausdorff]]），再仿照 §[[群论#^sec-group-limit]] 作环 $R$ 的完备化 $\hat{R}$。一如群的情形，环的完备化意谓一个连续环同态 $\iota: R \to \hat{R}$，由以下性质刻画（精确到唯一同构）：<br><strong>CO.1</strong> $\iota: R \to \iota(R)$ 为同胚，<br><strong>CO.2</strong> $\iota$ 的像稠密，<br><strong>CO.3</strong> $\hat{R}$ 是完备的 Hausdorff 拓扑环。</p>
-<p>实践中常取定一个双边理想 $\mathfrak{a}$，考虑全序集 $I &#x3D; (\mathbb{Z}_{\geq 0}, \leq)$ 和 $\mathfrak{a}_i &#x3D; \mathfrak{a}^{i+1}$；此时 $R$ 上的拓扑称为 $\mathfrak{a}$-进拓扑（$\mathfrak{a}$-adic topology）。如果存在 $\mathfrak{a}$ 使得 $R$ 带 $\mathfrak{a}$-进拓扑，我们则称 $R$ 带有进制拓扑，这是一类常见的拓扑环。留意到 $\mathfrak{a}$ 的选取并不唯一：读者可以验证对任意 $k \in \mathbb{Z}_{\geq 1}$，由 $\mathfrak{a}^k$ 和 $\mathfrak{a}$ 确定的进制拓扑是一样的。</p>
+<p>[!remark] 进制拓扑与完备化<br>令 $&#92;hat&#123;R&#125; :&#61; &#92;varprojlim&#95;i R&#x2F;&#92;mathfrak&#123;a&#125;&#95;i$。就拓扑观点看，这里的构造相当于令 $&#40;&#92;mathfrak&#123;a&#125;&#95;i&#41;&#95;&#123;i &#92;in I&#125;$ 为 $0 &#92;in R$ 的一组邻域基，使 $R$ 成 Hausdorff 拓扑环（见 [[群论#^eqn-top-group-Hausdorff]]），再仿照 §[[群论#^sec-group-limit]] 作环 $R$ 的完备化 $&#92;hat&#123;R&#125;$。一如群的情形，环的完备化意谓一个连续环同态 $&#92;iota: R &#92;to &#92;hat&#123;R&#125;$，由以下性质刻画（精确到唯一同构）：<br><strong>CO.1</strong> $&#92;iota: R &#92;to &#92;iota&#40;R&#41;$ 为同胚，<br><strong>CO.2</strong> $&#92;iota$ 的像稠密，<br><strong>CO.3</strong> $&#92;hat&#123;R&#125;$ 是完备的 Hausdorff 拓扑环。</p>
+<p>实践中常取定一个双边理想 $&#92;mathfrak&#123;a&#125;$，考虑全序集 $I &#61; &#40;&#92;mathbb&#123;Z&#125;&#95;&#123;&#92;geq 0&#125;, &#92;leq&#41;$ 和 $&#92;mathfrak&#123;a&#125;&#95;i &#61; &#92;mathfrak&#123;a&#125;^&#123;i&#43;1&#125;$；此时 $R$ 上的拓扑称为 $&#92;mathfrak&#123;a&#125;$-进拓扑（$&#92;mathfrak&#123;a&#125;$-adic topology）。如果存在 $&#92;mathfrak&#123;a&#125;$ 使得 $R$ 带 $&#92;mathfrak&#123;a&#125;$-进拓扑，我们则称 $R$ 带有进制拓扑，这是一类常见的拓扑环。留意到 $&#92;mathfrak&#123;a&#125;$ 的选取并不唯一：读者可以验证对任意 $k &#92;in &#92;mathbb&#123;Z&#125;&#95;&#123;&#92;geq 1&#125;$，由 $&#92;mathfrak&#123;a&#125;^k$ 和 $&#92;mathfrak&#123;a&#125;$ 确定的进制拓扑是一样的。</p>
 </blockquote>
 <p>^rem-ring-completion</p>
 <blockquote>
-<p>[!example] $p$-进整数环（$p$-adic integers）<br>考虑环 $R &#x3D; \mathbb{Z}$ 及其理想族 $\mathfrak{a}_i :&#x3D; p^{i+1} \mathbb{Z}$，其中 $p$ 是取定的素数。相应的完备化 $\mathbb{Z}_p$ 称为 $p$-进整数环，它是 $\mathbb{Z}$ 对其 $p\mathbb{Z}$-进拓扑（今后简称 $p$-进拓扑）的完备化。</p>
+<p>[!example] $p$-进整数环（$p$-adic integers）<br>考虑环 $R &#61; &#92;mathbb&#123;Z&#125;$ 及其理想族 $&#92;mathfrak&#123;a&#125;&#95;i :&#61; p^&#123;i&#43;1&#125; &#92;mathbb&#123;Z&#125;$，其中 $p$ 是取定的素数。相应的完备化 $&#92;mathbb&#123;Z&#125;&#95;p$ 称为 $p$-进整数环，它是 $&#92;mathbb&#123;Z&#125;$ 对其 $p&#92;mathbb&#123;Z&#125;$-进拓扑（今后简称 $p$-进拓扑）的完备化。</p>
 </blockquote>
 <p>^eg-Z_p</p>
 <blockquote>
-<p>[!example] Prüfer 环<br>取集合 $I :&#x3D; \mathbb{Z}_{&gt; 1}$，并以整除性定义滤过偏序：$N \prec N’ \iff N \mid N’$，此时有商同态 $\mathbb{Z}&#x2F;N’\mathbb{Z} \to \mathbb{Z}&#x2F;N\mathbb{Z}$。相应的完备化 $\hat{\mathbb{Z}} :&#x3D; \varprojlim_N \mathbb{Z}&#x2F;N\mathbb{Z}$ 称作 Prüfer 环。事实上 $\hat{\mathbb{Z}} \simeq \prod_p \mathbb{Z}_p$，其中 $p$ 取遍素数。缘由如下：$N$ 有唯一的素因子分解 $N &#x3D; \prod_p p^{v_p(N)}$，对任意 $N \prec N’$ 皆有交换图表<br>$$<br> \begin{tikzcd}<br>    \prod_p (\mathbb{Z}&#x2F;p^{v_p(N’)}\mathbb{Z} ) \arrow[twoheadrightarrow, d] \arrow[r, “\sim”] &amp; \mathbb{Z}&#x2F;N’\mathbb{Z} \arrow[twoheadrightarrow, d] \<br>    \prod_p (\mathbb{Z}&#x2F;p^{v_p(N)}\mathbb{Z} ) \arrow[r, “\sim”‘] &amp; \mathbb{Z}&#x2F;N\mathbb{Z}<br>\end{tikzcd}<br>$$<br>其中横向同构来自中国剩余定理，纵向是商同态。左右比较完备化得 $\prod_p \mathbb{Z}_p \stackrel{\sim}{\rightarrow} \hat{\mathbb{Z}}$。</p>
+<p>[!example] Prüfer 环<br>取集合 $I :&#61; &#92;mathbb&#123;Z&#125;&#95;&#123;&#62; 1&#125;$，并以整除性定义滤过偏序：$N &#92;prec N’ &#92;iff N &#92;mid N’$，此时有商同态 $&#92;mathbb&#123;Z&#125;&#x2F;N’&#92;mathbb&#123;Z&#125; &#92;to &#92;mathbb&#123;Z&#125;&#x2F;N&#92;mathbb&#123;Z&#125;$。相应的完备化 $&#92;hat&#123;&#92;mathbb&#123;Z&#125;&#125; :&#61; &#92;varprojlim&#95;N &#92;mathbb&#123;Z&#125;&#x2F;N&#92;mathbb&#123;Z&#125;$ 称作 Prüfer 环。事实上 $&#92;hat&#123;&#92;mathbb&#123;Z&#125;&#125; &#92;simeq &#92;prod&#95;p &#92;mathbb&#123;Z&#125;&#95;p$，其中 $p$ 取遍素数。缘由如下：$N$ 有唯一的素因子分解 $N &#61; &#92;prod&#95;p p^&#123;v&#95;p&#40;N&#41;&#125;$，对任意 $N &#92;prec N’$ 皆有交换图表<br>$$ &#92;begin&#123;tikzcd&#125;&#10;    &#92;prod&#95;p &#40;&#92;mathbb&#123;Z&#125;&#x2F;p^&#123;v&#95;p&#40;N’&#41;&#125;&#92;mathbb&#123;Z&#125; &#41; &#92;arrow&#91;twoheadrightarrow, d&#93; &#92;arrow&#91;r, “&#92;sim”&#93; &#38; &#92;mathbb&#123;Z&#125;&#x2F;N’&#92;mathbb&#123;Z&#125; &#92;arrow&#91;twoheadrightarrow, d&#93; &#92;&#92;&#10;    &#92;prod&#95;p &#40;&#92;mathbb&#123;Z&#125;&#x2F;p^&#123;v&#95;p&#40;N&#41;&#125;&#92;mathbb&#123;Z&#125; &#41; &#92;arrow&#91;r, “&#92;sim”‘&#93; &#38; &#92;mathbb&#123;Z&#125;&#x2F;N&#92;mathbb&#123;Z&#125;&#10;&#92;end&#123;tikzcd&#125; $$<br>其中横向同构来自中国剩余定理，纵向是商同态。左右比较完备化得 $&#92;prod&#95;p &#92;mathbb&#123;Z&#125;&#95;p &#92;stackrel&#123;&#92;sim&#125;&#123;&#92;rightarrow&#125; &#92;hat&#123;&#92;mathbb&#123;Z&#125;&#125;$。</p>
 </blockquote>
 <p>^eg-Prüfer</p>
-<p>环 $\mathbb{Z}_p$ 是完备化的典型。鉴于其应用之广，以下将进一步探讨 $\mathbb{Z}_p$ 的性质，同时演示交换环论中的一些基本技巧。首先，观察到 $\varprojlim$ 的构造蕴涵<br>$$<br> \begin{align*}<br>    p^{n+1} \mathbb{Z}_p &amp; &#x3D; \left{ (x_i)_{i \geq 0} : x_i \in p^{n+1} \cdot \mathbb{Z}&#x2F;p^{i+1}\mathbb{Z} \right} \<br>    &amp; &#x3D; \left{ (x_i)_{i \geq 0} : i \leq n \implies x_i&#x3D;0 \right} &#x3D; \operatorname{ker}\left[ \mathbb{Z}_p \stackrel{p_n}{\twoheadrightarrow} \mathbb{Z}&#x2F;p^{n+1}\mathbb{Z} \right].<br>\end{align*}<br>$$<br>从而 $\mathbb{Z}_p&#x2F;p^{n+1}\mathbb{Z}_p \stackrel{\sim}{\rightarrow} \mathbb{Z}&#x2F;p^{n+1}\mathbb{Z}$。这也蕴涵 $p\mathbb{Z}_p$ 是极大理想。此外留意到 $p$ 在 $\mathbb{Z}_p$ 中非零因子：如果 $(x_i)_i \neq 0$，取 $n$ 使得 $x_{n-1} \neq 0$，则必有 $x_n \notin p^n \mathbb{Z}&#x2F;p^{n+1}\mathbb{Z}$，从而 $px_n \neq 0$。</p>
-<p>对任意 $x &#x3D; \left( x_i \in \mathbb{Z}&#x2F;p^{i+1}\mathbb{Z} \right)_{i \geq 0} \in \mathbb{Z}_p$，由以上观察可以定义<br>$$<br> v_p(x) :&#x3D; \sup{n: x \in p^n\mathbb{Z}_p} &#x3D; \inf{n : x_n \neq 0}.<br>$$<br>函数 $v_p: \mathbb{Z}_p \to \mathbb{Z}_{\geq 0} \sqcup {\infty}$ 称为 $p$-进赋值（$p$-adic valuation）。</p>
+<p>环 $&#92;mathbb&#123;Z&#125;&#95;p$ 是完备化的典型。鉴于其应用之广，以下将进一步探讨 $&#92;mathbb&#123;Z&#125;&#95;p$ 的性质，同时演示交换环论中的一些基本技巧。首先，观察到 $&#92;varprojlim$ 的构造蕴涵<br>$$ &#92;begin&#123;align&#42;&#125;&#10;    p^&#123;n&#43;1&#125; &#92;mathbb&#123;Z&#125;&#95;p &#38; &#61; &#92;left&#92;&#123; &#40;x&#95;i&#41;&#95;&#123;i &#92;geq 0&#125; : x&#95;i &#92;in p^&#123;n&#43;1&#125; &#92;cdot &#92;mathbb&#123;Z&#125;&#x2F;p^&#123;i&#43;1&#125;&#92;mathbb&#123;Z&#125; &#92;right&#92;&#125; &#92;&#92;&#10;    &#38; &#61; &#92;left&#92;&#123; &#40;x&#95;i&#41;&#95;&#123;i &#92;geq 0&#125; : i &#92;leq n &#92;implies x&#95;i&#61;0 &#92;right&#92;&#125; &#61; &#92;operatorname&#123;ker&#125;&#92;left&#91; &#92;mathbb&#123;Z&#125;&#95;p &#92;stackrel&#123;p&#95;n&#125;&#123;&#92;twoheadrightarrow&#125; &#92;mathbb&#123;Z&#125;&#x2F;p^&#123;n&#43;1&#125;&#92;mathbb&#123;Z&#125; &#92;right&#93;.&#10;&#92;end&#123;align&#42;&#125; $$<br>从而 $&#92;mathbb&#123;Z&#125;&#95;p&#x2F;p^&#123;n&#43;1&#125;&#92;mathbb&#123;Z&#125;&#95;p &#92;stackrel&#123;&#92;sim&#125;&#123;&#92;rightarrow&#125; &#92;mathbb&#123;Z&#125;&#x2F;p^&#123;n&#43;1&#125;&#92;mathbb&#123;Z&#125;$。这也蕴涵 $p&#92;mathbb&#123;Z&#125;&#95;p$ 是极大理想。此外留意到 $p$ 在 $&#92;mathbb&#123;Z&#125;&#95;p$ 中非零因子：如果 $&#40;x&#95;i&#41;&#95;i &#92;neq 0$，取 $n$ 使得 $x&#95;&#123;n&#45;1&#125; &#92;neq 0$，则必有 $x&#95;n &#92;notin p^n &#92;mathbb&#123;Z&#125;&#x2F;p^&#123;n&#43;1&#125;&#92;mathbb&#123;Z&#125;$，从而 $px&#95;n &#92;neq 0$。</p>
+<p>对任意 $x &#61; &#92;left&#40; x&#95;i &#92;in &#92;mathbb&#123;Z&#125;&#x2F;p^&#123;i&#43;1&#125;&#92;mathbb&#123;Z&#125; &#92;right&#41;&#95;&#123;i &#92;geq 0&#125; &#92;in &#92;mathbb&#123;Z&#125;&#95;p$，由以上观察可以定义<br>$$ v&#95;p&#40;x&#41; :&#61; &#92;sup&#92;&#123;n: x &#92;in p^n&#92;mathbb&#123;Z&#125;&#95;p&#92;&#125; &#61; &#92;inf&#92;&#123;n : x&#95;n &#92;neq 0&#92;&#125;. $$<br>函数 $v&#95;p: &#92;mathbb&#123;Z&#125;&#95;p &#92;to &#92;mathbb&#123;Z&#125;&#95;&#123;&#92;geq 0&#125; &#92;sqcup &#92;&#123;&#92;infty&#92;&#125;$ 称为 $p$-进赋值（$p$-adic valuation）。</p>
 <blockquote>
 <p>[!proposition] $p$-进整数环的性质<br>对任意素数 $p$，以下性质成立。</p>
 <ol>
-<li>$\mathbb{Z}_p$ 是整环，而且 $v_p(x) &#x3D; \infty \iff x&#x3D;0$。</li>
-<li>对任意 $x,y \in \mathbb{Z}_p$<br>$$<br> \begin{align*}<br>v_p(xy) &amp; &#x3D; v_p(x) + v_p(y), \<br>v_p(x+y) &amp; \geq \min{v_p(x), v_p(y)}, \quad \text{(强三角不等式)}.<br>\end{align*}<br>$$</li>
-<li>元素 $x \in \mathbb{Z}_p$ 可逆当且仅当 $v_p(x)&#x3D;0$。</li>
-<li>$\mathbb{Z}_p$ 是主理想环，其非零理想皆为 $p^n \mathbb{Z}_p &#x3D; {x \in \mathbb{Z}_p: v_p(x) \geq n }$ 的形式。</li>
+<li>$&#92;mathbb&#123;Z&#125;&#95;p$ 是整环，而且 $v&#95;p&#40;x&#41; &#61; &#92;infty &#92;iff x&#61;0$。</li>
+<li>对任意 $x,y &#92;in &#92;mathbb&#123;Z&#125;&#95;p$<br>$$ &#92;begin&#123;align&#42;&#125;&#10;       v&#95;p&#40;xy&#41; &#38; &#61; v&#95;p&#40;x&#41; &#43; v&#95;p&#40;y&#41;, &#92;&#92;&#10;       v&#95;p&#40;x&#43;y&#41; &#38; &#92;geq &#92;min&#92;&#123;v&#95;p&#40;x&#41;, v&#95;p&#40;y&#41;&#92;&#125;, &#92;quad &#92;text&#123;&#40;强三角不等式&#41;&#125;.&#10;   &#92;end&#123;align&#42;&#125; $$</li>
+<li>元素 $x &#92;in &#92;mathbb&#123;Z&#125;&#95;p$ 可逆当且仅当 $v&#95;p&#40;x&#41;&#61;0$。</li>
+<li>$&#92;mathbb&#123;Z&#125;&#95;p$ 是主理想环，其非零理想皆为 $p^n &#92;mathbb&#123;Z&#125;&#95;p &#61; &#92;&#123;x &#92;in &#92;mathbb&#123;Z&#125;&#95;p: v&#95;p&#40;x&#41; &#92;geq n &#92;&#125;$ 的形式。</li>
 </ol>
 </blockquote>
 <p>^prop-p-adic</p>
-<p>$Proof.$ 记 $W :&#x3D; \mathbb{Z}_p$。之后的论证仅需要定义 $v_p(x) &#x3D; \sup{n: x \in p^n W}$ 和业已经观察过的性质：<br>(a) $W \stackrel{\sim}{\rightarrow} \varprojlim_{n \geq 0} W&#x2F;p^{n+1}W$；<br>(b) $p$ 在 $W$ 中不是零因子；<br>(c) $W&#x2F;pW$ 是域。</p>
-<p>首先，$v_p(x)&#x3D;\infty$ 等价于 $x \in \bigcap_{n \geq 0} p^{n+1}W$，然而 (a) 蕴涵此时 $x&#x3D;0$。接着证明 $W$ 为整环：若 $x,y \in W$ 皆非零，由前一步可假设 $x&#x3D;p^{v_p(x)} x’$，$y&#x3D;p^{v_p(y)} y’$ 满足于 $x’,y’ \notin pW$，再由 (b) 知问题化为证 $x’y’ \neq 0$。然而 $W&#x2F;pW$ 是域故 $x’y’ \notin pW$，特别地 $x’y’ \neq 0$。</p>
-<p>下面证明 $v_p$ 的两条性质。同样置 $x &#x3D; p^{v_p(x)} x’$ 和 $y &#x3D; p^{v_p(y)} y’$。不妨设 $v_p(x) \geq v_p(y)$，则 $x+y \in p^{v_p(y)}W$ 故 $v_p(x+y) \geq \min{ v_p(x), v_p(y)}$。又从 $x’y’ \notin pW$ 可导出 $v_p(xy) &#x3D; v_p(x) + v_p(y)$。</p>
-<p>令 $x \in W^\times$，考虑其模 $pW$ 的像可知 $v_p(x) &#x3D; 0$。相反地，假设 $x \in W \smallsetminus pW$，由 (c) 知存在 $a \in W$ 使得 $ax \equiv 1 \pmod{pW}$。因此不妨假设 $x \equiv 1 \pmod{pW}$。置 $x &#x3D; 1-t$，$v_p(t) \geq 1$。在 Hausdorff 拓扑环 $W$ 中有等式<br>$$<br> x(1 + t + \cdots + t^N) &#x3D; (1 - t)(1 + t + \cdots + t^N) &#x3D; 1 - t^{N+1}.<br>$$<br>当 $N \to \infty$ 时右式趋近于 $1$。如能证明 $y_N :&#x3D; 1+ t +\cdots + t^N$ 亦收敛，则其极限给出 $x^{-1}$。为此，仅需观察到对于 $N’ \geq N$，和式 $y_{N’}$ 中 $t^N$ 以后的项不影响它模 $p^N W$ 的类。</p>
-<p>最后证明关于理想的断言。假设 $I$ 是 $W$ 中的非零理想。定义 $n :&#x3D; \min{v_p(x) : x \in I}$，于是 $I \subset p^n W$。取非零元 $x &#x3D; p^n y \in I$ 满足 $v_p(x)&#x3D;n$，于是 $y$ 必可逆，从而 $p^n W &#x3D; xW \subset I$。明所欲证。<br>$\blacksquare$</p>
-<p>环 $\mathbb{Z}_p$ 对乘性子集 ${1,p,p^2,\ldots}$ 的局部化 $\mathbb{Z}_p[\frac{1}{p}] &#x3D;: \mathbb{Q}_p$ 称为 <em>$p$-进数域</em>（field of $p$-adic numbers）。由以上对可逆元的刻画知 $\mathbb{Q}_p &#x3D; \text{Frac}(\mathbb{Z}_p)$，其非零元可以唯一地表作 $p^a t$ 的形式，其中 $t \in \mathbb{Z}_p^\times$ 而 $a \in \mathbb{Z}$。同时赋值 $v_p$ 在 $\mathbb{Q}_p$ 上有自然延拓：$v_p(p^a t) &#x3D; a$；请读者验证命题 [[#^prop-p-adic]] 的不等式在 $\mathbb{Q}_p$ 上仍旧成立。另一方面，$\mathbb{Q}_p$ 也可以视为域 $\mathbb{Q}$ 对赋值 $v_p\big|_{\mathbb{Q}}$ 的完备化，一步到位地构造，这点将在 §[[域的赋值#^sec-valued-field]] 作细致讨论。</p>
-<p>下面转向 $\varinjlim$ 的研究。考虑小范畴 $I$ 及函子 $\alpha: I \to \mathsf{Ring}$。我们即将为滤过的 $I$ 定义极限 $\varinjlim \alpha$（定义 [[范畴论基础#^def-filtrant-cat]]）。应用中 $I$ 往往是滤过偏序集，不过为突出滤过条件的作用，我们将不厌其烦地处理一般情形。且先回忆对 $I$ 中的每个态射 $f: i \to j$，都有相应的环同态 $\alpha(f): \alpha(i) \to \alpha(j)$。</p>
-<p>假设 $I$ 滤过。在例 [[范畴论基础#^eg-set-limits]] 中，我们业已在 $\bigsqcup_{i \in \operatorname{Ob}(I)} \alpha(i)$ 上以等价关系定义了等价关系 $\sim$，从而将 $\mathsf{Set}$ 中的 $\varinjlim \alpha$ 实现为相应的商集 $\bigsqcup_{i \in \operatorname{Ob}(I)} \alpha(i) \big&#x2F; \sim$；对每个 $j \in \operatorname{Ob}(I)$ 皆有映射<br>$$<br> \iota_j: \alpha(j) \to \bigsqcup_{i \in \operatorname{Ob}(I)} \alpha(i) \xrightarrow{\text{商映射}} \varinjlim \alpha.<br>$$</p>
-<p>今将往证商集 $\varinjlim \alpha$ 上具有唯一的环结构使得对每个 $f: j \to j’$，<br>$$<br> \begin{tikzcd}[row sep&#x3D;small]<br>    \alpha(j) \arrow[rd, “\iota_j”‘] \arrow[rr, “\alpha(f)”] &amp; &amp; \alpha(j’) \arrow[ld, “{\iota_{j’}}”] \<br>    &amp; \varinjlim \alpha &amp;<br>\end{tikzcd}<br>$$</p>
+<p>$Proof.$ 记 $W :&#61; &#92;mathbb&#123;Z&#125;&#95;p$。之后的论证仅需要定义 $v&#95;p&#40;x&#41; &#61; &#92;sup&#92;&#123;n: x &#92;in p^n W&#92;&#125;$ 和业已经观察过的性质：<br>(a) $W &#92;stackrel&#123;&#92;sim&#125;&#123;&#92;rightarrow&#125; &#92;varprojlim&#95;&#123;n &#92;geq 0&#125; W&#x2F;p^&#123;n&#43;1&#125;W$；<br>(b) $p$ 在 $W$ 中不是零因子；<br>(c) $W&#x2F;pW$ 是域。</p>
+<p>首先，$v&#95;p&#40;x&#41;&#61;&#92;infty$ 等价于 $x &#92;in &#92;bigcap&#95;&#123;n &#92;geq 0&#125; p^&#123;n&#43;1&#125;W$，然而 (a) 蕴涵此时 $x&#61;0$。接着证明 $W$ 为整环：若 $x,y &#92;in W$ 皆非零，由前一步可假设 $x&#61;p^&#123;v&#95;p&#40;x&#41;&#125; x’$，$y&#61;p^&#123;v&#95;p&#40;y&#41;&#125; y’$ 满足于 $x’,y’ &#92;notin pW$，再由 (b) 知问题化为证 $x’y’ &#92;neq 0$。然而 $W&#x2F;pW$ 是域故 $x’y’ &#92;notin pW$，特别地 $x’y’ &#92;neq 0$。</p>
+<p>下面证明 $v&#95;p$ 的两条性质。同样置 $x &#61; p^&#123;v&#95;p&#40;x&#41;&#125; x’$ 和 $y &#61; p^&#123;v&#95;p&#40;y&#41;&#125; y’$。不妨设 $v&#95;p&#40;x&#41; &#92;geq v&#95;p&#40;y&#41;$，则 $x&#43;y &#92;in p^&#123;v&#95;p&#40;y&#41;&#125;W$ 故 $v&#95;p&#40;x&#43;y&#41; &#92;geq &#92;min&#92;&#123; v&#95;p&#40;x&#41;, v&#95;p&#40;y&#41;&#92;&#125;$。又从 $x’y’ &#92;notin pW$ 可导出 $v&#95;p&#40;xy&#41; &#61; v&#95;p&#40;x&#41; &#43; v&#95;p&#40;y&#41;$。</p>
+<p>令 $x &#92;in W^&#92;times$，考虑其模 $pW$ 的像可知 $v&#95;p&#40;x&#41; &#61; 0$。相反地，假设 $x &#92;in W &#92;smallsetminus pW$，由 (c) 知存在 $a &#92;in W$ 使得 $ax &#92;equiv 1 &#92;pmod&#123;pW&#125;$。因此不妨假设 $x &#92;equiv 1 &#92;pmod&#123;pW&#125;$。置 $x &#61; 1&#45;t$，$v&#95;p&#40;t&#41; &#92;geq 1$。在 Hausdorff 拓扑环 $W$ 中有等式<br>$$ x&#40;1 &#43; t &#43; &#92;cdots &#43; t^N&#41; &#61; &#40;1 &#45; t&#41;&#40;1 &#43; t &#43; &#92;cdots &#43; t^N&#41; &#61; 1 &#45; t^&#123;N&#43;1&#125;. $$<br>当 $N &#92;to &#92;infty$ 时右式趋近于 $1$。如能证明 $y&#95;N :&#61; 1&#43; t &#43;&#92;cdots &#43; t^N$ 亦收敛，则其极限给出 $x^&#123;&#45;1&#125;$。为此，仅需观察到对于 $N’ &#92;geq N$，和式 $y&#95;&#123;N’&#125;$ 中 $t^N$ 以后的项不影响它模 $p^N W$ 的类。</p>
+<p>最后证明关于理想的断言。假设 $I$ 是 $W$ 中的非零理想。定义 $n :&#61; &#92;min&#92;&#123;v&#95;p&#40;x&#41; : x &#92;in I&#92;&#125;$，于是 $I &#92;subset p^n W$。取非零元 $x &#61; p^n y &#92;in I$ 满足 $v&#95;p&#40;x&#41;&#61;n$，于是 $y$ 必可逆，从而 $p^n W &#61; xW &#92;subset I$。明所欲证。<br>$&#92;blacksquare$</p>
+<p>环 $&#92;mathbb&#123;Z&#125;&#95;p$ 对乘性子集 $&#92;&#123;1,p,p^2,&#92;ldots&#92;&#125;$ 的局部化 $&#92;mathbb&#123;Z&#125;&#95;p&#91;&#92;frac&#123;1&#125;&#123;p&#125;&#93; &#61;: &#92;mathbb&#123;Q&#125;&#95;p$ 称为 <em>$p$-进数域</em>（field of $p$-adic numbers）。由以上对可逆元的刻画知 $&#92;mathbb&#123;Q&#125;&#95;p &#61; &#92;text&#123;Frac&#125;&#40;&#92;mathbb&#123;Z&#125;&#95;p&#41;$，其非零元可以唯一地表作 $p^a t$ 的形式，其中 $t &#92;in &#92;mathbb&#123;Z&#125;&#95;p^&#92;times$ 而 $a &#92;in &#92;mathbb&#123;Z&#125;$。同时赋值 $v&#95;p$ 在 $&#92;mathbb&#123;Q&#125;&#95;p$ 上有自然延拓：$v&#95;p&#40;p^a t&#41; &#61; a$；请读者验证命题 [[#^prop-p-adic]] 的不等式在 $&#92;mathbb&#123;Q&#125;&#95;p$ 上仍旧成立。另一方面，$&#92;mathbb&#123;Q&#125;&#95;p$ 也可以视为域 $&#92;mathbb&#123;Q&#125;$ 对赋值 $v&#95;p&#92;big|&#95;&#123;&#92;mathbb&#123;Q&#125;&#125;$ 的完备化，一步到位地构造，这点将在 §[[域的赋值#^sec-valued-field]] 作细致讨论。</p>
+<p>下面转向 $&#92;varinjlim$ 的研究。考虑小范畴 $I$ 及函子 $&#92;alpha: I &#92;to &#92;mathsf&#123;Ring&#125;$。我们即将为滤过的 $I$ 定义极限 $&#92;varinjlim &#92;alpha$（定义 [[范畴论基础#^def-filtrant-cat]]）。应用中 $I$ 往往是滤过偏序集，不过为突出滤过条件的作用，我们将不厌其烦地处理一般情形。且先回忆对 $I$ 中的每个态射 $f: i &#92;to j$，都有相应的环同态 $&#92;alpha&#40;f&#41;: &#92;alpha&#40;i&#41; &#92;to &#92;alpha&#40;j&#41;$。</p>
+<p>假设 $I$ 滤过。在例 [[范畴论基础#^eg-set-limits]] 中，我们业已在 $&#92;bigsqcup&#95;&#123;i &#92;in &#92;operatorname&#123;Ob&#125;&#40;I&#41;&#125; &#92;alpha&#40;i&#41;$ 上以等价关系定义了等价关系 $&#92;sim$，从而将 $&#92;mathsf&#123;Set&#125;$ 中的 $&#92;varinjlim &#92;alpha$ 实现为相应的商集 $&#92;bigsqcup&#95;&#123;i &#92;in &#92;operatorname&#123;Ob&#125;&#40;I&#41;&#125; &#92;alpha&#40;i&#41; &#92;big&#x2F; &#92;sim$；对每个 $j &#92;in &#92;operatorname&#123;Ob&#125;&#40;I&#41;$ 皆有映射<br>$$ &#92;iota&#95;j: &#92;alpha&#40;j&#41; &#92;to &#92;bigsqcup&#95;&#123;i &#92;in &#92;operatorname&#123;Ob&#125;&#40;I&#41;&#125; &#92;alpha&#40;i&#41; &#92;xrightarrow&#123;&#92;text&#123;商映射&#125;&#125; &#92;varinjlim &#92;alpha. $$</p>
+<p>今将往证商集 $&#92;varinjlim &#92;alpha$ 上具有唯一的环结构使得对每个 $f: j &#92;to j’$，<br>$$ &#92;begin&#123;tikzcd&#125;&#91;row sep&#61;small&#93;&#10;    &#92;alpha&#40;j&#41; &#92;arrow&#91;rd, “&#92;iota&#95;j”‘&#93; &#92;arrow&#91;rr, “&#92;alpha&#40;f&#41;”&#93; &#38; &#38; &#92;alpha&#40;j’&#41; &#92;arrow&#91;ld, “&#123;&#92;iota&#95;&#123;j’&#125;&#125;”&#93; &#92;&#92;&#10;    &#38; &#92;varinjlim &#92;alpha &#38;&#10;&#92;end&#123;tikzcd&#125; $$</p>
 <p>^eqn-filtrant-lim-ring</p>
-<p>皆是 $\mathsf{Ring}$ 中的交换图表。</p>
-<p>我们沿用构造集合的滤过极限时的符号。定义 $\varinjlim \alpha$ 的环结构如下：对其中任两个等价类 $[r_i]$，$[r’_j]$，按滤过范畴定义总能找到从 $i,j$ 到某个 $k \in \operatorname{Ob}(I)$ 的箭头以及 $r_k, r’_k \in \alpha(k)$ 使得 $[r_i] &#x3D; [r_k]$ 且 $[r’_j] &#x3D; [r’_k]$。在 [[#^eqn-filtrant-lim-ring]] 中取 $f &#x3D; \mathrm{id}: k \to k$ 可知 $[r_i][r’_j]$ 的定义只能是 $[r_k r’_k]$。同样手法可以证明此乘法良定，并给出环结构（幺元为 $1 \in \alpha(i)$ 的等价类，$i$ 任取）使得 [[#^eqn-filtrant-lim-ring]] 恒交换：在比较种种不同选取给出的乘法时，我们总是可以在范畴 $I$ 中走得足够”深”以消除所有不确定性，这是定义 [[范畴论基础#^def-filtrant-cat]] 的要旨。这就验证了断言。</p>
+<p>皆是 $&#92;mathsf&#123;Ring&#125;$ 中的交换图表。</p>
+<p>我们沿用构造集合的滤过极限时的符号。定义 $&#92;varinjlim &#92;alpha$ 的环结构如下：对其中任两个等价类 $&#91;r&#95;i&#93;$，$&#91;r’&#95;j&#93;$，按滤过范畴定义总能找到从 $i,j$ 到某个 $k &#92;in &#92;operatorname&#123;Ob&#125;&#40;I&#41;$ 的箭头以及 $r&#95;k, r’&#95;k &#92;in &#92;alpha&#40;k&#41;$ 使得 $&#91;r&#95;i&#93; &#61; &#91;r&#95;k&#93;$ 且 $&#91;r’&#95;j&#93; &#61; &#91;r’&#95;k&#93;$。在 [[#^eqn-filtrant-lim-ring]] 中取 $f &#61; &#92;mathrm&#123;id&#125;: k &#92;to k$ 可知 $&#91;r&#95;i&#93;&#91;r’&#95;j&#93;$ 的定义只能是 $&#91;r&#95;k r’&#95;k&#93;$。同样手法可以证明此乘法良定，并给出环结构（幺元为 $1 &#92;in &#92;alpha&#40;i&#41;$ 的等价类，$i$ 任取）使得 [[#^eqn-filtrant-lim-ring]] 恒交换：在比较种种不同选取给出的乘法时，我们总是可以在范畴 $I$ 中走得足够”深”以消除所有不确定性，这是定义 [[范畴论基础#^def-filtrant-cat]] 的要旨。这就验证了断言。</p>
 <blockquote>
-<p>[!proposition] 滤过余极限<br>对滤过小范畴 $I$ 和 $\alpha: I \to \mathsf{Ring}$ 如上，环 $\varinjlim \alpha$ 连同同态族 $\iota_j: \alpha(j) \to \varinjlim \alpha$ 构成范畴 $\mathsf{Ring}$ 中的 $\varinjlim \alpha$。</p>
+<p>[!proposition] 滤过余极限<br>对滤过小范畴 $I$ 和 $&#92;alpha: I &#92;to &#92;mathsf&#123;Ring&#125;$ 如上，环 $&#92;varinjlim &#92;alpha$ 连同同态族 $&#92;iota&#95;j: &#92;alpha&#40;j&#41; &#92;to &#92;varinjlim &#92;alpha$ 构成范畴 $&#92;mathsf&#123;Ring&#125;$ 中的 $&#92;varinjlim &#92;alpha$。</p>
 </blockquote>
 <p>^prop-ring-filtrant-limit</p>
-<p>$Proof.$ 若忘掉环结构，$\varinjlim \alpha$ 作为集合是 $\alpha(i)$ 在 $\mathsf{Set}$ 中的极限。因而对任意环 $R$ 及同态族 $\left( \iota’_j: \alpha(j) \to R \right)_{j \in \operatorname{Ob}(I)}$ 使得图表<br>$$<br> \begin{tikzcd}[row sep&#x3D;tiny]<br>    \alpha(i) \arrow[dd, “\alpha(f)”‘] \arrow[rd, “\iota’_i”] &amp; \<br>    &amp; R \<br>    \alpha(j) \arrow[ru, “\iota’_j”‘] &amp;<br>    \end{tikzcd} \qquad (f: i \to j)<br>$$<br>恒交换者，存在唯一的集合映射 $\varphi: \varinjlim \alpha \to R$ 使得<br>$$<br> \begin{tikzcd}<br>    \alpha(i) \arrow[r, “\iota_i”] \arrow[rd, “\iota’_i”‘] &amp; \varinjlim \alpha \arrow[d, “\varphi”] \<br>    &amp; R<br>\end{tikzcd} \qquad i \in \operatorname{Ob}(I)<br>$$<br>恒交换。事实上 $\varphi([r_i]) &#x3D; \iota’_i(r_i)$，需要证明的是 $\varphi$ 为环同态。论证与先前类似：应用滤过范畴的条件，再配合环同态族 $\iota’_j: \alpha(j) \to R$ 的性质即可，细节留予读者。<br>$\blacksquare$</p>
-<p>以上皆假设 $I$ 非空，现在补全 $I$ 是空范畴的情形。注意到空 $\varinjlim$ 无非是范畴中的始对象。从 [[#^eqn-ring-struct-morphism]] 及随后的讨论，立得以下简单而重要的结果。</p>
+<p>$Proof.$ 若忘掉环结构，$&#92;varinjlim &#92;alpha$ 作为集合是 $&#92;alpha&#40;i&#41;$ 在 $&#92;mathsf&#123;Set&#125;$ 中的极限。因而对任意环 $R$ 及同态族 $&#92;left&#40; &#92;iota’&#95;j: &#92;alpha&#40;j&#41; &#92;to R &#92;right&#41;&#95;&#123;j &#92;in &#92;operatorname&#123;Ob&#125;&#40;I&#41;&#125;$ 使得图表<br>$$ &#92;begin&#123;tikzcd&#125;&#91;row sep&#61;tiny&#93;&#10;    &#92;alpha&#40;i&#41; &#92;arrow&#91;dd, “&#92;alpha&#40;f&#41;”‘&#93; &#92;arrow&#91;rd, “&#92;iota’&#95;i”&#93; &#38; &#92;&#92;&#10;    &#38; R &#92;&#92;&#10;    &#92;alpha&#40;j&#41; &#92;arrow&#91;ru, “&#92;iota’&#95;j”‘&#93; &#38;&#10;    &#92;end&#123;tikzcd&#125; &#92;qquad &#40;f: i &#92;to j&#41; $$<br>恒交换者，存在唯一的集合映射 $&#92;varphi: &#92;varinjlim &#92;alpha &#92;to R$ 使得<br>$$ &#92;begin&#123;tikzcd&#125;&#10;    &#92;alpha&#40;i&#41; &#92;arrow&#91;r, “&#92;iota&#95;i”&#93; &#92;arrow&#91;rd, “&#92;iota’&#95;i”‘&#93; &#38; &#92;varinjlim &#92;alpha &#92;arrow&#91;d, “&#92;varphi”&#93; &#92;&#92;&#10;    &#38; R&#10;&#92;end&#123;tikzcd&#125; &#92;qquad i &#92;in &#92;operatorname&#123;Ob&#125;&#40;I&#41; $$<br>恒交换。事实上 $&#92;varphi&#40;&#91;r&#95;i&#93;&#41; &#61; &#92;iota’&#95;i&#40;r&#95;i&#41;$，需要证明的是 $&#92;varphi$ 为环同态。论证与先前类似：应用滤过范畴的条件，再配合环同态族 $&#92;iota’&#95;j: &#92;alpha&#40;j&#41; &#92;to R$ 的性质即可，细节留予读者。<br>$&#92;blacksquare$</p>
+<p>以上皆假设 $I$ 非空，现在补全 $I$ 是空范畴的情形。注意到空 $&#92;varinjlim$ 无非是范畴中的始对象。从 [[#^eqn-ring-struct-morphism]] 及随后的讨论，立得以下简单而重要的结果。</p>
 <blockquote>
-<p>[!proposition]<br>整数环 $\mathbb{Z}$ 是环范畴 $\mathsf{Ring}$ 的始对象。</p>
+<p>[!proposition]<br>整数环 $&#92;mathbb&#123;Z&#125;$ 是环范畴 $&#92;mathsf&#123;Ring&#125;$ 的始对象。</p>
 </blockquote>
-<p>读者可能要问：环范畴里是否总有一般的小 $\varinjlim$？由于本章只论非零含幺环，答案是否定的：以下例子说明一对同态 $f,g: R \to S$ 的余等化子未必存在。考虑多项式环 $R &#x3D; \mathbb{C}[X]$ 和 $S &#x3D; \mathbb{C}$，取同态 $f: P \mapsto P(0)$ 和 $g: P \mapsto P(1)$，其中 $P \in \mathbb{C}[X]$。若有环同态 $h: S \to T$ 满足 $hf&#x3D;hg$，取 $P(X)&#x3D;-X$ 则有 $h(1) &#x3D; h(P(0)-P(1)) &#x3D; 0$，这与 $h(1)&#x3D;1$ 矛盾。</p>
+<p>读者可能要问：环范畴里是否总有一般的小 $&#92;varinjlim$？由于本章只论非零含幺环，答案是否定的：以下例子说明一对同态 $f,g: R &#92;to S$ 的余等化子未必存在。考虑多项式环 $R &#61; &#92;mathbb&#123;C&#125;&#91;X&#93;$ 和 $S &#61; &#92;mathbb&#123;C&#125;$，取同态 $f: P &#92;mapsto P&#40;0&#41;$ 和 $g: P &#92;mapsto P&#40;1&#41;$，其中 $P &#92;in &#92;mathbb&#123;C&#125;&#91;X&#93;$。若有环同态 $h: S &#92;to T$ 满足 $hf&#61;hg$，取 $P&#40;X&#41;&#61;&#45;X$ 则有 $h&#40;1&#41; &#61; h&#40;P&#40;0&#41;&#45;P&#40;1&#41;&#41; &#61; 0$，这与 $h&#40;1&#41;&#61;1$ 矛盾。</p>
 <h2 id="多项式环"><a href="#多项式环" class="headerlink" title="[[多项式环]]"></a>[[多项式环]]</h2><h2 id="唯一分解性"><a href="#唯一分解性" class="headerlink" title="[[唯一分解性]]"></a>[[唯一分解性]]</h2><h2 id="习题"><a href="#习题" class="headerlink" title="习题"></a>习题</h2><ol>
-<li><p>证明若环 $R$ 的每个元素 $x$ 都满足 $x^2&#x3D;x$，则 $R$ 交换。也请尝试 $x^3&#x3D;x$ 的情形。</p>
+<li><p>证明若环 $R$ 的每个元素 $x$ 都满足 $x^2&#61;x$，则 $R$ 交换。也请尝试 $x^3&#61;x$ 的情形。</p>
 </li>
 <li><p>证明除环的素子域总包含于中心。</p>
 </li>
-<li><p>对任意域 $\Bbbk$ 和 $d \in \mathbb{Z}_{\geq 1}$，乘法群 $\Bbbk^\times$ 中满足 $\text{ord}(z)&#x3D;d$ 的元素个数不超过 $\varphi(d)$，其中 $\varphi$ 是 Euler 函数。<br><em>Hint.</em> 可利用定理 [[#^prop-Wedderburn-little-thm]] 证明中的分圆多项式理论：若 $\text{ord}(z)&#x3D;d$ 则 $\Phi_d(z)&#x3D;0$。</p>
+<li><p>对任意域 $&#92;Bbbk$ 和 $d &#92;in &#92;mathbb&#123;Z&#125;&#95;&#123;&#92;geq 1&#125;$，乘法群 $&#92;Bbbk^&#92;times$ 中满足 $&#92;text&#123;ord&#125;&#40;z&#41;&#61;d$ 的元素个数不超过 $&#92;varphi&#40;d&#41;$，其中 $&#92;varphi$ 是 Euler 函数。<br><em>Hint.</em> 可利用定理 [[#^prop-Wedderburn-little-thm]] 证明中的分圆多项式理论：若 $&#92;text&#123;ord&#125;&#40;z&#41;&#61;d$ 则 $&#92;Phi&#95;d&#40;z&#41;&#61;0$。</p>
 </li>
-<li><p>承上，证明 $\Bbbk^\times$ 的有限子群必为循环群。<br><em>Hint.</em> 对于阶数为 $n$ 的子群 $H$，证明逐项的不等式<br>$$<br> n &#x3D; \sum_{d \mid n} |{ x \in H : \text{ord}(x)&#x3D;d }| \leq \sum_{d \mid n} \varphi(d)<br>$$<br>其中 $\varphi$ 是 Euler 函数，再利用数论的公式 $\sum_{d \mid n} \varphi(d) &#x3D; n$。</p>
+<li><p>承上，证明 $&#92;Bbbk^&#92;times$ 的有限子群必为循环群。<br><em>Hint.</em> 对于阶数为 $n$ 的子群 $H$，证明逐项的不等式<br>$$ n &#61; &#92;sum&#95;&#123;d &#92;mid n&#125; |&#92;&#123; x &#92;in H : &#92;text&#123;ord&#125;&#40;x&#41;&#61;d &#92;&#125;| &#92;leq &#92;sum&#95;&#123;d &#92;mid n&#125; &#92;varphi&#40;d&#41; $$<br>其中 $&#92;varphi$ 是 Euler 函数，再利用数论的公式 $&#92;sum&#95;&#123;d &#92;mid n&#125; &#92;varphi&#40;d&#41; &#61; n$。</p>
 </li>
-<li><p>令 $D$ 为一个特征 $p&gt;0$ 的除环。证明 $D^\times$ 的有限子群 $H$ 必为循环群；给出特征 $0$ 时的反例。<br><em>Hint.</em> 设 $D$ 的素子域为 $\mathbb{F}_p &#x3D; \mathbb{Z}&#x2F;p\mathbb{Z}$，证明 $\left{ \sum_{h \in H} a_h h : \forall h \in H, ; a_h \in \mathbb{F}_p \right}$ 构成 $D$ 的有限子环，因而为域；反例可在例 [[#^eg-Hamilton-quaternion]] 的四元数环 $\mathbb{H}$ 中寻找。</p>
+<li><p>令 $D$ 为一个特征 $p&#62;0$ 的除环。证明 $D^&#92;times$ 的有限子群 $H$ 必为循环群；给出特征 $0$ 时的反例。<br><em>Hint.</em> 设 $D$ 的素子域为 $&#92;mathbb&#123;F&#125;&#95;p &#61; &#92;mathbb&#123;Z&#125;&#x2F;p&#92;mathbb&#123;Z&#125;$，证明 $&#92;left&#92;&#123; &#92;sum&#95;&#123;h &#92;in H&#125; a&#95;h h : &#92;forall h &#92;in H, &#92;; a&#95;h &#92;in &#92;mathbb&#123;F&#125;&#95;p &#92;right&#92;&#125;$ 构成 $D$ 的有限子环，因而为域；反例可在例 [[#^eg-Hamilton-quaternion]] 的四元数环 $&#92;mathbb&#123;H&#125;$ 中寻找。</p>
 </li>
-<li><p>试对无幺元的交换环 $R$ 定义局部化：设 $S$ 非空且对乘法封闭；此时得到的 $R[S^{-1}]$ 总含幺元 $1 &#x3D; [t,t]$（任选 $t \in S$），局部化同态是 $r \mapsto [rt,t]$，而 $s \in S$ 在 $R[S^{-1}]$ 中的逆是 $[t,st]$。</p>
+<li><p>试对无幺元的交换环 $R$ 定义局部化：设 $S$ 非空且对乘法封闭；此时得到的 $R&#91;S^&#123;&#45;1&#125;&#93;$ 总含幺元 $1 &#61; &#91;t,t&#93;$（任选 $t &#92;in S$），局部化同态是 $r &#92;mapsto &#91;rt,t&#93;$，而 $s &#92;in S$ 在 $R&#91;S^&#123;&#45;1&#125;&#93;$ 中的逆是 $&#91;t,st&#93;$。</p>
 </li>
-<li><p>补全例 [[#^eg-Prüfer]] 中论证，并证明 $\prod_p \mathbb{Z}_p \stackrel{\sim}{\rightarrow} \hat{\mathbb{Z}}$ 是拓扑群的同态。</p>
+<li><p>补全例 [[#^eg-Prüfer]] 中论证，并证明 $&#92;prod&#95;p &#92;mathbb&#123;Z&#125;&#95;p &#92;stackrel&#123;&#92;sim&#125;&#123;&#92;rightarrow&#125; &#92;hat&#123;&#92;mathbb&#123;Z&#125;&#125;$ 是拓扑群的同态。</p>
 </li>
-<li><p>给出全分式环构造 $R \to \text{Frac}(R)$ 满足的泛性质。</p>
+<li><p>给出全分式环构造 $R &#92;to &#92;text&#123;Frac&#125;&#40;R&#41;$ 满足的泛性质。</p>
 </li>
-<li><p>给定局部有限偏序集 $(P, \leq)$，证明对 $k&#x3D;1,2,\ldots$，元素 $\zeta \in I(P, \leq)$ 皆满足<br>$$<br> \begin{align*}<br>\zeta^k(x,y) &amp; &#x3D; \sum_{x &#x3D; x_0 \leq \cdots \leq x_k &#x3D; y} 1, \<br>(\zeta - 1)^k(x,y) &amp; &#x3D; \sum_{x &#x3D; x_0 &lt; \cdots &lt; x_k &#x3D; y} 1,<br>\end{align*}<br>$$<br>其中 $1$ 代表 $I(P,\leq)$ 的幺元，亦即 §[[#^sec-Mobius]] 定义的函数 $\delta$。</p>
+<li><p>给定局部有限偏序集 $&#40;P, &#92;leq&#41;$，证明对 $k&#61;1,2,&#92;ldots$，元素 $&#92;zeta &#92;in I&#40;P, &#92;leq&#41;$ 皆满足<br>$$ &#92;begin&#123;align&#42;&#125;&#10;       &#92;zeta^k&#40;x,y&#41; &#38; &#61; &#92;sum&#95;&#123;x &#61; x&#95;0 &#92;leq &#92;cdots &#92;leq x&#95;k &#61; y&#125; 1, &#92;&#92;&#10;       &#40;&#92;zeta &#45; 1&#41;^k&#40;x,y&#41; &#38; &#61; &#92;sum&#95;&#123;x &#61; x&#95;0 &#60; &#92;cdots &#60; x&#95;k &#61; y&#125; 1,&#10;   &#92;end&#123;align&#42;&#125; $$<br>其中 $1$ 代表 $I&#40;P,&#92;leq&#41;$ 的幺元，亦即 §[[#^sec-Mobius]] 定义的函数 $&#92;delta$。</p>
 </li>
-<li><p>向给定的有限偏序集 $(P,\leq)$ 添加下界 $\hat{0}$ 和上界 $\hat{1}$，得到的偏序集记为 $\hat{P}$。记<br>$$<br> c_i :&#x3D; \left| { x_0, \ldots, x_i \in \hat{P} : \hat{0} &#x3D; x_0 &lt; \cdots &lt; x_i &#x3D; \hat{1} } \right|.<br>$$<br>证明 $\mu(\hat{0}, \hat{1}) &#x3D; \sum_{i \geq 0} (-1)^i c_i$，这里 $\mu :&#x3D; \mu_{\hat{P}}$。能否赋予 $\mu(\hat{0}, \hat{1})$ 拓扑诠释？（参见 [[Stan09]]，§3.8）<br><em>Hint.</em> $\mu(\hat{0}, \hat{1}) &#x3D; (1 + (\zeta - 1))^{-1}$.</p>
+<li><p>向给定的有限偏序集 $&#40;P,&#92;leq&#41;$ 添加下界 $&#92;hat&#123;0&#125;$ 和上界 $&#92;hat&#123;1&#125;$，得到的偏序集记为 $&#92;hat&#123;P&#125;$。记<br>$$ c_i :&#x3D; \left| { x_0, \ldots, x_i \in \hat{P} : \hat{0} &#x3D; x_0 &lt; \cdots &lt; x_i &#x3D; \hat{1} } \right|. $$<br>证明 $\mu(\hat{0}, \hat{1}) &#x3D; \sum_{i \geq 0} (-1)^i c_i$，这里 $\mu :&#x3D; \mu_{\hat{P}}$。能否赋予 $\mu(\hat{0}, \hat{1})$ 拓扑诠释？（参见 [[Stan09]]，§3.8）<br><em>Hint.</em> $\mu(\hat{0}, \hat{1}) &#x3D; (1 + (\zeta - 1))^{-1}$.</p>
 </li>
-<li><p>承上，对 $n \geq 2$ 置 $Z(P,n)$ 为 $P$ 中的列 $x_1 \leq \cdots \leq x_{n-1}$ 的个数，证明 $Z(P,n) &#x3D; \sum_{i&#x3D;2}^n c_i \binom{n-2}{i-2}$，从而 $Z(P,s)$ 的定义能延拓到任意 $s \in \mathbb{C}$。证明 $Z(P,1) &#x3D; \mu(\hat{0},\hat{1}) + 1 &#x3D; \sum_{i \geq 2} (-1)^i c_i$。<br><em>Hint.</em> 我们有 $\binom{-1}{k} &#x3D; (-1)^k$。</p>
+<li><p>承上，对 $n &#92;geq 2$ 置 $Z&#40;P,n&#41;$ 为 $P$ 中的列 $x&#95;1 &#92;leq &#92;cdots &#92;leq x&#95;&#123;n&#45;1&#125;$ 的个数，证明 $Z&#40;P,n&#41; &#61; &#92;sum&#95;&#123;i&#61;2&#125;^n c&#95;i &#92;binom&#123;n&#45;2&#125;&#123;i&#45;2&#125;$，从而 $Z&#40;P,s&#41;$ 的定义能延拓到任意 $s &#92;in &#92;mathbb&#123;C&#125;$。证明 $Z&#40;P,1&#41; &#61; &#92;mu&#40;&#92;hat&#123;0&#125;,&#92;hat&#123;1&#125;&#41; &#43; 1 &#61; &#92;sum&#95;&#123;i &#92;geq 2&#125; &#40;&#45;1&#41;^i c&#95;i$。<br><em>Hint.</em> 我们有 $\binom{-1}{k} &#x3D; (-1)^k$。</p>
 </li>
-<li><p>考虑域 $\Bbbk$ 上的”分数指数”多项式集 $R :&#x3D; \Bbbk[X, X^{1&#x2F;2}, \ldots, X^{1&#x2F;2^n}, \ldots]$，带有自明的环结构。证明 $R^\times &#x3D; \Bbbk^\times$，而且 $X \in R$ 无法分解为不可约元的积。</p>
+<li><p>考虑域 $&#92;Bbbk$ 上的”分数指数”多项式集 $R :&#61; &#92;Bbbk&#91;X, X^&#123;1&#x2F;2&#125;, &#92;ldots, X^&#123;1&#x2F;2^n&#125;, &#92;ldots&#93;$，带有自明的环结构。证明 $R^&#92;times &#61; &#92;Bbbk^&#92;times$，而且 $X &#92;in R$ 无法分解为不可约元的积。</p>
 </li>
-<li><p>证明多项式 $P \in \mathbb{Q}[X]$ 满足 $P(\mathbb{Z}) \subset \mathbb{Z}$ 当且仅当 $P$ 形如 $\sum_{k&#x3D;0}^n a_k \binom{X}{k}$，其中 $a_0, \ldots, a_n \in \mathbb{Z}$ 而 $\binom{X}{k} &#x3D; X(X-1) \cdots (X-k+1)&#x2F;k!$；这种多项式称为整值多项式。<br><em>Hint.</em> 利用杨辉三角的性质，对 $n :&#x3D; \deg P$ 施递归。</p>
+<li><p>证明多项式 $P &#92;in &#92;mathbb&#123;Q&#125;&#91;X&#93;$ 满足 $P&#40;&#92;mathbb&#123;Z&#125;&#41; &#92;subset &#92;mathbb&#123;Z&#125;$ 当且仅当 $P$ 形如 $&#92;sum&#95;&#123;k&#61;0&#125;^n a&#95;k &#92;binom&#123;X&#125;&#123;k&#125;$，其中 $a&#95;0, &#92;ldots, a&#95;n &#92;in &#92;mathbb&#123;Z&#125;$ 而 $&#92;binom&#123;X&#125;&#123;k&#125; &#61; X&#40;X&#45;1&#41; &#92;cdots &#40;X&#45;k&#43;1&#41;&#x2F;k&#33;$；这种多项式称为整值多项式。<br><em>Hint.</em> 利用杨辉三角的性质，对 $n :&#x3D; \deg P$ 施递归。</p>
 </li>
-<li><p>对于交换环 $R$ 上的齐次 $m$ 次多项式 $f \in R[X_1, \ldots, X_n]$，证明其形式偏导数满足 Euler 恒等式<br>$$<br> \sum_{i&#x3D;1}^n X_i \cdot \frac{\partial f}{\partial X_i} &#x3D; m f.<br>$$<br>试着在 $R&#x3D;\mathbb{R}$ 时给出微分几何的解释。<br><em>Hint.</em> 当 $R&#x3D;\mathbb{R}$ 时对伸缩作用 $\mathbb{R}^\times \times \mathbb{R}^n \ni (t,v) \mapsto tv \in \mathbb{R}^n$ 求导。</p>
+<li><p>对于交换环 $R$ 上的齐次 $m$ 次多项式 $f &#92;in R&#91;X&#95;1, &#92;ldots, X&#95;n&#93;$，证明其形式偏导数满足 Euler 恒等式<br>$$ \sum_{i&#x3D;1}^n X_i \cdot \frac{\partial f}{\partial X_i} &#x3D; m f. $$<br>试着在 $R&#x3D;\mathbb{R}$ 时给出微分几何的解释。<br><em>Hint.</em> 当 $R&#x3D;\mathbb{R}$ 时对伸缩作用 $\mathbb{R}^\times \times \mathbb{R}^n \ni (t,v) \mapsto tv \in \mathbb{R}^n$ 求导。</p>
 </li>
-<li><p>延伸定理 [[#^prop-sum-squares]] 的论证来刻画不定方程 $n &#x3D; x^2 + y^2$ 对哪些整数 $n$ 有解，并描述解的个数。</p>
+<li><p>延伸定理 [[#^prop-sum-squares]] 的论证来刻画不定方程 $n &#61; x^2 &#43; y^2$ 对哪些整数 $n$ 有解，并描述解的个数。</p>
 </li>
-<li><p>令 $\omega :&#x3D; \frac{-1 + \sqrt{-3}}{2}$。验证 $\mathbb{Z}[\omega] &#x3D; \mathbb{Z} \oplus \mathbb{Z}\omega$ 是 $\mathbb{C}$ 的子环，对共轭封闭。对付 $\mathbb{Z}[\sqrt{-1}]$ 的技术可以沿用，此时仍有范数映射 $N(z) &#x3D; z\bar{z}$。<br>(i) 证明 $\mathbb{Z}[\omega]$ 是 Euclid 环并确定 $\mathbb{Z}[\omega]^\times$；<br>(ii) 修改定理 [[#^prop-sum-squares]] 的论证来分类 $\mathbb{Z}[\omega]$ 中的不可约元，精确到 $\mathbb{Z}[\omega]^\times$；<br><em>Hint.</em> 当 $p&#x3D;3$ 时分歧，$p \equiv 1 \pmod 3$ 时分裂，$p \equiv 2 \pmod 3$ 时惯性。<br>(iii) 以此研究不定方程 $n &#x3D; x^2 + xy + y^2$ 的解数，可从 $n$ 是素数的情形入手。<br>环 $\mathbb{Z}[\omega]$ 也称为 Eisenstein 整数环（Eisenstein integers）。</p>
+<li><p>令 $&#92;omega :&#61; &#92;frac&#123;&#45;1 &#43; &#92;sqrt&#123;&#45;3&#125;&#125;&#123;2&#125;$。验证 $&#92;mathbb&#123;Z&#125;&#91;&#92;omega&#93; &#61; &#92;mathbb&#123;Z&#125; &#92;oplus &#92;mathbb&#123;Z&#125;&#92;omega$ 是 $&#92;mathbb&#123;C&#125;$ 的子环，对共轭封闭。对付 $&#92;mathbb&#123;Z&#125;&#91;&#92;sqrt&#123;&#45;1&#125;&#93;$ 的技术可以沿用，此时仍有范数映射 $N&#40;z&#41; &#61; z&#92;bar&#123;z&#125;$。<br>(i) 证明 $\mathbb{Z}[\omega]$ 是 Euclid 环并确定 $\mathbb{Z}[\omega]^\times$；<br>(ii) 修改定理 [[#^prop-sum-squares]] 的论证来分类 $\mathbb{Z}[\omega]$ 中的不可约元，精确到 $\mathbb{Z}[\omega]^\times$；<br><em>Hint.</em> 当 $p&#x3D;3$ 时分歧，$p \equiv 1 \pmod 3$ 时分裂，$p \equiv 2 \pmod 3$ 时惯性。<br>(iii) 以此研究不定方程 $n &#x3D; x^2 + xy + y^2$ 的解数，可从 $n$ 是素数的情形入手。<br>环 $\mathbb{Z}[\omega]$ 也称为 Eisenstein 整数环（Eisenstein integers）。</p>
 </li>
-<li><p>设 $\Bbbk$ 为域，证明<br>(i) $Z^2-XY$ 是 $\Bbbk[X,Y,Z]$ 的不可约元，因而生成一素理想；<br>(ii) $X, Y, Z$ 在商环 $\Bbbk[X,Y,Z]&#x2F;(Z^2-XY)$ 中的像皆不可约；<br>(iii) 考虑 $Z^2$ 的像的分解以说明 $\Bbbk[X,Y,Z]&#x2F;(Z^2-XY)$ 非唯一分解环。</p>
+<li><p>设 $&#92;Bbbk$ 为域，证明<br>(i) $Z^2-XY$ 是 $\Bbbk[X,Y,Z]$ 的不可约元，因而生成一素理想；<br>(ii) $X, Y, Z$ 在商环 $\Bbbk[X,Y,Z]&#x2F;(Z^2-XY)$ 中的像皆不可约；<br>(iii) 考虑 $Z^2$ 的像的分解以说明 $\Bbbk[X,Y,Z]&#x2F;(Z^2-XY)$ 非唯一分解环。</p>
 </li>
-<li><p>当 $p$ 为素数时，证明 $\Phi_p(X) &#x3D; \sum_{k&#x3D;0}^{p-1} X^k &#x3D; (X^p - 1)&#x2F;(X - 1)$ 在 $\mathbb{Z}[X]$ 和 $\mathbb{Q}[X]$ 中皆不可约。<br><em>Hint.</em> 作变元变换 $Y :&#x3D; X-1$，用定理 [[#^prop-Eisenstein-criterion]] 证明 $\left( (Y+1)^p - 1\right)&#x2F;Y$ 在 $\mathbb{Z}[Y]$ 中不可约。</p>
+<li><p>当 $p$ 为素数时，证明 $&#92;Phi&#95;p&#40;X&#41; &#61; &#92;sum&#95;&#123;k&#61;0&#125;^&#123;p&#45;1&#125; X^k &#61; &#40;X^p &#45; 1&#41;&#x2F;&#40;X &#45; 1&#41;$ 在 $&#92;mathbb&#123;Z&#125;&#91;X&#93;$ 和 $&#92;mathbb&#123;Q&#125;&#91;X&#93;$ 中皆不可约。<br><em>Hint.</em> 作变元变换 $Y :&#x3D; X-1$，用定理 [[#^prop-Eisenstein-criterion]] 证明 $\left( (Y+1)^p - 1\right)&#x2F;Y$ 在 $\mathbb{Z}[Y]$ 中不可约。</p>
 </li>
-<li><p>设 $R$ 为整环，证明 $n$ 阶行列式 $\det$ 作为以矩阵元 $(X_{ij})_{1 \leq i,j \leq n}$ 为变元的多项式是不可约的。<br><em>Hint.</em> 若 $\det &#x3D; fg$，且设变元 $X_{11}$ 出现在 $f$ 中，先论证 $g$ 中无形如 $X_{1j}$ 的变元，其次论证 $g$ 中无形如 $X_{jj}$ 的变元（否则 $X_{1j}$ 必须在 $g$ 中出现），因而 $f$ 包含项 $X_{11} \cdots X_{nn}$，比较次数可知 $g$ 为常数。</p>
+<li><p>设 $R$ 为整环，证明 $n$ 阶行列式 $&#92;det$ 作为以矩阵元 $&#40;X&#95;&#123;ij&#125;&#41;&#95;&#123;1 &#92;leq i,j &#92;leq n&#125;$ 为变元的多项式是不可约的。<br><em>Hint.</em> 若 $\det &#x3D; fg$，且设变元 $X_{11}$ 出现在 $f$ 中，先论证 $g$ 中无形如 $X_{1j}$ 的变元，其次论证 $g$ 中无形如 $X_{jj}$ 的变元（否则 $X_{1j}$ 必须在 $g$ 中出现），因而 $f$ 包含项 $X_{11} \cdots X_{nn}$，比较次数可知 $g$ 为常数。</p>
 </li>
-<li><p>同上，但考虑对称 $n$ 阶方阵的行列式作为以 $(X_{ij})_{i \leq j}$ 为变元之多项式，证其不可约。</p>
+<li><p>同上，但考虑对称 $n$ 阶方阵的行列式作为以 $&#40;X&#95;&#123;ij&#125;&#41;&#95;&#123;i &#92;leq j&#125;$ 为变元之多项式，证其不可约。</p>
 </li>
-<li><p>对 $n&#x3D;2,3$ 的情形具体写下例 [[#^eg-polynomial-discriminant]] 的判别式 $\delta$。</p>
+<li><p>对 $n&#61;2,3$ 的情形具体写下例 [[#^eg-polynomial-discriminant]] 的判别式 $&#92;delta$。</p>
 </li>
-<li><p>若域 $\Bbbk$ 上的多项式 $\phi$ 满足于 $\phi(X+Y)&#x3D;\phi(X)+\phi(Y) \in \Bbbk[X,Y]$，则称 $\phi$ 为加性多项式（additive polynomial）。<br>(i) 证明加性多项式对加法与合成 $(\phi \circ \psi)(X) &#x3D; \phi(\psi(X))$ 构成环。<br>(ii) 证明当 $\text{char}(\Bbbk)&#x3D;0$ 时，加性多项式形如 $\phi(X) &#x3D; a_0 X$，当 $p :&#x3D; \text{char}(\Bbbk)$ 为素数时它们形如 $\phi &#x3D; \sum_{i&#x3D;0}^n a_i X^{p^i}$，其中 $a_i \in \Bbbk$，$n \geq 0$。<br><em>Hint.</em> 应用引理 [[群论#^prop-Wielandt-lemma]]。<br>(iii) 对特征 $p &gt; 0$ 情形引入变元 $\tau$ 来定义环 $\Bbbk{\tau}$，其中元素写作多项式 $\sum_{i&#x3D;0}^n a_i \tau^i$，但修改乘法使得当 $a \in \Bbbk$ 时 $\tau a &#x3D; a^p \tau$，因而 $(a \tau^i)(b\tau^j) &#x3D; ab^{p^i} \tau^{i+j}$ 对所有 $i,j \geq 0$ 成立。证明 $\sum_{i&#x3D;0}^n a_i X^{p^i} \mapsto \sum_{i&#x3D;0}^n a_i \tau^i$ 给出从加性多项式环到 $\Bbbk{\tau}$ 的同构。</p>
+<li><p>若域 $&#92;Bbbk$ 上的多项式 $&#92;phi$ 满足于 $&#92;phi&#40;X&#43;Y&#41;&#61;&#92;phi&#40;X&#41;&#43;&#92;phi&#40;Y&#41; &#92;in &#92;Bbbk&#91;X,Y&#93;$，则称 $&#92;phi$ 为加性多项式（additive polynomial）。<br>(i) 证明加性多项式对加法与合成 $(\phi \circ \psi)(X) &#x3D; \phi(\psi(X))$ 构成环。<br>(ii) 证明当 $\text{char}(\Bbbk)&#x3D;0$ 时，加性多项式形如 $\phi(X) &#x3D; a_0 X$，当 $p :&#x3D; \text{char}(\Bbbk)$ 为素数时它们形如 $\phi &#x3D; \sum_{i&#x3D;0}^n a_i X^{p^i}$，其中 $a_i \in \Bbbk$，$n \geq 0$。<br><em>Hint.</em> 应用引理 [[群论#^prop-Wielandt-lemma]]。<br>(iii) 对特征 $p &gt; 0$ 情形引入变元 $\tau$ 来定义环 $\Bbbk{\tau}$，其中元素写作多项式 $\sum_{i&#x3D;0}^n a_i \tau^i$，但修改乘法使得当 $a \in \Bbbk$ 时 $\tau a &#x3D; a^p \tau$，因而 $(a \tau^i)(b\tau^j) &#x3D; ab^{p^i} \tau^{i+j}$ 对所有 $i,j \geq 0$ 成立。证明 $\sum_{i&#x3D;0}^n a_i X^{p^i} \mapsto \sum_{i&#x3D;0}^n a_i \tau^i$ 给出从加性多项式环到 $\Bbbk{\tau}$ 的同构。</p>
 </li>
 </ol>
 
@@ -609,7 +604,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年6月28日</div>
+          <div>2026年10月11日</div>
         </div>
       
       
@@ -653,9 +648,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E4%BB%A3%E6%95%B0%E5%87%A0%E4%BD%95/" title="代数几何">
+                      <a href="/%E7%8F%8D%C2%B7%E5%8F%A4%E9%81%93%E5%B0%94/" title="珍·古道尔">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">代数几何</span>
+                        <span class="hidden-mobile">珍·古道尔</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -663,8 +658,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/fu_language/" title="fu_language">
-                        <span class="hidden-mobile">fu_language</span>
+                      <a href="/%E7%84%A6%E8%99%91/" title="焦虑">
+                        <span class="hidden-mobile">焦虑</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -988,7 +983,23 @@
       </script>
     
 
-  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+  <script id="mathjax-mathtools">
+(function () {
+  var math = window.MathJax;
+  if (!math || (math.startup && math.startup.document)) return;
+  math.loader = math.loader || {};
+  math.loader.load = Array.from(new Set((math.loader.load || []).concat('[tex]/mathtools')));
+  math.tex = math.tex || {};
+  var packages = math.tex.packages;
+  if (Array.isArray(packages)) {
+    math.tex.packages = Array.from(new Set(packages.concat('mathtools')));
+  } else {
+    packages = math.tex.packages = packages || {};
+    packages['[+]'] = Array.from(new Set((packages['[+]'] || []).concat('mathtools')));
+  }
+})();
+</script>
+<script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

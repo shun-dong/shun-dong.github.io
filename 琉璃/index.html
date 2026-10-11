@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="一种设计风格 我的主页 关于采薇 Kaelvio核心气质整体风格简约优雅、流动清澈。 正文不放进厚重卡片，不使用复杂边框，也不依赖传统导航栏来堆叠入口。页面主要由留白、衬线文字、低对比导航和少量发光线条构成，让信息像漂浮在水中，而不是被容器框住。 深蓝、青色、白色作为主调，霓虹只用在边缘和高光处。背景有深度，但不会浑浊；发光存在，但尽量克制。 程序动画用简洁的数学结构表现优美动画，页面分成三个空间">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-05-30T05:31:36.914Z">
-<meta property="article:modified_time" content="2026-05-30T05:31:36.914Z">
+<meta property="article:published_time" content="2026-10-11T10:28:39.792Z">
+<meta property="article:modified_time" content="2026-10-11T10:28:39.792Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -222,8 +222,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-05-30 13:31" pubdate>
-          2026年5月30日 下午
+        <time datetime="2026-10-11 18:28" pubdate>
+          2026年10月11日 晚上
         </time>
       </span>
     
@@ -349,7 +349,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年5月30日</div>
+          <div>2026年10月11日</div>
         </div>
       
       
@@ -393,9 +393,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/artwork/" title="artwork">
+                      <a href="/%E7%9F%A5%E8%AF%86/" title="知识">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">artwork</span>
+                        <span class="hidden-mobile">知识</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -403,8 +403,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E6%B5%81/" title="流">
-                        <span class="hidden-mobile">流</span>
+                      <a href="/%E7%8F%8D%C2%B7%E5%8F%A4%E9%81%93%E5%B0%94/" title="珍·古道尔">
+                        <span class="hidden-mobile">珍·古道尔</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -728,7 +728,23 @@
       </script>
     
 
-  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+  <script id="mathjax-mathtools">
+(function () {
+  var math = window.MathJax;
+  if (!math || (math.startup && math.startup.document)) return;
+  math.loader = math.loader || {};
+  math.loader.load = Array.from(new Set((math.loader.load || []).concat('[tex]/mathtools')));
+  math.tex = math.tex || {};
+  var packages = math.tex.packages;
+  if (Array.isArray(packages)) {
+    math.tex.packages = Array.from(new Set(packages.concat('mathtools')));
+  } else {
+    packages = math.tex.packages = packages || {};
+    packages['[+]'] = Array.from(new Set((packages['[+]'] || []).concat('mathtools')));
+  }
+})();
+</script>
+<script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

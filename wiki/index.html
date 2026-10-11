@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="理解一种组织信息方式eg.Roam Research双链与丰富度其实难以平衡 双链更适合搭配卡片+关联 |一种方式是少用大关联笔记有计划地学习与总结自下而上地’构建’体系|但[[Obsidian]]有写大笔记的能力eg福瑞可能不拆开问题也不大拆开-笔记重组[[插件]]   只是折叠有些小问题 #重新拾起  独立成篇:[[Obsidian#格式：|独立名词原则]]小标题:恰当概括原则 |真正的联系主">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-05-21T13:15:43.477Z">
-<meta property="article:modified_time" content="2026-05-21T13:15:43.477Z">
+<meta property="article:published_time" content="2026-10-11T10:28:38.448Z">
+<meta property="article:modified_time" content="2026-10-11T10:28:38.448Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -222,8 +222,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-05-21 21:15" pubdate>
-          2026年5月21日 晚上
+        <time datetime="2026-10-11 18:28" pubdate>
+          2026年10月11日 晚上
         </time>
       </span>
     
@@ -338,7 +338,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年5月21日</div>
+          <div>2026年10月11日</div>
         </div>
       
       
@@ -717,7 +717,23 @@
       </script>
     
 
-  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+  <script id="mathjax-mathtools">
+(function () {
+  var math = window.MathJax;
+  if (!math || (math.startup && math.startup.document)) return;
+  math.loader = math.loader || {};
+  math.loader.load = Array.from(new Set((math.loader.load || []).concat('[tex]/mathtools')));
+  math.tex = math.tex || {};
+  var packages = math.tex.packages;
+  if (Array.isArray(packages)) {
+    math.tex.packages = Array.from(new Set(packages.concat('mathtools')));
+  } else {
+    packages = math.tex.packages = packages || {};
+    packages['[+]'] = Array.from(new Set((packages['[+]'] || []).concat('mathtools')));
+  }
+})();
+</script>
+<script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

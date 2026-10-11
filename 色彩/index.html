@@ -26,13 +26,14 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="色相(Hue)颜色的名字 色盘:光谱红紫相连可以分解到两个方向, 色温(黄-蓝), 色调(绿-洋红) 饱和度(Saturation)纯度，颜色的纯净程度 明度&#x2F;灰度(Lightness&#x2F;Brightness )Gamma值(调整Gamma函数)从暗到明的灰度阶明度三大调子：高调、中调、低调 影调（面积-明度分布）高调、中调、低调曝光长调(现实),中调,短调软调(分布在中间),硬">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20240717210222.png">
 <meta property="og:image" content="http://kaelvio.com/images/image_8.png">
 <meta property="og:image" content="http://kaelvio.com/images/0201d4c3e6cc29f0be0e21c093408ff6.png">
-<meta property="article:published_time" content="2026-05-21T13:15:43.576Z">
-<meta property="article:modified_time" content="2026-05-21T13:15:43.576Z">
+<meta property="article:published_time" content="2026-10-11T10:28:39.903Z">
+<meta property="article:modified_time" content="2026-10-11T10:28:39.904Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://kaelvio.com/images/image_8.png">
+<meta name="twitter:image" content="http://kaelvio.com/images/Pasted_image_20240717210222.png">
   
   
   
@@ -225,8 +226,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-05-21 21:15" pubdate>
-          2026年5月21日 晚上
+        <time datetime="2026-10-11 18:28" pubdate>
+          2026年10月11日 晚上
         </time>
       </span>
     
@@ -237,7 +238,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1k 字
+          1.2k 字
         
       </span>
     
@@ -248,7 +249,7 @@
         
         
         
-          9 分钟
+          10 分钟
         
       </span>
     
@@ -287,6 +288,14 @@
           <article class="post-content mx-auto">
             <h1 id="seo-header">色彩</h1>
             
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2026年10月11日 晚上
+                  
+                
+              </p>
+            
             
               <div class="markdown-body">
                 
@@ -298,14 +307,10 @@
 <h1 id="色彩空间"><a href="#色彩空间" class="headerlink" title="色彩空间"></a>色彩空间</h1><p>加色(加亮度)&#x3D;增加RGB通道的值, 反之则减色(减亮度)&#x3D;增加CMYK通道的值</p>
 <ul>
 <li>RGB</li>
-<li>CMYK(青、洋红、黄色、黑色)<br>![[Pasted_image_20240717210222.png|500]]<br>减色&#x3D;加互补色</li>
+<li>CMYK(青、洋红、黄色、黑色)<br><img src="/images/Pasted_image_20240717210222.png" srcset="/img/loading.gif" lazyload alt="500"><br>减色&#x3D;加互补色</li>
 </ul>
-<p><img src="/images/image_8.png" srcset="/img/loading.gif" lazyload></p>
-<h2 id="坐标变换"><a href="#坐标变换" class="headerlink" title="坐标变换"></a>坐标变换</h2><p>$$<br>H&#x3D;\left{\begin{array}{ll}<br>0 &amp; \text { if } \max &#x3D;\min \<br>60^{\circ} \times\left(\frac{G^{\prime}-B^{\prime}}{\max -\min }\right)+0^{\circ} &amp; \text { if } R^{\prime}&#x3D;\max \<br>60^{\circ} \times\left(\frac{B^{\prime}-R^{\prime}}{\max -\min }\right)+120^{\circ} &amp; \text { if } G^{\prime}&#x3D;\max \<br>60^{\circ} \times\left(\frac{R^{\prime}-G^{\prime}}{\max -\min }\right)+240^{\circ} &amp; \text { if } B^{\prime}&#x3D;\max<br>\end{array}\right.<br>$$<br>$$</p>
-<p>S&#x3D;\frac{\max -\min}{\max}</p>
-<p>$$<br>$$</p>
-<p>L&#x3D;\max (R’ , G’ , B’)</p>
-<p>$$<br>H相当于颜色最大值不变的情况下RGB走一圈<br>S相当于颜色间的对比, S越高对比越强烈, 相当于减少次要通道<br>L相当于色彩的总量, 单独改变L相当于等比改变RGB三个通道<br><img src="/images/0201d4c3e6cc29f0be0e21c093408ff6.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/image_8.png" srcset="/img/loading.gif" lazyload alt="image_8.png"></p>
+<h2 id="坐标变换"><a href="#坐标变换" class="headerlink" title="坐标变换"></a>坐标变换</h2><p>$$H&#61;&#92;left&#92;&#123;&#92;begin&#123;array&#125;&#123;ll&#125;&#10;0 &#38; &#92;text &#123; if &#125; &#92;max &#61;&#92;min &#92;&#92;&#10;60^&#123;&#92;circ&#125; &#92;times&#92;left&#40;&#92;frac&#123;G^&#123;&#92;prime&#125;&#45;B^&#123;&#92;prime&#125;&#125;&#123;&#92;max &#45;&#92;min &#125;&#92;right&#41;&#43;0^&#123;&#92;circ&#125; &#38; &#92;text &#123; if &#125; R^&#123;&#92;prime&#125;&#61;&#92;max &#92;&#92;&#10;60^&#123;&#92;circ&#125; &#92;times&#92;left&#40;&#92;frac&#123;B^&#123;&#92;prime&#125;&#45;R^&#123;&#92;prime&#125;&#125;&#123;&#92;max &#45;&#92;min &#125;&#92;right&#41;&#43;120^&#123;&#92;circ&#125; &#38; &#92;text &#123; if &#125; G^&#123;&#92;prime&#125;&#61;&#92;max &#92;&#92;&#10;60^&#123;&#92;circ&#125; &#92;times&#92;left&#40;&#92;frac&#123;R^&#123;&#92;prime&#125;&#45;G^&#123;&#92;prime&#125;&#125;&#123;&#92;max &#45;&#92;min &#125;&#92;right&#41;&#43;240^&#123;&#92;circ&#125; &#38; &#92;text &#123; if &#125; B^&#123;&#92;prime&#125;&#61;&#92;max&#10;&#92;end&#123;array&#125;&#92;right.$$<br>$$&#10;S&#61;&#92;frac&#123;&#92;max &#45;&#92;min&#125;&#123;&#92;max&#125;&#10;$$<br>$$&#10;L&#61;&#92;max &#40;R’ , G’ , B’&#41;&#10;$$<br>H相当于颜色最大值不变的情况下RGB走一圈<br>S相当于颜色间的对比, S越高对比越强烈, 相当于减少次要通道<br>L相当于色彩的总量, 单独改变L相当于等比改变RGB三个通道<br><img src="/images/0201d4c3e6cc29f0be0e21c093408ff6.png" srcset="/img/loading.gif" lazyload alt="0201d4c3e6cc29f0be0e21c093408ff6.png"></p>
 <h1 id="搭配"><a href="#搭配" class="headerlink" title="搭配"></a>搭配</h1><p>色相搭配：<br>单色搭配</p>
 <ul>
 <li><p>结构,光影突出<br>相邻色搭配</p>
@@ -399,9 +404,14 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年5月21日</div>
+          <div>2026年10月11日</div>
         </div>
       
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2026年10月11日</div>
+        </div>
       
       
         <div class="license-meta-item">
@@ -453,8 +463,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E7%BB%98%E7%94%BB/" title="绘画">
-                        <span class="hidden-mobile">绘画</span>
+                      <a href="/%E7%BE%A4%E8%A1%A8%E7%A4%BA%E8%AE%BA/" title="群表示论">
+                        <span class="hidden-mobile">群表示论</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -778,7 +788,23 @@
       </script>
     
 
-  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+  <script id="mathjax-mathtools">
+(function () {
+  var math = window.MathJax;
+  if (!math || (math.startup && math.startup.document)) return;
+  math.loader = math.loader || {};
+  math.loader.load = Array.from(new Set((math.loader.load || []).concat('[tex]/mathtools')));
+  math.tex = math.tex || {};
+  var packages = math.tex.packages;
+  if (Array.isArray(packages)) {
+    math.tex.packages = Array.from(new Set(packages.concat('mathtools')));
+  } else {
+    packages = math.tex.packages = packages || {};
+    packages['[+]'] = Array.from(new Set((packages['[+]'] || []).concat('mathtools')));
+  }
+})();
+</script>
+<script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

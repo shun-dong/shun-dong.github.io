@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="构造主义认为数学对象应该是通过明确的构造规则得到的（可能无限）数据或结构；“存在”意味着可以给出这种构造，而不是仅仅断言某个子集在集合论宇宙里存在。(构造主义的)类型就是泛(构造主义的)数学对象(泛指等价意义下唯一)(或者说把所有不唯一的打包成类型的项, 然后整个类型看成某种”商”对象)   （或许可以用一个算符负责操作其项同构意义下唯一的类，比如完备有序域到实数，prop天然可以这样操作）  不">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-05-21T13:15:43.556Z">
-<meta property="article:modified_time" content="2026-05-21T13:15:43.556Z">
+<meta property="article:published_time" content="2026-10-11T10:28:39.637Z">
+<meta property="article:modified_time" content="2026-10-11T10:28:39.637Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -222,8 +222,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-05-21 21:15" pubdate>
-          2026年5月21日 晚上
+        <time datetime="2026-10-11 18:28" pubdate>
+          2026年10月11日 晚上
         </time>
       </span>
     
@@ -328,7 +328,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年5月21日</div>
+          <div>2026年10月11日</div>
         </div>
       
       
@@ -372,9 +372,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/%E7%9F%A5%E8%AF%86/" title="知识">
+                      <a href="/%E6%A2%A6/" title="梦">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">知识</span>
+                        <span class="hidden-mobile">梦</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -382,8 +382,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E6%A2%A6/" title="梦">
-                        <span class="hidden-mobile">梦</span>
+                      <a href="/%E6%9E%84%E5%9B%BE/" title="构图">
+                        <span class="hidden-mobile">构图</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -707,7 +707,23 @@
       </script>
     
 
-  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+  <script id="mathjax-mathtools">
+(function () {
+  var math = window.MathJax;
+  if (!math || (math.startup && math.startup.document)) return;
+  math.loader = math.loader || {};
+  math.loader.load = Array.from(new Set((math.loader.load || []).concat('[tex]/mathtools')));
+  math.tex = math.tex || {};
+  var packages = math.tex.packages;
+  if (Array.isArray(packages)) {
+    math.tex.packages = Array.from(new Set(packages.concat('mathtools')));
+  } else {
+    packages = math.tex.packages = packages || {};
+    packages['[+]'] = Array.from(new Set((packages['[+]'] || []).concat('mathtools')));
+  }
+})();
+</script>
+<script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 

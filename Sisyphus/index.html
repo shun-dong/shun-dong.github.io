@@ -26,12 +26,13 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content="理解 我们必须认为西西弗斯是幸福的.@[[加缪]]  灵感来自于 oh-my-opencode 有一个永远工作的主 agen t叫 Sisyphus, 但真正永远不能停下, 目前适合担任这个工作的反而是用户本身.[[AI]] 只是暂时地工作, 将用户留在时间长河. prompts engineering为通用目的训练的语言模型, 如果不给出范畴, 可能出现错位 context engineerin">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://kaelvio.com/images/oai_Unrolling_the_Codex_agent_loop_Snapshot_1_desktop-light.svg">
 <meta property="og:image" content="http://kaelvio.com/images/Pasted_image_20260301162326.png">
-<meta property="article:published_time" content="2026-06-18T02:28:04.479Z">
-<meta property="article:modified_time" content="2026-06-18T02:28:04.479Z">
+<meta property="article:published_time" content="2026-10-11T10:28:38.384Z">
+<meta property="article:modified_time" content="2026-10-11T10:28:38.384Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://kaelvio.com/images/Pasted_image_20260301162326.png">
+<meta name="twitter:image" content="http://kaelvio.com/images/oai_Unrolling_the_Codex_agent_loop_Snapshot_1_desktop-light.svg">
   
   
   
@@ -224,8 +225,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-06-18 10:28" pubdate>
-          2026年6月18日 上午
+        <time datetime="2026-10-11 18:28" pubdate>
+          2026年10月11日 晚上
         </time>
       </span>
     
@@ -297,7 +298,7 @@
 <h1 id="context-engineering"><a href="#context-engineering" class="headerlink" title="context engineering"></a>context engineering</h1><p>无论多强的模型在上下文过长时都会显著变笨</p>
 <p>在经过失败的尝试后总结经验并回到失败前的上下文<br>让助手在对话开头称呼用户名以检查上下文窗口是否爆炸</p>
 <h2 id="上下文拼接"><a href="#上下文拼接" class="headerlink" title="上下文拼接"></a>上下文拼接</h2><p>术语上我统一叫一次模型的输出为一次返回(response)<br>一个客户端输入和下次客户端输入前的模型输入叫一轮对话(turn)</p>
-<p><a target="_blank" rel="noopener" href="https://openai.com/zh-Hans-CN/index/unrolling-the-codex-agent-loop/">https://openai.com/zh-Hans-CN/index/unrolling-the-codex-agent-loop/</a><br>![[oai_Unrolling_the_Codex_agent_loop_Snapshot_1_desktop-light.svg]]</p>
+<p><a target="_blank" rel="noopener" href="https://openai.com/zh-Hans-CN/index/unrolling-the-codex-agent-loop/">https://openai.com/zh-Hans-CN/index/unrolling-the-codex-agent-loop/</a><br><img src="/images/oai_Unrolling_the_Codex_agent_loop_Snapshot_1_desktop-light.svg" srcset="/img/loading.gif" lazyload alt="oai_Unrolling_the_Codex_agent_loop_Snapshot_1_desktop-light.svg"></p>
 <p><a target="_blank" rel="noopener" href="https://api-docs.deepseek.com/zh-cn/guides/thinking_mode#%E5%A4%9A%E8%BD%AE%E5%AF%B9%E8%AF%9D%E6%8B%BC%E6%8E%A5">思考模式 | DeepSeek API Docs</a><br>初始输入包含工具列表和提示词<br>若不包含工具, 则后续输入不用拼接思考内容, 包含工具则需要<br>返回有三种类型, 思考, 回答和工具<br>若没有工具则结束本轮对话, 有则客户端获取输入后再次输入</p>
 <h2 id="KV-cache"><a href="#KV-cache" class="headerlink" title="KV-cache"></a>KV-cache</h2><p>在可能的情况下，我们通过向 <em>input</em> 追加一条<code>新</code>消息（而非修改之前的消息）来处理对话中发生的配置更改.</p>
 <h2 id="skill"><a href="#skill" class="headerlink" title="skill"></a>skill</h2><p>渐进式披露机制</p>
@@ -313,7 +314,7 @@
 <p>rm重命名, 防止误伤重要文件</p>
 <h2 id="沙盒"><a href="#沙盒" class="headerlink" title="沙盒"></a>沙盒</h2><h2 id="MCP"><a href="#MCP" class="headerlink" title="[[MCP]]"></a>[[MCP]]</h2><h2 id="RAG"><a href="#RAG" class="headerlink" title="RAG"></a>RAG</h2><p>Retrieval-Augmented Generation<br>把知识分段（比如一段是一个小节文本、条目、FAQ）、每段生成向量（embeddings）并入库（向量数据库&#x2F;全文检索库）,  把用户问题也做向量, 在知识库的向量中“相似性检索”，查找最相关的一小撮段落&#x2F;文档片段</p>
 <h1 id="ask-many"><a href="#ask-many" class="headerlink" title="ask many"></a>ask many</h1><p>这套机制的有效性类似于双评制，同时接收三个以上AI的返回，阅读第一二个，如果一样，则采用，如果不一样，就看第三个</p>
-<h1 id="vibing-projects"><a href="#vibing-projects" class="headerlink" title="vibing projects"></a>vibing projects</h1><h2 id=""><a href="#" class="headerlink" title=""></a><a href="/torrent/" title="torrent">torrent</a></h2><p>你在一个 Godot 项目里协助开发<br>项目当前情况：</p>
+<h1 id="vibing-projects"><a href="#vibing-projects" class="headerlink" title="vibing projects"></a>vibing projects</h1><h2 id="torrent"><a href="#torrent" class="headerlink" title="[[torrent]]"></a>[[torrent]]</h2><p>你在一个 Godot 项目里协助开发<br>项目当前情况：</p>
 <ul>
 <li>人物敌人死亡存档等基础原型已经搭建</li>
 <li>现在优先推进可玩原型，正式美术后补</li>
@@ -340,7 +341,7 @@
 <p>规划week2 wave4<br>增加物品和装备界面, 按tab可以打开<br>上面, {部位}&lt;-{装备图标, 下面是装备名}<br>图标先随便选一个第三方素材</p>
 <p>在避难所房间加一个回响商人, 对话可以打开商店界面<br>先要更新room.csv, 然后补全item.csv中的斗笠, 在这个房间随便放个第三方人物素材, 这个商人卖斗笠, 用固定业为货币</p>
 <p>写代码时用适当的抽象与继承, 保证后续开发的可复用性<br>素材的替代关系要放进documents&#x2F;asset-plan.md</p>
-<h2 id="AI-ask-many"><a href="#AI-ask-many" class="headerlink" title="[[AI#ask_many]]"></a>[[AI#ask_many]]</h2><p>description: ask many ai to get a comprehensive answer<br>mode: primary<br>model: bailian-coding-plan&#x2F;kimi-k2.5<br>temperature: 0.3<br>permission:<br>  edit: deny<br>  bash: ask<br>  webfetch: allow<br>  exa-websearch: allow<br>  task:<br>    ask-*: allow</p>
+<h2 id="AI-ask-many"><a href="#AI-ask-many" class="headerlink" title="[[AI#ask many]]"></a>[[AI#ask many]]</h2><p>description: ask many ai to get a comprehensive answer<br>mode: primary<br>model: bailian-coding-plan&#x2F;kimi-k2.5<br>temperature: 0.3<br>permission:<br>  edit: deny<br>  bash: ask<br>  webfetch: allow<br>  exa-websearch: allow<br>  task:<br>    ask-*: allow</p>
 <p>You are an AI agent focusing on using “task” tool to assign user’s question to subagents.</p>
 <ul>
 <li><p>subagent_type: The subagents begining with “ask-“ are designed to this condition. Assign multiple agents simultaneously. If user did not mention models explicitly, select refer to these useful groups:</p>
@@ -402,7 +403,7 @@
 </ul>
 <p>用户隔离？按照session名匹配todo？terminator agent+plugin？</p>
 <p>现在我希望开发两个opencode插件（用户自定义hook）以优化todo机制，注意保持简洁，两个应该都比较小</p>
-<p><img src="/images/Pasted_image_20260301162326.png" srcset="/img/loading.gif" lazyload></p>
+<p><img src="/images/Pasted_image_20260301162326.png" srcset="/img/loading.gif" lazyload alt="Pasted image 20260301162326.png"></p>
 <h1 id="Claude-code"><a href="#Claude-code" class="headerlink" title="Claude code"></a>Claude code</h1><p>[[Anthropic]] 是一家有宗教氛围的公司, 其先后提出 [[MCP]], [[AI#skill]] 等工具使用规范, 并发布 Claude code 这一 CLI(command line interface, 命令行交互), 并形成了具有相当规模的生态系统.<br><a target="_blank" rel="noopener" href="https://github.com/shareAI-lab/learn-claude-code">shareAI-lab&#x2F;learn-claude-code: Bash is all you need - A nano Claude Code–like agent, built from 0 to 1</a> 该项目对于理解其原理有极大帮助. </p>
 <p>尽管本身技术并不复杂, 且有众多同类的<a href="/%E5%BC%80%E6%BA%90/" title="开源">开源</a>项目, 如 codex, gemini cli, [[opencode]], 但 Claude code 从未真正开源, 且该公司一定程度上站在开源者的对立面. 在2026年3月31日, 因为 npm 打包时泄露 source map, 源代码被逆向在 [[github]] 传播, 但该公司以 [[DMCA]] 为由下架了大量开源项目. </p>
 <p><a target="_blank" rel="noopener" href="https://github.com/paoloanzn">paoloanzn (Paolo Anzani)</a> 在2026年3月31日泄露的源码的基础上打开了一些测试功能并禁用了该公司的审查, 我在此基础上打开了 auto-mode 的功能并微调, 最终呈现为 [[fcode]]. 目前准备长期使用 fcode, 专注于实践, 不囿于形式. </p>
@@ -459,7 +460,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年6月18日</div>
+          <div>2026年10月11日</div>
         </div>
       
       
@@ -503,9 +504,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/fu_language/" title="fu_language">
+                      <a href="/torrent_gameplay/" title="torrent_gameplay">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">fu_language</span>
+                        <span class="hidden-mobile">torrent_gameplay</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -513,8 +514,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/%E4%BE%9D%E8%B5%96%E7%B1%BB%E5%9E%8B%E8%AE%BA/" title="依赖类型论">
-                        <span class="hidden-mobile">依赖类型论</span>
+                      <a href="/Robust_Prover/" title="Robust_Prover">
+                        <span class="hidden-mobile">Robust_Prover</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
@@ -838,7 +839,23 @@
       </script>
     
 
-  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+  <script id="mathjax-mathtools">
+(function () {
+  var math = window.MathJax;
+  if (!math || (math.startup && math.startup.document)) return;
+  math.loader = math.loader || {};
+  math.loader.load = Array.from(new Set((math.loader.load || []).concat('[tex]/mathtools')));
+  math.tex = math.tex || {};
+  var packages = math.tex.packages;
+  if (Array.isArray(packages)) {
+    math.tex.packages = Array.from(new Set(packages.concat('mathtools')));
+  } else {
+    packages = math.tex.packages = packages || {};
+    packages['[+]'] = Array.from(new Set((packages['[+]'] || []).concat('mathtools')));
+  }
+})();
+</script>
+<script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
 
   <script  src="/js/local-search.js" ></script>
 
