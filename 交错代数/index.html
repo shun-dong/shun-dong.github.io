@@ -1,0 +1,1012 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/only.ico">
+  <link rel="icon" href="/img/only.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="采薇">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="对称性与交错性 [!definition]symmetric 对称性. $f&#40;&#92;dots uv&#92;dots&#41;&#61;f&#40;&#92;dots vu&#92;dots&#41;$alternating 交错性. $f&#40;&#92;cdots vv &#92;cdots&#41; &#61; 0$skew-symmetric 反对称性. $f&#40;&amp;#9">
+<meta property="og:type" content="article">
+<meta property="og:title" content="交错代数">
+<meta property="og:url" content="http://kaelvio.com/%E4%BA%A4%E9%94%99%E4%BB%A3%E6%95%B0/index.html">
+<meta property="og:site_name" content="采薇的博客">
+<meta property="og:description" content="对称性与交错性 [!definition]symmetric 对称性. $f&#40;&#92;dots uv&#92;dots&#41;&#61;f&#40;&#92;dots vu&#92;dots&#41;$alternating 交错性. $f&#40;&#92;cdots vv &#92;cdots&#41; &#61; 0$skew-symmetric 反对称性. $f&#40;&amp;#9">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-10-13T11:35:49.316Z">
+<meta property="article:modified_time" content="2026-10-13T11:35:49.316Z">
+<meta property="article:author" content="采薇">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>交错代数 - 采薇的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kaelvio.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>采薇的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档Archive</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/playground/" target="_self">
+                <i class="iconfont icon-exp-fill"></i>
+                <span>演示playground</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/artwork/" target="_self">
+                <i class="iconfont icon-brush"></i>
+                <span>画廊artwork</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于采薇Kaelvio</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链links</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="交错代数"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-10-13 19:35" pubdate>
+          2026年10月13日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          13k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          108 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">交错代数</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="对称性与交错性"><a href="#对称性与交错性" class="headerlink" title="对称性与交错性"></a>对称性与交错性</h3><blockquote>
+<p>[!definition]<br>symmetric 对称性. $f&#40;&#92;dots uv&#92;dots&#41;&#61;f&#40;&#92;dots vu&#92;dots&#41;$<br>alternating 交错性. $f&#40;&#92;cdots vv &#92;cdots&#41; &#61; 0$<br>skew-symmetric 反对称性. $f&#40;&#92;cdots u&#95;i  u&#95;j &#92;cdots&#41; &#61; &#45;f&#40;&#92;cdots u&#95;j  u&#95;i &#92;cdots&#41;$<br>If we change the succession condition to arbitrary condition, we call it complete.<br>^def-58077f</p>
+</blockquote>
+<p> 交错性相当于 $&#92;sigma &#92;cdot f&#61;&#92;text&#123;sgn&#125;&#40;&#92;sigma&#41;f$</p>
+<p>以下都要求 $&#92;text&#123;char&#125; K &#92;neq 2$，即保证 $2v&#61;0&#92;implies v&#61;0$</p>
+<blockquote>
+<p>[!proposition]<br>symmetric $&#92;iff$ complete symetric<br>alternating $&#92;iff$ Skew-symmetric $&#92;iff$ complete skew-symmetric $&#92;iff$ complete alternating</p>
+</blockquote>
+<p>$Proof.$ (alternating $&#92;implies$ skew-symmetric)<br>$$&#92;begin&#123;align&#125;&#10;0&#38;&#61;f&#40;&#92;dots u&#43;v,u&#43;v&#92;dots&#41;&#92;&#92;&#38;&#61;f&#40;&#92;dots uu&#92;dots&#41;&#43;f&#40;&#92;dots uv&#92;dots&#41;&#43;f&#40;&#92;dots vu&#92;dots&#41;&#43;f&#40;&#92;dots vv&#92;dots&#41; &#10; &#92;&#92;&#38;&#61;f&#40;&#92;dots uv&#92;dots&#41;&#43;f&#40;&#92;dots vu&#92;dots&#41;&#10;&#92;end&#123;align&#125;$$<br>(Skew-symmetric $&#92;implies$ complete skew-symmetric)<br>$$&#92;begin&#123;align&#125;&#10;f&#40;&#92;dots v&#95;i&#92;dots v&#95;j&#92;dots&#41;&#38;&#61;&#40;&#45;1&#41;^&#123;j&#45;i&#125;f&#40;&#92;dots v&#95;jv&#95;i&#92;dots&#41;&#61;&#40;&#45;1&#41;^&#123;j&#45;i&#125;&#40;&#45;1&#41;^&#123;j&#45;&#40;i&#43;1&#41;&#125;f&#40;&#92;dots v&#95;j&#92;dots v&#95;i&#92;dots&#41;&#92;&#92;&#38;&#61;&#45;f&#40;&#92;dots v&#95;g&#92;dots v&#95;i&#92;dots&#41;&#10;&#92;end&#123;align&#125;$$<br>(Complete skew-symmetric $&#92;implies$ complete alternating)<br>$$f&#40;…v &#92;dots v &#92;dots&#41;&#61;f&#40;&#92;dots 0 &#92;dots v &#92;dots&#41;&#43;f&#40;&#92;dots v &#92;dots 0 &#92;dots&#41;&#61;0$$<br>(Complete alternating $&#92;implies$ alternating) trivial<br>$&#92;blacksquare$</p>
+<h3 id="分级代数"><a href="#分级代数" class="headerlink" title="分级代数"></a>分级代数</h3><blockquote>
+<p>[!definition] K-algebra<br>$&#40;R,&#43;,&#92;cdot&#95;K,&#92;circ&#41;$</p>
+<ol>
+<li>K is a field</li>
+<li>$&#40;R,&#43;,&#92;cdot&#95;K&#41;$ is a vector space</li>
+<li>$&#40;R, &#43;, &#92;circ&#41;$ is a ring</li>
+<li>the ring and the vector space are compatible i.e. m is a bilinear map.</li>
+</ol>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>E is a F-algebra $&#92;iff F&#92;to&#95;&#123;&#92;mathbf&#123;field&#125;&#125;E$</p>
+</blockquote>
+<p>For $&#92;phi:F&#92;to&#95;&#123;&#92;mathbf&#123;field&#125;&#125;E$, $f:F$, $e:E$, $f&#92;cdot&#95;F e&#61;&#92;phi&#40;f&#41;&#92;circ e$.</p>
+<blockquote>
+<p>[!definition] I-graded K-algebra<br>$R&#61;&#92;bigoplus&#95;&#123;i&#92;in I&#125;R&#95;i$<br>For $r&#95;i&#92;in R&#95;i,r&#95;j&#92;in R&#95;j$, $r&#95;i&#92;times r&#95;j&#92;in R&#95;&#123;i&#43;j&#125;$<br>Every $r&#95;i&#92;in R&#95;i$ is said to be homogeneous of degree n.<br>For $r&#92;in R$, $r&#61;&#92;sum&#95;&#123;i&#92;in I&#125;r&#95;i$, the non-zero $r&#95;i$ is called the homogeneous components of r.<br>homogeneous linear map of degree i. $f:V&#92;to W;&#92;forall v&#92;in V&#95;j.f&#126;v&#92;in W&#95;&#123;i&#43;j&#125;$</p>
+</blockquote>
+<blockquote>
+<p>[!definition] Tensor algebra<br>V is K-linear space, $&#92;bigotimes^kV:&#61;V^&#123;&#92;otimes k&#125;$, $&#92;bigotimes^0V&#61;K$<br>$&#92;bigotimes V:&#61; &#92;bigoplus&#95;&#123;k&#61;0&#125;^&#123;&#92;infty&#125; &#92;bigotimes^kV$<br>$&#92;otimes: &#92;bigotimes^kV &#92;mapsto &#92;bigotimes^lV &#92;to &#92;bigotimes^&#123;K&#43;l&#125;V:&#61;$<br>$v&#95;1 &#92;otimes &#92;cdots &#92;otimes v&#95;k&#92;mapsto v’&#95;1 &#92;otimes &#92;cdots &#92;otimes v’&#95;l &#92;mapsto v&#95;1 &#92;otimes &#92;cdots &#92;otimes v&#95;k &#92;otimes v’&#95;1 &#92;otimes &#92;cdots &#92;otimes v’&#95;l$</p>
+</blockquote>
+<p>这里用 $&#92;bigoplus$ 是为了和后面统一, 也可以用 $T^k&#40;V&#41;$<br>Recall that $&#92;bigoplus&#95;&#123;i&#61;0&#125;^&#123;&#92;infty&#125; V&#95;i &#92;cong &#92;&#123; &#40;u&#95;1, &#92;dots, u&#95;k&#41; &#92;mid u&#95;i &#92;in V&#95;i &#92;text&#123; are almost all zero&#125; &#92;&#125;$. Compare to $K&#91;V&#93;$, they are both graded vector space, but $&#92;bigotimes V$ is not communicative.<br>Because tensor product has associative law, $&#92;otimes$ is natural and not depends on the choice of basis. We can also check this by basis transformation.<br>We can see that $&#40;&#92;bigotimes V, &#43;,&#92;cdot&#95;K,&#92;otimes&#41;$ is the free K-algebra.</p>
+<blockquote>
+<p>[!proposition] free K-algebra<br>For all K-algebra R, the following diagram commutes:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs tikz">\usepackage&#123;tikz-cd&#125;\begin&#123;document&#125;\begin&#123;tikzcd&#125;<br>V \arrow[r,&quot;\iota&quot;]\arrow[rd,&quot;f&quot;] &amp;\bigotimes V\arrow[d,dashed,&quot;\tilde f&quot;]\\<br>&amp; R<br>\end&#123;tikzcd&#125;\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+</blockquote>
+<p>$Proof.$ Let $&#92;tilde f:T&#40;v&#41;&#92;to R;&#92;sum&#95;i &#92;bigotimes&#95;I a&#95;&#123;I&#95;i&#125;v&#95;&#123;I&#95;i&#125;&#92;to&#92;sum&#95;i &#92;bigotimes&#95;I a&#95;&#123;I&#95;i&#125;f&#40;v&#95;&#123;I&#95;i&#125;&#41;$ $&#92;blacksquare$</p>
+<blockquote>
+<p>[!definition] Two-side ideal</p>
+<ol>
+<li>$I$ is a vector space</li>
+<li>$&#92;forall x &#92;in I. &#92;forall y &#92;in R.xy, yx &#92;in I$ (not necessarily equal)</li>
+</ol>
+<p>An ideal of R is called homogeneous if for $r&#92;in I$, all $r&#95;i&#92;in I$</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>$&#92;left&#60; S &#92;right&#62;:&#61;&#92;&#123;&#92;sum a&#92;times r&#92;times b|r&#92;in S&#92;&#125;$ is homogeneous, and $&#92;left&#60; r &#92;right&#62;&#95;i&#61;&#92;left&#92;&#123; &#92;sum u&#61;&#92;sum a&#92;times r&#92;times b |u&#92;in R&#95;i,r&#92;in S&#92;right&#92;&#125;$</p>
+</blockquote>
+<blockquote>
+<p>[!prp]<br>$R&#x2F;I$ is an F-algebra</p>
+<p>If R, I are graded F-algebra, and I is an homogeneous ideal, then R&#x2F;I is an graded F-algebra. $R&#x2F;I&#61;&#92;bigoplus R&#95;i&#x2F;I&#95;i$</p>
+</blockquote>
+<p>这里用等价类看并不直观，用非平凡的相等关系去看<br>$Proof.$ (graded) For $&#92;bar&#123;u&#125;,&#92;bar&#123;v&#125;&#92;in R&#95;i&#x2F;I&#95;i,&#92;bar&#123;u&#125;&#61;&#92;bar&#123;v&#125;$$&#92;iff u,v&#92;in R&#95;i,u&#61;v&#43;w&#126;for&#126;some&#126;w&#92;in I&#95;i&#92;iff$ u, v have the same degree and $u&#43;I&#61;v&#43;I$</p>
+<h3 id="（反）对称空间"><a href="#（反）对称空间" class="headerlink" title="（反）对称空间"></a>（反）对称空间</h3><blockquote>
+<p>[!definition]<br>$I&#40;V&#41; :&#61; &#92;langle  v &#92;otimes v  |v&#92;in V&#92;rangle$<br>$&#92;bigwedge V:&#61;&#92;bigotimes V&#x2F;I&#40;V&#41;$<br>$J&#40;V&#41;:&#61;&#92;langle  v &#92;otimes w &#45; w &#92;otimes v |v,w&#92;in V &#92;rangle$<br>$&#92;bigodot V :&#61; &#92;bigotimes V &#x2F; J&#40;V&#41;$</p>
+</blockquote>
+<p>这里为了统一也可以用 $&#92;bigodot V$ 表示对称张量空间</p>
+<blockquote>
+<p>[!definition] exterior&#x2F;wedge product 外&#x2F;楔积; commutative product 交换积<br>Let $v&#95;1 &#92;wedge v&#95;2 &#92;wedge &#92;cdots &#92;wedge v&#95;k，v&#95;1&#92;odot v&#95;2&#92;odot&#92;dots&#92;odot v&#95;n$ be the equivalence class of $v&#95;1&#92;otimes v&#95;2&#92;otimes&#92;dots &#92;otimes v&#95;k$</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>association. $&#92;xi&#92;wedge &#40;&#92;eta&#92;wedge &#92;zeta&#41;&#61;&#40;&#92;xi&#92;wedge &#92;eta&#41;&#92;wedge &#92;zeta$, $&#92;xi&#92;odot &#40;&#92;eta&#92;odot &#92;zeta&#41;$<br>commutation. For $&#92;deg &#92;xi&#61;k,&#92;deg &#92;eta&#61;l$,$&#92;xi&#92;wedge &#92;eta&#61;&#40;&#45;1&#41;^&#123;kl&#125;&#92;eta&#92;wedge &#92;xi$, $&#92;xi&#92;odot &#92;eta&#61;&#92;eta&#92;odot &#92;xi$</p>
+</blockquote>
+<p>注意这里用希腊字母表示一般的张量，用小写英文字母表示普通的向量<br>$Proof.$ (association) It held by the association of tensor product.<br>(commutation) For $v, w&#92;in V$<br>$$0&#61;&#40;v&#43;w&#41;&#92;wedge&#40;w&#43;v&#41;&#61;v&#92;wedge v&#43;v&#92;wedge w&#43;w&#92;wedge v&#43;w&#92;wedge w&#61;v&#92;wedge w&#43;w&#92;wedge v$$<br>$$&#10;&#92;implies v&#92;wedge w&#61;&#45;w&#92;wedge v$$<br>$v&#92;odot w&#61;v&#92;odot w&#43;&#40;w&#92;odot v&#45;v&#92;odot w&#41;&#61;w&#92;odot v$<br>For k-th order tensors, decompose it into times of vectors.<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!remark]<br>注意一般来说 $&#92;bigodot V&#92;bigoplus &#92;bigwedge V&#92;neq &#92;bigotimes V&#126;i.e.&#126;&#92;bigodot V&#92;subsetneq I&#40;V&#41;$（有一个单射但非满射的嵌入，这里需要构造出像空间，即所有对称化过后的张量，证明见[[#通过反对称张量刻画外代数]]）</p>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> </li>
+</ul>
+<blockquote>
+<p>[!proposition]<br>设 $&#92;dim V &#61; n$，则 $&#91;e&#95;&#123;i&#95;1&#125; &#92;wedge &#92;cdots &#92;wedge e&#95;&#123;i&#95;k&#125;&#93;$ （其中 $1&#92;leq i&#95;1&#60; &#92;dots&#60; i&#95;k&#92;leq n$）构成 $&#92;bigwedge^k V$ 的一组基<br> $&#92;dim&#92;bigwedge^k V &#61; &#92;binom&#123;n&#125;&#123;k&#125;,&#92;dim&#92;bigwedge V&#61;2^n$  </p>
+</blockquote>
+<p>$Proof.$<br>(Generating) We know that $&#91;e&#95;&#123;i&#95;1&#125;&#92;otimes e&#95;&#123;i&#95;2&#125;&#92;dots&#92;otimes e&#95;&#123;i&#95;k&#125;&#93;$ ($i&#95;1,i&#95;2&#92;dots i&#95;k&#92;in&#91;n&#93;$) is a basis of \bigotimes V. For $T&#92;in &#92;bigotimes V$, let $T&#61;&#92;sum T^&#123;i&#95;1i&#95;2&#92;dots i&#95;k&#125;e&#95;&#123;i&#95;1&#125;&#92;otimes e&#95;&#123;i&#95;2&#125;&#92;dots&#92;otimes e&#95;&#123;i&#95;k&#125;$.<br>$$&#10;&#92;tilde A&#40;T&#41;&#61;&#92;sum&#95;&#123;i&#95;1,i&#95;2&#92;dots i&#95;k&#126;are&#126;different&#125; T^&#123;i&#95;1i&#95;2&#92;dots i&#95;k&#125;e&#95;&#123;i&#95;1&#125;&#92;wedge e&#95;&#123;i&#95;2&#125;&#92;dots&#92;wedge e&#95;&#123;i&#95;k&#125;&#10;$$<br>$$&#10;&#61;&#92;sum&#95;&#123;i&#95;1&#60;i&#95;2&#92;dots&#60;i&#95;k&#125;&#92;sum&#95;&#123;&#92;sigma&#92;in&#92;mathfrak S&#95;k&#125;&#92;text&#123;sgn&#125;&#40;&#92;sigma&#41; T^&#123;i&#95;&#123;&#92;sigma&#40;1&#41;&#125;i&#95;&#123;&#92;sigma&#40;2&#41;&#125;&#92;dots i&#95;&#123;&#92;sigma&#40;k&#41;&#125;&#125;e&#95;&#123;i&#95;1&#125;&#92;wedge e&#95;&#123;i&#95;2&#125;&#92;dots&#92;wedge e&#95;&#123;i&#95;k&#125;&#10;$$<br>$$&#10;&#92;implies &#92;left&#60; e&#95;&#123;i&#95;1&#125;&#92;wedge e&#95;&#123;i&#95;2&#125;&#92;dots&#92;wedge e&#95;&#123;i&#95;k&#125;|i&#95;1&#60;i&#95;2&#92;dots&#60;i&#95;k &#92;right&#62;&#61;&#92;bigwedge V&#10;$$ (Independent)<br>If $&#92;sum&#95;&#123;i&#95;1&#60;i&#95;2&#92;dots&#60;i&#95;k&#125; T^&#123;i&#95;1i&#95;2&#92;dots i&#95;k&#125;e&#95;&#123;i&#95;1&#125;&#92;wedge e&#95;&#123;i&#95;2&#125;&#92;dots&#92;wedge e&#95;&#123;i&#95;k&#125;&#61;0$,<br>$$&#10;&#92;iff &#92;sum&#95;&#123;i&#95;1&#60;i&#95;2&#92;dots&#60;i&#95;k&#125; T^&#123;i&#95;1i&#95;2&#92;dots i&#95;k&#125;e&#95;&#123;i&#95;1&#125;&#92;otimes  e&#95;&#123;i&#95;2&#125;&#92;dots &#92;otimes  e&#95;&#123;i&#95;k&#125; &#92;in I$$<br>But $e&#95;&#123;i&#95;2&#125;&#92;dots &#92;otimes  e&#95;&#123;i&#95;k&#125;$ do not have duplicated indices. $&#92;implies T^&#123;i&#95;1i&#95;2&#92;dots i&#95;k&#125;e&#95;&#123;i&#95;1&#125;&#61;0$<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!example]<br>$&#92;bigwedge^1 &#92;mathbb&#123;R&#125;^3 &#61; &#92;langle e&#95;1, e&#95;2, e&#95;3 &#92;rangle$<br>$&#92;bigwedge^2 &#92;mathbb&#123;R&#125;^3 &#61; &#92;langle e&#95;1 &#92;wedge e&#95;2, e&#95;1 &#92;wedge e&#95;3, e&#95;2 &#92;wedge e&#95;3 &#92;rangle$<br>$&#92;bigwedge^3 &#92;mathbb&#123;R&#125;^3 &#61; &#92;langle e&#95;1 &#92;wedge e&#95;2 &#92;wedge e&#95;3 &#92;rangle$<br>$&#92;bigwedge^k &#92;mathbb&#123;R&#125;^3 &#61; 0$ for $k &#62; 3$</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>设 $&#92;dim V &#61; n$，则 $&#91;e&#95;&#123;i&#95;1&#125; &#92;odot &#92;cdots &#92;odot e&#95;&#123;i&#95;k&#125;&#93;$ （其中 $1&#92;leq i&#95;1&#92;leq &#92;dots&#92;leq i&#95;k&#92;leq n$）构成 $&#92;bigodot^k V$ 的一组基<br> $&#92;dim &#92;bigodot^k V &#61; &#92;binom&#123;n&#43;k&#45;1&#125;&#123;k&#125;,&#92;dim &#92;bigodot V&#61;&#92;infty$  </p>
+</blockquote>
+<p>$Proof.$<br>(Generating) We know that $&#91;e&#95;&#123;i&#95;1&#125;&#92;otimes e&#95;&#123;i&#95;2&#125;&#92;dots&#92;otimes e&#95;&#123;i&#95;k&#125;&#93;$ ($i&#95;1,i&#95;2&#92;dots i&#95;k&#92;in&#91;n&#93;$) is a basis of \bigotimes V. For $T&#92;in &#92;bigotimes V$, let $T&#61;&#92;sum T^&#123;i&#95;1i&#95;2&#92;dots i&#95;k&#125;e&#95;&#123;i&#95;1&#125;&#92;otimes e&#95;&#123;i&#95;2&#125;&#92;dots&#92;otimes e&#95;&#123;i&#95;k&#125;$.<br>$$&#10;S&#40;T&#41;&#61;&#92;sum&#95;&#123;i&#95;1&#92;leq&#92;dots&#92;leq i&#95;k&#125; T^&#123;i&#95;1i&#95;2&#92;dots i&#95;k&#125;e&#95;&#123;i&#95;1&#125;&#92;odot e&#95;&#123;i&#95;2&#125;&#92;dots &#92;odot e&#95;&#123;i&#95;k&#125;&#10;$$ (Independent)<br>If $&#92;sum&#95;&#123;i&#95;1&#60;i&#95;2&#92;dots&#60;i&#95;k&#125; T^&#123;i&#95;1i&#95;2&#92;dots i&#95;k&#125;e&#95;&#123;i&#95;1&#125;&#92;odot e&#95;&#123;i&#95;2&#125;&#92;dots &#92;odot e&#95;&#123;i&#95;k&#125;&#61;0$,<br>$$&#10;&#92;iff &#92;sum&#95;&#123;i&#95;1&#60;i&#95;2&#92;dots&#60;i&#95;k&#125; T^&#123;i&#95;1i&#95;2&#92;dots i&#95;k&#125;e&#95;&#123;i&#95;1&#125;&#92;otimes  e&#95;&#123;i&#95;2&#125;&#92;dots &#92;otimes  e&#95;&#123;i&#95;k&#125; &#92;in J$$<br>But $e&#95;&#123;i&#95;2&#125;&#92;dots &#92;otimes  e&#95;&#123;i&#95;k&#125;$ do not have decreasing indices. $&#92;implies T^&#123;i&#95;1i&#95;2&#92;dots i&#95;k&#125;e&#95;&#123;i&#95;1&#125;&#61;0$<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!remark] 函子化<br>协变函子 $&#92;bigwedge f:&#92;bigwedge U&#92;to&#92;bigwedge V:&#61;&#92;omega^&#123;a&#95;1a&#95;2&#92;dots&#125;&#92;mapsto f^&#123;b&#95;1&#125;&#123;&#125;&#95;&#123;a&#95;1&#125;f^&#123;b&#95;2&#125;&#123;&#125;&#95;&#123;a&#95;2&#125;&#92;dots &#92;omega^&#123;a&#95;1a&#95;2&#92;dots&#125;$<br>反变函子 $&#92;bigwedge^&#42;f:&#92;bigwedge^&#42; U&#92;to&#92;bigwedge^&#42; V:&#61;&#92;omega&#92;mapsto v&#95;1v&#95;2&#92;dots v&#95;i&#92;mapsto&#92;omega&#40;fv&#95;1fv&#95;2&#92;dots fv&#95;i&#41;$<br>$&#92;bigodot$ 同理, 同理也可以定义某一级的函子</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>$V &#61; U &#92;oplus W$, $&#92;bigwedge^k V &#61; &#92;bigoplus&#95;&#123;r&#43;s&#61;k&#125; &#92;bigwedge^r U &#92;otimes &#92;bigwedge^s W$</p>
+</blockquote>
+<p>$Proof.$ 设 $&#92;dim U&#61;m$, $&#92;dim W&#61;n$, 取基 $&#92;&#123;u&#95;1,&#92;dots,u&#95;m&#92;&#125;$ 和 $&#92;&#123;w&#95;1,&#92;dots,w&#95;n&#92;&#125;$, 则它们的并是 $V$ 的一组基.</p>
+<p>$&#92;bigwedge^k V$ 的基为 $&#92;&#123;e&#95;&#123;i&#95;1&#125;&#92;wedge&#92;cdots&#92;wedge e&#95;&#123;i&#95;k&#125;&#92;mid 1&#92;leq i&#95;1&#60;&#92;cdots&#60;i&#95;k&#92;leq m&#43;n&#92;&#125;$。每个基向量可写为 $r$ 个 $u$ 型向量与 $s&#61;k&#45;r$ 个 $w$ 型向量的外积：<br>$$&#10;u&#95;&#123;a&#95;1&#125;&#92;wedge&#92;cdots&#92;wedge u&#95;&#123;a&#95;r&#125;&#92;wedge w&#95;&#123;b&#95;1&#125;&#92;wedge&#92;cdots&#92;wedge w&#95;&#123;b&#95;s&#125;&#10;$$<br>其中 $1&#92;leq a&#95;1&#60;&#92;cdots&#60;a&#95;r&#92;leq m$, $1&#92;leq b&#95;1&#60;&#92;cdots&#60;b&#95;s&#92;leq n$。</p>
+<p>考虑线性映射<br>$$&#92;phi&#95;&#123;r,s&#125;: &#92;bigwedge^r U &#92;otimes &#92;bigwedge^s W &#92;to &#92;bigwedge^k V,&#92;quad &#40;u&#95;&#123;a&#95;1&#125;&#92;wedge&#92;cdots&#92;wedge u&#95;&#123;a&#95;r&#125;&#41;&#92;otimes&#40;w&#95;&#123;b&#95;1&#125;&#92;wedge&#92;cdots&#92;wedge w&#95;&#123;b&#95;s&#125;&#41;&#92;mapsto u&#95;&#123;a&#95;1&#125;&#92;wedge&#92;cdots&#92;wedge u&#95;&#123;a&#95;r&#125;&#92;wedge w&#95;&#123;b&#95;1&#125;&#92;wedge&#92;cdots&#92;wedge w&#95;&#123;b&#95;s&#125;$$<br>它将基映为基中不同的元素，且值域彼此不交（因 $r$ 不同则 $u$ 的个数不同），故 $&#92;phi&#95;&#123;r,s&#125;$ 是单射。全体 $&#92;&#123;&#92;operatorname&#123;im&#125;&#92;phi&#95;&#123;r,s&#125;&#92;&#125;&#95;&#123;r&#43;s&#61;k&#125;$ 生成的正是 $&#92;bigwedge^k V$ 的所有基向量，故<br>$$&#92;bigwedge^k V &#61; &#92;bigoplus&#95;&#123;r&#43;s&#61;k&#125; &#92;operatorname&#123;im&#125;&#92;phi&#95;&#123;r,s&#125; &#92;cong &#92;bigoplus&#95;&#123;r&#43;s&#61;k&#125; &#92;bigwedge^r U &#92;otimes &#92;bigwedge^s W$$</p>
+<p>维数验证：$&#92;dim&#92;bigwedge^k V&#61;&#92;binom&#123;m&#43;n&#125;&#123;k&#125;&#61;&#92;sum&#95;&#123;r&#43;s&#61;k&#125;&#92;binom&#123;m&#125;&#123;r&#125;&#92;binom&#123;n&#125;&#123;s&#125;&#61;&#92;sum&#95;&#123;r&#43;s&#61;k&#125;&#92;dim&#40;&#92;bigwedge^r U&#92;otimes&#92;bigwedge^s W&#41;$。<br>$&#92;blacksquare$</p>
+<h3 id="（反）对称化张量"><a href="#（反）对称化张量" class="headerlink" title="（反）对称化张量"></a>（反）对称化张量</h3><p>通过反对称张量构造外代数（alternating tensor algebra） </p>
+<blockquote>
+<p>[!definition] symmetric&#x2F;anti-symmetric part of a tensor<br>$&#92;widetilde&#123;S&#125;&#40;v&#95;1&#92;otimes&#92;dots &#92;otimes v&#95;k&#41;:&#61;&#92;sum&#95;&#123;&#92;sigma&#92;in &#92;mathfrak&#123;S&#125;&#95;k&#125;v&#95;&#123;&#92;sigma&#95;1&#125;&#92;otimes&#92;dots &#92;otimes v&#95;&#123;&#92;sigma&#95;k&#125;$<br>$&#92;widetilde&#123;A&#125;&#40;v&#95;1&#92;otimes&#92;dots &#92;otimes v&#95;k&#41;:&#61;&#92;sum&#95;&#123;&#92;sigma&#92;in &#92;mathfrak&#123;S&#125;&#95;k&#125;&#92;text&#123;sgn&#125;&#40;&#92;sigma&#41;v&#95;&#123;&#92;sigma&#95;1&#125;&#92;otimes&#92;dots &#92;otimes v&#95;&#123;&#92;sigma&#95;k&#125;$<br>$S:&#61;&#92;frac&#123;1&#125;&#123;k&#33;&#125;&#92;cdot &#92;widetilde&#123;S&#125;$<br>$A:&#61;&#92;frac&#123;1&#125;&#123;k&#33;&#125;&#92;cdot &#92;widetilde&#123;A&#125;$</p>
+</blockquote>
+<p>这样记号的依据是每个张量都可以看成线性映射，而（反）对称化可以看成函子，实际上这还是对单子。</p>
+<p>$Proof.$<br>(independent of bases) 只需要证先交错化再基变换和先基变换再交错化效果一样<br>Let $v&#95;i&#61;e&#95;jT^j&#123;&#95;i&#125;$<br>$A&#40;v&#95;1&#92;otimes&#92;dots &#92;otimes v&#95;k&#41;&#61;&#92;frac&#123;1&#125;&#123;k&#33;&#125;&#92;sum&#95;&#123;&#92;sigma&#92;in &#92;mathfrak&#123;S&#125;&#95;k&#125;&#92;text&#123;sgn&#125;&#40;&#92;sigma&#41;v&#95;&#123;&#92;sigma&#95;1&#125;&#92;otimes&#92;dots &#92;otimes v&#95;&#123;&#92;sigma&#95;k&#125;$<br>$$&#10;&#61;&#92;frac&#123;1&#125;&#123;k&#33;&#125;&#92;sum&#95;&#123;&#92;sigma&#92;in &#92;mathfrak&#123;S&#125;&#95;k&#125;&#92;text&#123;sgn&#125;&#40;&#92;sigma&#41;&#92;sum&#95;&#123;j&#95;1,j&#95;2&#92;dots j&#95;k&#125;e&#95;&#123;j&#95;1&#125;T&#123;^&#123;j&#95;1&#125;&#125;&#95;&#123;&#92;sigma&#95;1&#125;&#92;otimes&#92;dots &#92;otimes e&#95;&#123;j&#95;k&#125;T&#123;^&#123;j&#95;k&#125;&#125;&#95;&#123;&#92;sigma&#95;k&#125;$$<br>$$&#10;&#61;&#92;frac&#123;1&#125;&#123;k&#33;&#125;&#92;sum&#95;&#123;j&#95;1,j&#95;2&#92;dots j&#95;k&#125;e&#95;&#123;j&#95;1&#125;&#92;otimes&#92;dots &#92;otimes e&#95;&#123;j&#95;k&#125;&#92;left&#40; &#92;sum&#95;&#123;&#92;sigma&#92;in &#92;mathfrak&#123;S&#125;&#95;k&#125;&#92;text&#123;sgn&#125;&#40;&#92;sigma&#41;T&#123;^&#123;j&#95;1&#125;&#125;&#95;&#123;&#92;sigma&#95;1&#125;&#92;dots T&#123;^&#123;j&#95;k&#125;&#125;&#95;&#123;&#92;sigma&#95;k&#125; &#92;right&#41;$$<br>Similarly, if $&#91;v&#95;i&#93;&#61;&#91;e’&#95;j&#93;&#91;T’^j&#123;&#95;i&#125;&#93;,&#91;e’&#95;i&#93;&#61;&#91;e&#95;j&#93;&#91;M^j&#123;&#95;i&#125;&#93;$, we have<br>$$&#10;A&#40;v&#95;1&#92;otimes&#92;dots &#92;otimes v&#95;k&#41;&#61;&#92;frac&#123;1&#125;&#123;k&#33;&#125; &#92;sum&#95;&#123;j&#95;1,j&#95;2&#92;dots j&#95;k&#125;e’&#95;&#123;j&#95;1&#125;&#92;otimes&#92;dots &#92;otimes e’&#95;&#123;j&#95;k&#125; &#92;left&#40; &#92;sum&#95;&#123;&#92;sigma&#92;in &#92;mathfrak&#123;S&#125;&#95;k&#125;&#92;text&#123;sgn&#125;&#40;&#92;sigma&#41;T’&#123;^&#123;j&#95;1&#125;&#125;&#95;&#123;&#92;sigma&#95;1&#125;&#92;dots T’&#123;^&#123;j&#95;k&#125;&#125;&#95;&#123;&#92;sigma&#95;k&#125; &#92;right&#41;$$</p>
+<p>$$&#10;&#61;&#92;frac&#123;1&#125;&#123;k&#33;&#125;&#92;sum&#95;&#123;j&#95;1,j&#95;2&#92;dots j&#95;k&#125;&#92;sum&#95;&#123;i&#95;1,i&#95;2&#92;dots i&#95;k&#125;e&#95;&#123;i&#95;1&#125;M^&#123;i&#95;1&#125;&#123;&#95;&#123;j&#95;1&#125;&#125;&#92;otimes&#92;dots &#92;otimes e&#95;&#123;i&#95;k&#125;M^&#123;i&#95;k&#125;&#123;&#95;&#123;j&#95;k&#125;&#125; &#92;left&#40; &#92;sum&#95;&#123;&#92;sigma&#92;in &#92;mathfrak&#123;S&#125;&#95;k&#125;&#92;text&#123;sgn&#125;&#40;&#92;sigma&#41;T’&#123;^&#123;j&#95;1&#125;&#125;&#95;&#123;&#92;sigma&#95;1&#125;&#92;dots T’&#123;^&#123;j&#95;k&#125;&#125;&#95;&#123;&#92;sigma&#95;k&#125; &#92;right&#41;$$<br>$$&#10;&#61;&#92;frac&#123;1&#125;&#123;k&#33;&#125;&#92;sum&#95;&#123;j&#95;1,j&#95;2&#92;dots j&#95;k&#125;e&#95;&#123;j&#95;1&#125;&#92;otimes&#92;dots &#92;otimes e&#95;&#123;j&#95;k&#125;&#92;left&#40; &#92;sum&#95;&#123;&#92;sigma&#92;in &#92;mathfrak&#123;S&#125;&#95;k&#125;&#92;text&#123;sgn&#125;&#40;&#92;sigma&#41;T&#123;^&#123;j&#95;1&#125;&#125;&#95;&#123;&#92;sigma&#95;1&#125;&#92;dots T&#123;^&#123;j&#95;k&#125;&#125;&#95;&#123;&#92;sigma&#95;k&#125; &#92;right&#41;$$<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!Remark] partially symmetric&#x2F;anti-symmetric<br> These processes are independent of choice of bases, so we can use abstract index notation.<br>(partially) anti-symmetric.<br>$T&#95;&#123;&#91;a&#95;1a&#95;2a&#95;3 &#92;dots&#93;b&#95;1b&#95;2&#92;dots&#125;:&#61;&#92;sum&#92;text&#123;sgn&#125;&#40;&#92;sigma&#41;T&#95;&#123;&#91;a&#95;&#123;&#92;sigma&#40;1&#41;&#125;a&#95;&#123;&#92;sigma&#40;2&#41;&#125;a&#95;&#123;&#92;sigma&#40;3&#41;&#125;&#92;dots&#93;b&#95;1b&#95;2&#92;dots&#125;$<br>(partially) symmetric.<br>$T&#95;&#123;&#40;a&#95;1a&#95;2a&#95;3 &#92;dots&#41;b&#95;1b&#95;2&#92;dots&#125;:&#61;&#92;sum T&#95;&#123;&#40;a&#95;&#123;&#92;sigma&#40;1&#41;&#125;a&#95;&#123;&#92;sigma&#40;2&#41;&#125;a&#95;&#123;&#92;sigma&#40;3&#41;&#125;&#92;dots&#41;b&#95;1b&#95;2&#92;dots&#125;$</p>
+</blockquote>
+<p>$&#92;phi:U&#92;otimes V&#92;cong V&#92;otimes U;T&#95;&#123;ab&#125;:&#61;&#92;phi T&#95;&#123;ba&#125;$<br>用这种定义可以很自然地看出与基的选择无关<br>为了保证换了位置依然homogenous，我们只对同一边的指标操作。</p>
+<p>记号上对称群作用, 对称化, 反对称化都可以写成抽象指标的形式<br>$&#92;sigma^&#123;a&#95;1a&#95;2&#92;dots&#125;&#123;&#125;&#95;&#123;b&#95;1b&#95;2&#92;dots&#125;T&#95;&#123;a&#95;1a&#95;2&#92;dots c&#95;1c&#95;2&#92;dots&#125;$<br>$A^&#123;a&#95;1a&#95;2&#92;dots&#125;&#123;&#125;&#95;&#123;b&#95;1b&#95;2&#92;dots&#125;T&#95;&#123;a&#95;1a&#95;2&#92;dots c&#95;1c&#95;2&#92;dots&#125;$<br>$S^&#123;a&#95;1a&#95;2&#92;dots&#125;&#123;&#125;&#95;&#123;b&#95;1b&#95;2&#92;dots&#125;T&#95;&#123;a&#95;1a&#95;2&#92;dots c&#95;1c&#95;2&#92;dots&#125;$<br>$A&#61;&#92;sum&#95;&#123;&#92;sigma:&#92;mathfrak&#123;S&#125;&#95;n&#125;&#40;&#92;operatorname&#123;sgn&#125;&#92;sigma&#41;&#92;sigma$<br>$S&#61;&#92;sum&#95;&#123;&#92;sigma:&#92;mathfrak&#123;S&#125;&#95;n&#125;&#92;sigma$</p>
+<blockquote>
+<p>[!exm] Lie algebra<br>$&#92;mathfrak&#123;g&#125;$ is a vector space.<br>$&#91;&#92;&#95;,&#92;&#95;&#93;^a&#123;&#95;&#123;&#91;bc&#93;&#125;&#125;:&#92;mathfrak&#123;g&#125;&#92;times &#92;mathfrak&#123;g&#125;&#92;to &#92;mathfrak&#123;g&#125;$ is called a Lie bracket.<br>$&#40;&#92;mathfrak&#123;g&#125;,&#91;&#92;&#95;,&#92;&#95;&#93;&#41;$ is called a Lie algebra. </p>
+</blockquote>
+<blockquote>
+<p>[!proposition] (skew-)symmetric<br>$A&#40;v&#95;&#123;&#92;sigma&#95;1&#125;&#92;otimes&#92;dots &#92;otimes v&#95;&#123;&#92;sigma&#95;k&#125;&#41;&#61;&#92;text&#123;sgn&#125;&#40;&#92;sigma&#41;A&#40;v&#95;1&#92;otimes&#92;dots &#92;otimes v&#95;k&#41;$<br>$S&#40;v&#95;&#123;&#92;sigma&#95;1&#125;&#92;otimes&#92;dots &#92;otimes v&#95;&#123;&#92;sigma&#95;k&#125;&#41;&#61;S&#40;v&#95;1&#92;otimes&#92;dots &#92;otimes v&#95;k&#41;$<br>$A&#92;circ S&#61;0$, $S&#92;circ A&#61;0$<br>index notation.<br>$T&#95;&#123;&#91;a&#40;bc&#41;&#93;&#125;&#61;0$, $T&#95;&#123;&#40;a&#91;bc&#93;&#41;&#125;&#61;0$</p>
+</blockquote>
+<blockquote>
+<p>[!proposition] idempotent</p>
+<ol>
+<li>$A&#92;circ A&#61;A;S&#92;circ S&#61;S$</li>
+<li>$A&#40;&#92;omega&#92;otimes&#92;eta&#41;&#61;A&#40;A&#40;&#92;omega&#41;&#92;otimes A&#40;&#92;eta&#41;&#41;$; $S&#40;&#92;omega&#92;otimes&#92;eta&#41;&#61;S&#40;S&#40;&#92;omega&#41;&#92;otimes S&#40;&#92;eta&#41;&#41;$<br>index notation.<br>$T&#95;&#123;&#40;a&#40;bc&#41;&#41;&#125;&#61;T&#95;&#123;&#40;abc&#41;&#125;$, $T&#95;&#123;&#91;a&#91;bc&#93;&#93;&#125;&#61;T&#95;&#123;&#91;abc&#93;&#125;$</li>
+</ol>
+</blockquote>
+<p>$Proof.$<br>(2)<br>$$RHS&#61;&#92;frac&#123;1&#125;&#123;&#40;k&#43;l&#41;&#33;k&#33;l&#33;&#125;&#92;sum&#95;&#123;&#92;sigma&#92;in&#92;mathfrak S&#95;&#123;k&#43;l&#125;&#125;&#92;text&#123;sgn&#125;&#40;&#92;sigma&#41;&#92;left&#40; &#92;sum&#95;&#123;&#92;tau&#92;in&#92;mathfrak S&#95;k&#125;&#92;text&#123;sgn&#125;&#40;&#92;tau&#41; v&#95;&#123;&#92;tau&#92;sigma&#40;1&#41;&#125;&#92;otimes&#92;dots &#92;otimes v&#95;&#123;&#92;tau&#92;sigma&#40;k&#41;&#125; &#92;right&#41;&#92;otimes&#92;left&#40; &#92;sum&#95;&#123;&#92;iota&#92;in&#92;mathfrak S&#95;l&#125;&#92;text&#123;sgn&#125;&#40;&#92;iota&#41;v&#95;&#123;&#92;sigma&#40;k&#43;&#92;iota&#40;1&#41;&#41;&#125;&#92;otimes&#92;dots &#92;otimes v&#95;&#123;&#92;sigma&#40;k&#43;&#92;iota&#40;l&#41;&#41;&#125; &#92;right&#41;$$<br>由于对称性 $&#92;mathfrak S&#95;&#123;k&#43;l&#125;$ 中每个置换出现 $k&#33;l&#33;$ 次<br>$$&#10;RHS&#61; &#92;frac&#123;1&#125;&#123;&#40;k&#43;l&#41;&#33;&#125;&#92;sum&#95;&#123;&#92;sigma&#92;in &#92;mathfrak&#123;S&#125;&#95;&#123;k&#43;l&#125;&#125;&#92;text&#123;sgn&#125;&#40;&#92;sigma&#41;v&#95;&#123;&#92;sigma&#95;1&#125;&#92;otimes&#92;dots &#92;otimes v&#95;&#123;&#92;sigma&#95;&#123;k&#43;l&#125;&#125;&#61;LHS&#10;$$<br>对称的情况同理<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!remark]<br>The versions with normalization can avoid most of the extra coefficients, but are only defined in $&#92;text&#123;char&#125;K&#61;&#92;infty$.<br>The versions with tilde are always well-defined.</p>
+</blockquote>
+<blockquote>
+<p>[!theorem] $&#92;bigodot V&#92;cong&#92;operatorname&#123;im&#125;S,&#92;bigwedge V&#92;cong&#92;operatorname&#123;im&#125;A$</p>
+</blockquote>
+<p>$Proof.$<br>($I&#92;subset&#92;text&#123;Ker&#125;&#126;A$)<br>$$S&#40;v&#92;otimes w&#45;w&#92;otimes v&#41;&#61;S&#40;v&#92;otimes w&#41;&#45;S&#40;w&#92;otimes v&#41;&#61;0,$$<br>$$A&#40;v&#92;otimes v&#41;&#61;&#45;A&#40;v&#92;otimes v&#41;&#92;implies A&#40;v&#92;otimes v&#41;&#61;0$$<br>For $&#92;omega&#92;in I,$<br>$$A&#40;&#92;omega&#41;&#61;&#92;sum&#95;i A&#40;u&#95;i&#92;otimes v&#95;i&#92;otimes v&#95;i&#92;otimes w&#95;i&#41;&#61;&#92;sum&#95;i A&#40;A&#40;u&#95;i&#41;&#92;otimes A&#40;v&#95;i&#92;otimes v&#95;i&#41;&#92;otimes A&#40;w&#95;i&#41;&#41;&#61;0$$<br>i.e. $I&#92;subset&#92;text&#123;Ker&#125;&#126;A$<br>Similarly, $J&#92;subset &#92;operatorname&#123;ker&#125;&#40;S&#41;$<br>Because $A$ is a projection map, $&#92;bigotimes V&#61;&#92;text&#123;Im&#125;&#126;A&#92;oplus&#92;text&#123;Ker&#125;&#126;A$<br>($I&#92;supset&#92;text&#123;Ker&#125;&#126;A$)<br>For $&#92;alpha&#61;v&#95;1&#92;otimes&#92;dots &#92;otimes v&#95;k$, $A&#40;&#92;alpha&#41;&#61;&#92;frac&#123;1&#125;&#123;k&#33;&#125;&#92;sum&#95;&#123;&#92;sigma&#92;in &#92;mathfrak&#123;S&#125;&#95;k&#125;&#92;text&#123;sgn&#125;&#40;&#92;sigma&#41;v&#95;&#123;&#92;sigma&#95;1&#125;&#92;otimes&#92;dots &#92;otimes v&#95;&#123;&#92;sigma&#95;k&#125;&#92;in &#92;text&#123;Im&#125;&#126;A$<br>$A&#40;A&#40;&#92;alpha&#41;&#41;&#61;&#92;frac&#123;1&#125;&#123;k&#33;&#125;&#92;sum&#95;&#123;&#92;sigma&#92;in &#92;mathfrak&#123;S&#125;&#95;k&#125;&#92;text&#123;sgn&#125;&#40;&#92;sigma&#41;v&#95;&#123;&#92;sigma&#95;1&#125;&#92;wedge&#92;dots &#92;wedge v&#95;&#123;&#92;sigma&#95;k&#125;&#61;v&#95;1&#92;wedge&#92;dots&#92;wedge v&#95;k&#61;A&#40;&#92;alpha&#41;$<br>If $I&#92;not&#92;supset&#92;text&#123;Ker&#125;&#126;A$, we can find $&#92;alpha&#92;in &#92;text&#123;Ker&#125;&#40;A&#41;&#45;I$.<br>$A&#40;A&#40;&#92;alpha&#41;&#41;&#61;0,A&#40;&#92;alpha&#41;&#92;neq 0$. Contradiction.<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!remark]<br>只是说同构，其实有一个标量自由度<br>向量空间范畴里每个满射都可以分裂, 但是由于补空间的选择不唯一, 实际上这个嵌入也不唯一<br>我采用 $&#92;omega&#95;1&#92;wedge&#92;omega&#95;2&#92;dots&#92;wedge&#92;omega&#95;k&#92;mapsto &#92;tilde A&#40;&#92;omega&#95;1&#92;otimes&#92;omega&#95;2&#92;otimes&#92;dots &#92;otimes&#92;omega&#95;k&#41;$<br>同时默认商对象只是普通的张量<br>e.g. We can write $u&#92;wedge v&#61;2A&#40;u&#92;otimes v&#41;$</p>
+</blockquote>
+<h3 id="（反）对称多重线性映射"><a href="#（反）对称多重线性映射" class="headerlink" title="（反）对称多重线性映射"></a>（反）对称多重线性映射</h3><blockquote>
+<p>[!definition] alternating; commutative muti-linear map<br>alternating. $f&#40;&#92;dots,v,v&#92;dots&#41;&#61;0$<br>commutative. $f&#40;&#92;dots u,v&#92;dots&#41;&#61;f&#40;&#92;dots v,u&#92;dots&#41;$<br>$&#92;bigodot&#95;k V:&#61;$ all commutative muti-linear map<br>$&#92;bigwedge&#95;k V:&#61;$ all alternating muti-linear map</p>
+</blockquote>
+<blockquote>
+<p>[!theorem]<br>$&#92;bigodot&#95;k V&#92;cong&#40;&#92;bigodot^k V&#41;^&#42;$<br>$&#92;bigwedge&#95;k V&#92;cong &#40;&#92;bigwedge^k V&#41;^&#42;$</p>
+</blockquote>
+<p>$Proof.$<br> If $f$ is alternating; commutative, $&#92;widetilde f$ is skew-symmetric; symmetric.<br> 由张量积的泛性质和商空间的泛性质</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs tikz">\usepackage&#123;tikz-cd&#125;\begin&#123;document&#125;<br>\begin&#123;tikzcd&#125;<br>\bigotimes V \arrow[r, &quot;A;S&quot;] \arrow[dr, &quot;\widetilde f&quot;&#x27;] &amp; \bigwedge V;\bigodot V \arrow[d, dashed,&quot; \hat&#123;f&#125;&quot;] \\ &amp; K<br>\end&#123;tikzcd&#125;<br>\end&#123;document&#125;<br></code></pre></td></tr></table></figure>
+<p>We only need to prove f is alternating; commutative $&#92;iff &#92;forall v&#92;in I,&#92;widetilde f&#126;v&#61;0$<br>($&#92;implies$) By definition<br>( $&#92;Longleftarrow$ ) rank 1 tensors are enough<br>$&#92;blacksquare$</p>
+<p>用泛性质定义自然有independent of bases</p>
+<p>For $&#92;sigma&#92;in &#92;mathfrak&#123;S&#125;&#95;n,&#92;omega&#92;in V^&#123;n&#42;&#125;$, $&#92;sigma &#92;cdot&#92;omega:&#61;v&#95;1v&#95;2&#92;dots v&#95;n&#92;mapsto&#92;omega&#126;v&#95;&#123;&#92;sigma&#95;1&#125;v&#95;&#123;&#92;sigma&#95;2&#125;&#92;dots v&#95;&#123;&#92;sigma&#95;n&#125;$</p>
+<blockquote>
+<p>[!definition] Wedge product of alternating muti-linear map<br>$&#92;mu&#92;in &#92;bigwedge&#95;k V,&#92;psi&#92;in &#92;bigwedge&#95;l V,&#40;&#92;mu&#92;mathring&#92;wedge&#92;psi&#41;&#40;v&#95;&#123;1&#125;,v&#95;2&#92;dots v&#95;&#123;k&#43;l&#125;&#41;:&#61;&#92;sum&#95;&#123;&#92;sigma&#92;in &#92;mathfrak S&#40;k,l&#41;&#125;&#92;text&#123;sgn&#125;&#40;&#92;sigma&#41;&#92;cdot&#92;mu&#40;v&#95;&#123;&#92;sigma&#95;1&#125;,v&#95;&#123;&#92;sigma&#95;2&#125;&#92;dots v&#95;&#123;&#92;sigma&#95;k&#125;&#41;&#92;cdot&#92;psi&#40;v&#95;&#123;&#92;sigma&#95;&#123;k&#43;1&#125;&#125;,v&#95;&#123;&#92;sigma&#95;&#123;k&#43;2&#125;&#125;&#92;dots v&#95;&#123;&#92;sigma&#95;&#123;k&#43;l&#125;&#125;&#41;$,<br>where $&#92;mathfrak S&#40;k,l&#41;:&#61;&#92;left&#92;&#123; &#92;sigma&#92;in&#92;mathfrak S&#40;k&#43;l&#41; |&#92;sigma&#95;1&#60;&#92;sigma&#95;2&#92;dots&#60;&#92;sigma&#95;k,&#92;sigma&#95;&#123;k&#43;1&#125;&#60;&#92;sigma&#95;&#123;k&#43;2&#125;&#92;dots&#60;&#92;sigma&#95;&#123;k&#43;l&#125;&#92;right&#92;&#125;$ is the (k,l)-shuffle</p>
+</blockquote>
+<p>By equivalence, we have wedge product of $&#40;&#92;bigwedge V&#41;^&#42;$.</p>
+<blockquote>
+<p>[!proposition]<br>$&#92;mu&#92;mathring&#92;wedge&#92;psi&#92;in &#92;bigwedge&#95;&#123;k&#43;l&#125;$</p>
+</blockquote>
+<p>$Proof.$ If $v&#95;i&#61;v&#95;j$,<br>$$&#40;&#92;mu&#92;mathring&#92;wedge&#92;psi&#41;&#40;v&#95;&#123;1&#125;,v&#95;2&#92;dots v&#95;&#123;k&#43;l&#125;&#41;&#61;&#92;sum&#95;&#123;&#92;begin&#123;align&#125;&#10;&#38;&#92;sigma&#92;in &#92;mathfrak S&#40;k,l&#41;,&#92;&#92;&#40;1&#92;leq&#92;sigma^&#123;&#45;1&#125;&#40;i&#41;&#92;leq k,&#38;k&#60;&#92;sigma^&#123;&#45;1&#125;&#40;j&#41;&#92;leq k&#43;l&#41;or&#92;&#92;&#40;1&#92;leq&#92;sigma^&#123;&#45;1&#125;&#40;j&#41;&#92;leq k,&#38;k&#60;&#92;sigma^&#123;&#45;1&#125;&#40;i&#41;&#92;leq k&#43;l&#41;&#10;&#92;end&#123;align&#125;&#125;&#92;text&#123;sgn&#125;&#40;&#92;sigma&#41;&#92;cdot&#92;mu&#40;v&#95;&#123;&#92;sigma&#95;1&#125;,v&#95;&#123;&#92;sigma&#95;2&#125;&#92;dots v&#95;&#123;&#92;sigma&#95;k&#125;&#41;&#92;cdot&#92;psi&#40;v&#95;&#123;&#92;sigma&#95;&#123;k&#43;1&#125;&#125;,v&#95;&#123;&#92;sigma&#95;&#123;k&#43;2&#125;&#125;&#92;dots v&#95;&#123;&#92;sigma&#95;&#123;k&#43;l&#125;&#125;&#41;&#61;$$<br>$$&#92;sum&#95;&#123;&#92;begin&#123;align&#125;&#10;&#38;&#92;sigma&#92;in &#92;mathfrak S&#40;k,l&#41;&#92;&#92;1&#92;leq&#92;sigma^&#123;&#45;1&#125;&#40;i&#41;&#92;leq k,&#38;k&#60;&#92;sigma^&#123;&#45;1&#125;&#40;j&#41;&#92;leq k&#43;l&#10;&#92;end&#123;align&#125;&#125;&#92;text&#123;sgn&#125;&#40;&#92;sigma&#41;&#92;cdot&#40; &#92;mu&#40;v&#95;&#123;&#92;sigma&#95;1&#125;,v&#95;&#123;&#92;sigma&#95;2&#125;&#92;dots v&#95;i&#92;dots v&#95;&#123;&#92;sigma&#95;k&#125;&#41;&#92;cdot&#92;psi&#40;v&#95;&#123;&#92;sigma&#95;&#123;k&#43;1&#125;&#125;,v&#95;&#123;&#92;sigma&#95;&#123;k&#43;2&#125;&#125;&#92;dots v&#95;j&#92;dots v&#95;&#123;&#92;sigma&#95;&#123;k&#43;l&#125;&#125;&#41;&#45;&#92;mu&#40;v&#95;&#123;&#92;sigma&#95;1&#125;,v&#95;&#123;&#92;sigma&#95;2&#125;&#92;dots v&#95;j&#92;dots v&#95;&#123;&#92;sigma&#95;k&#125;&#41;&#92;cdot&#92;psi&#40;v&#95;&#123;&#92;sigma&#95;&#123;k&#43;1&#125;&#125;,v&#95;&#123;&#92;sigma&#95;&#123;k&#43;2&#125;&#125;&#92;dots v&#95;i&#92;dots v&#95;&#123;&#92;sigma&#95;&#123;k&#43;l&#125;&#125;&#41;&#41;&#61;0$$<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!theorem]<br>$&#40;&#92;bigodot^k V&#41;^&#42;&#92;cong &#92;bigodot^k V^&#42;$<br>$&#40;&#92;bigwedge^k V&#41;^&#42;&#92;cong &#92;bigwedge^k V^&#42;$</p>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> 对称版本的<br>$Proof.$<br>$&#92;phi:&#40;V^&#42;&#92;times V^&#42;&#41;&#92;to &#92;bigwedge&#95;2 V;&#40;f,g&#41;&#92;mapsto f&#92;mathring&#92;wedge g$</li>
+</ul>
+<p>$f&#92;mathring&#92;wedge f&#40;u,v&#41;&#61;f&#40;u&#41;&#92;cdot f&#40;v&#41;&#45;f&#40;u&#41;&#92;cdot f&#40;v&#41;&#61;0$<br>$&#92;implies&#92;phi$ is alternating bilinear $&#92;implies &#92;exists&#33;&#92;tilde &#92;phi:&#92;bigwedge^2 V^&#42;&#92;to &#92;bigwedge&#95;2 V&#92;cong&#40;&#92;bigwedge^2 V&#41;^&#42;$<br>If $&#92;tilde&#92;phi&#40;f&#92;wedge g&#41;&#61;0&#92;implies f&#92;otimes g&#92;in I&#92;implies f&#61;g&#92;implies f&#92;wedge g&#61;0$<br>And $&#92;dim V^&#42;&#92;wedge W^&#42;&#61;&#92;dim &#40;V&#92;wedge W&#41;^&#42;&#92;implies &#92;tilde&#92;phi$ is bijective.<br>$&#92;blacksquare$<br>We will also use $f &#92;wedge g$ to denote both $f&#92;mathring &#92;wedge g$ and $f&#92;wedge g$. </p>
+<blockquote>
+<p>[!proposition]<br>For every $&#92;varphi&#92;in &#92;bigotimes^k&#40;V^&#42;&#41;$<br>$A&#40;&#92;varphi&#41;&#61;&#92;varphi&#92;circ A&#61;A&#40;&#92;varphi&#41;&#92;circ A$<br>$S&#40;&#92;varphi&#41;&#61;&#92;varphi&#92;circ S&#61;S&#40;&#92;varphi&#41;&#92;circ S$<br>index notation<br>$T&#95;&#123;&#91;abc&#93;&#125;S^&#123;abc&#125;&#61;T&#95;&#123;abc&#125;S^&#123;&#91;abc&#93;&#125;&#61;T&#95;&#123;&#91;abc&#93;&#125;S^&#123;&#91;abc&#93;&#125;$<br>$T&#95;&#123;&#40;abc&#41;&#125;S^&#123;abc&#125;&#61;T&#95;&#123;abc&#125;S^&#123;&#40;abc&#41;&#125;&#61;T&#95;&#123;&#40;abc&#41;&#125;S^&#123;&#40;abc&#41;&#125;$</p>
+</blockquote>
+<p>$Proof.$<br>By definition $A&#40;&#92;varphi&#41;&#61;&#92;varphi&#92;circ A$<br>$&#92;implies A&#40;&#92;varphi&#41;&#61;A&#40;A&#40;&#92;varphi&#41;&#41;&#61;A&#40;&#92;varphi&#41;&#92;circ A$<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!corollary] Alternating; Symmetric tensor<br>$T&#95;&#123;&#91;abc&#93;&#125;&#61;&#92;delta&#123;^&#123;&#91;m&#125;&#125;&#123;&#95;a&#125;&#92;delta&#123;^n&#125;&#123;&#95;b&#125;&#92;delta&#123;^&#123;l&#93;&#125;&#125;&#123;&#95;c&#125;T&#95;&#123;mnl&#125;$<br>$T&#95;&#123;&#40;abc&#41;&#125;&#61;&#92;delta&#123;^&#123;&#40;m&#125;&#125;&#123;&#95;a&#125;&#92;delta&#123;^n&#125;&#123;&#95;b&#125;&#92;delta&#123;^&#123;l&#41;&#125;&#125;&#123;&#95;c&#125;T&#95;&#123;mnl&#125;$<br>$A,S$ are exactly $&#92;delta&#123;^&#123;&#91;m&#125;&#125;&#123;&#95;a&#125;&#92;delta&#123;^n&#125;&#123;&#95;b&#125;&#92;delta&#123;^&#123;l&#93;&#125;&#125;&#123;&#95;c&#125;,&#92;delta&#123;^&#123;&#40;m&#125;&#125;&#123;&#95;a&#125;&#92;delta&#123;^n&#125;&#123;&#95;b&#125;&#92;delta&#123;^&#123;l&#41;&#125;&#125;&#123;&#95;c&#125;$</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>$&#92;dim V&#61;n,T^&#123;&#91;a&#95;1&#125;&#123;&#95;&#123;b&#95;1&#125;&#125;T^&#123;a&#95;2&#125;&#123;&#95;&#123;b&#95;2&#125;&#125;&#92;dots T^&#123;a&#95;k&#93;&#125;&#123;&#95;&#123;b&#95;k&#125;&#125;&#61;T^&#123;a&#95;1&#125;&#123;&#95;&#123;&#91;b&#95;1&#125;&#125;T^&#123;a&#95;2&#125;&#123;&#95;&#123;b&#95;2&#125;&#125;&#92;dots T^&#123;a&#95;k&#125;&#123;&#95;&#123;b&#95;k&#93;&#125;&#125;&#61;T^&#123;&#91;a&#95;1&#125;&#123;&#95;&#123;&#91;b&#95;1&#125;&#125;T^&#123;a&#95;2&#125;&#123;&#95;&#123;b&#95;2&#125;&#125;&#92;dots T^&#123;a&#95;k&#93;&#125;&#123;&#95;&#123;b&#95;k&#93;&#125;&#125;$</p>
+</blockquote>
+<p>$Proof.$ By definition, $T^&#123;&#91;a&#95;1&#125;&#123;&#95;&#123;b&#95;1&#125;&#125;T^&#123;a&#95;2&#125;&#123;&#95;&#123;b&#95;2&#125;&#125;&#92;dots T^&#123;a&#95;k&#93;&#125;&#123;&#95;&#123;b&#95;k&#125;&#125;&#61;&#92;sum&#92;text&#123;sgn&#125;&#40;&#92;sigma&#41;T^&#123;a&#95;&#123;&#92;sigma&#40;1&#41;&#125;&#125;&#123;&#95;&#123;b&#95;1&#125;&#125;T^&#123;a&#95;&#123;&#92;sigma&#40;2&#41;&#125;&#125;&#123;&#95;&#123;b&#95;2&#125;&#125;&#92;dots T^&#123;a&#95;&#123;&#92;sigma&#40;k&#41;&#125;&#125;&#123;&#95;&#123;b&#95;k&#125;&#125;$<br>$$&#10;&#61;&#92;sum&#92;text&#123;sgn&#125;&#40;&#92;sigma^&#123;&#45;1&#125;&#41;T^&#123;a&#95;1&#125;&#123;&#95;&#123;b&#95;&#123;&#92;sigma^&#123;&#45;1&#125;&#40;1&#41;&#125;&#125;&#125;T^&#123;a&#95;2&#125;&#123;&#95;&#123;b&#95;&#123;&#92;sigma^&#123;&#45;1&#125;&#40;2&#41;&#125;&#125;&#125;&#92;dots T^&#123;a&#95;k&#125;&#123;&#95;&#123;b&#95;&#123;&#92;sigma^&#123;&#45;1&#125;&#40;k&#41;&#125;&#125;&#125;&#61;T^&#123;a&#95;1&#125;&#123;&#95;&#123;&#91;b&#95;1&#125;&#125;T^&#123;a&#95;2&#125;&#123;&#95;&#123;b&#95;2&#125;&#125;&#92;dots T^&#123;a&#95;k&#125;&#123;&#95;&#123;b&#95;k&#93;&#125;&#125;$$<br>$&#92;implies T^&#123;&#91;&#91;a&#95;1&#125;&#123;&#95;&#123;b&#95;1&#125;&#125;T^&#123;a&#95;2&#125;&#123;&#95;&#123;b&#95;2&#125;&#125;&#92;dots T^&#123;a&#95;k&#93;&#93;&#125;&#123;&#95;&#123;b&#95;k&#125;&#125;&#61;T^&#123;&#91;a&#95;1&#125;&#123;&#95;&#123;&#91;b&#95;1&#125;&#125;T^&#123;a&#95;2&#125;&#123;&#95;&#123;b&#95;2&#125;&#125;&#92;dots T^&#123;a&#95;k&#93;&#125;&#123;&#95;&#123;b&#95;k&#93;&#125;&#125;$<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!definition] $K&#91;x&#95;1&#126;x&#95;2&#92;dots x&#95;&#123;&#92;dim V&#125;&#93;&#92;simeq K&#91;V&#93;&#92;cong &#92;bigodot V^&#42;$</p>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> 一般化的对称-反对称分解</li>
+</ul>
+<p>注意在此之前的所有同构都是自然同构, 不依赖基(或 度规和体积元)的选取</p>
+<h2 id="行列式与体元"><a href="#行列式与体元" class="headerlink" title="行列式与体元"></a>行列式与体元</h2><blockquote>
+<p>[!definition] determinant<br>For $T&#92;in Hom&#40;V,V&#41;$, $&#92;dim V&#61;n$, $&#92;det T:&#61;&#92;bigwedge ^n T&#61;T&#123;^&#123;&#91;a&#95;1&#125;&#125;&#123;&#95;&#123;a&#95;1&#125;&#125;T&#123;^&#123;a&#95;2&#125;&#125;&#123;&#95;&#123;a&#95;2&#125;&#125;&#92;dots T&#123;^&#123;a&#95;n&#93;&#125;&#125;&#123;&#95;&#123;a&#95;n&#125;&#125;:&#61;&#92;delta ^&#123;b&#95;1&#125;&#123;&#95;&#123;&#91;a&#95;1&#125;&#125;&#92;delta^&#123;b&#95;2&#125;&#123;&#95;&#123;a&#95;2&#125;&#125;&#92;dots&#92;delta^&#123;b&#95;n&#125;&#123;&#95;&#123;a&#95;n&#125;&#125;&#95;&#123;&#93;&#125;T&#123;^&#123;a&#95;1&#125;&#125;&#123;&#95;&#123;b&#95;1&#125;&#125;T&#123;^&#123;a&#95;2&#125;&#125;&#123;&#95;&#123;b&#95;2&#125;&#125;&#92;dots T&#123;^&#123;a&#95;n&#125;&#125;&#123;&#95;&#123;b&#95;n&#125;&#125;$ (alternating before contracting) </p>
+</blockquote>
+<p>因此有时候也把 $&#92;bigwedge^nV$ 记为 $&#92;det V$<br>This definition is naturally independent of bases.</p>
+<blockquote>
+<p>[!example] $&#92;det&#92;delta&#61;1$</p>
+</blockquote>
+<p>由行列式的函子性($&#92;det1&#61;1$), 或<br>$Proof.$<br>$&#92;det &#92;delta&#61;&#92;frac&#123;1&#125;&#123;n&#33;&#125;&#92;sum&#92;text&#123;sgn&#125;&#40;&#92;sigma&#41;&#92;delta ^&#123;a&#95;&#123;&#92;sigma&#40;1&#41;&#125;&#125;&#123;&#95;&#123;a&#95;1&#125;&#125;&#92;delta ^&#123;a&#95;&#123;&#92;sigma&#40;2&#41;&#125;&#125;&#123;&#95;&#123;a&#95;2&#125;&#125;&#92;dots&#92;delta ^&#123;a&#95;&#123;&#92;sigma&#40;n&#41;&#125;&#125;&#123;&#95;&#123;a&#95;n&#125;&#125;&#61;&#92;frac&#123;1&#125;&#123;n&#33;&#125;&#92;sum&#92;text&#123;sgn&#125;&#40;&#92;sigma&#41;n^&#123;c&#40;&#92;sigma&#41;&#125;&#61;1$, where $c&#40;&#92;sigma&#41;$ is the number of cycles of $&#92;sigma$.<br>(Combinatorial equation)<br>We know that the generating function of unsigned String number of first kind is $x^&#123;&#92;bar n&#125;&#61;&#92;sum&#95;n &#92;begin&#123;bmatrix&#125;n&#92;&#92;k&#92;end&#123;bmatrix&#125;x^n$$&#92;implies x^&#123;&#92;underline n&#125;&#61;&#92;sum&#95;n&#92;begin&#123;bmatrix&#125;n&#92;&#92;k&#92;end&#123;bmatrix&#125;&#40;&#45;1&#41;^&#123;n&#45;k&#125;x^k&#61;&#92;sum&#95;n&#40;&#92;text&#123;&#92;&#35; of k&#45;cycle&#125;&#41;&#40;&#92;text&#123;sgn of k&#45;cycle&#125;&#41;x^k$<br>Let $x&#61;n$, we get $&#92;sum&#92;text&#123;sgn&#125;&#40;&#92;sigma&#41;n^&#123;c&#40;&#92;sigma&#41;&#125;&#61;n&#33;$<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!proposition] Equivalence definition 1<br> $&#92;delta ^&#123;a&#95;1&#125;&#123;&#95;&#123;&#91;b&#95;1&#125;&#125;&#92;delta^&#123;a&#95;2&#125;&#123;&#95;&#123;b&#95;2&#125;&#125;&#92;delta^&#123;a&#95;3&#125;&#123;&#95;&#123;b&#95;3&#125;&#125;&#92;dots&#95;&#123;&#93;&#125;&#92;det T&#61;T&#123;^&#123;a&#95;1&#125;&#125;&#123;&#95;&#123;&#91;b&#95;1&#125;&#125;T&#123;^&#123;a&#95;2&#125;&#125;&#123;&#95;&#123;b&#95;2&#125;&#125;T&#123;^&#123;a&#95;3&#125;&#125;&#123;&#95;&#123;b&#95;3&#125;&#125;&#92;dots&#95;&#123;&#93;&#125;$</p>
+</blockquote>
+<p>用更数学化的写法就是$A^nf&#61;&#92;det f &#92;cdot$<br>由此可以看出行列式不依赖体积元的选取<br>同理也可以把 $&#92;bigwedge^nV$ 记为 $&#92;det V$</p>
+<p>$Proof.$<br>Both sides are in $&#92;bigwedge^n V&#92;to&#92;bigwedge^n V$, which has 1 dimension.<br>Because $&#92;delta ^&#123;a&#95;1&#125;&#123;&#95;&#123;&#91;b&#95;1&#125;&#125;&#92;delta^&#123;a&#95;2&#125;&#123;&#95;&#123;b&#95;2&#125;&#125;&#92;delta^&#123;a&#95;3&#125;&#123;&#95;&#123;b&#95;3&#125;&#125;&#92;dots&#95;&#123;&#93;&#125;&#92;neq0$, there exists a unique $&#92;lambda&#92;in K$ s.t.  $&#92;delta ^&#123;a&#95;1&#125;&#123;&#95;&#123;&#91;b&#95;1&#125;&#125;&#92;delta^&#123;a&#95;2&#125;&#123;&#95;&#123;b&#95;2&#125;&#125;&#92;delta^&#123;a&#95;3&#125;&#123;&#95;&#123;b&#95;3&#125;&#125;&#92;dots&#95;&#123;&#93;&#125;&#92;lambda&#61;T&#123;^&#123;a&#95;1&#125;&#125;&#123;&#95;&#123;&#91;b&#95;1&#125;&#125;T&#123;^&#123;a&#95;2&#125;&#125;&#123;&#95;&#123;b&#95;2&#125;&#125;T&#123;^&#123;a&#95;3&#125;&#125;&#123;&#95;&#123;b&#95;3&#125;&#125;&#92;dots&#95;&#123;&#93;&#125;$<br>$&#92;implies&#92;delta ^&#123;a&#95;1&#125;&#123;&#95;&#123;&#91;a&#95;1&#125;&#125;&#92;delta^&#123;a&#95;2&#125;&#123;&#95;&#123;a&#95;2&#125;&#125;&#92;dots&#95;&#123;&#93;&#125;&#92;lambda&#61;T&#123;^&#123;a&#95;1&#125;&#125;&#123;&#95;&#123;&#91;a&#95;1&#125;&#125;T&#123;^&#123;a&#95;2&#125;&#125;&#123;&#95;&#123;a&#95;2&#125;&#125;&#92;dots&#95;&#123;&#93;&#125;&#92;implies&#92;lambda&#61;&#92;det T$<br>Contract both sides of this definition, we get the original definition.<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!definition] Volume form<br>Note that for n-dimensional vector space V, $&#92;dim&#92;bigwedge&#95;n V&#61;1$. We can choose a basis $&#91;&#92;epsilon&#93;$. $&#92;epsilon$ is called a volume form. We can find a unique $&#92;tilde&#123;&#92;epsilon&#125;&#92;in&#92;bigwedge^n V$ s.t. $&#92;tilde&#92;epsilon&#92;epsilon&#61;n&#33;$.</p>
+</blockquote>
+<blockquote>
+<p>[!remark] orientation<br>After choose $&#92;epsilon$, for $&#92;omega&#92;in&#92;bigwedge^n V$, if $&#92;epsilon&#92;omega&#62;0$, we call it has positive orientation; if $&#92;epsilon&#92;omega&#60;0$, we call it has negative orientation.<br>Note that every $&#92;eta &#92;in&#92;bigwedge^n V^&#42;$ can be written as $&#92;lambda&#92;epsilon&#40;&#92;lambda&#92;in K&#41;$, so there are only two possible orientation. </p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>For all $&#92;epsilon&#92;in&#92;bigwedge^n V^&#42;$, $v&#92;in V$, $&#92;epsilon&#40;Tv&#95;1,Tv&#95;2&#92;dots&#41;&#61;&#92;det T&#92;cdot&#92;epsilon&#40;v&#95;1,v&#95;2&#92;dots&#41;$</p>
+</blockquote>
+<p>$Proof.$<br>由定义, 或<br>$$LHS&#61;&#92;epsilon&#95;&#123;&#91;a&#95;1a&#95;2&#92;dots&#93;&#125;T^&#123;a&#95;1&#125;&#123;&#95;&#123;b&#95;1&#125;&#125;v^&#123;b&#95;1&#125;T^&#123;a&#95;2&#125;&#123;&#95;&#123;b&#95;2&#125;&#125;v^&#123;b&#95;2&#125;&#92;dots&#61;&#92;epsilon&#95;&#123;&#91;a&#95;1a&#95;2&#92;dots&#93;&#125;T^&#123;&#91;a&#95;1&#125;&#123;&#95;&#123;b&#95;1&#125;&#125;T^&#123;a&#95;2&#125;&#123;&#95;&#123;b&#95;2&#125;&#125;&#92;dots^&#93;v^&#123;b&#95;1&#125;v^&#123;b&#95;2&#125;&#92;dots$$<br>$$&#10;&#61;&#92;epsilon&#95;&#123;&#91;a&#95;1a&#95;2&#92;dots&#93;&#125;&#92;delta ^&#123;a&#95;1&#125;&#123;&#95;&#123;&#91;b&#95;1&#125;&#125;&#92;delta^&#123;a&#95;2&#125;&#123;&#95;&#123;b&#95;2&#125;&#125;&#92;dots&#95;&#123;&#93;&#125;&#92;det T &#92;cdot v^&#123;b&#95;1&#125;v^&#123;b&#95;2&#125;&#92;dots&#61;&#92;epsilon&#95;&#123;&#91;b&#95;1b&#95;2&#92;dots&#93;&#125;&#92;det T &#92;cdot v^&#123;b&#95;1&#125;v^&#123;b&#95;2&#125;&#92;dots&#61;RHS$$<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!proposition] $&#92;det TM&#61;&#92;det T&#92;cdot&#92;det M$</p>
+</blockquote>
+<p>由函子性, 或<br>$Proof.$  $&#92;epsilon&#40;TMv&#95;1,TMv&#95;2&#92;dots&#41;&#61;&#92;det TM&#92;cdot&#92;epsilon&#40;v&#95;1,v&#95;2&#92;dots&#41;$<br>And $&#92;epsilon&#40;TMv&#95;1,TMv&#95;2&#92;dots&#41;&#61;&#92;det T&#92;cdot&#92;epsilon&#40;Mv&#95;1,Mv&#95;2&#92;dots&#41;&#61;&#92;det T&#92;cdot &#92;det M&#92;cdot&#92;epsilon&#40;v&#95;1,v&#95;2&#92;dots&#41;$<br>Find $&#92;epsilon&#40;v&#95;1,v&#95;2&#92;dots&#41;&#92;neq0$, we get $&#92;det TM&#61;&#92;det T&#92;cdot&#92;det M$<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!theorem] 指标缩并<br>$&#92;tilde&#123;&#92;epsilon&#125;^&#123;a&#95;&#123;1&#125; &#92;cdots a&#95;&#123;m&#125; a&#95;&#123;m&#43;1&#125; &#92;cdots a&#95;&#123;n&#125;&#125; &#92;epsilon&#95;&#123;a&#95;&#123;1&#125; &#92;cdots a&#95;&#123;m&#125; b&#95;&#123;m&#43;1&#125; &#92;cdots b&#95;&#123;n&#125;&#125;&#61;&#40;n&#45;m&#41;&#33;m&#33;&#92;delta^&#123;&#92;left&#91;a&#95;&#123;m&#43;1&#125;&#92;right.&#125;&#123;&#95; &#123;b&#95;&#123;m&#43;1&#125;&#125;&#125; &#92;cdots &#92;delta^&#123;&#92;left.a&#95;&#123;n&#125;&#92;right&#93;&#125; &#123;&#95;&#123;b&#95;n&#125;&#125;$</p>
+</blockquote>
+<p>For $I,J&#92;in&#92;binom&#123;&#91;n&#93;&#125;m$, $C^I&#95;J&#92;tilde&#92;epsilon&#92;epsilon&#61;&#40;n&#45;m&#41;&#33;m&#33;A$</p>
+<p>$Proof.$<br>($&#92;tilde&#123;&#92;epsilon&#125;^&#123;a&#95;&#123;1&#125; &#92;cdots a&#95;&#123;n&#125;&#125; &#92;epsilon&#95;&#123;b&#95;&#123;1&#125; &#92;cdots b&#95;&#123;n&#125;&#125;&#61;n&#33;&#92;delta^&#123;&#92;left&#91;a&#95;&#123;1&#125;&#92;right.&#125;&#123; &#125;&#95;&#123;b&#95;&#123;1&#125;&#125; &#92;cdots &#92;delta^&#123;&#92;left.a&#95;&#123;n&#125;&#92;right&#93;&#125;&#123; &#125;&#95;&#123;b&#95;&#123;n&#125;&#125;$)<br>$&#92;tilde&#123;&#92;epsilon&#125;^&#123;a&#95;&#123;1&#125; &#92;cdots a&#95;&#123;n&#125;&#125; &#92;epsilon&#95;&#123;b&#95;&#123;1&#125; &#92;cdots b&#95;&#123;n&#125;&#125;&#92;in &#92;bigwedge^n V&#92;to &#92;bigwedge^n V$, which has 1 dimension.<br>$&#92;implies&#92;exists&#33;&#92;lambda&#126;s.t.&#126;&#92;tilde&#123;&#92;epsilon&#125;^&#123;a&#95;&#123;1&#125; &#92;cdots a&#95;&#123;n&#125;&#125;&#92;epsilon&#95;&#123;b&#95;&#123;1&#125; &#92;cdots b&#95;&#123;n&#125;&#125;&#92;in &#92;bigwedge^n V&#61;&#92;lambda&#92;delta^&#123;&#92;left&#91;a&#95;&#123;1&#125;&#92;right.&#125;&#123; &#125;&#95;&#123;b&#95;&#123;1&#125;&#125; &#92;cdots &#92;delta^&#123;&#92;left.a&#95;&#123;n&#125;&#92;right&#93;&#125;&#123; &#125;&#95;&#123;b&#95;&#123;n&#125;&#125;$. We contract both sides and get $&#92;lambda&#61;n&#33;$.<br>(general cases)<br>$$&#10;&#92;begin&#123;array&#125;&#123;l&#125;&#10;&#92;delta^&#123;&#92;left&#91;a&#95;&#123;1&#125;&#92;right.&#125;&#123; &#125;&#95;&#123;a&#95;&#123;1&#125;&#125; &#92;delta^&#123;a&#95;&#123;2&#125;&#125; &#123;&#95;&#123;b&#95;&#123;2&#125; &#125;&#125;&#92;cdots &#92;delta^&#123;&#92;left.a&#95;&#123;l&#125;&#92;right&#93;&#125; &#123;&#95;&#123;b&#95;&#123;l&#125;&#125;&#125; &#92;&#92;&#10;&#61;&#92;frac&#123;&#40;l&#45;1&#41;&#33;&#125;&#123;l&#33;&#125;&#92;left&#40;&#92;delta^&#123;a&#95;&#123;1&#125;&#125;&#123; &#125;&#95;&#123;a&#95;&#123;1&#125;&#125; &#92;delta^&#123;&#92;left&#91;a&#95;&#123;2&#125;&#92;right.&#125;&#123; &#125;&#95;&#123;b&#95;&#123;2&#125;&#125; &#92;cdots &#92;delta^&#123;&#92;left.a&#95;&#123;l&#125;&#92;right&#93;&#125;&#123; &#125;&#95;&#123;b&#95;&#123;l&#125;&#125;&#45;&#92;sum&#95;&#123;i&#61;2&#125;^&#123;l&#125; &#92;delta^&#123;a&#95;&#123;i&#125;&#125;&#123; &#125;&#95;&#123;a&#95;&#123;1&#125;&#125; &#92;delta^&#123;&#92;left&#91;a&#95;&#123;2&#125;&#92;right.&#125;&#123; &#125;&#95;&#123;b&#95;&#123;2&#125;&#125; &#92;cdots &#92;delta^&#123;a&#95;&#123;1&#125;&#125; &#123;&#95;&#123;b&#95;&#123;i&#125;&#125;&#125; &#92;cdots &#92;delta^&#123;&#92;left.a&#95;&#123;l&#125;&#92;right&#93;&#125; &#123;&#95;&#123;b&#95;&#123;l&#125;&#125;&#125;&#92;right&#41; &#92;&#92;&#10;&#61;&#92;frac&#123;1&#125;&#123;l&#125;&#92;left&#40;n &#92;delta^&#123;&#92;left&#91;a&#95;&#123;2&#125;&#92;right.&#125;&#123; &#125;&#95;&#123;b&#95;&#123;2&#125;&#125; &#92;cdots &#92;delta^&#123;&#92;left.a&#95;&#123;l&#125;&#92;right&#93;&#125; b&#95;&#123;l&#125;&#45;&#40;l&#45;1&#41; &#92;delta^&#123;&#92;left&#91;a&#95;&#123;2&#125;&#92;right.&#125; &#123;&#95;&#123;b&#95;&#123;2&#125;&#125;&#125; &#92;cdots &#92;delta^&#123;&#92;left.a&#95;&#123;l&#125;&#92;right&#93;&#125; &#123;&#95;&#123;b&#95;&#123;l&#125;&#125;&#125;&#92;right&#41; &#92;&#92;&#10;&#61;&#92;frac&#123;n&#45;l&#43;1&#125;&#123;l&#125; &#92;delta^&#123;&#92;left&#91;a&#95;&#123;2&#125;&#92;right.&#125; b&#95;&#123;2&#125; &#92;cdots &#92;delta^&#123;&#92;left.a&#95;&#123;l&#125;&#92;right&#93;&#125; b&#95;&#123;l&#125;&#10;&#92;end&#123;array&#125;$$</p>
+<p>第一个等号实际上相当于配集分解, 系数源于归一化$&#92;mathfrak&#123;S&#125;&#95;l&#61;&#92;mathfrak&#123;S&#125;&#95;&#123;l1&#125;&#92;sqcup&#40;12&#41;&#92;mathfrak&#123;S&#125;&#95;&#123;l1&#125;&#92;dots&#40;1l&#41;&#92;mathfrak&#123;S&#125;&#95;&#123;l1&#125;$, 这里的 $&#92;mathfrak&#123;S&#125;&#95;&#123;l1&#125;$ 表示群作用的稳定子群<br>上式第一个等号是分别统计了上标参与交换与不参与交换的排列情况, 前面的因子是为了抵消反对称化方括号的展开式中带来的 $l&#33;$ 与 $&#40;n&#45;l&#41;&#33;$ 因子, 第二项的负号是因为上标与进行了一次交换.<br>第二个等号 $&#92;delta^&#123;a&#95;&#123;i&#125;&#125;&#123; &#125;&#95;&#123;a&#95;&#123;1&#125;&#125; &#92;delta^&#123;&#92;left&#91;a&#95;&#123;2&#125;&#92;right.&#125;&#123; &#125;&#95;&#123;b&#95;&#123;2&#125;&#125; &#92;cdots &#92;delta^&#123;a&#95;&#123;1&#125;&#125; &#123;&#95;&#123;b&#95;&#123;i&#125;&#125;&#125; &#92;cdots &#92;delta^&#123;&#92;left.a&#95;&#123;l&#125;&#92;right&#93;&#125; &#123;&#95;&#123;b&#95;&#123;l&#125;&#125;&#125;&#61;&#92;delta^&#123;&#92;left&#91;a&#95;&#123;2&#125;&#92;right.&#125; &#123;&#95;&#123;b&#95;&#123;2&#125;&#125;&#125; &#92;cdots &#92;delta^&#123;&#92;left.a&#95;&#123;l&#125;&#92;right&#93;&#125; &#123;&#95;&#123;b&#95;&#123;l&#125;&#125;&#125;$ 将反对称符号放在b上就可以了.</p>
+<p>$$&#10;&#92;begin&#123;array&#125;&#123;l&#125;&#10;&#92;tilde&#123;&#92;epsilon&#125;^&#123;a&#95;&#123;1&#125; &#92;cdots a&#95;&#123;m&#125; a&#95;&#123;m&#43;1&#125; &#92;cdots a&#95;&#123;n&#125;&#125; &#92;epsilon&#95;&#123;a&#95;&#123;1&#125; &#92;cdots a&#95;&#123;m&#125; b&#95;&#123;m&#43;1&#125; &#92;cdots b&#95;&#123;n&#125;&#125; &#92;&#92;&#10;&#61;n&#33;&#92;delta^&#123;&#92;left&#91;a&#95;&#123;1&#125;&#92;right.&#125; &#123;&#95;&#123;a&#95;&#123;1&#125;&#125;&#125; &#92;cdots &#92;delta^&#123;a&#95;&#123;m&#125;&#125; &#123;&#95;&#123;a&#95;&#123;m&#125;&#125;&#125; &#92;delta^&#123;a&#95;&#123;m&#43;1&#125;&#125; &#123;&#95;&#123;b&#95;&#123;m&#43;1&#125;&#125;&#125; &#92;cdots &#92;delta^&#123;&#92;left.a&#95;&#123;n&#125;&#92;right&#93;&#125; &#123;&#95;&#123;b&#95;&#123;n&#125;&#125;&#125; &#92;&#92;&#10;&#61;n&#33;&#92;frac&#123;1&#125;&#123;n&#125; &#92;delta^&#123;&#92;left&#91;a&#95;&#123;2&#125;&#92;right.&#125;&#123;&#95;&#123;a&#95;&#123;2&#125;&#125;&#125; &#92;cdots &#92;delta^&#123;a&#95;&#123;m&#125;&#125;&#123; &#125;&#95;&#123;a&#95;&#123;m&#125;&#125; &#92;delta^&#123;a&#95;&#123;m&#43;1&#125;&#125; &#123;&#95;&#123;b&#95;&#123;m&#43;1&#125;&#125;&#125; &#92;cdots &#92;delta^&#123;&#92;left.a&#95;&#123;n&#125;&#92;right&#93;&#125; &#123;&#95;&#123;b&#95;&#123;n&#125;&#125;&#125; &#92;&#92;&#10;&#61;n&#33;&#92;frac&#123;1&#125;&#123;n&#125; &#92;frac&#123;2&#125;&#123;n&#45;1&#125; &#92;delta^&#123;&#92;left&#91;a&#95;&#123;3&#125;&#92;right.&#125; &#123;&#95;&#123;a&#95;&#123;3&#125;&#125;&#125; &#92;cdots &#92;delta^&#123;a&#95;&#123;m&#125;&#125; &#123;&#95;&#123;a&#95;&#123;m&#125;&#125;&#125; &#92;delta^&#123;a&#95;&#123;m&#43;1&#125;&#125; &#123;&#95;&#123;b&#95;&#123;m&#43;1&#125;&#125;&#125; &#92;cdots &#92;delta^&#123;&#92;left.a&#95;&#123;n&#125;&#92;right&#93;&#125; &#123;&#95;&#123;b&#95;&#123;n&#125;&#125;&#125; &#92;&#92;&#10;&#92;cdots &#92;&#92;&#10;&#61;n&#33;&#92;frac&#123;1&#125;&#123;n&#125; &#92;frac&#123;2&#125;&#123;n&#45;1&#125; &#92;cdots &#92;frac&#123;m&#125;&#123;n&#45;m&#43;1&#125; &#92;delta^&#123;&#92;left&#91;a&#95;&#123;m&#43;1&#125;&#92;right.&#125; &#123;&#95;&#123;b&#95;&#123;m&#43;1&#125;&#125;&#125; &#92;cdots &#92;delta^&#123;&#92;left.a&#95;&#123;n&#125;&#92;right&#93;&#125; &#123;&#95;&#123;b&#95;&#123;n&#125;&#125;&#125; &#92;&#92;&#10;&#61;&#40;n&#45;m&#41;&#33;m&#33;&#92;delta^&#123;&#92;left&#91;a&#95;&#123;m&#43;1&#125;&#92;right.&#125;&#123;&#95;&#123; b&#95;&#123;m&#43;1&#125;&#125;&#125; &#92;cdots &#92;delta^&#123;&#92;left.a&#95;&#123;n&#125;&#92;right&#93;&#125; &#123;&#123;b&#95;&#123;n&#125;&#125;&#125;&#10;&#92;end&#123;array&#125;&#10;$$<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!theorem]<br>We can choose a positive ordered orthnormal basis $e&#95;1,e&#95;2&#92;dots e&#95;n$.<br>$&#92;varepsilon:&#61;e&#95;1&#92;wedge e&#95;2&#92;dots&#92;wedge e&#95;n$. We have $&#92;varepsilon&#95;&#123;a&#95;1a&#95;2&#92;dots a&#95;n&#125;&#61;&#92;tilde &#92;varepsilon$. We call $&#92;varepsilon$ as Levi-Civita tensor.</p>
+</blockquote>
+<p>与度规相容的体元<br>张量化（广义协变导数，坐标变换后形式不变，坐标无关）<br>$Proof.$<br>We only need to show that $&#92;varepsilon^&#123;a&#95;1a&#95;2&#92;dots&#125; g&#95;&#123;a&#95;1b&#95;1&#125;g&#95;&#123;a&#95;1b&#95;1&#125;&#92;dots&#92;varepsilon^&#123;b&#95;1b&#95;2&#92;dots&#125;&#61;n&#33;$<br>$$&#10;LHS&#61; &#92;sum&#95;&#123;&#92;sigma&#126;&#92;tau&#92;in &#92;mathfrak&#123;S&#125;&#95;n&#125;&#40;e&#95;1&#41;^&#123;a&#95;&#123;&#92;sigma&#40;1&#41;&#125;&#125;&#92;dots&#40;e&#95;n&#41;^&#123;a&#95;&#123;&#92;sigma&#40;n&#41;&#125;&#125;g&#95;&#123;a&#95;1b&#95;1&#125;&#92;dots g&#95;&#123;a&#95;nb&#95;n&#125;&#40;e&#95;1&#41;^&#123;a&#95;&#123;&#92;tau&#40;1&#41;&#125;&#125;&#92;dots&#40;e&#95;n&#41;^&#123;a&#95;&#123;&#92;tau&#40;n&#41;&#125;&#125;$$<br>$$&#10;&#61;&#92;sum&#95;&#123;&#92;sigma&#126;&#92;tau&#92;in &#92;mathfrak&#123;S&#125;&#95;n&#125;&#92;delta&#95;&#123;&#92;sigma&#40;1&#41;&#126;&#92;tau&#40;1&#41;&#125;&#92;dots&#92;delta&#95;&#123;&#92;sigma&#40;n&#41;&#126;&#92;tau&#40;n&#41;&#125;&#61;&#92;sum&#95;&#123;&#92;sigma&#126;&#92;tau&#92;in &#92;mathfrak&#123;S&#125;&#95;n&#125;&#92;delta&#95;&#123;&#92;sigma&#126;&#92;tau&#125;&#61;n&#33;$$<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!definition] Inner product on $&#92;bigwedge^k U$<br>$g:V&#92;to V&#92;to F&#92;leadsto&#92;bigwedge g:&#92;bigoplus&#95;k&#40;&#92;bigwedge^k V&#92;to&#92;bigwedge^k V&#92;to F&#41;$</p>
+</blockquote>
+<p>对两个同阶张量有内积，满足对称、双线性、正定<br>$&#40;u&#95;1 &#92;wedge &#92;cdots &#92;wedge u&#95;k, v&#95;1 &#92;wedge &#92;cdots &#92;wedge v&#95;k&#41; &#92;mapsto &#92;det &#91;g&#40;u&#95;i, v&#95;j&#41;&#93;$</p>
+<blockquote>
+<p>[!definition] Hodge star operator<br>After choosing of $g$ and compatible $&#92;varepsilon$<br>$&#92;star&#92;&#95; : &#92;bigwedge^k U &#92;to &#92;bigwedge^&#123;n&#45;k&#125; U:&#61;&#92;omega&#92;mapsto&#92;varepsilon&#92;omega$  </p>
+</blockquote>
+<blockquote>
+<p>s.t. $&#92;forall &#92;omega &#92;in &#92;bigwedge^k U, &#92;quad &#92;omega &#92;wedge &#92;star &#92;omega &#61; &#92;langle &#92;omega, &#92;omega &#92;rangle &#92;varepsilon$</p>
+</blockquote>
+<ul>
+<li><input disabled="" type="checkbox"> 到底在做什么<br>&#x2F;<blockquote>
+<p>[!definition] cross product<br>For $&#92;alpha,&#92;beta&#92;in V$, $&#92;alpha &#92;times&#92;beta:&#61;&#92;star&#40;&#92;alpha &#92;wedge&#92;beta&#41;$</p>
+</blockquote>
+</li>
+</ul>
+<!-- Page 10 -->
+
+
+
+<blockquote>
+<p>[!remark]<br>&#x2F; ordered basis&#x3D;&gt; orientation, metric, volume </p>
+</blockquote>
+<!-- Page 11 -->
+
+<blockquote>
+<p>[!definition] $&#92;Omega^k&#40;M&#41; :&#61; C^&#92;infty&#40;M&#41; &#92;otimes &#92;bigwedge^k&#40;T^&#42;M&#41; &#61; &#92;bigwedge^k&#40;T^&#42;M&#41;$，若 $M$ 是流形，则 $&#92;Omega^k&#40;M&#41; &#92;subset C^&#92;infty&#40;M&#41;$</p>
+</blockquote>
+<blockquote>
+<p>[!definition] $&#92;Omega^k&#40;M&#41; &#92;to &#92;Omega^&#123;k&#43;1&#125;&#40;M&#41;$<br>$f&#92;, dx^i &#92;mapsto df &#92;wedge dx^i$<br>$d&#92;omega&#95;&#92;alpha &#61; &#40;d&#92;bigwedge &#43; 1&#41;&#92;, &#92;omega&#95;&#92;alpha &#92;wedge &#92;omega&#95;&#92;beta$</p>
+</blockquote>
+<p>$&#92;operatorname&#123;d&#125;&#92;&#33;&#61;A&#92;circ&#92;nabla$</p>
+<blockquote>
+<p>[!prp] $d^2 f &#92;wedge dx^i &#61; &#92;frac&#123;&#92;partial^2 f&#125;&#123;&#92;partial x^i &#92;partial x^j&#125; dx^i &#92;wedge dx^j &#92;wedge dx^i &#61; &#92;sum&#95;&#123;i&#60;j&#125; &#92;left&#40; &#92;frac&#123;&#92;partial^2 f&#125;&#123;&#92;partial x^i &#92;partial x^j&#125; &#45; &#92;frac&#123;&#92;partial^2 f&#125;&#123;&#92;partial x^j &#92;partial x^i&#125; &#92;right&#41; dx^i &#92;wedge dx^j &#92;wedge dx^i &#61; 0$<br>$d^2 &#92;omega &#61; d&#40;d&#92;omega&#41; &#61; d&#40;&#92;partial&#95;&#92;alpha &#92;omega&#95;&#92;alpha&#41; &#61; &#92;partial&#95;&#92;alpha &#92;partial&#95;&#92;beta &#92;omega&#95;&#92;alpha &#61; 0$</p>
+</blockquote>
+<blockquote>
+<p>[!definition] $&#92;Omega^k&#95;c&#40;M&#41;$<br>$&#92;langle &#92;omega, &#92;eta &#92;rangle &#61; &#92;int&#95;M &#92;omega &#92;wedge &#92;star &#92;eta$<br>$&#40;f dx^i, g dx^j&#41; &#92;mapsto &#92;int f g &#92;langle dx^i, dx^j &#92;rangle$</p>
+</blockquote>
+<blockquote>
+<p>[!definition] $d^k &#92;wedge d^k &#61; 0$<br>Volume element</p>
+</blockquote>
+<blockquote>
+<p>[!definition] Hodge star operator<br>pick $&#92;epsilon &#92;in &#92;bigwedge^n U$<br>$&#92;star : &#92;bigwedge^k U &#92;to &#92;bigwedge^&#123;n&#45;k&#125; U$<br>s.t. $&#92;forall &#92;omega &#92;in &#92;bigwedge^k U, &#92;quad &#92;omega &#92;wedge &#92;star &#92;omega &#61; &#92;langle &#92;omega, &#92;omega &#92;rangle &#92;Omega$</p>
+</blockquote>
+<blockquote>
+<p>[!ex] $&#92;star&#40;e&#95;&#123;i&#95;1&#125; &#92;wedge &#92;cdots &#92;wedge e&#95;&#123;i&#95;k&#125;&#41; &#61; &#92;frac&#123;1&#125;&#123;&#40;n&#45;k&#41;&#33;&#125; &#92;varepsilon&#95;&#123;i&#95;1 &#92;cdots i&#95;k j&#95;1 &#92;cdots j&#95;&#123;n&#45;k&#125;&#125; e^&#123;j&#95;1&#125; &#92;wedge &#92;cdots &#92;wedge e^&#123;j&#95;&#123;n&#45;k&#125;&#125;$</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 非正式：<br>算子表示 $&#40;&#92;cdot&#41;^&#42;$<br>$&#40;&#92;star&#41; &#92;quad &#92;star &#92;quad &#92;langle &#92;cdot, &#92;cdot &#92;rangle$<br>e.g. $A^&#42; &#92;quad A &#92;wedge B &#92;quad &#92;star A &#92;quad &#92;langle A, B &#92;rangle$<br>导出关系：$&#92;omega &#92;mapsto &#92;star &#92;omega &#92;quad &#92;omega &#92;mapsto &#92;star &#92;omega$</p>
+</blockquote>
+<!-- Page 12 -->
+
+<blockquote>
+<p>[!theorem] 33. generalized Stokes’ formula<br>$&#92;int&#95;&#123;&#92;partial M&#125; &#92;omega &#61; &#92;int&#95;M d&#92;omega$<br>外微分的自然性 $d&#92;omega &#61; d&#92;varphi^&#42;&#92;omega$<br>积分的定性 $&#92;int&#95;&#123;&#92;partial M&#125; &#92;omega &#61; &#92;int&#95;M d&#92;omega$<br>$&#92;Rightarrow$ 边界无边界（微分同胚下不变）</p>
+</blockquote>
+<p>$TM :&#61; &#92;bigcup&#95;&#123;p&#125; T&#95;pM$ 为切丛<br>$&#92;mathcal&#123;N&#125;&#40;M&#41; :&#61; &#92;Gamma&#40;TM&#41;$ 为丛的光滑截面空间  </p>
+<blockquote>
+<p>[!remark]<br>$&#92;star &#92;left&#40; &#92;omega&#95;&#123;a&#95;1&#125; &#92;cdots &#92;omega&#95;&#123;a&#95;k&#125; &#92;right&#41; &#61; &#92;frac&#123;1&#125;&#123;k&#33;&#125; &#92;cdot g^&#123;a&#95;1 b&#95;1&#125; &#92;cdots g^&#123;a&#95;k b&#95;k&#125; &#92;cdot &#92;varepsilon&#95;&#123;b&#95;1 &#92;cdots b&#95;k a&#95;&#123;k&#43;1&#125; &#92;cdots a&#95;n&#125; &#92;cdot &#92;omega&#95;&#123;a&#95;1&#125; &#92;cdots &#92;omega&#95;&#123;a&#95;k&#125;$<br>体积元 $&#92;omega&#95;&#123;a&#95;1 &#92;cdots a&#95;n&#125; &#61; &#92;frac&#123;1&#125;&#123;&#92;sqrt&#123;|g|&#125;&#125; &#92;cdot &#92;varepsilon&#95;&#123;a&#95;1 &#92;cdots a&#95;n&#125;$<br>$&#92;omega^&#123;a&#95;1 &#92;cdots a&#95;k&#125; &#61; &#92;frac&#123;1&#125;&#123;&#92;sqrt&#123;|g|&#125;&#125; &#92;cdot &#92;varepsilon^&#123;a&#95;1 &#92;cdots a&#95;k a&#95;&#123;k&#43;1&#125; &#92;cdots a&#95;n&#125; &#92;cdot &#92;omega&#95;&#123;a&#95;&#123;k&#43;1&#125; &#92;cdots a&#95;n&#125;$<br>$&#92;frac&#123;1&#125;&#123;k&#33;&#125; &#92;omega&#95;&#123;c&#95;1 &#92;cdots c&#95;k&#125; &#92;omega&#95;&#123;c&#95;1 &#92;cdots c&#95;k&#125; &#92;in &#92;mathbb&#123;R&#125;$  </p>
+</blockquote>
+<p>$&#92;varepsilon&#95;&#123;i&#95;1 i&#95;2&#125; &#92;left&#40; e&#95;i e&#95;j &#45; e&#95;j e&#95;i &#92;right&#41; &#92;frac&#123;1&#125;&#123;2&#125;$<br>$&#92;varepsilon&#95;&#123;abc&#125; &#92;in &#92;det$  </p>
+<p>$&#92;nabla &#92;cdot F &#61; &#92;star d &#92;star F^&#92;flat &#61; &#92;frac&#123;&#92;sqrt&#123;|g|&#125;&#125;&#123;3&#33;&#125; g^&#123;hk&#125; g^&#123;ij&#125; g^&#123;lm&#125; &#92;varepsilon&#95;&#123;klm&#125; &#92;frac&#123;1&#125;&#123;3&#33;&#125; &#92;varepsilon&#95;&#123;nij&#125; &#92;cdot g^&#123;ab&#125; &#92;cdot &#92;partial&#95;p &#92;sqrt&#123;|g|&#125; &#92;cdot &#92;varepsilon&#95;&#123;ade&#125; &#92;cdot g^&#123;ab&#125; &#92;cdot g&#95;&#123;im&#125; &#92;cdot F^a$  </p>
+<p>$&#61; &#92;frac&#123;|g|&#125;&#123;6&#125; &#92;in &#92;partial&#95;p &#92;varepsilon&#95;&#123;ade&#125; F^a &#61; &#92;frac&#123;|g|&#125;&#123;3&#125; &#92;nabla&#95;a F^a &#61; &#92;delta&#95;&#123;i&#95;1 &#92;cdots i&#95;k&#125; &#92;left&#40; &#92;partial&#95;p &#92;varepsilon&#95;&#123;i&#95;1 &#92;cdots i&#95;k&#125; &#92;right&#41; &#92;cdot &#92;varepsilon&#95;&#123;a&#95;1 &#92;cdots a&#95;k&#125; &#92;cdot &#92;delta^&#123;a&#95;1&#125;&#95;&#123;i&#95;1&#125; &#92;cdots &#92;delta^&#123;a&#95;k&#125;&#95;&#123;i&#95;k&#125;$  </p>
+<p>$&#92;nabla &#92;times F &#61; &#92;left&#40; &#92;star d F^&#92;flat &#92;right&#41;^a &#61; g^&#123;ab&#125; &#92;varepsilon&#95;&#123;bkc&#125; F^c$  </p>
+<p>$&#92;varepsilon^&#123;a&#95;1 a&#95;2&#125; &#92;varepsilon&#95;&#123;b&#95;1 b&#95;2&#125; &#61; &#92;delta^&#123;a&#95;1&#125;&#95;&#123;b&#95;1&#125; &#92;delta^&#123;a&#95;2&#125;&#95;&#123;b&#95;2&#125; &#45; &#92;delta^&#123;a&#95;1&#125;&#95;&#123;b&#95;2&#125; &#92;delta^&#123;a&#95;2&#125;&#95;&#123;b&#95;1&#125;$<br>$&#40;e&#95;i&#41;^a &#40;e&#95;j&#41;^b &#45; &#40;e&#95;j&#41;^a &#40;e&#95;i&#41;^b &#92;quad &#92;xrightarrow&#123;&#92;text&#123;if &#125; a&#95;i &#61; b&#95;i&#125; 0$  </p>
+<p>$&#92;varepsilon^&#123;a&#95;1 a&#95;2&#125; &#92;varepsilon&#95;&#123;b&#95;1 b&#95;2&#125; &#61; &#92;begin&#123;vmatrix&#125; &#92;delta^&#123;a&#95;1&#125;&#95;&#123;b&#95;1&#125; &#38; &#92;delta^&#123;a&#95;1&#125;&#95;&#123;b&#95;2&#125; &#92;&#92; &#92;delta^&#123;a&#95;2&#125;&#95;&#123;b&#95;1&#125; &#38; &#92;delta^&#123;a&#95;2&#125;&#95;&#123;b&#95;2&#125; &#92;end&#123;vmatrix&#125; &#61; &#92;delta^&#123;a&#95;1&#125;&#95;&#123;b&#95;1&#125; &#92;delta^&#123;a&#95;2&#125;&#95;&#123;b&#95;2&#125; &#45; &#92;delta^&#123;a&#95;1&#125;&#95;&#123;b&#95;2&#125; &#92;delta^&#123;a&#95;2&#125;&#95;&#123;b&#95;1&#125;$<br> %%</p>
+<h1 id="微分几何-外微分"><a href="#微分几何-外微分" class="headerlink" title="[[微分几何#外微分]]"></a>[[微分几何#外微分]]</h1><h1 id="表示论与计数"><a href="#表示论与计数" class="headerlink" title="表示论与计数"></a>表示论与计数</h1><ul>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://handwiki.org/wiki/Representation_theory_of_the_symmetric_group">Representation theory of the symmetric group - HandWiki</a> 🔼 </li>
+<li><input disabled="" type="checkbox"> <a target="_blank" rel="noopener" href="https://handwiki.org/wiki/Young_symmetrizer#:~:text=In%20mathematics%2C%20a%20Young%20symmetrizer%20is%20an%20element,group%20of%20invertible%20linear%20transformations%20G%20L%20%28V%29.">Young symmetrizer - HandWiki</a> 🔼</li>
+</ul>
+<blockquote>
+<p>[!theorem] Schur-Weyl<br>$$V^&#123;&#92;otimes k&#125;&#92;cong&#92;bigoplus &#95;&#123;&#92;begin&#123;align&#125; &#38; &#92;lambda&#92;vdash k &#92;&#92;&#92;ell &#38; &#40;&#92;lambda&#41;&#92;leq n&#92;end&#123;align&#125;&#125;S&#95;&#92;lambda&#40;V&#41;&#92;otimes S^&#92;lambda$$<br>作为 $GL&#40;V&#41;&#92;times &#92;mathfrak&#123;S&#125;&#95;k$ 表示</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>交错代数</div>
+      <div>http://kaelvio.com/交错代数/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>采薇</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年10月13日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/%E4%BB%A3%E6%95%B0%E5%87%A0%E4%BD%95/" title="代数几何">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">代数几何</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/%E4%BA%9A%E6%96%87%E5%8C%96/" title="亚文化">
+                        <span class="hidden-mobile">亚文化</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '57f6a42576ff8ed166a4ebae8b2575ca'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script id="mathjax-mathtools">
+(function () {
+  var math = window.MathJax;
+  if (!math || (math.startup && math.startup.document)) return;
+  math.loader = math.loader || {};
+  math.loader.load = Array.from(new Set((math.loader.load || []).concat('[tex]/mathtools')));
+  math.tex = math.tex || {};
+  var packages = math.tex.packages;
+  if (Array.isArray(packages)) {
+    math.tex.packages = Array.from(new Set(packages.concat('mathtools')));
+  } else {
+    packages = math.tex.packages = packages || {};
+    packages['[+]'] = Array.from(new Set((packages['[+]'] || []).concat('mathtools')));
+  }
+})();
+</script>
+<script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>

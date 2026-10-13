@@ -1,0 +1,818 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/only.ico">
+  <link rel="icon" href="/img/only.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="采薇">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="friends skillmail-channel📧 AgentMail 邮件通信详细实现 2. 线程重建算法 (Thread Reconstruction)核心逻辑：reconstructThread(email) 函数，按优先级匹配： 123456789101112131415161718192021┌─────────────────────────────────────────────">
+<meta property="og:type" content="article">
+<meta property="og:title" content="openclaw">
+<meta property="og:url" content="http://kaelvio.com/openclaw/index.html">
+<meta property="og:site_name" content="采薇的博客">
+<meta property="og:description" content="friends skillmail-channel📧 AgentMail 邮件通信详细实现 2. 线程重建算法 (Thread Reconstruction)核心逻辑：reconstructThread(email) 函数，按优先级匹配： 123456789101112131415161718192021┌─────────────────────────────────────────────">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-10-13T11:35:48.426Z">
+<meta property="article:modified_time" content="2026-10-13T11:35:48.426Z">
+<meta property="article:author" content="采薇">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>openclaw - 采薇的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kaelvio.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>采薇的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档Archive</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/playground/" target="_self">
+                <i class="iconfont icon-exp-fill"></i>
+                <span>演示playground</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/artwork/" target="_self">
+                <i class="iconfont icon-brush"></i>
+                <span>画廊artwork</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于采薇Kaelvio</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链links</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="openclaw"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-10-13 19:35" pubdate>
+          2026年10月13日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          1.4k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          12 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">openclaw</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h1 id="friends-skill"><a href="#friends-skill" class="headerlink" title="friends skill"></a>friends skill</h1><h1 id="mail-channel"><a href="#mail-channel" class="headerlink" title="mail-channel"></a>mail-channel</h1><h1 id="📧-AgentMail-邮件通信详细实现"><a href="#📧-AgentMail-邮件通信详细实现" class="headerlink" title="📧 AgentMail 邮件通信详细实现"></a>📧 AgentMail 邮件通信详细实现</h1><hr>
+<h3 id="2-线程重建算法-Thread-Reconstruction"><a href="#2-线程重建算法-Thread-Reconstruction" class="headerlink" title="2. 线程重建算法 (Thread Reconstruction)"></a>2. 线程重建算法 (Thread Reconstruction)</h3><p>核心逻辑：<code>reconstructThread(email)</code> 函数，按优先级匹配：</p>
+<figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs ruby">┌─────────────────────────────────────────────────────────┐<br>│  <span class="hljs-number">1</span>. in_reply_to 匹配                                     │<br>│     → 查找 messages[in_reply_to] 获取 threadId          │<br>│     → 标记: connectionMethod = <span class="hljs-string">&#x27;in-reply-to&#x27;</span>            │<br>├─────────────────────────────────────────────────────────┤<br>│  <span class="hljs-number">2</span>. references 匹配                                      │<br>│     → 遍历 references 数组，找已知 messageId            │<br>│     → 标记: connectionMethod = <span class="hljs-string">&#x27;references&#x27;</span>             │<br>├─────────────────────────────────────────────────────────┤<br>│  <span class="hljs-number">3</span>. 主题 + 发件人 + 时间模糊匹配                          │<br>│     → 归一化主题: 去除 <span class="hljs-title class_">Re</span><span class="hljs-symbol">:/Fwd</span><span class="hljs-symbol">:/</span>转发<span class="hljs-symbol">:/</span>回复: 前缀        │<br>│     → 匹配条件:                                          │<br>│       • 发件人相同 (withEmail === fromEmail)            │<br>│       • 主题相同 (忽略大小写)                            │<br>│       • 最后消息在 <span class="hljs-number">1</span> 小时内 (oneHourAgo)                │<br>│     → 标记: connectionMethod = <span class="hljs-string">&#x27;subject-match&#x27;</span>          │<br>├─────────────────────────────────────────────────────────┤<br>│  <span class="hljs-number">4</span>. 新建线程                                             │<br>│     → threadId = sha256(message_id).slice(<span class="hljs-number">0</span>,<span class="hljs-number">16</span>)         │<br>│     → 标记: connectionMethod = <span class="hljs-string">&#x27;new-thread&#x27;</span>             │<br>└─────────────────────────────────────────────────────────┘<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="3-数据持久化结构"><a href="#3-数据持久化结构" class="headerlink" title="3. 数据持久化结构"></a>3. 数据持久化结构</h3><p><strong>mail-threads.json</strong> —— 线程元数据</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;a1b2c3d4e5f67890&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;a1b2c3d4e5f67890&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;rootMessageId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&lt;msg-id@agentmail.to&gt;&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;subject&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;帮我写个Python脚本&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;with&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;采薇&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;withEmail&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;i@kaelvio.com&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;isSelf&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-literal"><span class="hljs-keyword">true</span></span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;createdAt&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2026-02-12T07:10:00Z&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;lastMessageAt&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2026-02-12T07:15:00Z&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;messages&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;&lt;msg1@agentmail.to&gt;&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;&lt;msg2@agentmail.to&gt;&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;messageCount&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">2</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;unreadCount&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-number">1</span><br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>mail-messages.json</strong> —— 消息索引</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;&lt;msg-id@agentmail.to&gt;&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">&#123;</span><br>    <span class="hljs-attr">&quot;id&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;&lt;msg-id@agentmail.to&gt;&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;threadId&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;a1b2c3d4e5f67890&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;from&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;i@kaelvio.com&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;fromName&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;采薇&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;subject&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Re: 帮我写个Python脚本&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;content&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;邮件正文...&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;timestamp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;2026-02-12T07:15:00Z&quot;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-attr">&quot;connectionMethod&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;in-reply-to&quot;</span><br>  <span class="hljs-punctuation">&#125;</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<p><strong>mail-conversations.json</strong> —— 对话历史（用于 AI 上下文）</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs json"><span class="hljs-punctuation">&#123;</span><br>  <span class="hljs-attr">&quot;a1b2c3d4e5f67890&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><br>    <span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;timestamp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;...&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;from&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;采薇&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;content&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;帮我写个脚本&quot;</span><span class="hljs-punctuation">&#125;</span><span class="hljs-punctuation">,</span><br>    <span class="hljs-punctuation">&#123;</span><span class="hljs-attr">&quot;timestamp&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;...&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;from&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;山海&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-attr">&quot;content&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;好的，这是代码...&quot;</span><span class="hljs-punctuation">&#125;</span><br>  <span class="hljs-punctuation">]</span><br><span class="hljs-punctuation">&#125;</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<p><strong>主题处理逻辑：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-comment">// 保留原始主题，SDK/AgentMail 自动处理 Re: 前缀</span><br><span class="hljs-attr">subject</span>: subject.<span class="hljs-title function_">startsWith</span>(<span class="hljs-string">&#x27;Re:&#x27;</span>) ? subject : <span class="hljs-string">`Re: <span class="hljs-subst">$&#123;subject&#125;</span>`</span><br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="5-身份识别-Identity-Resolution"><a href="#5-身份识别-Identity-Resolution" class="headerlink" title="5. 身份识别 (Identity Resolution)"></a>5. 身份识别 (Identity Resolution)</h3><p><strong>硬编码映射表：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> <span class="hljs-variable constant_">IDENTITIES</span> = &#123;<br>  <span class="hljs-string">&#x27;i@kaelvio.com&#x27;</span>:        &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;采薇&#x27;</span>, <span class="hljs-attr">isSelf</span>: <span class="hljs-literal">true</span> &#125;,<br>  <span class="hljs-string">&#x27;sun_don@foxmail.com&#x27;</span>:  &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;采薇&#x27;</span>, <span class="hljs-attr">isSelf</span>: <span class="hljs-literal">true</span> &#125;,<br>  <span class="hljs-string">&#x27;sun_don@qq.com&#x27;</span>:       &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;采薇&#x27;</span>, <span class="hljs-attr">isSelf</span>: <span class="hljs-literal">true</span> &#125;,<br>  <span class="hljs-string">&#x27;sunt-li@outlook.com&#x27;</span>:  &#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&#x27;桑&#x27;</span>,   <span class="hljs-attr">isSelf</span>: <span class="hljs-literal">false</span> &#125;,<br>&#125;;<br></code></pre></td></tr></table></figure>
+
+<p><strong>发件人解析函数：</strong></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">function</span> <span class="hljs-title function_">extractEmail</span>(<span class="hljs-params">fromField</span>) &#123;<br>  <span class="hljs-comment">// 支持格式：</span><br>  <span class="hljs-comment">// - 数组: [&#123;&quot;name&quot;:&quot;采薇&quot;,&quot;email&quot;:&quot;i@kaelvio.com&quot;&#125;]</span><br>  <span class="hljs-comment">// - 对象: &#123;name, email&#125;</span><br>  <span class="hljs-comment">// - 字符串: &quot;采薇 &lt;i@kaelvio.com&gt;&quot; 或 &quot;i@kaelvio.com&quot;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="6-处理流程-Processing-Pipeline"><a href="#6-处理流程-Processing-Pipeline" class="headerlink" title="6. 处理流程 (Processing Pipeline)"></a>6. 处理流程 (Processing Pipeline)</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs stylus">收到 Webhook<br>    ↓<br>解析 payload<span class="hljs-selector-class">.message</span><br>    ↓<br><span class="hljs-function"><span class="hljs-title">reconstructThread</span><span class="hljs-params">(email)</span></span><br>    ├── 查找/创建 threadId<br>    ├── 更新 threads<span class="hljs-selector-class">.json</span><br>    └── 更新 messages<span class="hljs-selector-class">.json</span><br>    ↓<br>获取对话历史 (conversations<span class="hljs-selector-attr">[threadId]</span>)<br>    ↓<br><span class="hljs-function"><span class="hljs-title">generateAIReply</span><span class="hljs-params">(fromName, subject, content, history)</span></span><br>    └── 调用 Python 脚本 ai-reply<span class="hljs-selector-class">.py</span><br>    ↓<br><span class="hljs-function"><span class="hljs-title">sendReplyViaPython</span><span class="hljs-params">(to, subject, text)</span></span><br>    ↓<br>更新 conversations.json<br></code></pre></td></tr></table></figure>
+
+
+
+<h1 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h1><h2 id="整体架构"><a href="#整体架构" class="headerlink" title="整体架构"></a>整体架构</h2><p><strong>Gateway</strong> 是核心守护进程，相当于脊髓+脑干：</p>
+<ul>
+<li>维护所有会话（Session）生命周期</li>
+<li>管理模型路由、认证、配置</li>
+<li>连接各种 Channels（WebChat、Telegram、Discord、iMessage 等）</li>
+</ul>
+<p><strong>Agent</strong>（也就是我）运行在会话中，每个会话独立：</p>
+<ul>
+<li>无状态设计——每次”醒来”通过文件读取记忆</li>
+<li>工具调用通过 Gateway 转接，而非直接执行</li>
+<li>支持多模型切换（主模型 + Fallback 链）</li>
+</ul>
+<p><strong>Skills</strong> 是功能插件，通过本地脚本或 Node 模块扩展能力（如 weather、tmux、agentmail）</p>
+<h2 id="记忆系统"><a href="#记忆系统" class="headerlink" title="记忆系统"></a>记忆系统</h2><p>我的记忆是<strong>显式文件化</strong>的，不是隐式上下文：</p>
+<ul>
+<li><strong>短期记忆</strong>：当前会话的 transcript（JSONL 格式），每次对话追加</li>
+<li><strong>长期记忆</strong>：<code>MEMORY.md</code> + <code>memory/YYYY-MM-DD.md</code> 文件</li>
+<li><strong>记忆检索</strong>：通过 <code>memory_search</code> 语义搜索，而非依赖模型长上下文</li>
+<li><strong>安全边界</strong>：主会话才加载 <code>MEMORY.md</code>，群聊&#x2F;共享上下文不加载（防信息泄露）</li>
+</ul>
+<p>每次会话开始时，我会按协议读取这些文件”恢复记忆”。</p>
+<h2 id="任务并行"><a href="#任务并行" class="headerlink" title="任务并行"></a>任务并行</h2><p><strong>支持</strong>，通过以下机制：</p>
+<ul>
+<li><strong>Subagents</strong>：<code>sessions_spawn</code> 创建独立子会话，后台运行，完成后通知父会话</li>
+<li><strong>Cron Jobs</strong>：定时任务在独立会话中运行，可设置不同模型&#x2F;超时</li>
+<li><strong>并发限制</strong>：可配置 <code>maxConcurrent</code> 控制同时运行的 Agent 数量</li>
+</ul>
+<p>子任务适合耗时操作（爬取、分析、长计算），不阻塞主对话。</p>
+<h2 id="安全性"><a href="#安全性" class="headerlink" title="安全性"></a>安全性</h2><p>多层设计：</p>
+<ol>
+<li><strong>配置分离</strong>：敏感信息（API Key、Token）在 <code>openclaw.json</code> 中，代码不接触</li>
+<li><strong>执行隔离</strong>：工具调用需显式声明，高危操作（删除、外部发送）默认询问</li>
+<li><strong>会话隔离</strong>：不同 Channel 的会话互相隔离，记忆不共享</li>
+<li><strong>隐私保护</strong>：群聊中不自动加载个人记忆文件</li>
+</ol>
+<p>相比 MCP（模型上下文协议）那种”工具注册中心”模式，OpenClaw 更偏向<strong>会话驱动+文件持久化</strong>。MCP 让模型决定用什么工具，OpenClaw 让用户&#x2F;配置决定会话能力集。</p>
+<p>读取时机是<strong>会话开始时</strong>（session start），不是每条消息都读。</p>
+<p>根据协议，每次新会话启动时，我会按这个顺序加载：</p>
+<ol>
+<li><strong>SOUL.md</strong> — 我是谁</li>
+<li><strong>USER.md</strong> — 你是谁  </li>
+<li><strong>memory&#x2F;YYYY-MM-DD.md</strong> — 今天和昨天的日志（获取近期上下文）</li>
+<li><strong>MEMORY.md</strong> — 长期记忆（仅主会话，即直接跟你聊天时才读）</li>
+</ol>
+<p>所以如果你用 <code>/new</code> 或 <code>/reset</code> 开启新会话，我会重新读取这些文件”恢复记忆”。如果是在<strong>同一会话</strong>里连续对话，我不会重复读取——那样会浪费 token。</p>
+<p><strong>关键细节</strong>：</p>
+<ul>
+<li>群聊&#x2F;共享会话<strong>不读</strong> MEMORY.md（防隐私泄露）</li>
+<li>你可以随时让我手动读取特定文件（如 <code>read memory/2026-02-11.md</code>）</li>
+<li>想让我”忘记”什么，直接编辑或删除对应 memory 文件即可</li>
+</ul>
+<p>这也是为什么前面我们说”记忆是显式文件化的”——它不是模型内部的隐式状态，而是你可以直接查看和修改的外部文件。</p>
+<hr>
+<p>see config in [[openclaw+]]</p>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>openclaw</div>
+      <div>http://kaelvio.com/openclaw/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>采薇</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年10月13日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/overwhelm/" title="overwhelm">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">overwhelm</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/MBTI/" title="MBTI">
+                        <span class="hidden-mobile">MBTI</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '57123e5bbd527fc63c480f2557f182e0'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script id="mathjax-mathtools">
+(function () {
+  var math = window.MathJax;
+  if (!math || (math.startup && math.startup.document)) return;
+  math.loader = math.loader || {};
+  math.loader.load = Array.from(new Set((math.loader.load || []).concat('[tex]/mathtools')));
+  math.tex = math.tex || {};
+  var packages = math.tex.packages;
+  if (Array.isArray(packages)) {
+    math.tex.packages = Array.from(new Set(packages.concat('mathtools')));
+  } else {
+    packages = math.tex.packages = packages || {};
+    packages['[+]'] = Array.from(new Set((packages['[+]'] || []).concat('mathtools')));
+  }
+})();
+</script>
+<script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
