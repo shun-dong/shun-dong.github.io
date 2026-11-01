@@ -19,15 +19,15 @@
   <meta name="author" content="采薇">
   <meta name="keywords" content="">
   
-    <meta name="description" content="Fu：Agda 方言设计草案0. 总目标fu 是一门面向 Agda 的轻量方言。它不重新实现依赖类型论，不提供独立内核，不改变 Agda 的证明论语义。它只提供一层更接近个人数学记号习惯的表层语法，并翻译成标准 Agda 文件。 当前仓库是一个 Cargo workspace： 1234crates&#x2F;agda-cli&#x2F;        独立 Agda interaction-json CLIcrat">
+    <meta name="description" content="Process或许还是需要独立内核 1234567891011121314151617181920212223242526ind Nat : Type, &#123;zero : Nat;succ : Nat -&gt; Nat;&#125;;&#x2F;&#x2F; zero，succ 自动进入当前命名空间，不新造命名空间magma :&#x3D; T: Type,&#123;_+_ : T -&gt; T -&gt; T;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="fu_language">
 <meta property="og:url" content="http://kaelvio.com/fu_language/index.html">
 <meta property="og:site_name" content="采薇的博客">
-<meta property="og:description" content="Fu：Agda 方言设计草案0. 总目标fu 是一门面向 Agda 的轻量方言。它不重新实现依赖类型论，不提供独立内核，不改变 Agda 的证明论语义。它只提供一层更接近个人数学记号习惯的表层语法，并翻译成标准 Agda 文件。 当前仓库是一个 Cargo workspace： 1234crates&#x2F;agda-cli&#x2F;        独立 Agda interaction-json CLIcrat">
+<meta property="og:description" content="Process或许还是需要独立内核 1234567891011121314151617181920212223242526ind Nat : Type, &#123;zero : Nat;succ : Nat -&gt; Nat;&#125;;&#x2F;&#x2F; zero，succ 自动进入当前命名空间，不新造命名空间magma :&#x3D; T: Type,&#123;_+_ : T -&gt; T -&gt; T;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-10-13T11:35:48.222Z">
-<meta property="article:modified_time" content="2026-10-13T11:35:48.223Z">
+<meta property="article:published_time" content="2026-11-01T10:13:48.237Z">
+<meta property="article:modified_time" content="2026-11-01T10:13:48.238Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -222,8 +222,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-10-13 19:35" pubdate>
-          2026年10月13日 晚上
+        <time datetime="2026-11-01 18:13" pubdate>
+          2026年11月1日 晚上
         </time>
       </span>
     
@@ -234,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          4.6k 字
+          4.8k 字
         
       </span>
     
@@ -245,7 +245,7 @@
         
         
         
-          38 分钟
+          40 分钟
         
       </span>
     
@@ -287,7 +287,7 @@
               <p id="updated-time" class="note note-info" style="">
                 
                   
-                    本文最后更新于 2026年10月13日 晚上
+                    本文最后更新于 2026年11月1日 晚上
                   
                 
               </p>
@@ -295,7 +295,12 @@
             
               <div class="markdown-body">
                 
-                <h1 id="Fu：Agda-方言设计草案"><a href="#Fu：Agda-方言设计草案" class="headerlink" title="Fu：Agda 方言设计草案"></a>Fu：Agda 方言设计草案</h1><h2 id="0-总目标"><a href="#0-总目标" class="headerlink" title="0. 总目标"></a>0. 总目标</h2><p><code>fu</code> 是一门面向 Agda 的轻量方言。它不重新实现依赖类型论，不提供独立内核，不改变 Agda 的证明论语义。它只提供一层更接近个人数学记号习惯的表层语法，并翻译成标准 Agda 文件。</p>
+                <h1 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h1><p>或许还是需要独立内核</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs fu">ind Nat : Type, <br>&#123;<br>zero : Nat;<br>succ : Nat -&gt; Nat;<br>&#125;;<br>// zero，succ 自动进入当前命名空间，不新造命名空间<br><br>magma := T: Type,<br>&#123;<br>_+_ : T -&gt; T -&gt; T;<br>&#125;;<br>// G : magma Nat := &#123;_+_ := a, b, a + b;&#125;<br>// G._+_ 实际上只是一个投影<br>// _._+_ : &#123;_+_ : T -&gt; T -&gt; T;&#125; -&gt; T -&gt; T -&gt; T<br>// 这样也避开了一些重名<br><br>xs := [0; 1; 2; 3;];<br>// 统一用 `;` 表示分隔, `,` 表示函数<br><br>id &#123;_&#125; : ? T : Type, T -&gt; T := T, x, x;<br>id&#x27; : ? T : Type, T -&gt; T := T, x, x;<br>pf : id &#123;_&#125; = id&#x27; := rfl;<br><br><br>pf : 2 = &#123;x := 1; x + x&#125;. := rfl<br>// 最后一个作为返回值赋给空变量, 直接用 `.` 访问<br></code></pre></td></tr></table></figure>
+
+
+<p>&#x2F; 用 <code>&#123;method&#125;</code> 表示用某个方法自动填某个东西, 某种更加规范的 tactic<br>&#x2F; <code>&#123;method _&#125;</code> 某种隐式参数, 可以实际用 <code>&#123;method value&#125;</code> 显式赋值, 例如 <code>&#123;ins _&#125;</code> 实例参数</p>
+<h1 id="Fu：Agda-方言设计草案"><a href="#Fu：Agda-方言设计草案" class="headerlink" title="Fu：Agda 方言设计草案"></a>Fu：Agda 方言设计草案</h1><h2 id="0-总目标"><a href="#0-总目标" class="headerlink" title="0. 总目标"></a>0. 总目标</h2><p><code>fu</code> 是一门面向 Agda 的轻量方言。它不重新实现依赖类型论，不提供独立内核，不改变 Agda 的证明论语义。它只提供一层更接近个人数学记号习惯的表层语法，并翻译成标准 Agda 文件。</p>
 <p>当前仓库是一个 Cargo workspace：</p>
 <figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs text">crates/agda-cli/        独立 Agda interaction-json CLI<br>crates/fu/              Fu 编译器、Fu CLI、Fu 交互器<br>plugins/obsidian-agda/  Obsidian Agda InfoView 插件<br>plugins/obsidian-fu/    Obsidian Fu InfoView 插件<br></code></pre></td></tr></table></figure>
 
@@ -876,13 +881,13 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年10月13日</div>
+          <div>2026年11月1日</div>
         </div>
       
       
         <div class="license-meta-item license-meta-date">
           <div>更新于</div>
-          <div>2026年10月13日</div>
+          <div>2026年11月1日</div>
         </div>
       
       
@@ -925,9 +930,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/git/" title="git">
+                      <a href="/LEAN/" title="LEAN">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">git</span>
+                        <span class="hidden-mobile">LEAN</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -935,8 +940,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/formalized_mathematics/" title="formalized_mathematics">
-                        <span class="hidden-mobile">formalized_mathematics</span>
+                      <a href="/%E9%BD%90%E6%B3%BD%E5%85%8B/" title="齐泽克">
+                        <span class="hidden-mobile">齐泽克</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

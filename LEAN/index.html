@@ -26,8 +26,8 @@
 <meta property="og:site_name" content="采薇的博客">
 <meta property="og:description" content=".# 类structure:类inductive:递归定义类class:类型类:方法 构造主义数学Lean（以及 Coq 等）本身只是“形式化数学的工具&#x2F;平台”，它的底层逻辑“天然支持”构造性逻辑，但——  Lean 内部确实默认使用构造主义（你写出来的函数、证明都要求是具体的&#x2F;可以检查的对象）。 Lean 也可以引入经典公理（如排中律），此时系统本身逻辑就“升格”为经典逻辑环">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2026-10-13T11:35:48.323Z">
-<meta property="article:modified_time" content="2026-10-13T11:35:48.323Z">
+<meta property="article:published_time" content="2026-11-01T10:13:48.254Z">
+<meta property="article:modified_time" content="2026-11-01T10:13:48.254Z">
 <meta property="article:author" content="采薇">
 <meta name="twitter:card" content="summary_large_image">
   
@@ -222,8 +222,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2026-10-13 19:35" pubdate>
-          2026年10月13日 晚上
+        <time datetime="2026-11-01 18:13" pubdate>
+          2026年11月1日 晚上
         </time>
       </span>
     
@@ -234,7 +234,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          1.5k 字
+          2k 字
         
       </span>
     
@@ -245,7 +245,7 @@
         
         
         
-          13 分钟
+          18 分钟
         
       </span>
     
@@ -298,38 +298,72 @@
 </li>
 </ul>
 <p>因此，<strong>Lean 是构造性基础的，但对经典逻辑“兼容并蓄”，可以按需切换</strong>。</p>
-<h1 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h1><p>类型的名字是一种特殊的命名空间, 可以用于点号函数的自动识别, 例如</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs lean">namespace Nat<br>def foo : ℕ → ℕ := fun n =&gt; n + 1<br>end Nat<br>#eval ((1:ℕ ).foo) --2<br></code></pre></td></tr></table></figure>
+<h1 id="命名空间"><a href="#命名空间" class="headerlink" title="命名空间"></a>命名空间</h1><p>用 <code>A.a</code> 访问类型空间中的对象<br><code>open A</code> 后可以直接使用 <code>a</code><br><code>namespace A</code> 后可以直接使用 <code>a</code>, 并且定义的东西也会挂在 <code>A</code> 下面</p>
+<h2 id="import"><a href="#import" class="headerlink" title="import"></a>import</h2><p><code>import</code> 一个具体的 <code>.lean</code> 文件, 以点分割文件名, 例如 <code>MyProject.Algebra.Basic</code> 对应 <code>MyProjec/Algebra/Basic.lean</code><br><code>import</code> 具有传递性, 可以利用这一点汇总</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs lean">-- MyProject/Algebra.lean<br>import MyProject.Algebra.Basic<br>import MyProject.Algebra.Subgroups<br>import MyProject.Algebra.Homomorphisms<br></code></pre></td></tr></table></figure>
 
-<p>一个避免重复的方式</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs lean">inductive MyNat : Type where<br>  | zero : MyNat<br>  | succ : MyNat → MyNat<br><br>namespace MyNat<br><br>def add : MyNat → MyNat → MyNat<br>  | zero,     m =&gt; m<br>  | succ n,   m =&gt; succ (add n m)<br><br>end MyNat<br></code></pre></td></tr></table></figure>
+<p><code>import</code> 并不会增加前缀, 前缀还是由命名空间决定的, 并且普通全局实例被导入后，就可以参与实例合成，不需要 <code>open</code> 实例所属的命名空间。</p>
+<h2 id="类型构造器的命名空间"><a href="#类型构造器的命名空间" class="headerlink" title="类型构造器的命名空间"></a>类型构造器的命名空间</h2><p>类型构造器会自动绑定对应的命名空间<br>若 <code>a</code> 的类型以 <code>A</code> 为构造器,  则 <code>a.f</code> 会查找 命名空间 <code>A</code> 中的函数, 并把 <code>a</code> 放在第一个合适的位置</p>
+<p>先定义再打开避免重复</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs lean">structure Point where<br>  x : Nat<br>  y : Nat<br><br>namespace Point<br><br>def shiftX (amount : Nat) (p : Point) : Point :=<br>  &#123; p with x := p.x + amount &#125;<br><br>end Point<br><br>example (p : Point) (n : Nat) :<br>    p.shiftX n = Point.shiftX n p := by<br>  rfl<br></code></pre></td></tr></table></figure>
 
-<p>甚至可以自动判断前缀</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs lean">def mirror &#123;α : Type u&#125; : Tree α → Tree α<br>  | .leaf a =&gt; .leaf a<br>  | .node l r =&gt; .node (mirror r) (mirror l)<br>  <br>def addOne (n : ℕ) : ℕ := .foo n<br></code></pre></td></tr></table></figure>
-<h1 id="类型论语法"><a href="#类型论语法" class="headerlink" title="类型论语法"></a>类型论语法</h1><h2 id="Implicit-Arguments"><a href="#Implicit-Arguments" class="headerlink" title="Implicit Arguments"></a>Implicit Arguments</h2><p><code>def bs : Lst Nat := Lst.cons _ 5 (Lst.nil _)</code><br><code>def Lst.cons &#123;α : Type u&#125; (a : α) (as : Lst α) : Lst α := List.cons a as</code></p>
+
+
+<h2 id="自动判断前缀"><a href="#自动判断前缀" class="headerlink" title="自动判断前缀"></a>自动判断前缀</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs lean">def mirror &#123;α : Type u&#125; : Tree α → Tree α<br>  | .leaf a =&gt; .leaf a<br>  | .node l r =&gt; .node (mirror r) (mirror l)<br>  <br>def addOne (n : ℕ) : ℕ := .foo n<br></code></pre></td></tr></table></figure>
+<h2 id="section"><a href="#section" class="headerlink" title="section"></a>section</h2><p>section 不是命名空间, 常用于引入参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs lean">section useful<br>variable &#123;α β γ : Type&#125;<br>variable (g : β → γ) (f : α → β) (h : α → α)<br>variable (x : α)<br>def compose := g (f x)<br>def doTwice := h (h x)<br>def doThrice := h (h (h x))<br>end useful<br><br>#check compose -- &#123;α β γ : Type&#125; → (β → γ) → (α → β) → α → γ<br></code></pre></td></tr></table></figure>
+<h1 id="归纳类型"><a href="#归纳类型" class="headerlink" title="归纳类型"></a>归纳类型</h1><p>定义 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs lean">inductive Vec (α : Type) : Nat → Type where<br>  | nil  : Vec α 0<br>  | cons : &#123;n : Nat&#125; → α → Vec α n → Vec α (n + 1)<br></code></pre></td></tr></table></figure>
+
+<p>构造子</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs lean">Vec.nil :<br>  Vec α 0<br><br>Vec.cons :<br>  &#123;n : Nat&#125; →<br>  α →<br>  Vec α n →<br>  Vec α (n + 1)<br></code></pre></td></tr></table></figure>
+
+<p>归纳子: 构造从这个类型出发的依值函数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs lean">Vec.rec :<br>  &#123;motive :<br>    (n : Nat) →<br>    Vec α n →<br>    Sort u&#125; →<br><br>  -- nil case<br>  motive 0 Vec.nil →<br><br>  -- cons case<br>  ((n : Nat) →<br>   (x : α) →<br>   (xs : Vec α n) →<br>   motive n xs →<br>   motive (n + 1) (Vec.cons x xs)) →<br><br>  -- 最终的函数<br>  (n : Nat) →<br>  (xs : Vec α n) →<br>  motive n xs<br></code></pre></td></tr></table></figure>
+<p>注意如果构造子用到了这个类型的另一个项, 那归纳子也可以用到函数在这个项上的值, 这即是归纳法中的归纳假设</p>
+<p>除了直接用 <code>rec</code> 以外还有用项的方法, 不过注意这样就用不了归纳假设了</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs lean">def f (n : Nat) : Bool :=<br>  match n with<br>  | zero   =&gt; true<br>  | succ k =&gt; false<br></code></pre></td></tr></table></figure>
+
+<p>有类似的 tactic</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs lean">theorem P (n : Nat) : SomeProperty n := by<br>  cases n with<br>  | zero =&gt;<br>      ...<br>  | succ k =&gt;<br>      ...<br></code></pre></td></tr></table></figure>
+
+<p>而用 <code>indution</code> 则可以用到归纳假设</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs lean">induction n with<br>| zero =&gt;<br>    ...<br>| succ k ih =&gt;<br>    ...<br></code></pre></td></tr></table></figure>
+<h1 id="sigma-types"><a href="#sigma-types" class="headerlink" title="sigma types"></a>sigma types</h1><p>structures, typeclasses and sigma&#x2F;record types are the same thing semantically, but typeclasses have a special role in automation and interface design\</p>
+<h3 id="structure"><a href="#structure" class="headerlink" title="structure"></a>structure</h3><p>Sigma 类型（dependent pair），其项是依赖对, 对应逻辑中的存在命题.<br>Lean 语法是 <code>Σ x : A, B x</code> 或 <code>Sigma A B</code>.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs lean">def S : Type := Σ n : ℕ, Fin n → ℝ<br>-- 解释：一个自然数 n，加上一个数组（函数）从 Fin n 到 ℝ<br><br>-- 构造一项<br>def example : S := ⟨3, λ i, 2.0 * ↑i⟩<br><br>-- 取出字段<br>def len : ℕ := example.1<br>def data : Fin len → ℝ := example.2<br></code></pre></td></tr></table></figure>
+
+<p>所谓结构体就是一串 Sigma type, 由于其依赖性可以用于编码数学命题</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs lean">-- 定义结构体 Point，有两个字段<br>structure Point :=<br>(x : ℕ)<br>(y : ℕ)<br><br>-- 定义一个项<br>def p : Point := &#123; x := 1, y := 2 &#125;  <br>-- 也可以用 tuple 风格<br>def q : Point := ⟨3, 4⟩<br>def r : Point := where<br>  x := 5<br>  y := 6<br><br>-- 使用字段<br>def px : ℕ := p.x<br>-- 这里实际上是 Point.x p<br>-- 传递字段<br>def sum (pt : Point) : ℕ := pt.x + pt.y<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="typeclass（class）"><a href="#typeclass（class）" class="headerlink" title="typeclass（class）"></a>typeclass（class）</h3><p>用 class 关键字声明一个类型类，Lean 自动把它视作结构体, 而用 <code>instance</code> 声明的实例, 可以用方括号 <code>[G : MyGroup G]</code> 或者 <code>[MyGroup G]</code> 让 Lean 自动找实例, 用 <code>def</code> 声明的则不会<br>不过同一个环境有两个实例是可能报错的</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs lean">class MyGroup (G : Type) where<br>  op : G → G → G<br>  one  : G<br>  inv  : G → G<br>  op_assoc : ∀ a b c : G, op (op a b) c = op a (op b c)<br>  one_op   : ∀ a : G, op one a = a<br>  op_one   : ∀ a : G, op a one = a<br>  op_inv   : ∀ a : G, op a (inv a) = one<br><br>instance int_mygroup : MyGroup ℤ :=<br>&#123; op := fun a b =&gt; a + b,<br>  one := 0,<br>  inv := fun x =&gt; -x,<br>  op_assoc := by<br>    intro a b c<br>    exact add_assoc _ _ _,<br>  one_op := by<br>    intro a<br>    exact zero_add _,<br>  op_one := by<br>    intro a<br>    exact add_zero _,<br>  op_inv := by<br>    intro a<br>    exact add_neg_cancel _ &#125;<br><br>-- 使用时 Lean 支持自动填充 typeclass instance<br>def double [MyGroup G] (a : G) : G := MyGroup.op a a<br><br>-- 下面可以直接 double 3，因为 ℤ 有实例<br>#eval double 3      -- Lean 会自动填入 int_mygroup<br></code></pre></td></tr></table></figure>
+
+<p>实际上也可以把归纳类型注册成类型类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs lean">class inductive Decidable (p : Prop) where<br>  /-- Proves that `p` is decidable by supplying a proof of `¬p` -/<br>  | isFalse (h : Not p) : Decidable p<br>  /-- Proves that `p` is decidable by supplying a proof of `p` -/<br>  | isTrue (h : p) : Decidable p<br></code></pre></td></tr></table></figure>
+<h2 id="组合与继承"><a href="#组合与继承" class="headerlink" title="组合与继承"></a>组合与继承</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs lean">class MarkedGroup (G : Type u) extends Group G where<br>  mark : G<br>  <br>def inverseMark &#123;G : Type u&#125; [MarkedGroup G] : G :=<br>  (MarkedGroup.mark : G)⁻¹<br>  <br>example &#123;G : Type u&#125; [MarkedGroup G] : Group G :=<br>  inferInstance<br></code></pre></td></tr></table></figure>
+<h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p>lean 的类型转换是靠类型类实现的</p>
+<figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs angelscript"><span class="hljs-keyword">class</span> <span class="hljs-symbol">Coe</span> (α : <span class="hljs-symbol">Sort</span> <span class="hljs-symbol">u</span>) (β : <span class="hljs-symbol">Sort</span> <span class="hljs-symbol">v</span>) <span class="hljs-symbol">where</span><br>  <span class="hljs-symbol">coe</span> : α → β<br></code></pre></td></tr></table></figure>
+
+<p>注册相应的实例后 lean 可以自动识别需要转换的地方, 也可以手动使用 <code>↑x</code> 或者 <code>(x : Nat)</code></p>
+<p>类似的还有 <code>CoeSort</code> 与 <code>CoeFun</code></p>
+<p>例如可以有 <code>H : Subgroup G</code>, <code>x : H</code></p>
+<h2 id="可判定性"><a href="#可判定性" class="headerlink" title="可判定性"></a>可判定性</h2><p>不是所有命题都可以在现有公理体系下证明或证否, 因此不一定能转成布尔值, 但有些是明确可以的, 例如 <code>3 &lt; 5</code>, 我们可以提前将这样的例子注册, 以便分类讨论</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs lean">class inductive Decidable (p : Prop) where<br>  /-- Proves that `p` is decidable by supplying a proof of `¬p` -/<br>  | isFalse (h : Not p) : Decidable p<br>  /-- Proves that `p` is decidable by supplying a proof of `p` -/<br>  | isTrue (h : p) : Decidable p<br>  <br>def Decidable.decide (p : Prop) [h : Decidable p] : Bool :=<br>  h.casesOn (fun _ =&gt; false) (fun _ =&gt; true)<br>  <br>#eval decide (3 = 3) -- true<br></code></pre></td></tr></table></figure>
+<h1 id="函数类型"><a href="#函数类型" class="headerlink" title="函数类型"></a>函数类型</h1><a href="/%CE%BB-calculus/" title="λ-calculus">λ-calculus</a>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs lean">(λ x : Nat =&gt; x + 5) 10<br>#check (λ x  =&gt; x + 1 : Nat → Nat)<br></code></pre></td></tr></table></figure>
+<p>x: bound variable</p>
+<p>def<br>let : Lean also allows you to introduce “local” definitions using the <code>let</code> keyword. The expression <code>let a := t1; t2</code> is definitionally equal to the result of replacing every occurrence of <code>a</code> in <code>t2</code> by <code>t1</code>.</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs lean">variable (x : α)<br>def  f :=  x + x<br><br><br><br>namespace Foo<br>  def a : Nat := 5<br>  def f (x : Nat) : Nat := x + 7<br>end Foo<br><br></code></pre></td></tr></table></figure>
+
+<h2 id="Implicit-Arguments"><a href="#Implicit-Arguments" class="headerlink" title="Implicit Arguments"></a>Implicit Arguments</h2><p><code>def bs : Lst Nat := Lst.cons _ 5 (Lst.nil _)</code><br><code>def Lst.cons &#123;α : Type u&#125; (a : α) (as : Lst α) : Lst α := List.cons a as</code></p>
 <p>Lean 为了类型推断和后续泛化方便，在你没有指定具体类型参数时，用 <code>?m.n</code> 这种形式“占位”。</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs lean">#check (ident)<br>-- @ident ?m.403 → ?m.403<br>#check ident<br>-- ident.&#123;u&#125; &#123;α : Type u&#125; (x : α) : α<br>#check @ident<br>-- @ident : &#123;α : Type u_1&#125; → α → α<br></code></pre></td></tr></table></figure>
 <p>括号减少 “signature 损耗&#x2F;粉饰” i.e. <code>(ident)</code> 的括号阻止了 Lean 自动展开 <code>ident</code> 的定义，因此只显示其未实例化的类型, Lean 仅检查 <strong>部分应用</strong> 的 <code>ident</code>（未提供隐式参数 <code>α</code>），因此类型暂时无法确定<br> @ident（显式化所有隐式参数）</p>
 <figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs less"><span class="hljs-selector-id">#check</span> (List.nil)<br><span class="hljs-selector-tag">--</span> <span class="hljs-selector-attr">[]</span> : <span class="hljs-selector-tag">List</span> ?<span class="hljs-selector-tag">m</span><span class="hljs-selector-class">.2</span><br><span class="hljs-selector-id">#check</span> (List.<span class="hljs-attribute">nil </span>: List Nat)<br><span class="hljs-selector-tag">--</span> <span class="hljs-selector-attr">[]</span> : <span class="hljs-selector-tag">List</span> <span class="hljs-selector-tag">Nat</span><br></code></pre></td></tr></table></figure>
 <p>The process of instantiating these “holes,” or “placeholders,” in a term is often known as <em>elaboration</em>.细化</p>
-<h2 id="structures-typeclasses-sigma-record-types"><a href="#structures-typeclasses-sigma-record-types" class="headerlink" title="structures, typeclasses, sigma&#x2F;record types"></a>structures, typeclasses, sigma&#x2F;record types</h2><p>structures, typeclasses and sigma&#x2F;record types are the same thing semantically, but typeclasses have a special role in automation and interface design<br>下面详细对比和举例 Lean 中三种相关的语法：<strong>structure</strong>、<strong>typeclass</strong>（class）、<strong>sigma&#x2F;record types</strong>。</p>
-<hr>
-<h3 id="1-structure"><a href="#1-structure" class="headerlink" title="1. structure"></a>1. structure</h3><p><strong>定义一个结构体，类似于数学中的记录类型（record）。所有字段都要初始化。</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs lean">-- 定义结构体 Point，有两个字段<br>structure Point :=<br>(x : ℕ)<br>(y : ℕ)<br><br>-- 使用结构体<br>def p : Point := &#123; x := 1, y := 2 &#125;         -- 记录语法<br>def px : ℕ := p.x                          -- 点的 x 坐标<br><br>-- 也可以用 tuple 风格<br>def q : Point := ⟨3, 4⟩<br><br>-- 传递字段<br>def sum (pt : Point) : ℕ := pt.x + pt.y<br></code></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="2-typeclass（class）"><a href="#2-typeclass（class）" class="headerlink" title="2. typeclass（class）"></a>2. typeclass（class）</h3><p><strong>用 class 关键字声明一个类型类，Lean 自动把它视作结构体，加上类型类自动推断机制。</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs lean">class MyGroup (G : Type) :=<br>(op   : G → G → G)<br>(one  : G)<br>(inv  : G → G)<br>(op_assoc : ∀ a b c : G, op (op a b) c = op a (op b c))<br>(one_op   : ∀ a : G, op one a = a)<br>(op_one   : ∀ a : G, op a one = a)<br>(op_inv   : ∀ a : G, op a (inv a) = one)<br><br>-- 提供实例内容<br>instance int_mygroup : MyGroup ℤ :=<br>&#123; op := (+),<br>  one := 0,<br>  inv := λ x, -x,<br>  op_assoc := by simp,<br>  one_op := by simp,<br>  op_one := by simp,<br>  op_inv := by simp &#125;<br><br>-- 使用时 Lean 支持自动填充 typeclass instance<br>def double [MyGroup G] (a : G) : G := MyGroup.op a a<br><br>-- 下面可以直接 double 3，因为 ℤ 有实例<br>#eval double 3      -- Lean 会自动填入 int_mygroup<br></code></pre></td></tr></table></figure>
-
-<h2 id="说明：-class-语法跟-structure-基本一致，但-Lean-给它加了类型类机制。-用方括号-MyGroup-G-可让-Lean-自动找实例。这是可能有两个实例报错的"><a href="#说明：-class-语法跟-structure-基本一致，但-Lean-给它加了类型类机制。-用方括号-MyGroup-G-可让-Lean-自动找实例。这是可能有两个实例报错的" class="headerlink" title="说明：- class 语法跟 structure 基本一致，但 Lean 给它加了类型类机制。- 用方括号 [MyGroup G] 可让 Lean 自动找实例。这是可能有两个实例报错的"></a>说明：<br>- <code>class</code> 语法跟 <code>structure</code> 基本一致，但 Lean 给它加了类型类机制。<br>- 用方括号 <code>[MyGroup G]</code> 可让 Lean 自动找实例。<br>这是可能有两个实例报错的</h2><h3 id="3-sigma-record-types"><a href="#3-sigma-record-types" class="headerlink" title="3. sigma&#x2F;record types"></a>3. sigma&#x2F;record types</h3><p><strong>Sigma 类型（dependent pair），Lean 语法是 <code>Σ x : A, B x</code> 或 <code>Sigma A B</code>，手写比较多用于某些依赖类型场景。</strong><br>通常，<code>structure</code> 就是 record type，<code>Sigma</code> 是依赖记录。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs lean">-- 普通 record 就是 structure Point<br>-- 依赖型记录例子：<br><br>def S : Type := Σ n : ℕ, Fin n → ℝ<br>-- 解释：一个自然数 n，加上一个数组（函数）从 Fin n 到 ℝ<br><br>-- 构造一项<br>def example : S := ⟨3, λ i, 2.0 * ↑i⟩<br><br>-- 取出字段<br>def len : ℕ := example.1<br>def data : Fin len → ℝ := example.2<br></code></pre></td></tr></table></figure>
-
-
-<h2 id="-1"><a href="#-1" class="headerlink" title=""></a><a href="/%CE%BB-calculus/" title="λ-calculus">λ-calculus</a></h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs lean">(λ x : Nat =&gt; x + 5) 10<br>#check (λ x  =&gt; x + 1 : Nat → Nat)<br></code></pre></td></tr></table></figure>
-<p>x: bound variable</p>
-<p>def<br>let : Lean also allows you to introduce “local” definitions using the <code>let</code> keyword. The expression <code>let a := t1; t2</code> is definitionally equal to the result of replacing every occurrence of <code>a</code> in <code>t2</code> by <code>t1</code>.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><code class="hljs lean">variable (x : α)<br>def  f :=  x + x<br><br>section useful<br>  variable (α β γ : Type)<br>  variable (g : β → γ) (f : α → β) (h : α → α)<br>  variable (x : α)<br><br>  def compose := g (f x)<br>  def doTwice := h (h x)<br>  def doThrice := h (h (h x))<br>end useful<br><br>namespace Foo<br>  def a : Nat := 5<br>  def f (x : Nat) : Nat := x + 7<br>end Foo<br><br>open Foo<br><br>#check a<br>-- Foo.a : Nat<br></code></pre></td></tr></table></figure>
-
 <h1 id="Curry-Howard-Lambek-Correspondence"><a href="#Curry-Howard-Lambek-Correspondence" class="headerlink" title="[[Curry-Howard-Lambek Correspondence]]"></a>[[Curry-Howard-Lambek Correspondence]]</h1><p> </p>
 <h1 id="Calculational-Proofs"><a href="#Calculational-Proofs" class="headerlink" title="Calculational Proofs"></a>Calculational Proofs</h1><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs lean">import Mathlib.Data.Nat.Basic<br><br>theorem nat_ineq (a b : ℕ) : a^2 + b^2 ≥ a * b := by<br>  calc<br>    a^2 + b^2<br>      = (a - b)^2 + 2 * a * b := by ring<br>  _ ≥ 0 + 2 * a * b           := by gcongr; apply sq_nonneg<br>  _ ≥ 0 + a * b               := by gcongr; linarith<br>  _ = a * b                   := by ring<br></code></pre></td></tr></table></figure>
 <h1 id="证明策略-tactic"><a href="#证明策略-tactic" class="headerlink" title="证明策略(tactic)"></a>证明策略(tactic)</h1><p>We will describe proofs that consist of sequences of tactics as “tactic-style” proofs, to contrast with the ways of writing proof terms we have seen so far, which we will call “term-style” proofs. Each style has its own advantages and disadvantages. For example, tactic-style proofs can be harder to read, because they require the reader to predict or guess the results of each instruction. But they can also be shorter and easier to write. Moreover, tactics offer a gateway to using Lean’s automation, since automated procedures are themselves tactics.</p>
@@ -423,7 +457,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2026年10月13日</div>
+          <div>2026年11月1日</div>
         </div>
       
       
@@ -467,9 +501,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/Mathdown/" title="Mathdown">
+                      <a href="/%E4%BB%A3%E6%95%B0%E7%B0%87/" title="代数簇">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Mathdown</span>
+                        <span class="hidden-mobile">代数簇</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -477,8 +511,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/Homotopy_Type_Theory/" title="Homotopy_Type_Theory">
-                        <span class="hidden-mobile">Homotopy_Type_Theory</span>
+                      <a href="/fu_language/" title="fu_language">
+                        <span class="hidden-mobile">fu_language</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

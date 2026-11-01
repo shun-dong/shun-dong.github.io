@@ -1,0 +1,947 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/only.ico">
+  <link rel="icon" href="/img/only.ico">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="采薇">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="仿射代数簇 [!definition] 代数集(algebraic set)设$k&#91;x&#95;1, x&#95;2, &#92;dots, x&#95;n&#93;$是代数闭域$k$上的$n$元多项式环，$S &#92;subseteq k&#91;x&#95;1, &#92;dots, x&#95;n&#93;$是多项式(resp. 齐次多项式)集合。定义$S$在$n$维仿射空间$&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="代数簇">
+<meta property="og:url" content="http://kaelvio.com/%E4%BB%A3%E6%95%B0%E7%B0%87/index.html">
+<meta property="og:site_name" content="采薇的博客">
+<meta property="og:description" content="仿射代数簇 [!definition] 代数集(algebraic set)设$k&#91;x&#95;1, x&#95;2, &#92;dots, x&#95;n&#93;$是代数闭域$k$上的$n$元多项式环，$S &#92;subseteq k&#91;x&#95;1, &#92;dots, x&#95;n&#93;$是多项式(resp. 齐次多项式)集合。定义$S$在$n$维仿射空间$&amp;#">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-11-01T10:13:48.270Z">
+<meta property="article:modified_time" content="2026-11-01T10:13:48.271Z">
+<meta property="article:author" content="采薇">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>代数簇 - 采薇的博客</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"kaelvio.com","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>采薇的博客</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页Home</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档Archive</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/playground/" target="_self">
+                <i class="iconfont icon-exp-fill"></i>
+                <span>演示playground</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/artwork/" target="_self">
+                <i class="iconfont icon-brush"></i>
+                <span>画廊artwork</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于采薇Kaelvio</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链links</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="代数簇"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-11-01 18:13" pubdate>
+          2026年11月1日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          3.7k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          31 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">代数簇</h1>
+            
+              <p id="updated-time" class="note note-info" style="">
+                
+                  
+                    本文最后更新于 2026年11月1日 晚上
+                  
+                
+              </p>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="仿射代数簇"><a href="#仿射代数簇" class="headerlink" title="仿射代数簇"></a>仿射代数簇</h2><blockquote>
+<p>[!definition] 代数集(algebraic set)<br>设$k&#91;x&#95;1, x&#95;2, &#92;dots, x&#95;n&#93;$是代数闭域$k$上的$n$元多项式环，$S &#92;subseteq k&#91;x&#95;1, &#92;dots, x&#95;n&#93;$是多项式(resp. 齐次多项式)集合。定义$S$在$n$维仿射空间$&#92;mathbb&#123;A&#125;^n&#95;k$(resp. $n$维射影空间$&#92;mathbb&#123;P&#125;^n&#95;k$)中的<strong>零点集</strong>为代数集. $$V&#40;S&#41; &#61; &#92;&#123; P &#92;in &#92;mathbb&#123;A&#125;^n&#95;k &#40;resp.&#92;mathbb&#123;P&#125;^n&#95;k&#41;&#92;mid f&#40;P&#41; &#61; 0 &#92;quad &#92;forall f &#92;in S &#92;&#125; $$</p>
+</blockquote>
+<p>In GTM52, they use the notation $Z&#40;S&#41;$.</p>
+<blockquote>
+<p>[!example]<br>For $y&#45;x^2&#92;in k&#91;x,y&#93;$, $V&#40;y&#45;x^2&#41;$ is a parabolic.</p>
+</blockquote>
+<blockquote>
+<p>[!proposition] $V&#40;S&#41;&#61;V&#40;&#92;left&#60; S &#92;right&#62;&#41;$</p>
+</blockquote>
+<blockquote>
+<p>[!proposition] </p>
+<ol>
+<li>The union of two algebraic sets is an algebraic set.</li>
+<li>The intersection of algebraic sets is an algebraic set.</li>
+<li>The empty space and the whole space are algebraic sets.</li>
+</ol>
+</blockquote>
+<p>$idea.$<br>Let $Y&#95;1:&#61;V&#40;S&#95;1&#41;$, $Y&#95;2:&#61;V&#40;S&#95;2&#41;$, $Y&#95;&#123;&#92;alpha&#125;:&#61;V&#40;S&#95;&#92;alpha&#41;$,<br>$Y&#95;1&#92;cup Y&#95;2&#61;Z&#40;S&#95;1S&#95;2&#41;$, $&#92;bigcap&#95;&#123;&#92;alpha&#125;Y&#95;&#123;&#92;alpha&#125;&#61;V&#92;left&#40; &#92;bigcup S&#95;&#123;&#92;alpha&#125; &#92;right&#41;$.<br>$&#92;varnothing&#61;V&#40;1&#41;,&#92;mathbb&#123;A&#125;^n&#95;k&#61;V&#40;0&#41;$</p>
+<blockquote>
+<p>[!definition] Zariski topology<br>The open sets are the complements of the algebraic sets.</p>
+</blockquote>
+<blockquote>
+<p>[!example] Zariski topology of $&#92;mathbb&#123;A&#125;^1$<br>$k&#91;z&#93;$ is a PID $&#92;implies$ ideals are of form $&#92;left&#60; f&#40;z&#41; &#92;right&#62;$<br>$k$ is algebraically close $&#92;implies$ $f&#40;z&#41;&#61;c&#40;z&#45;a&#95;1&#41;&#92;dots&#40;z&#45;a&#95;n&#41;$<br>$&#92;implies V&#40;&#92;left&#60; f&#40;z&#41; &#92;right&#62;&#41;&#61;&#92;left&#92;&#123; a&#95;1&#92;dots a&#95;n &#92;right&#92;&#125;$ i.e. finite sets<br>$k$ is algebraically close $&#92;implies$ $&#92;mathbb&#123;A&#125;^1$ is infinite<br>(for $&#92;mathbb&#123;F&#125;&#95;q$, there exists infinite many irreducible polynomials but finite first order polynomials, so it is not algebraically clossed.)<br>For $U,V&#92;in Open&#40;&#92;mathbb&#123;A&#125;^1&#41;$, $U&#92;cap V$ is infinite $&#92;implies$ $&#92;mathbb&#123;A&#125;^1$ is not Haustoff.</p>
+</blockquote>
+<blockquote>
+<p>[!definition] irreducible<br>For $X:&#92;mathbf&#123;Top&#125;$, non-empty $Y&#92;subseteq X$ is said to be irreducible $&#92;iff &#92;not&#92;exists proper&#126;Y&#95;1,Y&#95;2$ being close w.r.t $Y$ and $Y&#95;1&#92;cup Y&#95;2&#61;Y$.</p>
+</blockquote>
+<blockquote>
+<p>[!proposition] irreducible<br>Y is irreducible in X $&#92;implies &#92;bar Y$ is irreducible in X.</p>
+</blockquote>
+<p>$Proof.$ If $&#92;bar Y&#61;Y&#95;1&#92;cup Y&#95;2$ are closed, because $Y$ is closed, then one of them includes Y.<br>close $&#92;implies &#92;bar Y&#92;subseteq Y&#95;i$<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!example] irreducible sets w.r.t. $&#92;mathbb&#123;A&#125;^1$<br>The close sets are finite.</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>Any non-empty open subset of an irreducible space is dense and irriducile.</p>
+</blockquote>
+<p>$Proof.$<br>(dense)<br>Suppose not, let $U$ s.t. $O&#92;cap U&#61;&#92;varnothing$. Then $X&#61;O^c&#92;cup U^c$. contradiction.<br>(irreducible)<br>Suppose not, let $O&#61;U&#92;cup V$, where $U,V$ are closed subsets. Then $O$ is closed. contradiction.<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!definition] affine (algebraic) variety<br>We call irreducible closed subsets of $&#92;mathbb&#123;A&#125;^n$ affine (algebraic) varieties.<br>And we called irreducible open subsets quasi-affine varieties.</p>
+</blockquote>
+<blockquote>
+<p>[!definition] 点集的消失理想<br>对任意子集 $X&#92;subset &#92;mathbb&#123;P&#125;^n&#95;kor&#92;mathbb&#123;A&#125;^n&#95;k$, 定义<br>$$&#10;I&#40;X&#41;&#61;&#92;&#123;f&#92;in k&#91;x&#95;1,&#92;dots,x&#95;n&#93;&#92;mid f&#40;p&#41;&#61;0&#92;text&#123; for all &#125;p&#92;in X&#92;&#125;.&#10;$$<br>它称为 $X$ 的消失理想 (vanishing ideal).</p>
+</blockquote>
+<p>^def-vanishing-ideal</p>
+<p>For $I&#92;unlhd R$, radical ideal (根理想) $&#92;sqrt I:&#61;&#92;left&#92;&#123; a&#92;in I&#92;mid &#92;exists n&#92;in &#92;mathbb&#123;N&#125;,&#92;exists b&#92;in R,b^n&#61;a &#92;right&#92;&#125;&#92;unlhd R$<br>The prime ideals are radical. For $r^n&#92;in &#92;mathfrak&#123;p&#125;$, $r&#92;in &#92;mathfrak&#123;p&#125;$.</p>
+<blockquote>
+<p>[!proposition] 零点只看根理想<br>对任意理想 $I&#92;subset k&#91;x&#95;1,&#92;dots,x&#95;n&#93;$, 有<br>$$&#10;V&#40;I&#41;&#61;V&#40;&#92;sqrt I&#41;.&#10;$$</p>
+</blockquote>
+<p>$Proof.$<br>($V&#40;I&#41;&#92;subseteq V&#40;&#92;sqrt I&#41;$)<br>For any $p&#92;in V&#40;I&#41;$, $f&#92;in V&#40;&#92;sqrt I&#41;$, there exists $m&#95;f$ s.t. $f^&#123;m&#95;f&#125;&#61;g$ for some $g&#92;in V&#40;I&#41;$ $&#92;implies f&#40;p&#41;^&#123;m&#95;f&#125;&#61;0$.<br>$k$ is an integer domain $&#92;implies f&#40;p&#41;&#61;0$.<br>$&#92;implies p&#92;in V&#40;&#92;sqrt I&#41;$<br>($V&#40;I&#41;&#92;supseteq V&#40;&#92;sqrt I&#41;$)<br>由 $I&#92;subset&#92;sqrt I$<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!proposition] </p>
+<ol>
+<li>If $S&#95;1&#92;subseteq S&#95;2&#92;subseteq A$, then $V&#40;S&#95;1&#41;&#92;supseteq V&#40;S&#95;2&#41;$. </li>
+<li>If $Y&#95;1&#92;subseteq Y&#95;2&#92;subseteq &#92;mathbb&#123;A&#125;^n$, then $I&#40;Y&#95;1&#41;&#92;supseteq I&#40;Y&#95;2&#41;$. </li>
+<li>For $Y&#95;&#123;&#92;alpha&#125;&#92;subseteq &#92;mathcal&#123;P&#125;&#40;&#92;mathbb&#123;A&#125;^n&#41;$, $&#92;bigcap&#95;&#123;&#92;alpha&#125;I&#40;Y&#95;&#92;alpha&#41;&#61;I&#40;&#92;bigcup&#95;&#123;&#92;alpha&#125;Y&#95;&#92;alpha&#41;$.</li>
+<li>For $I&#92;unlhd A$, $I&#40;V&#40;I&#41;&#41;&#61;&#92;sqrt I$.</li>
+<li>For $Y&#92;subseteq &#92;mathbb&#123;A&#125;^n$, $V&#40;I&#40;Y&#41;&#41;&#61;&#92;bar Y$.</li>
+</ol>
+</blockquote>
+<p>$Proof.$<br>4. By [[交换代数#Hilbert 零点定理]]<br>5. $V&#40;I&#40;Y&#41;&#41;$ is close and $Y&#92;subseteq V&#40;I&#40;Y&#41;&#41;$ $&#92;implies &#92;bar Y&#92;subseteq V&#40;I&#40;Y&#41;&#41;$. Let $W$ be any close set containing $Y$. Then $W&#61;V&#40;I&#41;$ for some ideal $I$. So $Y&#92;subseteq V&#40;I&#41;$, and $I&#40;V&#40;I&#41;&#41;&#92;subseteq I&#40;Y&#41;$. We know that $I&#92;subseteq I&#40;V&#40;I&#41;&#41;$ $&#92;implies W&#92;supseteq V&#40;I&#40;Y&#41;&#41;$.<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!corollary]<br>$$&#92;begin&#123;align&#125;&#92;left&#92;&#123; algebraic&#126;sets &#92;right&#92;&#125;  &#38; &#92;cong &#92;left&#92;&#123; radical&#126;ideals &#92;right&#92;&#125; &#92;&#92;&#10;Y &#38; &#92;mapsto I&#40;Y&#41;  &#92;&#92;&#10;V&#40;I&#41; &#38; &#92;gets&#92;&#33;&#92;&#33;&#92;&#33;| I&#92;end&#123;align&#125;$$<br>And it inverses inclusion.</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>$Y$ is irreducible $&#92;iff$ $I&#40;Y&#41;$ is a prime ideal</p>
+</blockquote>
+<p>$Proof.$<br>($&#92;implies$) For $fg&#92;in I&#40;Y&#41;$, $V&#40;f&#41;&#92;cup V&#40;g&#41;&#61;V&#40;fg&#41;&#92;supseteq V&#40;I&#40;Y&#41;&#41;&#61;Y$. So $Y&#61;&#40;Y&#92;cap V&#40;f&#41;&#41;&#92;cup &#40;Y&#92;cap V&#40;g&#41;&#41;$, which are closed sets in $Y$. Because $Y$ is irreducible, one of them is equal to $Y$ i.e. $Y&#92;subseteq V&#40;f&#41;&#126;or&#126;V&#40;g&#41;$. By definition, $f&#126;or&#126;g&#92;in I&#40;Y&#41;$.<br>($&#92;impliedby$) Let $&#92;mathfrak&#123;p&#125;&#61;I&#40;Y&#41;$. If $V&#40;&#92;mathfrak&#123;p&#125;&#41;&#61;Y&#95;1&#92;cup Y&#95;2$ are closed, then $&#92;mathfrak&#123;p&#125;&#61;I&#40;Y&#95;1&#41;&#92;cap I&#40;Y&#95;2&#41;$. So $I&#40;Y&#95;1&#41;&#61;&#92;mathfrak&#123;p&#125;$ or $I&#40;Y&#95;2&#41;&#61;&#92;mathfrak&#123;p&#125;$ (for $&#92;mathfrak&#123;p&#125;&#61;I&#95;1&#92;cap I&#95;2&#92;supseteq I&#95;1I&#95;2$, if there exist $f&#92;in I&#95;1&#45;I&#95;2,g&#92;in I&#95;2&#45;I&#95;1$, $fg&#92;in &#92;mathfrak&#123;p&#125;$ $&#92;implies f&#92;in &#92;mathfrak&#123;p&#125;&#92;vee g&#92;in &#92;mathfrak&#123;p&#125;$. contradiction.) Thus $V&#40;&#92;mathfrak&#123;p&#125;&#41;&#61;Y&#95;1&#126;or&#126;Y&#95;2$.<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!corollary]<br>$$&#92;begin&#123;align&#125;&#92;left&#92;&#123; algebraic&#126;varieties &#92;right&#92;&#125;  &#38; &#92;cong &#92;operatorname&#123;Spec&#125;A&#92;&#92;&#10;Y &#38; &#92;mapsto I&#40;Y&#41;  &#92;&#92;&#10;V&#40;I&#41; &#38; &#92;gets&#92;&#33;&#92;&#33;&#92;&#33;| I&#92;end&#123;align&#125;$$<br>And it inverses inclusion.</p>
+</blockquote>
+<blockquote>
+<p>[!example]<br>Suppose $f$ being an irreducible polynomial in $k&#91;X&#93;:&#61;k&#91;x&#95;1,&#92;dots x&#95;n&#93;$, because $k&#91;X&#93;$ is a UFD, $&#92;left&#60; f &#92;right&#62;$ is a prime ideal. So $V&#40;f&#41;$ is an affine variety. We call it an affine curve($n&#61;2$), surface($n&#61;3$), hypersurface($n&#62;3$).</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>$$&#10;&#92;begin&#123;align&#125;&#10;k^n &#38; &#92;cong&#92;operatorname&#123;MaxSpec&#125;k&#91;X&#93;  &#92;&#92;&#10;&#40;a&#95;1,&#92;dots a&#95;n&#41; &#38; &#92;mapsto &#92;left&#60; x&#95;1&#45;a&#95;1,&#92;dots x&#95;n&#45;a&#95;n &#92;right&#62; &#10;&#92;end&#123;align&#125;$$</p>
+</blockquote>
+<p>$Proof.$<br>Let $I&#61;&#92;left&#60; x&#95;1&#45;a&#95;1,&#92;dots x&#95;n&#45;a&#95;n &#92;right&#62;$, $k&#91;X&#93;&#x2F;I&#92;cong k$ is a field $&#92;implies I$ is an maximal ideal.<br>For maximal ideal $&#92;mathfrak&#123;m&#125;$ of $k&#91;X&#93;$, by the inclusion-inversion property, it is generated by a minimal (under $&#92;subseteq$) variety of $&#92;mathbb&#123;A&#125;^n$, which is a point.<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!remark]<br>If $k$ is not algebraically closed, these results do not hold.<br>For example, in $&#92;mathbb&#123;A&#125;&#95;&#123;&#92;mathbb&#123;R&#125;&#125;^2$, $V&#40;x^2&#43;y^2&#43;1&#41;&#61;&#92;varnothing$.</p>
+</blockquote>
+<blockquote>
+<p>[!definition] 仿射坐标环(affine coordinate ring)<br>For affine algebraic set $Y$, 它的坐标环 (coordinate ring) 是<br>$$&#10;k&#91; Y&#93;&#61;k&#91;x&#95;1,&#92;dots,x&#95;n&#93;&#x2F;I&#40;Y&#41;.&#10;$$</p>
+</blockquote>
+<p>GTM 52 uses notation $A&#40;Y&#41;$ where $A&#61;k&#91;X&#93;$.</p>
+<blockquote>
+<p>[!remark]<br>For affine variety $Y$, $k&#91;Y&#93;$ is an integer domain and a finitely generated $k$-algebra. Any finitely generated $k$-algebra as well as domain can be written as $k&#91;X&#93;&#x2F;I$ where $I$ is a prime ideal, which implies $I&#61;I&#40;Y&#41;$ for some affine variety.</p>
+</blockquote>
+<blockquote>
+<p>[!definition] Noetherian topological space<br>If the closed subsets satisfied descending chain condition, we call the space Noetherian topological space.</p>
+</blockquote>
+<blockquote>
+<p>[!example]<br>$&#92;mathbb&#123;A&#125;^n$ is a Noetherian topological space. For close $Y&#95;1&#92;supseteq Y&#95;2 &#92;supseteq Y&#95;3&#92;dots$, $I&#40;Y&#95;1&#41;&#92;subseteq I&#40;Y&#95;2&#41;&#92;subseteq&#92;dots$. $k&#91;X&#93;$ is a Noetherian ring $&#92;implies$ $I&#40;Y&#95;i&#41;$ is eventually stable $&#92;implies$ $Y&#95;i&#61;V&#40;I&#40;Y&#95;i&#41;&#41;$ is eventually stable.</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>In a Noetherian topological space $X$, every non-empty closed subset $Y$ can be written as a finite union of irreducible closed subsets $Y&#61;&#92;bigcup&#95;&#123;i&#61;1&#125;^rY&#95;i$.<br>If we require $Y&#95;i$ are not contained in another, then $&#92;left&#92;&#123; Y&#95;i &#92;right&#92;&#125;$ is unique. They are called the irreducible components of $Y$.</p>
+</blockquote>
+<p>$Proof.$<br>(existence)<br>Let $&#92;mathfrak&#123;S&#125;$ be set of non-empty closed subsets that do not satisfy such condition. Suppose.$&#92;mathfrak&#123;S&#125;&#92;neq&#92;varnothing$.  Noetherian $&#92;implies$ there exists minimal $Y&#92;in &#92;mathfrak&#123;S&#125;$ under $&#92;subseteq$. There exists close $Y&#95;1,Y&#95;2$ s.t. $Y&#95;1&#92;cup Y&#95;2&#61;Y$, for example $Y&#95;1&#61;Y&#95;2&#61;Y$. Because $Y$ is not irreducible, we can find $Y&#95;1,Y&#95;2&#92;neq Y$. By minimality of $Y$, $Y&#95;1,Y&#95;2$ can be written as finite union of irreducible closed subsets. contradiction.<br>(uniqueness)<br>Suppose $Y&#61;&#92;bigcup&#95;&#123;i&#61;1&#125;^m Y&#95;i&#61;&#92;bigcup&#95;&#123;j&#61;1&#125;^n Y’&#95;j$ are irreducible compositions. $&#92;implies$ $Y&#95;1’&#61;&#92;bigcup&#95;&#123;i&#61;1&#125;^m&#40;Y&#95;1’&#92;cap Y&#95;&#123;i&#125;&#41;$. Because $Y’&#95;1$ is irreducible, $Y’&#95;1&#92;subseteq Y&#95;i$ for some i. Similarly $Y&#95;i&#92;subseteq Y&#95;j’$ for some j.Then $Y&#95;1’&#92;subseteq Y’&#95;j$ $&#92;implies j&#61;1$ and $Y&#95;i&#61;Y&#95;1’$…<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!definition] dimension of topological space<br>For $X:&#92;mathbf&#123;Top&#125;$, we define the dimension $&#92;dim X$ to be the supremum of n s.t. $Z&#95;0 &#92;subset Z&#95;1&#92;subset &#92;dots&#92;subset Z&#95;n$ of irriducible closed subsets of $X$.</p>
+</blockquote>
+<blockquote>
+<p>[!example]<br>$&#92;dim &#92;mathbb&#123;A&#125;^1&#61;1$ because the irreducible closed subsets of $&#92;mathbb&#123;A&#125;^1$ are.only the whole space of a single points.</p>
+</blockquote>
+<blockquote>
+<p>[!definition] the height of a prime ideal<br>In a ring $A$, the height of a prime ideal $&#92;operatorname&#123;height&#125;&#92;mathfrak&#123;p&#125;$ is the superimum of n s.t. $&#92;mathfrak&#123;p&#125;&#95;0&#92;subset &#92;mathfrak&#123;p&#125;&#95;1&#92;dots&#92;subset &#92;mathfrak&#123;p&#125;&#95;n&#61;&#92;mathfrak&#123;p&#125;$ of prime ideals.<br>The Krull dimension of $A$ is defined to be the supremum of the heights of prime ideals.</p>
+</blockquote>
+<p>The Krull dimension can be seem as the topological dimension of $&#92;operatorname&#123;Spec&#125;A$.</p>
+<blockquote>
+<p>[!proposition] Krull dimension<br>For an affine algebraic set $Y$, the topological dimension is equal to the Krull dimension of $k&#91;Y&#93;$.</p>
+</blockquote>
+<p>$Proof.$<br>By $&#92;left&#92;&#123; affine&#126;varieties&#92;right&#92;&#125;&#92;cong&#92;operatorname&#123;Spec&#125;k&#91;X&#93;$, for affine variety $Z$ s.t. $Z&#92;subseteq Y$, $I&#40;Y&#41;&#92;subseteq I&#40;Z&#41;$. By the corresponding thm, $I&#40;Z&#41;$ can be seem as an element of $&#92;operatorname&#123;Spec&#125;k&#91;X&#93;&#x2F;I&#40;Y&#41;&#61;&#92;operatorname&#123;Spec&#125;k&#91;Y&#93;$.<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!theorem]<br>Let $k$ be a field, $B$ be an integral domain as well as a finitely generated $k$-algebra.</p>
+<ol>
+<li>$&#92;dim B&#61;&#92;deg&#95;kK&#40;B&#41;$, where RHS is the transcendence degree of the quotient field $K&#40;B&#41;$.</li>
+<li>For $&#92;mathfrak&#123;p&#125;&#92;in &#92;operatorname&#123;Spec&#125;B$, $&#92;operatorname&#123;height&#125;&#92;mathfrak&#123;p&#125;&#43;&#92;dim B&#x2F;&#92;mathfrak&#123;p&#125;&#61;&#92;dim B$.</li>
+</ol>
+</blockquote>
+<p>^abasd</p>
+<p>$Proof.$ By [[交换代数]]。</p>
+<blockquote>
+<p>[!proposition] $&#92;dim &#92;mathbb&#123;A&#125;^n&#61;n$</p>
+</blockquote>
+<p>$Proof.$<br>The coordinate ring of $&#92;mathbb&#123;A&#125;^n$ is $k&#91;X&#93;&#x2F;I&#40;&#92;mathbb&#123;A&#125;^n&#41;&#61;k&#91;X&#93;&#x2F;&#92;mathfrak&#123;0&#125;&#61;k&#91;X&#93;$<br>By [[#^abasd]], $&#92;dim k&#91;X&#93;&#61;n$.<br>$&#92;blacksquare$</p>
+<blockquote>
+<p>[!proposition]<br>For quasi-affine variety $Y$, $&#92;dim Y &#61; &#92;dim &#92;bar Y$.</p>
+</blockquote>
+<p>$Proof.$<br>For irreducible closed subsets in.$Y$ $Z&#95;0&#92;subset Z&#95;1&#92;dots&#92;subset Z&#95;n$, $&#92;bar Z&#95;0&#92;subset &#92;bar Z&#95;1&#92;dots&#92;subset&#92;bar Z&#95;n$ are irreducible closed subsets in.$&#92;bar Y$ (notice that the closure are taken in $&#92;bar Y$. For irreducible subset, the last element of the maximal chain is itself.) $&#92;implies &#92;dim Y&#92;leq &#92;dim &#92;bar Y$.<br>If $&#92;dim Y$ is finite, let $Z&#95;0&#92;subset Z&#95;1&#92;subset &#92;dots Z&#95;n$ is a maximal chain. </p>
+<ul>
+<li><input disabled="" type="checkbox"> </li>
+</ul>
+<blockquote>
+<p>[!theorem] Krull’s Hauptidealsatz<br>Let A be a noetherian ring, and let $f&#92;in A$ be an element which is neither a zero divisor nor a unit. Then every minimal prime ideal p containing f has height 1.</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>A noetherian integral domain A is a unique factorization domain if and only if every prime ideal of height 1 is principal.</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>A variety $Y$ in A” has dimension n - 1 if and only if it is the zero set Z(f) of a single nonconstant irreducible polynomial in $A &#61;k&#91;x&#95;1, &#92;dots ,x&#95;n&#93;$.</p>
+</blockquote>
+<blockquote>
+<p>[!remark]<br>A prime ideal of height 2 in a polynomial ring cannot necessarily be generated by two elements.</p>
+</blockquote>
+<p>相当于只关心多项式在 $X$ 上的值, 都相同则不区分, 相当于全体 $X$ 上正则函数<br>For $f:X&#92;to Y$, $k&#91; f&#93;:k &#91;Y&#93;&#92;to k&#91; X&#93;:&#61;g&#92;mapsto gf$.<br>可以证明这是仿射代数簇到有限生成不可约 $k$-代数 的范畴等价</p>
+<blockquote>
+<p>[!example]<br>Notice that $V&#40;fg&#41;&#61;V&#40;f&#41;&#92;cup V&#40;g&#41;$<br>Consider $X&#61;V&#40;xy&#41;&#92;subseteq &#92;mathbb&#123;A&#125;^2&#95;k$, $V&#40;xy&#41;&#61;V&#40;x&#41;&#92;sqcup V&#40;y&#41;$, so it is reducible. So $k&#91;X&#93;$ is not a domain.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># SageMath</span><br>R.&lt;x,y&gt; = PolynomialRing(QQ, order=<span class="hljs-string">&#x27;lex&#x27;</span>)<br>I = R.ideal(x*y)<br>I.radical()<br>I.primary_decomposition()<br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[!remark]<br>经典点集 $V&#40;I&#41;$ 看不到 $I$ 和 $&#92;sqrt I$ 的差别, 但仿射概形 (affine scheme) $&#92;operatorname&#123;Spec&#125; k&#91;x&#95;1,&#92;dots,x&#95;n&#93;&#x2F;I$ 看得到. 例如 nilpotent 元素不会改变闭点集合, 却会改变结构层 (structure sheaf).</p>
+</blockquote>
+<blockquote>
+<p>[!example]<br>Consider $V&#40;y^2&#41;&#61;V&#40;y&#41;&#92;subseteq &#92;mathbb&#123;A&#125;^2&#95;k$, but $k&#91;x,y&#93;&#x2F;&#92;left&#60; y &#92;right&#62;&#61;k&#91;x&#93;$ is a domain while $k&#91;x,y&#93;&#x2F;&#92;left&#60; y^2 &#92;right&#62;$ is not.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># SageMath</span><br>R.&lt;x,y&gt; = PolynomialRing(QQ, order=<span class="hljs-string">&#x27;lex&#x27;</span>)<br>I = R.ideal(y^<span class="hljs-number">2</span>)<br>I.radical()<br>Q = R.quotient(I, names=(<span class="hljs-string">&#x27;a&#x27;</span>,<span class="hljs-string">&#x27;b&#x27;</span>))<br>a,b = Q.gens()<br>b^<span class="hljs-number">2</span><br></code></pre></td></tr></table></figure>
+
+<blockquote>
+<p>[!example] 相切交点<br>令<br>$$&#10;I&#61;&#40;y&#45;x^2,y&#41;&#92;subset k&#91;x,y&#93;.&#10;$$<br>它描述抛物线 $y&#61;x^2$ 和直线 $y&#61;0$ 的交. 在商环中 $y&#61;0$, 因而 $x^2&#61;0$, 所以<br>$$&#10;k&#91;x,y&#93;&#x2F;&#40;y&#45;x^2,y&#41;&#92;cong k&#91;x&#93;&#x2F;&#40;x^2&#41;.&#10;$$<br>这个商环作为 $k$-向量空间有基 $&#92;&#123;1,x&#92;&#125;$, 因此交重数是 $2$. 这里的点集只有原点, 但商环不是 $k$. 它记住了直线与抛物线不是横截相交, 而是一阶相切.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-comment"># SageMath</span><br>R.&lt;x,y&gt; = PolynomialRing(QQ, order=<span class="hljs-string">&#x27;lex&#x27;</span>)<br>I = R.ideal(y - x^<span class="hljs-number">2</span>, y)<br>G = I.groebner_basis()<br>G<br>[(x^i*y^j).reduce(G) <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>) <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>)]<br></code></pre></td></tr></table></figure>
+<h2 id="射影代数簇"><a href="#射影代数簇" class="headerlink" title="射影代数簇"></a>射影代数簇</h2><p>设$k&#91;x&#95;0, x&#95;1, &#92;dots, x&#95;n&#93;$是$n&#43;1$元多项式环，若多项式$f$满足$f&#40;tx&#95;0, tx&#95;1, &#92;dots, tx&#95;n&#41; &#61; t^d f&#40;x&#95;0, &#92;dots, x&#95;n&#41;$（$&#92;forall t &#92;in k^&#42;$，$d &#92;geq 0$为次数），则称$f$为<strong>d次齐次多项式</strong>。</p>
+<blockquote>
+<p>[!example] Riemann sphere<br>$&#92;Sigma:&#61;&#92;mathbb&#123;P&#125;^1&#95;&#123;&#92;mathbb&#123;C&#125;&#125;&#92;simeq &#92;mathbb&#123;S&#125;^2$ </p>
+</blockquote>
+<blockquote>
+<p>[!definition] homogeneous ideal<br>ideal $&#92;mathfrak&#123;a&#125;$ s.t. $&#92;mathfrak&#123;a&#125;&#61;&#92;bigoplus&#95;&#123;d&#92;geq0&#125;&#40;&#92;mathfrak&#123;a&#125;&#92;cap S&#95;d&#41;$</p>
+</blockquote>
+<p>Whether a homogeneous polynomial is zero is well-defined on a projective a  space.</p>
+<blockquote>
+<p>[!definition] algebraic set<br>$Y&#92;subseteq &#92;mathbb&#123;P&#125;^n$, $&#92;exists T$ of homogeneous elements, $Y&#61;V&#40;T&#41;$</p>
+</blockquote>
+<blockquote>
+<p>[!definition] homogeneous ideal</p>
+</blockquote>
+<blockquote>
+<p>[!proposition]<br>Let $H&#95;i:&#61;V&#40;x&#95;i&#41;$. Define $&#92;varphi&#95;i:&#40;&#92;mathbb&#123;P&#125;^n&#92;setminus H&#95;i&#41;&#92;to &#92;mathbb&#123;A&#125;^n:&#61;&#92;left&#60; &#91;a&#95;0,&#92;dots,a&#95;n&#93; &#92;right&#62;&#92;mapsto &#91; &#92;frac&#123;a&#95;0&#125;&#123;a&#95;i&#125;, &#92;dots , &#92;frac&#123;a&#95;n&#125;&#123;a&#95;i&#125;&#93;$<br>$&#92;varphi&#95;i$ are homeomorphisms.</p>
+</blockquote>
+<h2 id="Morphisms"><a href="#Morphisms" class="headerlink" title="Morphisms"></a>Morphisms</h2><p>For quasi-affine variety $Y&#92;subseteq &#92;mathbb&#123;A&#125;^n$.</p>
+<blockquote>
+<p>[!definition] regular function at $p&#92;in Y$<br>$f:Y&#92;to k$, $&#92;exists$ open neighborhood $U$ of $p$, and $g&#40;X&#41;&#126;h&#40;X&#41;&#92;in k&#91;X&#93;$ s.t. $h$ is nowhere zero on $U$, and $f &#61; &#92;frac&#123;g&#125;&#123;h&#125;$.<br>If $f$ is regular at every point of $Y$, we say that $f$ is regular on $Y$.</p>
+</blockquote>
+<blockquote>
+<p>[!lemma]<br>$k&#92;cong &#92;mathbb&#123;A&#125;^1$. A regular function is continuous.</p>
+</blockquote>
+<p>$Proof.$ It suffice to show $f^&#123;&#45;1&#125;$ of a closed set is close. Nontrivial closed set in $&#92;mathbb&#123;A&#125;^1$ are finite points. We only need to show $f^&#123;&#45;1&#125;&#40;a&#41;$ are closed. If $f &#61; &#92;frac&#123;g&#125;&#123;h&#125;$, $f&#40;p&#41;&#61;a&#92;iff&#40;g&#45;ah&#41;&#40;p&#41;&#61;0$.<br>$&#92;blacksquare$</p>
+<p>In projective space, we have similar definitions.</p>
+<blockquote>
+<p>[!remark]<br>For regular functions $f&#126;g$ on a variety $X$, if $f&#61;g$ on some nonempty open subset $U$, then $f&#61;g$.</p>
+</blockquote>
+<p>$E&#61;&#40;f&#45;g&#41;^&#123;&#45;1&#125;&#92;set 0$ is close. $&#92;bar U &#92;subseteq E$.<br>$X$ is irreducible $&#92;implies &#92;bar U &#61; X$</p>
+<blockquote>
+<p>[!definition] morphism of variety<br>$X&#126;Y$ are varieties, continuous $&#92;varphi:X&#92;to Y$ s.t. for every open $V &#92;subseteq Y$, and for every regular function $f:V&#92;to k$, $f&#92;circ &#92;varphi:&#92;varphi^&#123;&#45;1&#125;&#92;to k$ is regular.</p>
+</blockquote>
+<blockquote>
+<p>[!remark] 为什么很多态射用逆定义<br>很多结构可以看成从底空间出发函数(依赖类型论意义下的), 例如 $u:U&#92;in Open&#40;X&#41;, u:U&#92;in &#92;mathcal&#123;B&#125;&#40;X&#41;, u:U&#92;to k$, 态射自然拉回这样的结构, $f^&#42;u&#61;uf$.<br>在集合论的语言下则是函数的逆保持交并补, 注意函数本身并不保持并.</p>
+</blockquote>
+<blockquote>
+<p>[!definition] ring of regular functions<br>$&#92;mathcal&#123;O&#125;&#40;Y&#41;:&#61;$ ring of all regular functions on $Y$<br>For $p&#92;in Y$, $&#92;mathcal&#123;O&#125;&#95;p:&#61;$  ring of germs of regular functions on $Y$ near $p$.</p>
+</blockquote>
+<p>A ring is called a local ring iff it only has one maximal ideal.<br>$&#92;mathcal&#123;O&#125;&#95;p$ is local with $&#92;mathfrak&#123;m&#125;&#95;p:&#61;&#92;set&#123;f&#126;regular&#92;mid f&#40;p&#41;&#61;0&#125;$.</p>
+<blockquote>
+<p>[!definition] function field $K&#40;Y&#41;$<br>$&#92;set&#123;&#91;U,f&#93;&#92;mid &#91;U,f&#93;&#61;&#91;V,g&#93;&#126;if&#126;f&#61;g&#126;on&#126;U&#92;cap V&#125;$</p>
+</blockquote>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>代数簇</div>
+      <div>http://kaelvio.com/代数簇/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>采薇</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年11月1日</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>更新于</div>
+          <div>2026年11月1日</div>
+        </div>
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="NC - 非商业性使用">
+                    <i class="iconfont icon-cc-nc"></i>
+                  </span>
+                </a>
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="SA - 相同方式共享">
+                    <i class="iconfont icon-cc-sa"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/LEAN/" title="LEAN">
+                        <span class="hidden-mobile">LEAN</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="gitalk-container"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#gitalk-container', function() {
+      Fluid.utils.createCssLink('/css/gitalk.css')
+      Fluid.utils.createScript('https://lib.baomitu.com/gitalk/1.8.0/gitalk.min.js', function() {
+        var options = Object.assign(
+          {"clientID":"Ov23li7OaD73tEtrAJvi","clientSecret":"b8a7c9f9755ceb7cc4c3dacc74317693425e1ca8","repo":"blog_comments","owner":"shun-dong","admin":["Kaelvio"],"language":"zh-CN","labels":["Gitalk"],"perPage":10,"pagerDirection":"last","distractionFreeMode":false,"createIssueManually":false,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token"},
+          {
+            id: '54c8385161c33a88cddfbe77fa2390b1'
+          }
+        )
+        var gitalk = new Gitalk(options);
+        gitalk.render('gitalk-container');
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script id="mathjax-mathtools">
+(function () {
+  var math = window.MathJax;
+  if (!math || (math.startup && math.startup.document)) return;
+  math.loader = math.loader || {};
+  math.loader.load = Array.from(new Set((math.loader.load || []).concat('[tex]/mathtools')));
+  math.tex = math.tex || {};
+  var packages = math.tex.packages;
+  if (Array.isArray(packages)) {
+    math.tex.packages = Array.from(new Set(packages.concat('mathtools')));
+  } else {
+    packages = math.tex.packages = packages || {};
+    packages['[+]'] = Array.from(new Set((packages['[+]'] || []).concat('mathtools')));
+  }
+})();
+</script>
+<script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
